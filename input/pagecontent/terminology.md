@@ -99,7 +99,7 @@
 
 ### 5.1 術語對照表下載
 完整的 LOINC–SNOMED CT–UCUM 跨術語對照表（CSV 格式）可從以下連結下載：
-- [snomed-loinc-mappings.csv](./assets/snomed-loinc-mappings.csv)
+- [snomed-loinc-mappings.csv](snomed-loinc-mappings.csv)
 
 CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`item_name_en`（英文名）、`loinc_preferred`（Layer 1）、`loinc_acceptable`（Layer 2 集合）、`snomed_ct`（代碼）、`snomed_display`（顯示名稱）、`snomed_status`（驗證狀態）、`ucum_unit`（UCUM 單位）、`regulatory_ref`（法規欄位）。
 
