@@ -34,3 +34,13 @@ Description: "用於記錄國民健康署成人預防保健服務之健康行為
 * item[5].linkId = "family-history"
 * item[5].text = "您的直系親屬（父母、手足）中是否有腦中風、心臟病或糖尿病史？"
 * item[5].type = #boolean
+* item[6].linkId = "medication-history"
+* item[6].text = "您目前是否因高血壓、糖尿病、高血脂症或心血管疾病等而長期服藥？"
+* item[6].type = #boolean
+* item[7].linkId = "depression-interest"
+* item[7].text = "過去兩星期，您是否經常感覺做事提不起勁或沒有樂趣？(0:完全沒有, 1:幾天, 2:一半以上的天數, 3:幾乎每天)"
+* item[7].type = #integer
+* item[8].linkId = "depression-mood"
+* item[8].text = "過去兩星期，您是否經常感覺心情低落、沮喪或絕望？(0:完全沒有, 1:幾天, 2:一半以上的天數, 3:幾乎每天)"
+* item[8].type = #integer
+

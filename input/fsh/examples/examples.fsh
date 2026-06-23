@@ -103,6 +103,17 @@ Description: "受檢勞工王大同的腰圍測量結果 (82 cm)。"
 * effectiveDateTime = "2026-06-12T08:15:00+08:00"
 * valueQuantity = 82 'cm' "cm"
 
+Instance: obs-bmi
+InstanceOf: TWHAVitalSignsProfile
+Title: "身體質量指數 (BMI) 測量結果範例"
+Description: "受檢勞工王大同的身體質量指數 (BMI) 測量結果 (22.86 kg/m2)。"
+* status = #final
+* category[0] = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs
+* code = LNC#39156-5 "Body mass index (BMI) [Ratio]"
+* subject = Reference(example-worker)
+* effectiveDateTime = "2026-06-12T08:15:00+08:00"
+* valueQuantity = 22.86 'kg/m2' "kg/m2"
+
 Instance: obs-bloodpressure
 InstanceOf: TWCoreBloodPressure
 Title: "血壓測量結果範例"
@@ -317,6 +328,17 @@ Description: "在臨場服務中辦理「健康檢查結果分析」的執行紀
 * subject = Reference(example-group-workers)
 * extension[employerInfo].valueReference = Reference(example-employer)
 
+Instance: example-procedure-counseling
+InstanceOf: TWHAProcedureCounselingProfile
+Title: "健康諮詢與衛教指導範例"
+Description: "針對受檢者王大同進行之「規律運動諮詢與衛教」與「腎病識能衛教指導」的紀錄。"
+* status = #completed
+* code.coding[0] = CS_HealthCounseling#counsel-exercise "規律運動諮詢與衛教"
+* code.coding[1] = CS_HealthCounseling#counsel-kidney "腎病識能衛教指導"
+* subject = Reference(example-worker)
+* encounter = Reference(example-encounter-general)
+
+
 Instance: example-service-finding
 InstanceOf: TWHAObservationServiceFindingProfile
 Title: "臨場服務現場發現問題範例"
@@ -468,14 +490,17 @@ Description: "整合王大同成人預防保健與生活習慣問卷項目的 Co
 * section[physicalExams].title = "理學檢查"
 * section[physicalExams].entry[0] = Reference(obs-height)
 * section[physicalExams].entry[1] = Reference(obs-weight)
-* section[physicalExams].entry[2] = Reference(obs-waist)
-* section[physicalExams].entry[3] = Reference(obs-bloodpressure)
+* section[physicalExams].entry[2] = Reference(obs-bmi)
+* section[physicalExams].entry[3] = Reference(obs-waist)
+* section[physicalExams].entry[4] = Reference(obs-bloodpressure)
 * section[labExams].code = http://loinc.org#30954-2
 * section[labExams].title = "檢驗與影像檢查"
 * section[labExams].entry[0] = Reference(obs-lab-glucose)
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "醫師總評、分級與建議"
 * section[assessment].entry[0] = Reference(example-clinical-impression)
+* section[assessment].entry[1] = Reference(example-procedure-counseling)
+
 
 Instance: example-composition-service
 InstanceOf: TWHACompositionServiceRecordProfile
@@ -520,6 +545,13 @@ Description: "王大同的成人預防保健生活習慣自填問卷回覆結果
 * item[4].answer[0].valueBoolean = false
 * item[5].linkId = "family-history"
 * item[5].answer[0].valueBoolean = true
+* item[6].linkId = "medication-history"
+* item[6].answer[0].valueBoolean = false
+* item[7].linkId = "depression-interest"
+* item[7].answer[0].valueInteger = 0
+* item[8].linkId = "depression-mood"
+* item[8].answer[0].valueInteger = 0
+
 
 Instance: sdoh-questionnaire-response
 InstanceOf: TWHASDOHQuestionnaireResponseProfile
@@ -777,14 +809,19 @@ Description: "國健署成人預防保健自填問卷與理學生化檢查 Docum
 * entry[7].resource = obs-height
 * entry[8].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-weight"
 * entry[8].resource = obs-weight
-* entry[9].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-waist"
-* entry[9].resource = obs-waist
-* entry[10].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bloodpressure"
-* entry[10].resource = obs-bloodpressure
-* entry[11].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-lab-glucose"
-* entry[11].resource = obs-lab-glucose
-* entry[12].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression"
-* entry[12].resource = example-clinical-impression
+* entry[9].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bmi"
+* entry[9].resource = obs-bmi
+* entry[10].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-waist"
+* entry[10].resource = obs-waist
+* entry[11].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bloodpressure"
+* entry[11].resource = obs-bloodpressure
+* entry[12].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-lab-glucose"
+* entry[12].resource = obs-lab-glucose
+* entry[13].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression"
+* entry[13].resource = example-clinical-impression
+* entry[14].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-counseling"
+* entry[14].resource = example-procedure-counseling
+
 
 Instance: UC-006
 InstanceOf: TWHABundleDocumentProfile

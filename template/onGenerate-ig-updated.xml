@@ -25,7 +25,7 @@
    <name value="TWHAIG"/>
    <title value="臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)"/>
    <status value="active"/>
-   <date value="2026-06-15T22:16:55+08:00"/>
+   <date value="2026-06-22T23:58:28+08:00"/>
    <publisher value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
    <contact>
       <name value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
@@ -481,7 +481,7 @@
             <reference value="StructureDefinition/TWHA-Composition"/>
          </reference>
          <name value="健康檢查健檢報告組成結構 Profile"/>
-         <description value="本 Profile 用於定義勞工一般體格與健康檢查紀錄表單（附表十一）的文件組成結構，以 Composition 作為文件核心，並定義各項目的 Section，繼承自 TW Core Composition。"/>
+         <description value="本 Profile 用於定義一般健康檢查、勞工健康檢查及成人預防保健等健康檢查報告的文件組成結構，以 Composition 作為文件核心，並定義各項目的 Section，繼承自 TW Core Composition。"/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
       </resource>
@@ -709,13 +709,31 @@
             <valueString value="StructureDefinition:resource"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="StructureDefinition-TWHA-Procedure-Counseling.html"/>
+         </extension>
+         <reference>
+            <reference value="StructureDefinition/TWHA-Procedure-Counseling"/>
+         </reference>
+         <name value="健康諮詢與衛教指導 Profile"/>
+         <description value="用於記錄成人預防保健服務及一般健康檢查中，醫師或醫護團隊提供之健康諮詢、衛教指導與預防教育活動（如戒菸、節酒、腎病識能指導等），繼承自 TW Core Procedure。"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-str-profile"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="StructureDefinition:resource"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
             <valueUri value="StructureDefinition-TWHA-Patient.html"/>
          </extension>
          <reference>
             <reference value="StructureDefinition/TWHA-Patient"/>
          </reference>
-         <name value="受檢勞工 Profile"/>
-         <description value="本 Profile 用於描述接受體格或健康檢查之勞工，繼承自 TW Core Patient，並擴充記錄其所屬事業單位、受僱日期與所屬部門。"/>
+         <name value="受檢者 Profile"/>
+         <description value="本 Profile 用於描述接受健康檢查（含一般健檢、勞工健檢與成人預防保健）之受檢者，繼承自 TW Core Patient，並可選擴充記錄其所屬事業單位、受僱日期與所屬部門。"/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
       </resource>
@@ -1375,6 +1393,24 @@
             <valueString value="ValueSet"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="ValueSet-VS-HealthCounseling.html"/>
+         </extension>
+         <reference>
+            <reference value="ValueSet/VS-HealthCounseling"/>
+         </reference>
+         <name value="健康諮詢與衛教指導項目值集"/>
+         <description value="包含成人預防保健與健康檢查中健康諮詢項目代碼之值集。"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-valueset"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="ValueSet"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
             <valueUri value="ValueSet-VS-LaborReportCode.html"/>
          </extension>
          <reference>
@@ -1670,6 +1706,24 @@
          </reference>
          <name value="健康管理分級代碼系統"/>
          <description value="依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-codesystem"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="CodeSystem"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="CodeSystem-CS-HealthCounseling.html"/>
+         </extension>
+         <reference>
+            <reference value="CodeSystem/CS-HealthCounseling"/>
+         </reference>
+         <name value="健康諮詢與衛教指導項目代碼系統"/>
+         <description value="國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。"/>
          <exampleBoolean value="false"/>
          <groupingId value="-term-codesystem"/>
       </resource>
@@ -2056,6 +2110,24 @@
             <valueInteger value="999999999"/>
          </extension>
          <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="ConceptMap"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="ConceptMap-TWHealthCheckLaboratoryMap.html"/>
+         </extension>
+         <reference>
+            <reference value="ConceptMap/TWHealthCheckLaboratoryMap"/>
+         </reference>
+         <name value="健康檢查檢驗項目代碼對應 ConceptMap"/>
+         <description value="將健康檢查實驗室檢驗之可接受代碼 (Layer 2) 映射至最優先推薦之標準代碼 (Layer 1)。"/>
+         <exampleBoolean value="true"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
             <valueString value="CapabilityStatement"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
@@ -2067,6 +2139,24 @@
          <name value="健康檢查資料交換平台服務宣告"/>
          <description value="本實體用於宣告健康檢查資料交換平台支援的交互作用規範，主要採用 POST [base]/Bundle ($submit) 或直接交易封包 (transaction) 進行健檢資料之上傳與交換。"/>
          <exampleBoolean value="true"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="Procedure"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="Procedure-example-procedure-counseling.html"/>
+         </extension>
+         <reference>
+            <reference value="Procedure/example-procedure-counseling"/>
+         </reference>
+         <name value="健康諮詢與衛教指導範例"/>
+         <description value="針對受檢者王大同進行之「規律運動諮詢與衛教」與「腎病識能衛教指導」的紀錄。"/>
+         <exampleCanonical value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling"/>
          <groupingId value="-ex-example"/>
       </resource>
       <resource>
@@ -2743,6 +2833,24 @@
             <valueString value="Observation"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="Observation-obs-bmi.html"/>
+         </extension>
+         <reference>
+            <reference value="Observation/obs-bmi"/>
+         </reference>
+         <name value="身體質量指數 (BMI) 測量結果範例"/>
+         <description value="受檢勞工王大同的身體質量指數 (BMI) 測量結果 (22.86 kg/m2)。"/>
+         <exampleCanonical value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="Observation"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
             <valueUri value="Observation-obs-height.html"/>
          </extension>
          <reference>
@@ -3017,8 +3125,13 @@
                <generation value="generated"/>
             </page>
             <page>
+               <nameUrl value="StructureDefinition-TWHA-Procedure-Counseling.html"/>
+               <title value="健康諮詢與衛教指導 Profile"/>
+               <generation value="generated"/>
+            </page>
+            <page>
                <nameUrl value="StructureDefinition-TWHA-Patient.html"/>
-               <title value="受檢勞工 Profile"/>
+               <title value="受檢者 Profile"/>
                <generation value="generated"/>
             </page>
             <page>
@@ -3202,6 +3315,11 @@
                <generation value="generated"/>
             </page>
             <page>
+               <nameUrl value="ValueSet-VS-HealthCounseling.html"/>
+               <title value="健康諮詢與衛教指導項目值集"/>
+               <generation value="generated"/>
+            </page>
+            <page>
                <nameUrl value="ValueSet-VS-LaborReportCode.html"/>
                <title value="勞動部通報報告代碼值集"/>
                <generation value="generated"/>
@@ -3284,6 +3402,11 @@
             <page>
                <nameUrl value="CodeSystem-CS-HealthMgmtLevel.html"/>
                <title value="健康管理分級代碼系統"/>
+               <generation value="generated"/>
+            </page>
+            <page>
+               <nameUrl value="CodeSystem-CS-HealthCounseling.html"/>
+               <title value="健康諮詢與衛教指導項目代碼系統"/>
                <generation value="generated"/>
             </page>
             <page>
@@ -3392,8 +3515,18 @@
                <generation value="generated"/>
             </page>
             <page>
+               <nameUrl value="ConceptMap-TWHealthCheckLaboratoryMap.html"/>
+               <title value="健康檢查檢驗項目代碼對應 ConceptMap"/>
+               <generation value="generated"/>
+            </page>
+            <page>
                <nameUrl value="CapabilityStatement-TWHA-CapabilityStatement.html"/>
                <title value="健康檢查資料交換平台服務宣告"/>
+               <generation value="generated"/>
+            </page>
+            <page>
+               <nameUrl value="Procedure-example-procedure-counseling.html"/>
+               <title value="健康諮詢與衛教指導範例"/>
                <generation value="generated"/>
             </page>
             <page>
@@ -3579,6 +3712,11 @@
             <page>
                <nameUrl value="Observation-obs-vision.html"/>
                <title value="視力及辨色力檢查結果範例"/>
+               <generation value="generated"/>
+            </page>
+            <page>
+               <nameUrl value="Observation-obs-bmi.html"/>
+               <title value="身體質量指數 (BMI) 測量結果範例"/>
                <generation value="generated"/>
             </page>
             <page>

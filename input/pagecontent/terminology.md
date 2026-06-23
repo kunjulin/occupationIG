@@ -32,3 +32,23 @@
     - 定義通報勞動部系統所需之大類通報報告代碼（如 `30901X` ~ `30905X`）。
 *   **[CS-ServiceActivityType](CodeSystem-CS-ServiceActivityType.html) (臨場健康服務辦理事項代碼系統)**：
     - 定義附表八申報時所需之 8 大類臨場服務活動類別。
+*   **[CS-HealthCounseling](CodeSystem-CS-HealthCounseling.html) (健康諮詢與衛教指導項目代碼系統)**：
+    - 定義成人預防保健服務之 10 項法定衛教指導與諮詢事項。
+
+---
+
+## 3. 三層式 LOINC 術語管理機制 (3-Layer LOINC Terminology Strategy)
+
+由於各醫療院所檢驗資訊系統 (LIS) 的歷史代碼與檢驗方法存在差異（例如白血球計數可能使用自動計數或手動計數），本指引針對健康檢查核心檢驗項目採用**三層式術語值集與對應機制**，以提升互操作性並降低院所端系統對接成本。
+
+### 3.1 三層架構定義
+*   **Layer 1: Preferred Code (優先代碼)**：
+    - 每個檢驗項目指定一個最優先推薦使用的標準 LOINC 代碼。例如 WBC 優先使用 `6690-2`。
+*   **Layer 2: Acceptable Codes (可接受值集)**：
+    - 建立核心值集 [VS-CoreDataset](ValueSet-VS-CoreDataset.html) (繫結強度為 `extensible`)，容納同義或情境相近之 LOINC 代碼（例如包含 `6690-2`、`804-5`、`26464-8`）。若院所上傳代碼在此範圍內，均視為合法格式。
+*   **Layer 3: Exclusion (排除/非範疇)**：
+    - 明確排除不適用於一般健康檢查之 LOINC 代碼。例如體液白血球代碼 `12227-5` 排除在一般健檢血常規之外。
+
+### 3.2 代碼映射 ConceptMap
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 Layer 2 可接受代碼至 Layer 1 優先推薦代碼的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。
+

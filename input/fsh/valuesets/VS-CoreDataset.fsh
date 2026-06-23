@@ -9,6 +9,8 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 * LNC#4544-3 "Hematocrit [Volume Fraction] of Blood"
 * LNC#789-8 "Erythrocytes [#/volume] in Blood"
 * LNC#6690-2 "Leukocytes [#/volume] in Blood"
+* LNC#804-5 "WBC [#/volume] in Blood by Manual count"
+* LNC#26464-8 "WBC [#/volume] in Blood"
 * LNC#777-3 "Platelets [#/volume] in Blood"
 * LNC#787-2 "MCV [Entitic volume] by Automated count"
 * LNC#785-6 "MCH [Entitic mass] by Automated count"
@@ -29,11 +31,13 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 * LNC#20448-7 "Insulin [Units/volume] in Serum or Plasma"
 * LNC#47214-2 "Homeostasis model assessment"
 * LNC#2160-0 "Creatinine [Mass/volume] in Serum or Plasma"
+* LNC#38483-4 "Creatinine [Mass/volume] in Blood"
 * LNC#3094-0 "Urea nitrogen [Mass/volume] in Serum or Plasma"
 * LNC#33914-3 "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation"
 * LNC#88293-6 "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)"
 * LNC#33863-2 "Cystatin C [Mass/volume] in Serum, Plasma or Blood"
 * LNC#3084-1 "Uric acid [Mass/volume] in Serum or Plasma"
+* LNC#49154-8 "Uric acid [Mass/volume] in Blood"
 * LNC#17861-6 "Calcium [Mass/volume] in Serum or Plasma"
 * LNC#2777-1 "Phosphate [Mass/volume] in Serum or Plasma"
 * LNC#30522-7 "C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"
@@ -56,8 +60,11 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 
 // 4. 脂質分析 (Lipids)
 * LNC#2093-3 "Cholesterol [Mass/volume] in Serum or Plasma"
+* LNC#35200-5 "Cholesterol [Mass/volume] in Blood"
 * LNC#2571-8 "Triglyceride [Mass/volume] in Serum or Plasma"
+* LNC#3043-7 "Triglyceride [Mass/volume] in Blood"
 * LNC#2085-9 "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
+* LNC#3048-6 "Cholesterol in HDL [Mass/volume] in Blood"
 * LNC#13457-7 "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
 * LNC#18262-6 "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
 * LNC#46986-6 "Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation"
@@ -89,8 +96,10 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 
 // 7. 傳染病、HPV與胃部篩檢 (Infections/HPV/Stomach)
 * LNC#5196-1 "Hepatitis B virus surface Ag [Presence] in Serum"
+* LNC#22326-3 "Hepatitis B virus surface Ag [Presence] in Serum or Plasma"
 * LNC#22322-2 "Hepatitis B virus surface Ab [Units/volume] in Serum"
 * LNC#13955-0 "Hepatitis C virus Ab [Presence] in Serum or Plasma"
+* LNC#47365-2 "Hepatitis C virus Ab [Presence] in Blood"
 * LNC#20507-0 "Reagin Ab [Presence] in Serum by RPR"
 * LNC#24110-9 "Treponema pallidum Ab [Presence] in Serum by Immunoassay"
 * LNC#56888-1 "HIV 1 and 2 Ag and Ab panel [Presence] in Serum or Plasma"
@@ -102,6 +111,7 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 // 8. 尿液常規 (Urinalysis)
 * LNC#5803-2 "pH of Urine by Test strip"
 * LNC#5804-0 "Protein [Presence] in Urine by Test strip"
+* LNC#2888-6 "Protein [Mass/volume] in Urine"
 * LNC#5792-7 "Glucose [Presence] in Urine by Test strip"
 * LNC#5794-3 "Hemoglobin [Presence] in Urine by Test strip"
 * LNC#5797-6 "Ketones [Presence] in Urine by Test strip"

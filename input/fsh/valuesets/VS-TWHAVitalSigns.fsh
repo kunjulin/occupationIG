@@ -8,6 +8,7 @@ Description: "包含身高、體重、腰圍及血壓等生理測量項目之 LO
 * LNC#56086-2 "Waist Circumference"
 * LNC#8480-6 "Systolic blood pressure"
 * LNC#8462-4 "Diastolic blood pressure"
+* LNC#39156-5 "Body mass index (BMI) [Ratio]"
 
 /// -------------------------------------
 

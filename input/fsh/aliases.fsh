@@ -63,6 +63,10 @@ Alias: VS_UnfitDiseases = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-UnfitDi
 Alias: VS_OrganicSolventType = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OrganicSolventType
 Alias: VS_SpecificChemicalType = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SpecificChemicalType
 Alias: VS_PulmonaryFunction = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction
+Alias: CS_HealthCounseling = https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling
+Alias: VS_HealthCounseling = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthCounseling
+Alias: TWHAProcedureCounseling = https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling
+
 
 // TWCRSF (Taiwan Cancer Registry Short Form) Aliases
 Alias: TWCRSFBetNutChewBehProfile = https://hapi.fhir.tw/fhir/StructureDefinition/sf-BetNutChewBeh-profile

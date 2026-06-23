@@ -56,4 +56,4 @@ Description: "本 Profile 用於定義一般健康檢查、勞工健康檢查及
 
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "醫師總評、分級與建議"
-* section[assessment].entry only Reference(ClinicalImpression or CarePlan or ServiceRequest)
+* section[assessment].entry only Reference(ClinicalImpression or CarePlan or ServiceRequest or Procedure)
