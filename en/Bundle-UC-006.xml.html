@@ -1,0 +1,688 @@
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>UC-006 勞工健康服務臨場服務紀錄封包 - XML Representation - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/project.css" rel="stylesheet"/>
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+    <script type="text/javascript" src="assets/js/direction-management.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script type="text/javascript" src="assets/js/prism.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"14.94"}
+    h3,h4,h5,h6{--heading-prefix:"14.94"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - STU1
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">首頁 (Home)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">背景與案例 (Background &amp; Use Cases)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="background.html">背景 (Background)</a>
+      </li>
+      <li>
+        <a href="usecases.html">應用案例 (Use Cases)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="datamodel.html">資料模型 (Data Model)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄定義 (Examinations)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="general-exam.html">一般健康檢查 (General Exam)</a>
+      </li>
+      <li>
+        <a href="special-exam.html">特殊危害健康作業 (Special Exam)</a>
+      </li>
+      <li>
+        <a href="adult-preventive-care.html">成人預防保健 (Adult Preventive Care)</a>
+      </li>
+      <li>
+        <a href="service-record.html">勞工健康服務執行紀錄 (Service Record)</a>
+      </li>
+      <li>
+        <a href="health-management.html">健康管理分級 (Health Management)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR 資源 (FHIR Artifacts)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html">資源總覽 (Artifacts Summary)</a>
+      </li>
+      <li>
+        <a href="artifacts.html#1">Profiles</a>
+      </li>
+      <li>
+        <a href="artifacts.html#2">Extensions</a>
+      </li>
+      <li>
+        <a href="artifacts.html#3">Value Sets</a>
+      </li>
+      <li>
+        <a href="artifacts.html#4">Code Systems</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">術語與安全 (Terminology &amp; Security)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="terminology.html">術語定義 (Terminology)</a>
+      </li>
+      <li>
+        <a href="security.html">安全性考量 (Security)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="downloads.html">下載區 (Downloads)</a>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+
+              
+
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>UC-006 勞工健康服務臨場服務紀錄封包</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<!-- layouts\layout-instance-format -->
+<div style="counter-reset: section 7" class="col-12">
+<!--ReleaseHeader--><p id="publish-box">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+
+
+
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li>
+    <a href="Bundle-UC-006.html">Narrative Content</a>
+  </li>
+
+
+
+  
+    <li class="active">
+      <a href="#">XML</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Bundle-UC-006.json.html">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="Bundle-UC-006.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+
+<a name="root"> </a>
+
+
+
+<h2 id="root">: UC-006 勞工健康服務臨場服務紀錄封包</h2>
+
+
+<p><a href="Bundle-UC-006.xml" no-download="true">Raw xml</a> | <a href="Bundle-UC-006.xml" download>Download</a></p>
+
+  <!-- insert intro if present -->
+  
+
+
+
+  <pre class="xml" data-fhir="generated" style="white-space: pre; text-wrap: nowrap; width: auto;"><code style="white-space: pre; text-wrap: nowrap;">
+&lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle">Bundle</a> xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/resource.html#Bundle.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#id">value</a>=&quot;UC-006&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/resource.html#Bundle.meta">meta</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document&quot;/&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/resource.html#Bundle.meta">meta</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/resource.html#Bundle.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.identifier">identifier</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/bundle-id&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.value">value</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;bundle-uc-006&quot;/&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.identifier">identifier</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;document&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.timestamp">timestamp</a> <a href="http://hl7.org/fhir/R4/datatypes.html#instant">value</a>=&quot;2026-06-10T14:00:00+08:00&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry.fullUrl">fullUrl</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/Composition/example-composition-service&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition">Composition</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Composition.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#id">value</a>=&quot;example-composition-service&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Composition.meta">meta</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-ServiceRecord&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/resource.html#Composition.meta">meta</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Composition.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Composition.text">text</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+          &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;a name=&quot;Composition_example-composition-service&quot;&gt; &lt;/a&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Composition example-composition-service&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;example-composition-service&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcexample-composition-service&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Profile: &lt;a href=&quot;StructureDefinition-TWHA-Composition-ServiceRecord.html&quot;&gt;健康檢查健康服務執行紀錄組成結構 Profile&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: &lt;span title=&quot;Codes:{http://loinc.org 34133-9}&quot;&gt;Summarization of clinical note&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;date&lt;/b&gt;: 2026-06-10 14:00:00+0800&lt;/p&gt;&lt;p&gt;&lt;b&gt;author&lt;/b&gt;: &lt;a href=&quot;Practitioner-example-doctor.html&quot;&gt;Practitioner 林職醫(official)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;title&lt;/b&gt;: 勞工健康服務執行紀錄表&lt;/p&gt;&lt;/div&gt;<a name="end-xhtml"></a>
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Composition.text">text</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;final&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.type">type</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://loinc.org&quot;/&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;34133-9&quot;/&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Summarization of clinical note&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.subject">subject</a>&gt;<a href="Organization-example-employer.html" style="color: Maroon">&#x1F517;</a> 
+          &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Organization/example-employer&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.subject">subject</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.date">date</a> <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">value</a>=&quot;2026-06-10T14:00:00+08:00&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.author">author</a>&gt;<a href="Practitioner-example-doctor.html" style="color: Maroon">&#x1F517;</a> 
+          &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Practitioner/example-doctor&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.author">author</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.title">title</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;勞工健康服務執行紀錄表&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section">section</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.title">title</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;作業場所概況&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.code">code</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://loinc.org&quot;/&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;51847-2&quot;/&gt;
+            &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.code">code</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.entry">entry</a>&gt;<a href="Encounter-example-encounter-service.html" style="color: Maroon">&#x1F517;</a> 
+            &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Encounter/example-encounter-service&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.entry">entry</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section">section</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section">section</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.title">title</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;臨場服務執行情形&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.code">code</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://loinc.org&quot;/&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;97726-4&quot;/&gt;
+            &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.code">code</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.entry">entry</a>&gt;<a href="Procedure-example-procedure-activity.html" style="color: Maroon">&#x1F517;</a> 
+            &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Procedure/example-procedure-activity&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.entry">entry</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section">section</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section">section</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.title">title</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;現場發現問題&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.code">code</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://loinc.org&quot;/&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;29554-3&quot;/&gt;
+            &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.code">code</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.entry">entry</a>&gt;<a href="Observation-example-service-finding.html" style="color: Maroon">&#x1F517;</a> 
+            &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Observation/example-service-finding&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.entry">entry</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section">section</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section">section</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.title">title</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;改善建議與追蹤&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.code">code</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://loinc.org&quot;/&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;51898-5&quot;/&gt;
+            &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.code">code</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.entry">entry</a>&gt;<a href="Task-example-service-task.html" style="color: Maroon">&#x1F517;</a> 
+            &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Task/example-service-task&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section.entry">entry</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition.section">section</a>&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/composition.html#Composition">Composition</a>&gt;
+    &lt;/resource&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry.fullUrl">fullUrl</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/organization.html#Organization">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/organization.html#Organization">Organization</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Organization.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;example-employer&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Organization.meta">meta</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Employer&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/resource.html#Organization.meta">meta</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Organization.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Organization.text">text</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+          &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;a name=&quot;Organization_example-employer&quot;&gt; &lt;/a&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Organization example-employer&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;example-employer&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcexample-employer&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Profile: &lt;a href=&quot;StructureDefinition-TWHA-Organization-Employer.html&quot;&gt;健康檢查所屬事業單位（雇主公司） Profile&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;identifier&lt;/b&gt;: Unified Business number/12345678 (use: official, )&lt;/p&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: &lt;span title=&quot;Codes:{http://terminology.hl7.org/CodeSystem/organization-type bus}&quot;&gt;Non-Healthcare Business or Corporation&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: 大同電子股份有限公司&lt;/p&gt;&lt;/div&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Organization.text">text</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/organization.html#Organization.identifier">identifier</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.use">use</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;official&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.type">type</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a>
+                      <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/v2-0203&quot;/&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;UBN&quot;/&gt;
+            &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.type">type</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://gcis.nat.gov.tw&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.value">value</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;12345678&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/organization.html#Organization.identifier">identifier</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/organization.html#Organization.type">type</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a>
+                    <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://terminology.hl7.org/CodeSystem/organization-type&quot;/&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;bus&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/organization.html#Organization.type">type</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/organization.html#Organization.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;大同電子股份有限公司&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/organization.html#Organization">Organization</a>&gt;
+    &lt;/resource&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry.fullUrl">fullUrl</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/practitioner.html#Practitioner">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/practitioner.html#Practitioner">Practitioner</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Practitioner.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;example-doctor&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Practitioner.meta">meta</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/resource.html#Practitioner.meta">meta</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Practitioner.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Practitioner.text">text</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+          &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;a name=&quot;Practitioner_example-doctor&quot;&gt; &lt;/a&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Practitioner example-doctor&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;example-doctor&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcexample-doctor&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Profile: &lt;a href=&quot;StructureDefinition-TWHA-Practitioner.html&quot;&gt;執業/健檢醫護與服務人員 Profile&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;identifier&lt;/b&gt;: &lt;code&gt;https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw&lt;/code&gt;/MD-88888 (use: official, )&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: 林職醫(Official)&lt;/p&gt;&lt;/div&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Practitioner.text">text</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/practitioner.html#Practitioner.identifier">identifier</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.use">use</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;official&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.system">system</a>
+                  <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.value">value</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;MD-88888&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/practitioner.html#Practitioner.identifier">identifier</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/practitioner.html#Practitioner.name">name</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#HumanName#HumanName.use">use</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;official&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#HumanName#HumanName.text">text</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;林職醫&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/practitioner.html#Practitioner.name">name</a>&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/practitioner.html#Practitioner">Practitioner</a>&gt;
+    &lt;/resource&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry.fullUrl">fullUrl</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/organization.html#Organization">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/organization.html#Organization">Organization</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Organization.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;example-hospital&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Organization.meta">meta</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/resource.html#Organization.meta">meta</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Organization.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Organization.text">text</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+          &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;a name=&quot;Organization_example-hospital&quot;&gt; &lt;/a&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Organization example-hospital&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;example-hospital&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcexample-hospital&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Profile: &lt;a href=&quot;StructureDefinition-TWHA-Organization-Facility.html&quot;&gt;實施健康檢查之醫療機構 Profile&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;identifier&lt;/b&gt;: Provider number/2701010024 (use: official, )&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: 交通部民用航空局航空醫務中心&lt;/p&gt;&lt;/div&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Organization.text">text</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/organization.html#Organization.identifier">identifier</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.use">use</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;official&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.type">type</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;
+              &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;PRN&quot;/&gt;
+            &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.type">type</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.system">system</a>
+                  <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/organization-identifier-tw&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.value">value</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;2701010024&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/organization.html#Organization.identifier">identifier</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/organization.html#Organization.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;交通部民用航空局航空醫務中心&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/organization.html#Organization">Organization</a>&gt;
+    &lt;/resource&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry.fullUrl">fullUrl</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-service&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/encounter.html#Encounter">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/encounter.html#Encounter">Encounter</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Encounter.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;example-encounter-service&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Encounter.meta">meta</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter-Service&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/resource.html#Encounter.meta">meta</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Encounter.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Encounter.text">text</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;extensions&quot;/&gt;
+          &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;a name=&quot;Encounter_example-encounter-service&quot;&gt; &lt;/a&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Encounter example-encounter-service&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;example-encounter-service&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcexample-encounter-service&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Profile: &lt;a href=&quot;StructureDefinition-TWHA-Encounter-Service.html&quot;&gt;臨場健康服務事件 Profile&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;雇主事業單位資訊擴充&lt;/b&gt;: &lt;a href=&quot;Organization-example-employer.html&quot;&gt;Organization 大同電子股份有限公司&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;部門/課別擴充&lt;/b&gt;: 化學製造現場&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Finished&lt;/p&gt;&lt;p&gt;&lt;b&gt;class&lt;/b&gt;: &lt;a href=&quot;http://hl7.org/fhir/R4/v3/ActCode/cs.html#v3-ActCode-FLD&quot;&gt;v3 Code System ActCode: FLD&lt;/a&gt; (field)&lt;/p&gt;&lt;h3&gt;Participants&lt;/h3&gt;&lt;table class=&quot;grid&quot;&gt;&lt;tr&gt;&lt;td style=&quot;display: none&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Individual&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;display: none&quot;&gt;*&lt;/td&gt;&lt;td&gt;&lt;a href=&quot;Practitioner-example-doctor.html&quot;&gt;Practitioner 林職醫(official)&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;p&gt;&lt;b&gt;period&lt;/b&gt;: 2026-06-10 09:00:00+0800 --&amp;gt; 2026-06-10 12:00:00+0800&lt;/p&gt;&lt;p&gt;&lt;b&gt;serviceProvider&lt;/b&gt;: &lt;a href=&quot;Organization-example-hospital.html&quot;&gt;Organization 交通部民用航空局航空醫務中心&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Encounter.text">text</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Encounter.extension">extension</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info&quot;&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value_x_">valueReference</a>&gt;<a href="Organization-example-employer.html" style="color: Maroon">&#x1F517;</a> 
+            &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Organization/example-employer&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value_x_">valueReference</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Encounter.extension">extension</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Encounter.extension">extension</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department&quot;&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value_x_">valueString</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;化學製造現場&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Encounter.extension">extension</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;finished&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.class">class</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://terminology.hl7.org/CodeSystem/v3-ActCode&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;FLD&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;field&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.class">class</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.participant">participant</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.participant.individual">individual</a>&gt;<a href="Practitioner-example-doctor.html" style="color: Maroon">&#x1F517;</a> 
+            &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Practitioner/example-doctor&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.participant.individual">individual</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.participant">participant</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.period">period</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Period#Period.start">start</a> <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">value</a>=&quot;2026-06-10T09:00:00+08:00&quot;/&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Period#Period.end">end</a> <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">value</a>=&quot;2026-06-10T12:00:00+08:00&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.period">period</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.serviceProvider">serviceProvider</a>&gt;<a href="Organization-example-hospital.html" style="color: Maroon">&#x1F517;</a> 
+          &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Organization/example-hospital&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/encounter.html#Encounter.serviceProvider">serviceProvider</a>&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/encounter.html#Encounter">Encounter</a>&gt;
+    &lt;/resource&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry.fullUrl">fullUrl</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/Group/example-group-workers&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/group.html#Group">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/group.html#Group">Group</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Group.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;example-group-workers&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Group.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Group.text">text</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+          &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;a name=&quot;Group_example-group-workers&quot;&gt; &lt;/a&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Group example-group-workers&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;example-group-workers&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcexample-group-workers&quot;&gt; &lt;/a&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt;: Person&lt;/p&gt;&lt;p&gt;&lt;b&gt;actual&lt;/b&gt;: true&lt;/p&gt;&lt;p&gt;&lt;b&gt;name&lt;/b&gt;: 大同電子化學製造課全體勞工&lt;/p&gt;&lt;/div&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Group.text">text</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/group.html#Group.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;person&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/group.html#Group.actual">actual</a> <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/group.html#Group.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;大同電子化學製造課全體勞工&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/group.html#Group">Group</a>&gt;
+    &lt;/resource&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry.fullUrl">fullUrl</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-activity&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/procedure.html#Procedure">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/procedure.html#Procedure">Procedure</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Procedure.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#id">value</a>=&quot;example-procedure-activity&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Procedure.meta">meta</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-ServiceActivity&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/resource.html#Procedure.meta">meta</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Procedure.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Procedure.text">text</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;extensions&quot;/&gt;
+          &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;a name=&quot;Procedure_example-procedure-activity&quot;&gt; &lt;/a&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Procedure example-procedure-activity&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;example-procedure-activity&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcexample-procedure-activity&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Profile: &lt;a href=&quot;StructureDefinition-TWHA-Procedure-ServiceActivity.html&quot;&gt;臨場服務執行活動項目 Profile&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;雇主事業單位資訊擴充&lt;/b&gt;: &lt;a href=&quot;Organization-example-employer.html&quot;&gt;Organization 大同電子股份有限公司&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Completed&lt;/p&gt;&lt;p&gt;&lt;b&gt;code&lt;/b&gt;: &lt;span title=&quot;Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType exam-analysis}&quot;&gt;健康檢查結果分析&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;subject&lt;/b&gt;: &lt;a href=&quot;Group-example-group-workers.html&quot;&gt;Group 大同電子化學製造課全體勞工&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Procedure.text">text</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Procedure.extension">extension</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info&quot;&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value_x_">valueReference</a>&gt;<a href="Organization-example-employer.html" style="color: Maroon">&#x1F517;</a> 
+            &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Organization/example-employer&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value_x_">valueReference</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Procedure.extension">extension</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/procedure.html#Procedure.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;completed&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/procedure.html#Procedure.code">code</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a>
+                    <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType&quot;/&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;exam-analysis&quot;/&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;健康檢查結果分析&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/procedure.html#Procedure.code">code</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/procedure.html#Procedure.subject">subject</a>&gt;<a href="Group-example-group-workers.html" style="color: Maroon">&#x1F517;</a> 
+          &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Group/example-group-workers&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/procedure.html#Procedure.subject">subject</a>&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/procedure.html#Procedure">Procedure</a>&gt;
+    &lt;/resource&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry.fullUrl">fullUrl</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/Observation/example-service-finding&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/observation.html#Observation">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/observation.html#Observation">Observation</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Observation.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#id">value</a>=&quot;example-service-finding&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Observation.meta">meta</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Observation-ServiceFinding&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/resource.html#Observation.meta">meta</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Observation.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Observation.text">text</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
+          &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;a name=&quot;Observation_example-service-finding&quot;&gt; &lt;/a&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Observation example-service-finding&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;example-service-finding&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcexample-service-finding&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Profile: &lt;a href=&quot;StructureDefinition-TWHA-Observation-ServiceFinding.html&quot;&gt;臨場健康服務發現問題/風險 Profile&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;code&lt;/b&gt;: &lt;span title=&quot;Codes:{http://snomed.info/sct 278486003}&quot;&gt;Occupational health hazard (finding)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;focus&lt;/b&gt;: &lt;a href=&quot;Organization-example-employer.html&quot;&gt;Organization 大同電子股份有限公司&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;value&lt;/b&gt;: 發現部分現場勞動條件局部排氣裝置風速異常降低，且現場作業人員於正己烷暴露區域未確實配戴防護面罩。&lt;/p&gt;&lt;/div&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Observation.text">text</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/observation.html#Observation.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;final&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/observation.html#Observation.code">code</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://snomed.info/sct&quot;/&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;278486003&quot;/&gt;
+            &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Occupational health hazard (finding)&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept#CodeableConcept.coding">coding</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/observation.html#Observation.code">code</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/observation.html#Observation.focus">focus</a>&gt;<a href="Organization-example-employer.html" style="color: Maroon">&#x1F517;</a> 
+          &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Organization/example-employer&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/observation.html#Observation.focus">focus</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/observation.html#Observation.value_x_">valueString</a>
+                     <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;發現部分現場勞動條件局部排氣裝置風速異常降低，且現場作業人員於正己烷暴露區域未確實配戴防護面罩。&quot;/&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/observation.html#Observation">Observation</a>&gt;
+    &lt;/resource&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry.fullUrl">fullUrl</a>
+             <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/Task/example-service-task&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/task.html#Task">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/R4/task.html#Task">Task</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Task.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#id">value</a>=&quot;example-service-task&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Task.meta">meta</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Task-ServiceTask&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/resource.html#Task.meta">meta</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/resource.html#Task.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;en&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Task.text">text</a>&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;extensions&quot;/&gt;
+          &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;a name=&quot;Task_example-service-task&quot;&gt; &lt;/a&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Task example-service-task&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;example-service-task&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcexample-service-task&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Profile: &lt;a href=&quot;StructureDefinition-TWHA-Task-ServiceTask.html&quot;&gt;臨場健康服務建議與改善任務 Profile&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;雇主事業單位資訊擴充&lt;/b&gt;: &lt;a href=&quot;Organization-example-employer.html&quot;&gt;Organization 大同電子股份有限公司&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Requested&lt;/p&gt;&lt;p&gt;&lt;b&gt;intent&lt;/b&gt;: plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt;: 大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。&lt;/p&gt;&lt;p&gt;&lt;b&gt;focus&lt;/b&gt;: &lt;a href=&quot;Observation-example-service-finding.html&quot;&gt;Observation Occupational health hazard (finding)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;requester&lt;/b&gt;: &lt;a href=&quot;Practitioner-example-doctor.html&quot;&gt;Practitioner 林職醫(official)&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;owner&lt;/b&gt;: &lt;a href=&quot;Organization-example-employer.html&quot;&gt;Organization 大同電子股份有限公司&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Task.text">text</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#Task.extension">extension</a>
+                   <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>=&quot;https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info&quot;&gt;
+          &lt;<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value_x_">valueReference</a>&gt;<a href="Organization-example-employer.html" style="color: Maroon">&#x1F517;</a> 
+            &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Organization/example-employer&quot;/&gt;
+          &lt;/<a href="http://hl7.org/fhir/R4/extensibility.html#Extension#Extension.value_x_">valueReference</a>&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#Task.extension">extension</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/task.html#Task.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;requested&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/task.html#Task.intent">intent</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;plan&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/task.html#Task.description">description</a>
+                     <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。&quot;/&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/task.html#Task.focus">focus</a>&gt;<a href="Observation-example-service-finding.html" style="color: Maroon">&#x1F517;</a> 
+          &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Observation/example-service-finding&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/task.html#Task.focus">focus</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/task.html#Task.requester">requester</a>&gt;<a href="Practitioner-example-doctor.html" style="color: Maroon">&#x1F517;</a> 
+          &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Practitioner/example-doctor&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/task.html#Task.requester">requester</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/R4/task.html#Task.owner">owner</a>&gt;<a href="Organization-example-employer.html" style="color: Maroon">&#x1F517;</a> 
+          &lt;<a href="http://hl7.org/fhir/R4/references.html#Reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Organization/example-employer&quot;/&gt;
+        &lt;/<a href="http://hl7.org/fhir/R4/task.html#Task.owner">owner</a>&gt;
+      &lt;/<a href="http://hl7.org/fhir/R4/task.html#Task">Task</a>&gt;
+    &lt;/resource&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle.entry">entry</a>&gt;
+&lt;/<a href="http://hl7.org/fhir/R4/bundle.html#Bundle">Bundle</a>&gt;</code></pre>
+
+
+  <!-- insert notes if present -->
+  
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+  <script type="text/javascript" src="assets/js/flags.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <script type="text/javascript" src="assets/js/togglechanges.js"> </script>
+  <script type="text/javascript" src="assets/js/requirements-table.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container" data-fhir="generated">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
+          Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          Generated 
+  <span title="2026-07-09 21:42:00 +0800">
+    2026-07-09
+  </span>
+
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

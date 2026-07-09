@@ -1,0 +1,28 @@
+{
+  "resourceType" : "Procedure",
+  "id" : "example-procedure-activity",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-ServiceActivity"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Procedure example-procedure-activity</b></p><a name=\"example-procedure-activity\"> </a><a name=\"hcexample-procedure-activity\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Procedure-ServiceActivity.html\">臨場服務執行活動項目 Profile</a></p></div><p><b>雇主事業單位資訊擴充</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType exam-analysis}\">健康檢查結果分析</span></p><p><b>subject</b>: <a href=\"Group-example-group-workers.html\">Group 大同電子化學製造課全體勞工</a></p></div>"
+  },
+  "extension" : [{
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info",
+    "valueReference" : {
+      "reference" : "Organization/example-employer"
+    }
+  }],
+  "status" : "completed",
+  "code" : {
+    "coding" : [{
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType",
+      "code" : "exam-analysis",
+      "display" : "健康檢查結果分析"
+    }]
+  },
+  "subject" : {
+    "reference" : "Group/example-group-workers"
+  }
+}

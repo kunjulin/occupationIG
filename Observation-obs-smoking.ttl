@@ -1,0 +1,74 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-smoking> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "obs-smoking"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Smoking"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Smoking>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-smoking</b></p><a name=\"obs-smoking\"> </a><a name=\"hcobs-smoking\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-SocialHistory-Smoking.html\">吸菸歷史與狀態 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 72166-2}\">Tobacco smoking status</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:05:00+0800</p><p><b>value</b>: <span title=\"Codes:{http://snomed.info/sct 266919005}, {https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus 0-never}\">Never smoked tobacco</span></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/observation-category>
+       ] ;
+       fhir:code [ fhir:v "social-history" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:72166-2 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "72166-2" ] ;
+       fhir:display [ fhir:v "Tobacco smoking status" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:DateTime ;
+     fhir:v "2026-06-12T08:05:00+08:00"^^xsd:dateTime
+  ] ; # 
+  fhir:value [
+     a fhir:CodeableConcept ;
+     fhir:coding ( [
+       a sct:266919005 ;
+       fhir:system [
+         fhir:v "http://snomed.info/sct"^^xsd:anyURI ;
+         fhir:l <http://snomed.info/sct>
+       ] ;
+       fhir:code [ fhir:v "266919005" ] ;
+       fhir:display [ fhir:v "Never smoked tobacco" ]
+     ] [
+       fhir:system [
+         fhir:v "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus"^^xsd:anyURI ;
+         fhir:l <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus>
+       ] ;
+       fhir:code [ fhir:v "0-never" ] ;
+       fhir:display [ fhir:v "從未吸菸" ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

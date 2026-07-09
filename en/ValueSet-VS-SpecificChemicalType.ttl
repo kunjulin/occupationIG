@@ -1,0 +1,52 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SpecificChemicalType> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "VS-SpecificChemicalType"] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet VS-SpecificChemicalType</b></p><a name=\"VS-SpecificChemicalType\"> </a><a name=\"hcVS-SpecificChemicalType\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-CS-SpecificChemicalType.html\"><code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.1.0</span></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SpecificChemicalType"^^xsd:anyURI ;
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SpecificChemicalType>
+  ] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "VS_SpecificChemicalType"] ; # 
+  fhir:title [ fhir:v "特定化學物質種類值集"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v false] ; # 
+  fhir:date [ fhir:v "2026-07-09T21:42:02+08:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
+     ] )
+  ] [
+     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "包含特別危害健康作業中之常見特定化學物質代碼。"] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType"^^xsd:anyURI ;
+         fhir:l <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType>
+       ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

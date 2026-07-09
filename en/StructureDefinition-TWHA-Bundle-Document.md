@@ -1,0 +1,101 @@
+# 健康檢查報告交換封包 (Document Bundle) Profile - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+
+## Resource Profile: 健康檢查報告交換封包 (Document Bundle) Profile 
+
+ 
+用於健檢報告交換的 Document Bundle，其第一個 entry 必須為 Composition，且型態 (type) 必須為 document。 
+
+**Usages:**
+
+* Examples for this Profile: [Bundle/UC-001](Bundle-UC-001.md), [Bundle/UC-002](Bundle-UC-002.md), [Bundle/UC-003](Bundle-UC-003.md), [Bundle/UC-004](Bundle-UC-004.md)... Show 2 more, [Bundle/UC-005](Bundle-UC-005.md) and [Bundle/UC-006](Bundle-UC-006.md)
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-Bundle-Document.json)
+
+### Formal Views of Profile Content
+
+ [Description Differentials, Snapshots, and other representations](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](../StructureDefinition-TWHA-Bundle-Document.csv), [Excel](../StructureDefinition-TWHA-Bundle-Document.xlsx), [Schematron](../StructureDefinition-TWHA-Bundle-Document.sch) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "TWHA-Bundle-Document",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document",
+  "version" : "0.1.0",
+  "name" : "TWHABundleDocumentProfile",
+  "title" : "健康檢查報告交換封包 (Document Bundle) Profile",
+  "status" : "active",
+  "date" : "2026-07-09T21:42:02+08:00",
+  "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+  "contact" : [{
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  },
+  {
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  }],
+  "description" : "用於健檢報告交換的 Document Bundle，其第一個 entry 必須為 Composition，且型態 (type) 必須為 document。",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "cda",
+    "uri" : "http://hl7.org/v3/cda",
+    "name" : "CDA (R2)"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Bundle",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Bundle",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Bundle",
+      "path" : "Bundle"
+    },
+    {
+      "id" : "Bundle.type",
+      "path" : "Bundle.type",
+      "patternCode" : "document"
+    },
+    {
+      "id" : "Bundle.entry",
+      "path" : "Bundle.entry",
+      "min" : 1
+    },
+    {
+      "id" : "Bundle.entry.resource",
+      "path" : "Bundle.entry.resource",
+      "min" : 1
+    }]
+  }
+}
+
+```

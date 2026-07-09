@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClinicalImpression xmlns="http://hl7.org/fhir">
+  <id value="example-clinical-impression"/>
+  <meta>
+    <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ClinicalImpression"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ClinicalImpression example-clinical-impression</b></p><a name="example-clinical-impression"> </a><a name="hcexample-clinical-impression"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-ClinicalImpression.html">健康檢查健檢醫師總評與分級 Profile</a></p></div><p><b>健康管理分級擴充</b>: <span title="Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel level-1}">第一級管理</span></p><p><b>status</b>: Completed</p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>assessor</b>: <a href="Practitioner-example-doctor.html">Practitioner 林職醫(official)</a></p><p><b>summary</b>: 本次定期健康檢查結果大致正常，既往高血壓控制良好。建議持續維持健康生活習慣，定期監測血壓。</p></div>
+  </text>
+  <extension url="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-health-mgmt-level">
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel"/>
+        <code value="level-1"/>
+        <display value="第一級管理"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <status value="completed"/>
+  <subject>
+    <reference value="Patient/example-worker"/>
+  </subject>
+  <assessor>
+    <reference value="Practitioner/example-doctor"/>
+  </assessor>
+  <summary value="本次定期健康檢查結果大致正常，既往高血壓控制良好。建議持續維持健康生活習慣，定期監測血壓。"/>
+</ClinicalImpression>

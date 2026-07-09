@@ -1,0 +1,78 @@
+{
+  "resourceType" : "Composition",
+  "id" : "composition-uc003",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Composition composition-uc003</b></p><a name=\"composition-uc003\"> </a><a name=\"hccomposition-uc003\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition.html\">健康檢查健檢報告組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 11502-2}\">Laboratory report</span></p><p><b>date</b>: 2026-06-12 11:45:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 特殊危害健康作業檢查報告</p></div>"
+  },
+  "status" : "final",
+  "type" : {
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "11502-2",
+      "display" : "Laboratory report"
+    }]
+  },
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "date" : "2026-06-12T11:45:00+08:00",
+  "author" : [{
+    "reference" : "Practitioner/example-doctor"
+  }],
+  "title" : "特殊危害健康作業檢查報告",
+  "section" : [{
+    "title" : "基本資料與行政資訊",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "51847-2"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Patient/example-worker"
+    },
+    {
+      "reference" : "Encounter/example-encounter-general"
+    }]
+  },
+  {
+    "title" : "醫師總評、分級與建議",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "51848-0"
+      }]
+    },
+    "entry" : [{
+      "reference" : "ClinicalImpression/example-clinical-impression"
+    }]
+  },
+  {
+    "title" : "理學檢查",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "29545-1"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Observation/obs-hearing"
+    }]
+  },
+  {
+    "title" : "檢驗與影像檢查",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "30954-2"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Observation/obs-pulmonary"
+    }]
+  }]
+}

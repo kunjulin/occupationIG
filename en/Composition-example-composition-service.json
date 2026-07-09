@@ -1,0 +1,76 @@
+{
+  "resourceType" : "Composition",
+  "id" : "example-composition-service",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-ServiceRecord"]
+  },
+  "language" : "en",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Composition example-composition-service</b></p><a name=\"example-composition-service\"> </a><a name=\"hcexample-composition-service\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition-ServiceRecord.html\">健康檢查健康服務執行紀錄組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 34133-9}\">Summarization of clinical note</span></p><p><b>date</b>: 2026-06-10 14:00:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 勞工健康服務執行紀錄表</p></div>"
+  },
+  "status" : "final",
+  "type" : {
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "34133-9",
+      "display" : "Summarization of clinical note"
+    }]
+  },
+  "subject" : {
+    "reference" : "Organization/example-employer"
+  },
+  "date" : "2026-06-10T14:00:00+08:00",
+  "author" : [{
+    "reference" : "Practitioner/example-doctor"
+  }],
+  "title" : "勞工健康服務執行紀錄表",
+  "section" : [{
+    "title" : "作業場所概況",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "51847-2"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Encounter/example-encounter-service"
+    }]
+  },
+  {
+    "title" : "臨場服務執行情形",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "97726-4"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Procedure/example-procedure-activity"
+    }]
+  },
+  {
+    "title" : "現場發現問題",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "29554-3"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Observation/example-service-finding"
+    }]
+  },
+  {
+    "title" : "改善建議與追蹤",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "51898-5"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Task/example-service-task"
+    }]
+  }]
+}

@@ -1,0 +1,31 @@
+{
+  "resourceType" : "Procedure",
+  "id" : "example-procedure-counseling",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling"]
+  },
+  "language" : "en",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Procedure example-procedure-counseling</b></p><a name=\"example-procedure-counseling\"> </a><a name=\"hcexample-procedure-counseling\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Procedure-Counseling.html\">健康諮詢與衛教指導 Profile</a></p></div><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling counsel-exercise}, {https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling counsel-kidney}\">規律運動諮詢與衛教</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>encounter</b>: <a href=\"Encounter-example-encounter-general.html\">Encounter: extension = 一般健康檢查,3 years,化學處理課; status = finished; class = ambulatory (v3 Code System ActCode#AMB); period = 2026-06-12 08:00:00+0800 --&gt; 2026-06-12 11:30:00+0800</a></p></div>"
+  },
+  "status" : "completed",
+  "code" : {
+    "coding" : [{
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling",
+      "code" : "counsel-exercise",
+      "display" : "規律運動諮詢與衛教"
+    },
+    {
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling",
+      "code" : "counsel-kidney",
+      "display" : "腎病識能衛教指導"
+    }]
+  },
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "encounter" : {
+    "reference" : "Encounter/example-encounter-general"
+  }
+}

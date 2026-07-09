@@ -1,0 +1,1100 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Bundle/UC-005> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "UC-005"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:identifier [
+     fhir:system [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/bundle-id"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/bundle-id>
+     ] ;
+     fhir:value [ fhir:v "bundle-uc-005" ]
+  ] ; # 
+  fhir:type [ fhir:v "document"] ; # 
+  fhir:timestamp [ fhir:v "2026-06-12T12:00:00+08:00"^^xsd:dateTime] ; # 
+  fhir:entry ( [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Composition/composition-uc005"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Composition/composition-uc005>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Composition/composition-uc005> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/adult-preventive-care-response"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/adult-preventive-care-response>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/adult-preventive-care-response> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/sdoh-questionnaire-response"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/sdoh-questionnaire-response>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/sdoh-questionnaire-response> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-height"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-height>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-height> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-weight"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-weight>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-weight> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bmi"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bmi>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bmi> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-waist"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-waist>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-waist> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bloodpressure"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bloodpressure>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bloodpressure> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-lab-glucose"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-lab-glucose>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-lab-glucose> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression> )
+  ] [
+     fhir:fullUrl [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-counseling"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-counseling>
+     ] ;
+     fhir:resource ( <https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-counseling> )
+  ] ) . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Composition/composition-uc005> a fhir:Composition ;
+  fhir:id [ fhir:v "composition-uc005"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Composition_composition-uc005\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Composition composition-uc005</b></p><a name=\"composition-uc005\"> </a><a name=\"hccomposition-uc005\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition.html\">健康檢查健檢報告組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 11502-2}\">Laboratory report</span></p><p><b>date</b>: 2026-06-12 11:45:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 成人預防保健檢查報告</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       a loinc:11502-2 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "11502-2" ] ;
+       fhir:display [ fhir:v "Laboratory report" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:date [ fhir:v "2026-06-12T11:45:00+08:00"^^xsd:dateTime] ; # 
+  fhir:author ( [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:reference [ fhir:v "Practitioner/example-doctor" ]
+  ] ) ; # 
+  fhir:title [ fhir:v "成人預防保健檢查報告"] ; # 
+  fhir:section ( [
+     fhir:title [ fhir:v "基本資料與行政資訊" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:51847-2 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "51847-2" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+       fhir:reference [ fhir:v "Patient/example-worker" ]
+     ] [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general> ;
+       fhir:reference [ fhir:v "Encounter/example-encounter-general" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "醫師總評、分級與建議" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:51848-0 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "51848-0" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression> ;
+       fhir:reference [ fhir:v "ClinicalImpression/example-clinical-impression" ]
+     ] [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-counseling> ;
+       fhir:reference [ fhir:v "Procedure/example-procedure-counseling" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "自覺症狀" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:29554-3 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "29554-3" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/adult-preventive-care-response> ;
+       fhir:reference [ fhir:v "QuestionnaireResponse/adult-preventive-care-response" ]
+     ] [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/sdoh-questionnaire-response> ;
+       fhir:reference [ fhir:v "QuestionnaireResponse/sdoh-questionnaire-response" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "理學檢查" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:29545-1 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "29545-1" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-height> ;
+       fhir:reference [ fhir:v "Observation/obs-height" ]
+     ] [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-weight> ;
+       fhir:reference [ fhir:v "Observation/obs-weight" ]
+     ] [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bmi> ;
+       fhir:reference [ fhir:v "Observation/obs-bmi" ]
+     ] [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-waist> ;
+       fhir:reference [ fhir:v "Observation/obs-waist" ]
+     ] [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bloodpressure> ;
+       fhir:reference [ fhir:v "Observation/obs-bloodpressure" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "檢驗與影像檢查" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:30954-2 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "30954-2" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-lab-glucose> ;
+       fhir:reference [ fhir:v "Observation/obs-lab-glucose" ]
+     ] )
+  ] ) . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> a fhir:Patient ;
+  fhir:id [ fhir:v "example-worker"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_example-worker\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Patient example-worker</b></p><a name=\"example-worker\"> </a><a name=\"hcexample-worker\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Patient.html\">受檢者 Profile</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td colspan=\"3\">true</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。\"><a href=\"StructureDefinition-ext-department.html\">部門/課別擴充</a></td><td colspan=\"3\">化學處理課</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"記錄受檢勞工於事業單位之受僱日期。\"><a href=\"StructureDefinition-ext-employment-date.html\">受僱日期擴充</a></td><td colspan=\"3\">2020-03-01</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。\"><a href=\"StructureDefinition-ext-employer-info.html\">雇主事業單位資訊擴充</a></td><td colspan=\"3\"><a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info>
+     ] ;
+     fhir:value [
+       a fhir:Reference ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+       fhir:reference [ fhir:v "Organization/example-employer" ]
+     ]
+  ] [
+     fhir:url [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employment-date"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employment-date>
+     ] ;
+     fhir:value [
+       a fhir:Date ;
+       fhir:v "2020-03-01"^^xsd:date
+     ]
+  ] [
+     fhir:url [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department>
+     ] ;
+     fhir:value [
+       a fhir:String ;
+       fhir:v "化學處理課"
+     ]
+  ] ) ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:type [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ;
+           fhir:l <http://terminology.hl7.org/CodeSystem/v2-0203>
+         ] ;
+         fhir:code [ fhir:v "MR" ] ;
+         fhir:display [ fhir:v "Medical record number" ]
+       ] )
+     ] ;
+     fhir:system [
+       fhir:v "https://www.cgmh.org.tw/tw/patient-id"^^xsd:anyURI ;
+       fhir:l <https://www.cgmh.org.tw/tw/patient-id>
+     ] ;
+     fhir:value [ fhir:v "MR-98765" ]
+  ] ) ; # 
+  fhir:active [ fhir:v true] ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:text [ fhir:v "王大同" ]
+  ] ) ; # 
+  fhir:gender [ fhir:v "male"] ; # 
+  fhir:birthDate [ fhir:v "1985-05-15"^^xsd:date] . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> a fhir:Practitioner ;
+  fhir:id [ fhir:v "example-doctor"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_example-doctor\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Practitioner example-doctor</b></p><a name=\"example-doctor\"> </a><a name=\"hcexample-doctor\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Practitioner.html\">執業/健檢醫護與服務人員 Profile</a></p></div><p><b>identifier</b>: <code>https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw</code>/MD-88888 (use: official, )</p><p><b>name</b>: 林職醫(Official)</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:system [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw>
+     ] ;
+     fhir:value [ fhir:v "MD-88888" ]
+  ] ) ; # 
+  fhir:name ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:text [ fhir:v "林職醫" ]
+  ] ) . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> a fhir:Organization ;
+  fhir:id [ fhir:v "example-hospital"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_example-hospital\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Organization example-hospital</b></p><a name=\"example-hospital\"> </a><a name=\"hcexample-hospital\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Organization-Facility.html\">實施健康檢查之醫療機構 Profile</a></p></div><p><b>identifier</b>: Provider number/2701010024 (use: official, )</p><p><b>name</b>: 交通部民用航空局航空醫務中心</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:identifier ( [
+     fhir:use [ fhir:v "official" ] ;
+     fhir:type [
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "http://terminology.hl7.org/CodeSystem/v2-0203"^^xsd:anyURI ;
+           fhir:l <http://terminology.hl7.org/CodeSystem/v2-0203>
+         ] ;
+         fhir:code [ fhir:v "PRN" ]
+       ] )
+     ] ;
+     fhir:system [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/organization-identifier-tw"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/organization-identifier-tw>
+     ] ;
+     fhir:value [ fhir:v "2701010024" ]
+  ] ) ; # 
+  fhir:name [ fhir:v "交通部民用航空局航空醫務中心"] . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general> a fhir:Encounter ;
+  fhir:id [ fhir:v "example-encounter-general"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_example-encounter-general\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Encounter example-encounter-general</b></p><a name=\"example-encounter-general\"> </a><a name=\"hcexample-encounter-general\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Encounter.html\">健康檢查健檢就醫事件 Profile</a></p></div><p><b>檢查類型擴充</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType general-health}\">一般健康檢查</span></p><p><b>健康檢查實施週期擴充</b>: 3 years<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codea = 'a')</span></p><p><b>部門/課別擴充</b>: 化學處理課</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://hl7.org/fhir/R4/v3/ActCode/cs.html#v3-ActCode-AMB\">v3 Code System ActCode: AMB</a> (ambulatory)</p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></td></tr></table><p><b>period</b>: 2026-06-12 08:00:00+0800 --&gt; 2026-06-12 11:30:00+0800</p><p><b>serviceProvider</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-type"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-type>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType"^^xsd:anyURI ;
+           fhir:l <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType>
+         ] ;
+         fhir:code [ fhir:v "general-health" ] ;
+         fhir:display [ fhir:v "一般健康檢查" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval>
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "3"^^xsd:decimal ] ;
+       fhir:unit [ fhir:v "years" ] ;
+       fhir:system [
+         fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+         fhir:l <http://unitsofmeasure.org>
+       ] ;
+       fhir:code [ fhir:v "a" ]
+     ]
+  ] [
+     fhir:url [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department>
+     ] ;
+     fhir:value [
+       a fhir:String ;
+       fhir:v "化學處理課"
+     ]
+  ] ) ; # 
+  fhir:status [ fhir:v "finished"] ; # 
+  fhir:class [
+     fhir:system [
+       fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ;
+       fhir:l <http://terminology.hl7.org/CodeSystem/v3-ActCode>
+     ] ;
+     fhir:code [ fhir:v "AMB" ] ;
+     fhir:display [ fhir:v "ambulatory" ]
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:participant ( [
+     fhir:individual [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+       fhir:reference [ fhir:v "Practitioner/example-doctor" ]
+     ]
+  ] ) ; # 
+  fhir:period [
+     fhir:start [ fhir:v "2026-06-12T08:00:00+08:00"^^xsd:dateTime ] ;
+     fhir:end [ fhir:v "2026-06-12T11:30:00+08:00"^^xsd:dateTime ]
+  ] ; # 
+  fhir:serviceProvider [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:reference [ fhir:v "Organization/example-hospital" ]
+  ] . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/adult-preventive-care-response> a fhir:QuestionnaireResponse ;
+  fhir:id [ fhir:v "adult-preventive-care-response"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-QuestionnaireResponse-HT"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-QuestionnaireResponse-HT>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"QuestionnaireResponse_adult-preventive-care-response\"> </a><p class=\"res-header-id\"><b>Generated Narrative: QuestionnaireResponse adult-preventive-care-response</b></p><a name=\"adult-preventive-care-response\"> </a><a name=\"hcadult-preventive-care-response\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-QuestionnaireResponse-HT.html\">成人預防保健問卷回覆 Profile</a></p></div><table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;\"><tr style=\"border: 2px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top\"><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"The linkID for the item\">LinkID</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Text for the item\">Text</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Minimum and Maximum # of times the item can appear in the instance\">Definition</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"The type of the item\">Answer</a><span style=\"float: right\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/></a></span></th></tr><tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_q_root.gif\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"QuestionnaireResponseRoot\" class=\"hierarchy\"/> adult-preventive-care-response</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Questionnaire:<a href=\"Questionnaire-adult-preventive-care-questionnaire.html\">Questionnaire[https://twcore.mohw.gov.tw/ig/twha/Questionnaire/adult-preventive-care-questionnaire|0.1.0]</a></td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> smoking</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">false</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> drinking</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">false</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> betelnut</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">false</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> exercise</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">true</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> past-history</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">false</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> family-history</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">true</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> medication-history</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">false</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> depression-interest</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> depression-mood</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">0</td></tr>#xD;\n<tr><td colspan=\"4\" class=\"hierarchy\"><br/><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/> Documentation for this format</a></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:questionnaire [
+     fhir:v "https://twcore.mohw.gov.tw/ig/twha/Questionnaire/adult-preventive-care-questionnaire"^^xsd:anyURI ;
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Questionnaire/adult-preventive-care-questionnaire>
+  ] ; # 
+  fhir:status [ fhir:v "completed"] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:authored [ fhir:v "2026-06-12T08:10:00+08:00"^^xsd:dateTime] ; # 
+  fhir:author [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:source [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:item ( [
+     fhir:linkId [ fhir:v "smoking" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "drinking" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "betelnut" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "exercise" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "past-history" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "family-history" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v true
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "medication-history" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "depression-interest" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Integer ;
+         fhir:v 0
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "depression-mood" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Integer ;
+         fhir:v 0
+       ]
+     ] )
+  ] ) . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/QuestionnaireResponse/sdoh-questionnaire-response> a fhir:QuestionnaireResponse ;
+  fhir:id [ fhir:v "sdoh-questionnaire-response"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SDOH-QuestionnaireResponse"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SDOH-QuestionnaireResponse>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"QuestionnaireResponse_sdoh-questionnaire-response\"> </a><p class=\"res-header-id\"><b>Generated Narrative: QuestionnaireResponse sdoh-questionnaire-response</b></p><a name=\"sdoh-questionnaire-response\"> </a><a name=\"hcsdoh-questionnaire-response\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-SDOH-QuestionnaireResponse.html\">社會決定因素 (SDOH) 問卷回覆 Profile</a></p></div><table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;\"><tr style=\"border: 2px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top\"><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"The linkID for the item\">LinkID</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Text for the item\">Text</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Minimum and Maximum # of times the item can appear in the instance\">Definition</a></th><th style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px\" class=\"hierarchy\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"The type of the item\">Answer</a><span style=\"float: right\"><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/></a></span></th></tr><tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon_q_root.gif\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"QuestionnaireResponseRoot\" class=\"hierarchy\"/> sdoh-questionnaire-response</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">Questionnaire:<a href=\"Questionnaire-twha-sdoh-questionnaire.html\">Questionnaire[https://twcore.mohw.gov.tw/ig/twha/Questionnaire/twha-sdoh-questionnaire|0.1.0]</a></td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> education</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">大學畢業</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> employment</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">全職就業</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> housing-security</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">false</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: white; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> caregiver-stress</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">false</td></tr>#xD;\n<tr style=\"border: 1px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)\" class=\"hierarchy\"><img src=\"tbl_spacer.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"tbl_vjoin_end.png\" alt=\".\" style=\"background-color: inherit\" class=\"hierarchy\"/><img src=\"icon-q-string.png\" alt=\".\" style=\"background-color: #F7F7F7; background-color: inherit\" title=\"Item\" class=\"hierarchy\"/> financial-hardship</td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"></td><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\"/><td style=\"vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 1px #F0F0F0 solid; padding:0px 4px 0px 4px\" class=\"hierarchy\">false</td></tr>#xD;\n<tr><td colspan=\"4\" class=\"hierarchy\"><br/><a href=\"https://hl7.org/fhir/R4/formats.html#table\" title=\"Legend for this format\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt=\"doco\" style=\"background-color: inherit\"/> Documentation for this format</a></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:questionnaire [
+     fhir:v "https://twcore.mohw.gov.tw/ig/twha/Questionnaire/twha-sdoh-questionnaire"^^xsd:anyURI ;
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Questionnaire/twha-sdoh-questionnaire>
+  ] ; # 
+  fhir:status [ fhir:v "completed"] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:authored [ fhir:v "2026-06-12T08:10:00+08:00"^^xsd:dateTime] ; # 
+  fhir:author [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:source [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:item ( [
+     fhir:linkId [ fhir:v "education" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:String ;
+         fhir:v "大學畢業"
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "employment" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:String ;
+         fhir:v "全職就業"
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "housing-security" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "caregiver-stress" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] )
+  ] [
+     fhir:linkId [ fhir:v "financial-hardship" ] ;
+     fhir:answer ( [
+       fhir:value [
+         a fhir:Boolean ;
+         fhir:v false
+       ]
+     ] )
+  ] ) . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-height> a fhir:Observation ;
+  fhir:id [ fhir:v "obs-height"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-height\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-height</b></p><a name=\"obs-height\"> </a><a name=\"hcobs-height\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-VitalSigns.html\">職業健檢生命徵象 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category vital-signs}\">Vital Signs</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 8302-2}\">Body height</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:15:00+0800</p><p><b>value</b>: 175 cm<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codecm = 'cm')</span></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/observation-category>
+       ] ;
+       fhir:code [ fhir:v "vital-signs" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:8302-2 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "8302-2" ] ;
+       fhir:display [ fhir:v "Body height" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:DateTime ;
+     fhir:v "2026-06-12T08:15:00+08:00"^^xsd:dateTime
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "175"^^xsd:decimal ] ;
+     fhir:unit [ fhir:v "cm" ] ;
+     fhir:system [
+       fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+       fhir:l <http://unitsofmeasure.org>
+     ] ;
+     fhir:code [ fhir:v "cm" ]
+  ] . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-weight> a fhir:Observation ;
+  fhir:id [ fhir:v "obs-weight"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-weight\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-weight</b></p><a name=\"obs-weight\"> </a><a name=\"hcobs-weight\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-VitalSigns.html\">職業健檢生命徵象 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category vital-signs}\">Vital Signs</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 29463-7}\">Body weight</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:15:00+0800</p><p><b>value</b>: 70 kg<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codekg = 'kg')</span></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/observation-category>
+       ] ;
+       fhir:code [ fhir:v "vital-signs" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:29463-7 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "29463-7" ] ;
+       fhir:display [ fhir:v "Body weight" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:DateTime ;
+     fhir:v "2026-06-12T08:15:00+08:00"^^xsd:dateTime
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "70"^^xsd:decimal ] ;
+     fhir:unit [ fhir:v "kg" ] ;
+     fhir:system [
+       fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+       fhir:l <http://unitsofmeasure.org>
+     ] ;
+     fhir:code [ fhir:v "kg" ]
+  ] . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bmi> a fhir:Observation ;
+  fhir:id [ fhir:v "obs-bmi"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-bmi\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-bmi</b></p><a name=\"obs-bmi\"> </a><a name=\"hcobs-bmi\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-VitalSigns.html\">職業健檢生命徵象 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category vital-signs}\">Vital Signs</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 39156-5}\">Body mass index (BMI) [Ratio]</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:15:00+0800</p><p><b>value</b>: 22.86 kg/m2<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codekg/m2 = 'kg/m2')</span></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/observation-category>
+       ] ;
+       fhir:code [ fhir:v "vital-signs" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:39156-5 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "39156-5" ] ;
+       fhir:display [ fhir:v "Body mass index (BMI) [Ratio]" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:DateTime ;
+     fhir:v "2026-06-12T08:15:00+08:00"^^xsd:dateTime
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v 22.86 ] ;
+     fhir:unit [ fhir:v "kg/m2" ] ;
+     fhir:system [
+       fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+       fhir:l <http://unitsofmeasure.org>
+     ] ;
+     fhir:code [ fhir:v "kg/m2" ]
+  ] . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-waist> a fhir:Observation ;
+  fhir:id [ fhir:v "obs-waist"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-waist\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-waist</b></p><a name=\"obs-waist\"> </a><a name=\"hcobs-waist\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-VitalSigns.html\">職業健檢生命徵象 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category vital-signs}\">Vital Signs</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 56086-2}\">Waist Circumference</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:15:00+0800</p><p><b>value</b>: 82 cm<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codecm = 'cm')</span></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/observation-category>
+       ] ;
+       fhir:code [ fhir:v "vital-signs" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:56086-2 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "56086-2" ] ;
+       fhir:display [ fhir:v "Waist Circumference" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:DateTime ;
+     fhir:v "2026-06-12T08:15:00+08:00"^^xsd:dateTime
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "82"^^xsd:decimal ] ;
+     fhir:unit [ fhir:v "cm" ] ;
+     fhir:system [
+       fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+       fhir:l <http://unitsofmeasure.org>
+     ] ;
+     fhir:code [ fhir:v "cm" ]
+  ] . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bloodpressure> a fhir:Observation ;
+  fhir:id [ fhir:v "obs-bloodpressure"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-bloodPressure-twcore"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Observation-bloodPressure-twcore>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-bloodpressure\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-bloodpressure</b></p><a name=\"obs-bloodpressure\"> </a><a name=\"hcobs-bloodpressure\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"https://twcore.mohw.gov.tw/ig/twcore/1.0.0/StructureDefinition-Observation-bloodPressure-twcore.html\">TW Core Observation Blood Pressure</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category vital-signs}\">Vital Signs</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 85354-9}\">Blood pressure panel with all children optional</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:15:00+0800</p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 8480-6}\">Systolic blood pressure</span></p><p><b>value</b>: 120 mmHg<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemm[Hg] = 'mm[Hg]')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 8462-4}\">Diastolic blood pressure</span></p><p><b>value</b>: 80 mmHg<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemm[Hg] = 'mm[Hg]')</span></p></blockquote></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/observation-category>
+       ] ;
+       fhir:code [ fhir:v "vital-signs" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:85354-9 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "85354-9" ] ;
+       fhir:display [ fhir:v "Blood pressure panel with all children optional" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:DateTime ;
+     fhir:v "2026-06-12T08:15:00+08:00"^^xsd:dateTime
+  ] ; # 
+  fhir:component ( [
+     fhir:code [
+       fhir:coding ( [
+         a loinc:8480-6 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "8480-6" ] ;
+         fhir:display [ fhir:v "Systolic blood pressure" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "120"^^xsd:decimal ] ;
+       fhir:unit [ fhir:v "mmHg" ] ;
+       fhir:system [
+         fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+         fhir:l <http://unitsofmeasure.org>
+       ] ;
+       fhir:code [ fhir:v "mm[Hg]" ]
+     ]
+  ] [
+     fhir:code [
+       fhir:coding ( [
+         a loinc:8462-4 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "8462-4" ] ;
+         fhir:display [ fhir:v "Diastolic blood pressure" ]
+       ] )
+     ] ;
+     fhir:value [
+       a fhir:Quantity ;
+       fhir:value [ fhir:v "80"^^xsd:decimal ] ;
+       fhir:unit [ fhir:v "mmHg" ] ;
+       fhir:system [
+         fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+         fhir:l <http://unitsofmeasure.org>
+       ] ;
+       fhir:code [ fhir:v "mm[Hg]" ]
+     ]
+  ] ) . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-lab-glucose> a fhir:Observation ;
+  fhir:id [ fhir:v "obs-lab-glucose"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-General"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-General>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-lab-glucose\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-lab-glucose</b></p><a name=\"obs-lab-glucose\"> </a><a name=\"hcobs-lab-glucose\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-LabResult-General.html\">一般健檢實驗室檢驗 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}\">Laboratory</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 1558-6}\">Fasting Glucose (mass/volume) in Serum or Plasma</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 09:00:00+0800</p><p><b>value</b>: 95 mg/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg/dL = 'mg/dL')</span></p><h3>ReferenceRanges</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Low</b></td><td><b>High</b></td></tr><tr><td style=\"display: none\">*</td><td>70 mg/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td><td>100 mg/dL<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:category ( [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ;
+         fhir:l <http://terminology.hl7.org/CodeSystem/observation-category>
+       ] ;
+       fhir:code [ fhir:v "laboratory" ]
+     ] )
+  ] ) ; # 
+  fhir:code [
+     fhir:coding ( [
+       a loinc:1558-6 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "1558-6" ] ;
+       fhir:display [ fhir:v "Fasting Glucose (mass/volume) in Serum or Plasma" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:effective [
+     a fhir:DateTime ;
+     fhir:v "2026-06-12T09:00:00+08:00"^^xsd:dateTime
+  ] ; # 
+  fhir:value [
+     a fhir:Quantity ;
+     fhir:value [ fhir:v "95"^^xsd:decimal ] ;
+     fhir:unit [ fhir:v "mg/dL" ] ;
+     fhir:system [
+       fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+       fhir:l <http://unitsofmeasure.org>
+     ] ;
+     fhir:code [ fhir:v "mg/dL" ]
+  ] ; # 
+  fhir:referenceRange ( [
+     fhir:low [
+       fhir:value [ fhir:v "70"^^xsd:decimal ] ;
+       fhir:unit [ fhir:v "mg/dL" ] ;
+       fhir:system [
+         fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+         fhir:l <http://unitsofmeasure.org>
+       ] ;
+       fhir:code [ fhir:v "mg/dL" ]
+     ] ;
+     fhir:high [
+       fhir:value [ fhir:v "100"^^xsd:decimal ] ;
+       fhir:unit [ fhir:v "mg/dL" ] ;
+       fhir:system [
+         fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ;
+         fhir:l <http://unitsofmeasure.org>
+       ] ;
+       fhir:code [ fhir:v "mg/dL" ]
+     ]
+  ] ) . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression> a fhir:ClinicalImpression ;
+  fhir:id [ fhir:v "example-clinical-impression"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ClinicalImpression"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ClinicalImpression>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ClinicalImpression_example-clinical-impression\"> </a><p class=\"res-header-id\"><b>Generated Narrative: ClinicalImpression example-clinical-impression</b></p><a name=\"example-clinical-impression\"> </a><a name=\"hcexample-clinical-impression\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-ClinicalImpression.html\">健康檢查健檢醫師總評與分級 Profile</a></p></div><p><b>健康管理分級擴充</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel level-1}\">第一級管理</span></p><p><b>status</b>: Completed</p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>assessor</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>summary</b>: 本次定期健康檢查結果大致正常，既往高血壓控制良好。建議持續維持健康生活習慣，定期監測血壓。</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-health-mgmt-level"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-health-mgmt-level>
+     ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:coding ( [
+         fhir:system [
+           fhir:v "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel"^^xsd:anyURI ;
+           fhir:l <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel>
+         ] ;
+         fhir:code [ fhir:v "level-1" ] ;
+         fhir:display [ fhir:v "第一級管理" ]
+       ] )
+     ]
+  ] ) ; # 
+  fhir:status [ fhir:v "completed"] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:assessor [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:reference [ fhir:v "Practitioner/example-doctor" ]
+  ] ; # 
+  fhir:summary [ fhir:v "本次定期健康檢查結果大致正常，既往高血壓控制良好。建議持續維持健康生活習慣，定期監測血壓。"] . # 
+
+<https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-counseling> a fhir:Procedure ;
+  fhir:id [ fhir:v "example-procedure-counseling"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Procedure_example-procedure-counseling\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Procedure example-procedure-counseling</b></p><a name=\"example-procedure-counseling\"> </a><a name=\"hcexample-procedure-counseling\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Procedure-Counseling.html\">健康諮詢與衛教指導 Profile</a></p></div><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling counsel-exercise}, {https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling counsel-kidney}\">規律運動諮詢與衛教</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>encounter</b>: <a href=\"Encounter-example-encounter-general.html\">Encounter: extension = 一般健康檢查,3 years,化學處理課; status = finished; class = ambulatory (v3 Code System ActCode#AMB); period = 2026-06-12 08:00:00+0800 --&gt; 2026-06-12 11:30:00+0800</a></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "completed"] ; # 
+  fhir:code [
+     fhir:coding ( [
+       fhir:system [
+         fhir:v "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling"^^xsd:anyURI ;
+         fhir:l <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling>
+       ] ;
+       fhir:code [ fhir:v "counsel-exercise" ] ;
+       fhir:display [ fhir:v "規律運動諮詢與衛教" ]
+     ] [
+       fhir:system [
+         fhir:v "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling"^^xsd:anyURI ;
+         fhir:l <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling>
+       ] ;
+       fhir:code [ fhir:v "counsel-kidney" ] ;
+       fhir:display [ fhir:v "腎病識能衛教指導" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:encounter [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general> ;
+     fhir:reference [ fhir:v "Encounter/example-encounter-general" ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

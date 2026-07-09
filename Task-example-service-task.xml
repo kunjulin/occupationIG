@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Task xmlns="http://hl7.org/fhir">
+  <id value="example-service-task"/>
+  <meta>
+    <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Task-ServiceTask"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Task example-service-task</b></p><a name="example-service-task"> </a><a name="hcexample-service-task"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-Task-ServiceTask.html">臨場健康服務建議與改善任務 Profile</a></p></div><p><b>雇主事業單位資訊擴充</b>: <a href="Organization-example-employer.html">Organization 大同電子股份有限公司</a></p><p><b>status</b>: Requested</p><p><b>intent</b>: plan</p><p><b>description</b>: 大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。</p><p><b>focus</b>: <a href="Observation-example-service-finding.html">Observation Occupational health hazard (finding)</a></p><p><b>requester</b>: <a href="Practitioner-example-doctor.html">Practitioner 林職醫(official)</a></p><p><b>owner</b>: <a href="Organization-example-employer.html">Organization 大同電子股份有限公司</a></p></div>
+  </text>
+  <extension url="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info">
+    <valueReference>
+      <reference value="Organization/example-employer"/>
+    </valueReference>
+  </extension>
+  <status value="requested"/>
+  <intent value="plan"/>
+  <description value="大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。"/>
+  <focus>
+    <reference value="Observation/example-service-finding"/>
+  </focus>
+  <requester>
+    <reference value="Practitioner/example-doctor"/>
+  </requester>
+  <owner>
+    <reference value="Organization/example-employer"/>
+  </owner>
+</Task>

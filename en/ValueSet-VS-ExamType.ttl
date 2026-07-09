@@ -1,0 +1,52 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExamType> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "VS-ExamType"] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet VS-ExamType</b></p><a name=\"VS-ExamType\"> </a><a name=\"hcVS-ExamType\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-CS-ExamType.html\"><code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.1.0</span></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExamType"^^xsd:anyURI ;
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExamType>
+  ] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "VS_ExamType"] ; # 
+  fhir:title [ fhir:v "檢查類型值集"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v false] ; # 
+  fhir:date [ fhir:v "2026-07-09T21:42:02+08:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
+     ] )
+  ] [
+     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查之代碼。"] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType"^^xsd:anyURI ;
+         fhir:l <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType>
+       ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

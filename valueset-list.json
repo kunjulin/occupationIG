@@ -1,0 +1,182 @@
+{
+  "codeSystems" : [{
+    "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewAmount-valueset",
+    "title" : "每日嚼檳榔量值集",
+    "description" : "Betel Nut Chewing Amount Value Set",
+    "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem"]
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewBeh-valueset",
+    "title" : "嚼檳榔行為值集",
+    "description" : "Betel Nut Chewing Behavior Value Set",
+    "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"]
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewQuit-valueset",
+    "title" : "戒嚼檳榔年值集",
+    "description" : "Betel Nut Chewing Quit Value Set",
+    "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem"]
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewYear-valueset",
+    "title" : "嚼檳榔年值集",
+    "description" : "Betel Nut Chewing Year Value Set",
+    "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_CoreDataset",
+    "title" : "健康檢查核心項目值集",
+    "description" : "包含一般健康檢查及體格檢查之核心檢驗與實驗室項目，對應至 LOINC 代碼。",
+    "systems" : ["http://loinc.org"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExamType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_ExamType",
+    "title" : "檢查類型值集",
+    "description" : "包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查之代碼。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_ExtendedDataset",
+    "title" : "健康檢查進階與領域擴充項目值集",
+    "description" : "包含特殊健康檢查與體格檢查之實驗室與生理功能檢驗項目，以及自費健康檢查常見之影像學檢查（如 MRI、CT、PET/CT、超音波、骨密度等）與內視鏡檢查（如胃鏡、大腸鏡），對應至 LOINC 代碼。",
+    "systems" : ["http://loinc.org"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-FitnessForWork",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_FitnessForWork",
+    "title" : "適性配工建議值集",
+    "description" : "包含適性配工或工作調整建議代碼之值集。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_HazardType",
+    "title" : "特別危害健康作業類別值集",
+    "description" : "包含 12 大類特別危害健康作業類別之代碼。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthCounseling",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_HealthCounseling",
+    "title" : "健康諮詢與衛教指導項目值集",
+    "description" : "包含成人預防保健與健康檢查中健康諮詢項目代碼之值集。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthMgmtLevel",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_HealthMgmtLevel",
+    "title" : "健康管理分級值集",
+    "description" : "包含健康管理分級（第一級至第四級）代碼之值集。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-LaborReportCode",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_LaborReportCode",
+    "title" : "勞動部通報報告代碼值集",
+    "description" : "包含勞動部通報報告類別代碼之值集。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OrganicSolventType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_OrganicSolventType",
+    "title" : "有機溶劑種類值集",
+    "description" : "包含特別危害健康作業中之常見有機溶劑代碼。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-OrganicSolventType"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PhysicalExamSystems",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_PhysicalExamSystems",
+    "title" : "身體檢查系統部位值集",
+    "description" : "包含理學檢查中各系統部位代碼之值集。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_PulmonaryFunction",
+    "title" : "肺功能檢查項目值集",
+    "description" : "包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的 LOINC 代碼，以供肺功能檢查 Profile 使用。",
+    "systems" : ["http://loinc.org"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ServiceActivityType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_ServiceActivityType",
+    "title" : "臨場健康服務辦理事項值集",
+    "description" : "包含臨場健康服務項目活動類別代碼之值集。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SmokingStatus",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_SmokingStatus",
+    "title" : "吸菸狀態值集",
+    "description" : "包含吸菸狀態代碼的值集。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SpecificChemicalType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_SpecificChemicalType",
+    "title" : "特定化學物質種類值集",
+    "description" : "包含特別危害健康作業中之常見特定化學物質代碼。",
+    "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_TWHAVitalSigns",
+    "title" : "職業健檢生命徵象項目值集",
+    "description" : "包含身高、體重、腰圍及血壓等生理測量項目之 LOINC 代碼。",
+    "systems" : ["http://loinc.org"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-UnfitDiseases",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_UnfitDiseases",
+    "title" : "不適合從事作業之疾病值集",
+    "description" : "依據勞工健康保護規則附表十二所列，不適合從事特定特別危害健康作業之疾病代碼值集（以 ICD-10-CM 表示）。",
+    "systems" : ["http://hl7.org/fhir/sid/icd-10-cm"]
+  }]
+}

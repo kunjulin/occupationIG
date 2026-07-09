@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Encounter xmlns="http://hl7.org/fhir">
+  <id value="example-encounter-service"/>
+  <meta>
+    <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter-Service"/>
+  </meta>
+  <language value="en"/>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Encounter example-encounter-service</b></p><a name="example-encounter-service"> </a><a name="hcexample-encounter-service"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-Encounter-Service.html">臨場健康服務事件 Profile</a></p></div><p><b>雇主事業單位資訊擴充</b>: <a href="Organization-example-employer.html">Organization 大同電子股份有限公司</a></p><p><b>部門/課別擴充</b>: 化學製造現場</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href="http://hl7.org/fhir/R4/v3/ActCode/cs.html#v3-ActCode-FLD">v3 Code System ActCode: FLD</a> (field)</p><h3>Participants</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Individual</b></td></tr><tr><td style="display: none">*</td><td><a href="Practitioner-example-doctor.html">Practitioner 林職醫(official)</a></td></tr></table><p><b>period</b>: 2026-06-10 09:00:00+0800 --&gt; 2026-06-10 12:00:00+0800</p><p><b>serviceProvider</b>: <a href="Organization-example-hospital.html">Organization 交通部民用航空局航空醫務中心</a></p></div>
+  </text>
+  <extension url="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info">
+    <valueReference>
+      <reference value="Organization/example-employer"/>
+    </valueReference>
+  </extension>
+  <extension url="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department">
+    <valueString value="化學製造現場"/>
+  </extension>
+  <status value="finished"/>
+  <class>
+    <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+    <code value="FLD"/>
+    <display value="field"/>
+  </class>
+  <participant>
+    <individual>
+      <reference value="Practitioner/example-doctor"/>
+    </individual>
+  </participant>
+  <period>
+    <start value="2026-06-10T09:00:00+08:00"/>
+    <end value="2026-06-10T12:00:00+08:00"/>
+  </period>
+  <serviceProvider>
+    <reference value="Organization/example-hospital"/>
+  </serviceProvider>
+</Encounter>

@@ -1,0 +1,113 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Composition/example-composition-service> a fhir:Composition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example-composition-service"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-ServiceRecord"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-ServiceRecord>
+     ] )
+  ] ; # 
+  fhir:language [ fhir:v "en"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Composition example-composition-service</b></p><a name=\"example-composition-service\"> </a><a name=\"hcexample-composition-service\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition-ServiceRecord.html\">健康檢查健康服務執行紀錄組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 34133-9}\">Summarization of clinical note</span></p><p><b>date</b>: 2026-06-10 14:00:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 勞工健康服務執行紀錄表</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       a loinc:34133-9 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "34133-9" ] ;
+       fhir:display [ fhir:v "Summarization of clinical note" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+     fhir:reference [ fhir:v "Organization/example-employer" ]
+  ] ; # 
+  fhir:date [ fhir:v "2026-06-10T14:00:00+08:00"^^xsd:dateTime] ; # 
+  fhir:author ( [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:reference [ fhir:v "Practitioner/example-doctor" ]
+  ] ) ; # 
+  fhir:title [ fhir:v "勞工健康服務執行紀錄表"] ; # 
+  fhir:section ( [
+     fhir:title [ fhir:v "作業場所概況" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:51847-2 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "51847-2" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-service> ;
+       fhir:reference [ fhir:v "Encounter/example-encounter-service" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "臨場服務執行情形" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:97726-4 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "97726-4" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-activity> ;
+       fhir:reference [ fhir:v "Procedure/example-procedure-activity" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "現場發現問題" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:29554-3 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "29554-3" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/example-service-finding> ;
+       fhir:reference [ fhir:v "Observation/example-service-finding" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "改善建議與追蹤" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:51898-5 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "51898-5" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Task/example-service-task> ;
+       fhir:reference [ fhir:v "Task/example-service-task" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

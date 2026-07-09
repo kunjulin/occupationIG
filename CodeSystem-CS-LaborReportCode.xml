@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="CS-LaborReportCode"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: CodeSystem CS-LaborReportCode</b></p><a name="CS-LaborReportCode"> </a><a name="hcCS-LaborReportCode"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">30901X<a name="CS-LaborReportCode-30901X"> </a></td><td>一般檢查通報</td><td>一般體格及健康檢查結果通報。</td></tr><tr><td style="white-space:nowrap">30902X<a name="CS-LaborReportCode-30902X"> </a></td><td>噪音作業特殊健檢通報</td><td>從事噪音作業勞工之特殊健檢結果通報。</td></tr><tr><td style="white-space:nowrap">30903X<a name="CS-LaborReportCode-30903X"> </a></td><td>粉塵作業特殊健檢通報</td><td>從事粉塵作業勞工之特殊健檢結果通報。</td></tr><tr><td style="white-space:nowrap">30904X<a name="CS-LaborReportCode-30904X"> </a></td><td>鉛作業特殊健檢通報</td><td>從事鉛作業勞工之特殊健檢結果通報。</td></tr><tr><td style="white-space:nowrap">30905X<a name="CS-LaborReportCode-30905X"> </a></td><td>其他特殊危害健康作業通報</td><td>其他特別危害作業勞工之特殊健檢結果通報。</td></tr></table></div>
+  </text>
+  <url value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode"/>
+  <version value="0.1.0"/>
+  <name value="CS_LaborReportCode"/>
+  <title value="勞動部通報報告代碼系統"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2026-07-09T21:42:02+08:00"/>
+  <publisher value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
+  <contact>
+    <name value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://twcore.mohw.gov.tw/twregistry/"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="衛生福利部次世代數位醫療平臺專案辦公室"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://twcore.mohw.gov.tw/twregistry/"/>
+    </telecom>
+  </contact>
+  <description value="勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="30901X"/>
+    <display value="一般檢查通報"/>
+    <definition value="一般體格及健康檢查結果通報。"/>
+  </concept>
+  <concept>
+    <code value="30902X"/>
+    <display value="噪音作業特殊健檢通報"/>
+    <definition value="從事噪音作業勞工之特殊健檢結果通報。"/>
+  </concept>
+  <concept>
+    <code value="30903X"/>
+    <display value="粉塵作業特殊健檢通報"/>
+    <definition value="從事粉塵作業勞工之特殊健檢結果通報。"/>
+  </concept>
+  <concept>
+    <code value="30904X"/>
+    <display value="鉛作業特殊健檢通報"/>
+    <definition value="從事鉛作業勞工之特殊健檢結果通報。"/>
+  </concept>
+  <concept>
+    <code value="30905X"/>
+    <display value="其他特殊危害健康作業通報"/>
+    <definition value="其他特別危害作業勞工之特殊健檢結果通報。"/>
+  </concept>
+</CodeSystem>

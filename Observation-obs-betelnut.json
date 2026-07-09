@@ -1,0 +1,71 @@
+{
+  "resourceType" : "Observation",
+  "id" : "obs-betelnut",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-betelnut</b></p><a name=\"obs-betelnut\"> </a><a name=\"hcobs-betelnut\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-SocialHistory-BetelNut.html\">嚼檳榔歷史與狀態 Profile</a></p></div><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem BetelNutChewing}\">嚼檳榔行為</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2026-06-12 08:05:00+0800</p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem amount}\">每日嚼檳榔量，以 ”顆” 計算</span></p><p><b>value</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem 05}\">每日5顆</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem year}\">嚼檳榔年</span></p><p><b>value</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem 10}\">嚼10年</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem quit}\">戒嚼檳榔年</span></p><p><b>value</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem 01}\">已戒1年</span></p></blockquote></div>"
+  },
+  "status" : "final",
+  "code" : {
+    "coding" : [{
+      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem",
+      "code" : "BetelNutChewing",
+      "display" : "嚼檳榔行為"
+    }]
+  },
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "effectiveDateTime" : "2026-06-12T08:05:00+08:00",
+  "component" : [{
+    "code" : {
+      "coding" : [{
+        "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
+        "code" : "amount",
+        "display" : "每日嚼檳榔量，以 ”顆” 計算"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem",
+        "code" : "05",
+        "display" : "每日5顆"
+      }]
+    }
+  },
+  {
+    "code" : {
+      "coding" : [{
+        "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
+        "code" : "year",
+        "display" : "嚼檳榔年"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem",
+        "code" : "10",
+        "display" : "嚼10年"
+      }]
+    }
+  },
+  {
+    "code" : {
+      "coding" : [{
+        "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
+        "code" : "quit",
+        "display" : "戒嚼檳榔年"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem",
+        "code" : "01",
+        "display" : "已戒1年"
+      }]
+    }
+  }]
+}

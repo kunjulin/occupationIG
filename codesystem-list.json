@@ -1,0 +1,130 @@
+{
+  "codeSystems" : [{
+    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewAmount-codesystem",
+    "title" : "每日嚼檳榔量代碼系統",
+    "description" : "Betel Nut Chewing Amount Code System"
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewBeh-codesystem",
+    "title" : "Betel Nut Chewing Behavior Code System",
+    "description" : "Betel Nut Chewing Behavior Code System"
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewQuit-codesystem",
+    "title" : "戒嚼檳榔年代碼系統",
+    "description" : "Betel Nut Chewing Quit Code System"
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewYear-codesystem",
+    "title" : "嚼檳榔年代碼系統",
+    "description" : "Betel Nut Chewing Year Code System"
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-ObserBeh-codesystem",
+    "title" : "相關行為代碼系統",
+    "description" : "Observation Behavior Code System"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_ExamType",
+    "title" : "檢查類型代碼系統",
+    "description" : "勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_FitnessForWork",
+    "title" : "適性配工建議代碼系統",
+    "description" : "第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_HazardType",
+    "title" : "特別危害健康作業類別代碼系統",
+    "description" : "勞工健康保護規則所定義之 12 大類特別危害健康作業類別。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_HealthCounseling",
+    "title" : "健康諮詢與衛教指導項目代碼系統",
+    "description" : "國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_HealthMgmtLevel",
+    "title" : "健康管理分級代碼系統",
+    "description" : "依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_LaborReportCode",
+    "title" : "勞動部通報報告代碼系統",
+    "description" : "勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-OrganicSolventType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_OrganicSolventType",
+    "title" : "有機溶劑種類代碼系統",
+    "description" : "特別危害健康作業中之有機溶劑種類（主要 7 種）。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_PhysicalExamSystems",
+    "title" : "身體檢查系統部位代碼系統",
+    "description" : "附表十一理學檢查中所涉及之身體系統部位分類。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_ServiceActivityType",
+    "title" : "臨場健康服務辦理事項代碼系統",
+    "description" : "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_SmokingStatus",
+    "title" : "吸菸狀態代碼系統",
+    "description" : "勞工健檢生活習慣調查中之吸菸狀態分類。"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_SpecificChemicalType",
+    "title" : "特定化學物質種類代碼系統",
+    "description" : "特別危害健康作業中之特定化學物質種類。"
+  }]
+}

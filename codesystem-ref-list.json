@@ -1,0 +1,219 @@
+{
+  "codeSystems" : [{
+    "url" : "http://hl7.org/fhir/http-verb",
+    "version" : "4.0.1",
+    "status" : "active",
+    "name" : "HTTPVerb",
+    "title" : "HTTPVerb",
+    "description" : "HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.",
+    "oids" : ["2.16.840.1.113883.4.642.4.625"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-http-verb.html" : "HTTPVerb"
+  },
+  {
+    "url" : "http://hl7.org/fhir/sid/icd-10-cm",
+    "version" : "2.0.1",
+    "status" : "active",
+    "name" : "Icd10CM",
+    "title" : "International Classification of Diseases, 10th Revision, Clinical Modification (ICD-10-CM)",
+    "description" : "The International Classification of Diseases, 10th Revision, Clinical Modification (ICD-10-CM), describes the classification of morbidity and mortality information for statistical purposes and for the indexing of healthcare records by diseases. The ICD-10-CM codes can be used as the value of the Act.cd attribute.",
+    "oids" : ["2.16.840.1.113883.6.90"],
+    "uses" : {
+    },
+    "ValueSet-VS-UnfitDiseases.html" : "不適合從事作業之疾病值集"
+  },
+  {
+    "url" : "http://hl7.org/fhir/task-status",
+    "version" : "4.0.1",
+    "status" : "draft",
+    "name" : "TaskStatus",
+    "title" : "TaskStatus",
+    "description" : "The current status of the task.",
+    "oids" : ["2.16.840.1.113883.4.642.4.791"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R4/valueset-task-status.html" : "TaskStatus"
+  },
+  {
+    "url" : "http://loinc.org",
+    "version" : "3.0.1",
+    "status" : "active",
+    "name" : "LOINC",
+    "title" : "Logical Observation Identifiers, Names and Codes (LOINC)",
+    "description" : "LOINC provides a set of universal names and ID codes for identifying laboratory and clinical test results.1,2 LOINC facilitates the exchange and pooling of results, such as blood hemoglobin, serum potassium, or vital signs, for clinical care, outcomes management, and research. LOINC's universal identifiers (names and codes) can be used in the context of order and observation exchanges between information systems that use syntax standards such as HL73, CEN TC251, ISO TC215, ASTM4, and DICOM. Specifically, the identifier can be used as the coded value for an observation in any other standard that uses the observation/observation value paradigm, whether messages, documents, application programming interface (API), etc. For example, LOINC codes are used widely in the OBX segment Observation Identifier field (OBX-3) of an ORU HL7 (HL7 version 2.x or ASTM 1238-9410) message that may be sent between a Clinical Laboratory Information Management Systems (LIMS) and Electronic Health Record Systems (EHR).5, 6 In this way, LOINC codes provide universal identifiers that allow the exchange of clinical data between heterogeneous computing environments.",
+    "oids" : ["2.16.840.1.113883.6.1"],
+    "uses" : {
+    },
+    "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集",
+    "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集",
+    "ValueSet-VS-TWHAVitalSigns.html" : "職業健檢生命徵象項目值集",
+    "ValueSet-VS-CoreDataset.html" : "健康檢查核心項目值集",
+    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap"
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewAmount-codesystem",
+    "title" : "每日嚼檳榔量代碼系統",
+    "description" : "Betel Nut Chewing Amount Code System",
+    "uses" : {
+    },
+    "ValueSet-sf-BetNutChewAmount-valueset.html" : "每日嚼檳榔量值集"
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewBeh-codesystem",
+    "title" : "Betel Nut Chewing Behavior Code System",
+    "description" : "Betel Nut Chewing Behavior Code System",
+    "uses" : {
+    },
+    "ValueSet-sf-BetNutChewBeh-valueset.html" : "嚼檳榔行為值集"
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewQuit-codesystem",
+    "title" : "戒嚼檳榔年代碼系統",
+    "description" : "Betel Nut Chewing Quit Code System",
+    "uses" : {
+    },
+    "ValueSet-sf-BetNutChewQuit-valueset.html" : "戒嚼檳榔年值集"
+  },
+  {
+    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "sf-BetNutChewYear-codesystem",
+    "title" : "嚼檳榔年代碼系統",
+    "description" : "Betel Nut Chewing Year Code System",
+    "uses" : {
+    },
+    "ValueSet-sf-BetNutChewYear-valueset.html" : "嚼檳榔年值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_ExamType",
+    "title" : "檢查類型代碼系統",
+    "description" : "勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。",
+    "uses" : {
+    },
+    "ValueSet-VS-ExamType.html" : "檢查類型值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_FitnessForWork",
+    "title" : "適性配工建議代碼系統",
+    "description" : "第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。",
+    "uses" : {
+    },
+    "ValueSet-VS-FitnessForWork.html" : "適性配工建議值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_HazardType",
+    "title" : "特別危害健康作業類別代碼系統",
+    "description" : "勞工健康保護規則所定義之 12 大類特別危害健康作業類別。",
+    "uses" : {
+    },
+    "ValueSet-VS-HazardType.html" : "特別危害健康作業類別值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_HealthCounseling",
+    "title" : "健康諮詢與衛教指導項目代碼系統",
+    "description" : "國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。",
+    "uses" : {
+    },
+    "ValueSet-VS-HealthCounseling.html" : "健康諮詢與衛教指導項目值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_HealthMgmtLevel",
+    "title" : "健康管理分級代碼系統",
+    "description" : "依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。",
+    "uses" : {
+    },
+    "ValueSet-VS-HealthMgmtLevel.html" : "健康管理分級值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_LaborReportCode",
+    "title" : "勞動部通報報告代碼系統",
+    "description" : "勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。",
+    "uses" : {
+    },
+    "ValueSet-VS-LaborReportCode.html" : "勞動部通報報告代碼值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-OrganicSolventType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_OrganicSolventType",
+    "title" : "有機溶劑種類代碼系統",
+    "description" : "特別危害健康作業中之有機溶劑種類（主要 7 種）。",
+    "uses" : {
+    },
+    "ValueSet-VS-OrganicSolventType.html" : "有機溶劑種類值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_PhysicalExamSystems",
+    "title" : "身體檢查系統部位代碼系統",
+    "description" : "附表十一理學檢查中所涉及之身體系統部位分類。",
+    "uses" : {
+    },
+    "ValueSet-VS-PhysicalExamSystems.html" : "身體檢查系統部位值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_ServiceActivityType",
+    "title" : "臨場健康服務辦理事項代碼系統",
+    "description" : "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。",
+    "uses" : {
+    },
+    "ValueSet-VS-ServiceActivityType.html" : "臨場健康服務辦理事項值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_SmokingStatus",
+    "title" : "吸菸狀態代碼系統",
+    "description" : "勞工健檢生活習慣調查中之吸菸狀態分類。",
+    "uses" : {
+    },
+    "ValueSet-VS-SmokingStatus.html" : "吸菸狀態值集"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "CS_SpecificChemicalType",
+    "title" : "特定化學物質種類代碼系統",
+    "description" : "特別危害健康作業中之特定化學物質種類。",
+    "uses" : {
+    },
+    "ValueSet-VS-SpecificChemicalType.html" : "特定化學物質種類值集"
+  }]
+}

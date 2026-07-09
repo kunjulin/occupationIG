@@ -1,0 +1,90 @@
+# 職業健檢生命徵象項目值集 - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+
+## ValueSet: 職業健檢生命徵象項目值集 
+
+ 
+包含身高、體重、腰圍及血壓等生理測量項目之 LOINC 代碼。 
+
+ **References** 
+
+* [職業健檢生命徵象 Profile](StructureDefinition-TWHA-VitalSigns.md)
+
+### Logical Definition (CLD)
+
+ 
+
+### Expansion
+
+No Expansion for this valueset (not supported by Publication Tooling)
+
+-------
+
+ [Description of the above table(s)](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "ValueSet",
+  "id" : "VS-TWHAVitalSigns",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns",
+  "version" : "0.1.0",
+  "name" : "VS_TWHAVitalSigns",
+  "title" : "職業健檢生命徵象項目值集",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2026-07-09T21:42:02+08:00",
+  "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+  "contact" : [{
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  },
+  {
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  }],
+  "description" : "包含身高、體重、腰圍及血壓等生理測量項目之 LOINC 代碼。",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "concept" : [{
+        "code" : "8302-2",
+        "display" : "Body height"
+      },
+      {
+        "code" : "29463-7",
+        "display" : "Body weight"
+      },
+      {
+        "code" : "56086-2",
+        "display" : "Waist Circumference"
+      },
+      {
+        "code" : "8480-6",
+        "display" : "Systolic blood pressure"
+      },
+      {
+        "code" : "8462-4",
+        "display" : "Diastolic blood pressure"
+      },
+      {
+        "code" : "39156-5",
+        "display" : "Body mass index (BMI) [Ratio]"
+      },
+      {
+        "code" : "73708-3",
+        "display" : "Waist-to-hip ratio"
+      }]
+    }]
+  }
+}
+
+```

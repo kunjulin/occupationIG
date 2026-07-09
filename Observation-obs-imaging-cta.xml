@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="obs-imaging-cta"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation obs-imaging-cta</b></p><a name="obs-imaging-cta"> </a><a name="hcobs-imaging-cta"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category imaging}">Imaging</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 79073-3}">CTA Hrt+CA W contr IV</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 11:00:00+0800</p><p><b>value</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}">None</span></p></div>
+  </text>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="imaging"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="79073-3"/>
+      <display value="CTA Hrt+CA W contr IV"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example-worker"/>
+  </subject>
+  <effectiveDateTime value="2026-06-12T11:00:00+08:00"/>
+  <valueCodeableConcept>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
+      <code value="N"/>
+    </coding>
+  </valueCodeableConcept>
+</Observation>

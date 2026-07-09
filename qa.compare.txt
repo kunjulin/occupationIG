@@ -1,0 +1,754 @@
+TWHAIG : Validation Results
+=========================================
+
+err = 10, warn = 247, info = 206
+$--
+Generated $--. FHIR version $-- for mohw.tw.twha#$-- (canonical = https://twcore.mohw.gov.tw/ig/twha)
+ Build Errors : 0 / 5 / 0
+ E:\repos\occupation_IG\fsh-generated\resources\Bundle-UC-001 : 0 / 22 / 49
+ E:\repos\occupation_IG\fsh-generated\resources\Bundle-UC-002 : 0 / 32 / 55
+ E:\repos\occupation_IG\fsh-generated\resources\Bundle-UC-003 : 0 / 15 / 27
+ E:\repos\occupation_IG\fsh-generated\resources\Bundle-UC-004 : 0 / 11 / 27
+ E:\repos\occupation_IG\fsh-generated\resources\Bundle-UC-005 : 0 / 25 / 61
+ E:\repos\occupation_IG\fsh-generated\resources\Bundle-UC-006 : 0 / 6 / 21
+ E:\repos\occupation_IG\fsh-generated\resources\CapabilityStatement-TWHA-CapabilityStatement : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ClinicalImpression-example-clinical-impression : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-ExamType : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-FitnessForWork : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-HazardType : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-HealthCounseling : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-HealthMgmtLevel : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-LaborReportCode : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-OrganicSolventType : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-PhysicalExamSystems : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-ServiceActivityType : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-SmokingStatus : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-CS-SpecificChemicalType : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-sf-BetNutChewAmount-codesystem : 0 / 3 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-sf-BetNutChewBeh-codesystem : 0 / 3 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-sf-BetNutChewQuit-codesystem : 0 / 3 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-sf-BetNutChewYear-codesystem : 0 / 3 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\CodeSystem-sf-ObserBeh-codesystem : 0 / 3 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Composition-composition-uc001 : 0 / 0 / 6
+ E:\repos\occupation_IG\fsh-generated\resources\Composition-composition-uc002 : 0 / 0 / 6
+ E:\repos\occupation_IG\fsh-generated\resources\Composition-composition-uc003 : 0 / 0 / 6
+ E:\repos\occupation_IG\fsh-generated\resources\Composition-composition-uc004 : 0 / 0 / 5
+ E:\repos\occupation_IG\fsh-generated\resources\Composition-composition-uc005 : 0 / 0 / 7
+ E:\repos\occupation_IG\fsh-generated\resources\Composition-example-composition-service : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\ConceptMap-TWHealthCheckLaboratoryMap : 0 / 3 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\Condition-example-past-condition : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Encounter-example-encounter-general : 0 / 1 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Encounter-example-encounter-service : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Group-example-group-workers : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\ImplementationGuide-mohw.tw.twha : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-example-service-finding : 0 / 3 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-betelnut : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-bloodpressure : 0 / 3 / 5
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-bmi : 0 / 3 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-endoscopy-colon : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-endoscopy-egd : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-hearing : 0 / 8 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-height : 0 / 3 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-imaging-brain-mri : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-imaging-cta : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-imaging-lung-ct : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-imaging-mammo : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-imaging-pet : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-lab-glucose : 0 / 4 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-physical : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-pulmonary : 0 / 3 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-sleep : 0 / 2 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-smoking : 0 / 1 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-vision : 0 / 2 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-waist : 0 / 2 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Observation-obs-weight : 0 / 3 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\OperationDefinition-Bundle-submit : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Organization-example-employer : 0 / 1 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Organization-example-hospital : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Patient-example-worker : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Practitioner-example-doctor : 0 / 1 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Procedure-example-procedure-activity : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Procedure-example-procedure-counseling : 0 / 0 / 3
+ E:\repos\occupation_IG\fsh-generated\resources\Questionnaire-adult-preventive-care-questionnaire : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Questionnaire-example-questionnaire : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\Questionnaire-twha-sdoh-questionnaire : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\QuestionnaireResponse-adult-preventive-care-response : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\QuestionnaireResponse-example-symptoms-response : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\QuestionnaireResponse-sdoh-questionnaire-response : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Bundle-Document : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Bundle-Transaction : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-CarePlan : 0 / 1 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-ClinicalImpression : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Composition : 0 / 1 / 3
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Composition-ServiceRecord : 0 / 1 / 3
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Condition : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-DiagnosticReport : 0 / 1 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-ECG : 0 / 13 / 5
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Encounter : 0 / 4 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Encounter-Service : 0 / 4 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-HealthManagementLevel : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-HearingTest : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-ImagingStudy : 0 / 8 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-LabResult-General : 0 / 0 / 3
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-LabResult-Special : 0 / 1 / 3
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Observation-ServiceFinding : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Occupation : 0 / 1 / 3
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Organization-Employer : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Organization-Facility : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Patient : 0 / 1 / 3
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-PhysicalExam : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Practitioner : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Procedure-Counseling : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Procedure-ServiceActivity : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-PulmonaryFunction : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Questionnaire : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-QuestionnaireResponse : 0 / 5 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-QuestionnaireResponse-HT : 0 / 5 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-SDOH-QuestionnaireResponse : 0 / 5 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-ServiceRequest : 0 / 2 / 3
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-SocialHistory-Alcohol : 0 / 1 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-SocialHistory-BetelNut : 0 / 0 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-SocialHistory-Sleep : 0 / 0 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-SocialHistory-Smoking : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-Task-ServiceTask : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-VisionTest : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-VitalSigns : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-TWHA-WorkExposure : 0 / 1 / 4
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-cessation-duration : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-department : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-employer-info : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-employment-date : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-exam-interval : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-exam-type : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-fitness-for-work : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-hazard-type : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-health-mgmt-level : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-labor-report-code : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\StructureDefinition-ext-smoking-quantity : 0 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\Task-example-service-task : 0 / 0 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-CoreDataset : 2 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-ExamType : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-ExtendedDataset : 2 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-FitnessForWork : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-HazardType : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-HealthCounseling : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-HealthMgmtLevel : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-LaborReportCode : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-OrganicSolventType : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-PhysicalExamSystems : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-PulmonaryFunction : 2 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-ServiceActivityType : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-SmokingStatus : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-SpecificChemicalType : 0 / 0 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-TWHAVitalSigns : 2 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-VS-UnfitDiseases : 2 / 1 / 1
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-sf-BetNutChewAmount-valueset : 0 / 2 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-sf-BetNutChewBeh-valueset : 0 / 2 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-sf-BetNutChewQuit-valueset : 0 / 2 / 2
+ E:\repos\occupation_IG\fsh-generated\resources\ValueSet-sf-BetNutChewYear-valueset : 0 / 2 / 2
+</table>
+== n/a ==
+WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource OperationDefinition/Bundle-submit.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
+WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide
+WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide
+== fsh-generated\resources\Bundle-UC-001.json ==
+WARNING: Bundle/UC-001: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
+INFORMATION: Bundle/UC-001: Bundle.entry[0].resource/*Composition/composition-uc001*/.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Bundle/UC-001: Bundle.entry[0].resource/*Composition/composition-uc001*/.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-001: Bundle.entry[0].resource/*Composition/composition-uc001*/.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-001: Bundle.entry[0].resource/*Composition/composition-uc001*/.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-001: Bundle.entry[0].resource/*Composition/composition-uc001*/.section[3].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+WARNING: Bundle/UC-001: Bundle.entry[1].resource/*Patient/example-worker*/.identifier[0].system: No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'
+WARNING: Bundle/UC-001: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0].system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw'
+INFORMATION: Bundle/UC-001: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+WARNING: Bundle/UC-001: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.extension[1].value.ofType(Quantity): Unable to validate code 'a' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-001: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: Bundle/UC-001: Bundle.entry[5].resource/*Observation/obs-height*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-001: Bundle.entry[5].resource/*Observation/obs-height*/.value.ofType(Quantity): Unable to validate code 'cm' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-001: Bundle.entry[5].resource/*Observation/obs-height*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-001: Bundle.entry[5].resource/*Observation/obs-height*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-001: Bundle.entry[5].resource/*Observation/obs-height*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-001: Bundle.entry[6].resource/*Observation/obs-weight*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-001: Bundle.entry[6].resource/*Observation/obs-weight*/.value.ofType(Quantity): Unable to validate code 'kg' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-001: Bundle.entry[6].resource/*Observation/obs-weight*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-001: Bundle.entry[6].resource/*Observation/obs-weight*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-001: Bundle.entry[6].resource/*Observation/obs-weight*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+WARNING: Bundle/UC-001: Bundle.entry[7].resource/*Observation/obs-waist*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-001: Bundle.entry[7].resource/*Observation/obs-waist*/.value.ofType(Quantity): Unable to validate code 'cm' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-001: Bundle.entry[7].resource/*Observation/obs-waist*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-001: Bundle.entry[7].resource/*Observation/obs-waist*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-001: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+INFORMATION: Bundle/UC-001: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[0].code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-001: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[0].value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-001: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[1].code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-001: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[1].value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+WARNING: Bundle/UC-001: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-001: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[0].value.ofType(Quantity): Unable to validate code 'mm[Hg]' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-001: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[1].value.ofType(Quantity): Unable to validate code 'mm[Hg]' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-001: Bundle.entry[9].resource/*Observation/obs-physical*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+WARNING: Bundle/UC-001: Bundle.entry[10].resource/*Observation/obs-lab-glucose*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-001: Bundle.entry[10].resource/*Observation/obs-lab-glucose*/.value.ofType(Quantity): Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-001: Bundle.entry[10].resource/*Observation/obs-lab-glucose*/.referenceRange[0].low: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-001: Bundle.entry[10].resource/*Observation/obs-lab-glucose*/.referenceRange[0].high: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-001: Bundle.entry[10].resource/*Observation/obs-lab-glucose*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset because there is no terminology service
+INFORMATION: Bundle/UC-001: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
+== fsh-generated\resources\Bundle-UC-002.json ==
+WARNING: Bundle/UC-002: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
+INFORMATION: Bundle/UC-002: Bundle.entry[0].resource/*Composition/composition-uc002*/.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Bundle/UC-002: Bundle.entry[0].resource/*Composition/composition-uc002*/.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-002: Bundle.entry[0].resource/*Composition/composition-uc002*/.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-002: Bundle.entry[0].resource/*Composition/composition-uc002*/.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-002: Bundle.entry[0].resource/*Composition/composition-uc002*/.section[3].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[1].resource/*Patient/example-worker*/.identifier[0].system: No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'
+WARNING: Bundle/UC-002: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0].system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw'
+INFORMATION: Bundle/UC-002: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+WARNING: Bundle/UC-002: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.extension[1].value.ofType(Quantity): Unable to validate code 'a' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-002: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: Bundle/UC-002: Bundle.entry[5].resource/*Observation/obs-height*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[5].resource/*Observation/obs-height*/.value.ofType(Quantity): Unable to validate code 'cm' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[5].resource/*Observation/obs-height*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-002: Bundle.entry[5].resource/*Observation/obs-height*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[5].resource/*Observation/obs-height*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-002: Bundle.entry[6].resource/*Observation/obs-weight*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[6].resource/*Observation/obs-weight*/.value.ofType(Quantity): Unable to validate code 'kg' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[6].resource/*Observation/obs-weight*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-002: Bundle.entry[6].resource/*Observation/obs-weight*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[6].resource/*Observation/obs-weight*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+WARNING: Bundle/UC-002: Bundle.entry[7].resource/*Observation/obs-waist*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-002: Bundle.entry[7].resource/*Observation/obs-waist*/.value.ofType(Quantity): Unable to validate code 'cm' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-002: Bundle.entry[7].resource/*Observation/obs-waist*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[7].resource/*Observation/obs-waist*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-002: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+INFORMATION: Bundle/UC-002: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[0].code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[0].value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-002: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[1].code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[1].value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+WARNING: Bundle/UC-002: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-002: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[0].value.ofType(Quantity): Unable to validate code 'mm[Hg]' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/.component[1].value.ofType(Quantity): Unable to validate code 'mm[Hg]' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[9].resource/*Observation/obs-vision*/.component[0].value.ofType(Quantity): Unable to validate code '1' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[9].resource/*Observation/obs-vision*/.component[1].value.ofType(Quantity): Unable to validate code '1' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-002: Bundle.entry[9].resource/*Observation/obs-vision*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[10].resource/*Observation/obs-hearing*/.component[0].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[10].resource/*Observation/obs-hearing*/.component[1].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[10].resource/*Observation/obs-hearing*/.component[2].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[10].resource/*Observation/obs-hearing*/.component[3].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[10].resource/*Observation/obs-hearing*/.component[4].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[10].resource/*Observation/obs-hearing*/.component[5].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[10].resource/*Observation/obs-hearing*/.component[6].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[10].resource/*Observation/obs-hearing*/.component[7].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-002: Bundle.entry[10].resource/*Observation/obs-hearing*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+INFORMATION: Bundle/UC-002: Bundle.entry[11].resource/*Observation/obs-physical*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+WARNING: Bundle/UC-002: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-002: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/.value.ofType(Quantity): Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/.referenceRange[0].low: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-002: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/.referenceRange[0].high: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-002: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset because there is no terminology service
+INFORMATION: Bundle/UC-002: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
+== fsh-generated\resources\Bundle-UC-003.json ==
+WARNING: Bundle/UC-003: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
+INFORMATION: Bundle/UC-003: Bundle.entry[0].resource/*Composition/composition-uc003*/.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Bundle/UC-003: Bundle.entry[0].resource/*Composition/composition-uc003*/.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-003: Bundle.entry[0].resource/*Composition/composition-uc003*/.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-003: Bundle.entry[0].resource/*Composition/composition-uc003*/.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-003: Bundle.entry[0].resource/*Composition/composition-uc003*/.section[3].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+WARNING: Bundle/UC-003: Bundle.entry[1].resource/*Patient/example-worker*/.identifier[0].system: No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'
+WARNING: Bundle/UC-003: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0].system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw'
+INFORMATION: Bundle/UC-003: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+WARNING: Bundle/UC-003: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.extension[1].value.ofType(Quantity): Unable to validate code 'a' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-003: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+WARNING: Bundle/UC-003: Bundle.entry[5].resource/*Observation/obs-hearing*/.component[0].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-003: Bundle.entry[5].resource/*Observation/obs-hearing*/.component[1].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-003: Bundle.entry[5].resource/*Observation/obs-hearing*/.component[2].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-003: Bundle.entry[5].resource/*Observation/obs-hearing*/.component[3].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-003: Bundle.entry[5].resource/*Observation/obs-hearing*/.component[4].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-003: Bundle.entry[5].resource/*Observation/obs-hearing*/.component[5].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-003: Bundle.entry[5].resource/*Observation/obs-hearing*/.component[6].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-003: Bundle.entry[5].resource/*Observation/obs-hearing*/.component[7].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-003: Bundle.entry[5].resource/*Observation/obs-hearing*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+WARNING: Bundle/UC-003: Bundle.entry[6].resource/*Observation/obs-pulmonary*/.value.ofType(Quantity): Unable to validate code 'L' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-003: Bundle.entry[6].resource/*Observation/obs-pulmonary*/.component[0].value.ofType(Quantity): Unable to validate code 'L' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-003: Bundle.entry[6].resource/*Observation/obs-pulmonary*/.component[1].value.ofType(Quantity): Unable to validate code '%' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-003: Bundle.entry[6].resource/*Observation/obs-pulmonary*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+INFORMATION: Bundle/UC-003: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
+== fsh-generated\resources\Bundle-UC-004.json ==
+WARNING: Bundle/UC-004: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
+INFORMATION: Bundle/UC-004: Bundle.entry[0].resource/*Composition/composition-uc004*/.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Bundle/UC-004: Bundle.entry[0].resource/*Composition/composition-uc004*/.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-004: Bundle.entry[0].resource/*Composition/composition-uc004*/.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-004: Bundle.entry[0].resource/*Composition/composition-uc004*/.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+WARNING: Bundle/UC-004: Bundle.entry[1].resource/*Patient/example-worker*/.identifier[0].system: No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'
+WARNING: Bundle/UC-004: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0].system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw'
+INFORMATION: Bundle/UC-004: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+WARNING: Bundle/UC-004: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.extension[1].value.ofType(Quantity): Unable to validate code 'a' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-004: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+WARNING: Bundle/UC-004: Bundle.entry[5].resource/*Observation/obs-imaging-mammo*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-004: Bundle.entry[6].resource/*Observation/obs-imaging-brain-mri*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-004: Bundle.entry[7].resource/*Observation/obs-imaging-lung-ct*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-004: Bundle.entry[8].resource/*Observation/obs-imaging-pet*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-004: Bundle.entry[9].resource/*Observation/obs-imaging-cta*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-004: Bundle.entry[10].resource/*Observation/obs-endoscopy-egd*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-004: Bundle.entry[11].resource/*Observation/obs-endoscopy-colon*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-004: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
+== fsh-generated\resources\Bundle-UC-005.json ==
+WARNING: Bundle/UC-005: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
+INFORMATION: Bundle/UC-005: Bundle.entry[0].resource/*Composition/composition-uc005*/.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Bundle/UC-005: Bundle.entry[0].resource/*Composition/composition-uc005*/.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-005: Bundle.entry[0].resource/*Composition/composition-uc005*/.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-005: Bundle.entry[0].resource/*Composition/composition-uc005*/.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-005: Bundle.entry[0].resource/*Composition/composition-uc005*/.section[3].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Bundle/UC-005: Bundle.entry[0].resource/*Composition/composition-uc005*/.section[4].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[1].resource/*Patient/example-worker*/.identifier[0].system: No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'
+WARNING: Bundle/UC-005: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0].system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw'
+INFORMATION: Bundle/UC-005: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+WARNING: Bundle/UC-005: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.extension[1].value.ofType(Quantity): Unable to validate code 'a' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-005: Bundle.entry[4].resource/*Encounter/example-encounter-general*/.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: Bundle/UC-005: Bundle.entry[7].resource/*Observation/obs-height*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[7].resource/*Observation/obs-height*/.value.ofType(Quantity): Unable to validate code 'cm' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-005: Bundle.entry[7].resource/*Observation/obs-height*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-005: Bundle.entry[7].resource/*Observation/obs-height*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[7].resource/*Observation/obs-height*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-005: Bundle.entry[8].resource/*Observation/obs-weight*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[8].resource/*Observation/obs-weight*/.value.ofType(Quantity): Unable to validate code 'kg' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-005: Bundle.entry[8].resource/*Observation/obs-weight*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-005: Bundle.entry[8].resource/*Observation/obs-weight*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[8].resource/*Observation/obs-weight*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-005: Bundle.entry[9].resource/*Observation/obs-bmi*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[9].resource/*Observation/obs-bmi*/.value.ofType(Quantity): Unable to validate code 'kg/m2' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-005: Bundle.entry[9].resource/*Observation/obs-bmi*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-005: Bundle.entry[9].resource/*Observation/obs-bmi*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[9].resource/*Observation/obs-bmi*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+WARNING: Bundle/UC-005: Bundle.entry[10].resource/*Observation/obs-waist*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-005: Bundle.entry[10].resource/*Observation/obs-waist*/.value.ofType(Quantity): Unable to validate code 'cm' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-005: Bundle.entry[10].resource/*Observation/obs-waist*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[10].resource/*Observation/obs-waist*/.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-005: Bundle.entry[11].resource/*Observation/obs-bloodpressure*/.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+INFORMATION: Bundle/UC-005: Bundle.entry[11].resource/*Observation/obs-bloodpressure*/.component[0].code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[11].resource/*Observation/obs-bloodpressure*/.component[0].value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Bundle/UC-005: Bundle.entry[11].resource/*Observation/obs-bloodpressure*/.component[1].code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Bundle/UC-005: Bundle.entry[11].resource/*Observation/obs-bloodpressure*/.component[1].value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+WARNING: Bundle/UC-005: Bundle.entry[11].resource/*Observation/obs-bloodpressure*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-005: Bundle.entry[11].resource/*Observation/obs-bloodpressure*/.component[0].value.ofType(Quantity): Unable to validate code 'mm[Hg]' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-005: Bundle.entry[11].resource/*Observation/obs-bloodpressure*/.component[1].value.ofType(Quantity): Unable to validate code 'mm[Hg]' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-005: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-005: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/.value.ofType(Quantity): Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-005: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/.referenceRange[0].low: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Bundle/UC-005: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/.referenceRange[0].high: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Bundle/UC-005: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset because there is no terminology service
+INFORMATION: Bundle/UC-005: Bundle.entry[14].resource/*Procedure/example-procedure-counseling*/.code.coding[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Bundle/UC-005: Bundle.entry[14].resource/*Procedure/example-procedure-counseling*/.code.coding[1]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Bundle/UC-005: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
+== fsh-generated\resources\Bundle-UC-006.json ==
+WARNING: Bundle/UC-006: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
+WARNING: Bundle/UC-006: Bundle.entry[1].resource/*Organization/example-employer*/.identifier[0].system: No definition could be found for URL value 'https://gcis.nat.gov.tw'
+INFORMATION: Bundle/UC-006: Bundle.entry[1].resource/*Organization/example-employer*/.type[0]: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/organization-type|4.0.1
+WARNING: Bundle/UC-006: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0].system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw'
+INFORMATION: Bundle/UC-006: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Bundle/UC-006: Bundle.entry[4].resource/*Encounter/example-encounter-service*/.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+WARNING: Bundle/UC-006: Bundle.entry[7].resource/*Observation/example-service-finding*/: Best Practice Recommendation: In general, all observations should have a subject
+WARNING: Bundle/UC-006: Bundle.entry[7].resource/*Observation/example-service-finding*/: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Bundle/UC-006: Bundle.entry[7].resource/*Observation/example-service-finding*/: Best Practice Recommendation: In general, all observations should have an effective[x] ()
+== fsh-generated\resources\CapabilityStatement-TWHA-CapabilityStatement.json ==
+INFORMATION: Resource: The resource CapabilityStatement/TWHA-CapabilityStatement could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated\resources\ClinicalImpression-example-clinical-impression.json ==
+== fsh-generated\resources\CodeSystem-CS-ExamType.json ==
+== fsh-generated\resources\CodeSystem-CS-FitnessForWork.json ==
+== fsh-generated\resources\CodeSystem-CS-HazardType.json ==
+== fsh-generated\resources\CodeSystem-CS-HealthCounseling.json ==
+== fsh-generated\resources\CodeSystem-CS-HealthMgmtLevel.json ==
+== fsh-generated\resources\CodeSystem-CS-LaborReportCode.json ==
+== fsh-generated\resources\CodeSystem-CS-OrganicSolventType.json ==
+== fsh-generated\resources\CodeSystem-CS-PhysicalExamSystems.json ==
+== fsh-generated\resources\CodeSystem-CS-ServiceActivityType.json ==
+== fsh-generated\resources\CodeSystem-CS-SmokingStatus.json ==
+== fsh-generated\resources\CodeSystem-CS-SpecificChemicalType.json ==
+== fsh-generated\resources\CodeSystem-sf-BetNutChewAmount-codesystem.json ==
+WARNING: CodeSystem/sf-BetNutChewAmount-codesystem: CodeSystem: Constraint failed: csd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
+INFORMATION: CodeSystem/sf-BetNutChewAmount-codesystem: CodeSystem: CodeSystems SHOULD have a stated value for the caseSensitive element so that users know the status and meaning of the code system clearly
+WARNING: CodeSystem/sf-BetNutChewAmount-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.experimental is mandatory, but it is not present
+WARNING: CodeSystem/sf-BetNutChewAmount-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.caseSensitive is mandatory, but it is not present
+== fsh-generated\resources\CodeSystem-sf-BetNutChewBeh-codesystem.json ==
+WARNING: CodeSystem/sf-BetNutChewBeh-codesystem: CodeSystem: Constraint failed: csd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
+INFORMATION: CodeSystem/sf-BetNutChewBeh-codesystem: CodeSystem: CodeSystems SHOULD have a stated value for the caseSensitive element so that users know the status and meaning of the code system clearly
+WARNING: CodeSystem/sf-BetNutChewBeh-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.experimental is mandatory, but it is not present
+WARNING: CodeSystem/sf-BetNutChewBeh-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.caseSensitive is mandatory, but it is not present
+== fsh-generated\resources\CodeSystem-sf-BetNutChewQuit-codesystem.json ==
+WARNING: CodeSystem/sf-BetNutChewQuit-codesystem: CodeSystem: Constraint failed: csd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
+INFORMATION: CodeSystem/sf-BetNutChewQuit-codesystem: CodeSystem: CodeSystems SHOULD have a stated value for the caseSensitive element so that users know the status and meaning of the code system clearly
+WARNING: CodeSystem/sf-BetNutChewQuit-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.experimental is mandatory, but it is not present
+WARNING: CodeSystem/sf-BetNutChewQuit-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.caseSensitive is mandatory, but it is not present
+== fsh-generated\resources\CodeSystem-sf-BetNutChewYear-codesystem.json ==
+WARNING: CodeSystem/sf-BetNutChewYear-codesystem: CodeSystem: Constraint failed: csd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
+INFORMATION: CodeSystem/sf-BetNutChewYear-codesystem: CodeSystem: CodeSystems SHOULD have a stated value for the caseSensitive element so that users know the status and meaning of the code system clearly
+WARNING: CodeSystem/sf-BetNutChewYear-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.experimental is mandatory, but it is not present
+WARNING: CodeSystem/sf-BetNutChewYear-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.caseSensitive is mandatory, but it is not present
+== fsh-generated\resources\CodeSystem-sf-ObserBeh-codesystem.json ==
+WARNING: CodeSystem/sf-ObserBeh-codesystem: CodeSystem: Constraint failed: csd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
+INFORMATION: CodeSystem/sf-ObserBeh-codesystem: CodeSystem: CodeSystems SHOULD have a stated value for the caseSensitive element so that users know the status and meaning of the code system clearly
+WARNING: CodeSystem/sf-ObserBeh-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.experimental is mandatory, but it is not present
+WARNING: CodeSystem/sf-ObserBeh-codesystem: CodeSystem: Published code systems SHOULD conform to the ShareableCodeSystem profile, which says that the element CodeSystem.caseSensitive is mandatory, but it is not present
+== fsh-generated\resources\Composition-composition-uc001.json ==
+INFORMATION: Composition/composition-uc001: Composition.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Composition/composition-uc001: Composition.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc001: Composition.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc001: Composition.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc001: Composition.section[3].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+== fsh-generated\resources\Composition-composition-uc002.json ==
+INFORMATION: Composition/composition-uc002: Composition.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Composition/composition-uc002: Composition.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc002: Composition.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc002: Composition.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc002: Composition.section[3].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+== fsh-generated\resources\Composition-composition-uc003.json ==
+INFORMATION: Composition/composition-uc003: Composition.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Composition/composition-uc003: Composition.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc003: Composition.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc003: Composition.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc003: Composition.section[3].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+== fsh-generated\resources\Composition-composition-uc004.json ==
+INFORMATION: Composition/composition-uc004: Composition.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Composition/composition-uc004: Composition.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc004: Composition.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc004: Composition.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+== fsh-generated\resources\Composition-composition-uc005.json ==
+INFORMATION: Composition/composition-uc005: Composition.type: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-type-doc-code because there is no terminology service
+INFORMATION: Composition/composition-uc005: Composition.section[0].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc005: Composition.section[1].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc005: Composition.section[2].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc005: Composition.section[3].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+INFORMATION: Composition/composition-uc005: Composition.section[4].code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code because there is no terminology service
+== fsh-generated\resources\Composition-example-composition-service.json ==
+== fsh-generated\resources\ConceptMap-TWHealthCheckLaboratoryMap.json ==
+INFORMATION: ConceptMap/TWHealthCheckLaboratoryMap: ConceptMap.group[0].source: Source Code System http://loinc.org is only supported on the terminology server, so the source codes are not validated for performance reasons
+INFORMATION: ConceptMap/TWHealthCheckLaboratoryMap: ConceptMap.group[0].target: Target Code System http://loinc.org is only supported on the terminology server, so the target codes are not validated for performance reasons
+WARNING: ConceptMap/TWHealthCheckLaboratoryMap: ConceptMap.group[0]: The terminology server null used for the CodeSystem http://loinc.org does not support batch validation (tx version Not Known), so the codes have not been validated
+WARNING: ConceptMap/TWHealthCheckLaboratoryMap: ConceptMap: Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.title is mandatory, but it is not present
+WARNING: ConceptMap/TWHealthCheckLaboratoryMap: ConceptMap: Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.description is mandatory, but it is not present
+INFORMATION: Resource: The resource ConceptMap/TWHealthCheckLaboratoryMap could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated\resources\Condition-example-past-condition.json ==
+INFORMATION: Condition/example-past-condition: Condition.code.coding[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Condition|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+== fsh-generated\resources\Encounter-example-encounter-general.json ==
+WARNING: Encounter/example-encounter-general: Encounter.extension[1].value.ofType(Quantity): Unable to validate code 'a' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+INFORMATION: Encounter/example-encounter-general: Encounter.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+== fsh-generated\resources\Encounter-example-encounter-service.json ==
+INFORMATION: Encounter/example-encounter-service: Encounter.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+== fsh-generated\resources\Group-example-group-workers.json ==
+== fsh-generated\resources\ImplementationGuide-mohw.tw.twha.json ==
+== fsh-generated\resources\Observation-example-service-finding.json ==
+WARNING: Observation/example-service-finding: Observation: Best Practice Recommendation: In general, all observations should have a subject
+WARNING: Observation/example-service-finding: Observation: Best Practice Recommendation: In general, all observations should have a performer
+WARNING: Observation/example-service-finding: Observation: Best Practice Recommendation: In general, all observations should have an effective[x] ()
+== fsh-generated\resources\Observation-obs-betelnut.json ==
+WARNING: Observation/obs-betelnut: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-bloodpressure.json ==
+INFORMATION: Observation/obs-bloodpressure: Observation.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+INFORMATION: Observation/obs-bloodpressure: Observation.component[0].code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Observation/obs-bloodpressure: Observation.component[0].value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Observation/obs-bloodpressure: Observation.component[1].code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Observation/obs-bloodpressure: Observation.component[1].value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+WARNING: Observation/obs-bloodpressure: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-bmi.json ==
+INFORMATION: Observation/obs-bmi: Observation.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Observation/obs-bmi: Observation.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Observation/obs-bmi: Observation.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Observation/obs-bmi: Observation.value.ofType(Quantity): Unable to validate code 'kg/m2' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-bmi: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-endoscopy-colon.json ==
+WARNING: Observation/obs-endoscopy-colon: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-endoscopy-egd.json ==
+WARNING: Observation/obs-endoscopy-egd: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-hearing.json ==
+INFORMATION: Observation/obs-hearing: Observation.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+WARNING: Observation/obs-hearing: Observation.component[0].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-hearing: Observation.component[1].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-hearing: Observation.component[2].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-hearing: Observation.component[3].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-hearing: Observation.component[4].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-hearing: Observation.component[5].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-hearing: Observation.component[6].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-hearing: Observation.component[7].value.ofType(Quantity): Unable to validate code 'dB' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+== fsh-generated\resources\Observation-obs-height.json ==
+INFORMATION: Observation/obs-height: Observation.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Observation/obs-height: Observation.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Observation/obs-height: Observation.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Observation/obs-height: Observation.value.ofType(Quantity): Unable to validate code 'cm' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-height: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-imaging-brain-mri.json ==
+WARNING: Observation/obs-imaging-brain-mri: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-imaging-cta.json ==
+WARNING: Observation/obs-imaging-cta: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-imaging-lung-ct.json ==
+WARNING: Observation/obs-imaging-lung-ct: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-imaging-mammo.json ==
+WARNING: Observation/obs-imaging-mammo: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-imaging-pet.json ==
+WARNING: Observation/obs-imaging-pet: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-lab-glucose.json ==
+INFORMATION: Observation/obs-lab-glucose: Observation.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset because there is no terminology service
+WARNING: Observation/obs-lab-glucose: Observation.value.ofType(Quantity): Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-lab-glucose: Observation.referenceRange[0].low: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-lab-glucose: Observation.referenceRange[0].high: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-lab-glucose: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-physical.json ==
+INFORMATION: Observation/obs-physical: Observation.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+== fsh-generated\resources\Observation-obs-pulmonary.json ==
+INFORMATION: Observation/obs-pulmonary: Observation.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+WARNING: Observation/obs-pulmonary: Observation.value.ofType(Quantity): Unable to validate code 'L' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-pulmonary: Observation.component[0].value.ofType(Quantity): Unable to validate code 'L' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-pulmonary: Observation.component[1].value.ofType(Quantity): Unable to validate code '%' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+== fsh-generated\resources\Observation-obs-sleep.json ==
+WARNING: Observation/obs-sleep: Observation.value.ofType(Quantity): Unable to validate code 'h' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-sleep: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-smoking.json ==
+INFORMATION: Observation/obs-smoking: Observation.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/smoking-status-type-code because there is no terminology service
+INFORMATION: Observation/obs-smoking: Observation.value.ofType(CodeableConcept): Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twcore/ValueSet/smoking-status-comprehensive-code because there is no terminology service
+INFORMATION: Observation/obs-smoking: Observation.value.ofType(CodeableConcept).coding[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Smoking|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+WARNING: Observation/obs-smoking: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-vision.json ==
+INFORMATION: Observation/obs-vision: Observation.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-codes because there is no terminology service
+WARNING: Observation/obs-vision: Observation.component[0].value.ofType(Quantity): Unable to validate code '1' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-vision: Observation.component[1].value.ofType(Quantity): Unable to validate code '1' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+== fsh-generated\resources\Observation-obs-waist.json ==
+INFORMATION: Observation/obs-waist: Observation.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Observation/obs-waist: Observation.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+WARNING: Observation/obs-waist: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\Observation-obs-weight.json ==
+INFORMATION: Observation/obs-weight: Observation.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns because there is no terminology service
+WARNING: Observation/obs-weight: Observation.value.ofType(Quantity): Unable to validate code without using server because: Resolved system http://unitsofmeasure.org (v3.0.1), but the definition doesn't include any codes, so the code has not been validated
+INFORMATION: Observation/obs-weight: Observation.code: Could not confirm that the codes provided are from the extensible value set http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1 because there is no terminology service
+WARNING: Observation/obs-weight: Observation.value.ofType(Quantity): Unable to validate code 'kg' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
+WARNING: Observation/obs-weight: Observation: Best Practice Recommendation: In general, all observations should have a performer
+== fsh-generated\resources\OperationDefinition-Bundle-submit.json ==
+== fsh-generated\resources\Organization-example-employer.json ==
+WARNING: Organization/example-employer: Organization.identifier[0].system: No definition could be found for URL value 'https://gcis.nat.gov.tw'
+INFORMATION: Organization/example-employer: Organization.type[0]: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/organization-type|4.0.1
+== fsh-generated\resources\Organization-example-hospital.json ==
+== fsh-generated\resources\Patient-example-worker.json ==
+WARNING: Patient/example-worker: Patient.identifier[0].system: No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'
+== fsh-generated\resources\Practitioner-example-doctor.json ==
+INFORMATION: Practitioner/example-doctor: Practitioner.identifier[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+WARNING: Practitioner/example-doctor: Practitioner.identifier[0].system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw'
+== fsh-generated\resources\Procedure-example-procedure-activity.json ==
+== fsh-generated\resources\Procedure-example-procedure-counseling.json ==
+INFORMATION: Procedure/example-procedure-counseling: Procedure.code.coding[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Procedure/example-procedure-counseling: Procedure.code.coding[1]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+== fsh-generated\resources\Questionnaire-adult-preventive-care-questionnaire.json ==
+INFORMATION: Resource: The resource Questionnaire/adult-preventive-care-questionnaire could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated\resources\Questionnaire-example-questionnaire.json ==
+INFORMATION: Resource: The resource Questionnaire/example-questionnaire could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated\resources\Questionnaire-twha-sdoh-questionnaire.json ==
+INFORMATION: Resource: The resource Questionnaire/twha-sdoh-questionnaire could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+== fsh-generated\resources\QuestionnaireResponse-adult-preventive-care-response.json ==
+== fsh-generated\resources\QuestionnaireResponse-example-symptoms-response.json ==
+== fsh-generated\resources\QuestionnaireResponse-sdoh-questionnaire-response.json ==
+== fsh-generated\resources\StructureDefinition-TWHA-Bundle-Document.json ==
+INFORMATION: StructureDefinition/TWHA-Bundle-Document: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated with the note: 'Use additionalBinding extension or element instead'
+== fsh-generated\resources\StructureDefinition-TWHA-Bundle-Transaction.json ==
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Transaction'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-CarePlan.json ==
+INFORMATION: StructureDefinition/TWHA-CarePlan: StructureDefinition.snapshot.element[22].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-CarePlan'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-ClinicalImpression.json ==
+== fsh-generated\resources\StructureDefinition-TWHA-Composition.json ==
+WARNING: StructureDefinition/TWHA-Composition: StructureDefinition.snapshot.element[37].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActCode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2018-08-12', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActCode' to 'http://terminology.hl7.org/ValueSet/v3-ActCode|2018-08-12'
+INFORMATION: StructureDefinition/TWHA-Composition: StructureDefinition.differential.element[5].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+INFORMATION: StructureDefinition/TWHA-Composition: StructureDefinition.snapshot.element[40].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-Composition-ServiceRecord.json ==
+WARNING: StructureDefinition/TWHA-Composition-ServiceRecord: StructureDefinition.snapshot.element[37].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActCode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2018-08-12', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActCode' to 'http://terminology.hl7.org/ValueSet/v3-ActCode|2018-08-12'
+INFORMATION: StructureDefinition/TWHA-Composition-ServiceRecord: StructureDefinition.differential.element[6].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+INFORMATION: StructureDefinition/TWHA-Composition-ServiceRecord: StructureDefinition.snapshot.element[40].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-Condition.json ==
+INFORMATION: StructureDefinition/TWHA-Condition: StructureDefinition.snapshot.element[17].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-DiagnosticReport.json ==
+INFORMATION: StructureDefinition/TWHA-DiagnosticReport: StructureDefinition.snapshot.element[16].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-DiagnosticReport'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-ECG.json ==
+INFORMATION: StructureDefinition/TWHA-ECG: StructureDefinition.snapshot.element[14].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-ECG: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+INFORMATION: StructureDefinition/TWHA-ECG: StructureDefinition.snapshot.element[14].pattern.ofType(CodeableConcept): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/TWHA-ECG: StructureDefinition.snapshot.element[46].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ECG'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-Encounter.json ==
+INFORMATION: StructureDefinition/TWHA-Encounter: StructureDefinition.snapshot.element[29].pattern.ofType(Coding): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+WARNING: StructureDefinition/TWHA-Encounter: StructureDefinition.snapshot.element[29].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2014-03-26', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode' to 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode|2014-03-26'
+WARNING: StructureDefinition/TWHA-Encounter: StructureDefinition.snapshot.element[34].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2014-03-26', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode' to 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode|2014-03-26'
+WARNING: StructureDefinition/TWHA-Encounter: StructureDefinition.snapshot.element[66].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActPriority'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2018-08-12', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActPriority' to 'http://terminology.hl7.org/ValueSet/v3-ActPriority|2018-08-12'
+WARNING: StructureDefinition/TWHA-Encounter: StructureDefinition.snapshot.element[97].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v2-0092'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2.9', found versions: 2.0.0 (from hl7.terminology.r4#7.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v2-0092' to 'http://terminology.hl7.org/ValueSet/v2-0092|2.9'
+INFORMATION: StructureDefinition/TWHA-Encounter: StructureDefinition.differential.element[6].pattern.ofType(Coding): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: StructureDefinition/TWHA-Encounter: StructureDefinition.snapshot.element[40].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-Encounter-Service.json ==
+INFORMATION: StructureDefinition/TWHA-Encounter-Service: StructureDefinition.snapshot.element[27].pattern.ofType(Coding): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+WARNING: StructureDefinition/TWHA-Encounter-Service: StructureDefinition.snapshot.element[27].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2014-03-26', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode' to 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode|2014-03-26'
+WARNING: StructureDefinition/TWHA-Encounter-Service: StructureDefinition.snapshot.element[32].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2014-03-26', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode' to 'http://terminology.hl7.org/ValueSet/v3-ActEncounterCode|2014-03-26'
+WARNING: StructureDefinition/TWHA-Encounter-Service: StructureDefinition.snapshot.element[64].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActPriority'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2018-08-12', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActPriority' to 'http://terminology.hl7.org/ValueSet/v3-ActPriority|2018-08-12'
+WARNING: StructureDefinition/TWHA-Encounter-Service: StructureDefinition.snapshot.element[95].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v2-0092'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2.9', found versions: 2.0.0 (from hl7.terminology.r4#7.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v2-0092' to 'http://terminology.hl7.org/ValueSet/v2-0092|2.9'
+INFORMATION: StructureDefinition/TWHA-Encounter-Service: StructureDefinition.differential.element[4].pattern.ofType(Coding): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: StructureDefinition/TWHA-Encounter-Service: StructureDefinition.snapshot.element[38].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-HealthManagementLevel.json ==
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-HearingTest.json ==
+INFORMATION: StructureDefinition/TWHA-HearingTest: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-ImagingStudy.json ==
+WARNING: StructureDefinition/TWHA-ImagingStudy: StructureDefinition.snapshot.element[22].binding.valueSet: A definition could not be found for Canonical URL 'http://www.rsna.org/RadLex_Playbook.aspx'
+WARNING: StructureDefinition/TWHA-ImagingStudy: StructureDefinition.snapshot.element[26].binding.valueSet: A definition could not be found for Canonical URL 'http://www.rsna.org/RadLex_Playbook.aspx'
+WARNING: StructureDefinition/TWHA-ImagingStudy: StructureDefinition.snapshot.element[60].binding.valueSet: A definition could not be found for Canonical URL 'http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1'
+WARNING: StructureDefinition/TWHA-ImagingStudy: StructureDefinition.snapshot.element[22].binding: The valueSet reference http://www.rsna.org/RadLex_Playbook.aspx on element ImagingStudy.procedureCode could not be resolved
+INFORMATION: StructureDefinition/TWHA-ImagingStudy: StructureDefinition.snapshot.element[25].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+WARNING: StructureDefinition/TWHA-ImagingStudy: StructureDefinition.snapshot.element[26].binding: The valueSet reference http://www.rsna.org/RadLex_Playbook.aspx on element ImagingStudy.procedureCode.coding could not be resolved
+WARNING: StructureDefinition/TWHA-ImagingStudy: StructureDefinition.snapshot.element[53].binding: The definition for the element 'ImagingStudy.series.performer.function' binds to the value set 'http://hl7.org/fhir/ValueSet/series-performer-function' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/TWHA-ImagingStudy: StructureDefinition.snapshot.element[60].binding: The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1 on element ImagingStudy.series.instance.sopClass could not be resolved
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ImagingStudy'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-LabResult-General.json ==
+INFORMATION: StructureDefinition/TWHA-LabResult-General: StructureDefinition.snapshot.element[14].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-LabResult-General: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-LabResult-Special.json ==
+INFORMATION: StructureDefinition/TWHA-LabResult-Special: StructureDefinition.snapshot.element[14].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-LabResult-Special: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-Special'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-Observation-ServiceFinding.json ==
+== fsh-generated\resources\StructureDefinition-TWHA-Occupation.json ==
+INFORMATION: StructureDefinition/TWHA-Occupation: StructureDefinition.snapshot.element[47].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+INFORMATION: StructureDefinition/TWHA-Occupation: StructureDefinition.snapshot.element[84].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Occupation'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-Organization-Employer.json ==
+INFORMATION: StructureDefinition/TWHA-Organization-Employer: StructureDefinition.snapshot.element[19].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/organization-type|4.0.1
+== fsh-generated\resources\StructureDefinition-TWHA-Organization-Facility.json ==
+INFORMATION: StructureDefinition/TWHA-Organization-Facility: StructureDefinition.snapshot.element[19].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/organization-type|4.0.1
+== fsh-generated\resources\StructureDefinition-TWHA-Patient.json ==
+WARNING: StructureDefinition/TWHA-Patient: StructureDefinition.snapshot.element[9].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/patient-nationality'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/patient-nationality' to 'http://hl7.org/fhir/StructureDefinition/patient-nationality|5.3.0'
+INFORMATION: StructureDefinition/TWHA-Patient: StructureDefinition.snapshot.element[39].type[0].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/regex|5.3.0 is deprecated with the note: 'This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex'
+INFORMATION: StructureDefinition/TWHA-Patient: StructureDefinition.snapshot.element[108].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-PhysicalExam.json ==
+INFORMATION: StructureDefinition/TWHA-PhysicalExam: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-Practitioner.json ==
+== fsh-generated\resources\StructureDefinition-TWHA-Procedure-Counseling.json ==
+INFORMATION: StructureDefinition/TWHA-Procedure-Counseling: StructureDefinition.snapshot.element[20].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-Procedure-ServiceActivity.json ==
+== fsh-generated\resources\StructureDefinition-TWHA-PulmonaryFunction.json ==
+INFORMATION: StructureDefinition/TWHA-PulmonaryFunction: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-Questionnaire.json ==
+== fsh-generated\resources\StructureDefinition-TWHA-QuestionnaireResponse.json ==
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse: StructureDefinition.snapshot.element[8].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.3.0'
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse: StructureDefinition.snapshot.element[9].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode|5.3.0'
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse: StructureDefinition.snapshot.element[17].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/display'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/display' to 'http://hl7.org/fhir/StructureDefinition/display|5.3.0'
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse: StructureDefinition.snapshot.element[30].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.3.0'
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse: StructureDefinition.snapshot.element[39].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/ordinalValue'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/ordinalValue' to 'http://hl7.org/fhir/StructureDefinition/ordinalValue|5.3.0'
+== fsh-generated\resources\StructureDefinition-TWHA-QuestionnaireResponse-HT.json ==
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse-HT: StructureDefinition.snapshot.element[8].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.3.0'
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse-HT: StructureDefinition.snapshot.element[9].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode|5.3.0'
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse-HT: StructureDefinition.snapshot.element[17].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/display'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/display' to 'http://hl7.org/fhir/StructureDefinition/display|5.3.0'
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse-HT: StructureDefinition.snapshot.element[30].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.3.0'
+WARNING: StructureDefinition/TWHA-QuestionnaireResponse-HT: StructureDefinition.snapshot.element[39].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/ordinalValue'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/ordinalValue' to 'http://hl7.org/fhir/StructureDefinition/ordinalValue|5.3.0'
+INFORMATION: StructureDefinition/TWHA-QuestionnaireResponse-HT: QuestionnaireResponse.item.answer.extension: The extension http://hl7.org/fhir/StructureDefinition/ordinalValue|5.3.0 is deprecated with the note: 'Replaced by [[[http://hl7.org/fhir/StructureDefinition/itemWeight]]]'
+== fsh-generated\resources\StructureDefinition-TWHA-SDOH-QuestionnaireResponse.json ==
+WARNING: StructureDefinition/TWHA-SDOH-QuestionnaireResponse: StructureDefinition.snapshot.element[8].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.3.0'
+WARNING: StructureDefinition/TWHA-SDOH-QuestionnaireResponse: StructureDefinition.snapshot.element[9].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode|5.3.0'
+WARNING: StructureDefinition/TWHA-SDOH-QuestionnaireResponse: StructureDefinition.snapshot.element[17].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/display'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/display' to 'http://hl7.org/fhir/StructureDefinition/display|5.3.0'
+WARNING: StructureDefinition/TWHA-SDOH-QuestionnaireResponse: StructureDefinition.snapshot.element[30].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.3.0'
+WARNING: StructureDefinition/TWHA-SDOH-QuestionnaireResponse: StructureDefinition.snapshot.element[39].type[0].profile[0]: There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/ordinalValue'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.3.0', found versions: 4.0.1 (from hl7.fhir.r4.core#4.0.1), 5.2.0 (from hl7.fhir.uv.extensions.r4#5.2.0), 5.3.0 (from hl7.fhir.uv.extensions.r4#5.3.0). Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/ordinalValue' to 'http://hl7.org/fhir/StructureDefinition/ordinalValue|5.3.0'
+== fsh-generated\resources\StructureDefinition-TWHA-ServiceRequest.json ==
+WARNING: StructureDefinition/TWHA-ServiceRequest: StructureDefinition.snapshot.element[42].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '2014-03-26', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType' to 'http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType|2014-03-26'
+INFORMATION: StructureDefinition/TWHA-ServiceRequest: StructureDefinition.snapshot.element[17].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+INFORMATION: StructureDefinition/TWHA-ServiceRequest: StructureDefinition.snapshot.element[24].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ServiceRequest'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-SocialHistory-Alcohol.json ==
+INFORMATION: StructureDefinition/TWHA-SocialHistory-Alcohol: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-SocialHistory-Alcohol: StructureDefinition.differential.element[2].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-SocialHistory-Alcohol: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Alcohol'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-TWHA-SocialHistory-BetelNut.json ==
+INFORMATION: StructureDefinition/TWHA-SocialHistory-BetelNut: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-SocialHistory-BetelNut: StructureDefinition.differential.element[2].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-SocialHistory-BetelNut: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+== fsh-generated\resources\StructureDefinition-TWHA-SocialHistory-Sleep.json ==
+INFORMATION: StructureDefinition/TWHA-SocialHistory-Sleep: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-SocialHistory-Sleep: StructureDefinition.differential.element[2].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-SocialHistory-Sleep: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+== fsh-generated\resources\StructureDefinition-TWHA-SocialHistory-Smoking.json ==
+WARNING: StructureDefinition/TWHA-SocialHistory-Smoking: StructureDefinition.snapshot.element[49].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.1.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive' to 'http://terminology.hl7.org/ValueSet/v3-UnitsOfMeasureCaseSensitive|3.0.0'
+== fsh-generated\resources\StructureDefinition-TWHA-Task-ServiceTask.json ==
+== fsh-generated\resources\StructureDefinition-TWHA-VisionTest.json ==
+INFORMATION: StructureDefinition/TWHA-VisionTest: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+== fsh-generated\resources\StructureDefinition-TWHA-VitalSigns.json ==
+== fsh-generated\resources\StructureDefinition-TWHA-WorkExposure.json ==
+INFORMATION: StructureDefinition/TWHA-WorkExposure: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-WorkExposure: StructureDefinition.differential.element[2].pattern.ofType(CodeableConcept): Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|4.0.1
+INFORMATION: StructureDefinition/TWHA-WorkExposure: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-WorkExposure'): The Implementation Guide contains no examples for this profile
+== fsh-generated\resources\StructureDefinition-ext-cessation-duration.json ==
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-cessation-duration'): The Implementation Guide contains no examples for this extension
+== fsh-generated\resources\StructureDefinition-ext-department.json ==
+== fsh-generated\resources\StructureDefinition-ext-employer-info.json ==
+== fsh-generated\resources\StructureDefinition-ext-employment-date.json ==
+== fsh-generated\resources\StructureDefinition-ext-exam-interval.json ==
+== fsh-generated\resources\StructureDefinition-ext-exam-type.json ==
+== fsh-generated\resources\StructureDefinition-ext-fitness-for-work.json ==
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work'): The Implementation Guide contains no examples for this extension
+== fsh-generated\resources\StructureDefinition-ext-hazard-type.json ==
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-hazard-type'): The Implementation Guide contains no examples for this extension
+== fsh-generated\resources\StructureDefinition-ext-health-mgmt-level.json ==
+== fsh-generated\resources\StructureDefinition-ext-labor-report-code.json ==
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-labor-report-code'): The Implementation Guide contains no examples for this extension
+== fsh-generated\resources\StructureDefinition-ext-smoking-quantity.json ==
+WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity'): The Implementation Guide contains no examples for this extension
+== fsh-generated\resources\Task-example-service-task.json ==
+== fsh-generated\resources\ValueSet-VS-CoreDataset.json ==
+WARNING: ValueSet/VS-CoreDataset: ValueSet.compose.include[0]: The value set references CodeSystem 'http://loinc.org' which has status 'not-present'
+ERROR: ValueSet.where(id = 'VS-CoreDataset'): No server available
+ERROR: ValueSet.where(id = 'VS-CoreDataset'): No server available
+== fsh-generated\resources\ValueSet-VS-ExamType.json ==
+INFORMATION: ValueSet/VS-ExamType: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-ExtendedDataset.json ==
+WARNING: ValueSet/VS-ExtendedDataset: ValueSet.compose.include[0]: The value set references CodeSystem 'http://loinc.org' which has status 'not-present'
+ERROR: ValueSet.where(id = 'VS-ExtendedDataset'): No server available
+ERROR: ValueSet.where(id = 'VS-ExtendedDataset'): No server available
+== fsh-generated\resources\ValueSet-VS-FitnessForWork.json ==
+INFORMATION: ValueSet/VS-FitnessForWork: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-HazardType.json ==
+INFORMATION: ValueSet/VS-HazardType: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-HealthCounseling.json ==
+INFORMATION: ValueSet/VS-HealthCounseling: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-HealthMgmtLevel.json ==
+INFORMATION: ValueSet/VS-HealthMgmtLevel: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-LaborReportCode.json ==
+INFORMATION: ValueSet/VS-LaborReportCode: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-OrganicSolventType.json ==
+INFORMATION: ValueSet/VS-OrganicSolventType: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-PhysicalExamSystems.json ==
+INFORMATION: ValueSet/VS-PhysicalExamSystems: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-PulmonaryFunction.json ==
+WARNING: ValueSet/VS-PulmonaryFunction: ValueSet.compose.include[0]: The value set references CodeSystem 'http://loinc.org' which has status 'not-present'
+ERROR: ValueSet.where(id = 'VS-PulmonaryFunction'): No server available
+ERROR: ValueSet.where(id = 'VS-PulmonaryFunction'): No server available
+== fsh-generated\resources\ValueSet-VS-ServiceActivityType.json ==
+INFORMATION: ValueSet/VS-ServiceActivityType: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-SmokingStatus.json ==
+INFORMATION: ValueSet/VS-SmokingStatus: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-SpecificChemicalType.json ==
+INFORMATION: ValueSet/VS-SpecificChemicalType: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+== fsh-generated\resources\ValueSet-VS-TWHAVitalSigns.json ==
+WARNING: ValueSet/VS-TWHAVitalSigns: ValueSet.compose.include[0]: The value set references CodeSystem 'http://loinc.org' which has status 'not-present'
+ERROR: ValueSet.where(id = 'VS-TWHAVitalSigns'): No server available
+ERROR: ValueSet.where(id = 'VS-TWHAVitalSigns'): No server available
+== fsh-generated\resources\ValueSet-VS-UnfitDiseases.json ==
+WARNING: ValueSet/VS-UnfitDiseases: ValueSet.compose.include[0]: The value set references CodeSystem 'http://hl7.org/fhir/sid/icd-10-cm' which has status 'not-present'
+ERROR: ValueSet.where(id = 'VS-UnfitDiseases'): No server available
+ERROR: ValueSet.where(id = 'VS-UnfitDiseases'): No server available
+== fsh-generated\resources\ValueSet-sf-BetNutChewAmount-valueset.json ==
+WARNING: ValueSet/sf-BetNutChewAmount-valueset: ValueSet: Constraint failed: vsd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
+INFORMATION: ValueSet/sf-BetNutChewAmount-valueset: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+WARNING: ValueSet/sf-BetNutChewAmount-valueset: ValueSet: Published value sets SHOULD conform to the ShareableValueSet profile, which says that the element ValueSet.experimental is mandatory, but it is not present
+== fsh-generated\resources\ValueSet-sf-BetNutChewBeh-valueset.json ==
+WARNING: ValueSet/sf-BetNutChewBeh-valueset: ValueSet: Constraint failed: vsd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
+INFORMATION: ValueSet/sf-BetNutChewBeh-valueset: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+WARNING: ValueSet/sf-BetNutChewBeh-valueset: ValueSet: Published value sets SHOULD conform to the ShareableValueSet profile, which says that the element ValueSet.experimental is mandatory, but it is not present
+== fsh-generated\resources\ValueSet-sf-BetNutChewQuit-valueset.json ==
+WARNING: ValueSet/sf-BetNutChewQuit-valueset: ValueSet: Constraint failed: vsd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
+INFORMATION: ValueSet/sf-BetNutChewQuit-valueset: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+WARNING: ValueSet/sf-BetNutChewQuit-valueset: ValueSet: Published value sets SHOULD conform to the ShareableValueSet profile, which says that the element ValueSet.experimental is mandatory, but it is not present
+== fsh-generated\resources\ValueSet-sf-BetNutChewYear-valueset.json ==
+WARNING: ValueSet/sf-BetNutChewYear-valueset: ValueSet: Constraint failed: vsd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation (name.matches('[A-Z]([A-Za-z0-9_]){0,254}'))'
+INFORMATION: ValueSet/sf-BetNutChewYear-valueset: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
+WARNING: ValueSet/sf-BetNutChewYear-valueset: ValueSet: Published value sets SHOULD conform to the ShareableValueSet profile, which says that the element ValueSet.experimental is mandatory, but it is not present

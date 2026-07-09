@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="sf-BetNutChewYear-valueset"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet sf-BetNutChewYear-valueset</b></p><a name="sf-BetNutChewYear-valueset"> </a><a name="hcsf-BetNutChewYear-valueset"> </a><ul><li>Include all codes defined in <a href="CodeSystem-sf-BetNutChewYear-codesystem.html"><code>https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem</code></a><span title="Version is not explicitly stated, which means it is fixed to the version provided in this specification"> version &#x1F4E6;0.1.0</span></li></ul></div>
+  </text>
+  <url value="https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset"/>
+  <version value="0.1.0"/>
+  <name value="sf-BetNutChewYear-valueset"/>
+  <title value="嚼檳榔年值集"/>
+  <status value="active"/>
+  <date value="2026-07-09T21:42:02+08:00"/>
+  <publisher value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
+  <contact>
+    <name value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://twcore.mohw.gov.tw/twregistry/"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="衛生福利部次世代數位醫療平臺專案辦公室"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://twcore.mohw.gov.tw/twregistry/"/>
+    </telecom>
+  </contact>
+  <description value="Betel Nut Chewing Year Value Set"/>
+  <compose>
+    <include>
+      <system value="https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"/>
+    </include>
+  </compose>
+</ValueSet>

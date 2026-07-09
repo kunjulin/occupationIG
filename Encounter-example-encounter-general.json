@@ -1,0 +1,55 @@
+{
+  "resourceType" : "Encounter",
+  "id" : "example-encounter-general",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Encounter example-encounter-general</b></p><a name=\"example-encounter-general\"> </a><a name=\"hcexample-encounter-general\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Encounter.html\">健康檢查健檢就醫事件 Profile</a></p></div><p><b>檢查類型擴充</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType general-health}\">一般健康檢查</span></p><p><b>健康檢查實施週期擴充</b>: 3 years<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codea = 'a')</span></p><p><b>部門/課別擴充</b>: 化學處理課</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://hl7.org/fhir/R4/v3/ActCode/cs.html#v3-ActCode-AMB\">v3 Code System ActCode: AMB</a> (ambulatory)</p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></td></tr></table><p><b>period</b>: 2026-06-12 08:00:00+0800 --&gt; 2026-06-12 11:30:00+0800</p><p><b>serviceProvider</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p></div>"
+  },
+  "extension" : [{
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-type",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",
+        "code" : "general-health",
+        "display" : "一般健康檢查"
+      }]
+    }
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval",
+    "valueQuantity" : {
+      "value" : 3,
+      "unit" : "years",
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a"
+    }
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department",
+    "valueString" : "化學處理課"
+  }],
+  "status" : "finished",
+  "class" : {
+    "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code" : "AMB",
+    "display" : "ambulatory"
+  },
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "participant" : [{
+    "individual" : {
+      "reference" : "Practitioner/example-doctor"
+    }
+  }],
+  "period" : {
+    "start" : "2026-06-12T08:00:00+08:00",
+    "end" : "2026-06-12T11:30:00+08:00"
+  },
+  "serviceProvider" : {
+    "reference" : "Organization/example-hospital"
+  }
+}

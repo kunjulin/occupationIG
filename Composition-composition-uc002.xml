@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Composition xmlns="http://hl7.org/fhir">
+  <id value="composition-uc002"/>
+  <meta>
+    <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Composition composition-uc002</b></p><a name="composition-uc002"> </a><a name="hccomposition-uc002"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-Composition.html">健康檢查健檢報告組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title="Codes:{http://loinc.org 11502-2}">Laboratory report</span></p><p><b>date</b>: 2026-06-12 11:45:00+0800</p><p><b>author</b>: <a href="Practitioner-example-doctor.html">Practitioner 林職醫(official)</a></p><p><b>title</b>: 勞工一般體格及健康檢查紀錄</p></div>
+  </text>
+  <status value="final"/>
+  <type>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="11502-2"/>
+      <display value="Laboratory report"/>
+    </coding>
+  </type>
+  <subject>
+    <reference value="Patient/example-worker"/>
+  </subject>
+  <date value="2026-06-12T11:45:00+08:00"/>
+  <author>
+    <reference value="Practitioner/example-doctor"/>
+  </author>
+  <title value="勞工一般體格及健康檢查紀錄"/>
+  <section>
+    <title value="基本資料與行政資訊"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="51847-2"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Patient/example-worker"/>
+    </entry>
+    <entry>
+      <reference value="Encounter/example-encounter-general"/>
+    </entry>
+  </section>
+  <section>
+    <title value="醫師總評、分級與建議"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="51848-0"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="ClinicalImpression/example-clinical-impression"/>
+    </entry>
+  </section>
+  <section>
+    <title value="理學檢查"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="29545-1"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Observation/obs-height"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-weight"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-waist"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-bloodpressure"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-vision"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-hearing"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-physical"/>
+    </entry>
+  </section>
+  <section>
+    <title value="檢驗與影像檢查"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="30954-2"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Observation/obs-lab-glucose"/>
+    </entry>
+  </section>
+</Composition>

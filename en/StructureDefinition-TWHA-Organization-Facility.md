@@ -1,0 +1,92 @@
+# 實施健康檢查之醫療機構 Profile - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+
+## Resource Profile: 實施健康檢查之醫療機構 Profile 
+
+ 
+本 Profile 用於描述實施勞工體格檢查、健康檢查或提供臨場健康服務之醫療機構，繼承自 TW Core Organization (醫院) 以精確反映醫療機構語義。 
+
+**Usages:**
+
+* Refer to this Profile: [健康檢查健檢診斷報告 Profile](StructureDefinition-TWHA-DiagnosticReport.md), [臨場健康服務事件 Profile](StructureDefinition-TWHA-Encounter-Service.md), [健康檢查健檢就醫事件 Profile](StructureDefinition-TWHA-Encounter.md) and [健康檢查健檢追蹤檢查要求 Profile](StructureDefinition-TWHA-ServiceRequest.md)
+* Examples for this Profile: [交通部民用航空局航空醫務中心](Organization-example-hospital.md)
+
+You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-Organization-Facility.json)
+
+### Formal Views of Profile Content
+
+ [Description Differentials, Snapshots, and other representations](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
+
+ 
+
+Other representations of profile: [CSV](../StructureDefinition-TWHA-Organization-Facility.csv), [Excel](../StructureDefinition-TWHA-Organization-Facility.xlsx), [Schematron](../StructureDefinition-TWHA-Organization-Facility.sch) 
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "TWHA-Organization-Facility",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility",
+  "version" : "0.1.0",
+  "name" : "TWHAOrganizationFacilityProfile",
+  "title" : "實施健康檢查之醫療機構 Profile",
+  "status" : "active",
+  "date" : "2026-07-09T21:42:02+08:00",
+  "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+  "contact" : [{
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  },
+  {
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  }],
+  "description" : "本 Profile 用於描述實施勞工體格檢查、健康檢查或提供臨場健康服務之醫療機構，繼承自 TW Core Organization (醫院) 以精確反映醫療機構語義。",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "servd",
+    "uri" : "http://www.omg.org/spec/ServD/1.0/",
+    "name" : "ServD"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Organization",
+  "baseDefinition" : "https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/Organization-hosp-twcore",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Organization",
+      "path" : "Organization"
+    },
+    {
+      "id" : "Organization.identifier",
+      "path" : "Organization.identifier",
+      "min" : 1
+    }]
+  }
+}
+
+```

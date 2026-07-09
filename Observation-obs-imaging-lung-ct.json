@@ -1,0 +1,32 @@
+{
+  "resourceType" : "Observation",
+  "id" : "obs-imaging-lung-ct",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-imaging-lung-ct</b></p><a name=\"obs-imaging-lung-ct\"> </a><a name=\"hcobs-imaging-lung-ct\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category imaging}\">Imaging</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 79086-5}\">CT Chest Screening WO contr</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2026-06-12 10:30:00+0800</p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+  },
+  "status" : "final",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+      "code" : "imaging"
+    }]
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "79086-5",
+      "display" : "CT Chest Screening WO contr"
+    }]
+  },
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "effectiveDateTime" : "2026-06-12T10:30:00+08:00",
+  "valueCodeableConcept" : {
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+      "code" : "N"
+    }]
+  }
+}

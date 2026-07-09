@@ -1,0 +1,67 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-service> a fhir:Encounter ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example-encounter-service"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter-Service"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter-Service>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Encounter example-encounter-service</b></p><a name=\"example-encounter-service\"> </a><a name=\"hcexample-encounter-service\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Encounter-Service.html\">臨場健康服務事件 Profile</a></p></div><p><b>雇主事業單位資訊擴充</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>部門/課別擴充</b>: 化學製造現場</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://hl7.org/fhir/R4/v3/ActCode/cs.html#v3-ActCode-FLD\">v3 Code System ActCode: FLD</a> (field)</p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></td></tr></table><p><b>period</b>: 2026-06-10 09:00:00+0800 --&gt; 2026-06-10 12:00:00+0800</p><p><b>serviceProvider</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info>
+     ] ;
+     fhir:value [
+       a fhir:Reference ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+       fhir:reference [ fhir:v "Organization/example-employer" ]
+     ]
+  ] [
+     fhir:url [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department>
+     ] ;
+     fhir:value [
+       a fhir:String ;
+       fhir:v "化學製造現場"
+     ]
+  ] ) ; # 
+  fhir:status [ fhir:v "finished"] ; # 
+  fhir:class [
+     fhir:system [
+       fhir:v "http://terminology.hl7.org/CodeSystem/v3-ActCode"^^xsd:anyURI ;
+       fhir:l <http://terminology.hl7.org/CodeSystem/v3-ActCode>
+     ] ;
+     fhir:code [ fhir:v "FLD" ] ;
+     fhir:display [ fhir:v "field" ]
+  ] ; # 
+  fhir:participant ( [
+     fhir:individual [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+       fhir:reference [ fhir:v "Practitioner/example-doctor" ]
+     ]
+  ] ) ; # 
+  fhir:period [
+     fhir:start [ fhir:v "2026-06-10T09:00:00+08:00"^^xsd:dateTime ] ;
+     fhir:end [ fhir:v "2026-06-10T12:00:00+08:00"^^xsd:dateTime ]
+  ] ; # 
+  fhir:serviceProvider [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:reference [ fhir:v "Organization/example-hospital" ]
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

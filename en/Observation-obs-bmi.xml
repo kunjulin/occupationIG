@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="obs-bmi"/>
+  <meta>
+    <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns"/>
+  </meta>
+  <language value="en"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation obs-bmi</b></p><a name="obs-bmi"> </a><a name="hcobs-bmi"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-VitalSigns.html">職業健檢生命徵象 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category vital-signs}">Vital Signs</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 39156-5}">Body mass index (BMI) [Ratio]</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:15:00+0800</p><p><b>value</b>: 22.86 kg/m2<span style="background: LightGoldenRodYellow"> (Details: UCUM  codekg/m2 = 'kg/m2')</span></p></div>
+  </text>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="vital-signs"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="39156-5"/>
+      <display value="Body mass index (BMI) [Ratio]"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example-worker"/>
+  </subject>
+  <effectiveDateTime value="2026-06-12T08:15:00+08:00"/>
+  <valueQuantity>
+    <value value="22.86"/>
+    <unit value="kg/m2"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="kg/m2"/>
+  </valueQuantity>
+</Observation>

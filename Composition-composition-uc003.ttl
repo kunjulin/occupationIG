@@ -1,0 +1,115 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <https://loinc.org/rdf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Composition/composition-uc003> a fhir:Composition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "composition-uc003"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition"^^xsd:anyURI ;
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Composition composition-uc003</b></p><a name=\"composition-uc003\"> </a><a name=\"hccomposition-uc003\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition.html\">健康檢查健檢報告組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 11502-2}\">Laboratory report</span></p><p><b>date</b>: 2026-06-12 11:45:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 特殊危害健康作業檢查報告</p></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:status [ fhir:v "final"] ; # 
+  fhir:type [
+     fhir:coding ( [
+       a loinc:11502-2 ;
+       fhir:system [
+         fhir:v "http://loinc.org"^^xsd:anyURI ;
+         fhir:l <http://loinc.org>
+       ] ;
+       fhir:code [ fhir:v "11502-2" ] ;
+       fhir:display [ fhir:v "Laboratory report" ]
+     ] )
+  ] ; # 
+  fhir:subject [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:reference [ fhir:v "Patient/example-worker" ]
+  ] ; # 
+  fhir:date [ fhir:v "2026-06-12T11:45:00+08:00"^^xsd:dateTime] ; # 
+  fhir:author ( [
+     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:reference [ fhir:v "Practitioner/example-doctor" ]
+  ] ) ; # 
+  fhir:title [ fhir:v "特殊危害健康作業檢查報告"] ; # 
+  fhir:section ( [
+     fhir:title [ fhir:v "基本資料與行政資訊" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:51847-2 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "51847-2" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+       fhir:reference [ fhir:v "Patient/example-worker" ]
+     ] [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general> ;
+       fhir:reference [ fhir:v "Encounter/example-encounter-general" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "醫師總評、分級與建議" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:51848-0 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "51848-0" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression> ;
+       fhir:reference [ fhir:v "ClinicalImpression/example-clinical-impression" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "理學檢查" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:29545-1 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "29545-1" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-hearing> ;
+       fhir:reference [ fhir:v "Observation/obs-hearing" ]
+     ] )
+  ] [
+     fhir:title [ fhir:v "檢驗與影像檢查" ] ;
+     fhir:code [
+       fhir:coding ( [
+         a loinc:30954-2 ;
+         fhir:system [
+           fhir:v "http://loinc.org"^^xsd:anyURI ;
+           fhir:l <http://loinc.org>
+         ] ;
+         fhir:code [ fhir:v "30954-2" ]
+       ] )
+     ] ;
+     fhir:entry ( [
+       fhir:l <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-pulmonary> ;
+       fhir:reference [ fhir:v "Observation/obs-pulmonary" ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

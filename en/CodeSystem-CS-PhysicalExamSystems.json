@@ -1,0 +1,70 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "CS-PhysicalExamSystems",
+  "language" : "en",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem CS-PhysicalExamSystems</b></p><a name=\"CS-PhysicalExamSystems\"> </a><a name=\"hcCS-PhysicalExamSystems\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">head-neck<a name=\"CS-PhysicalExamSystems-head-neck\"> </a></td><td>頭頸部</td><td>包含眼、耳、鼻、喉、口腔及頸部之檢查。</td></tr><tr><td style=\"white-space:nowrap\">respiratory<a name=\"CS-PhysicalExamSystems-respiratory\"> </a></td><td>呼吸系統</td><td>包含胸腔、肺部及呼吸音之聽診檢查。</td></tr><tr><td style=\"white-space:nowrap\">cardiovascular<a name=\"CS-PhysicalExamSystems-cardiovascular\"> </a></td><td>心臟血管系統</td><td>包含心臟聽診、心音、心率及周邊血管之檢查。</td></tr><tr><td style=\"white-space:nowrap\">digestive<a name=\"CS-PhysicalExamSystems-digestive\"> </a></td><td>消化系統</td><td>包含腹部觸診、肝脾腫大及腸胃道系統之檢查。</td></tr><tr><td style=\"white-space:nowrap\">neurological<a name=\"CS-PhysicalExamSystems-neurological\"> </a></td><td>神經系統</td><td>包含意識狀態、肌腱反射及感覺運動系統之檢查。</td></tr><tr><td style=\"white-space:nowrap\">musculoskeletal<a name=\"CS-PhysicalExamSystems-musculoskeletal\"> </a></td><td>肌肉骨骼系統</td><td>包含脊椎、四肢關節活動度及肌肉力量之檢查。</td></tr><tr><td style=\"white-space:nowrap\">skin<a name=\"CS-PhysicalExamSystems-skin\"> </a></td><td>皮膚</td><td>包含皮膚疹、黃疸、疤痕或潰瘍之檢查。</td></tr></table></div>"
+  },
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems",
+  "version" : "0.1.0",
+  "name" : "CS_PhysicalExamSystems",
+  "title" : "身體檢查系統部位代碼系統",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2026-07-09T21:42:02+08:00",
+  "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+  "contact" : [{
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  },
+  {
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  }],
+  "description" : "附表十一理學檢查中所涉及之身體系統部位分類。",
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 7,
+  "concept" : [{
+    "code" : "head-neck",
+    "display" : "頭頸部",
+    "definition" : "包含眼、耳、鼻、喉、口腔及頸部之檢查。"
+  },
+  {
+    "code" : "respiratory",
+    "display" : "呼吸系統",
+    "definition" : "包含胸腔、肺部及呼吸音之聽診檢查。"
+  },
+  {
+    "code" : "cardiovascular",
+    "display" : "心臟血管系統",
+    "definition" : "包含心臟聽診、心音、心率及周邊血管之檢查。"
+  },
+  {
+    "code" : "digestive",
+    "display" : "消化系統",
+    "definition" : "包含腹部觸診、肝脾腫大及腸胃道系統之檢查。"
+  },
+  {
+    "code" : "neurological",
+    "display" : "神經系統",
+    "definition" : "包含意識狀態、肌腱反射及感覺運動系統之檢查。"
+  },
+  {
+    "code" : "musculoskeletal",
+    "display" : "肌肉骨骼系統",
+    "definition" : "包含脊椎、四肢關節活動度及肌肉力量之檢查。"
+  },
+  {
+    "code" : "skin",
+    "display" : "皮膚",
+    "definition" : "包含皮膚疹、黃疸、疤痕或潰瘍之檢查。"
+  }]
+}

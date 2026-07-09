@@ -1,0 +1,647 @@
+[{
+  "id" : "sf-BetNutChewAmount-codesystem",
+  "type" : "CodeSystem",
+  "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem",
+  "version" : "0.1.0",
+  "name" : "sf-BetNutChewAmount-codesystem"
+},
+{
+  "id" : "sf-BetNutChewBeh-codesystem",
+  "type" : "CodeSystem",
+  "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
+  "version" : "0.1.0",
+  "name" : "sf-BetNutChewBeh-codesystem"
+},
+{
+  "id" : "sf-BetNutChewQuit-codesystem",
+  "type" : "CodeSystem",
+  "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem",
+  "version" : "0.1.0",
+  "name" : "sf-BetNutChewQuit-codesystem"
+},
+{
+  "id" : "sf-BetNutChewYear-codesystem",
+  "type" : "CodeSystem",
+  "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem",
+  "version" : "0.1.0",
+  "name" : "sf-BetNutChewYear-codesystem"
+},
+{
+  "id" : "sf-ObserBeh-codesystem",
+  "type" : "CodeSystem",
+  "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem",
+  "version" : "0.1.0",
+  "name" : "sf-ObserBeh-codesystem"
+},
+{
+  "id" : "sf-BetNutChewAmount-valueset",
+  "type" : "ValueSet",
+  "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset",
+  "version" : "0.1.0",
+  "name" : "sf-BetNutChewAmount-valueset"
+},
+{
+  "id" : "sf-BetNutChewBeh-valueset",
+  "type" : "ValueSet",
+  "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset",
+  "version" : "0.1.0",
+  "name" : "sf-BetNutChewBeh-valueset"
+},
+{
+  "id" : "sf-BetNutChewQuit-valueset",
+  "type" : "ValueSet",
+  "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset",
+  "version" : "0.1.0",
+  "name" : "sf-BetNutChewQuit-valueset"
+},
+{
+  "id" : "sf-BetNutChewYear-valueset",
+  "type" : "ValueSet",
+  "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset",
+  "version" : "0.1.0",
+  "name" : "sf-BetNutChewYear-valueset"
+},
+{
+  "id" : "TWHA-CapabilityStatement",
+  "type" : "CapabilityStatement",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CapabilityStatement/TWHA-CapabilityStatement",
+  "version" : "0.1.0"
+},
+{
+  "id" : "CS-ExamType",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",
+  "version" : "0.1.0",
+  "name" : "CS_ExamType"
+},
+{
+  "id" : "CS-FitnessForWork",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork",
+  "version" : "0.1.0",
+  "name" : "CS_FitnessForWork"
+},
+{
+  "id" : "CS-HazardType",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType",
+  "version" : "0.1.0",
+  "name" : "CS_HazardType"
+},
+{
+  "id" : "CS-HealthCounseling",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling",
+  "version" : "0.1.0",
+  "name" : "CS_HealthCounseling"
+},
+{
+  "id" : "CS-HealthMgmtLevel",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel",
+  "version" : "0.1.0",
+  "name" : "CS_HealthMgmtLevel"
+},
+{
+  "id" : "CS-LaborReportCode",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode",
+  "version" : "0.1.0",
+  "name" : "CS_LaborReportCode"
+},
+{
+  "id" : "CS-OrganicSolventType",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-OrganicSolventType",
+  "version" : "0.1.0",
+  "name" : "CS_OrganicSolventType"
+},
+{
+  "id" : "CS-PhysicalExamSystems",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems",
+  "version" : "0.1.0",
+  "name" : "CS_PhysicalExamSystems"
+},
+{
+  "id" : "CS-ServiceActivityType",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType",
+  "version" : "0.1.0",
+  "name" : "CS_ServiceActivityType"
+},
+{
+  "id" : "CS-SmokingStatus",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus",
+  "version" : "0.1.0",
+  "name" : "CS_SmokingStatus"
+},
+{
+  "id" : "CS-SpecificChemicalType",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType",
+  "version" : "0.1.0",
+  "name" : "CS_SpecificChemicalType"
+},
+{
+  "id" : "TWHealthCheckLaboratoryMap",
+  "type" : "ConceptMap",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap",
+  "version" : "0.1.0",
+  "name" : "TWHealthCheckLaboratoryMap"
+},
+{
+  "id" : "mohw.tw.twha",
+  "type" : "ImplementationGuide",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha",
+  "version" : "0.1.0",
+  "name" : "TWHAIG"
+},
+{
+  "id" : "Bundle-submit",
+  "type" : "OperationDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/OperationDefinition/Bundle-submit",
+  "version" : "0.1.0",
+  "name" : "Submit"
+},
+{
+  "id" : "adult-preventive-care-questionnaire",
+  "type" : "Questionnaire",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/Questionnaire/adult-preventive-care-questionnaire",
+  "version" : "0.1.0"
+},
+{
+  "id" : "example-questionnaire",
+  "type" : "Questionnaire",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/Questionnaire/example-questionnaire",
+  "version" : "0.1.0"
+},
+{
+  "id" : "twha-sdoh-questionnaire",
+  "type" : "Questionnaire",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/Questionnaire/twha-sdoh-questionnaire",
+  "version" : "0.1.0"
+},
+{
+  "id" : "TWHA-Bundle-Document",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document",
+  "version" : "0.1.0",
+  "name" : "TWHABundleDocumentProfile"
+},
+{
+  "id" : "TWHA-Bundle-Transaction",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Transaction",
+  "version" : "0.1.0",
+  "name" : "TWHABundleTransactionProfile"
+},
+{
+  "id" : "TWHA-CarePlan",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-CarePlan",
+  "version" : "0.1.0",
+  "name" : "TWHACarePlanProfile"
+},
+{
+  "id" : "TWHA-ClinicalImpression",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ClinicalImpression",
+  "version" : "0.1.0",
+  "name" : "TWHAClinicalImpressionProfile"
+},
+{
+  "id" : "TWHA-Composition",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition",
+  "version" : "0.1.0",
+  "name" : "TWHACompositionProfile"
+},
+{
+  "id" : "TWHA-Composition-ServiceRecord",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-ServiceRecord",
+  "version" : "0.1.0",
+  "name" : "TWHACompositionServiceRecordProfile"
+},
+{
+  "id" : "TWHA-Condition",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Condition",
+  "version" : "0.1.0",
+  "name" : "TWHAConditionProfile"
+},
+{
+  "id" : "TWHA-DiagnosticReport",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-DiagnosticReport",
+  "version" : "0.1.0",
+  "name" : "TWHADiagnosticReportProfile"
+},
+{
+  "id" : "TWHA-ECG",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ECG",
+  "version" : "0.1.0",
+  "name" : "TWHAECGProfile"
+},
+{
+  "id" : "TWHA-Encounter",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter",
+  "version" : "0.1.0",
+  "name" : "TWHAEncounterProfile"
+},
+{
+  "id" : "TWHA-Encounter-Service",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter-Service",
+  "version" : "0.1.0",
+  "name" : "TWHAEncounterServiceProfile"
+},
+{
+  "id" : "TWHA-HealthManagementLevel",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel",
+  "version" : "0.1.0",
+  "name" : "TWHAHealthManagementLevelProfile"
+},
+{
+  "id" : "TWHA-HearingTest",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HearingTest",
+  "version" : "0.1.0",
+  "name" : "TWHAHearingTestProfile"
+},
+{
+  "id" : "TWHA-ImagingStudy",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ImagingStudy",
+  "version" : "0.1.0",
+  "name" : "TWHAImagingStudyProfile"
+},
+{
+  "id" : "TWHA-LabResult-General",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-General",
+  "version" : "0.1.0",
+  "name" : "TWHALabResultGeneralProfile"
+},
+{
+  "id" : "TWHA-LabResult-Special",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-Special",
+  "version" : "0.1.0",
+  "name" : "TWHALabResultSpecialProfile"
+},
+{
+  "id" : "TWHA-Observation-ServiceFinding",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Observation-ServiceFinding",
+  "version" : "0.1.0",
+  "name" : "TWHAObservationServiceFindingProfile"
+},
+{
+  "id" : "TWHA-Occupation",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Occupation",
+  "version" : "0.1.0",
+  "name" : "TWHAOccupationProfile"
+},
+{
+  "id" : "TWHA-Organization-Employer",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Employer",
+  "version" : "0.1.0",
+  "name" : "TWHAOrganizationEmployerProfile"
+},
+{
+  "id" : "TWHA-Organization-Facility",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility",
+  "version" : "0.1.0",
+  "name" : "TWHAOrganizationFacilityProfile"
+},
+{
+  "id" : "TWHA-Patient",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient",
+  "version" : "0.1.0",
+  "name" : "TWHAPatientProfile"
+},
+{
+  "id" : "TWHA-PhysicalExam",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-PhysicalExam",
+  "version" : "0.1.0",
+  "name" : "TWHAPhysicalExamProfile"
+},
+{
+  "id" : "TWHA-Practitioner",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner",
+  "version" : "0.1.0",
+  "name" : "TWHAPractitionerProfile"
+},
+{
+  "id" : "TWHA-Procedure-Counseling",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling",
+  "version" : "0.1.0",
+  "name" : "TWHAProcedureCounselingProfile"
+},
+{
+  "id" : "TWHA-Procedure-ServiceActivity",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-ServiceActivity",
+  "version" : "0.1.0",
+  "name" : "TWHAProcedureServiceActivityProfile"
+},
+{
+  "id" : "TWHA-PulmonaryFunction",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-PulmonaryFunction",
+  "version" : "0.1.0",
+  "name" : "TWHAPulmonaryFunctionProfile"
+},
+{
+  "id" : "TWHA-Questionnaire",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Questionnaire",
+  "version" : "0.1.0",
+  "name" : "TWHAQuestionnaireProfile"
+},
+{
+  "id" : "TWHA-QuestionnaireResponse",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-QuestionnaireResponse",
+  "version" : "0.1.0",
+  "name" : "TWHAQuestionnaireResponseProfile"
+},
+{
+  "id" : "TWHA-QuestionnaireResponse-HT",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-QuestionnaireResponse-HT",
+  "version" : "0.1.0",
+  "name" : "TWHAQuestionnaireResponseHTProfile"
+},
+{
+  "id" : "TWHA-SDOH-QuestionnaireResponse",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SDOH-QuestionnaireResponse",
+  "version" : "0.1.0",
+  "name" : "TWHASDOHQuestionnaireResponseProfile"
+},
+{
+  "id" : "TWHA-ServiceRequest",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ServiceRequest",
+  "version" : "0.1.0",
+  "name" : "TWHAServiceRequestProfile"
+},
+{
+  "id" : "TWHA-SocialHistory-Alcohol",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Alcohol",
+  "version" : "0.1.0",
+  "name" : "TWHASocialHistoryAlcoholProfile"
+},
+{
+  "id" : "TWHA-SocialHistory-BetelNut",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut",
+  "version" : "0.1.0",
+  "name" : "TWHASocialHistoryBetelNutProfile"
+},
+{
+  "id" : "TWHA-SocialHistory-Sleep",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Sleep",
+  "version" : "0.1.0",
+  "name" : "TWHASocialHistorySleepProfile"
+},
+{
+  "id" : "TWHA-SocialHistory-Smoking",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Smoking",
+  "version" : "0.1.0",
+  "name" : "TWHASocialHistorySmokingProfile"
+},
+{
+  "id" : "TWHA-Task-ServiceTask",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Task-ServiceTask",
+  "version" : "0.1.0",
+  "name" : "TWHATaskServiceTaskProfile"
+},
+{
+  "id" : "TWHA-VisionTest",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VisionTest",
+  "version" : "0.1.0",
+  "name" : "TWHAVisionTestProfile"
+},
+{
+  "id" : "TWHA-VitalSigns",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns",
+  "version" : "0.1.0",
+  "name" : "TWHAVitalSignsProfile"
+},
+{
+  "id" : "TWHA-WorkExposure",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-WorkExposure",
+  "version" : "0.1.0",
+  "name" : "TWHAWorkExposureProfile"
+},
+{
+  "id" : "ext-cessation-duration",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-cessation-duration",
+  "version" : "0.1.0",
+  "name" : "ExtCessationDuration"
+},
+{
+  "id" : "ext-department",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department",
+  "version" : "0.1.0",
+  "name" : "ExtDepartment"
+},
+{
+  "id" : "ext-employer-info",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info",
+  "version" : "0.1.0",
+  "name" : "ExtEmployerInfo"
+},
+{
+  "id" : "ext-employment-date",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employment-date",
+  "version" : "0.1.0",
+  "name" : "ExtEmploymentDate"
+},
+{
+  "id" : "ext-exam-interval",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval",
+  "version" : "0.1.0",
+  "name" : "ExtExamInterval"
+},
+{
+  "id" : "ext-exam-type",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-type",
+  "version" : "0.1.0",
+  "name" : "ExtExamType"
+},
+{
+  "id" : "ext-fitness-for-work",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work",
+  "version" : "0.1.0",
+  "name" : "ExtFitnessForWork"
+},
+{
+  "id" : "ext-hazard-type",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-hazard-type",
+  "version" : "0.1.0",
+  "name" : "ExtHazardType"
+},
+{
+  "id" : "ext-health-mgmt-level",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-health-mgmt-level",
+  "version" : "0.1.0",
+  "name" : "ExtHealthMgmtLevel"
+},
+{
+  "id" : "ext-labor-report-code",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-labor-report-code",
+  "version" : "0.1.0",
+  "name" : "ExtLaborReportCode"
+},
+{
+  "id" : "ext-smoking-quantity",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity",
+  "version" : "0.1.0",
+  "name" : "ExtSmokingQuantity"
+},
+{
+  "id" : "VS-CoreDataset",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset",
+  "version" : "0.1.0",
+  "name" : "VS_CoreDataset"
+},
+{
+  "id" : "VS-ExamType",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExamType",
+  "version" : "0.1.0",
+  "name" : "VS_ExamType"
+},
+{
+  "id" : "VS-ExtendedDataset",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset",
+  "version" : "0.1.0",
+  "name" : "VS_ExtendedDataset"
+},
+{
+  "id" : "VS-FitnessForWork",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-FitnessForWork",
+  "version" : "0.1.0",
+  "name" : "VS_FitnessForWork"
+},
+{
+  "id" : "VS-HazardType",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType",
+  "version" : "0.1.0",
+  "name" : "VS_HazardType"
+},
+{
+  "id" : "VS-HealthCounseling",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthCounseling",
+  "version" : "0.1.0",
+  "name" : "VS_HealthCounseling"
+},
+{
+  "id" : "VS-HealthMgmtLevel",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthMgmtLevel",
+  "version" : "0.1.0",
+  "name" : "VS_HealthMgmtLevel"
+},
+{
+  "id" : "VS-LaborReportCode",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-LaborReportCode",
+  "version" : "0.1.0",
+  "name" : "VS_LaborReportCode"
+},
+{
+  "id" : "VS-OrganicSolventType",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OrganicSolventType",
+  "version" : "0.1.0",
+  "name" : "VS_OrganicSolventType"
+},
+{
+  "id" : "VS-PhysicalExamSystems",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PhysicalExamSystems",
+  "version" : "0.1.0",
+  "name" : "VS_PhysicalExamSystems"
+},
+{
+  "id" : "VS-PulmonaryFunction",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction",
+  "version" : "0.1.0",
+  "name" : "VS_PulmonaryFunction"
+},
+{
+  "id" : "VS-ServiceActivityType",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ServiceActivityType",
+  "version" : "0.1.0",
+  "name" : "VS_ServiceActivityType"
+},
+{
+  "id" : "VS-SmokingStatus",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SmokingStatus",
+  "version" : "0.1.0",
+  "name" : "VS_SmokingStatus"
+},
+{
+  "id" : "VS-SpecificChemicalType",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SpecificChemicalType",
+  "version" : "0.1.0",
+  "name" : "VS_SpecificChemicalType"
+},
+{
+  "id" : "VS-TWHAVitalSigns",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns",
+  "version" : "0.1.0",
+  "name" : "VS_TWHAVitalSigns"
+},
+{
+  "id" : "VS-UnfitDiseases",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-UnfitDiseases",
+  "version" : "0.1.0",
+  "name" : "VS_UnfitDiseases"
+}]
