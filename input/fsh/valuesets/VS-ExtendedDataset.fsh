@@ -46,6 +46,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // 1.5 鉛作業 (lead)
 * LNC#5671-3 "Lead [Mass/volume] in Blood"
 * LNC#5676-2 "Lead [Mass/volume] in Urine"
+* LNC#23749-5 "Lead [Mass/volume] in Specimen"
 * LNC#11212-8 "Coproporphyrin [Mass/volume] in Urine"
 * LNC#11215-1 "Aminolevulinic acid [Mass/volume] in Urine"
 
@@ -69,7 +70,10 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#5586-3 "Arsenic [Mass/volume] in Urine"
 * LNC#5609-3 "Cadmium [Mass/volume] in Blood"
 * LNC#5611-9 "Cadmium [Mass/volume] in Urine"
+* LNC#13471-8 "Cadmium/Creatinine [Mass Ratio] in Urine"
+* LNC#5622-6 "Chromium [Mass/volume] in Serum or Plasma"
 * LNC#5623-4 "Chromium [Mass/volume] in Urine"
+* LNC#13464-3 "Chromium/Creatinine [Mass Ratio] in Urine"
 * LNC#14099-6 "Nickel [Mass/volume] in Urine"
 * LNC#5685-3 "Mercury [Mass/volume] in Blood"
 * LNC#5689-5 "Mercury [Mass/volume] in Urine"
@@ -78,6 +82,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#5653-1 "Formaldehyde [Mass/volume] in Urine"
 * LNC#10909-0 "Benzidine [Mass/volume] in Urine"
 * LNC#5681-2 "Manganese [Mass/volume] in Blood"
+* LNC#5683-8 "Manganese [Mass/volume] in Serum or Plasma"
 * LNC#42221-2 "Manganese [Mass/volume] in Urine"
 * LNC#34304-6 "Fluoride [Mass/volume] in Urine"
 
@@ -97,6 +102,16 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#1985-1 "Bromide [Mass/volume] in Urine"
 * LNC#1709-5 "Acetylcholinesterase [Enzymatic activity/volume] in Red Blood Cells"
 * LNC#2098-2 "Cholinesterase [Enzymatic activity/volume] in Serum or Plasma"
+
+// 1.13 微生物培養 (Microbiological Culture) [NEW]
+* LNC#43371-4 "Salmonella and Shigella [Presence] in Stool by Culture"
+
+// 1.14 尿液毒品篩檢 (Urine Drug Screening) [NEW]
+* LNC#19266-6 "Amphetamines [Presence] in Urine by Screening test"
+* LNC#19299-7 "Opiates [Presence] in Urine by Screening test"
+* LNC#19283-1 "Benzodiazepines [Presence] in Urine by Screening test"
+* LNC#19501-6 "Ketamine [Presence] in Urine by Screening test"
+* LNC#19571-9 "MDMA [Presence] in Urine by Screening test"
 
 // =================================================================
 // 2. 自費健康檢查常見之進階影像學及鏡檢項目 (Advanced Imaging & Endoscopy)

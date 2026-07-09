@@ -186,9 +186,38 @@ Description: "將健康檢查實驗室檢驗之可接受代碼 (Layer 2) 映射�
 * group[0].element[22].target[0].display = "Prostate specific Ag [Mass/volume] in Serum or Plasma"
 * group[0].element[22].target[0].equivalence = #equivalent
 
-// CA-125 (Acceptable: 83085-1 by IA → Preferred: 10334-1)
-* group[0].element[23].code = #83085-1
+// CA-125 (Acceptable: 83082-8 by IA → Preferred: 10334-1)
+* group[0].element[23].code = #83082-8
 * group[0].element[23].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
 * group[0].element[23].target[0].code = #10334-1
 * group[0].element[23].target[0].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma"
 * group[0].element[23].target[0].equivalence = #equivalent
+
+// CEA (Acceptable: 83085-1 by IA → Preferred: 2039-6)
+* group[0].element[24].code = #83085-1
+* group[0].element[24].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
+* group[0].element[24].target[0].code = #2039-6
+* group[0].element[24].target[0].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
+* group[0].element[24].target[0].equivalence = #equivalent
+
+// AST (Acceptable: 88112-8 w/o P-5'-P → Preferred: 1920-8)
+* group[0].element[25].code = #88112-8
+* group[0].element[25].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+* group[0].element[25].target[0].code = #1920-8
+* group[0].element[25].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+* group[0].element[25].target[0].equivalence = #equivalent
+
+// ALT (Acceptable: 1744-2 w/o P-5'-P → Preferred: 1742-6)
+* group[0].element[26].code = #1744-2
+* group[0].element[26].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+* group[0].element[26].target[0].code = #1742-6
+* group[0].element[26].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+* group[0].element[26].target[0].equivalence = #equivalent
+
+// Glucose AC (Acceptable: 2345-7 post fasting → Preferred: 1558-6 fasting)
+* group[0].element[27].code = #2345-7
+* group[0].element[27].display = "Glucose [Mass/volume] in Serum or Plasma -- post fasting"
+* group[0].element[27].target[0].code = #1558-6
+* group[0].element[27].target[0].display = "Fasting Glucose [Mass/volume] in Serum or Plasma"
+* group[0].element[27].target[0].equivalence = #equivalent
+
