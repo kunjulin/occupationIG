@@ -66,7 +66,7 @@ classDiagram
 | | HDL-C / LDL-C | `TWHALabResultGeneralProfile` | LOINC `2085-9` (HDL-C), LOINC `2089-1` (LDL-C, Preferred: Direct assay) |
 | | 尿蛋白定性 | `TWHALabResultGeneralProfile` | LOINC `5804-0` (Urine Protein) |
 | **Screening**<br>(篩檢與生理功能) | 視力及辨色力 | `TWHAVisionTestProfile` | LOINC `79880-1` (Vision test panel) |
-| | 聽力篩檢 | `TWHAHearingTestProfile` | LOINC `89024-4` (Audiometry panel) |
+| | 聽力篩檢 | `TWHAHearingTestProfile` | LOINC `89015-2` (Pure tone threshold audiometry panel) |
 
 ---
 
@@ -77,7 +77,7 @@ classDiagram
 ### 3.1 特殊職類擴充：勞工特殊健康檢查 (Special Occupational Health Check)
 *   **作業經歷與現職暴露**：使用 `TWHAOccupationProfile` 記錄職業別；使用 `TWHAWorkExposure` 記錄特別危害作業暴露年數。
 *   **理學檢查**：使用 `TWHAPhysicalExamProfile` 記錄頭頸部、呼吸、心血管等七大系統醫師判定。
-*   **特殊健檢指標**：使用 `TWHAPulmonaryFunctionProfile` 記錄肺功能檢驗值（FVC, FEV1）；使用 `TWHAECGProfile` 記錄心電圖；使用 `TWHALabResultSpecialProfile` 記錄血中鉛等特殊檢驗（依 `CS-HazardType` 12 大類危害作業分類，見[特殊危害健康作業](special-exam.html)）。
+*   **特殊健檢指標**：使用 `TWHAPulmonaryFunctionProfile` 記錄肺功能檢驗值（FVC, FEV1）；使用 `TWHAECGProfile` 記錄心電圖；使用 `TWHALabResultSpecialProfile` 記錄血中鉛等特殊檢驗（依 `CS-HazardType` 危害作業分類，附表十 18 類作業之完整涵蓋度對照見[特殊危害健康作業](special-exam.html)）。
 *   **自覺症狀**：使用 `TWHAQuestionnaireResponseProfile` 記錄附表十一所規定之勞工自覺症狀問卷。
 *   **健康管理與配工**：使用 `TWHAClinicalImpressionProfile` 記錄醫師總評與 1-4 級分級；使用 `TWHACarePlanProfile` 與 `TWHAServiceRequestProfile` 記錄適性配工計畫與追蹤檢查開立。
 

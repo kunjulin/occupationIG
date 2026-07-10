@@ -68,3 +68,9 @@
 - **第一期範疇說明**：`special-exam.md` 新增段落區分「噪音/鉛/粉塵已結構化必驗」與「其餘 9 類以 LabResult-Special 通用承載」。
 - **新增 [scripts/check-pagecontent-refs.js](scripts/check-pagecontent-refs.js)**：掃描 pagecontent 中 `VS_*`/`CS_*`/`ext-*`/`TWHA-*` 引用是否皆能在 `input/fsh/` 中找到對應定義，避免再度出現失效引用。
 
+### 2026-07-10 更新（議題5／C-04：附表十特殊作業模組完整性與臨床適當性）
+- **純音聽力圖 LOINC 更正與補齊**：原 `TWHA-HearingTest`／`VS-ExtendedDataset` 之頻率×耳別代碼多處錯置（如以 `89017-8`、`89028-5`、`89020-2` 等誤標左右耳頻率），且僅收錄 4 頻率。已依 LOINC `89015-2` panel 成員逐一更正，並補齊 3/6/8 kHz，成為雙耳 0.5–8 kHz 共 14 個氣導聽閾代碼，符合附表十噪音作業要求；範例 `obs-hearing` 同步更新。
+- **肺功能 FEV1 代碼更正**：原以 `19868-9` 標示 FEV1，惟該碼實為 FVC（Forced vital capacity）。FEV1 之正確 LOINC 為 `20150-9`（`TWHA-PulmonaryFunction` Profile 原已正確使用），已同步修正 `VS-CoreDataset`、`VS-ExtendedDataset`、`VS-PulmonaryFunction`、`VS-OccHealthCheck-Required`、`terminology.md`、`special-exam.md` 之標示。
+- **附表十 18 類涵蓋度對照表**：`special-exam.md` 新增完整 18 類特別危害作業涵蓋度審查表（對應文件一 §2.1.1），逐類標註共用／專屬項目、Preferred LOINC 與承載方式，並補齊臨床缺口：高溫作業電解質氯（`2075-0`）與 BUN、游離輻射甲狀腺功能（TSH `11580-8`／Free T4 `3024-7`）、異常氣壓心電圖、有機溶劑肝功能（γ-GT `2324-2`）、二硫化碳心血管監測、粉塵單張 PA 胸片（`24648-8`）等。
+- **血中鉛雙碼**：血中鉛 Preferred `5671-3`（Lead in Blood），院內 LIS 實際報告之 `23749-5`（Lead in Specimen）列為 Acceptable。
+

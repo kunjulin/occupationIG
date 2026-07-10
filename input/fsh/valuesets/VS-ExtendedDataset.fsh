@@ -8,27 +8,39 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // 1. 勞工特殊健康檢查項目 (Occupational Special Health Checks)
 // =================================================================
 
-// 1.1 高溫作業 (high-temp)
-* LNC#11524-6 "EKG study"
-* LNC#2951-2 "Sodium [Moles/volume] in Serum or Plasma"
-* LNC#2823-3 "Potassium [Moles/volume] in Serum or Plasma"
-* LNC#5810-7 "Specific gravity of Urine"
+// 1.1 高溫作業 (high-temp) — 心血管、腎功能、電解質、尿液
+// 附表十高溫作業另需飯前血糖、BUN、Cr、Hb（共用項目，收錄於 VS-CoreDataset）
+* LNC#11524-6 "EKG study"                                        // 心電圖
+* LNC#2951-2 "Sodium [Moles/volume] in Serum or Plasma"          // 鈉
+* LNC#2823-3 "Potassium [Moles/volume] in Serum or Plasma"       // 鉀
+* LNC#2075-0 "Chloride [Moles/volume] in Serum or Plasma"        // 氯（v1.1 補齊電解質三項）
+* LNC#3094-0 "Urea nitrogen [Mass/volume] in Serum or Plasma"    // BUN（腎功能/脫水評估）
+* LNC#5810-7 "Specific gravity of Urine"                         // 尿比重（脫水評估）
 
-// 1.2 噪音作業 (noise) — 純音聽力個別頻率代碼 (v3 修正：補齊左右耳 4 頻率共 8 個代碼)
-// Panel code 89015-2 收錄於 VS-CoreDataset，本 VS 僅收錄個別頻率/耳別代碼
+// 1.2 噪音作業 (noise) — 純音氣導聽閾個別頻率代碼
+// v1.1 修正：更正 v3 之錯置代碼並補齊 3/6/8 kHz，使全部代碼與 LOINC 89015-2 panel 成員一致，
+//            涵蓋《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率（7 頻率 × 左右耳 = 14 碼）。
+// Panel code 89015-2 收錄於 VS-CoreDataset，本 VS 收錄個別頻率/耳別代碼。
 * LNC#89015-2 "Pure tone threshold audiometry panel"              // Panel (重複收錄供查詢)
-// 左耳 (Left ear)
-* LNC#89024-4 "Hearing threshold Ear-left 500 Hz [dB]"           // L-500Hz (原有，修正 display)
-* LNC#89016-0 "Hearing threshold Ear-left 1000 Hz [dB]"          // L-1kHz (修正：原 89023-6 為 1kHz Left，已確認)
-* LNC#89017-8 "Hearing threshold Ear-left 2000 Hz [dB]"          // L-2kHz (新增)
-* LNC#89018-6 "Hearing threshold Ear-left 4000 Hz [dB]"          // L-4kHz (新增)
-// 右耳 (Right ear)
-* LNC#89028-5 "Hearing threshold Ear-right 500 Hz [dB]"          // R-500Hz (新增)
-* LNC#89020-2 "Hearing threshold Ear-right 1000 Hz [dB]"         // R-1kHz (新增)
-* LNC#89019-4 "Hearing threshold Ear-right 2000 Hz [dB]"         // R-2kHz (新增)
-* LNC#89022-8 "Hearing threshold Ear-right 4000 Hz [dB]"         // R-4kHz (新增)
+// 左耳 (Left ear) 0.5–8 kHz
+* LNC#89024-4 "Hearing threshold Ear - left --500 Hz"
+* LNC#89016-0 "Hearing threshold Ear - left --1000 Hz"
+* LNC#89018-6 "Hearing threshold Ear - left --2000 Hz"
+* LNC#89020-2 "Hearing threshold Ear - left --3000 Hz"
+* LNC#89022-8 "Hearing threshold Ear - left --4000 Hz"
+* LNC#89026-9 "Hearing threshold Ear - left --6000 Hz"
+* LNC#89028-5 "Hearing threshold Ear - left --8000 Hz"
+// 右耳 (Right ear) 0.5–8 kHz
+* LNC#89025-1 "Hearing threshold Ear - right --500 Hz"
+* LNC#89017-8 "Hearing threshold Ear - right --1000 Hz"
+* LNC#89019-4 "Hearing threshold Ear - right --2000 Hz"
+* LNC#89021-0 "Hearing threshold Ear - right --3000 Hz"
+* LNC#89023-6 "Hearing threshold Ear - right --4000 Hz"
+* LNC#89027-7 "Hearing threshold Ear - right --6000 Hz"
+* LNC#89029-3 "Hearing threshold Ear - right --8000 Hz"
 
-// 1.3 游離輻射作業 (radiation)
+// 1.3 游離輻射作業 (radiation) — CBC 與白血球分類、甲狀腺功能、皮膚/眼晶體（理學檢查）
+// v1.1 補齊：附表十游離輻射作業另需甲狀腺功能監測（TSH、Free T4）
 * LNC#789-8 "Erythrocytes [#/volume] in Blood"
 * LNC#6690-2 "WBC [#/volume] in Blood"
 * LNC#777-3 "Platelets [#/volume] in Blood"
@@ -36,12 +48,16 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#4544-3 "Hematocrit [Volume Fraction] of Blood"
 * LNC#770-8 "Neutrophils [Fraction] of WBC"
 * LNC#736-9 "Lymphocytes [Fraction] of WBC"
+* LNC#11580-8 "Thyrotropin [Units/volume] in Serum or Plasma"    // TSH（輻射甲狀腺監測）
+* LNC#3024-7 "Thyroxine (T4) free [Mass/volume] in Serum or Plasma" // Free T4（輻射甲狀腺監測）
 
-// 1.4 異常氣壓作業 (abnormal-pressure)
-* LNC#24579-5 "XR Bones.long Survey"
-* LNC#19868-9 "FEV1 Vol Respiratory Spirometry"
-* LNC#19876-2 "FVC Vol Respiratory Spirometry"
-* LNC#19926-5 "FEV1% or FEV1/FVC (%)"
+// 1.4 異常氣壓作業 (abnormal-pressure) — 肺功能、長骨關節 X 光、心電圖
+// v1.1 修正：FEV1 之正確 LOINC 為 20150-9（原 19868-9 實為 FVC，已更正）
+* LNC#24579-5 "XR Bones.long Survey"                              // 長骨/關節 X 光（減壓性骨壞死）
+* LNC#19876-2 "Forced vital capacity [Volume] in Airways by Spirometry"  // FVC
+* LNC#20150-9 "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry" // FEV1（正確碼）
+* LNC#19926-5 "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry" // FEV1/FVC
+// 心電圖 11524-6（潛水/高壓作業心血管評估）已收錄於 1.1 高溫作業，不重複收錄
 
 // 1.5 鉛作業 (lead)
 * LNC#5671-3 "Lead [Mass/volume] in Blood"
@@ -53,18 +69,23 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // 1.6 四烷基鉛作業 (tetraalkyl-lead) — 與鉛作業共用以下代碼（已收錄於 1.5，此處不重複）
 // 另有特有代碼：無（四烷基鉛主要透過皮膚及呼吸道吸收，生物標記與鉛作業相同）
 
-// 1.7 粉塵作業 (dust)
-* LNC#36643-5 "XR Chest 2V"
+// 1.7 粉塵作業 / 游離二氧化矽 (dust / crystalline silica) — 胸部 X 光、肺功能（FVC/FEV1/比值）
+// 塵肺症分級以胸部 X 光判讀；肺功能碼收錄於 1.4。24648-8 為附表九一般胸部 X 光（單張 PA）之對應碼。
+* LNC#36643-5 "XR Chest 2 Views"                                 // 胸部 X 光（2 views，塵肺症）
+* LNC#24648-8 "XR Chest PA upright"                              // 胸部 X 光（單張 PA，附表九一般大片）
 
-// 1.8 有機溶劑作業 (organic-solvent)
-* LNC#6709-0 "Hippurate [Mass/volume] in Urine"
-* LNC#2725-0 "p-Methylhippurate [Mass/volume] in Urine"
-* LNC#13000-5 "Mandelate [Mass/volume] in Urine"
-* LNC#3041-1 "Trichloroacetate [Mass/volume] in Urine"
-* LNC#31170-4 "2,5-Hexanedione [Mass/volume] in Urine"
-* LNC#2758-1 "Phenol [Mass/volume] in Urine"
-* LNC#12543-5 "Methylformamide [Mass/volume] in Urine"
-* LNC#12533-6 "TTCA [Mass/volume] in Urine"
+// 1.8 有機溶劑作業 (organic-solvent) — 肝功能、腎功能、CBC、神經學檢查、尿中代謝物
+// 附表十有機溶劑作業另需肝功能監測（ALT、γ-GT，收錄於 VS-CoreDataset）；以下為各溶劑之尿中生物偵測代謝物
+* LNC#2324-2 "Gamma glutamyltransferase [Enzymatic activity/volume] in Serum or Plasma" // γ-GT（肝功能，v1.1 明列）
+* LNC#6709-0 "Hippurate [Mass/volume] in Urine"                  // 馬尿酸（甲苯）
+* LNC#2725-0 "p-Methylhippurate [Mass/volume] in Urine"         // 甲基馬尿酸（二甲苯）
+* LNC#13000-5 "Mandelate [Mass/volume] in Urine"                // 扁桃酸（苯乙烯）
+* LNC#3041-1 "Trichloroacetate [Mass/volume] in Urine"          // 三氯乙酸（三氯乙烯/四氯乙烯）
+* LNC#31170-4 "2,5-Hexanedione [Mass/volume] in Urine"          // 2,5-己二酮（正己烷）
+* LNC#2758-1 "Phenol [Mass/volume] in Urine"                    // 酚（苯）
+* LNC#12543-5 "Methylformamide [Mass/volume] in Urine"          // N-甲基甲醯胺（DMF）
+* LNC#12533-6 "TTCA [Mass/volume] in Urine"                     // TTCA（二硫化碳）
+// 二硫化碳作業 (carbon disulfide) 另需心電圖（11524-6，已收錄於 1.1）、血脂（Core）、眼底檢查（理學）
 
 // 1.9 特定化學物質作業 (specific-chemical)
 * LNC#5586-3 "Arsenic [Mass/volume] in Urine"

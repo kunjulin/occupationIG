@@ -25,7 +25,7 @@
 *   **腰圍 (Waist Circumference)**: LOINC `56086-2`，單位：`cm`
 *   **血壓 (Blood Pressure)**: 採用 `TWCoreBloodPressure` Profile。包含收縮壓（LOINC `8480-6`，單位：`mmHg`）與舒張壓（LOINC `8462-4`，單位：`mmHg`）之雙 component 結構。
 *   **視力與辨色力**: 採用 `TWHA-VisionTest` Profile，以 component 結構區分左眼視力（LOINC `70936-0`）、右眼視力（LOINC `70935-2`）及辨色力（LOINC `48024-3`，正常/異常）。
-*   **聽力**: 採用 `TWHA-HearingTest` Profile，以 component 結構區分左耳聽力（LOINC `89023-6`）與右耳聽力（LOINC `89022-8`）。
+*   **聽力**: 採用 `TWHA-HearingTest` Profile，Panel 代碼 LOINC `89015-2` (Pure tone threshold audiometry panel)，以 component 結構記錄左右耳於 0.5–8 kHz 各頻率之氣導聽閾（如左耳 500 Hz `89024-4`、右耳 500 Hz `89025-1`）。
 
 ---
 

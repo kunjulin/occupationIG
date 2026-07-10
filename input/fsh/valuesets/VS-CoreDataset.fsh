@@ -211,8 +211,10 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 // 注意：這些代碼同時收錄於 VS-PulmonaryFunction（供完整肺功能代碼集查詢）
 //       與本 ValueSet（供術語查詢與 CoreDataset 完整性），用途不同，非重複。
 // =============================================================
-* LNC#19876-2 "Forced vital capacity [Volume] in Airways by Spirometry"
-* LNC#19868-9 "Forced expiratory volume in 1 second"
+// v1.1 修正：FEV1 之正確 LOINC 為 20150-9；19868-9 實為 FVC（Spirometry），列為 FVC 之可接受變異碼
+* LNC#19876-2 "Forced vital capacity [Volume] in Airways by Spirometry"  // FVC (Preferred)
+* LNC#19868-9 "Forced vital capacity [Volume] Respiratory system by Spirometry" // FVC (acceptable variant)
+* LNC#20150-9 "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry" // FEV1 (Preferred)
 * LNC#19926-5 "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry"
 
 // =============================================================

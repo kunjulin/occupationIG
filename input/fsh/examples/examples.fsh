@@ -148,7 +148,7 @@ Description: "受檢勞工王大同的視力（裸視左/右 1.0）及辨色力�
 Instance: obs-hearing
 InstanceOf: TWHAHearingTestProfile
 Title: "聽力檢查結果範例"
-Description: "受檢勞工王大同的純音聽力測試結果（左右耳各頻率聽力閾值均在正常範圍 ≤25 dB）。v3 更新：使用正確 Panel code 89015-2 及頻率×耳別切片設計。"
+Description: "受檢勞工王大同的純音聽力測試結果（左右耳 0.5–8 kHz 各頻率聽力閾值均在正常範圍 ≤25 dB）。v1.1 更新：使用正確 Panel code 89015-2 及更正／補齊之頻率×耳別切片（0.5/1/2/3/4/6/8 kHz）。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#exam
 * code = LNC#89015-2 "Pure tone threshold audiometry panel"
@@ -156,23 +156,21 @@ Description: "受檢勞工王大同的純音聽力測試結果（左右耳各頻
 * effectiveDateTime = "2026-06-12T08:25:00+08:00"
 * performer = Reference(example-doctor)
 // 左耳各頻率閾值 (dB HL) — 正常值 ≤25 dB
-* component[leftEar500].code = LNC#89024-4 "Hearing threshold Ear-left 500 Hz [dB]"
 * component[leftEar500].valueQuantity = 15 'dB' "dB"
-* component[leftEar1000].code = LNC#89016-0 "Hearing threshold Ear-left 1000 Hz [dB]"
 * component[leftEar1000].valueQuantity = 15 'dB' "dB"
-* component[leftEar2000].code = LNC#89017-8 "Hearing threshold Ear-left 2000 Hz [dB]"
 * component[leftEar2000].valueQuantity = 20 'dB' "dB"
-* component[leftEar4000].code = LNC#89018-6 "Hearing threshold Ear-left 4000 Hz [dB]"
+* component[leftEar3000].valueQuantity = 20 'dB' "dB"
 * component[leftEar4000].valueQuantity = 20 'dB' "dB"
+* component[leftEar6000].valueQuantity = 25 'dB' "dB"
+* component[leftEar8000].valueQuantity = 20 'dB' "dB"
 // 右耳各頻率閾值 (dB HL)
-* component[rightEar500].code = LNC#89028-5 "Hearing threshold Ear-right 500 Hz [dB]"
 * component[rightEar500].valueQuantity = 15 'dB' "dB"
-* component[rightEar1000].code = LNC#89020-2 "Hearing threshold Ear-right 1000 Hz [dB]"
 * component[rightEar1000].valueQuantity = 15 'dB' "dB"
-* component[rightEar2000].code = LNC#89019-4 "Hearing threshold Ear-right 2000 Hz [dB]"
 * component[rightEar2000].valueQuantity = 20 'dB' "dB"
-* component[rightEar4000].code = LNC#89022-8 "Hearing threshold Ear-right 4000 Hz [dB]"
+* component[rightEar3000].valueQuantity = 20 'dB' "dB"
 * component[rightEar4000].valueQuantity = 20 'dB' "dB"
+* component[rightEar6000].valueQuantity = 25 'dB' "dB"
+* component[rightEar8000].valueQuantity = 20 'dB' "dB"
 
 Instance: obs-physical
 InstanceOf: TWHAPhysicalExamProfile
