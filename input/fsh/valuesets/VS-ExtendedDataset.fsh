@@ -113,6 +113,35 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#19501-6 "Ketamine [Presence] in Urine by Screening test"
 * LNC#19571-9 "MDMA [Presence] in Urine by Screening test"
 
+// 1.15 癌症篩檢與 PHI (Cancer Markers/PHI) — v1.1 自 VS-CoreDataset 移入（develop.md §3.2）
+* LNC#19177-5 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
+* LNC#2039-6 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
+* LNC#2857-1 "Prostate specific Ag [Mass/volume] in Serum or Plasma"
+* LNC#19199-9 "Prostate specific Ag [Mass/volume] in Serum or Plasma"   // Layer 2: PSA unspecified method
+* LNC#10886-0 "Prostate specific Ag.free [Mass/volume] in Serum or Plasma"
+* LNC#97149-9 "[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma"
+* LNC#97150-7 "Prostate Health Index in Serum or Plasma"
+* LNC#10334-1 "Cancer Ag 125 [Units/volume] in Serum or Plasma"
+* LNC#83082-8 "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
+* LNC#83085-1 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
+* LNC#24108-3 "Cancer Ag 19-9 [Units/volume] in Serum or Plasma"
+* LNC#83084-4 "Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay"
+* LNC#83083-6 "Cancer Ag 15-3 [Units/volume] in Serum or Plasma"
+* LNC#83112-3 "Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay"
+* LNC#1834-1 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
+* LNC#9679-2 "Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma"
+* LNC#19113-0 "IgE [Units/volume] in Serum or Plasma"
+* LNC#9633-9 "Epstein Barr virus VCA IgA Ab [Presence] in Serum"
+
+// 1.16 進階心血管與自體免疫 (Advanced Cardiac/Autoimmune) — v1.1 自 VS-CoreDataset 移入（develop.md §3.2）
+* LNC#10835-7 "Lipoprotein A [Mass/volume] in Serum or Plasma"
+* LNC#1869-7 "Apolipoprotein A-I [Mass/volume] in Serum or Plasma"
+* LNC#1884-6 "Apolipoprotein B [Mass/volume] in Serum or Plasma"
+* LNC#33762-6 "Natriuretic peptide.proB-type N-terminal [Mass/volume] in Serum or Plasma"
+* LNC#42254-3 "Nuclear Ab [Presence] in Serum by Immunofluorescence"
+* LNC#11572-5 "Rheumatoid factor [Units/volume] in Serum or Plasma"
+* LNC#25390-6 "CYFRA 21-1 [Mass/volume] in Serum or Plasma"
+
 // =================================================================
 // 2. 自費健康檢查常見之進階影像學及鏡檢項目 (Advanced Imaging & Endoscopy)
 // =================================================================

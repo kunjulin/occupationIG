@@ -4,6 +4,8 @@
 
 依據實作指引之 **特別危害健康作業類別值集 (VS-HazardType)**，本指引對應並收錄以下 12 大類特別危害健康作業類別之核心檢驗與評估項目：
 
+> **第一期範疇說明**：第一期以**噪音（2）／鉛（5）／粉塵（7）**三模組為結構化必驗項目（收錄於 [VS-OccHealthCheck-Required](ValueSet-VS-OccHealthCheck-Required.html) 草案），並以 `TWHA-HearingTest`、`TWHA-LabResult-Special`、`TWHA-PulmonaryFunction` 等 Profile 個別建模。其餘 9 大類危害作業之項目，於第一期以 `TWHA-LabResult-Special` 通用承載（收錄於 `VS-ExtendedDataset`），尚未個別結構化，待後續期別依需求擴充。
+
 ---
 
 ## 1. 高溫作業 (High Temperature Operations)

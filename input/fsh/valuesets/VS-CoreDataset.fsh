@@ -113,24 +113,8 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 * LNC#2284-8 "Folate [Mass/volume] in Serum or Plasma"
 
 // 6. 癌症篩檢與 PHI (Cancer Markers/PHI)
-* LNC#19177-5 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
-* LNC#2039-6 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
-* LNC#2857-1 "Prostate specific Ag [Mass/volume] in Serum or Plasma"
-* LNC#19199-9 "Prostate specific Ag [Mass/volume] in Serum or Plasma"   // Layer 2: PSA unspecified method
-* LNC#10886-0 "Prostate specific Ag.free [Mass/volume] in Serum or Plasma"
-* LNC#97149-9 "[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma"
-* LNC#97150-7 "Prostate Health Index in Serum or Plasma"
-* LNC#10334-1 "Cancer Ag 125 [Units/volume] in Serum or Plasma"
-* LNC#83082-8 "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
-* LNC#83085-1 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
-* LNC#24108-3 "Cancer Ag 19-9 [Units/volume] in Serum or Plasma"
-* LNC#83084-4 "Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay"
-* LNC#83083-6 "Cancer Ag 15-3 [Units/volume] in Serum or Plasma"
-* LNC#83112-3 "Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay"
-* LNC#1834-1 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
-* LNC#9679-2 "Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma"
-* LNC#19113-0 "IgE [Units/volume] in Serum or Plasma"
-* LNC#9633-9 "Epstein Barr virus VCA IgA Ab [Presence] in Serum"
+// v1.1 重分層：本節項目屬進階/自費健檢常見之腫瘤標記與特殊篩檢，非附表九一般健檢共通必驗項目，
+// 已移至 VS-ExtendedDataset §1.15（develop.md §3.2，回歸 Core = 最小共通集）。代碼未刪除，僅重分層。
 
 // 7. 傳染病、HPV與胃部篩檢 (Infections/HPV/Stomach)
 * LNC#5196-1 "Hepatitis B virus surface Ag [Presence] in Serum"
@@ -213,19 +197,14 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 * LNC#5777-8 "Cholesterol crystals [Presence] in Urine sediment"
 * LNC#5787-7 "Epithelial cells [#/area] in Urine sediment by Microscopy high power field"
 
-// 9. 進階心血管、自體免疫與其它 (Advanced Cardiac/Autoimmune/Others)
-* LNC#10835-7 "Lipoprotein A [Mass/volume] in Serum or Plasma"
-* LNC#1869-7 "Apolipoprotein A-I [Mass/volume] in Serum or Plasma"
-* LNC#1884-6 "Apolipoprotein B [Mass/volume] in Serum or Plasma"
-* LNC#33762-6 "Natriuretic peptide.proB-type N-terminal [Mass/volume] in Serum or Plasma"
-* LNC#42254-3 "Nuclear Ab [Presence] in Serum by Immunofluorescence"
-* LNC#11572-5 "Rheumatoid factor [Units/volume] in Serum or Plasma"
+// 9. 一般心血管與腎臟篩檢 (General Cardiac/Renal Screening)
+// v1.1 重分層：原「進階心血管、自體免疫」中之 Lp(a)/ApoA-I/ApoB/NT-proBNP/ANA/RF/CYFRA21-1
+// 已移至 VS-ExtendedDataset §1.16（develop.md §3.2），本節僅保留一般健檢常見之項目。
 * LNC#1988-5 "C reactive protein [Mass/volume] in Serum or Plasma"
 * LNC#13705-9 "Albumin/Creatinine [Mass Ratio] in Urine"
 * LNC#14957-5 "Microalbumin [Mass/volume] in Urine"
 * LNC#2161-8 "Creatinine [Mass/volume] in Urine"
 * LNC#4588-0 "Hemoglobin H/Hemoglobin.total in Blood"
-* LNC#25390-6 "CYFRA 21-1 [Mass/volume] in Serum or Plasma"
 
 // =============================================================
 // 10. 肺功能檢查核心代碼 (Pulmonary Function — Core)

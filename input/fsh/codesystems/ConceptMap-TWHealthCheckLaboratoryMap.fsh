@@ -73,11 +73,11 @@ Description: "將健康檢查實驗室檢驗之可接受代碼 (Layer 2) 映射�
 * group[0].element[8].target[0].display = "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
 * group[0].element[8].target[0].equivalence = #equivalent
 
-// LDL
-* group[0].element[9].code = #18262-6
-* group[0].element[9].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
-* group[0].element[9].target[0].code = #13457-7
-* group[0].element[9].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+// LDL (v1.1 修正：Preferred 改為直接測定法 2089-1，計算法 13457-7 及舊版直接法 18262-6 皆為 Acceptable)
+* group[0].element[9].code = #13457-7
+* group[0].element[9].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+* group[0].element[9].target[0].code = #2089-1
+* group[0].element[9].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
 * group[0].element[9].target[0].equivalence = #equivalent
 
 // eGFR
@@ -220,4 +220,11 @@ Description: "將健康檢查實驗室檢驗之可接受代碼 (Layer 2) 映射�
 * group[0].element[27].target[0].code = #1558-6
 * group[0].element[27].target[0].display = "Fasting Glucose [Mass/volume] in Serum or Plasma"
 * group[0].element[27].target[0].equivalence = #equivalent
+
+// LDL (舊版直接測定法代碼 → Preferred 2089-1)
+* group[0].element[28].code = #18262-6
+* group[0].element[28].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
+* group[0].element[28].target[0].code = #2089-1
+* group[0].element[28].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
+* group[0].element[28].target[0].equivalence = #equivalent
 

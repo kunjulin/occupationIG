@@ -55,6 +55,7 @@ Alias: VS_HealthMgmtLevel = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Healt
 Alias: VS_FitnessForWork = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-FitnessForWork
 Alias: VS_LaborReportCode = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-LaborReportCode
 Alias: VS_ServiceActivityType = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ServiceActivityType
+Alias: VS_OccHealthCheckRequired = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required
 Alias: VS_CoreDataset = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset
 Alias: VS_ExtendedDataset = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset
 Alias: VS_TWHAVitalSigns = https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns

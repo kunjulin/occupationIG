@@ -1,10 +1,10 @@
-# 臺灣勞工職業健康體格及健康檢查實作指引 (Taiwan Occupational Health Examination Implementation Guide - TWOHEIG)
+# 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG - TWHA IG)
 
-臺灣勞工健康檢查與臨場健康服務執行紀錄之 FHIR 實作指引。本指引依據中華民國《勞工健康保護規則》設計，並繼承「臺灣核心實作指引」(Taiwan Core IG / TW Core IG)。
+臺灣勞工健康檢查與臨場健康服務執行紀錄之 FHIR 實作指引。本指引依據中華民國《勞工健康保護規則》設計，並繼承「臺灣核心實作指引」(Taiwan Core IG / TW Core IG)，以勞工健康檢查為核心，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。
 
 ## 專案簡介
-* **ID**: `mohw.tw.ohe`
-* **Canonical**: `https://twcore.mohw.gov.tw/ig/ohe`
+* **ID**: `mohw.tw.twha`
+* **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
@@ -41,8 +41,8 @@
 ---
 
 ## 依賴指引 (Dependencies)
-* **tw.gov.mohw.twcore**: `1.0.0`
-* **fhir.twcrsf**: `0.1.1`
+* **tw.gov.mohw.twcore**: `1.0.0`（`sushi-config.yaml` 之 IG 套件依賴）
+* 嚼檳榔相關 CodeSystem/ValueSet 引用臺灣癌症登記短表實作指引 (TWCR_SF, `hapi.fhir.tw`) 之外部 canonical URL（見 `sushi-config.yaml` 之 `parameters.special-url`），非套件層級依賴。
 
 ---
 
@@ -57,4 +57,14 @@
   - 新增無 P-5'-P 的 AST/ALT (`88112-8` / `1744-2`) 以及葡萄糖 AC (`2345-7`) 對應至 preferred 代碼之規則。
 - **術語對照表同步**:
   - 更新 [snomed-loinc-mappings.csv](input/assets/snomed-loinc-mappings.csv) 與 [terminology.md](input/pagecontent/terminology.md)，納入 CEA (SNOMED CT `60267001`) 並修正 CA-125 的 acceptable 代碼。
+
+### 2026-07-10 更新 (依 develop.md 對接文件一/二/三 v1.1)
+- **正式名稱與架構定位**：`sushi-config.yaml`、`README.md`、`index.md`、`background.md` 之標題與敘述改回徵求書名稱「臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG)」；架構敘述由「兩層 Foundation/Domain Supplement」統一為「Core（勞工健檢）＋特殊職類／一般健檢兩類開放式擴充」。技術 ID/Canonical/`TWHA-` 前綴維持不變。
+- **修正 pagecontent 失效引用**：`general-exam.md` 中不存在的 `VS_GeneralLabTests`、`VS_BetelNutStatus`、`ext-betelnut-quantity` 改為對應實際 FSH 物件（`VS-CoreDataset` extensible、TWCR_SF 元件模型）。
+- **LDL-C Preferred 代碼修正**：由計算法 `13457-7` 改為直接測定法 `2089-1`（對齊文件二 §2.3），同步修正 ConceptMap、`terminology.md`、`datamodel.md`、`general-exam.md`。
+- **新增 [VS-OccHealthCheck-Required](input/fsh/valuesets/VS-OccHealthCheck-Required.fsh)**：第一期法定必驗項目草案子集（一般必驗 + 噪音/鉛/粉塵三模組），待正式法規盤點後修訂。
+- **Core/Extended 重分層**：將腫瘤標記（AFP/CEA/PSA/CA125/CA19-9/CA15-3/SCC/EBV/IgE）與進階心血管/自體免疫項目（Lp(a)/ApoA-I/ApoB/NT-proBNP/ANA/RF/CYFRA21-1）自 `VS-CoreDataset` 移至 `VS-ExtendedDataset`（代碼不刪除，僅重分層），使 Core 回歸最小共通集。
+- **危害類別對照**：`CS-HazardType` 之 `specific-chemical` 補充子類說明，對應 `VS-SpecificChemicalType`，呼應文件一 18 類展開。
+- **第一期範疇說明**：`special-exam.md` 新增段落區分「噪音/鉛/粉塵已結構化必驗」與「其餘 9 類以 LabResult-Special 通用承載」。
+- **新增 [scripts/check-pagecontent-refs.js](scripts/check-pagecontent-refs.js)**：掃描 pagecontent 中 `VS_*`/`CS_*`/`ext-*`/`TWHA-*` 引用是否皆能在 `input/fsh/` 中找到對應定義，避免再度出現失效引用。
 
