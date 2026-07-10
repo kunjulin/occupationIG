@@ -8,7 +8,7 @@
 
 ## 1. 實作指引原始碼
 
-* [GitHub 原始碼倉庫 (模擬)](https://github.com/mohw-tw/twha-ig)
+* [GitHub 原始碼倉庫](https://github.com/kunjulin/occupationIG)
 * [FSH 定義原始檔 (包含所有 Profiles、Extensions、ValueSets、CodeSystems)](fsh-source.zip)
 
 -------
