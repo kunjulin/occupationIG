@@ -1,4 +1,4 @@
-# UC-003 特殊危害健康作業檢查報告封包 - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+# UC-003 特殊危害健康作業檢查報告封包 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
 ## Example Bundle: UC-003 特殊危害健康作業檢查報告封包
 
@@ -264,7 +264,7 @@
       },
       "text" : {
         "status" : "generated",
-        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-hearing\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-hearing</b></p><a name=\"obs-hearing\"> </a><a name=\"hcobs-hearing\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-HearingTest.html\">聽力檢查 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}\">Exam</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89015-2}\">Pure tone threshold audiometry panel</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:25:00+0800</p><p><b>performer</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89024-4}\">Hearing threshold Ear-left 500 Hz [dB]</span></p><p><b>value</b>: 15 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89016-0}\">Hearing threshold Ear-left 1000 Hz [dB]</span></p><p><b>value</b>: 15 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89017-8}\">Hearing threshold Ear-left 2000 Hz [dB]</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89018-6}\">Hearing threshold Ear-left 4000 Hz [dB]</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89028-5}\">Hearing threshold Ear-right 500 Hz [dB]</span></p><p><b>value</b>: 15 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89020-2}\">Hearing threshold Ear-right 1000 Hz [dB]</span></p><p><b>value</b>: 15 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89019-4}\">Hearing threshold Ear-right 2000 Hz [dB]</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89022-8}\">Hearing threshold Ear-right 4000 Hz [dB]</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote></div>"
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-hearing\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-hearing</b></p><a name=\"obs-hearing\"> </a><a name=\"hcobs-hearing\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-HearingTest.html\">聽力檢查 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}\">Exam</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89015-2}\">Pure tone threshold audiometry panel</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:25:00+0800</p><p><b>performer</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89024-4}\">Hearing threshold Ear - left --500 Hz</span></p><p><b>value</b>: 15 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89016-0}\">Hearing threshold Ear - left --1000 Hz</span></p><p><b>value</b>: 15 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89018-6}\">Hearing threshold Ear - left --2000 Hz</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89020-2}\">Hearing threshold Ear - left --3000 Hz</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89022-8}\">Hearing threshold Ear - left --4000 Hz</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89026-9}\">Hearing threshold Ear - left --6000 Hz</span></p><p><b>value</b>: 25 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89028-5}\">Hearing threshold Ear - left --8000 Hz</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89025-1}\">Hearing threshold Ear - right --500 Hz</span></p><p><b>value</b>: 15 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89017-8}\">Hearing threshold Ear - right --1000 Hz</span></p><p><b>value</b>: 15 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89019-4}\">Hearing threshold Ear - right --2000 Hz</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89021-0}\">Hearing threshold Ear - right --3000 Hz</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89023-6}\">Hearing threshold Ear - right --4000 Hz</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89027-7}\">Hearing threshold Ear - right --6000 Hz</span></p><p><b>value</b>: 25 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 89029-3}\">Hearing threshold Ear - right --8000 Hz</span></p><p><b>value</b>: 20 dB<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codedB = 'dB')</span></p></blockquote></div>"
       },
       "status" : "final",
       "category" : [{
@@ -292,7 +292,7 @@
           "coding" : [{
             "system" : "http://loinc.org",
             "code" : "89024-4",
-            "display" : "Hearing threshold Ear-left 500 Hz [dB]"
+            "display" : "Hearing threshold Ear - left --500 Hz"
           }]
         },
         "valueQuantity" : {
@@ -307,26 +307,11 @@
           "coding" : [{
             "system" : "http://loinc.org",
             "code" : "89016-0",
-            "display" : "Hearing threshold Ear-left 1000 Hz [dB]"
+            "display" : "Hearing threshold Ear - left --1000 Hz"
           }]
         },
         "valueQuantity" : {
           "value" : 15,
-          "unit" : "dB",
-          "system" : "http://unitsofmeasure.org",
-          "code" : "dB"
-        }
-      },
-      {
-        "code" : {
-          "coding" : [{
-            "system" : "http://loinc.org",
-            "code" : "89017-8",
-            "display" : "Hearing threshold Ear-left 2000 Hz [dB]"
-          }]
-        },
-        "valueQuantity" : {
-          "value" : 20,
           "unit" : "dB",
           "system" : "http://unitsofmeasure.org",
           "code" : "dB"
@@ -337,7 +322,7 @@
           "coding" : [{
             "system" : "http://loinc.org",
             "code" : "89018-6",
-            "display" : "Hearing threshold Ear-left 4000 Hz [dB]"
+            "display" : "Hearing threshold Ear - left --2000 Hz"
           }]
         },
         "valueQuantity" : {
@@ -351,38 +336,8 @@
         "code" : {
           "coding" : [{
             "system" : "http://loinc.org",
-            "code" : "89028-5",
-            "display" : "Hearing threshold Ear-right 500 Hz [dB]"
-          }]
-        },
-        "valueQuantity" : {
-          "value" : 15,
-          "unit" : "dB",
-          "system" : "http://unitsofmeasure.org",
-          "code" : "dB"
-        }
-      },
-      {
-        "code" : {
-          "coding" : [{
-            "system" : "http://loinc.org",
             "code" : "89020-2",
-            "display" : "Hearing threshold Ear-right 1000 Hz [dB]"
-          }]
-        },
-        "valueQuantity" : {
-          "value" : 15,
-          "unit" : "dB",
-          "system" : "http://unitsofmeasure.org",
-          "code" : "dB"
-        }
-      },
-      {
-        "code" : {
-          "coding" : [{
-            "system" : "http://loinc.org",
-            "code" : "89019-4",
-            "display" : "Hearing threshold Ear-right 2000 Hz [dB]"
+            "display" : "Hearing threshold Ear - left --3000 Hz"
           }]
         },
         "valueQuantity" : {
@@ -397,7 +352,142 @@
           "coding" : [{
             "system" : "http://loinc.org",
             "code" : "89022-8",
-            "display" : "Hearing threshold Ear-right 4000 Hz [dB]"
+            "display" : "Hearing threshold Ear - left --4000 Hz"
+          }]
+        },
+        "valueQuantity" : {
+          "value" : 20,
+          "unit" : "dB",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "dB"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "89026-9",
+            "display" : "Hearing threshold Ear - left --6000 Hz"
+          }]
+        },
+        "valueQuantity" : {
+          "value" : 25,
+          "unit" : "dB",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "dB"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "89028-5",
+            "display" : "Hearing threshold Ear - left --8000 Hz"
+          }]
+        },
+        "valueQuantity" : {
+          "value" : 20,
+          "unit" : "dB",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "dB"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "89025-1",
+            "display" : "Hearing threshold Ear - right --500 Hz"
+          }]
+        },
+        "valueQuantity" : {
+          "value" : 15,
+          "unit" : "dB",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "dB"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "89017-8",
+            "display" : "Hearing threshold Ear - right --1000 Hz"
+          }]
+        },
+        "valueQuantity" : {
+          "value" : 15,
+          "unit" : "dB",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "dB"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "89019-4",
+            "display" : "Hearing threshold Ear - right --2000 Hz"
+          }]
+        },
+        "valueQuantity" : {
+          "value" : 20,
+          "unit" : "dB",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "dB"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "89021-0",
+            "display" : "Hearing threshold Ear - right --3000 Hz"
+          }]
+        },
+        "valueQuantity" : {
+          "value" : 20,
+          "unit" : "dB",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "dB"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "89023-6",
+            "display" : "Hearing threshold Ear - right --4000 Hz"
+          }]
+        },
+        "valueQuantity" : {
+          "value" : 20,
+          "unit" : "dB",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "dB"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "89027-7",
+            "display" : "Hearing threshold Ear - right --6000 Hz"
+          }]
+        },
+        "valueQuantity" : {
+          "value" : 25,
+          "unit" : "dB",
+          "system" : "http://unitsofmeasure.org",
+          "code" : "dB"
+        }
+      },
+      {
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "89029-3",
+            "display" : "Hearing threshold Ear - right --8000 Hz"
           }]
         },
         "valueQuantity" : {

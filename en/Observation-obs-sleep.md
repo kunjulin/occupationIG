@@ -1,4 +1,4 @@
-# 睡眠狀況測量範例 - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+# 睡眠狀況測量範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
 ## Example Observation: 睡眠狀況測量範例
 

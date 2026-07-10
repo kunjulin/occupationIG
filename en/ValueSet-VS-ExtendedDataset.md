@@ -1,4 +1,4 @@
-# 健康檢查進階與領域擴充項目值集 - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+# 健康檢查進階與領域擴充項目值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
 ## ValueSet: 健康檢查進階與領域擴充項目值集 
 
@@ -35,7 +35,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "健康檢查進階與領域擴充項目值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-09T21:42:02+08:00",
+  "date" : "2026-07-10T19:56:53+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -68,6 +68,14 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "Potassium [Moles/volume] in Serum or Plasma"
       },
       {
+        "code" : "2075-0",
+        "display" : "Chloride [Moles/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "3094-0",
+        "display" : "Urea nitrogen [Mass/volume] in Serum or Plasma"
+      },
+      {
         "code" : "5810-7",
         "display" : "Specific gravity of Urine"
       },
@@ -77,35 +85,59 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "89024-4",
-        "display" : "Hearing threshold Ear-left 500 Hz [dB]"
+        "display" : "Hearing threshold Ear - left --500 Hz"
       },
       {
         "code" : "89016-0",
-        "display" : "Hearing threshold Ear-left 1000 Hz [dB]"
-      },
-      {
-        "code" : "89017-8",
-        "display" : "Hearing threshold Ear-left 2000 Hz [dB]"
+        "display" : "Hearing threshold Ear - left --1000 Hz"
       },
       {
         "code" : "89018-6",
-        "display" : "Hearing threshold Ear-left 4000 Hz [dB]"
-      },
-      {
-        "code" : "89028-5",
-        "display" : "Hearing threshold Ear-right 500 Hz [dB]"
+        "display" : "Hearing threshold Ear - left --2000 Hz"
       },
       {
         "code" : "89020-2",
-        "display" : "Hearing threshold Ear-right 1000 Hz [dB]"
-      },
-      {
-        "code" : "89019-4",
-        "display" : "Hearing threshold Ear-right 2000 Hz [dB]"
+        "display" : "Hearing threshold Ear - left --3000 Hz"
       },
       {
         "code" : "89022-8",
-        "display" : "Hearing threshold Ear-right 4000 Hz [dB]"
+        "display" : "Hearing threshold Ear - left --4000 Hz"
+      },
+      {
+        "code" : "89026-9",
+        "display" : "Hearing threshold Ear - left --6000 Hz"
+      },
+      {
+        "code" : "89028-5",
+        "display" : "Hearing threshold Ear - left --8000 Hz"
+      },
+      {
+        "code" : "89025-1",
+        "display" : "Hearing threshold Ear - right --500 Hz"
+      },
+      {
+        "code" : "89017-8",
+        "display" : "Hearing threshold Ear - right --1000 Hz"
+      },
+      {
+        "code" : "89019-4",
+        "display" : "Hearing threshold Ear - right --2000 Hz"
+      },
+      {
+        "code" : "89021-0",
+        "display" : "Hearing threshold Ear - right --3000 Hz"
+      },
+      {
+        "code" : "89023-6",
+        "display" : "Hearing threshold Ear - right --4000 Hz"
+      },
+      {
+        "code" : "89027-7",
+        "display" : "Hearing threshold Ear - right --6000 Hz"
+      },
+      {
+        "code" : "89029-3",
+        "display" : "Hearing threshold Ear - right --8000 Hz"
       },
       {
         "code" : "789-8",
@@ -136,20 +168,28 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "Lymphocytes [Fraction] of WBC"
       },
       {
+        "code" : "11580-8",
+        "display" : "Thyrotropin [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "3024-7",
+        "display" : "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
+      },
+      {
         "code" : "24579-5",
         "display" : "XR Bones.long Survey"
       },
       {
-        "code" : "19868-9",
-        "display" : "FEV1 Vol Respiratory Spirometry"
+        "code" : "19876-2",
+        "display" : "Forced vital capacity [Volume] in Airways by Spirometry"
       },
       {
-        "code" : "19876-2",
-        "display" : "FVC Vol Respiratory Spirometry"
+        "code" : "20150-9",
+        "display" : "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry"
       },
       {
         "code" : "19926-5",
-        "display" : "FEV1% or FEV1/FVC (%)"
+        "display" : "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry"
       },
       {
         "code" : "5671-3",
@@ -173,7 +213,15 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "36643-5",
-        "display" : "XR Chest 2V"
+        "display" : "XR Chest 2 Views"
+      },
+      {
+        "code" : "24648-8",
+        "display" : "XR Chest PA upright"
+      },
+      {
+        "code" : "2324-2",
+        "display" : "Gamma glutamyltransferase [Enzymatic activity/volume] in Serum or Plasma"
       },
       {
         "code" : "6709-0",
@@ -346,6 +394,106 @@ No Expansion for this valueset (not supported by Publication Tooling)
       {
         "code" : "19571-9",
         "display" : "MDMA [Presence] in Urine by Screening test"
+      },
+      {
+        "code" : "19177-5",
+        "display" : "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "2039-6",
+        "display" : "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "2857-1",
+        "display" : "Prostate specific Ag [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "19199-9",
+        "display" : "Prostate specific Ag [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "10886-0",
+        "display" : "Prostate specific Ag.free [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "97149-9",
+        "display" : "[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "97150-7",
+        "display" : "Prostate Health Index in Serum or Plasma"
+      },
+      {
+        "code" : "10334-1",
+        "display" : "Cancer Ag 125 [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "83082-8",
+        "display" : "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
+      },
+      {
+        "code" : "83085-1",
+        "display" : "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
+      },
+      {
+        "code" : "24108-3",
+        "display" : "Cancer Ag 19-9 [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "83084-4",
+        "display" : "Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay"
+      },
+      {
+        "code" : "83083-6",
+        "display" : "Cancer Ag 15-3 [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "83112-3",
+        "display" : "Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay"
+      },
+      {
+        "code" : "1834-1",
+        "display" : "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "9679-2",
+        "display" : "Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "19113-0",
+        "display" : "IgE [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "9633-9",
+        "display" : "Epstein Barr virus VCA IgA Ab [Presence] in Serum"
+      },
+      {
+        "code" : "10835-7",
+        "display" : "Lipoprotein A [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "1869-7",
+        "display" : "Apolipoprotein A-I [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "1884-6",
+        "display" : "Apolipoprotein B [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "33762-6",
+        "display" : "Natriuretic peptide.proB-type N-terminal [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "42254-3",
+        "display" : "Nuclear Ab [Presence] in Serum by Immunofluorescence"
+      },
+      {
+        "code" : "11572-5",
+        "display" : "Rheumatoid factor [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "25390-6",
+        "display" : "CYFRA 21-1 [Mass/volume] in Serum or Plasma"
       },
       {
         "code" : "24606-6",

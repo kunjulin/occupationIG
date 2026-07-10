@@ -1,4 +1,4 @@
-# Resource 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)
+# Resource 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)
 
 
 
@@ -12,9 +12,9 @@
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha",
   "version" : "0.1.0",
   "name" : "TWHAIG",
-  "title" : "臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)",
+  "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-07-09T21:42:02+08:00",
+  "date" : "2026-07-10T19:56:53+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -30,7 +30,7 @@
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "建立一般健康檢查、勞工健康檢查及成人預防保健之 FHIR 資料交換標準。繼承臺灣核心實作指引 (TW Core IG)。",
+  "description" : "以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。",
   "packageId" : "mohw.tw.twha",
   "license" : "CC0-1.0",
   "fhirVersion" : ["4.0.1"],
@@ -42,7 +42,7 @@
     }],
     "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
     "packageId" : "hl7.terminology.r4",
-    "version" : "7.1.0"
+    "version" : "7.2.0"
   },
   {
     "id" : "hl7ext",
@@ -201,6 +201,17 @@
       {
         "url" : "value",
         "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueString" : "no-validate"
+      },
+      {
+        "url" : "value",
+        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -645,6 +656,17 @@
       {
         "url" : "value",
         "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset"
+      }],
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+    },
+    {
+      "extension" : [{
+        "url" : "code",
+        "valueCode" : "no-validate"
+      },
+      {
+        "url" : "value",
+        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -1475,6 +1497,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VS-OccHealthCheck-Required"
+      },
+      "name" : "勞工健康檢查法定必驗項目值集（第一期草案）",
+      "description" : "第一期法定必驗之勞工健康檢查項目草案子集，涵蓋附表九一般必驗生理量測與實驗室項目，以及噪音／鉛／粉塵三模組之核心必驗代碼。此為初版草案，範疇待附表九/十逐項法規盤點確認後修訂。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
@@ -2093,7 +2127,7 @@
         "reference" : "StructureDefinition/TWHA-HearingTest"
       },
       "name" : "聽力檢查 Profile",
-      "description" : "用於記錄勞工純音聽力測試結果，依左右耳及頻率（500/1000/2000/4000 Hz）分切片記錄。繼承自 TW Core Observation Clinical Result。v3 修正：Panel code 改為 89015-2；component 由耳別切片改為頻率×耳別切片（共 8 個）。",
+      "description" : "用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。",
       "exampleBoolean" : false
     },
     {
@@ -2105,7 +2139,7 @@
         "reference" : "Observation/obs-hearing"
       },
       "name" : "聽力檢查結果範例",
-      "description" : "受檢勞工王大同的純音聽力測試結果（左右耳各頻率聽力閾值均在正常範圍 ≤25 dB）。v3 更新：使用正確 Panel code 89015-2 及頻率×耳別切片設計。",
+      "description" : "受檢勞工王大同的純音聽力測試結果（左右耳 0.5–8 kHz 各頻率聽力閾值均在正常範圍 ≤25 dB）。v1.1 更新：使用正確 Panel code 89015-2 及更正／補齊之頻率×耳別切片（0.5/1/2/3/4/6/8 kHz）。",
       "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HearingTest"
     },
     {

@@ -1,4 +1,4 @@
-# Datamodel - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+# Datamodel - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
 ## Datamodel
 
@@ -8,9 +8,9 @@
 
 -------
 
-## 1. 兩層架構資料模型關係圖
+## 1. 資料模型關係圖
 
-健康檢查資料交換依據兩層架構設計。以 `TWHA-Bundle` (type=document) 與 `TWHA-Composition` 為核心封裝文件：
+本指引以**勞工健康檢查為核心**，並向特殊職類與一般健檢／預防保健兩個方向擴充。以 `TWHA-Bundle` (type=document) 與 `TWHA-Composition` 為核心封裝文件：
 
 ```
 classDiagram
@@ -55,9 +55,9 @@ classDiagram
 
 -------
 
-## 2. Foundation Layer（全國共通核心）欄位映射
+## 2. Core（勞工健康檢查共通核心）欄位映射
 
-本層收錄各健康檢查最基本且共通之生理指標，其對應之 FHIR 資源及 Profiles 如下：
+本層收錄勞工健康檢查（附表九／十一）最基本且共通之生理指標，亦為一般健檢／預防保健擴充所重用之基礎，其對應之 FHIR 資源及 Profiles 如下：
 
 | | | | |
 | :--- | :--- | :--- | :--- |
@@ -70,24 +70,26 @@ classDiagram
 |   | 腰圍 | `TWHAVitalSignsProfile` | LOINC`56086-2`(Waist Circumference) |
 | **Laboratory**(實驗室檢驗) | 空腹血糖 | `TWHALabResultGeneralProfile` | LOINC`1558-6`(Fasting Glucose) |
 |   | 總膽固醇 / 三酸甘油酯 | `TWHALabResultGeneralProfile` | LOINC`2093-3`(TC), LOINC`2571-8`(TG) |
-|   | HDL-C / LDL-C | `TWHALabResultGeneralProfile` | LOINC`2085-9`(HDL-C), LOINC`13457-7`(LDL-C) |
+|   | HDL-C / LDL-C | `TWHALabResultGeneralProfile` | LOINC`2085-9`(HDL-C), LOINC`2089-1`(LDL-C, Preferred: Direct assay) |
 |   | 尿蛋白定性 | `TWHALabResultGeneralProfile` | LOINC`5804-0`(Urine Protein) |
 | **Screening**(篩檢與生理功能) | 視力及辨色力 | `TWHAVisionTestProfile` | LOINC`79880-1`(Vision test panel) |
-|   | 聽力篩檢 | `TWHAHearingTestProfile` | LOINC`89024-4`(Audiometry panel) |
+|   | 聽力篩檢 | `TWHAHearingTestProfile` | LOINC`89015-2`(Pure tone threshold audiometry panel) |
 
 -------
 
-## 3. Domain Supplement（領域擴充）欄位映射
+## 3. 擴充（Extensions）欄位映射
 
-### 3.1 勞工健康檢查 (Occupational Health Check)
+本指引以不修改 Core 為前提，向兩個方向擴充：**特殊職類**（附表十危害作業，開放式擴充，新增職類僅需新增值集／Profile）與**一般健檢／預防保健**（重用 Core 之共通臨床項目）。
+
+### 3.1 特殊職類擴充：勞工特殊健康檢查 (Special Occupational Health Check)
 
 * **作業經歷與現職暴露**：使用 `TWHAOccupationProfile` 記錄職業別；使用 `TWHAWorkExposure` 記錄特別危害作業暴露年數。
 * **理學檢查**：使用 `TWHAPhysicalExamProfile` 記錄頭頸部、呼吸、心血管等七大系統醫師判定。
-* **特殊健檢指標**：使用 `TWHAPulmonaryFunctionProfile` 記錄肺功能檢驗值（FVC, FEV1）；使用 `TWHAECGProfile` 記錄心電圖；使用 `TWHALabResultSpecialProfile` 記錄血中鉛等特殊檢驗。
+* **特殊健檢指標**：使用 `TWHAPulmonaryFunctionProfile` 記錄肺功能檢驗值（FVC, FEV1）；使用 `TWHAECGProfile` 記錄心電圖；使用 `TWHALabResultSpecialProfile` 記錄血中鉛等特殊檢驗（依 `CS-HazardType` 危害作業分類，附表十 18 類作業之完整涵蓋度對照見[特殊危害健康作業](special-exam.md)）。
 * **自覺症狀**：使用 `TWHAQuestionnaireResponseProfile` 記錄附表十一所規定之勞工自覺症狀問卷。
 * **健康管理與配工**：使用 `TWHAClinicalImpressionProfile` 記錄醫師總評與 1-4 級分級；使用 `TWHACarePlanProfile` 與 `TWHAServiceRequestProfile` 記錄適性配工計畫與追蹤檢查開立。
 
-### 3.2 成人預防保健 (Health Taiwan)
+### 3.2 一般健檢／預防保健擴充：成人預防保健 (Adult Preventive Care)
 
 * **個人與家族生活史自填問卷**：使用 `TWHAQuestionnaireResponseHTProfile` 記錄受檢者自填的吸菸、飲酒、嚼檳、規律運動、慢性病既往史（高血壓、糖尿病、高血脂、心血管疾病）與直系親屬家族史。
 * **SDOH 社會風險評估**：使用 `TWHASDOHQuestionnaireResponseProfile` (PRAPARE 問卷) 記錄受檢者之社會決定因素（如教育、就業、住房安全與財務狀況）。

@@ -6,7 +6,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Background - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0</title>
+    <title>Background - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -56,7 +56,7 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)</span>
+          <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
             <span style="display:inline-block;">0.1.0 - STU1
 
@@ -200,7 +200,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Background</h2>
   
 
@@ -247,11 +247,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <hr />
 
 <h2 id="2-計畫定位與目標-project-positioning--objectives">2. 計畫定位與目標 (Project Positioning &amp; Objectives)</h2>
-<p>為解決上述問題，本計畫建立「臺灣健康檢查資料交換實作指引（TWHA IG）」，作為全國健康檢查之 FHIR 交換標準，其實體目標包括：</p>
+<p>為解決上述問題，本計畫建立「臺灣勞工健康檢查交換實作指引（TWHA IG）」，以<strong>勞工健康檢查為核心主體</strong>之 FHIR 交換標準，其實體目標包括：</p>
 <ol>
-  <li><strong>建立全國共通健康檢查核心資料集</strong>：定義 Core Assessment Dataset，做為共通核心之基準。</li>
+  <li><strong>建立勞工健康檢查共通核心資料集</strong>：定義 Core Dataset（附表九一般項目 + 交換必要行政欄位），做為共通核心之基準，並向特殊職類與一般健檢／預防保健開放擴充。</li>
   <li><strong>建立 FHIR 資料交換架構</strong>：以 Observation、DiagnosticReport、Composition、Bundle 等資源為核心，定義標準化 FHIR 資料建模方式。</li>
-  <li><strong>建立領域特定交換標準</strong>：涵蓋《勞工健康保護規則》之勞工健康檢查標準，以及國民健康署之成人預防保健服務資料標準。</li>
+  <li><strong>建立領域特定交換標準</strong>：涵蓋《勞工健康保護規則》附表十特殊職類危害作業之健檢標準，以及國民健康署之成人預防保健服務資料標準。</li>
   <li><strong>推動跨機構交換示範</strong>：展示由醫療機構產生 FHIR Exchange Package、上傳至平台並成功解析之完整資料交換流程。</li>
 </ol>
 
@@ -358,8 +358,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-09 21:42:00 +0800">
-    2026-07-09
+  <span title="2026-07-10 19:56:00 +0800">
+    2026-07-10
   </span>
 
           <br/>

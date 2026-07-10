@@ -1,12 +1,12 @@
-# Home - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+# Home - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
 ## Home
 
-# 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)
+# 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)
 
 ## 1. 導言 (Introduction)
 
-歡迎使用**臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)**。本指引由衛生福利部委託長庚紀念醫院規劃研製，旨在利用 **HL7 FHIR (Fast Healthcare Interoperability Resources)** 國際標準，建立一般健康檢查、勞工健康檢查及成人預防保健之 FHIR 資料交換標準。
+歡迎使用**臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)**。本指引由衛生福利部委託財團法人工業技術研究院、長庚紀念醫院執行規劃研製，旨在利用 **HL7 FHIR (Fast Healthcare Interoperability Resources)** 國際標準，以**勞工健康檢查為核心**，建立可向特殊職類與一般健康檢查／成人預防保健需求擴充之 FHIR 資料交換標準。
 
 本實作指引遵循衛生福利部資訊處最新之資訊安全與技術治理規範，**與國家最新核心標準「臺灣核心實作指引 (TW Core IG v1.0.0)」對齊與繼承**，以確保各級臨床端、事業單位與政府主管機關（勞動部職業安全衛生署、國民健康署、衛生福利部等）之間的健檢資料傳輸無縫對接。
 
@@ -24,27 +24,31 @@
 
 ### 2.2 計畫定位
 
-為解決上述問題，本計畫建立「臺灣健康檢查資料交換實作指引（TWHA IG）」，作為全國健康檢查之 FHIR 交換標準，使各機構之健檢資料能以標準化、可驗證之格式進行交換與上傳，奠定全國健康檢查資料互操作之基礎。
+為解決上述問題，本計畫建立「臺灣勞工健康檢查交換實作指引（TWHA IG）」，以**勞工健康檢查為核心主體**，作為勞工健康檢查資料交換之 FHIR 標準，並向特殊職類與一般健康檢查／成人預防保健需求開放擴充，使各機構之健檢資料能以標準化、可驗證之格式進行交換與上傳。
 
 -------
 
 ## 3. 整體架構 (Overall Architecture)
 
-本指引以 `TW Core IG` 為母規範，採**兩層架構**進行設計：以 **Foundation Layer（全國共通核心）** 承載全國共通健檢之核心指標，再以 **Domain Supplement（領域擴充）** 承接特定政策與情境之擴充：
+本指引以 `TW Core IG` 為母規範，以**勞工健康檢查（Core）為核心主體**，並以**不修改核心、加掛擴充**之方式向兩個方向延伸：
 
 ```
-TW Health Assessment IG (TWHA IG)
-├── Foundation Layer 全國共通核心 (Core Assessment)
+臺灣勞工健康檢查交換實作指引 (TWHA IG)
+├── Core 勞工健康檢查共通核心 (附表九一般項目 + 交換必要行政欄位)
 │   ├── Social History (生活習慣)  --> 吸菸 / 飲酒 / 嚼檳榔 / 睡眠
 │   ├── Vital Signs (生理量測)     --> 身高 / 體重 / BMI / 腰圍 / 血壓
 │   ├── Laboratory (實驗室檢驗)    --> 全血球計數 (CBC) / 生化 / 血脂 / 尿液
 │   └── Screening (篩檢與生理功能)  --> 視力 / 聽力 / 胸部 X 光
-└── Domain Supplement 領域擴充 (Extended Extensions)
-    ├── Occupational Health Check (勞工健康檢查) --> 對應《勞工健康保護規則》附表八~十一
-    ├── Health Taiwan (成人預防保健)            --> 對應國民健康署成人預防保健服務
-    └── SDOH (社會決定因素)                     --> 精簡版 PRAPARE 社會風險問卷
+├── 擴充一：特殊職類 (Special Occupational Extension，開放式擴充)
+│   └── 對應《勞工健康保護規則》附表十危害作業（噪音／鉛／粉塵／有機溶劑／輻射／特定化學物質…）
+│       以 CS-HazardType ＋ TWHA-LabResult-Special ＋ 各職類值集承載；新增職類僅需擴充值集／新增 Profile，不影響 Core
+└── 擴充二：一般健檢／預防保健 (General & Preventive Care Extension)
+    ├── Health Taiwan (成人預防保健)  --> 對應國民健康署成人預防保健服務，重用 Core 共通臨床項目
+    └── SDOH (社會決定因素)          --> 精簡版 PRAPARE 社會風險問卷
 
 ```
+
+> 本指引之核心主體為勞工健康檢查；「特殊職類」與「一般健檢／預防保健」為其可擴充方向，並非與 Core 並列之獨立領域。
 
 -------
 
@@ -52,16 +56,16 @@ TW Health Assessment IG (TWHA IG)
 
 ### 4.1 Exchange Package 設計
 
-本計畫除建立個別 FHIR Profiles 外，亦定義了跨機構之交換封包格式 **「TW Health Assessment Exchange Package (TWHA-EP)」**。其技術組成主要為 `Bundle Profile`（報告用 `type=document`，上傳用 `type=transaction`）搭配 `CapabilityStatement`：
+本計畫除建立個別 FHIR Profiles 外，亦定義了跨機構之交換封包格式 **「Taiwan Labor Health Examination Exchange Package (TWHA-EP)」**。其技術組成主要為 `Bundle Profile`（報告用 `type=document`，上傳用 `type=transaction`）搭配 `CapabilityStatement`：
 
-* **OHC Exchange Package（勞工健檢）**：組成資源包含 `Patient`、`Observation`、`DiagnosticReport`、`ClinicalImpression`、`Composition`、`Bundle`。
-* **Health Taiwan Exchange Package（成人預防保健）**：組成資源包含 `Patient`、`Observation`、`DiagnosticReport`、`QuestionnaireResponse`、`Composition`、`Bundle`。
+* **勞工健康檢查 Exchange Package（Core + 特殊職類擴充）**：組成資源包含 `Patient`、`Observation`、`DiagnosticReport`、`ClinicalImpression`、`Composition`、`Bundle`。
+* **一般健檢／預防保健 Exchange Package（一般健檢／預防保健擴充）**：組成資源包含 `Patient`、`Observation`、`DiagnosticReport`、`QuestionnaireResponse`、`Composition`、`Bundle`。
 
 ### 4.2 資料治理原則
 
 1. **Must Support**：發送端須能建立、儲存與傳送該欄位；接收端須能接收、保存與查詢，且不得因資料缺失而報錯（呈現為 Should Display）。
 1. **DataAbsentReason (必要)**：在 Observation 無檢驗數值或受檢者拒答時，必須填寫`dataAbsentReason`（如`not-performed`、`refused`），以確保缺項資料仍能通過驗證。
-1. **極簡化 ValueSet**：僅維護 Core 與 Extended 兩組主體 ValueSet，供所有 Domain Supplement 共用，避免代碼重複。
+1. **極簡化 ValueSet**：僅維護 Core 與 Extended 兩組主體 ValueSet，供 Core 及所有擴充共用，避免代碼重複。
 
 -------
 
@@ -71,8 +75,8 @@ TW Health Assessment IG (TWHA IG)
 
 * [背景與計畫目標 (Background)](background.md)：詳述國內健檢資料痛點、本計畫定位、以及法規背景。
 * [使用情境 (Use Cases)](usecases.md)：描述本 IG 之 6 大核心使用情境 (UC-001 ~ UC-006)。
-* [資料模型與映射 (Data Model)](datamodel.md)：說明 Foundation Layer 與 Domain Supplement 之欄位與資源映射關係。
-* [一般健康檢查 (General Exam)](general-exam.md)：說明全國共通核心 (Foundation Layer) 之一般體檢與健康檢查 FHIR 實作細節。
+* [資料模型與映射 (Data Model)](datamodel.md)：說明 Core 與擴充（特殊職類／一般健檢）之欄位與資源映射關係。
+* [一般健康檢查 (General Exam)](general-exam.md)：說明勞工健康檢查共通核心 (Core) 之一般體檢與健康檢查 FHIR 實作細節。
 * [特殊危害健康作業 (Special Exam)](special-exam.md)：說明勞工特殊健檢之 12 大類危害作業與 LOINC 映射。
 * [成人預防保健 (Adult Preventive Care)](adult-preventive-care.md)：說明國健署成人預防保健自填問卷與理學生化檢查項目。
 * [勞工健康服務執行紀錄 (Service Record)](service-record.md)：附表八臨場健康服務之 FHIR 建模與 Procedure/Task 設計。

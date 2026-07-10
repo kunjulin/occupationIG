@@ -1,4 +1,4 @@
-# 職業健檢生命徵象 Profile - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+# 職業健檢生命徵象 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
 ## Resource Profile: 職業健檢生命徵象 Profile 
 
@@ -32,7 +32,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-VitalSigns.c
   "name" : "TWHAVitalSignsProfile",
   "title" : "職業健檢生命徵象 Profile",
   "status" : "active",
-  "date" : "2026-07-09T21:42:02+08:00",
+  "date" : "2026-07-10T19:56:53+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

@@ -1,4 +1,4 @@
-# Background - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+# Background - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
 ## Background
 
@@ -16,11 +16,11 @@
 
 ## 2. 計畫定位與目標 (Project Positioning & Objectives)
 
-為解決上述問題，本計畫建立「臺灣健康檢查資料交換實作指引（TWHA IG）」，作為全國健康檢查之 FHIR 交換標準，其實體目標包括：
+為解決上述問題，本計畫建立「臺灣勞工健康檢查交換實作指引（TWHA IG）」，以**勞工健康檢查為核心主體**之 FHIR 交換標準，其實體目標包括：
 
-1. **建立全國共通健康檢查核心資料集**：定義 Core Assessment Dataset，做為共通核心之基準。
+1. **建立勞工健康檢查共通核心資料集**：定義 Core Dataset（附表九一般項目 + 交換必要行政欄位），做為共通核心之基準，並向特殊職類與一般健檢／預防保健開放擴充。
 1. **建立 FHIR 資料交換架構**：以 Observation、DiagnosticReport、Composition、Bundle 等資源為核心，定義標準化 FHIR 資料建模方式。
-1. **建立領域特定交換標準**：涵蓋《勞工健康保護規則》之勞工健康檢查標準，以及國民健康署之成人預防保健服務資料標準。
+1. **建立領域特定交換標準**：涵蓋《勞工健康保護規則》附表十特殊職類危害作業之健檢標準，以及國民健康署之成人預防保健服務資料標準。
 1. **推動跨機構交換示範**：展示由醫療機構產生 FHIR Exchange Package、上傳至平台並成功解析之完整資料交換流程。
 
 -------

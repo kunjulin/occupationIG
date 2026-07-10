@@ -1,4 +1,4 @@
-# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
 ## ConceptMap: 健康檢查檢驗項目代碼對應 ConceptMap 
 
@@ -15,7 +15,7 @@
   "name" : "TWHealthCheckLaboratoryMap",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-09T21:42:02+08:00",
+  "date" : "2026-07-10T19:56:53+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -118,11 +118,11 @@
       }]
     },
     {
-      "code" : "18262-6",
-      "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay",
+      "code" : "13457-7",
+      "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation",
       "target" : [{
-        "code" : "13457-7",
-        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation",
+        "code" : "2089-1",
+        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay",
         "equivalence" : "equivalent"
       }]
     },
@@ -286,6 +286,15 @@
       "target" : [{
         "code" : "1558-6",
         "display" : "Fasting Glucose [Mass/volume] in Serum or Plasma",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "18262-6",
+      "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay",
+      "target" : [{
+        "code" : "2089-1",
+        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay",
         "equivalence" : "equivalent"
       }]
     }]

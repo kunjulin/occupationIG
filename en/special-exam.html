@@ -6,7 +6,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Special Exam - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0</title>
+    <title>Special Exam - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -56,7 +56,7 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)</span>
+          <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
             <span style="display:inline-block;">0.1.0 - STU1
 
@@ -200,7 +200,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Special Exam</h2>
   
 
@@ -224,7 +224,161 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>特殊體格及健康檢查適用於從事特別危害健康作業之勞工。本指引依據勞動部《勞工健康保護規則》附表規定，將特別危害健康作業之實驗室與生理功能檢驗項目對應至國際標準 LOINC 代碼，並收錄於 <a href="ValueSet-VS-ExtendedDataset.html">特殊健康檢查及體格檢查實驗室項目值集</a> 中。</p>
 
-<p>依據實作指引之 <strong>特別危害健康作業類別值集 (VS-HazardType)</strong>，本指引對應並收錄以下 12 大類特別危害健康作業類別之核心檢驗與評估項目：</p>
+<p>依據實作指引之 <strong>特別危害健康作業類別值集 (VS-HazardType)</strong>，本指引對應並收錄以下特別危害健康作業類別之核心檢驗與評估項目。</p>
+
+<blockquote>
+  <p><strong>第一期範疇說明（議題 5 / C-04）</strong>：第一期以<strong>噪音／鉛／粉塵</strong>三模組為結構化必驗項目（收錄於 <a href="ValueSet-VS-OccHealthCheck-Required.html">VS-OccHealthCheck-Required</a> 草案），並以 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code>、<code class="language-plaintext highlighter-rouge">TWHA-LabResult-Special</code>、<code class="language-plaintext highlighter-rouge">TWHA-PulmonaryFunction</code> 等 Profile 個別建模。其餘附表十危害作業於第一期以 <code class="language-plaintext highlighter-rouge">TWHA-LabResult-Special</code> 通用承載（收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>），尚未個別結構化，待後續期別依需求擴充。</p>
+
+  <p><strong>共用／專屬解耦</strong>：附表十以作業類別分列，項目高度重疊（多數作業共用 ALT、Creatinine、尿液、CBC 等）。本 IG 以 Core（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code>）承載共用項目，危害專屬項目以 <code class="language-plaintext highlighter-rouge">TWHA-LabResult-Special</code> 及專屬 Profile 承載，並以 <code class="language-plaintext highlighter-rouge">ext-hazard-type</code> 標記作業類別。</p>
+</blockquote>
+
+<h2 id="附表十-18-類特別危害作業涵蓋度對照-coverage-audit">附表十 18 類特別危害作業涵蓋度對照 (Coverage Audit)</h2>
+
+<p>下表以《勞工健康保護規則》附表十完整展開之 18 類特別危害作業為基準（對應文件一 §2.1.1、文件三議題 5），逐類確認本 IG 之項目對應與臨床適當性。「共用項目」收錄於 Core，「專屬項目」收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>。第一期結構化必驗者標示 ★。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">#</th>
+      <th style="text-align: left">危害作業類別（附表十）</th>
+      <th style="text-align: left">專屬檢查項目（代表）</th>
+      <th style="text-align: left">Preferred LOINC / Profile</th>
+      <th style="text-align: left">本 IG 承載</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">高溫作業</td>
+      <td style="text-align: left">心電圖、電解質(Na/K/Cl)、BUN、尿比重</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">11524-6</code>,<code class="language-plaintext highlighter-rouge">2951-2</code>,<code class="language-plaintext highlighter-rouge">2823-3</code>,<code class="language-plaintext highlighter-rouge">2075-0</code>,<code class="language-plaintext highlighter-rouge">3094-0</code>,<code class="language-plaintext highlighter-rouge">5810-7</code></td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2 ★</td>
+      <td style="text-align: left">噪音作業</td>
+      <td style="text-align: left">純音聽力圖 0.5–8 kHz（雙耳 7 頻率）、耳鼻喉</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">89015-2</code> panel + 14 頻率碼 / <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code></td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">游離輻射作業</td>
+      <td style="text-align: left">CBC＋分類、甲狀腺(TSH/FT4)、皮膚/眼晶體</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">6690-2…</code>,<code class="language-plaintext highlighter-rouge">11580-8</code>,<code class="language-plaintext highlighter-rouge">3024-7</code> / PhysicalExam</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">異常氣壓作業</td>
+      <td style="text-align: left">肺功能、長骨關節 X 光、心電圖、聽力</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19876-2</code>,<code class="language-plaintext highlighter-rouge">20150-9</code>,<code class="language-plaintext highlighter-rouge">19926-5</code>,<code class="language-plaintext highlighter-rouge">24579-5</code>,<code class="language-plaintext highlighter-rouge">11524-6</code></td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5 ★</td>
+      <td style="text-align: left">鉛作業</td>
+      <td style="text-align: left">血中鉛、CBC、腎功能、尿液</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5671-3</code>/<code class="language-plaintext highlighter-rouge">23749-5</code>,<code class="language-plaintext highlighter-rouge">5676-2</code>,<code class="language-plaintext highlighter-rouge">11212-8</code>,<code class="language-plaintext highlighter-rouge">11215-1</code></td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">6</td>
+      <td style="text-align: left">四烷基鉛作業</td>
+      <td style="text-align: left">血/尿中鉛、神經精神、血壓</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5676-2</code>,<code class="language-plaintext highlighter-rouge">11212-8</code> / PhysicalExam</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">7 ★</td>
+      <td style="text-align: left">粉塵作業</td>
+      <td style="text-align: left">胸部 X 光、肺功能(FVC/FEV1)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">36643-5</code>,<code class="language-plaintext highlighter-rouge">19876-2</code>,<code class="language-plaintext highlighter-rouge">20150-9</code>,<code class="language-plaintext highlighter-rouge">19926-5</code> / PulmonaryFunction</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">8</td>
+      <td style="text-align: left">游離二氧化矽粉塵</td>
+      <td style="text-align: left">胸部 X 光（塵肺症分級）、肺功能</td>
+      <td style="text-align: left">同粉塵（<code class="language-plaintext highlighter-rouge">36643-5</code>＋PFT）</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">9</td>
+      <td style="text-align: left">有機溶劑作業</td>
+      <td style="text-align: left">肝功能(ALT/γ-GT)、腎功能、CBC、尿中代謝物</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1742-6</code>,<code class="language-plaintext highlighter-rouge">2324-2</code>,尿代謝物系列</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10</td>
+      <td style="text-align: left">特化—苯</td>
+      <td style="text-align: left">CBC＋分類、尿中酚、肝功能</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">6690-2…</code>,<code class="language-plaintext highlighter-rouge">2758-1</code>,<code class="language-plaintext highlighter-rouge">72665-3</code>,<code class="language-plaintext highlighter-rouge">1742-6</code></td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">11</td>
+      <td style="text-align: left">特化—氯乙烯單體</td>
+      <td style="text-align: left">肝功能、腹部超音波、血小板、手部 X 光</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1742-6</code>,<code class="language-plaintext highlighter-rouge">777-3</code>,<code class="language-plaintext highlighter-rouge">24558-9</code>(US)</td>
+      <td style="text-align: left">部分（手部 X 光待補）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">12</td>
+      <td style="text-align: left">特化—石綿</td>
+      <td style="text-align: left">胸部 X 光（胸膜變化）、肺功能</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">36643-5</code>,PFT</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">13</td>
+      <td style="text-align: left">特化—鉻/鎘/鈹/砷/汞/錳等重金屬</td>
+      <td style="text-align: left">血/尿中金屬、腎功能、鼻中膈/呼吸道、神經學</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5586-3</code>,<code class="language-plaintext highlighter-rouge">5609-3</code>,<code class="language-plaintext highlighter-rouge">5622-6</code>,<code class="language-plaintext highlighter-rouge">5685-3</code>,<code class="language-plaintext highlighter-rouge">5683-8</code>…</td>
+      <td style="text-align: left">✓（鈹無專屬 LOINC，定性/臨床評估）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">特化—聯苯胺類/多環芳香烴</td>
+      <td style="text-align: left">尿液細胞學、膀胱鏡(必要時)、尿潛血</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">10909-0</code>(benzidine),<code class="language-plaintext highlighter-rouge">5794-3</code>(尿潛血)</td>
+      <td style="text-align: left">部分（尿液細胞學待補）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">15</td>
+      <td style="text-align: left">二硫化碳作業</td>
+      <td style="text-align: left">眼底檢查、心電圖、血脂、神經學</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">12533-6</code>(TTCA),<code class="language-plaintext highlighter-rouge">11524-6</code>,血脂系列</td>
+      <td style="text-align: left">✓（眼底以理學檢查記錄）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">16</td>
+      <td style="text-align: left">黃磷作業</td>
+      <td style="text-align: left">口腔/牙齒(顎骨壞死)、肝功能</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">24829-4</code>,<code class="language-plaintext highlighter-rouge">2777-1</code>,<code class="language-plaintext highlighter-rouge">1742-6</code></td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">17</td>
+      <td style="text-align: left">聯吡啶/巴拉刈作業</td>
+      <td style="text-align: left">肺功能、胸部 X 光、皮膚黏膜</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">9827-7</code>,<code class="language-plaintext highlighter-rouge">36643-5</code>,PFT</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">18</td>
+      <td style="text-align: left">其他中央主管機關指定</td>
+      <td style="text-align: left">依公告（銦/鈷/甲基溴/有機磷農藥等）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5665-5</code>,<code class="language-plaintext highlighter-rouge">5625-9</code>,<code class="language-plaintext highlighter-rouge">1984-4</code>,<code class="language-plaintext highlighter-rouge">1709-5</code>…</td>
+      <td style="text-align: left">✓（保留擴充）</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>臨床適當性註記</strong>：(1) 噪音純音聽力圖已更正並補齊 0.5–8 kHz 雙耳 14 個氣導聽閾 LOINC 代碼（原版本代碼錯置且缺 3/6/8 kHz）。(2) 肺功能 FEV1 之正確 LOINC 為 <code class="language-plaintext highlighter-rouge">20150-9</code>（原誤用 <code class="language-plaintext highlighter-rouge">19868-9</code>，該碼實為 FVC）。(3) 手部 X 光（氯乙烯）、尿液細胞學（聯苯胺類）目前以 <code class="language-plaintext highlighter-rouge">TWHA-LabResult-Special</code>／影像報告通用承載，代碼結構化待後續期別補齊。(4) 鈹（beryllium）之生物偵測無公認定量 LOINC，以定性結果／理學評估記錄。</p>
+</blockquote>
 
 <hr />
 
@@ -235,7 +389,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>核心生理與實驗室檢查項目</strong>：
     <ul>
       <li><strong>心電圖檢查 (ECG)</strong>：LOINC <code class="language-plaintext highlighter-rouge">11524-6</code> (EKG study)。</li>
-      <li><strong>血清電解質檢查</strong>：血清鈉 Sodium (LOINC <code class="language-plaintext highlighter-rouge">2951-2</code>) 與血清鉀 Potassium (LOINC <code class="language-plaintext highlighter-rouge">2823-3</code>)。</li>
+      <li><strong>血清電解質檢查</strong>：血清鈉 Sodium (LOINC <code class="language-plaintext highlighter-rouge">2951-2</code>)、血清鉀 Potassium (LOINC <code class="language-plaintext highlighter-rouge">2823-3</code>) 與血清氯 Chloride (LOINC <code class="language-plaintext highlighter-rouge">2075-0</code>)。</li>
+      <li><strong>腎功能與造血</strong>：尿素氮 BUN (LOINC <code class="language-plaintext highlighter-rouge">3094-0</code>)、肌酸酐 Creatinine (LOINC <code class="language-plaintext highlighter-rouge">2160-0</code>)、血色素 Hb (LOINC <code class="language-plaintext highlighter-rouge">718-7</code>)（共用項目，收錄於 Core）。</li>
       <li><strong>尿比重 (Urine Specific Gravity)</strong>：LOINC <code class="language-plaintext highlighter-rouge">5810-7</code>，用以評估勞工於高溫暴露下之脫水及水分平衡狀態。</li>
     </ul>
   </li>
@@ -250,7 +405,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>核心生理與實驗室檢查項目</strong>：
     <ul>
       <li><strong>外耳與鼓膜檢查</strong>：理學檢查 <code class="language-plaintext highlighter-rouge">TWHA-PhysicalExam</code> 記錄外耳道及鼓膜狀態。</li>
-      <li><strong>純音聽力測試 (Audiometry)</strong>：使用 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> 記錄。聽力計量測項目代碼為 LOINC <code class="language-plaintext highlighter-rouge">89024-4</code> (Hearing threshold 500 Hz Ear-L)。包含雙耳在 500Hz、1000Hz、2000Hz、3000Hz、4000Hz、6000Hz 及 8000Hz 等頻率下之氣導聽閾測量。</li>
+      <li><strong>純音聽力測試 (Audiometry)</strong>：使用 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> 記錄，Panel 代碼為 LOINC <code class="language-plaintext highlighter-rouge">89015-2</code> (Pure tone threshold audiometry panel)。以 <code class="language-plaintext highlighter-rouge">component</code> 切片記錄雙耳在 500、1000、2000、3000、4000、6000、8000 Hz 等 7 個頻率之氣導聽閾（左右耳共 14 個 LOINC 代碼，如左耳 500 Hz <code class="language-plaintext highlighter-rouge">89024-4</code>、右耳 500 Hz <code class="language-plaintext highlighter-rouge">89025-1</code> 等，均為 89015-2 panel 之成員）。單位為 dB HL，依 ISO 1999 判定各頻率閾值。</li>
     </ul>
   </li>
 </ul>
@@ -272,6 +427,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           <li>嗜中性球百分比 (LOINC <code class="language-plaintext highlighter-rouge">770-8</code>) 與淋巴球百分比 (LOINC <code class="language-plaintext highlighter-rouge">736-9</code>)，評估輻射對造血系統與免疫系統之早期影響。</li>
         </ul>
       </li>
+      <li><strong>甲狀腺功能檢查</strong>：甲狀腺刺激素 TSH (LOINC <code class="language-plaintext highlighter-rouge">11580-8</code>) 與游離甲狀腺素 Free T4 (LOINC <code class="language-plaintext highlighter-rouge">3024-7</code>)，評估游離輻射對甲狀腺之影響（附表十游離輻射作業要求項目）。</li>
     </ul>
   </li>
 </ul>
@@ -285,8 +441,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>核心生理與實驗室檢查項目</strong>：
     <ul>
       <li><strong>心電圖檢查 (ECG Study)</strong>：採用 <code class="language-plaintext highlighter-rouge">TWHA-ECG</code> 記錄心電圖檢查結果（LOINC <code class="language-plaintext highlighter-rouge">11524-6</code>）。</li>
-      <li><strong>肺功能檢查 (Spirometry)</strong>：FEV1 (LOINC <code class="language-plaintext highlighter-rouge">19868-9</code>)、FVC (LOINC <code class="language-plaintext highlighter-rouge">19876-2</code>) 及 FEV1/FVC 比值 (LOINC <code class="language-plaintext highlighter-rouge">19926-5</code>)，評估氣壓急遽變化下之呼吸系統耐受力。</li>
+      <li><strong>肺功能檢查 (Spirometry)</strong>：FVC (LOINC <code class="language-plaintext highlighter-rouge">19876-2</code>)、FEV1 (LOINC <code class="language-plaintext highlighter-rouge">20150-9</code>) 及 FEV1/FVC 比值 (LOINC <code class="language-plaintext highlighter-rouge">19926-5</code>)，評估氣壓急遽變化下之呼吸系統耐受力。</li>
       <li><strong>骨骼 X 光檢查 (Bone X-ray)</strong>：針對肩關節、髖關節及股骨等進行 X 光大骨骼篩檢（LOINC <code class="language-plaintext highlighter-rouge">24579-5</code>），以評估是否有減壓病引起之無菌性骨壞死（Aseptic Bone Necrosis）。</li>
+      <li><strong>聽力檢查</strong>：以 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code>（Panel <code class="language-plaintext highlighter-rouge">89015-2</code>）評估氣壓變化對中耳/內耳之影響。</li>
     </ul>
   </li>
 </ul>
@@ -299,7 +456,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>適用對象</strong>：從事鉛及其化合物之作業勞工（不含四烷基鉛）。</li>
   <li><strong>核心生理與實驗室檢查項目</strong>：
     <ul>
-      <li><strong>血中鉛含量 (Blood Lead)</strong>：代碼為 LOINC <code class="language-plaintext highlighter-rouge">5671-3</code> (Lead in Blood)，單位：<code class="language-plaintext highlighter-rouge">ug/dL</code>。</li>
+      <li><strong>血中鉛含量 (Blood Lead)</strong>：Preferred 代碼為 LOINC <code class="language-plaintext highlighter-rouge">5671-3</code> (Lead in Blood)，單位：<code class="language-plaintext highlighter-rouge">ug/dL</code>；院內 LIS（如林口長庚）常以 <code class="language-plaintext highlighter-rouge">23749-5</code> (Lead in Specimen) 報告，列為 Acceptable 對應碼。</li>
       <li><strong>尿中鉛含量 (Urine Lead)</strong>：代碼為 LOINC <code class="language-plaintext highlighter-rouge">5676-2</code> (Lead in Urine)，單位：<code class="language-plaintext highlighter-rouge">ug/L</code>。</li>
       <li><strong>尿中紅血球生成素/共聚卟啉 (Urine Coproporphyrin)</strong>：代碼為 LOINC <code class="language-plaintext highlighter-rouge">11212-8</code> (Copro in Urine)。</li>
       <li><strong>尿中 δ-胺基酮戊酸 (Urine delta-ALA)</strong>：代碼為 LOINC <code class="language-plaintext highlighter-rouge">11215-1</code> (D-ALA in Urine)。</li>
@@ -331,7 +488,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>核心生理與實驗室檢查項目</strong>：
     <ul>
       <li><strong>胸部 X 光檢查 (Chest X-ray)</strong>：採用 <code class="language-plaintext highlighter-rouge">TWHA-ImagingStudy</code> 記錄影像，並以 <code class="language-plaintext highlighter-rouge">TWHA-DiagnosticReport</code> 記錄 X 光大片攝影診斷報告（LOINC <code class="language-plaintext highlighter-rouge">36643-5</code>），評估塵肺症（Pneumoconiosis）之分期。</li>
-      <li><strong>肺功能檢查 (Spirometry)</strong>：採用 <code class="language-plaintext highlighter-rouge">TWHA-PulmonaryFunction</code>。記錄 FEV1 (LOINC <code class="language-plaintext highlighter-rouge">19868-9</code>)、FVC (LOINC <code class="language-plaintext highlighter-rouge">19876-2</code>) 及 FEV1/FVC 比值 (LOINC <code class="language-plaintext highlighter-rouge">19926-5</code>)。</li>
+      <li><strong>肺功能檢查 (Spirometry)</strong>：採用 <code class="language-plaintext highlighter-rouge">TWHA-PulmonaryFunction</code>。記錄 FVC (LOINC <code class="language-plaintext highlighter-rouge">19876-2</code>)、FEV1 (LOINC <code class="language-plaintext highlighter-rouge">20150-9</code>) 及 FEV1/FVC 比值 (LOINC <code class="language-plaintext highlighter-rouge">19926-5</code>)。</li>
     </ul>
   </li>
 </ul>
@@ -342,7 +499,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <ul>
   <li><strong>適用對象</strong>：從事有機溶劑中毒預防規則所定義之有機溶劑作業勞工（如甲苯、二甲苯、苯等）。</li>
-  <li><strong>核心生理與實驗室檢查項目 (生物監測指標)</strong>：
+  <li><strong>肝腎功能與血液 (共用項目)</strong>：肝功能 ALT (LOINC <code class="language-plaintext highlighter-rouge">1742-6</code>)、γ-GT (LOINC <code class="language-plaintext highlighter-rouge">2324-2</code>)，腎功能 Creatinine (LOINC <code class="language-plaintext highlighter-rouge">2160-0</code>)，及 CBC（收錄於 Core），並輔以神經學理學檢查。二硫化碳作業另需心電圖 (LOINC <code class="language-plaintext highlighter-rouge">11524-6</code>)、血脂與眼底檢查。</li>
+  <li><strong>各溶劑之尿中生物監測代謝物</strong>：
     <ul>
       <li><strong>尿中馬尿酸 (Hippuric acid)</strong>：甲苯（Toluene）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">6709-0</code>。</li>
       <li><strong>尿中甲基馬尿酸 (Methylhippuric acid)</strong>：二甲苯（Xylene）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">2725-0</code>。</li>
@@ -419,7 +577,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li><strong>呼吸系統與胸部評估</strong>：
         <ul>
           <li>胸部 X 光檢查 (LOINC <code class="language-plaintext highlighter-rouge">36643-5</code>)。</li>
-          <li>肺功能檢查：FEV1 (LOINC <code class="language-plaintext highlighter-rouge">19868-9</code>)、FVC (LOINC <code class="language-plaintext highlighter-rouge">19876-2</code>) 及 FEV1/FVC 比值 (LOINC <code class="language-plaintext highlighter-rouge">19926-5</code>)，藉以監測巴拉刈引起的肺部纖維化早期病變。</li>
+          <li>肺功能檢查：FVC (LOINC <code class="language-plaintext highlighter-rouge">19876-2</code>)、FEV1 (LOINC <code class="language-plaintext highlighter-rouge">20150-9</code>) 及 FEV1/FVC 比值 (LOINC <code class="language-plaintext highlighter-rouge">19926-5</code>)，藉以監測巴拉刈引起的肺部纖維化早期病變。</li>
         </ul>
       </li>
       <li><strong>肝腎功能評估</strong>：AST (<code class="language-plaintext highlighter-rouge">1920-8</code>)、ALT (<code class="language-plaintext highlighter-rouge">1742-6</code>)、Creatinine (<code class="language-plaintext highlighter-rouge">2160-0</code>) 與 BUN (<code class="language-plaintext highlighter-rouge">3094-0</code>)。</li>
@@ -471,8 +629,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-09 21:42:00 +0800">
-    2026-07-09
+  <span title="2026-07-10 19:56:00 +0800">
+    2026-07-10
   </span>
 
           <br/>

@@ -4,15 +4,15 @@
   <id value="mohw.tw.twha"/>
   <language value="en"/>
   <text>
-    <status value="generated"/><div xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><p class="res-header-id"><b>Generated Narrative: ImplementationGuide mohw.tw.twha</b></p><a name="mohw.tw.twha"> </a><a name="hcmohw.tw.twha"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Language: en</p></div><h2>TWHAIG</h2><p>The official URL for this implementation guide is: </p><pre>https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha</pre><div><p>建立一般健康檢查、勞工健康檢查及成人預防保健之 FHIR 資料交換標準。繼承臺灣核心實作指引 (TW Core IG)。</p>
+    <status value="generated"/><div xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><p class="res-header-id"><b>Generated Narrative: ImplementationGuide mohw.tw.twha</b></p><a name="mohw.tw.twha"> </a><a name="hcmohw.tw.twha"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Language: en</p></div><h2>TWHAIG</h2><p>The official URL for this implementation guide is: </p><pre>https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha</pre><div><p>以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。</p>
 </div></div>
   </text>
   <url value="https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"/>
   <version value="0.1.0"/>
   <name value="TWHAIG"/>
-  <title value="臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)"/>
+  <title value="臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"/>
   <status value="active"/>
-  <date value="2026-07-09T21:42:02+08:00"/>
+  <date value="2026-07-10T19:56:53+08:00"/>
   <publisher value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
   <contact>
     <name value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
@@ -28,7 +28,7 @@
       <value value="https://twcore.mohw.gov.tw/twregistry/"/>
     </telecom>
   </contact>
-  <description value="建立一般健康檢查、勞工健康檢查及成人預防保健之 FHIR 資料交換標準。繼承臺灣核心實作指引 (TW Core IG)。"/>
+  <description value="以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。"/>
   <packageId value="mohw.tw.twha"/>
   <license value="CC0-1.0"/>
   <fhirVersion value="4.0.1"/>
@@ -38,7 +38,7 @@
     </extension>
     <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
     <packageId value="hl7.terminology.r4"/>
-    <version value="7.1.0"/>
+    <version value="7.2.0"/>
   </dependsOn>
   <dependsOn id="hl7ext">
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
@@ -156,6 +156,14 @@
       </extension>
       <extension url="value">
         <valueString value="https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueString value="no-validate"/>
+      </extension>
+      <extension url="value">
+        <valueString value="https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -479,6 +487,14 @@
       </extension>
       <extension url="value">
         <valueString value="https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset"/>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
+      <extension url="code">
+        <valueCode value="no-validate"/>
+      </extension>
+      <extension url="value">
+        <valueString value="https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -1182,6 +1198,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/VS-OccHealthCheck-Required"/>
+      </reference>
+      <name value="勞工健康檢查法定必驗項目值集（第一期草案）"/>
+      <description value="第一期法定必驗之勞工健康檢查項目草案子集，涵蓋附表九一般必驗生理量測與實驗室項目，以及噪音／鉛／粉塵三模組之核心必驗代碼。此為初版草案，範疇待附表九/十逐項法規盤點確認後修訂。"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:extension"/>
       </extension>
       <reference>
@@ -1749,7 +1776,7 @@
         <reference value="StructureDefinition/TWHA-HearingTest"/>
       </reference>
       <name value="聽力檢查 Profile"/>
-      <description value="用於記錄勞工純音聽力測試結果，依左右耳及頻率（500/1000/2000/4000 Hz）分切片記錄。繼承自 TW Core Observation Clinical Result。v3 修正：Panel code 改為 89015-2；component 由耳別切片改為頻率×耳別切片（共 8 個）。"/>
+      <description value="用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1760,7 +1787,7 @@
         <reference value="Observation/obs-hearing"/>
       </reference>
       <name value="聽力檢查結果範例"/>
-      <description value="受檢勞工王大同的純音聽力測試結果（左右耳各頻率聽力閾值均在正常範圍 ≤25 dB）。v3 更新：使用正確 Panel code 89015-2 及頻率×耳別切片設計。"/>
+      <description value="受檢勞工王大同的純音聽力測試結果（左右耳 0.5–8 kHz 各頻率聽力閾值均在正常範圍 ≤25 dB）。v1.1 更新：使用正確 Panel code 89015-2 及更正／補齊之頻率×耳別切片（0.5/1/2/3/4/6/8 kHz）。"/>
       <exampleCanonical value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HearingTest"/>
     </resource>
     <resource>

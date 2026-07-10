@@ -6,7 +6,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Artifacts Summary - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0</title>
+    <title>Artifacts Summary - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -56,7 +56,7 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)</span>
+          <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
             <span style="display:inline-block;">0.1.0 - STU1
 
@@ -200,7 +200,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>Artifacts Summary</h2>
   
   
@@ -618,7 +618,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>用於記錄勞工純音聽力測試結果，依左右耳及頻率（500/1000/2000/4000 Hz）分切片記錄。繼承自 TW Core Observation Clinical Result。v3 修正：Panel code 改為 89015-2；component 由耳別切片改為頻率×耳別切片（共 8 個）。</p>
+<p>用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。</p>
 </td>
          </tr>
          <tr>
@@ -945,6 +945,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>包含勞動部通報報告類別代碼之值集。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-VS-OccHealthCheck-Required.html"
+                  title="ValueSet/VS-OccHealthCheck-Required">
+                  <span title="ValueSet/VS-OccHealthCheck-Required">勞工健康檢查法定必驗項目值集（第一期草案）
+</span>
+               </a>
+            </td>
+            <td>
+<p>第一期法定必驗之勞工健康檢查項目草案子集，涵蓋附表九一般必驗生理量測與實驗室項目，以及噪音／鉛／粉塵三模組之核心必驗代碼。此為初版草案，範疇待附表九/十逐項法規盤點確認後修訂。</p>
 </td>
          </tr>
          <tr>
@@ -1651,7 +1663,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>受檢勞工王大同的純音聽力測試結果（左右耳各頻率聽力閾值均在正常範圍 ≤25 dB）。v3 更新：使用正確 Panel code 89015-2 及頻率×耳別切片設計。</p>
+<p>受檢勞工王大同的純音聽力測試結果（左右耳 0.5–8 kHz 各頻率聽力閾值均在正常範圍 ≤25 dB）。v1.1 更新：使用正確 Panel code 89015-2 及更正／補齊之頻率×耳別切片（0.5/1/2/3/4/6/8 kHz）。</p>
 </td>
          </tr>
          <tr>
@@ -1964,8 +1976,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-09 21:42:00 +0800">
-    2026-07-09
+  <span title="2026-07-10 19:56:00 +0800">
+    2026-07-10
   </span>
 
           <br/>

@@ -6,7 +6,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>General Exam - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0</title>
+    <title>General Exam - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -56,7 +56,7 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG)</span>
+          <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
             <span style="display:inline-block;">0.1.0 - STU1
 
@@ -200,7 +200,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
   <h2>General Exam</h2>
   
 
@@ -248,7 +248,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left"><strong>嚼檳狀態</strong></td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TWHA-SocialHistory-BetelNut</code></td>
       <td style="text-align: left">SNOMED CT <code class="language-plaintext highlighter-rouge">698188003</code> (Chews betel quid)</td>
-      <td style="text-align: left">值使用 <code class="language-plaintext highlighter-rouge">VS_BetelNutStatus</code>；嚼檳量及檳齡以擴充 <code class="language-plaintext highlighter-rouge">ext-betelnut-quantity</code> 記錄；戒檳月數以擴充 <code class="language-plaintext highlighter-rouge">ext-cessation-duration</code> 記錄。</td>
+      <td style="text-align: left">採用與臺灣癌症登記短表實作指引 (TWCR_SF) 相同之元件架構，以 <code class="language-plaintext highlighter-rouge">component[amount]</code>、<code class="language-plaintext highlighter-rouge">component[year]</code>、<code class="language-plaintext highlighter-rouge">component[quit]</code> 分別記錄每日嚼檳量、嚼檳年數與戒嚼檳年數，值集為 TWCR_SF 之 <code class="language-plaintext highlighter-rouge">sf-BetNutChewAmount/Year/Quit</code> ValueSet（required），以利跨系統整合介接。</td>
     </tr>
     <tr>
       <td style="text-align: left"><strong>飲酒習慣</strong></td>
@@ -283,7 +283,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>腰圍 (Waist Circumference)</strong>: LOINC <code class="language-plaintext highlighter-rouge">56086-2</code>，單位：<code class="language-plaintext highlighter-rouge">cm</code></li>
   <li><strong>血壓 (Blood Pressure)</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWCoreBloodPressure</code> Profile。包含收縮壓（LOINC <code class="language-plaintext highlighter-rouge">8480-6</code>，單位：<code class="language-plaintext highlighter-rouge">mmHg</code>）與舒張壓（LOINC <code class="language-plaintext highlighter-rouge">8462-4</code>，單位：<code class="language-plaintext highlighter-rouge">mmHg</code>）之雙 component 結構。</li>
   <li><strong>視力與辨色力</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWHA-VisionTest</code> Profile，以 component 結構區分左眼視力（LOINC <code class="language-plaintext highlighter-rouge">70936-0</code>）、右眼視力（LOINC <code class="language-plaintext highlighter-rouge">70935-2</code>）及辨色力（LOINC <code class="language-plaintext highlighter-rouge">48024-3</code>，正常/異常）。</li>
-  <li><strong>聽力</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> Profile，以 component 結構區分左耳聽力（LOINC <code class="language-plaintext highlighter-rouge">89023-6</code>）與右耳聽力（LOINC <code class="language-plaintext highlighter-rouge">89022-8</code>）。</li>
+  <li><strong>聽力</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> Profile，Panel 代碼 LOINC <code class="language-plaintext highlighter-rouge">89015-2</code> (Pure tone threshold audiometry panel)，以 component 結構記錄左右耳於 0.5–8 kHz 各頻率之氣導聽閾（如左耳 500 Hz <code class="language-plaintext highlighter-rouge">89024-4</code>、右耳 500 Hz <code class="language-plaintext highlighter-rouge">89025-1</code>）。</li>
 </ul>
 
 <hr />
@@ -307,7 +307,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h2 id="4-實驗室檢驗項目-laboratory-tests">4. 實驗室檢驗項目 (Laboratory Tests)</h2>
 
-<p>一般實驗室檢驗採用 <code class="language-plaintext highlighter-rouge">TWHA-LabResult-General</code> Profile，檢驗項目代碼必須綁定至 <code class="language-plaintext highlighter-rouge">VS_GeneralLabTests</code> 值集。主要項目包括：</p>
+<p>一般實驗室檢驗採用 <code class="language-plaintext highlighter-rouge">TWHA-LabResult-General</code> Profile，檢驗項目代碼綁定至 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 值集（extensible，即優先使用值集內代碼，值集外之代碼亦可接受但建議回報以利術語治理）。其中依法規應於第一期優先必驗之項目草案子集另收錄於 <a href="ValueSet-VS-OccHealthCheck-Required.html">VS-OccHealthCheck-Required</a>（草案，範疇待附表九/十逐項法規盤點確認）。主要項目包括：</p>
 
 <ul>
   <li><strong>空腹血糖</strong>: LOINC <code class="language-plaintext highlighter-rouge">1558-6</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
@@ -316,7 +316,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>總膽固醇 (Cholesterol)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2093-3</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
   <li><strong>三酸甘油酯 (Triglyceride)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2571-8</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
   <li><strong>高密度脂蛋白膽固醇 (HDL-C)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2085-9</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
-  <li><strong>低密度脂蛋白膽固醇 (LDL-C)</strong>: LOINC <code class="language-plaintext highlighter-rouge">13457-7</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code>（僅適用於一般健康檢查）</li>
+  <li><strong>低密度脂蛋白膽固醇 (LDL-C)</strong>: Preferred LOINC <code class="language-plaintext highlighter-rouge">2089-1</code>（直接測定法, Direct assay），單位：<code class="language-plaintext highlighter-rouge">mg/dL</code>；可接受代碼 <code class="language-plaintext highlighter-rouge">13457-7</code>（計算法, by calculation）、<code class="language-plaintext highlighter-rouge">18262-6</code>（直接測定法舊碼），經 ConceptMap 歸一至 Preferred 代碼。</li>
   <li><strong>尿蛋白 (Urine Protein)</strong>: LOINC <code class="language-plaintext highlighter-rouge">5804-0</code>（定性檢查，如 <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">++</code>）</li>
   <li><strong>尿潛血 (Urine Occult Blood)</strong>: LOINC <code class="language-plaintext highlighter-rouge">5794-3</code>（定性檢查）</li>
   <li><strong>血色素 (Hemoglobin)</strong>: LOINC <code class="language-plaintext highlighter-rouge">718-7</code>，單位：<code class="language-plaintext highlighter-rouge">g/dL</code></li>
@@ -351,8 +351,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-09 21:42:00 +0800">
-    2026-07-09
+  <span title="2026-07-10 19:56:00 +0800">
+    2026-07-10
   </span>
 
           <br/>

@@ -1,10 +1,12 @@
-# Terminology - 臺灣健康檢查資料交換實作指引 (Taiwan Health Assessment Implementation Guide, TWHA IG) v0.1.0
+# Terminology - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
 ## Terminology
 
 # 術語與代碼系統 (Terminology & CodeSystems)
 
 本指引在國際術語標準（LOINC, SNOMED CT, ICD-10-CM）與臺灣本地化行政代碼之間建立映射，以實現數據的高級互操作性。
+
+> **命名說明**：本指引之正式名稱為「臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG)」；`twha` 為本指引 Canonical URL 與 Profile/ValueSet/CodeSystem 前綴所使用之技術命名空間 token（沿用初版 draft 命名），非對外正式英文名稱之縮寫。
 
 ## 1. 國際臨床術語遵循
 
@@ -70,7 +72,7 @@
 
 ### 3.2 代碼映射 ConceptMap
 
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.md) 資源，定義了 Layer 2 可接受代碼至 Layer 1 優先推薦代碼的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **24 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP）、生化代謝（血糖、肌酸酐、尿酸、eGFR）、脂質（總膽固醇、TG、HDL-C、LDL-C）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125）等群組。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.md) 資源，定義了 Layer 2 可接受代碼至 Layer 1 優先推薦代碼的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **29 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 `2089-1`）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組。
 
 -------
 
@@ -97,7 +99,7 @@
 | 脂質 | 總膽固醇 | `2093-3` | `{35200-5}` | 77068002 | mg/dL | 成健 |
 | 脂質 | 三酸甘油酯 | `2571-8` | `{3043-7}` | 14740000 | mg/dL | 成健 |
 | 脂質 | HDL-C | `2085-9` | `{3048-6}` | 17888004 | mg/dL | 成健 |
-| 脂質 | LDL-C (計算) | `13457-7` | `{18262-6}` | 113079009 | mg/dL | 成健 |
+| 脂質 | LDL-C (直接測定法) | `2089-1` | `{13457-7, 18262-6}` | 113079009 | mg/dL | 成健 |
 | 內分泌 | HbA1c (NGSP) | `4548-4` | `{59261-8}` | 43396009 | % | 成健/進階 |
 | 內分泌 | TSH | `11580-8` | `{3016-3}` | 61167004 | mIU/L | 進階 |
 | 癌標 | PSA | `2857-1` | `{19199-9}` | 63476009 | ng/mL | 進階 |
@@ -109,8 +111,8 @@
 | 生理 | BMI | `39156-5` | — | 60621009 | kg/m2 | 成健 |
 | 生理 | 腰臀比 WHR | `73708-3` | — | 248362002 | {ratio} | 成健 |
 | 生理 | 血壓 Panel | `55284-4` | — | 75367002 | — | 成健 |
-| 肺功能 | FVC | `19876-2` | — | 50834005 | L | 職業 |
-| 肺功能 | FEV1 | `19868-9` | — | 59328004 | L | 職業 |
+| 肺功能 | FVC | `19876-2` | `{19868-9, 19870-5}` | 50834005 | L | 職業 |
+| 肺功能 | FEV1 | `20150-9` | — | 59328004 | L | 職業 |
 | 視力 | 視力 Panel | `79880-1` | — | 363983007 | — | 職業 |
 | 聽力 | 純音聽力 Panel | `89015-2` | — | 406081008 | dB | 職業 |
 
