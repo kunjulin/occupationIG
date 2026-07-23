@@ -1,7 +1,7 @@
 CodeSystem: CS_HazardType
 Id: CS-HazardType
 Title: "特別危害健康作業類別代碼系統"
-Description: "勞工健康保護規則所定義之 12 大類特別危害健康作業類別。"
+Description: "勞工健康保護規則所定義之特別危害健康作業，歸併為 12 危害家族（家族層）。附表十（115.06.26 修正）逐號列舉之 35 項法定具名作業另以 CS-Appendix10Operation 表示，家族 ↔ 具名作業之對映見 ConceptMap Appendix10-to-HazardType。"
 * ^experimental = false
 * ^caseSensitive = true
 * #high-temp "高溫作業" "高溫作業勞工作息時間標準所稱之高溫作業。"

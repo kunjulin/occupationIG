@@ -48,6 +48,27 @@
 
 ## 版本與更新記錄 (Update History)
 
+### 2026-07-23 更新（法規 115.06.26 同步 ＋ 四方委員意見合併）
+> 說明：本 IG 為工業技術研究院委託研擬中之草案，尚未定稿；本次更新反映法規修正與委員意見。
+- **法規同步（勞工健康保護規則 115.06.26 修正）**：
+  - 附表九項5 新增紅血球數（RBC `789-8`）、平均紅血球容積（MCV `787-2`）；血糖明定空腹血糖（`1558-6`）。已補入 [general-exam.md](input/pagecontent/general-exam.md) §4 與 [VS-OccHealthCheck-Required](input/fsh/valuesets/VS-OccHealthCheck-Required.fsh)。
+  - 附表十由 32 項增為 **35 項**，新增 33 苯乙烯／34 甲苯／35 二甲苯具名作業；多類新增腎絲球過濾率（eGFR，Core 已收 `88293-6`），飯前血糖統一為空腹血糖。
+  - **涵蓋度對照重建**：[special-exam.md](input/pagecontent/special-exam.md) 之涵蓋表由「18 類」口徑改以**附表十 35 項為列主鍵**，並保留 12 危害家族歸併欄。
+- **新增第二層術語與對照（可追溯性，回應 IG 技術審意見）**：
+  - 新增 [CS-Appendix10Operation](input/fsh/codesystems/CS-Appendix10Operation.fsh)（35 項具名作業）與 VS-Appendix10-Operation。
+  - 新增 [ConceptMap Appendix10-to-HazardType](input/fsh/codesystems/ConceptMap-Appendix10ToHazardType.fsh)：附表十 35 項 → CS-HazardType 12 家族之對映。
+  - [CS-HazardType](input/fsh/codesystems/CS-HazardType.fsh) Description 敘明 12 家族（家族層）與 35 項具名作業之關係。
+- **四方委員意見合併（國健署原案／國健署委員／職業病醫師／檢驗科／IG 技術審）**：
+  - 腰圍 Preferred 由 `56086-2` 調整為 `8280-0`（臍位皮尺，委員已查證），`56086-2` 降為 Acceptable（[VS-TWHAVitalSigns](input/fsh/valuesets/VS-TWHAVitalSigns.fsh)、terminology.md、datamodel.md 同步）。送件前另以 loinc.org 覆核 `56086-2` 顯示名。
+  - 聽力維持 `89015-2` panel 為 Preferred，職醫／院內 LIS 之 `21104-5` 系列（含 14 個頻率碼）列為 Acceptable（[VS-ExtendedDataset](input/fsh/valuesets/VS-ExtendedDataset.fsh)）。
+  - LDL-C 維持直接測定法 `2089-1` 為 Preferred，計算法 `13457-7` 為 Acceptable（委員 QA-7，原已符）。
+  - terminology.md：§2/§3.1 補「Preferred（代碼層級）≠ 綁定強度 preferred（本 IG 為 extensible）」用語澄清；§4 對照表新增 RBC 與腰圍列。
+- **一致性與可實作補強（Batch 3）**：
+  - `Observation.performer` 於 [TWHA-LabResult-General](input/fsh/profiles/TWHA-LabResult-General.fsh)、[TWHA-LabResult-Special](input/fsh/profiles/TWHA-LabResult-Special.fsh)、[TWHA-VitalSigns](input/fsh/profiles/TWHA-VitalSigns.fsh) 標 **Must Support**，支援第 19 條紀錄保存與稽核之執行者追溯。
+  - 新增 **dataAbsentReason 缺值範例** `obs-lab-egfr-absent`（[examples.fsh](input/fsh/examples/examples.fsh) §9），示範治理原則「缺值以 dataAbsentReason 標明而非省略」之實際填法。
+  - 新增 **職業健康急診友善摘要** Profile [TWHA-Composition-EmergencySummary](input/fsh/profiles/TWHA-Composition-EmergencySummary.fsh) 及範例（暴露史 `obs-exposure-lead`＋摘要 Composition `composition-emergency-summary`＋封包 UC-007），將原候選欄位清單落實為可驗證之 FHIR 文件。
+- **文件狀態**：本 IG 為工研院委託研擬中之草案，尚未定稿，後續得依共識會議、委員意見及主管機關規範調整。
+
 ### 2026-07-09 更新 (同步勞工體檢項目)
 - **擴充值集 (ValueSet Expansion)**: 
   - [VS-CoreDataset](input/fsh/valuesets/VS-CoreDataset.fsh): 新增 83 個一般健檢檢驗項目代碼（白血球分類計數與異常細胞、葡萄糖 AC、無 P-5'-P 的 AST/ALT、直接 LDL-C、CA19-9、PSA、AFP、IgE、肝炎病毒抗體、尿液常規/沉渣鏡檢、以及新增之**糞便檢查**區段與相關代碼）。

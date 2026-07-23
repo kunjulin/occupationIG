@@ -39,6 +39,23 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#89027-7 "Hearing threshold Ear - right --6000 Hz"
 * LNC#89029-3 "Hearing threshold Ear - right --8000 Hz"
 
+// v20260723：職業病醫師/院內 LIS 另採 21104-5 純音聽力研究系列；本 IG 維持 89015-2 panel 為 Preferred，以下 21104-5 系列列為 Acceptable 變異碼（供 LIS 對接，非新增結構）。
+* LNC#21104-5 "Pure tone audiometry - Audiometry study（panel 變異）"
+* LNC#21106-0 "Pure tone audiometry - Left ear 500 Hz"
+* LNC#21111-0 "Pure tone audiometry - Left ear 1000 Hz"
+* LNC#21113-6 "Pure tone audiometry - Left ear 2000 Hz"
+* LNC#21115-1 "Pure tone audiometry - Left ear 3000 Hz"
+* LNC#21116-9 "Pure tone audiometry - Left ear 4000 Hz"
+* LNC#21117-7 "Pure tone audiometry - Left ear 6000 Hz"
+* LNC#21118-5 "Pure tone audiometry - Left ear 8000 Hz"
+* LNC#21120-1 "Pure tone audiometry - Right ear 500 Hz"
+* LNC#21123-5 "Pure tone audiometry - Right ear 1000 Hz"
+* LNC#21125-0 "Pure tone audiometry - Right ear 2000 Hz"
+* LNC#21127-6 "Pure tone audiometry - Right ear 3000 Hz"
+* LNC#21128-4 "Pure tone audiometry - Right ear 4000 Hz"
+* LNC#21129-2 "Pure tone audiometry - Right ear 6000 Hz"
+* LNC#21130-0 "Pure tone audiometry - Right ear 8000 Hz"
+
 // 1.3 游離輻射作業 (radiation) — CBC 與白血球分類、甲狀腺功能、皮膚/眼晶體（理學檢查）
 // v1.1 補齊：附表十游離輻射作業另需甲狀腺功能監測（TSH、Free T4）
 * LNC#789-8 "Erythrocytes [#/volume] in Blood"

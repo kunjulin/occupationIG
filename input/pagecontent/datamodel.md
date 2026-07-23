@@ -60,7 +60,7 @@ classDiagram
 | | 睡眠時間 | `TWHASocialHistorySleepProfile` | LOINC `93832-4` (Sleep duration) |
 | **Vital Signs**<br>(生理量測) | 身高 / 體重 | `TWHAVitalSignsProfile` | LOINC `8302-2` (Height), LOINC `29463-7` (Weight) |
 | | 舒張壓 / 收縮壓 | `TWCoreBloodPressure` | LOINC `85354-9` (BP panel) |
-| | 腰圍 | `TWHAVitalSignsProfile` | LOINC `56086-2` (Waist Circumference) |
+| | 腰圍 | `TWHAVitalSignsProfile` | LOINC `8280-0` (Waist Circumference, Preferred；`56086-2` 為 Acceptable) |
 | **Laboratory**<br>(實驗室檢驗) | 空腹血糖 | `TWHALabResultGeneralProfile` | LOINC `1558-6` (Fasting Glucose) |
 | | 總膽固醇 / 三酸甘油酯 | `TWHALabResultGeneralProfile` | LOINC `2093-3` (TC), LOINC `2571-8` (TG) |
 | | HDL-C / LDL-C | `TWHALabResultGeneralProfile` | LOINC `2085-9` (HDL-C), LOINC `2089-1` (LDL-C, Preferred: Direct assay) |
@@ -77,7 +77,7 @@ classDiagram
 ### 3.1 特殊職類擴充：勞工特殊健康檢查 (Special Occupational Health Check)
 *   **作業經歷與現職暴露**：使用 `TWHAOccupationProfile` 記錄職業別；使用 `TWHAWorkExposure` 記錄特別危害作業暴露年數。
 *   **理學檢查**：使用 `TWHAPhysicalExamProfile` 記錄頭頸部、呼吸、心血管等七大系統醫師判定。
-*   **特殊健檢指標**：使用 `TWHAPulmonaryFunctionProfile` 記錄肺功能檢驗值（FVC, FEV1）；使用 `TWHAECGProfile` 記錄心電圖；使用 `TWHALabResultSpecialProfile` 記錄血中鉛等特殊檢驗（依 `CS-HazardType` 危害作業分類，附表十 18 類作業之完整涵蓋度對照見[特殊危害健康作業](special-exam.html)）。
+*   **特殊健檢指標**：使用 `TWHAPulmonaryFunctionProfile` 記錄肺功能檢驗值（FVC, FEV1）；使用 `TWHAECGProfile` 記錄心電圖；使用 `TWHALabResultSpecialProfile` 記錄血中鉛等特殊檢驗（依 `CS-HazardType` 危害作業分類，附表十 35 項法定作業（歸併 12 家族）之完整涵蓋度對照見[特殊危害健康作業](special-exam.html)）。
 *   **自覺症狀**：使用 `TWHAQuestionnaireResponseProfile` 記錄附表十一所規定之勞工自覺症狀問卷。
 *   **健康管理與配工**：使用 `TWHAClinicalImpressionProfile` 記錄醫師總評與 1-4 級分級；使用 `TWHACarePlanProfile` 與 `TWHAServiceRequestProfile` 記錄適性配工計畫與追蹤檢查開立。
 

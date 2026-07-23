@@ -5,7 +5,8 @@ Description: "包含身高、體重、腰圍及血壓等生理測量項目之 LO
 * ^experimental = false
 * LNC#8302-2 "Body height"
 * LNC#29463-7 "Body weight"
-* LNC#56086-2 "Waist Circumference"
+* LNC#8280-0 "Waist Circumference at umbilicus by Tape measure"  // 腰圍 Preferred（委員建議，臍位皮尺法；送件前以 loinc.org 覆核顯示名）
+* LNC#56086-2 "Waist Circumference"                             // 腰圍 Acceptable（沿用）
 * LNC#8480-6 "Systolic blood pressure"
 * LNC#8462-4 "Diastolic blood pressure"
 * LNC#39156-5 "Body mass index (BMI) [Ratio]"
