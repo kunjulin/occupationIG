@@ -35,7 +35,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "健康檢查進階與領域擴充項目值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-10T21:30:50+08:00",
+  "date" : "2026-07-23T22:22:27+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -138,6 +138,66 @@ No Expansion for this valueset (not supported by Publication Tooling)
       {
         "code" : "89029-3",
         "display" : "Hearing threshold Ear - right --8000 Hz"
+      },
+      {
+        "code" : "21104-5",
+        "display" : "Pure tone audiometry - Audiometry study（panel 變異）"
+      },
+      {
+        "code" : "21106-0",
+        "display" : "Pure tone audiometry - Left ear 500 Hz"
+      },
+      {
+        "code" : "21111-0",
+        "display" : "Pure tone audiometry - Left ear 1000 Hz"
+      },
+      {
+        "code" : "21113-6",
+        "display" : "Pure tone audiometry - Left ear 2000 Hz"
+      },
+      {
+        "code" : "21115-1",
+        "display" : "Pure tone audiometry - Left ear 3000 Hz"
+      },
+      {
+        "code" : "21116-9",
+        "display" : "Pure tone audiometry - Left ear 4000 Hz"
+      },
+      {
+        "code" : "21117-7",
+        "display" : "Pure tone audiometry - Left ear 6000 Hz"
+      },
+      {
+        "code" : "21118-5",
+        "display" : "Pure tone audiometry - Left ear 8000 Hz"
+      },
+      {
+        "code" : "21120-1",
+        "display" : "Pure tone audiometry - Right ear 500 Hz"
+      },
+      {
+        "code" : "21123-5",
+        "display" : "Pure tone audiometry - Right ear 1000 Hz"
+      },
+      {
+        "code" : "21125-0",
+        "display" : "Pure tone audiometry - Right ear 2000 Hz"
+      },
+      {
+        "code" : "21127-6",
+        "display" : "Pure tone audiometry - Right ear 3000 Hz"
+      },
+      {
+        "code" : "21128-4",
+        "display" : "Pure tone audiometry - Right ear 4000 Hz"
+      },
+      {
+        "code" : "21129-2",
+        "display" : "Pure tone audiometry - Right ear 6000 Hz"
+      },
+      {
+        "code" : "21130-0",
+        "display" : "Pure tone audiometry - Right ear 8000 Hz"
       },
       {
         "code" : "789-8",

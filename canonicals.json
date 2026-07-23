@@ -68,6 +68,13 @@
   "version" : "0.1.0"
 },
 {
+  "id" : "CS-Appendix10Operation",
+  "type" : "CodeSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation",
+  "version" : "0.1.0",
+  "name" : "CS_Appendix10Operation"
+},
+{
   "id" : "CS-ExamType",
   "type" : "CodeSystem",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",
@@ -145,6 +152,13 @@
   "name" : "CS_SpecificChemicalType"
 },
 {
+  "id" : "Appendix10-to-HazardType",
+  "type" : "ConceptMap",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/Appendix10-to-HazardType",
+  "version" : "0.1.0",
+  "name" : "Appendix10ToHazardType"
+},
+{
   "id" : "TWHealthCheckLaboratoryMap",
   "type" : "ConceptMap",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap",
@@ -217,6 +231,13 @@
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition",
   "version" : "0.1.0",
   "name" : "TWHACompositionProfile"
+},
+{
+  "id" : "TWHA-Composition-EmergencySummary",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmergencySummary",
+  "version" : "0.1.0",
+  "name" : "TWHACompositionEmergencySummaryProfile"
 },
 {
   "id" : "TWHA-Composition-ServiceRecord",
@@ -532,6 +553,13 @@
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity",
   "version" : "0.1.0",
   "name" : "ExtSmokingQuantity"
+},
+{
+  "id" : "VS-Appendix10-Operation",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation",
+  "version" : "0.1.0",
+  "name" : "VS_Appendix10Operation"
 },
 {
   "id" : "VS-CoreDataset",

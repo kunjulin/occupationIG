@@ -14,7 +14,7 @@
   "name" : "TWHAIG",
   "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-07-10T21:30:50+08:00",
+  "date" : "2026-07-23T22:22:27+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -971,6 +971,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-sf-BetNutChewBeh-codesystem.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/sf-BetNutChewBeh-codesystem"
@@ -983,6 +987,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "QuestionnaireResponse"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "QuestionnaireResponse-sdoh-questionnaire-response.html"
       }],
       "reference" : {
         "reference" : "QuestionnaireResponse/sdoh-questionnaire-response"
@@ -995,6 +1003,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "OperationDefinition"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "OperationDefinition-Bundle-submit.html"
       }],
       "reference" : {
         "reference" : "OperationDefinition/Bundle-submit"
@@ -1006,6 +1018,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-UC-001.html"
       }],
       "reference" : {
         "reference" : "Bundle/UC-001"
@@ -1018,6 +1034,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-UC-002.html"
       }],
       "reference" : {
         "reference" : "Bundle/UC-002"
@@ -1030,6 +1050,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-UC-003.html"
       }],
       "reference" : {
         "reference" : "Bundle/UC-003"
@@ -1042,6 +1066,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-UC-004.html"
       }],
       "reference" : {
         "reference" : "Bundle/UC-004"
@@ -1054,6 +1082,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-UC-005.html"
       }],
       "reference" : {
         "reference" : "Bundle/UC-005"
@@ -1066,6 +1098,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-UC-006.html"
       }],
       "reference" : {
         "reference" : "Bundle/UC-006"
@@ -1077,7 +1113,27 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Bundle"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Bundle-UC-007.html"
+      }],
+      "reference" : {
+        "reference" : "Bundle/UC-007"
+      },
+      "name" : "UC-007 職業健康急診友善摘要封包",
+      "description" : "急診友善摘要 Composition（含鉛作業暴露史、生命徵象、關鍵檢驗值與缺值示範）之 Document Bundle 範例。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Composition"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Composition-composition-uc001.html"
       }],
       "reference" : {
         "reference" : "Composition/composition-uc001"
@@ -1090,6 +1146,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-LabResult-General.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-LabResult-General"
@@ -1102,6 +1162,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-UnfitDiseases.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-UnfitDiseases"
@@ -1114,6 +1178,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Composition-ServiceRecord.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Composition-ServiceRecord"
@@ -1126,6 +1194,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-HealthManagementLevel.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-HealthManagementLevel"
@@ -1138,6 +1210,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Composition.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Composition"
@@ -1150,6 +1226,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Encounter.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Encounter"
@@ -1162,6 +1242,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-ImagingStudy.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-ImagingStudy"
@@ -1174,6 +1258,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-DiagnosticReport.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-DiagnosticReport"
@@ -1186,6 +1274,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-ServiceRequest.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-ServiceRequest"
@@ -1198,6 +1290,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-ClinicalImpression.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-ClinicalImpression"
@@ -1210,6 +1306,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Bundle-Document.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Bundle-Document"
@@ -1222,6 +1322,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-exam-interval.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-exam-interval"
@@ -1234,6 +1338,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Occupation.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Occupation"
@@ -1246,6 +1354,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Organization-Employer.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Organization-Employer"
@@ -1258,6 +1370,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Condition.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Condition"
@@ -1270,6 +1386,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-CoreDataset.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-CoreDataset"
@@ -1282,6 +1402,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ConceptMap"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ConceptMap-TWHealthCheckLaboratoryMap.html"
       }],
       "reference" : {
         "reference" : "ConceptMap/TWHealthCheckLaboratoryMap"
@@ -1294,6 +1418,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Questionnaire.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Questionnaire"
@@ -1306,6 +1434,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Bundle-Transaction.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Bundle-Transaction"
@@ -1318,6 +1450,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CapabilityStatement"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CapabilityStatement-TWHA-CapabilityStatement.html"
       }],
       "reference" : {
         "reference" : "CapabilityStatement/TWHA-CapabilityStatement"
@@ -1330,6 +1466,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-ExtendedDataset.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-ExtendedDataset"
@@ -1342,6 +1482,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-CarePlan.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-CarePlan"
@@ -1354,6 +1498,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-HealthMgmtLevel.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-HealthMgmtLevel"
@@ -1366,6 +1514,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-HealthMgmtLevel.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-HealthMgmtLevel"
@@ -1378,6 +1530,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-health-mgmt-level.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-health-mgmt-level"
@@ -1390,6 +1546,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Procedure-Counseling.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Procedure-Counseling"
@@ -1402,6 +1562,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Procedure"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Procedure-example-procedure-counseling.html"
       }],
       "reference" : {
         "reference" : "Procedure/example-procedure-counseling"
@@ -1414,6 +1578,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-HealthCounseling.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-HealthCounseling"
@@ -1426,6 +1594,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-HealthCounseling.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-HealthCounseling"
@@ -1438,6 +1610,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Encounter"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Encounter-example-encounter-general.html"
       }],
       "reference" : {
         "reference" : "Encounter/example-encounter-general"
@@ -1450,6 +1626,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-LaborReportCode.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-LaborReportCode"
@@ -1462,6 +1642,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-labor-report-code.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-labor-report-code"
@@ -1474,6 +1658,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-LaborReportCode.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-LaborReportCode"
@@ -1486,6 +1674,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Composition"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Composition-composition-uc002.html"
       }],
       "reference" : {
         "reference" : "Composition/composition-uc002"
@@ -1498,6 +1690,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-OccHealthCheck-Required.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-OccHealthCheck-Required"
@@ -1510,6 +1706,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-employment-date.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-employment-date"
@@ -1522,6 +1722,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Patient"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Patient-example-worker.html"
       }],
       "reference" : {
         "reference" : "Patient/example-worker"
@@ -1534,6 +1738,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Patient.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Patient"
@@ -1546,6 +1754,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-SocialHistory-Smoking.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-SocialHistory-Smoking"
@@ -1558,6 +1770,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-SmokingStatus.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-SmokingStatus"
@@ -1570,6 +1786,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-SmokingStatus.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-SmokingStatus"
@@ -1582,6 +1802,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-smoking.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-smoking"
@@ -1594,6 +1818,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-smoking-quantity.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-smoking-quantity"
@@ -1606,6 +1834,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-sf-BetNutChewYear-codesystem.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/sf-BetNutChewYear-codesystem"
@@ -1618,6 +1850,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-sf-BetNutChewYear-valueset.html"
       }],
       "reference" : {
         "reference" : "ValueSet/sf-BetNutChewYear-valueset"
@@ -1630,6 +1866,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-SocialHistory-BetelNut.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-SocialHistory-BetelNut"
@@ -1642,6 +1882,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-betelnut.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-betelnut"
@@ -1654,6 +1898,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-sf-BetNutChewBeh-valueset.html"
       }],
       "reference" : {
         "reference" : "ValueSet/sf-BetNutChewBeh-valueset"
@@ -1666,6 +1914,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Questionnaire"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Questionnaire-adult-preventive-care-questionnaire.html"
       }],
       "reference" : {
         "reference" : "Questionnaire/adult-preventive-care-questionnaire"
@@ -1678,6 +1930,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Practitioner.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Practitioner"
@@ -1690,6 +1946,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Practitioner"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Practitioner-example-doctor.html"
       }],
       "reference" : {
         "reference" : "Practitioner/example-doctor"
@@ -1702,6 +1962,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Organization-Facility.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Organization-Facility"
@@ -1714,6 +1978,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Organization"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Organization-example-hospital.html"
       }],
       "reference" : {
         "reference" : "Organization/example-hospital"
@@ -1726,6 +1994,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-lab-glucose.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-lab-glucose"
@@ -1737,7 +2009,27 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-lab-egfr-absent.html"
+      }],
+      "reference" : {
+        "reference" : "Observation/obs-lab-egfr-absent"
+      },
+      "name" : "實驗室檢驗缺值範例 - eGFR 未檢測（dataAbsentReason）",
+      "description" : "受檢勞工王大同本次因故未完成腎絲球過濾率 (eGFR) 檢測。示範以 dataAbsentReason = not-performed 標明缺值原因，Observation 仍保留且合乎 twha-obs-1（value 或 dataAbsentReason 或 component 三者擇一）。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-General"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-ECG.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-ECG"
@@ -1750,6 +2042,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-QuestionnaireResponse-HT.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-QuestionnaireResponse-HT"
@@ -1762,6 +2058,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "QuestionnaireResponse"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "QuestionnaireResponse-adult-preventive-care-response.html"
       }],
       "reference" : {
         "reference" : "QuestionnaireResponse/adult-preventive-care-response"
@@ -1774,6 +2074,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Composition"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Composition-composition-uc005.html"
       }],
       "reference" : {
         "reference" : "Composition/composition-uc005"
@@ -1786,6 +2090,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-sf-BetNutChewQuit-codesystem.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/sf-BetNutChewQuit-codesystem"
@@ -1798,6 +2106,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-sf-BetNutChewQuit-valueset.html"
       }],
       "reference" : {
         "reference" : "ValueSet/sf-BetNutChewQuit-valueset"
@@ -1810,6 +2122,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-cessation-duration.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-cessation-duration"
@@ -1822,6 +2138,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Condition"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Condition-example-past-condition.html"
       }],
       "reference" : {
         "reference" : "Condition/example-past-condition"
@@ -1834,6 +2154,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-OrganicSolventType.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-OrganicSolventType"
@@ -1846,6 +2170,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-OrganicSolventType.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-OrganicSolventType"
@@ -1858,6 +2186,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Group"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Group-example-group-workers.html"
       }],
       "reference" : {
         "reference" : "Group/example-group-workers"
@@ -1870,6 +2202,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-ExamType.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-ExamType"
@@ -1882,6 +2218,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-ExamType.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-ExamType"
@@ -1894,6 +2234,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-exam-type.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-exam-type"
@@ -1906,6 +2250,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-sf-BetNutChewAmount-codesystem.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/sf-BetNutChewAmount-codesystem"
@@ -1918,6 +2266,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-sf-BetNutChewAmount-valueset.html"
       }],
       "reference" : {
         "reference" : "ValueSet/sf-BetNutChewAmount-valueset"
@@ -1929,7 +2281,27 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-exposure-lead.html"
+      }],
+      "reference" : {
+        "reference" : "Observation/obs-exposure-lead"
+      },
+      "name" : "特別危害作業暴露史範例 - 鉛作業",
+      "description" : "受檢勞工王大同從事鉛作業之暴露史，暴露年數 8 年，工作性質為電池極板熔鉛作業。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-WorkExposure"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-WorkExposure.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-WorkExposure"
@@ -1942,18 +2314,26 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-HazardType.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-HazardType"
       },
       "name" : "特別危害健康作業類別代碼系統",
-      "description" : "勞工健康保護規則所定義之 12 大類特別危害健康作業類別。",
+      "description" : "勞工健康保護規則所定義之特別危害健康作業，歸併為 12 危害家族（家族層）。附表十（115.06.26 修正）逐號列舉之 35 項法定具名作業另以 CS-Appendix10Operation 表示，家族 ↔ 具名作業之對映見 ConceptMap Appendix10-to-HazardType。",
       "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-HazardType.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-HazardType"
@@ -1966,6 +2346,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-hazard-type.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-hazard-type"
@@ -1978,6 +2362,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-SpecificChemicalType.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-SpecificChemicalType"
@@ -1990,6 +2378,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-SpecificChemicalType.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-SpecificChemicalType"
@@ -2002,6 +2394,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-LabResult-Special.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-LabResult-Special"
@@ -2014,6 +2410,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Composition"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Composition-composition-uc003.html"
       }],
       "reference" : {
         "reference" : "Composition/composition-uc003"
@@ -2026,6 +2426,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-physical.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-physical"
@@ -2038,6 +2442,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-sf-ObserBeh-codesystem.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/sf-ObserBeh-codesystem"
@@ -2050,6 +2458,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-SocialHistory-Sleep.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-SocialHistory-Sleep"
@@ -2062,6 +2474,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-sleep.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-sleep"
@@ -2074,6 +2490,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-SDOH-QuestionnaireResponse.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-SDOH-QuestionnaireResponse"
@@ -2086,6 +2506,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Questionnaire"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Questionnaire-twha-sdoh-questionnaire.html"
       }],
       "reference" : {
         "reference" : "Questionnaire/twha-sdoh-questionnaire"
@@ -2098,6 +2522,42 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Composition-EmergencySummary.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TWHA-Composition-EmergencySummary"
+      },
+      "name" : "職業健康急診友善摘要 Composition Profile",
+      "description" : "職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用，形成可驗證、可交換的摘要文件。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Composition"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Composition-composition-emergency-summary.html"
+      }],
+      "reference" : {
+        "reference" : "Composition/composition-emergency-summary"
+      },
+      "name" : "職業健康急診友善摘要範例 (UC-007)",
+      "description" : "整合王大同鉛作業暴露史、生命徵象與關鍵檢驗值之急診友善摘要，供急診醫師快速掌握其職業暴露背景。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmergencySummary"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-VitalSigns.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-VitalSigns"
@@ -2110,6 +2570,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-TWHAVitalSigns.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-TWHAVitalSigns"
@@ -2122,6 +2586,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-HearingTest.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-HearingTest"
@@ -2134,6 +2602,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-hearing.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-hearing"
@@ -2146,6 +2618,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-PulmonaryFunction.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-PulmonaryFunction"
@@ -2158,6 +2634,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-pulmonary.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-pulmonary"
@@ -2170,6 +2650,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-PulmonaryFunction.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-PulmonaryFunction"
@@ -2182,6 +2666,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-waist.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-waist"
@@ -2194,6 +2682,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Encounter-Service.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Encounter-Service"
@@ -2206,6 +2698,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Task-ServiceTask.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Task-ServiceTask"
@@ -2218,6 +2714,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Observation-ServiceFinding.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Observation-ServiceFinding"
@@ -2230,6 +2730,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-ServiceActivityType.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-ServiceActivityType"
@@ -2242,6 +2746,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-ServiceActivityType.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-ServiceActivityType"
@@ -2254,6 +2762,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Encounter"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Encounter-example-encounter-service.html"
       }],
       "reference" : {
         "reference" : "Encounter/example-encounter-service"
@@ -2266,6 +2778,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-Procedure-ServiceActivity.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-Procedure-ServiceActivity"
@@ -2278,6 +2794,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Procedure"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Procedure-example-procedure-activity.html"
       }],
       "reference" : {
         "reference" : "Procedure/example-procedure-activity"
@@ -2290,6 +2810,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Task"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Task-example-service-task.html"
       }],
       "reference" : {
         "reference" : "Task/example-service-task"
@@ -2302,6 +2826,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-example-service-finding.html"
       }],
       "reference" : {
         "reference" : "Observation/example-service-finding"
@@ -2314,6 +2842,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Composition"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Composition-example-composition-service.html"
       }],
       "reference" : {
         "reference" : "Composition/example-composition-service"
@@ -2326,6 +2858,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-QuestionnaireResponse.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-QuestionnaireResponse"
@@ -2338,6 +2874,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "QuestionnaireResponse"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "QuestionnaireResponse-example-symptoms-response.html"
       }],
       "reference" : {
         "reference" : "QuestionnaireResponse/example-symptoms-response"
@@ -2350,6 +2890,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Questionnaire"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Questionnaire-example-questionnaire.html"
       }],
       "reference" : {
         "reference" : "Questionnaire/example-questionnaire"
@@ -2362,6 +2906,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Composition"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Composition-composition-uc004.html"
       }],
       "reference" : {
         "reference" : "Composition/composition-uc004"
@@ -2374,6 +2922,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-imaging-mammo.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-imaging-mammo"
@@ -2386,6 +2938,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-imaging-pet.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-imaging-pet"
@@ -2398,6 +2954,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-endoscopy-colon.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-endoscopy-colon"
@@ -2410,6 +2970,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-imaging-cta.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-imaging-cta"
@@ -2422,6 +2986,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-imaging-lung-ct.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-imaging-lung-ct"
@@ -2434,6 +3002,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-endoscopy-egd.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-endoscopy-egd"
@@ -2446,6 +3018,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-imaging-brain-mri.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-imaging-brain-mri"
@@ -2458,6 +3034,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-bloodpressure.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-bloodpressure"
@@ -2470,6 +3050,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-vision.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-vision"
@@ -2482,6 +3066,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-VisionTest.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-VisionTest"
@@ -2494,6 +3082,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-PhysicalExamSystems.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-PhysicalExamSystems"
@@ -2506,6 +3098,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-PhysicalExamSystems.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-PhysicalExamSystems"
@@ -2518,6 +3114,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-PhysicalExam.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-PhysicalExam"
@@ -2530,6 +3130,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-bmi.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-bmi"
@@ -2542,6 +3146,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-height.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-height"
@@ -2554,6 +3162,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-FitnessForWork.html"
       }],
       "reference" : {
         "reference" : "CodeSystem/CS-FitnessForWork"
@@ -2566,6 +3178,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-FitnessForWork.html"
       }],
       "reference" : {
         "reference" : "ValueSet/VS-FitnessForWork"
@@ -2578,6 +3194,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-fitness-for-work.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-fitness-for-work"
@@ -2590,6 +3210,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-department.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-department"
@@ -2602,6 +3226,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "ClinicalImpression"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ClinicalImpression-example-clinical-impression.html"
       }],
       "reference" : {
         "reference" : "ClinicalImpression/example-clinical-impression"
@@ -2613,7 +3241,59 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ConceptMap"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ConceptMap-Appendix10-to-HazardType.html"
+      }],
+      "reference" : {
+        "reference" : "ConceptMap/Appendix10-to-HazardType"
+      },
+      "name" : "附表十 35 項法定作業 對 12 危害家族 對照",
+      "description" : "將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-Appendix10-Operation.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VS-Appendix10-Operation"
+      },
+      "name" : "附表十特別危害健康作業值集（35 項）",
+      "description" : "包含《勞工健康保護規則》附表十 35 項法定具名作業之代碼。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-Appendix10Operation.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CS-Appendix10Operation"
+      },
+      "name" : "附表十特別危害健康作業具名代碼系統",
+      "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Organization"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Organization-example-employer.html"
       }],
       "reference" : {
         "reference" : "Organization/example-employer"
@@ -2626,6 +3306,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-ext-employer-info.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/ext-employer-info"
@@ -2638,6 +3322,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-TWHA-SocialHistory-Alcohol.html"
       }],
       "reference" : {
         "reference" : "StructureDefinition/TWHA-SocialHistory-Alcohol"
@@ -2650,6 +3338,10 @@
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-weight.html"
       }],
       "reference" : {
         "reference" : "Observation/obs-weight"

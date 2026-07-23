@@ -232,17 +232,21 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <p><strong>共用／專屬解耦</strong>：附表十以作業類別分列，項目高度重疊（多數作業共用 ALT、Creatinine、尿液、CBC 等）。本 IG 以 Core（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code>）承載共用項目，危害專屬項目以 <code class="language-plaintext highlighter-rouge">TWHA-LabResult-Special</code> 及專屬 Profile 承載，並以 <code class="language-plaintext highlighter-rouge">ext-hazard-type</code> 標記作業類別。</p>
 </blockquote>
 
-<h2 id="附表十-18-類特別危害作業涵蓋度對照-coverage-audit">附表十 18 類特別危害作業涵蓋度對照 (Coverage Audit)</h2>
+<h2 id="附表十-35-項法定作業涵蓋度對照歸併為-12-危害家族-coverage-audit">附表十 35 項法定作業涵蓋度對照（歸併為 12 危害家族） (Coverage Audit)</h2>
 
-<p>下表以《勞工健康保護規則》附表十完整展開之 18 類特別危害作業為基準（對應文件一 §2.1.1、文件三議題 5），逐類確認本 IG 之項目對應與臨床適當性。「共用項目」收錄於 Core，「專屬項目」收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>。第一期結構化必驗者標示 ★。</p>
+<p>下表以《勞工健康保護規則》<strong>附表十（115.06.26 修正）所列 35 項</strong>特別危害健康作業為列主鍵（編號 1–35），逐項標註對應之本 IG <code class="language-plaintext highlighter-rouge">CS-HazardType</code> <strong>12 危害家族</strong>、代表性專屬檢查項目與承載方式。附表十編號 → 危害家族之完整對映另建置於 <a href="ConceptMap-Appendix10-to-HazardType.html">ConceptMap Appendix10-to-HazardType</a>；家族代碼集見 <a href="CodeSystem-CS-HazardType.html">CS-HazardType</a>、附表十作業代碼集見 <a href="CodeSystem-CS-Appendix10Operation.html">CS-Appendix10Operation</a>。「共用項目」收錄於 Core（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code>），「專屬項目」收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>；★ 為第一期已結構化必驗模組。</p>
+
+<blockquote>
+  <p><strong>口徑說明（更正）</strong>：本表舊版以「18 類」呈現，係依專屬檢查項目歸併之敘述數，非附表十法定項目數。附表十逐號列舉，115.06.26 修正後為 <strong>35 項</strong>（舊 32 項＋新增 33 苯乙烯／34 甲苯／35 二甲苯）；本版改以 35 項為列主鍵，並保留 12 家族歸併欄，以符法規口徑並回應審查意見（李偉帆委員）。</p>
+</blockquote>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">#</th>
-      <th style="text-align: left">危害作業類別（附表十）</th>
-      <th style="text-align: left">專屬檢查項目（代表）</th>
-      <th style="text-align: left">Preferred LOINC / Profile</th>
+      <th style="text-align: left">附表十編號</th>
+      <th style="text-align: left">法定作業名稱</th>
+      <th style="text-align: left">危害家族 (CS-HazardType)</th>
+      <th style="text-align: left">代表專屬項目（LOINC／Profile）</th>
       <th style="text-align: left">本 IG 承載</th>
     </tr>
   </thead>
@@ -250,134 +254,253 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td style="text-align: left">1</td>
       <td style="text-align: left">高溫作業</td>
-      <td style="text-align: left">心電圖、電解質(Na/K/Cl)、BUN、尿比重</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">11524-6</code>,<code class="language-plaintext highlighter-rouge">2951-2</code>,<code class="language-plaintext highlighter-rouge">2823-3</code>,<code class="language-plaintext highlighter-rouge">2075-0</code>,<code class="language-plaintext highlighter-rouge">3094-0</code>,<code class="language-plaintext highlighter-rouge">5810-7</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">high-temp</code></td>
+      <td style="text-align: left">心電圖 <code class="language-plaintext highlighter-rouge">11524-6</code>、電解質 Na/K/Cl、BUN <code class="language-plaintext highlighter-rouge">3094-0</code>、eGFR <code class="language-plaintext highlighter-rouge">88293-6</code>、尿比重 <code class="language-plaintext highlighter-rouge">5810-7</code></td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">2 ★</td>
       <td style="text-align: left">噪音作業</td>
-      <td style="text-align: left">純音聽力圖 0.5–8 kHz（雙耳 7 頻率）、耳鼻喉</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">89015-2</code> panel + 14 頻率碼 / <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">noise</code></td>
+      <td style="text-align: left">純音聽力 Panel <code class="language-plaintext highlighter-rouge">89015-2</code>（0.5–8 kHz 雙耳 14 碼）/ <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code></td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">3</td>
       <td style="text-align: left">游離輻射作業</td>
-      <td style="text-align: left">CBC＋分類、甲狀腺(TSH/FT4)、皮膚/眼晶體</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">6690-2…</code>,<code class="language-plaintext highlighter-rouge">11580-8</code>,<code class="language-plaintext highlighter-rouge">3024-7</code> / PhysicalExam</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">radiation</code></td>
+      <td style="text-align: left">CBC＋白血球分類、TSH <code class="language-plaintext highlighter-rouge">11580-8</code>／Free T4 <code class="language-plaintext highlighter-rouge">3024-7</code>、皮膚/眼晶體（理學）</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">4</td>
       <td style="text-align: left">異常氣壓作業</td>
-      <td style="text-align: left">肺功能、長骨關節 X 光、心電圖、聽力</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19876-2</code>,<code class="language-plaintext highlighter-rouge">20150-9</code>,<code class="language-plaintext highlighter-rouge">19926-5</code>,<code class="language-plaintext highlighter-rouge">24579-5</code>,<code class="language-plaintext highlighter-rouge">11524-6</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">abnormal-pressure</code></td>
+      <td style="text-align: left">肺功能 <code class="language-plaintext highlighter-rouge">19876-2</code>/<code class="language-plaintext highlighter-rouge">20150-9</code>/<code class="language-plaintext highlighter-rouge">19926-5</code>、長骨 X 光 <code class="language-plaintext highlighter-rouge">24579-5</code>、心電圖 <code class="language-plaintext highlighter-rouge">11524-6</code>、聽力</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">5 ★</td>
       <td style="text-align: left">鉛作業</td>
-      <td style="text-align: left">血中鉛、CBC、腎功能、尿液</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5671-3</code>/<code class="language-plaintext highlighter-rouge">23749-5</code>,<code class="language-plaintext highlighter-rouge">5676-2</code>,<code class="language-plaintext highlighter-rouge">11212-8</code>,<code class="language-plaintext highlighter-rouge">11215-1</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">lead</code></td>
+      <td style="text-align: left">血中鉛 <code class="language-plaintext highlighter-rouge">5671-3</code>（Acc <code class="language-plaintext highlighter-rouge">23749-5</code>）、尿中鉛 <code class="language-plaintext highlighter-rouge">5676-2</code>、Copro <code class="language-plaintext highlighter-rouge">11212-8</code>、ALA <code class="language-plaintext highlighter-rouge">11215-1</code>、CBC</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">6</td>
       <td style="text-align: left">四烷基鉛作業</td>
-      <td style="text-align: left">血/尿中鉛、神經精神、血壓</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5676-2</code>,<code class="language-plaintext highlighter-rouge">11212-8</code> / PhysicalExam</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">tetraalkyl-lead</code></td>
+      <td style="text-align: left">尿中鉛/Copro/ALA、神經精神（理學）</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
-      <td style="text-align: left">7 ★</td>
-      <td style="text-align: left">粉塵作業</td>
-      <td style="text-align: left">胸部 X 光、肺功能(FVC/FEV1)</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">36643-5</code>,<code class="language-plaintext highlighter-rouge">19876-2</code>,<code class="language-plaintext highlighter-rouge">20150-9</code>,<code class="language-plaintext highlighter-rouge">19926-5</code> / PulmonaryFunction</td>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">1,1,2,2-四氯乙烷作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
+      <td style="text-align: left">肝功能 ALT/γ-GT <code class="language-plaintext highlighter-rouge">2324-2</code>、腎功能</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">8</td>
-      <td style="text-align: left">游離二氧化矽粉塵</td>
-      <td style="text-align: left">胸部 X 光（塵肺症分級）、肺功能</td>
-      <td style="text-align: left">同粉塵（<code class="language-plaintext highlighter-rouge">36643-5</code>＋PFT）</td>
+      <td style="text-align: left">四氯化碳作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
+      <td style="text-align: left">肝腎功能</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">9</td>
-      <td style="text-align: left">有機溶劑作業</td>
-      <td style="text-align: left">肝功能(ALT/γ-GT)、腎功能、CBC、尿中代謝物</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1742-6</code>,<code class="language-plaintext highlighter-rouge">2324-2</code>,尿代謝物系列</td>
+      <td style="text-align: left">二硫化碳作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
+      <td style="text-align: left">尿中 TTCA <code class="language-plaintext highlighter-rouge">12533-6</code>、心電圖 <code class="language-plaintext highlighter-rouge">11524-6</code>、眼底（理學）、血脂</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">10</td>
-      <td style="text-align: left">特化—苯</td>
-      <td style="text-align: left">CBC＋分類、尿中酚、肝功能</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">6690-2…</code>,<code class="language-plaintext highlighter-rouge">2758-1</code>,<code class="language-plaintext highlighter-rouge">72665-3</code>,<code class="language-plaintext highlighter-rouge">1742-6</code></td>
+      <td style="text-align: left">三氯乙烯作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
+      <td style="text-align: left">尿中三氯乙酸 <code class="language-plaintext highlighter-rouge">3041-1</code>、肝功能</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">11</td>
-      <td style="text-align: left">特化—氯乙烯單體</td>
-      <td style="text-align: left">肝功能、腹部超音波、血小板、手部 X 光</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1742-6</code>,<code class="language-plaintext highlighter-rouge">777-3</code>,<code class="language-plaintext highlighter-rouge">24558-9</code>(US)</td>
-      <td style="text-align: left">部分（手部 X 光待補）</td>
+      <td style="text-align: left">二甲基甲醯胺（DMF）作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
+      <td style="text-align: left">尿中 N-甲基甲醯胺 <code class="language-plaintext highlighter-rouge">12543-5</code>、肝功能</td>
+      <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">12</td>
-      <td style="text-align: left">特化—石綿</td>
-      <td style="text-align: left">胸部 X 光（胸膜變化）、肺功能</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">36643-5</code>,PFT</td>
+      <td style="text-align: left">正己烷作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
+      <td style="text-align: left">尿中 2,5-己二酮 <code class="language-plaintext highlighter-rouge">31170-4</code>、神經學</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">13</td>
-      <td style="text-align: left">特化—鉻/鎘/鈹/砷/汞/錳等重金屬</td>
-      <td style="text-align: left">血/尿中金屬、腎功能、鼻中膈/呼吸道、神經學</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5586-3</code>,<code class="language-plaintext highlighter-rouge">5609-3</code>,<code class="language-plaintext highlighter-rouge">5622-6</code>,<code class="language-plaintext highlighter-rouge">5685-3</code>,<code class="language-plaintext highlighter-rouge">5683-8</code>…</td>
-      <td style="text-align: left">✓（鈹無專屬 LOINC，定性/臨床評估）</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">14</td>
-      <td style="text-align: left">特化—聯苯胺類/多環芳香烴</td>
-      <td style="text-align: left">尿液細胞學、膀胱鏡(必要時)、尿潛血</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">10909-0</code>(benzidine),<code class="language-plaintext highlighter-rouge">5794-3</code>(尿潛血)</td>
+      <td style="text-align: left">聯苯胺及其鹽類作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">尿中聯苯胺 <code class="language-plaintext highlighter-rouge">10909-0</code>、尿液細胞學/尿潛血</td>
       <td style="text-align: left">部分（尿液細胞學待補）</td>
     </tr>
     <tr>
+      <td style="text-align: left">14</td>
+      <td style="text-align: left">鈹及其化合物作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">胸部 X 光 <code class="language-plaintext highlighter-rouge">36643-5</code>、肺功能、皮膚（理學）</td>
+      <td style="text-align: left">✓（鈹無定量 LOINC）</td>
+    </tr>
+    <tr>
       <td style="text-align: left">15</td>
-      <td style="text-align: left">二硫化碳作業</td>
-      <td style="text-align: left">眼底檢查、心電圖、血脂、神經學</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">12533-6</code>(TTCA),<code class="language-plaintext highlighter-rouge">11524-6</code>,血脂系列</td>
-      <td style="text-align: left">✓（眼底以理學檢查記錄）</td>
+      <td style="text-align: left">氯乙烯作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">肝功能、腹部超音波 <code class="language-plaintext highlighter-rouge">24558-9</code>、手部 X 光</td>
+      <td style="text-align: left">部分（手部 X 光待補）</td>
     </tr>
     <tr>
       <td style="text-align: left">16</td>
-      <td style="text-align: left">黃磷作業</td>
-      <td style="text-align: left">口腔/牙齒(顎骨壞死)、肝功能</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">24829-4</code>,<code class="language-plaintext highlighter-rouge">2777-1</code>,<code class="language-plaintext highlighter-rouge">1742-6</code></td>
+      <td style="text-align: left">苯作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">CBC＋分類、尿中酚 <code class="language-plaintext highlighter-rouge">2758-1</code>、尿中 t,t-黏康酸 <code class="language-plaintext highlighter-rouge">72665-3</code></td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">17</td>
-      <td style="text-align: left">聯吡啶/巴拉刈作業</td>
-      <td style="text-align: left">肺功能、胸部 X 光、皮膚黏膜</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">9827-7</code>,<code class="language-plaintext highlighter-rouge">36643-5</code>,PFT</td>
+      <td style="text-align: left">2,4-二異氰酸甲苯（TDI）作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">肺功能、胸部 X 光 <code class="language-plaintext highlighter-rouge">36643-5</code>、呼吸道（理學）</td>
       <td style="text-align: left">✓</td>
     </tr>
     <tr>
       <td style="text-align: left">18</td>
-      <td style="text-align: left">其他中央主管機關指定</td>
-      <td style="text-align: left">依公告（銦/鈷/甲基溴/有機磷農藥等）</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5665-5</code>,<code class="language-plaintext highlighter-rouge">5625-9</code>,<code class="language-plaintext highlighter-rouge">1984-4</code>,<code class="language-plaintext highlighter-rouge">1709-5</code>…</td>
-      <td style="text-align: left">✓（保留擴充）</td>
+      <td style="text-align: left">石綿作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">胸部 X 光 <code class="language-plaintext highlighter-rouge">36643-5</code>（胸膜）、肺功能</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">19</td>
+      <td style="text-align: left">砷及其化合物作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">尿中無機砷 <code class="language-plaintext highlighter-rouge">5586-3</code>、皮膚/鼻中膈（理學）</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">20</td>
+      <td style="text-align: left">錳及其化合物作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">血錳 <code class="language-plaintext highlighter-rouge">5681-2</code>/尿錳 <code class="language-plaintext highlighter-rouge">42221-2</code>、神經學</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">21</td>
+      <td style="text-align: left">黃磷作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">yellow-phosphorus</code></td>
+      <td style="text-align: left">下顎骨 X 光 <code class="language-plaintext highlighter-rouge">24829-4</code>、血清磷 <code class="language-plaintext highlighter-rouge">2777-1</code>、肝功能</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">22</td>
+      <td style="text-align: left">聯吡啶或巴拉刈作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">paraquat</code></td>
+      <td style="text-align: left">尿中巴拉刈 <code class="language-plaintext highlighter-rouge">9827-7</code>、肺功能、胸部 X 光 <code class="language-plaintext highlighter-rouge">36643-5</code></td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">23 ★</td>
+      <td style="text-align: left">粉塵作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">dust</code></td>
+      <td style="text-align: left">胸部 X 光 <code class="language-plaintext highlighter-rouge">36643-5</code>、肺功能 FVC/FEV1</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">24</td>
+      <td style="text-align: left">鉻酸及其鹽類作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">血鉻 <code class="language-plaintext highlighter-rouge">5622-6</code>/尿鉻 <code class="language-plaintext highlighter-rouge">5623-4</code>、鼻中膈（理學）</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">25</td>
+      <td style="text-align: left">鎘及其化合物作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">血鎘 <code class="language-plaintext highlighter-rouge">5609-3</code>/尿鎘 <code class="language-plaintext highlighter-rouge">5611-9</code>、腎功能、肺功能</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">26</td>
+      <td style="text-align: left">鎳及其化合物作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">尿中鎳 <code class="language-plaintext highlighter-rouge">14099-6</code>、eGFR <code class="language-plaintext highlighter-rouge">88293-6</code>、呼吸道（理學）</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">27</td>
+      <td style="text-align: left">乙基汞化合物作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">血汞 <code class="language-plaintext highlighter-rouge">5685-3</code>、eGFR <code class="language-plaintext highlighter-rouge">88293-6</code>、神經學</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">28</td>
+      <td style="text-align: left">溴丙烷作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">神經學、CBC、肌肉骨骼（理學）</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">29</td>
+      <td style="text-align: left">1,3-丁二烯作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">CBC＋白血球分類</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">30</td>
+      <td style="text-align: left">甲醛作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">尿中甲醛 <code class="language-plaintext highlighter-rouge">5653-1</code>、CBC、呼吸道/皮膚（理學）</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">31</td>
+      <td style="text-align: left">銦及其化合物作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">血清銦 <code class="language-plaintext highlighter-rouge">60090-8</code>/血中銦 <code class="language-plaintext highlighter-rouge">5665-5</code>、肺功能</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">32</td>
+      <td style="text-align: left">汞及其無機化合物作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">specific-chemical</code></td>
+      <td style="text-align: left">血汞 <code class="language-plaintext highlighter-rouge">5685-3</code>/尿汞 <code class="language-plaintext highlighter-rouge">5689-5</code>、eGFR <code class="language-plaintext highlighter-rouge">88293-6</code>、神經學</td>
+      <td style="text-align: left">✓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">33</td>
+      <td style="text-align: left">苯乙烯作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
+      <td style="text-align: left">尿中扁桃酸 <code class="language-plaintext highlighter-rouge">13000-5</code>、肝腎功能</td>
+      <td style="text-align: left">✓（115.06.26 新增）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">34</td>
+      <td style="text-align: left">甲苯作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
+      <td style="text-align: left">尿中馬尿酸 <code class="language-plaintext highlighter-rouge">6709-0</code>、肝腎功能</td>
+      <td style="text-align: left">✓（115.06.26 新增）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">35</td>
+      <td style="text-align: left">二甲苯作業</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
+      <td style="text-align: left">尿中甲基馬尿酸 <code class="language-plaintext highlighter-rouge">2725-0</code>、eGFR <code class="language-plaintext highlighter-rouge">88293-6</code></td>
+      <td style="text-align: left">✓（115.06.26 新增）</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p><strong>臨床適當性註記</strong>：(1) 噪音純音聽力圖已更正並補齊 0.5–8 kHz 雙耳 14 個氣導聽閾 LOINC 代碼（原版本代碼錯置且缺 3/6/8 kHz）。(2) 肺功能 FEV1 之正確 LOINC 為 <code class="language-plaintext highlighter-rouge">20150-9</code>（原誤用 <code class="language-plaintext highlighter-rouge">19868-9</code>，該碼實為 FVC）。(3) 手部 X 光（氯乙烯）、尿液細胞學（聯苯胺類）目前以 <code class="language-plaintext highlighter-rouge">TWHA-LabResult-Special</code>／影像報告通用承載，代碼結構化待後續期別補齊。(4) 鈹（beryllium）之生物偵測無公認定量 LOINC，以定性結果／理學評估記錄。</p>
+  <p><strong>臨床適當性註記</strong>：(1) 噪音純音聽力圖為 0.5–8 kHz 雙耳 14 個氣導聽閾 LOINC 代碼（<code class="language-plaintext highlighter-rouge">89015-2</code> panel 成員）；院內/職醫另用之 <code class="language-plaintext highlighter-rouge">21104-5</code> 系列列為 Acceptable 變異碼。(2) FEV1 正確 LOINC 為 <code class="language-plaintext highlighter-rouge">20150-9</code>。(3) <strong>eGFR（腎絲球過濾率）</strong>：115.06.26 修正於高溫、鎳、乙基汞、汞及其無機化合物、二甲苯等類別新增，本 IG 以 <code class="language-plaintext highlighter-rouge">88293-6</code>（CKD-EPI 2021，Core 已收）承載，MDRD <code class="language-plaintext highlighter-rouge">33914-3</code> 為 Acceptable。(4) 手部 X 光（氯乙烯）、尿液細胞學（聯苯胺類）目前以通用承載，代碼結構化待後續期別補齊。(5) 鈹之生物偵測無公認定量 LOINC，以定性/理學評估記錄。</p>
 </blockquote>
 
 <hr />
@@ -629,8 +752,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-10 21:30:00 +0800">
-    2026-07-10
+  <span title="2026-07-23 22:22:00 +0800">
+    2026-07-23
   </span>
 
           <br/>

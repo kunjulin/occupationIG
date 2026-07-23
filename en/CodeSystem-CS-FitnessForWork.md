@@ -27,7 +27,7 @@ This Code system is referenced in the definition of the following value sets:
   "title" : "適性配工建議代碼系統",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-10T21:30:50+08:00",
+  "date" : "2026-07-23T22:22:27+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

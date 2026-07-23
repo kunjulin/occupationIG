@@ -11,7 +11,7 @@
   "name" : "TWHAIG",
   "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-07-10T21:30:50+08:00",
+  "date" : "2026-07-23T22:22:27+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -1074,6 +1074,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Bundle"
+      }],
+      "reference" : {
+        "reference" : "Bundle/UC-007"
+      },
+      "name" : "UC-007 職業健康急診友善摘要封包",
+      "description" : "急診友善摘要 Composition（含鉛作業暴露史、生命徵象、關鍵檢驗值與缺值示範）之 Document Bundle 範例。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Composition"
       }],
       "reference" : {
@@ -1734,6 +1746,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/obs-lab-egfr-absent"
+      },
+      "name" : "實驗室檢驗缺值範例 - eGFR 未檢測（dataAbsentReason）",
+      "description" : "受檢勞工王大同本次因故未完成腎絲球過濾率 (eGFR) 檢測。示範以 dataAbsentReason = not-performed 標明缺值原因，Observation 仍保留且合乎 twha-obs-1（value 或 dataAbsentReason 或 component 三者擇一）。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-General"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
@@ -1926,6 +1950,18 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      }],
+      "reference" : {
+        "reference" : "Observation/obs-exposure-lead"
+      },
+      "name" : "特別危害作業暴露史範例 - 鉛作業",
+      "description" : "受檢勞工王大同從事鉛作業之暴露史，暴露年數 8 年，工作性質為電池極板熔鉛作業。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-WorkExposure"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
@@ -1944,7 +1980,7 @@
         "reference" : "CodeSystem/CS-HazardType"
       },
       "name" : "特別危害健康作業類別代碼系統",
-      "description" : "勞工健康保護規則所定義之 12 大類特別危害健康作業類別。",
+      "description" : "勞工健康保護規則所定義之特別危害健康作業，歸併為 12 危害家族（家族層）。附表十（115.06.26 修正）逐號列舉之 35 項法定具名作業另以 CS-Appendix10Operation 表示，家族 ↔ 具名作業之對映見 ConceptMap Appendix10-to-HazardType。",
       "exampleBoolean" : false
     },
     {
@@ -2090,6 +2126,30 @@
       "name" : "精簡版 PRAPARE 社會風險問卷定義",
       "description" : "包含教育程度、就業狀態、居住環境安全、主要照顧壓力與經濟困難等 5 個核心社會決定因素 (SDOH) 欄位之問卷。",
       "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Questionnaire"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/TWHA-Composition-EmergencySummary"
+      },
+      "name" : "職業健康急診友善摘要 Composition Profile",
+      "description" : "職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用，形成可驗證、可交換的摘要文件。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Composition"
+      }],
+      "reference" : {
+        "reference" : "Composition/composition-emergency-summary"
+      },
+      "name" : "職業健康急診友善摘要範例 (UC-007)",
+      "description" : "整合王大同鉛作業暴露史、生命徵象與關鍵檢驗值之急診友善摘要，供急診醫師快速掌握其職業暴露背景。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmergencySummary"
     },
     {
       "extension" : [{
@@ -2606,6 +2666,42 @@
       "name" : "醫師臨床總評與分級範例",
       "description" : "林職醫師針對王大同的健康檢查結果進行之總評，判定為第一級健康管理（正常）。",
       "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ClinicalImpression"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ConceptMap"
+      }],
+      "reference" : {
+        "reference" : "ConceptMap/Appendix10-to-HazardType"
+      },
+      "name" : "附表十 35 項法定作業 對 12 危害家族 對照",
+      "description" : "將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VS-Appendix10-Operation"
+      },
+      "name" : "附表十特別危害健康作業值集（35 項）",
+      "description" : "包含《勞工健康保護規則》附表十 35 項法定具名作業之代碼。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CS-Appendix10Operation"
+      },
+      "name" : "附表十特別危害健康作業具名代碼系統",
+      "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{

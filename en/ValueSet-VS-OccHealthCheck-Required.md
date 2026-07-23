@@ -35,7 +35,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "勞工健康檢查法定必驗項目值集（第一期草案）",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-07-10T21:30:50+08:00",
+  "date" : "2026-07-23T22:22:27+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -106,6 +106,14 @@ No Expansion for this valueset (not supported by Publication Tooling)
       {
         "code" : "6690-2",
         "display" : "Leukocytes [#/volume] in Blood"
+      },
+      {
+        "code" : "789-8",
+        "display" : "Erythrocytes [#/volume] in Blood"
+      },
+      {
+        "code" : "787-2",
+        "display" : "MCV [Entitic volume] by Automated count"
       },
       {
         "code" : "89015-2",

@@ -1,6 +1,5 @@
 @prefix fhir: <http://hl7.org/fhir/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -8,56 +7,66 @@
 
 <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType> a fhir:CodeSystem ;
   fhir:nodeRole fhir:treeRoot ;
-  fhir:id [ fhir:v "CS-ExamType"] ; # 
-  fhir:text [
-     fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem CS-ExamType</b></p><a name=\"CS-ExamType\"> </a><a name=\"hcCS-ExamType\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">general-physical<a name=\"CS-ExamType-general-physical\"> </a></td><td>一般體格檢查</td><td>雇主僱用勞工時，為辨識其工作適性，實施之體格檢查。</td></tr><tr><td style=\"white-space:nowrap\">general-health<a name=\"CS-ExamType-general-health\"> </a></td><td>一般健康檢查</td><td>雇主對在職勞工，按其年齡及週期實施之定期健康檢查。</td></tr><tr><td style=\"white-space:nowrap\">special-physical<a name=\"CS-ExamType-special-physical\"> </a></td><td>特殊體格檢查</td><td>雇主使勞工從事特別危害健康作業前，實施之體格檢查。</td></tr><tr><td style=\"white-space:nowrap\">special-health<a name=\"CS-ExamType-special-health\"> </a></td><td>特殊健康檢查</td><td>雇主對從事特別危害健康作業在職勞工，每年實施之定期健康檢查。</td></tr></table></div>"^^rdf:XMLLiteral ]
-  ] ; # 
-  fhir:url [
-     fhir:v "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType"^^xsd:anyURI ;
-     fhir:l <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType>
-  ] ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
-  fhir:name [ fhir:v "CS_ExamType"] ; # 
-  fhir:title [ fhir:v "檢查類型代碼系統"] ; # 
-  fhir:status [ fhir:v "active"] ; # 
-  fhir:experimental [ fhir:v false] ; # 
-  fhir:date [ fhir:v "2026-07-10T21:30:50+08:00"^^xsd:dateTime] ; # 
-  fhir:publisher [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ; # 
-  fhir:contact ( [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] ) ; # 
-  fhir:description [ fhir:v "勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。"] ; # 
-  fhir:caseSensitive [ fhir:v true] ; # 
-  fhir:content [ fhir:v "complete"] ; # 
-  fhir:count [ fhir:v "4"^^xsd:nonNegativeInteger] ; # 
-  fhir:concept ( [
-     fhir:code [ fhir:v "general-physical" ] ;
-     fhir:display [ fhir:v "一般體格檢查" ] ;
-     fhir:definition [ fhir:v "雇主僱用勞工時，為辨識其工作適性，實施之體格檢查。" ]
-  ] [
-     fhir:code [ fhir:v "general-health" ] ;
-     fhir:display [ fhir:v "一般健康檢查" ] ;
-     fhir:definition [ fhir:v "雇主對在職勞工，按其年齡及週期實施之定期健康檢查。" ]
-  ] [
-     fhir:code [ fhir:v "special-physical" ] ;
-     fhir:display [ fhir:v "特殊體格檢查" ] ;
-     fhir:definition [ fhir:v "雇主使勞工從事特別危害健康作業前，實施之體格檢查。" ]
-  ] [
-     fhir:code [ fhir:v "special-health" ] ;
-     fhir:display [ fhir:v "特殊健康檢查" ] ;
-     fhir:definition [ fhir:v "雇主對從事特別危害健康作業在職勞工，每年實施之定期健康檢查。" ]
-  ] ) . # 
+  fhir:Resource.id [ fhir:value "CS-ExamType"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem CS-ExamType</b></p><a name=\"CS-ExamType\"> </a><a name=\"hcCS-ExamType\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">general-physical<a name=\"CS-ExamType-general-physical\"> </a></td><td>一般體格檢查</td><td>雇主僱用勞工時，為辨識其工作適性，實施之體格檢查。</td></tr><tr><td style=\"white-space:nowrap\">general-health<a name=\"CS-ExamType-general-health\"> </a></td><td>一般健康檢查</td><td>雇主對在職勞工，按其年齡及週期實施之定期健康檢查。</td></tr><tr><td style=\"white-space:nowrap\">special-physical<a name=\"CS-ExamType-special-physical\"> </a></td><td>特殊體格檢查</td><td>雇主使勞工從事特別危害健康作業前，實施之體格檢查。</td></tr><tr><td style=\"white-space:nowrap\">special-health<a name=\"CS-ExamType-special-health\"> </a></td><td>特殊健康檢查</td><td>雇主對從事特別危害健康作業在職勞工，每年實施之定期健康檢查。</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType"] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CS_ExamType"] ;
+  fhir:CodeSystem.title [ fhir:value "檢查類型代碼系統"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-07-23T22:22:27+08:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。"] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "4"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "general-physical" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "一般體格檢查" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "雇主僱用勞工時，為辨識其工作適性，實施之體格檢查。" ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "general-health" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "一般健康檢查" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "雇主對在職勞工，按其年齡及週期實施之定期健康檢查。" ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "special-physical" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "特殊體格檢查" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "雇主使勞工從事特別危害健康作業前，實施之體格檢查。" ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "special-health" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "特殊健康檢查" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "雇主對從事特別危害健康作業在職勞工，每年實施之定期健康檢查。" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
 
 # -------------------------------------------------------------------------------------
 

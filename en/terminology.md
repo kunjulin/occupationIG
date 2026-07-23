@@ -31,7 +31,7 @@
 * 定義 `general-physical` (一般體格)、`general-health` (一般健康)、`special-physical` (特殊體格) 與 `special-health` (特殊健康)。
  
 * **[CS-HazardType](CodeSystem-CS-HazardType.md) (危害作業類別代碼系統)**： 
-* 定義高溫、噪音、輻射、異常氣壓、鉛、粉塵、有機溶劑、特定化學物質等 12 大類危害作業之代碼。
+* 定義高溫、噪音、輻射、異常氣壓、鉛、粉塵、有機溶劑、特定化學物質等 12 大類危害作業之代碼。（家族層）附表十（115.06.26 修正）逐號之 35 項具名作業另見 [CS-Appendix10Operation](CodeSystem-CS-Appendix10Operation.md)，家族 ↔ 具名作業對映見 [ConceptMap Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.md)。
  
 * **[CS-SmokingStatus](CodeSystem-CS-SmokingStatus.md) (吸菸狀態代碼系統)**： 
 * 定義從未、偶爾、每日與已戒之狀態。
@@ -70,9 +70,11 @@
 * 明確排除不適用於一般健康檢查之 LOINC 代碼。例如體液白血球代碼 `12227-5` 排除在一般健檢血常規之外。
  
 
+> **用語澄清（綁定強度 vs. Preferred 代碼）**：本節「Layer 1 Preferred（優先代碼）」係指三層術語中的**指定代碼層級**，與 FHIR 值集**綁定強度（binding strength）之 `preferred`** 為不同概念。本 IG 之 `VS-CoreDataset` 綁定強度為 **`extensible`**（與文件一 §6.3、實際建置一致），非 FHIR 之 `preferred` 綁定。
+
 ### 3.2 代碼映射 ConceptMap
 
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.md) 資源，定義了 Layer 2 可接受代碼至 Layer 1 優先推薦代碼的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **29 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 `2089-1`）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.md) 資源，定義了 Layer 2 可接受代碼至 Layer 1 優先推薦代碼的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **29 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 `2089-1`）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.md)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 -------
 
@@ -83,6 +85,7 @@
 | | | | | | | |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 血液學 | 白血球計數 | `6690-2` | `{804-5, 26464-8}` | 767002 | 10*3/uL | 附表九 |
+| 血液學 | 紅血球計數 RBC | `789-8` | — | 41653003 | 10*6/uL | 附表九（115.06.26 新增） |
 | 血液學 | 血紅素 | `718-7` | — | 38082009 | g/dL | 附表九 |
 | 血液學 | 血小板 | `777-3` | `{26515-7}` | 61928009 | 10*3/uL | 附表九 |
 | 血液學 | MCV | `787-2` | `{30428-7}` | 104133003 | fL | 附表九 |
@@ -111,6 +114,7 @@
 | 生理 | BMI | `39156-5` | — | 60621009 | kg/m2 | 成健 |
 | 生理 | 腰臀比 WHR | `73708-3` | — | 248362002 | {ratio} | 成健 |
 | 生理 | 血壓 Panel | `55284-4` | — | 75367002 | — | 成健 |
+| 生理 | 腰圍 | `8280-0` | `{56086-2}` | 276361009 | cm | 附表九/成健 |
 | 肺功能 | FVC | `19876-2` | `{19868-9, 19870-5}` | 50834005 | L | 職業 |
 | 肺功能 | FEV1 | `20150-9` | — | 59328004 | L | 職業 |
 | 視力 | 視力 Panel | `79880-1` | — | 363983007 | — | 職業 |
@@ -144,4 +148,5 @@ CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`ite
 1. **Panel（`89015-2`）**：記錄整場聽力測試，進入`VS-CoreDataset`作為 Observation.code
 1. **個別頻率/耳別代碼（`89024-4` 等 8 個）**：作為`component.code`由`TWHAHearingTestProfile`的 8 個 component 切片處理，收錄於`VS-ExtendedDataset`
 1. **結果解釋**：臨床人員依 ISO 1999 標準判定各頻率閾值是否超過 25 dB HL
+1. **院內/職醫變異碼（Acceptable）**：部分院所 LIS 與職業病醫師建議採用`21104-5`（Audiometry study）及`21106-0`等頻率系列碼；本 IG 維持`89015-2`panel 為 Preferred，`21104-5`系列列為 Acceptable 變異（收錄於`VS-ExtendedDataset`），供 LIS 對接。
 

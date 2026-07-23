@@ -1,0 +1,412 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/ConceptMap/Appendix10-to-HazardType> a fhir:ConceptMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "Appendix10-to-HazardType"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ConceptMap Appendix10-to-HazardType</b></p><a name=\"Appendix10-to-HazardType\"> </a><a name=\"hcAppendix10-to-HazardType\"> </a><p>Mapping from <a href=\"ValueSet-VS-Appendix10-Operation.html\">附表十特別危害健康作業值集（35 項）</a> to <a href=\"ValueSet-VS-HazardType.html\">特別危害健康作業類別值集</a></p><br/><p>Mapping from <a href=\"CodeSystem-CS-Appendix10Operation.html\">附表十特別危害健康作業具名代碼系統</a> to <a href=\"CodeSystem-CS-HazardType.html\">特別危害健康作業類別代碼系統</a></p><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>app-01 (高溫作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>high-temp (高溫作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-02 (噪音作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>noise (噪音作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-03 (游離輻射作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>radiation (游離輻射作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-04 (異常氣壓作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>abnormal-pressure (異常氣壓作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-05 (鉛作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>lead (鉛作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-06 (四烷基鉛作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>tetraalkyl-lead (四烷基鉛作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-07 (1,1,2,2-四氯乙烷作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>organic-solvent (有機溶劑作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-08 (四氯化碳作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>organic-solvent (有機溶劑作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-09 (二硫化碳作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>organic-solvent (有機溶劑作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-10 (三氯乙烯作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>organic-solvent (有機溶劑作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-11 (二甲基甲醯胺作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>organic-solvent (有機溶劑作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-12 (正己烷作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>organic-solvent (有機溶劑作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-13 (聯苯胺及其鹽類作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-14 (鈹及其化合物作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-15 (氯乙烯作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-16 (苯作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-17 (2,4-二異氰酸甲苯作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-18 (石綿作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-19 (砷及其化合物作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-20 (錳及其化合物作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-21 (黃磷作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>yellow-phosphorus (黃磷作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-22 (聯吡啶或巴拉刈作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>paraquat (聯吡啶或巴拉刈作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-23 (粉塵作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>dust (粉塵作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-24 (鉻酸及其鹽類作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-25 (鎘及其化合物作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-26 (鎳及其化合物作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-27 (乙基汞化合物作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-28 (溴丙烷作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-29 (1,3-丁二烯作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-30 (甲醛作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-31 (銦及其化合物作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-32 (汞及其無機化合物作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>specific-chemical (特定化學物質作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-33 (苯乙烯作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>organic-solvent (有機溶劑作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-34 (甲苯作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>organic-solvent (有機溶劑作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr><tr><td>app-35 (二甲苯作業)</td><td><a href=\"http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower\" title=\"narrower\">narrower</a></td><td>organic-solvent (有機溶劑作業)</td><td>具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。</td></tr></table></div>"
+  ] ;
+  fhir:ConceptMap.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/Appendix10-to-HazardType"] ;
+  fhir:ConceptMap.version [ fhir:value "0.1.0"] ;
+  fhir:ConceptMap.name [ fhir:value "Appendix10ToHazardType"] ;
+  fhir:ConceptMap.title [ fhir:value "附表十 35 項法定作業 對 12 危害家族 對照"] ;
+  fhir:ConceptMap.status [ fhir:value "active"] ;
+  fhir:ConceptMap.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ConceptMap.date [ fhir:value "2026-07-23T22:22:27+08:00"^^xsd:dateTime] ;
+  fhir:ConceptMap.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:ConceptMap.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:ConceptMap.description [ fhir:value "將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。"] ;
+  fhir:ConceptMap.sourceCanonical [
+     fhir:value "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation" ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation>
+  ] ;
+  fhir:ConceptMap.targetCanonical [
+     fhir:value "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType" ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType>
+  ] ;
+  fhir:ConceptMap.group [
+     fhir:index 0 ;
+     fhir:ConceptMap.group.source [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation" ] ;
+     fhir:ConceptMap.group.target [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType" ] ;
+     fhir:ConceptMap.group.element [
+       fhir:index 0 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-01" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "高溫作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "high-temp" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 1 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-02" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "噪音作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "noise" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 2 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-03" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "游離輻射作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "radiation" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 3 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-04" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "異常氣壓作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "abnormal-pressure" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 4 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-05" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "鉛作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "lead" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 5 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-06" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "四烷基鉛作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "tetraalkyl-lead" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 6 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-07" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "1,1,2,2-四氯乙烷作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "organic-solvent" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 7 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-08" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "四氯化碳作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "organic-solvent" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 8 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-09" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "二硫化碳作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "organic-solvent" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 9 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-10" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "三氯乙烯作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "organic-solvent" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 10 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-11" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "二甲基甲醯胺作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "organic-solvent" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 11 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-12" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "正己烷作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "organic-solvent" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 12 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-13" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "聯苯胺及其鹽類作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 13 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-14" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "鈹及其化合物作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 14 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-15" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "氯乙烯作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 15 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-16" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "苯作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 16 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-17" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "2,4-二異氰酸甲苯作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 17 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-18" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "石綿作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 18 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-19" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "砷及其化合物作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 19 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-20" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "錳及其化合物作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 20 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-21" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "黃磷作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "yellow-phosphorus" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 21 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-22" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "聯吡啶或巴拉刈作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "paraquat" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 22 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-23" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "粉塵作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "dust" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 23 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-24" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "鉻酸及其鹽類作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 24 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-25" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "鎘及其化合物作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 25 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-26" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "鎳及其化合物作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 26 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-27" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "乙基汞化合物作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 27 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-28" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "溴丙烷作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 28 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-29" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "1,3-丁二烯作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 29 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-30" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "甲醛作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 30 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-31" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "銦及其化合物作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 31 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-32" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "汞及其無機化合物作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "specific-chemical" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 32 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-33" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "苯乙烯作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "organic-solvent" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 33 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-34" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "甲苯作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "organic-solvent" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ], [
+       fhir:index 34 ;
+       fhir:ConceptMap.group.element.code [ fhir:value "app-35" ] ;
+       fhir:ConceptMap.group.element.display [ fhir:value "二甲苯作業" ] ;
+       fhir:ConceptMap.group.element.target [
+         fhir:index 0 ;
+         fhir:ConceptMap.group.element.target.code [ fhir:value "organic-solvent" ] ;
+         fhir:ConceptMap.group.element.target.equivalence [ fhir:value "narrower" ] ;
+         fhir:ConceptMap.group.element.target.comment [ fhir:value "具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/ConceptMap/Appendix10-to-HazardType.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

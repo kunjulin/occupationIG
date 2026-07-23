@@ -1,6 +1,5 @@
 @prefix fhir: <http://hl7.org/fhir/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -8,73 +7,86 @@
 
 <https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction> a fhir:ValueSet ;
   fhir:nodeRole fhir:treeRoot ;
-  fhir:id [ fhir:v "VS-PulmonaryFunction"] ; # 
-  fhir:language [ fhir:v "en"] ; # 
-  fhir:text [
-     fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet VS-PulmonaryFunction</b></p><a name=\"VS-PulmonaryFunction\"> </a><a name=\"hcVS-PulmonaryFunction\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/19876-2/\">19876-2</a></td><td>Forced vital capacity [Volume] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/19870-5/\">19870-5</a></td><td>Forced vital capacity [Volume] Respiratory system</td></tr><tr><td><a href=\"https://loinc.org/19868-9/\">19868-9</a></td><td>Forced vital capacity [Volume] Respiratory system by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/20150-9/\">20150-9</a></td><td>Forced expiratory volume in 1 second [Volume] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/19926-5/\">19926-5</a></td><td>Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/33439-8/\">33439-8</a></td><td>Left midclavicular line Peak expiratory flow rate</td></tr><tr><td><a href=\"https://loinc.org/19911-7/\">19911-7</a></td><td>Carbon monoxide diffusing capacity</td></tr><tr><td><a href=\"https://loinc.org/19862-2/\">19862-2</a></td><td>Total lung capacity</td></tr><tr><td><a href=\"https://loinc.org/20146-7/\">20146-7</a></td><td>Residual volume</td></tr></table></li></ul></div>"^^rdf:XMLLiteral ]
-  ] ; # 
-  fhir:url [
-     fhir:v "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction"^^xsd:anyURI ;
-     fhir:l <https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction>
-  ] ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
-  fhir:name [ fhir:v "VS_PulmonaryFunction"] ; # 
-  fhir:title [ fhir:v "肺功能檢查項目值集"] ; # 
-  fhir:status [ fhir:v "active"] ; # 
-  fhir:experimental [ fhir:v false] ; # 
-  fhir:date [ fhir:v "2026-07-10T21:30:50+08:00"^^xsd:dateTime] ; # 
-  fhir:publisher [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ; # 
-  fhir:contact ( [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] ) ; # 
-  fhir:description [ fhir:v "包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的 LOINC 代碼，以供肺功能檢查 Profile 使用。"] ; # 
-  fhir:compose [
-     fhir:include ( [
-       fhir:system [
-         fhir:v "http://loinc.org"^^xsd:anyURI ;
-         fhir:l <http://loinc.org>
-       ] ;
-       fhir:concept ( [
-         fhir:code [ fhir:v "19876-2" ] ;
-         fhir:display [ fhir:v "Forced vital capacity [Volume] in Airways by Spirometry" ]
-       ] [
-         fhir:code [ fhir:v "19870-5" ] ;
-         fhir:display [ fhir:v "Forced vital capacity [Volume] Respiratory system" ]
-       ] [
-         fhir:code [ fhir:v "19868-9" ] ;
-         fhir:display [ fhir:v "Forced vital capacity [Volume] Respiratory system by Spirometry" ]
-       ] [
-         fhir:code [ fhir:v "20150-9" ] ;
-         fhir:display [ fhir:v "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry" ]
-       ] [
-         fhir:code [ fhir:v "19926-5" ] ;
-         fhir:display [ fhir:v "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry" ]
-       ] [
-         fhir:code [ fhir:v "33439-8" ] ;
-         fhir:display [ fhir:v "Left midclavicular line Peak expiratory flow rate" ]
-       ] [
-         fhir:code [ fhir:v "19911-7" ] ;
-         fhir:display [ fhir:v "Carbon monoxide diffusing capacity" ]
-       ] [
-         fhir:code [ fhir:v "19862-2" ] ;
-         fhir:display [ fhir:v "Total lung capacity" ]
-       ] [
-         fhir:code [ fhir:v "20146-7" ] ;
-         fhir:display [ fhir:v "Residual volume" ]
-       ] )
-     ] )
-  ] . # 
+  fhir:Resource.id [ fhir:value "VS-PulmonaryFunction"] ;
+  fhir:Resource.language [ fhir:value "en"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet VS-PulmonaryFunction</b></p><a name=\"VS-PulmonaryFunction\"> </a><a name=\"hcVS-PulmonaryFunction\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/19876-2/\">19876-2</a></td><td>Forced vital capacity [Volume] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/19870-5/\">19870-5</a></td><td>Forced vital capacity [Volume] Respiratory system</td></tr><tr><td><a href=\"https://loinc.org/19868-9/\">19868-9</a></td><td>Forced vital capacity [Volume] Respiratory system by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/20150-9/\">20150-9</a></td><td>Forced expiratory volume in 1 second [Volume] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/19926-5/\">19926-5</a></td><td>Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/33439-8/\">33439-8</a></td><td>Left midclavicular line Peak expiratory flow rate</td></tr><tr><td><a href=\"https://loinc.org/19911-7/\">19911-7</a></td><td>Carbon monoxide diffusing capacity</td></tr><tr><td><a href=\"https://loinc.org/19862-2/\">19862-2</a></td><td>Total lung capacity</td></tr><tr><td><a href=\"https://loinc.org/20146-7/\">20146-7</a></td><td>Residual volume</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction"] ;
+  fhir:ValueSet.version [ fhir:value "0.1.0"] ;
+  fhir:ValueSet.name [ fhir:value "VS_PulmonaryFunction"] ;
+  fhir:ValueSet.title [ fhir:value "肺功能檢查項目值集"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-07-23T22:22:27+08:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:ValueSet.contact [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的 LOINC 代碼，以供肺功能檢查 Profile 使用。"] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index -1 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19876-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Forced vital capacity [Volume] in Airways by Spirometry" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19870-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Forced vital capacity [Volume] Respiratory system" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19868-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Forced vital capacity [Volume] Respiratory system by Spirometry" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "20150-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19926-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33439-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Left midclavicular line Peak expiratory flow rate" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19911-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Carbon monoxide diffusing capacity" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19862-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Total lung capacity" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "20146-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Residual volume" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
 
 # -------------------------------------------------------------------------------------
 

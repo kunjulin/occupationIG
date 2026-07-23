@@ -1,6 +1,5 @@
 @prefix fhir: <http://hl7.org/fhir/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -8,48 +7,57 @@
 
 <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/sf-BetNutChewBeh-codesystem> a fhir:CodeSystem ;
   fhir:nodeRole fhir:treeRoot ;
-  fhir:id [ fhir:v "sf-BetNutChewBeh-codesystem"] ; # 
-  fhir:language [ fhir:v "en"] ; # 
-  fhir:text [
-     fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem sf-BetNutChewBeh-codesystem</b></p><a name=\"sf-BetNutChewBeh-codesystem\"> </a><a name=\"hcsf-BetNutChewBeh-codesystem\"> </a><p>This  code system <code>https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">amount<a name=\"sf-BetNutChewBeh-codesystem-amount\"> </a></td><td>每日嚼檳榔量，以 ”顆” 計算</td></tr><tr><td style=\"white-space:nowrap\">year<a name=\"sf-BetNutChewBeh-codesystem-year\"> </a></td><td>嚼檳榔年</td></tr><tr><td style=\"white-space:nowrap\">quit<a name=\"sf-BetNutChewBeh-codesystem-quit\"> </a></td><td>戒嚼檳榔年</td></tr></table></div>"^^rdf:XMLLiteral ]
-  ] ; # 
-  fhir:url [
-     fhir:v "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"^^xsd:anyURI ;
-     fhir:l <https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem>
-  ] ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
-  fhir:name [ fhir:v "sf-BetNutChewBeh-codesystem"] ; # 
-  fhir:title [ fhir:v "Betel Nut Chewing Behavior Code System"] ; # 
-  fhir:status [ fhir:v "active"] ; # 
-  fhir:date [ fhir:v "2026-07-10T21:30:50+08:00"^^xsd:dateTime] ; # 
-  fhir:publisher [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ; # 
-  fhir:contact ( [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] ) ; # 
-  fhir:description [ fhir:v "Betel Nut Chewing Behavior Code System"] ; # 
-  fhir:content [ fhir:v "complete"] ; # 
-  fhir:count [ fhir:v "3"^^xsd:nonNegativeInteger] ; # 
-  fhir:concept ( [
-     fhir:code [ fhir:v "amount" ] ;
-     fhir:display [ fhir:v "每日嚼檳榔量，以 ”顆” 計算" ]
-  ] [
-     fhir:code [ fhir:v "year" ] ;
-     fhir:display [ fhir:v "嚼檳榔年" ]
-  ] [
-     fhir:code [ fhir:v "quit" ] ;
-     fhir:display [ fhir:v "戒嚼檳榔年" ]
-  ] ) . # 
+  fhir:Resource.id [ fhir:value "sf-BetNutChewBeh-codesystem"] ;
+  fhir:Resource.language [ fhir:value "en"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem sf-BetNutChewBeh-codesystem</b></p><a name=\"sf-BetNutChewBeh-codesystem\"> </a><a name=\"hcsf-BetNutChewBeh-codesystem\"> </a><p>This  code system <code>https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">amount<a name=\"sf-BetNutChewBeh-codesystem-amount\"> </a></td><td>每日嚼檳榔量，以 ”顆” 計算</td></tr><tr><td style=\"white-space:nowrap\">year<a name=\"sf-BetNutChewBeh-codesystem-year\"> </a></td><td>嚼檳榔年</td></tr><tr><td style=\"white-space:nowrap\">quit<a name=\"sf-BetNutChewBeh-codesystem-quit\"> </a></td><td>戒嚼檳榔年</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "sf-BetNutChewBeh-codesystem"] ;
+  fhir:CodeSystem.title [ fhir:value "Betel Nut Chewing Behavior Code System"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.date [ fhir:value "2026-07-23T22:22:27+08:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "Betel Nut Chewing Behavior Code System"] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "3"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "amount" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "每日嚼檳榔量，以 ”顆” 計算" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "year" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼檳榔年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "quit" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "戒嚼檳榔年" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/sf-BetNutChewBeh-codesystem.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
 
 # -------------------------------------------------------------------------------------
 

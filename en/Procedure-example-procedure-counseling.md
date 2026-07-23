@@ -10,7 +10,7 @@ Profile: [健康諮詢與衛教指導 Profile](StructureDefinition-TWHA-Procedur
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
-**encounter**: [Encounter: extension = 一般健康檢查,3 years,化學處理課; status = finished; class = ambulatory (v3 Code System ActCode#AMB); period = 2026-06-12 08:00:00+0800 --> 2026-06-12 11:30:00+0800](Encounter-example-encounter-general.md)
+**encounter**: [Encounter: extension = 一般健康檢查,3 years,化學處理課; status = finished; class = ambulatory (ActCode#AMB); period = 2026-06-12 08:00:00+0800 --> 2026-06-12 11:30:00+0800](Encounter-example-encounter-general.md)
 
 
 

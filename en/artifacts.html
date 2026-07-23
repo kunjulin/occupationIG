@@ -229,7 +229,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          <a href="#5">Terminology: Code Systems</a>
       </li>
       <li>
-         <a href="#6">Example: Example Instances</a>
+         <a href="#6">Terminology: Concept Maps</a>
+      </li>
+      <li>
+         <a href="#7">Example: Example Instances</a>
       </li>
    </ul>
 </div>
@@ -595,6 +598,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>用於記錄受檢者之社會決定因素問卷結果（基於精簡版 PRAPARE 社會風險問卷），繼承自 TW Core QuestionnaireResponse。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-TWHA-Composition-EmergencySummary.html"
+                  title="StructureDefinition/TWHA-Composition-EmergencySummary">
+                  <span title="StructureDefinition/TWHA-Composition-EmergencySummary">職業健康急診友善摘要 Composition Profile
+</span>
+               </a>
+            </td>
+            <td>
+<p>職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用，形成可驗證、可交換的摘要文件。</p>
 </td>
          </tr>
          <tr>
@@ -1124,6 +1139,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <p>包含適性配工或工作調整建議代碼之值集。</p>
 </td>
          </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-VS-Appendix10-Operation.html"
+                  title="ValueSet/VS-Appendix10-Operation">
+                  <span title="ValueSet/VS-Appendix10-Operation">附表十特別危害健康作業值集（35 項）
+</span>
+               </a>
+            </td>
+            <td>
+<p>包含《勞工健康保護規則》附表十 35 項法定具名作業之代碼。</p>
+</td>
+         </tr>
       </tbody>
    </table>
    <a name="5"> </a>
@@ -1259,7 +1286,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>勞工健康保護規則所定義之 12 大類特別危害健康作業類別。</p>
+<p>勞工健康保護規則所定義之特別危害健康作業，歸併為 12 危害家族（家族層）。附表十（115.06.26 修正）逐號列舉之 35 項法定具名作業另以 CS-Appendix10Operation 表示，家族 ↔ 具名作業之對映見 ConceptMap Appendix10-to-HazardType。</p>
 </td>
          </tr>
          <tr>
@@ -1322,9 +1349,41 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <p>第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。</p>
 </td>
          </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-CS-Appendix10Operation.html"
+                  title="CodeSystem/CS-Appendix10Operation">
+                  <span title="CodeSystem/CS-Appendix10Operation">附表十特別危害健康作業具名代碼系統
+</span>
+               </a>
+            </td>
+            <td>
+<p>《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。</p>
+</td>
+         </tr>
       </tbody>
    </table>
    <a name="6"> </a>
+   <h3>Terminology: Concept Maps </h3>
+    <p>These define transformations to convert between codes by systems conforming with this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ConceptMap-Appendix10-to-HazardType.html"
+                  title="ConceptMap/Appendix10-to-HazardType">
+                  <span title="ConceptMap/Appendix10-to-HazardType">附表十 35 項法定作業 對 12 危害家族 對照
+</span>
+               </a>
+            </td>
+            <td>
+<p>將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="7"> </a>
    <h3>Example: Example Instances </h3>
     <p>These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like.</p>
 <table class="grid">
@@ -1406,6 +1465,17 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>臨場服務紀錄 Composition（附表八）與關聯活動資料 Document Bundle 範例。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Bundle-UC-007.html" title="Bundle/UC-007">
+                  <span title="Bundle/UC-007">UC-007 職業健康急診友善摘要封包
+</span>
+               </a>
+            </td>
+            <td>
+<p>急診友善摘要 Composition（含鉛作業暴露史、生命徵象、關鍵檢驗值與缺值示範）之 Document Bundle 範例。</p>
 </td>
          </tr>
          <tr>
@@ -1563,6 +1633,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
+               <a href="Observation-obs-lab-egfr-absent.html"
+                  title="Observation/obs-lab-egfr-absent">
+                  <span title="Observation/obs-lab-egfr-absent">實驗室檢驗缺值範例 - eGFR 未檢測（dataAbsentReason）
+</span>
+               </a>
+            </td>
+            <td>
+<p>受檢勞工王大同本次因故未完成腎絲球過濾率 (eGFR) 檢測。示範以 dataAbsentReason = not-performed 標明缺值原因，Observation 仍保留且合乎 twha-obs-1（value 或 dataAbsentReason 或 component 三者擇一）。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="QuestionnaireResponse-adult-preventive-care-response.html"
                   title="QuestionnaireResponse/adult-preventive-care-response">
                   <span title="QuestionnaireResponse/adult-preventive-care-response">成人預防保健問卷回覆實例
@@ -1611,6 +1693,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
+               <a href="Observation-obs-exposure-lead.html"
+                  title="Observation/obs-exposure-lead">
+                  <span title="Observation/obs-exposure-lead">特別危害作業暴露史範例 - 鉛作業
+</span>
+               </a>
+            </td>
+            <td>
+<p>受檢勞工王大同從事鉛作業之暴露史，暴露年數 8 年，工作性質為電池極板熔鉛作業。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="Composition-composition-uc003.html"
                   title="Composition/composition-uc003">
                   <span title="Composition/composition-uc003">特殊危害健康作業檢查報告組成文件範例 (UC-003)
@@ -1653,6 +1747,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>包含教育程度、就業狀態、居住環境安全、主要照顧壓力與經濟困難等 5 個核心社會決定因素 (SDOH) 欄位之問卷。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Composition-composition-emergency-summary.html"
+                  title="Composition/composition-emergency-summary">
+                  <span title="Composition/composition-emergency-summary">職業健康急診友善摘要範例 (UC-007)
+</span>
+               </a>
+            </td>
+            <td>
+<p>整合王大同鉛作業暴露史、生命徵象與關鍵檢驗值之急診友善摘要，供急診醫師快速掌握其職業暴露背景。</p>
 </td>
          </tr>
          <tr>
@@ -1976,8 +2082,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-10 21:30:00 +0800">
-    2026-07-10
+  <span title="2026-07-23 22:22:00 +0800">
+    2026-07-23
   </span>
 
           <br/>

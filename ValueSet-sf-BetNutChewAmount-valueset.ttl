@@ -1,6 +1,5 @@
 @prefix fhir: <http://hl7.org/fhir/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -8,43 +7,47 @@
 
 <https://twcore.mohw.gov.tw/ig/twha/ValueSet/sf-BetNutChewAmount-valueset> a fhir:ValueSet ;
   fhir:nodeRole fhir:treeRoot ;
-  fhir:id [ fhir:v "sf-BetNutChewAmount-valueset"] ; # 
-  fhir:text [
-     fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet sf-BetNutChewAmount-valueset</b></p><a name=\"sf-BetNutChewAmount-valueset\"> </a><a name=\"hcsf-BetNutChewAmount-valueset\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-sf-BetNutChewAmount-codesystem.html\"><code>https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.1.0</span></li></ul></div>"^^rdf:XMLLiteral ]
-  ] ; # 
-  fhir:url [
-     fhir:v "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset"^^xsd:anyURI ;
-     fhir:l <https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset>
-  ] ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
-  fhir:name [ fhir:v "sf-BetNutChewAmount-valueset"] ; # 
-  fhir:title [ fhir:v "每日嚼檳榔量值集"] ; # 
-  fhir:status [ fhir:v "active"] ; # 
-  fhir:date [ fhir:v "2026-07-10T21:30:50+08:00"^^xsd:dateTime] ; # 
-  fhir:publisher [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ; # 
-  fhir:contact ( [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] ) ; # 
-  fhir:description [ fhir:v "Betel Nut Chewing Amount Value Set"] ; # 
-  fhir:compose [
-     fhir:include ( [
-       fhir:system [
-         fhir:v "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem"^^xsd:anyURI ;
-         fhir:l <https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem>
-       ]
-     ] )
-  ] . # 
+  fhir:Resource.id [ fhir:value "sf-BetNutChewAmount-valueset"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet sf-BetNutChewAmount-valueset</b></p><a name=\"sf-BetNutChewAmount-valueset\"> </a><a name=\"hcsf-BetNutChewAmount-valueset\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-sf-BetNutChewAmount-codesystem.html\"><code>https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.1.0</span></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset"] ;
+  fhir:ValueSet.version [ fhir:value "0.1.0"] ;
+  fhir:ValueSet.name [ fhir:value "sf-BetNutChewAmount-valueset"] ;
+  fhir:ValueSet.title [ fhir:value "每日嚼檳榔量值集"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.date [ fhir:value "2026-07-23T22:22:27+08:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "Betel Nut Chewing Amount Value Set"] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/ValueSet/sf-BetNutChewAmount-valueset.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
 
 # -------------------------------------------------------------------------------------
 

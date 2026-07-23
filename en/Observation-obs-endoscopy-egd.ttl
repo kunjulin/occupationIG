@@ -1,7 +1,6 @@
 @prefix fhir: <http://hl7.org/fhir/> .
-@prefix loinc: <https://loinc.org/rdf/> .
+@prefix loinc: <http://loinc.org/rdf#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -9,51 +8,47 @@
 
 <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-egd> a fhir:Observation ;
   fhir:nodeRole fhir:treeRoot ;
-  fhir:id [ fhir:v "obs-endoscopy-egd"] ; # 
-  fhir:language [ fhir:v "en"] ; # 
-  fhir:text [
-     fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-endoscopy-egd</b></p><a name=\"obs-endoscopy-egd\"> </a><a name=\"hcobs-endoscopy-egd\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}\">Exam</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 28014-9}\">EGD Study</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 11:15:00+0800</p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"^^rdf:XMLLiteral ]
-  ] ; # 
-  fhir:status [ fhir:v "final"] ; # 
-  fhir:category ( [
-     fhir:coding ( [
-       fhir:system [
-         fhir:v "http://terminology.hl7.org/CodeSystem/observation-category"^^xsd:anyURI ;
-         fhir:l <http://terminology.hl7.org/CodeSystem/observation-category>
-       ] ;
-       fhir:code [ fhir:v "exam" ]
-     ] )
-  ] ) ; # 
-  fhir:code [
-     fhir:coding ( [
+  fhir:Resource.id [ fhir:value "obs-endoscopy-egd"] ;
+  fhir:Resource.language [ fhir:value "en"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-endoscopy-egd</b></p><a name=\"obs-endoscopy-egd\"> </a><a name=\"hcobs-endoscopy-egd\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}\">Exam</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 28014-9}\">EGD Study</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 11:15:00+0800</p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "exam" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
        a loinc:28014-9 ;
-       fhir:system [
-         fhir:v "http://loinc.org"^^xsd:anyURI ;
-         fhir:l <http://loinc.org>
-       ] ;
-       fhir:code [ fhir:v "28014-9" ] ;
-       fhir:display [ fhir:v "EGD Study" ]
-     ] )
-  ] ; # 
-  fhir:subject [
-     fhir:l <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
-     fhir:reference [ fhir:v "Patient/example-worker" ]
-  ] ; # 
-  fhir:effective [
-     a fhir:DateTime ;
-     fhir:v "2026-06-12T11:15:00+08:00"^^xsd:dateTime
-  ] ; # 
-  fhir:value [
-     a fhir:CodeableConcept ;
-     fhir:coding ( [
-       fhir:system [
-         fhir:v "http://terminology.hl7.org/CodeSystem/v3-ObservationValue"^^xsd:anyURI ;
-         fhir:l <http://terminology.hl7.org/CodeSystem/v3-ObservationValue>
-       ] ;
-       fhir:code [ fhir:v "N" ]
-     ] )
-  ] . # 
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "28014-9" ] ;
+       fhir:Coding.display [ fhir:value "EGD Study" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T11:15:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ObservationValue" ] ;
+       fhir:Coding.code [ fhir:value "N" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-egd.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
 
 # -------------------------------------------------------------------------------------
 

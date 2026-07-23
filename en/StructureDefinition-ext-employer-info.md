@@ -11,7 +11,7 @@
 **Usages:**
 
 * Use this Extension: [臨場健康服務事件 Profile](StructureDefinition-TWHA-Encounter-Service.md), [受檢者 Profile](StructureDefinition-TWHA-Patient.md), [臨場服務執行活動項目 Profile](StructureDefinition-TWHA-Procedure-ServiceActivity.md) and [臨場健康服務建議與改善任務 Profile](StructureDefinition-TWHA-Task-ServiceTask.md)
-* Examples for this Extension: [Bundle/UC-001](Bundle-UC-001.md), [Bundle/UC-002](Bundle-UC-002.md), [Bundle/UC-003](Bundle-UC-003.md), [Bundle/UC-004](Bundle-UC-004.md)... Show 6 more, [Bundle/UC-005](Bundle-UC-005.md), [Bundle/UC-006](Bundle-UC-006.md), [Encounter/example-encounter-service](Encounter-example-encounter-service.md), [Patient/example-worker](Patient-example-worker.md), [Procedure/example-procedure-activity](Procedure-example-procedure-activity.md) and [Task/example-service-task](Task-example-service-task.md)
+* Examples for this Extension: [Bundle/UC-001](Bundle-UC-001.md), [Bundle/UC-002](Bundle-UC-002.md), [Bundle/UC-003](Bundle-UC-003.md), [Bundle/UC-004](Bundle-UC-004.md)... Show 7 more, [Bundle/UC-005](Bundle-UC-005.md), [Bundle/UC-006](Bundle-UC-006.md), [Bundle/UC-007](Bundle-UC-007.md), [Encounter/example-encounter-service](Encounter-example-encounter-service.md), [Patient/example-worker](Patient-example-worker.md), [Procedure/example-procedure-activity](Procedure-example-procedure-activity.md) and [Task/example-service-task](Task-example-service-task.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-ext-employer-info.json)
 
@@ -37,7 +37,7 @@ Other representations of profile: [CSV](../StructureDefinition-ext-employer-info
   "title" : "雇主事業單位資訊擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-10T21:30:50+08:00",
+  "date" : "2026-07-23T22:22:27+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

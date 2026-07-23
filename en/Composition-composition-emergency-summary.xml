@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Composition xmlns="http://hl7.org/fhir">
+  <id value="composition-emergency-summary"/>
+  <meta>
+    <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmergencySummary"/>
+  </meta>
+  <language value="en"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Composition composition-emergency-summary</b></p><a name="composition-emergency-summary"> </a><a name="hccomposition-emergency-summary"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-Composition-EmergencySummary.html">職業健康急診友善摘要 Composition Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title="Codes:{http://loinc.org 60591-5}">Patient summary Document</span></p><p><b>date</b>: 2026-06-12 11:50:00+0800</p><p><b>author</b>: <a href="Practitioner-example-doctor.html">Practitioner 林職醫(official)</a></p><p><b>title</b>: 職業健康急診友善摘要</p></div>
+  </text>
+  <status value="final"/>
+  <type>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="60591-5"/>
+      <display value="Patient summary Document"/>
+    </coding>
+  </type>
+  <subject>
+    <reference value="Patient/example-worker"/>
+  </subject>
+  <date value="2026-06-12T11:50:00+08:00"/>
+  <author>
+    <reference value="Practitioner/example-doctor"/>
+  </author>
+  <title value="職業健康急診友善摘要"/>
+  <section>
+    <title value="作業與暴露史"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="11341-5"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Observation/obs-exposure-lead"/>
+    </entry>
+  </section>
+  <section>
+    <title value="生命徵象"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="8716-3"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Observation/obs-height"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-weight"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-bloodpressure"/>
+    </entry>
+  </section>
+  <section>
+    <title value="關鍵檢驗值（CBC／肝腎功能／暴露生物指標）"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="30954-2"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Observation/obs-lab-glucose"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-lab-egfr-absent"/>
+    </entry>
+  </section>
+  <section>
+    <title value="健康管理分級與急診注意事項"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="51848-0"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="ClinicalImpression/example-clinical-impression"/>
+    </entry>
+  </section>
+</Composition>

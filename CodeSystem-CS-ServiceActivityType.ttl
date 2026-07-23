@@ -1,6 +1,5 @@
 @prefix fhir: <http://hl7.org/fhir/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -8,72 +7,86 @@
 
 <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType> a fhir:CodeSystem ;
   fhir:nodeRole fhir:treeRoot ;
-  fhir:id [ fhir:v "CS-ServiceActivityType"] ; # 
-  fhir:text [
-     fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem CS-ServiceActivityType</b></p><a name=\"CS-ServiceActivityType\"> </a><a name=\"hcCS-ServiceActivityType\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">exam-analysis<a name=\"CS-ServiceActivityType-exam-analysis\"> </a></td><td>健康檢查結果分析</td><td>辦理健康檢查結果分析、評估、管理與保存。</td></tr><tr><td style=\"white-space:nowrap\">abnormal-followup<a name=\"CS-ServiceActivityType-abnormal-followup\"> </a></td><td>異常追蹤管理</td><td>針對健檢異常勞工辦理個案追蹤與健康指導。</td></tr><tr><td style=\"white-space:nowrap\">health-education<a name=\"CS-ServiceActivityType-health-education\"> </a></td><td>健康教育指導</td><td>辦理勞工健康教育、衛生指導、健康促進等活動。</td></tr><tr><td style=\"white-space:nowrap\">injury-prevention<a name=\"CS-ServiceActivityType-injury-prevention\"> </a></td><td>工作相關傷病預防</td><td>規劃與執行重複性作業等工作相關傷病預防措施。</td></tr><tr><td style=\"white-space:nowrap\">exposure-evaluation<a name=\"CS-ServiceActivityType-exposure-evaluation\"> </a></td><td>作業環境危害暴露評估</td><td>配合職業安全衛生人員進行危害暴露評估與現場巡視。</td></tr><tr><td style=\"white-space:nowrap\">maternity-protection<a name=\"CS-ServiceActivityType-maternity-protection\"> </a></td><td>母性健康保護</td><td>規劃與辦理妊娠、分娩後勞工之母性健康保護。</td></tr><tr><td style=\"white-space:nowrap\">unfit-assessment<a name=\"CS-ServiceActivityType-unfit-assessment\"> </a></td><td>配工與復工評估</td><td>辦理勞工適性配工、工作限制或復工評估。</td></tr><tr><td style=\"white-space:nowrap\">emergency-response<a name=\"CS-ServiceActivityType-emergency-response\"> </a></td><td>緊急醫療規劃</td><td>規劃與辦理工作場所緊急醫療與急救計畫。</td></tr></table></div>"^^rdf:XMLLiteral ]
-  ] ; # 
-  fhir:url [
-     fhir:v "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType"^^xsd:anyURI ;
-     fhir:l <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType>
-  ] ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
-  fhir:name [ fhir:v "CS_ServiceActivityType"] ; # 
-  fhir:title [ fhir:v "臨場健康服務辦理事項代碼系統"] ; # 
-  fhir:status [ fhir:v "active"] ; # 
-  fhir:experimental [ fhir:v false] ; # 
-  fhir:date [ fhir:v "2026-07-10T21:30:50+08:00"^^xsd:dateTime] ; # 
-  fhir:publisher [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ; # 
-  fhir:contact ( [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] ) ; # 
-  fhir:description [ fhir:v "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。"] ; # 
-  fhir:caseSensitive [ fhir:v true] ; # 
-  fhir:content [ fhir:v "complete"] ; # 
-  fhir:count [ fhir:v "8"^^xsd:nonNegativeInteger] ; # 
-  fhir:concept ( [
-     fhir:code [ fhir:v "exam-analysis" ] ;
-     fhir:display [ fhir:v "健康檢查結果分析" ] ;
-     fhir:definition [ fhir:v "辦理健康檢查結果分析、評估、管理與保存。" ]
-  ] [
-     fhir:code [ fhir:v "abnormal-followup" ] ;
-     fhir:display [ fhir:v "異常追蹤管理" ] ;
-     fhir:definition [ fhir:v "針對健檢異常勞工辦理個案追蹤與健康指導。" ]
-  ] [
-     fhir:code [ fhir:v "health-education" ] ;
-     fhir:display [ fhir:v "健康教育指導" ] ;
-     fhir:definition [ fhir:v "辦理勞工健康教育、衛生指導、健康促進等活動。" ]
-  ] [
-     fhir:code [ fhir:v "injury-prevention" ] ;
-     fhir:display [ fhir:v "工作相關傷病預防" ] ;
-     fhir:definition [ fhir:v "規劃與執行重複性作業等工作相關傷病預防措施。" ]
-  ] [
-     fhir:code [ fhir:v "exposure-evaluation" ] ;
-     fhir:display [ fhir:v "作業環境危害暴露評估" ] ;
-     fhir:definition [ fhir:v "配合職業安全衛生人員進行危害暴露評估與現場巡視。" ]
-  ] [
-     fhir:code [ fhir:v "maternity-protection" ] ;
-     fhir:display [ fhir:v "母性健康保護" ] ;
-     fhir:definition [ fhir:v "規劃與辦理妊娠、分娩後勞工之母性健康保護。" ]
-  ] [
-     fhir:code [ fhir:v "unfit-assessment" ] ;
-     fhir:display [ fhir:v "配工與復工評估" ] ;
-     fhir:definition [ fhir:v "辦理勞工適性配工、工作限制或復工評估。" ]
-  ] [
-     fhir:code [ fhir:v "emergency-response" ] ;
-     fhir:display [ fhir:v "緊急醫療規劃" ] ;
-     fhir:definition [ fhir:v "規劃與辦理工作場所緊急醫療與急救計畫。" ]
-  ] ) . # 
+  fhir:Resource.id [ fhir:value "CS-ServiceActivityType"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem CS-ServiceActivityType</b></p><a name=\"CS-ServiceActivityType\"> </a><a name=\"hcCS-ServiceActivityType\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">exam-analysis<a name=\"CS-ServiceActivityType-exam-analysis\"> </a></td><td>健康檢查結果分析</td><td>辦理健康檢查結果分析、評估、管理與保存。</td></tr><tr><td style=\"white-space:nowrap\">abnormal-followup<a name=\"CS-ServiceActivityType-abnormal-followup\"> </a></td><td>異常追蹤管理</td><td>針對健檢異常勞工辦理個案追蹤與健康指導。</td></tr><tr><td style=\"white-space:nowrap\">health-education<a name=\"CS-ServiceActivityType-health-education\"> </a></td><td>健康教育指導</td><td>辦理勞工健康教育、衛生指導、健康促進等活動。</td></tr><tr><td style=\"white-space:nowrap\">injury-prevention<a name=\"CS-ServiceActivityType-injury-prevention\"> </a></td><td>工作相關傷病預防</td><td>規劃與執行重複性作業等工作相關傷病預防措施。</td></tr><tr><td style=\"white-space:nowrap\">exposure-evaluation<a name=\"CS-ServiceActivityType-exposure-evaluation\"> </a></td><td>作業環境危害暴露評估</td><td>配合職業安全衛生人員進行危害暴露評估與現場巡視。</td></tr><tr><td style=\"white-space:nowrap\">maternity-protection<a name=\"CS-ServiceActivityType-maternity-protection\"> </a></td><td>母性健康保護</td><td>規劃與辦理妊娠、分娩後勞工之母性健康保護。</td></tr><tr><td style=\"white-space:nowrap\">unfit-assessment<a name=\"CS-ServiceActivityType-unfit-assessment\"> </a></td><td>配工與復工評估</td><td>辦理勞工適性配工、工作限制或復工評估。</td></tr><tr><td style=\"white-space:nowrap\">emergency-response<a name=\"CS-ServiceActivityType-emergency-response\"> </a></td><td>緊急醫療規劃</td><td>規劃與辦理工作場所緊急醫療與急救計畫。</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType"] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CS_ServiceActivityType"] ;
+  fhir:CodeSystem.title [ fhir:value "臨場健康服務辦理事項代碼系統"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-07-23T22:22:27+08:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。"] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "8"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "exam-analysis" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "健康檢查結果分析" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "辦理健康檢查結果分析、評估、管理與保存。" ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "abnormal-followup" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "異常追蹤管理" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "針對健檢異常勞工辦理個案追蹤與健康指導。" ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "health-education" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "健康教育指導" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "辦理勞工健康教育、衛生指導、健康促進等活動。" ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "injury-prevention" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "工作相關傷病預防" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "規劃與執行重複性作業等工作相關傷病預防措施。" ]
+  ], [
+     fhir:index 4 ;
+     fhir:CodeSystem.concept.code [ fhir:value "exposure-evaluation" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "作業環境危害暴露評估" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "配合職業安全衛生人員進行危害暴露評估與現場巡視。" ]
+  ], [
+     fhir:index 5 ;
+     fhir:CodeSystem.concept.code [ fhir:value "maternity-protection" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "母性健康保護" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "規劃與辦理妊娠、分娩後勞工之母性健康保護。" ]
+  ], [
+     fhir:index 6 ;
+     fhir:CodeSystem.concept.code [ fhir:value "unfit-assessment" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "配工與復工評估" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "辦理勞工適性配工、工作限制或復工評估。" ]
+  ], [
+     fhir:index 7 ;
+     fhir:CodeSystem.concept.code [ fhir:value "emergency-response" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "緊急醫療規劃" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "規劃與辦理工作場所緊急醫療與急救計畫。" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
 
 # -------------------------------------------------------------------------------------
 

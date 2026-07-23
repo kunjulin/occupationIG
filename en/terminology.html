@@ -282,7 +282,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
   <li><strong><a href="CodeSystem-CS-HazardType.html">CS-HazardType</a> (危害作業類別代碼系統)</strong>：
     <ul>
-      <li>定義高溫、噪音、輻射、異常氣壓、鉛、粉塵、有機溶劑、特定化學物質等 12 大類危害作業之代碼。</li>
+      <li>定義高溫、噪音、輻射、異常氣壓、鉛、粉塵、有機溶劑、特定化學物質等 12 大類危害作業之代碼。（家族層）附表十（115.06.26 修正）逐號之 35 項具名作業另見 <a href="CodeSystem-CS-Appendix10Operation.html">CS-Appendix10Operation</a>，家族 ↔ 具名作業對映見 <a href="ConceptMap-Appendix10-to-HazardType.html">ConceptMap Appendix10-to-HazardType</a>。</li>
     </ul>
   </li>
   <li><strong><a href="CodeSystem-CS-SmokingStatus.html">CS-SmokingStatus</a> (吸菸狀態代碼系統)</strong>：
@@ -342,8 +342,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
+<blockquote>
+  <p><strong>用語澄清（綁定強度 vs. Preferred 代碼）</strong>：本節「Layer 1 Preferred（優先代碼）」係指三層術語中的<strong>指定代碼層級</strong>，與 FHIR 值集<strong>綁定強度（binding strength）之 <code class="language-plaintext highlighter-rouge">preferred</code></strong> 為不同概念。本 IG 之 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 綁定強度為 <strong><code class="language-plaintext highlighter-rouge">extensible</code></strong>（與文件一 §6.3、實際建置一致），非 FHIR 之 <code class="language-plaintext highlighter-rouge">preferred</code> 綁定。</p>
+</blockquote>
+
 <h3 id="32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</h3>
-<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 Layer 2 可接受代碼至 Layer 1 優先推薦代碼的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>29 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 <code class="language-plaintext highlighter-rouge">2089-1</code>）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組。</p>
+<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 Layer 2 可接受代碼至 Layer 1 優先推薦代碼的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>29 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 <code class="language-plaintext highlighter-rouge">2089-1</code>）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
 
 <hr />
 
@@ -372,6 +376,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">767002</td>
       <td style="text-align: left">10*3/uL</td>
       <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">血液學</td>
+      <td style="text-align: left">紅血球計數 RBC</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">789-8</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">41653003</td>
+      <td style="text-align: left">10*6/uL</td>
+      <td style="text-align: left">附表九（115.06.26 新增）</td>
     </tr>
     <tr>
       <td style="text-align: left">血液學</td>
@@ -626,6 +639,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">成健</td>
     </tr>
     <tr>
+      <td style="text-align: left">生理</td>
+      <td style="text-align: left">腰圍</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">8280-0</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{56086-2}</code></td>
+      <td style="text-align: left">276361009</td>
+      <td style="text-align: left">cm</td>
+      <td style="text-align: left">附表九/成健</td>
+    </tr>
+    <tr>
       <td style="text-align: left">肺功能</td>
       <td style="text-align: left">FVC</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19876-2</code></td>
@@ -692,6 +714,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>Panel（<code class="language-plaintext highlighter-rouge">89015-2</code>）</strong>：記錄整場聽力測試，進入 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 作為 Observation.code</li>
   <li><strong>個別頻率/耳別代碼（<code class="language-plaintext highlighter-rouge">89024-4</code> 等 8 個）</strong>：作為 <code class="language-plaintext highlighter-rouge">component.code</code> 由 <code class="language-plaintext highlighter-rouge">TWHAHearingTestProfile</code> 的 8 個 component 切片處理，收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code></li>
   <li><strong>結果解釋</strong>：臨床人員依 ISO 1999 標準判定各頻率閾值是否超過 25 dB HL</li>
+  <li><strong>院內/職醫變異碼（Acceptable）</strong>：部分院所 LIS 與職業病醫師建議採用 <code class="language-plaintext highlighter-rouge">21104-5</code>（Audiometry study）及 <code class="language-plaintext highlighter-rouge">21106-0</code> 等頻率系列碼；本 IG 維持 <code class="language-plaintext highlighter-rouge">89015-2</code> panel 為 Preferred，<code class="language-plaintext highlighter-rouge">21104-5</code> 系列列為 Acceptable 變異（收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>），供 LIS 對接。</li>
 </ol>
 
 
@@ -722,8 +745,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-10 21:30:00 +0800">
-    2026-07-10
+  <span title="2026-07-23 22:22:00 +0800">
+    2026-07-23
   </span>
 
           <br/>

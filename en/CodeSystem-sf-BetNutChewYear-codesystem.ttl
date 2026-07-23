@@ -1,6 +1,5 @@
 @prefix fhir: <http://hl7.org/fhir/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -8,339 +7,445 @@
 
 <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/sf-BetNutChewYear-codesystem> a fhir:CodeSystem ;
   fhir:nodeRole fhir:treeRoot ;
-  fhir:id [ fhir:v "sf-BetNutChewYear-codesystem"] ; # 
-  fhir:language [ fhir:v "en"] ; # 
-  fhir:text [
-     fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem sf-BetNutChewYear-codesystem</b></p><a name=\"sf-BetNutChewYear-codesystem\"> </a><a name=\"hcsf-BetNutChewYear-codesystem\"> </a><p>This  code system <code>https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">00<a name=\"sf-BetNutChewYear-codesystem-00\"> </a></td><td>無嚼檳榔</td></tr><tr><td style=\"white-space:nowrap\">01<a name=\"sf-BetNutChewYear-codesystem-01\"> </a></td><td>嚼1年</td></tr><tr><td style=\"white-space:nowrap\">02<a name=\"sf-BetNutChewYear-codesystem-02\"> </a></td><td>嚼2年</td></tr><tr><td style=\"white-space:nowrap\">03<a name=\"sf-BetNutChewYear-codesystem-03\"> </a></td><td>嚼3年</td></tr><tr><td style=\"white-space:nowrap\">04<a name=\"sf-BetNutChewYear-codesystem-04\"> </a></td><td>嚼4年</td></tr><tr><td style=\"white-space:nowrap\">05<a name=\"sf-BetNutChewYear-codesystem-05\"> </a></td><td>嚼5年</td></tr><tr><td style=\"white-space:nowrap\">06<a name=\"sf-BetNutChewYear-codesystem-06\"> </a></td><td>嚼6年</td></tr><tr><td style=\"white-space:nowrap\">07<a name=\"sf-BetNutChewYear-codesystem-07\"> </a></td><td>嚼7年</td></tr><tr><td style=\"white-space:nowrap\">08<a name=\"sf-BetNutChewYear-codesystem-08\"> </a></td><td>嚼8年</td></tr><tr><td style=\"white-space:nowrap\">09<a name=\"sf-BetNutChewYear-codesystem-09\"> </a></td><td>嚼9年</td></tr><tr><td style=\"white-space:nowrap\">10<a name=\"sf-BetNutChewYear-codesystem-10\"> </a></td><td>嚼10年</td></tr><tr><td style=\"white-space:nowrap\">11<a name=\"sf-BetNutChewYear-codesystem-11\"> </a></td><td>嚼11年</td></tr><tr><td style=\"white-space:nowrap\">12<a name=\"sf-BetNutChewYear-codesystem-12\"> </a></td><td>嚼12年</td></tr><tr><td style=\"white-space:nowrap\">13<a name=\"sf-BetNutChewYear-codesystem-13\"> </a></td><td>嚼13年</td></tr><tr><td style=\"white-space:nowrap\">14<a name=\"sf-BetNutChewYear-codesystem-14\"> </a></td><td>嚼14年</td></tr><tr><td style=\"white-space:nowrap\">15<a name=\"sf-BetNutChewYear-codesystem-15\"> </a></td><td>嚼15年</td></tr><tr><td style=\"white-space:nowrap\">16<a name=\"sf-BetNutChewYear-codesystem-16\"> </a></td><td>嚼16年</td></tr><tr><td style=\"white-space:nowrap\">17<a name=\"sf-BetNutChewYear-codesystem-17\"> </a></td><td>嚼17年</td></tr><tr><td style=\"white-space:nowrap\">18<a name=\"sf-BetNutChewYear-codesystem-18\"> </a></td><td>嚼18年</td></tr><tr><td style=\"white-space:nowrap\">19<a name=\"sf-BetNutChewYear-codesystem-19\"> </a></td><td>嚼19年</td></tr><tr><td style=\"white-space:nowrap\">20<a name=\"sf-BetNutChewYear-codesystem-20\"> </a></td><td>嚼20年</td></tr><tr><td style=\"white-space:nowrap\">21<a name=\"sf-BetNutChewYear-codesystem-21\"> </a></td><td>嚼21年</td></tr><tr><td style=\"white-space:nowrap\">22<a name=\"sf-BetNutChewYear-codesystem-22\"> </a></td><td>嚼22年</td></tr><tr><td style=\"white-space:nowrap\">23<a name=\"sf-BetNutChewYear-codesystem-23\"> </a></td><td>嚼23年</td></tr><tr><td style=\"white-space:nowrap\">24<a name=\"sf-BetNutChewYear-codesystem-24\"> </a></td><td>嚼24年</td></tr><tr><td style=\"white-space:nowrap\">25<a name=\"sf-BetNutChewYear-codesystem-25\"> </a></td><td>嚼25年</td></tr><tr><td style=\"white-space:nowrap\">26<a name=\"sf-BetNutChewYear-codesystem-26\"> </a></td><td>嚼26年</td></tr><tr><td style=\"white-space:nowrap\">27<a name=\"sf-BetNutChewYear-codesystem-27\"> </a></td><td>嚼27年</td></tr><tr><td style=\"white-space:nowrap\">28<a name=\"sf-BetNutChewYear-codesystem-28\"> </a></td><td>嚼28年</td></tr><tr><td style=\"white-space:nowrap\">29<a name=\"sf-BetNutChewYear-codesystem-29\"> </a></td><td>嚼29年</td></tr><tr><td style=\"white-space:nowrap\">30<a name=\"sf-BetNutChewYear-codesystem-30\"> </a></td><td>嚼30年</td></tr><tr><td style=\"white-space:nowrap\">31<a name=\"sf-BetNutChewYear-codesystem-31\"> </a></td><td>嚼31年</td></tr><tr><td style=\"white-space:nowrap\">32<a name=\"sf-BetNutChewYear-codesystem-32\"> </a></td><td>嚼32年</td></tr><tr><td style=\"white-space:nowrap\">33<a name=\"sf-BetNutChewYear-codesystem-33\"> </a></td><td>嚼33年</td></tr><tr><td style=\"white-space:nowrap\">34<a name=\"sf-BetNutChewYear-codesystem-34\"> </a></td><td>嚼34年</td></tr><tr><td style=\"white-space:nowrap\">35<a name=\"sf-BetNutChewYear-codesystem-35\"> </a></td><td>嚼35年</td></tr><tr><td style=\"white-space:nowrap\">36<a name=\"sf-BetNutChewYear-codesystem-36\"> </a></td><td>嚼36年</td></tr><tr><td style=\"white-space:nowrap\">37<a name=\"sf-BetNutChewYear-codesystem-37\"> </a></td><td>嚼37年</td></tr><tr><td style=\"white-space:nowrap\">38<a name=\"sf-BetNutChewYear-codesystem-38\"> </a></td><td>嚼38年</td></tr><tr><td style=\"white-space:nowrap\">39<a name=\"sf-BetNutChewYear-codesystem-39\"> </a></td><td>嚼39年</td></tr><tr><td style=\"white-space:nowrap\">40<a name=\"sf-BetNutChewYear-codesystem-40\"> </a></td><td>嚼40年</td></tr><tr><td style=\"white-space:nowrap\">41<a name=\"sf-BetNutChewYear-codesystem-41\"> </a></td><td>嚼41年</td></tr><tr><td style=\"white-space:nowrap\">42<a name=\"sf-BetNutChewYear-codesystem-42\"> </a></td><td>嚼42年</td></tr><tr><td style=\"white-space:nowrap\">43<a name=\"sf-BetNutChewYear-codesystem-43\"> </a></td><td>嚼43年</td></tr><tr><td style=\"white-space:nowrap\">44<a name=\"sf-BetNutChewYear-codesystem-44\"> </a></td><td>嚼44年</td></tr><tr><td style=\"white-space:nowrap\">45<a name=\"sf-BetNutChewYear-codesystem-45\"> </a></td><td>嚼45年</td></tr><tr><td style=\"white-space:nowrap\">46<a name=\"sf-BetNutChewYear-codesystem-46\"> </a></td><td>嚼46年</td></tr><tr><td style=\"white-space:nowrap\">47<a name=\"sf-BetNutChewYear-codesystem-47\"> </a></td><td>嚼47年</td></tr><tr><td style=\"white-space:nowrap\">48<a name=\"sf-BetNutChewYear-codesystem-48\"> </a></td><td>嚼48年</td></tr><tr><td style=\"white-space:nowrap\">49<a name=\"sf-BetNutChewYear-codesystem-49\"> </a></td><td>嚼49年</td></tr><tr><td style=\"white-space:nowrap\">50<a name=\"sf-BetNutChewYear-codesystem-50\"> </a></td><td>嚼50年</td></tr><tr><td style=\"white-space:nowrap\">51<a name=\"sf-BetNutChewYear-codesystem-51\"> </a></td><td>嚼51年</td></tr><tr><td style=\"white-space:nowrap\">52<a name=\"sf-BetNutChewYear-codesystem-52\"> </a></td><td>嚼52年</td></tr><tr><td style=\"white-space:nowrap\">53<a name=\"sf-BetNutChewYear-codesystem-53\"> </a></td><td>嚼53年</td></tr><tr><td style=\"white-space:nowrap\">54<a name=\"sf-BetNutChewYear-codesystem-54\"> </a></td><td>嚼54年</td></tr><tr><td style=\"white-space:nowrap\">55<a name=\"sf-BetNutChewYear-codesystem-55\"> </a></td><td>嚼55年</td></tr><tr><td style=\"white-space:nowrap\">56<a name=\"sf-BetNutChewYear-codesystem-56\"> </a></td><td>嚼56年</td></tr><tr><td style=\"white-space:nowrap\">57<a name=\"sf-BetNutChewYear-codesystem-57\"> </a></td><td>嚼57年</td></tr><tr><td style=\"white-space:nowrap\">58<a name=\"sf-BetNutChewYear-codesystem-58\"> </a></td><td>嚼58年</td></tr><tr><td style=\"white-space:nowrap\">59<a name=\"sf-BetNutChewYear-codesystem-59\"> </a></td><td>嚼59年</td></tr><tr><td style=\"white-space:nowrap\">60<a name=\"sf-BetNutChewYear-codesystem-60\"> </a></td><td>嚼60年</td></tr><tr><td style=\"white-space:nowrap\">61<a name=\"sf-BetNutChewYear-codesystem-61\"> </a></td><td>嚼61年</td></tr><tr><td style=\"white-space:nowrap\">62<a name=\"sf-BetNutChewYear-codesystem-62\"> </a></td><td>嚼62年</td></tr><tr><td style=\"white-space:nowrap\">63<a name=\"sf-BetNutChewYear-codesystem-63\"> </a></td><td>嚼63年</td></tr><tr><td style=\"white-space:nowrap\">64<a name=\"sf-BetNutChewYear-codesystem-64\"> </a></td><td>嚼64年</td></tr><tr><td style=\"white-space:nowrap\">65<a name=\"sf-BetNutChewYear-codesystem-65\"> </a></td><td>嚼65年</td></tr><tr><td style=\"white-space:nowrap\">66<a name=\"sf-BetNutChewYear-codesystem-66\"> </a></td><td>嚼66年</td></tr><tr><td style=\"white-space:nowrap\">67<a name=\"sf-BetNutChewYear-codesystem-67\"> </a></td><td>嚼67年</td></tr><tr><td style=\"white-space:nowrap\">68<a name=\"sf-BetNutChewYear-codesystem-68\"> </a></td><td>嚼68年</td></tr><tr><td style=\"white-space:nowrap\">69<a name=\"sf-BetNutChewYear-codesystem-69\"> </a></td><td>嚼69年</td></tr><tr><td style=\"white-space:nowrap\">70<a name=\"sf-BetNutChewYear-codesystem-70\"> </a></td><td>嚼70年</td></tr><tr><td style=\"white-space:nowrap\">71<a name=\"sf-BetNutChewYear-codesystem-71\"> </a></td><td>嚼71年</td></tr><tr><td style=\"white-space:nowrap\">72<a name=\"sf-BetNutChewYear-codesystem-72\"> </a></td><td>嚼72年</td></tr><tr><td style=\"white-space:nowrap\">73<a name=\"sf-BetNutChewYear-codesystem-73\"> </a></td><td>嚼73年</td></tr><tr><td style=\"white-space:nowrap\">74<a name=\"sf-BetNutChewYear-codesystem-74\"> </a></td><td>嚼74年</td></tr><tr><td style=\"white-space:nowrap\">75<a name=\"sf-BetNutChewYear-codesystem-75\"> </a></td><td>嚼75年</td></tr><tr><td style=\"white-space:nowrap\">76<a name=\"sf-BetNutChewYear-codesystem-76\"> </a></td><td>嚼76年</td></tr><tr><td style=\"white-space:nowrap\">77<a name=\"sf-BetNutChewYear-codesystem-77\"> </a></td><td>嚼77年</td></tr><tr><td style=\"white-space:nowrap\">78<a name=\"sf-BetNutChewYear-codesystem-78\"> </a></td><td>嚼78年</td></tr><tr><td style=\"white-space:nowrap\">79<a name=\"sf-BetNutChewYear-codesystem-79\"> </a></td><td>嚼79年</td></tr><tr><td style=\"white-space:nowrap\">80<a name=\"sf-BetNutChewYear-codesystem-80\"> </a></td><td>嚼80年</td></tr><tr><td style=\"white-space:nowrap\">81<a name=\"sf-BetNutChewYear-codesystem-81\"> </a></td><td>嚼81年</td></tr><tr><td style=\"white-space:nowrap\">82<a name=\"sf-BetNutChewYear-codesystem-82\"> </a></td><td>嚼82年</td></tr><tr><td style=\"white-space:nowrap\">83<a name=\"sf-BetNutChewYear-codesystem-83\"> </a></td><td>嚼83年</td></tr><tr><td style=\"white-space:nowrap\">84<a name=\"sf-BetNutChewYear-codesystem-84\"> </a></td><td>嚼84年</td></tr><tr><td style=\"white-space:nowrap\">85<a name=\"sf-BetNutChewYear-codesystem-85\"> </a></td><td>嚼85年</td></tr><tr><td style=\"white-space:nowrap\">86<a name=\"sf-BetNutChewYear-codesystem-86\"> </a></td><td>嚼86年</td></tr><tr><td style=\"white-space:nowrap\">87<a name=\"sf-BetNutChewYear-codesystem-87\"> </a></td><td>嚼87年</td></tr><tr><td style=\"white-space:nowrap\">88<a name=\"sf-BetNutChewYear-codesystem-88\"> </a></td><td>嚼88年</td></tr><tr><td style=\"white-space:nowrap\">89<a name=\"sf-BetNutChewYear-codesystem-89\"> </a></td><td>嚼89年</td></tr><tr><td style=\"white-space:nowrap\">90<a name=\"sf-BetNutChewYear-codesystem-90\"> </a></td><td>嚼90年</td></tr><tr><td style=\"white-space:nowrap\">91<a name=\"sf-BetNutChewYear-codesystem-91\"> </a></td><td>嚼91年</td></tr><tr><td style=\"white-space:nowrap\">92<a name=\"sf-BetNutChewYear-codesystem-92\"> </a></td><td>嚼92年</td></tr><tr><td style=\"white-space:nowrap\">93<a name=\"sf-BetNutChewYear-codesystem-93\"> </a></td><td>嚼93年</td></tr><tr><td style=\"white-space:nowrap\">94<a name=\"sf-BetNutChewYear-codesystem-94\"> </a></td><td>嚼94年</td></tr><tr><td style=\"white-space:nowrap\">95<a name=\"sf-BetNutChewYear-codesystem-95\"> </a></td><td>嚼95年</td></tr><tr><td style=\"white-space:nowrap\">96<a name=\"sf-BetNutChewYear-codesystem-96\"> </a></td><td>嚼96年</td></tr><tr><td style=\"white-space:nowrap\">97<a name=\"sf-BetNutChewYear-codesystem-97\"> </a></td><td>嚼97年</td></tr><tr><td style=\"white-space:nowrap\">98<a name=\"sf-BetNutChewYear-codesystem-98\"> </a></td><td>嚼檳榔，但年不詳</td></tr><tr><td style=\"white-space:nowrap\">99<a name=\"sf-BetNutChewYear-codesystem-99\"> </a></td><td>病歷未記載或嚼檳榔狀態完全不詳者</td></tr></table></div>"^^rdf:XMLLiteral ]
-  ] ; # 
-  fhir:url [
-     fhir:v "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"^^xsd:anyURI ;
-     fhir:l <https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem>
-  ] ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
-  fhir:name [ fhir:v "sf-BetNutChewYear-codesystem"] ; # 
-  fhir:title [ fhir:v "嚼檳榔年代碼系統"] ; # 
-  fhir:status [ fhir:v "active"] ; # 
-  fhir:date [ fhir:v "2026-07-10T21:30:50+08:00"^^xsd:dateTime] ; # 
-  fhir:publisher [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ; # 
-  fhir:contact ( [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] ) ; # 
-  fhir:description [ fhir:v "Betel Nut Chewing Year Code System"] ; # 
-  fhir:content [ fhir:v "complete"] ; # 
-  fhir:count [ fhir:v "100"^^xsd:nonNegativeInteger] ; # 
-  fhir:concept ( [
-     fhir:code [ fhir:v "00" ] ;
-     fhir:display [ fhir:v "無嚼檳榔" ]
-  ] [
-     fhir:code [ fhir:v "01" ] ;
-     fhir:display [ fhir:v "嚼1年" ]
-  ] [
-     fhir:code [ fhir:v "02" ] ;
-     fhir:display [ fhir:v "嚼2年" ]
-  ] [
-     fhir:code [ fhir:v "03" ] ;
-     fhir:display [ fhir:v "嚼3年" ]
-  ] [
-     fhir:code [ fhir:v "04" ] ;
-     fhir:display [ fhir:v "嚼4年" ]
-  ] [
-     fhir:code [ fhir:v "05" ] ;
-     fhir:display [ fhir:v "嚼5年" ]
-  ] [
-     fhir:code [ fhir:v "06" ] ;
-     fhir:display [ fhir:v "嚼6年" ]
-  ] [
-     fhir:code [ fhir:v "07" ] ;
-     fhir:display [ fhir:v "嚼7年" ]
-  ] [
-     fhir:code [ fhir:v "08" ] ;
-     fhir:display [ fhir:v "嚼8年" ]
-  ] [
-     fhir:code [ fhir:v "09" ] ;
-     fhir:display [ fhir:v "嚼9年" ]
-  ] [
-     fhir:code [ fhir:v "10" ] ;
-     fhir:display [ fhir:v "嚼10年" ]
-  ] [
-     fhir:code [ fhir:v "11" ] ;
-     fhir:display [ fhir:v "嚼11年" ]
-  ] [
-     fhir:code [ fhir:v "12" ] ;
-     fhir:display [ fhir:v "嚼12年" ]
-  ] [
-     fhir:code [ fhir:v "13" ] ;
-     fhir:display [ fhir:v "嚼13年" ]
-  ] [
-     fhir:code [ fhir:v "14" ] ;
-     fhir:display [ fhir:v "嚼14年" ]
-  ] [
-     fhir:code [ fhir:v "15" ] ;
-     fhir:display [ fhir:v "嚼15年" ]
-  ] [
-     fhir:code [ fhir:v "16" ] ;
-     fhir:display [ fhir:v "嚼16年" ]
-  ] [
-     fhir:code [ fhir:v "17" ] ;
-     fhir:display [ fhir:v "嚼17年" ]
-  ] [
-     fhir:code [ fhir:v "18" ] ;
-     fhir:display [ fhir:v "嚼18年" ]
-  ] [
-     fhir:code [ fhir:v "19" ] ;
-     fhir:display [ fhir:v "嚼19年" ]
-  ] [
-     fhir:code [ fhir:v "20" ] ;
-     fhir:display [ fhir:v "嚼20年" ]
-  ] [
-     fhir:code [ fhir:v "21" ] ;
-     fhir:display [ fhir:v "嚼21年" ]
-  ] [
-     fhir:code [ fhir:v "22" ] ;
-     fhir:display [ fhir:v "嚼22年" ]
-  ] [
-     fhir:code [ fhir:v "23" ] ;
-     fhir:display [ fhir:v "嚼23年" ]
-  ] [
-     fhir:code [ fhir:v "24" ] ;
-     fhir:display [ fhir:v "嚼24年" ]
-  ] [
-     fhir:code [ fhir:v "25" ] ;
-     fhir:display [ fhir:v "嚼25年" ]
-  ] [
-     fhir:code [ fhir:v "26" ] ;
-     fhir:display [ fhir:v "嚼26年" ]
-  ] [
-     fhir:code [ fhir:v "27" ] ;
-     fhir:display [ fhir:v "嚼27年" ]
-  ] [
-     fhir:code [ fhir:v "28" ] ;
-     fhir:display [ fhir:v "嚼28年" ]
-  ] [
-     fhir:code [ fhir:v "29" ] ;
-     fhir:display [ fhir:v "嚼29年" ]
-  ] [
-     fhir:code [ fhir:v "30" ] ;
-     fhir:display [ fhir:v "嚼30年" ]
-  ] [
-     fhir:code [ fhir:v "31" ] ;
-     fhir:display [ fhir:v "嚼31年" ]
-  ] [
-     fhir:code [ fhir:v "32" ] ;
-     fhir:display [ fhir:v "嚼32年" ]
-  ] [
-     fhir:code [ fhir:v "33" ] ;
-     fhir:display [ fhir:v "嚼33年" ]
-  ] [
-     fhir:code [ fhir:v "34" ] ;
-     fhir:display [ fhir:v "嚼34年" ]
-  ] [
-     fhir:code [ fhir:v "35" ] ;
-     fhir:display [ fhir:v "嚼35年" ]
-  ] [
-     fhir:code [ fhir:v "36" ] ;
-     fhir:display [ fhir:v "嚼36年" ]
-  ] [
-     fhir:code [ fhir:v "37" ] ;
-     fhir:display [ fhir:v "嚼37年" ]
-  ] [
-     fhir:code [ fhir:v "38" ] ;
-     fhir:display [ fhir:v "嚼38年" ]
-  ] [
-     fhir:code [ fhir:v "39" ] ;
-     fhir:display [ fhir:v "嚼39年" ]
-  ] [
-     fhir:code [ fhir:v "40" ] ;
-     fhir:display [ fhir:v "嚼40年" ]
-  ] [
-     fhir:code [ fhir:v "41" ] ;
-     fhir:display [ fhir:v "嚼41年" ]
-  ] [
-     fhir:code [ fhir:v "42" ] ;
-     fhir:display [ fhir:v "嚼42年" ]
-  ] [
-     fhir:code [ fhir:v "43" ] ;
-     fhir:display [ fhir:v "嚼43年" ]
-  ] [
-     fhir:code [ fhir:v "44" ] ;
-     fhir:display [ fhir:v "嚼44年" ]
-  ] [
-     fhir:code [ fhir:v "45" ] ;
-     fhir:display [ fhir:v "嚼45年" ]
-  ] [
-     fhir:code [ fhir:v "46" ] ;
-     fhir:display [ fhir:v "嚼46年" ]
-  ] [
-     fhir:code [ fhir:v "47" ] ;
-     fhir:display [ fhir:v "嚼47年" ]
-  ] [
-     fhir:code [ fhir:v "48" ] ;
-     fhir:display [ fhir:v "嚼48年" ]
-  ] [
-     fhir:code [ fhir:v "49" ] ;
-     fhir:display [ fhir:v "嚼49年" ]
-  ] [
-     fhir:code [ fhir:v "50" ] ;
-     fhir:display [ fhir:v "嚼50年" ]
-  ] [
-     fhir:code [ fhir:v "51" ] ;
-     fhir:display [ fhir:v "嚼51年" ]
-  ] [
-     fhir:code [ fhir:v "52" ] ;
-     fhir:display [ fhir:v "嚼52年" ]
-  ] [
-     fhir:code [ fhir:v "53" ] ;
-     fhir:display [ fhir:v "嚼53年" ]
-  ] [
-     fhir:code [ fhir:v "54" ] ;
-     fhir:display [ fhir:v "嚼54年" ]
-  ] [
-     fhir:code [ fhir:v "55" ] ;
-     fhir:display [ fhir:v "嚼55年" ]
-  ] [
-     fhir:code [ fhir:v "56" ] ;
-     fhir:display [ fhir:v "嚼56年" ]
-  ] [
-     fhir:code [ fhir:v "57" ] ;
-     fhir:display [ fhir:v "嚼57年" ]
-  ] [
-     fhir:code [ fhir:v "58" ] ;
-     fhir:display [ fhir:v "嚼58年" ]
-  ] [
-     fhir:code [ fhir:v "59" ] ;
-     fhir:display [ fhir:v "嚼59年" ]
-  ] [
-     fhir:code [ fhir:v "60" ] ;
-     fhir:display [ fhir:v "嚼60年" ]
-  ] [
-     fhir:code [ fhir:v "61" ] ;
-     fhir:display [ fhir:v "嚼61年" ]
-  ] [
-     fhir:code [ fhir:v "62" ] ;
-     fhir:display [ fhir:v "嚼62年" ]
-  ] [
-     fhir:code [ fhir:v "63" ] ;
-     fhir:display [ fhir:v "嚼63年" ]
-  ] [
-     fhir:code [ fhir:v "64" ] ;
-     fhir:display [ fhir:v "嚼64年" ]
-  ] [
-     fhir:code [ fhir:v "65" ] ;
-     fhir:display [ fhir:v "嚼65年" ]
-  ] [
-     fhir:code [ fhir:v "66" ] ;
-     fhir:display [ fhir:v "嚼66年" ]
-  ] [
-     fhir:code [ fhir:v "67" ] ;
-     fhir:display [ fhir:v "嚼67年" ]
-  ] [
-     fhir:code [ fhir:v "68" ] ;
-     fhir:display [ fhir:v "嚼68年" ]
-  ] [
-     fhir:code [ fhir:v "69" ] ;
-     fhir:display [ fhir:v "嚼69年" ]
-  ] [
-     fhir:code [ fhir:v "70" ] ;
-     fhir:display [ fhir:v "嚼70年" ]
-  ] [
-     fhir:code [ fhir:v "71" ] ;
-     fhir:display [ fhir:v "嚼71年" ]
-  ] [
-     fhir:code [ fhir:v "72" ] ;
-     fhir:display [ fhir:v "嚼72年" ]
-  ] [
-     fhir:code [ fhir:v "73" ] ;
-     fhir:display [ fhir:v "嚼73年" ]
-  ] [
-     fhir:code [ fhir:v "74" ] ;
-     fhir:display [ fhir:v "嚼74年" ]
-  ] [
-     fhir:code [ fhir:v "75" ] ;
-     fhir:display [ fhir:v "嚼75年" ]
-  ] [
-     fhir:code [ fhir:v "76" ] ;
-     fhir:display [ fhir:v "嚼76年" ]
-  ] [
-     fhir:code [ fhir:v "77" ] ;
-     fhir:display [ fhir:v "嚼77年" ]
-  ] [
-     fhir:code [ fhir:v "78" ] ;
-     fhir:display [ fhir:v "嚼78年" ]
-  ] [
-     fhir:code [ fhir:v "79" ] ;
-     fhir:display [ fhir:v "嚼79年" ]
-  ] [
-     fhir:code [ fhir:v "80" ] ;
-     fhir:display [ fhir:v "嚼80年" ]
-  ] [
-     fhir:code [ fhir:v "81" ] ;
-     fhir:display [ fhir:v "嚼81年" ]
-  ] [
-     fhir:code [ fhir:v "82" ] ;
-     fhir:display [ fhir:v "嚼82年" ]
-  ] [
-     fhir:code [ fhir:v "83" ] ;
-     fhir:display [ fhir:v "嚼83年" ]
-  ] [
-     fhir:code [ fhir:v "84" ] ;
-     fhir:display [ fhir:v "嚼84年" ]
-  ] [
-     fhir:code [ fhir:v "85" ] ;
-     fhir:display [ fhir:v "嚼85年" ]
-  ] [
-     fhir:code [ fhir:v "86" ] ;
-     fhir:display [ fhir:v "嚼86年" ]
-  ] [
-     fhir:code [ fhir:v "87" ] ;
-     fhir:display [ fhir:v "嚼87年" ]
-  ] [
-     fhir:code [ fhir:v "88" ] ;
-     fhir:display [ fhir:v "嚼88年" ]
-  ] [
-     fhir:code [ fhir:v "89" ] ;
-     fhir:display [ fhir:v "嚼89年" ]
-  ] [
-     fhir:code [ fhir:v "90" ] ;
-     fhir:display [ fhir:v "嚼90年" ]
-  ] [
-     fhir:code [ fhir:v "91" ] ;
-     fhir:display [ fhir:v "嚼91年" ]
-  ] [
-     fhir:code [ fhir:v "92" ] ;
-     fhir:display [ fhir:v "嚼92年" ]
-  ] [
-     fhir:code [ fhir:v "93" ] ;
-     fhir:display [ fhir:v "嚼93年" ]
-  ] [
-     fhir:code [ fhir:v "94" ] ;
-     fhir:display [ fhir:v "嚼94年" ]
-  ] [
-     fhir:code [ fhir:v "95" ] ;
-     fhir:display [ fhir:v "嚼95年" ]
-  ] [
-     fhir:code [ fhir:v "96" ] ;
-     fhir:display [ fhir:v "嚼96年" ]
-  ] [
-     fhir:code [ fhir:v "97" ] ;
-     fhir:display [ fhir:v "嚼97年" ]
-  ] [
-     fhir:code [ fhir:v "98" ] ;
-     fhir:display [ fhir:v "嚼檳榔，但年不詳" ]
-  ] [
-     fhir:code [ fhir:v "99" ] ;
-     fhir:display [ fhir:v "病歷未記載或嚼檳榔狀態完全不詳者" ]
-  ] ) . # 
+  fhir:Resource.id [ fhir:value "sf-BetNutChewYear-codesystem"] ;
+  fhir:Resource.language [ fhir:value "en"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem sf-BetNutChewYear-codesystem</b></p><a name=\"sf-BetNutChewYear-codesystem\"> </a><a name=\"hcsf-BetNutChewYear-codesystem\"> </a><p>This  code system <code>https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">00<a name=\"sf-BetNutChewYear-codesystem-00\"> </a></td><td>無嚼檳榔</td></tr><tr><td style=\"white-space:nowrap\">01<a name=\"sf-BetNutChewYear-codesystem-01\"> </a></td><td>嚼1年</td></tr><tr><td style=\"white-space:nowrap\">02<a name=\"sf-BetNutChewYear-codesystem-02\"> </a></td><td>嚼2年</td></tr><tr><td style=\"white-space:nowrap\">03<a name=\"sf-BetNutChewYear-codesystem-03\"> </a></td><td>嚼3年</td></tr><tr><td style=\"white-space:nowrap\">04<a name=\"sf-BetNutChewYear-codesystem-04\"> </a></td><td>嚼4年</td></tr><tr><td style=\"white-space:nowrap\">05<a name=\"sf-BetNutChewYear-codesystem-05\"> </a></td><td>嚼5年</td></tr><tr><td style=\"white-space:nowrap\">06<a name=\"sf-BetNutChewYear-codesystem-06\"> </a></td><td>嚼6年</td></tr><tr><td style=\"white-space:nowrap\">07<a name=\"sf-BetNutChewYear-codesystem-07\"> </a></td><td>嚼7年</td></tr><tr><td style=\"white-space:nowrap\">08<a name=\"sf-BetNutChewYear-codesystem-08\"> </a></td><td>嚼8年</td></tr><tr><td style=\"white-space:nowrap\">09<a name=\"sf-BetNutChewYear-codesystem-09\"> </a></td><td>嚼9年</td></tr><tr><td style=\"white-space:nowrap\">10<a name=\"sf-BetNutChewYear-codesystem-10\"> </a></td><td>嚼10年</td></tr><tr><td style=\"white-space:nowrap\">11<a name=\"sf-BetNutChewYear-codesystem-11\"> </a></td><td>嚼11年</td></tr><tr><td style=\"white-space:nowrap\">12<a name=\"sf-BetNutChewYear-codesystem-12\"> </a></td><td>嚼12年</td></tr><tr><td style=\"white-space:nowrap\">13<a name=\"sf-BetNutChewYear-codesystem-13\"> </a></td><td>嚼13年</td></tr><tr><td style=\"white-space:nowrap\">14<a name=\"sf-BetNutChewYear-codesystem-14\"> </a></td><td>嚼14年</td></tr><tr><td style=\"white-space:nowrap\">15<a name=\"sf-BetNutChewYear-codesystem-15\"> </a></td><td>嚼15年</td></tr><tr><td style=\"white-space:nowrap\">16<a name=\"sf-BetNutChewYear-codesystem-16\"> </a></td><td>嚼16年</td></tr><tr><td style=\"white-space:nowrap\">17<a name=\"sf-BetNutChewYear-codesystem-17\"> </a></td><td>嚼17年</td></tr><tr><td style=\"white-space:nowrap\">18<a name=\"sf-BetNutChewYear-codesystem-18\"> </a></td><td>嚼18年</td></tr><tr><td style=\"white-space:nowrap\">19<a name=\"sf-BetNutChewYear-codesystem-19\"> </a></td><td>嚼19年</td></tr><tr><td style=\"white-space:nowrap\">20<a name=\"sf-BetNutChewYear-codesystem-20\"> </a></td><td>嚼20年</td></tr><tr><td style=\"white-space:nowrap\">21<a name=\"sf-BetNutChewYear-codesystem-21\"> </a></td><td>嚼21年</td></tr><tr><td style=\"white-space:nowrap\">22<a name=\"sf-BetNutChewYear-codesystem-22\"> </a></td><td>嚼22年</td></tr><tr><td style=\"white-space:nowrap\">23<a name=\"sf-BetNutChewYear-codesystem-23\"> </a></td><td>嚼23年</td></tr><tr><td style=\"white-space:nowrap\">24<a name=\"sf-BetNutChewYear-codesystem-24\"> </a></td><td>嚼24年</td></tr><tr><td style=\"white-space:nowrap\">25<a name=\"sf-BetNutChewYear-codesystem-25\"> </a></td><td>嚼25年</td></tr><tr><td style=\"white-space:nowrap\">26<a name=\"sf-BetNutChewYear-codesystem-26\"> </a></td><td>嚼26年</td></tr><tr><td style=\"white-space:nowrap\">27<a name=\"sf-BetNutChewYear-codesystem-27\"> </a></td><td>嚼27年</td></tr><tr><td style=\"white-space:nowrap\">28<a name=\"sf-BetNutChewYear-codesystem-28\"> </a></td><td>嚼28年</td></tr><tr><td style=\"white-space:nowrap\">29<a name=\"sf-BetNutChewYear-codesystem-29\"> </a></td><td>嚼29年</td></tr><tr><td style=\"white-space:nowrap\">30<a name=\"sf-BetNutChewYear-codesystem-30\"> </a></td><td>嚼30年</td></tr><tr><td style=\"white-space:nowrap\">31<a name=\"sf-BetNutChewYear-codesystem-31\"> </a></td><td>嚼31年</td></tr><tr><td style=\"white-space:nowrap\">32<a name=\"sf-BetNutChewYear-codesystem-32\"> </a></td><td>嚼32年</td></tr><tr><td style=\"white-space:nowrap\">33<a name=\"sf-BetNutChewYear-codesystem-33\"> </a></td><td>嚼33年</td></tr><tr><td style=\"white-space:nowrap\">34<a name=\"sf-BetNutChewYear-codesystem-34\"> </a></td><td>嚼34年</td></tr><tr><td style=\"white-space:nowrap\">35<a name=\"sf-BetNutChewYear-codesystem-35\"> </a></td><td>嚼35年</td></tr><tr><td style=\"white-space:nowrap\">36<a name=\"sf-BetNutChewYear-codesystem-36\"> </a></td><td>嚼36年</td></tr><tr><td style=\"white-space:nowrap\">37<a name=\"sf-BetNutChewYear-codesystem-37\"> </a></td><td>嚼37年</td></tr><tr><td style=\"white-space:nowrap\">38<a name=\"sf-BetNutChewYear-codesystem-38\"> </a></td><td>嚼38年</td></tr><tr><td style=\"white-space:nowrap\">39<a name=\"sf-BetNutChewYear-codesystem-39\"> </a></td><td>嚼39年</td></tr><tr><td style=\"white-space:nowrap\">40<a name=\"sf-BetNutChewYear-codesystem-40\"> </a></td><td>嚼40年</td></tr><tr><td style=\"white-space:nowrap\">41<a name=\"sf-BetNutChewYear-codesystem-41\"> </a></td><td>嚼41年</td></tr><tr><td style=\"white-space:nowrap\">42<a name=\"sf-BetNutChewYear-codesystem-42\"> </a></td><td>嚼42年</td></tr><tr><td style=\"white-space:nowrap\">43<a name=\"sf-BetNutChewYear-codesystem-43\"> </a></td><td>嚼43年</td></tr><tr><td style=\"white-space:nowrap\">44<a name=\"sf-BetNutChewYear-codesystem-44\"> </a></td><td>嚼44年</td></tr><tr><td style=\"white-space:nowrap\">45<a name=\"sf-BetNutChewYear-codesystem-45\"> </a></td><td>嚼45年</td></tr><tr><td style=\"white-space:nowrap\">46<a name=\"sf-BetNutChewYear-codesystem-46\"> </a></td><td>嚼46年</td></tr><tr><td style=\"white-space:nowrap\">47<a name=\"sf-BetNutChewYear-codesystem-47\"> </a></td><td>嚼47年</td></tr><tr><td style=\"white-space:nowrap\">48<a name=\"sf-BetNutChewYear-codesystem-48\"> </a></td><td>嚼48年</td></tr><tr><td style=\"white-space:nowrap\">49<a name=\"sf-BetNutChewYear-codesystem-49\"> </a></td><td>嚼49年</td></tr><tr><td style=\"white-space:nowrap\">50<a name=\"sf-BetNutChewYear-codesystem-50\"> </a></td><td>嚼50年</td></tr><tr><td style=\"white-space:nowrap\">51<a name=\"sf-BetNutChewYear-codesystem-51\"> </a></td><td>嚼51年</td></tr><tr><td style=\"white-space:nowrap\">52<a name=\"sf-BetNutChewYear-codesystem-52\"> </a></td><td>嚼52年</td></tr><tr><td style=\"white-space:nowrap\">53<a name=\"sf-BetNutChewYear-codesystem-53\"> </a></td><td>嚼53年</td></tr><tr><td style=\"white-space:nowrap\">54<a name=\"sf-BetNutChewYear-codesystem-54\"> </a></td><td>嚼54年</td></tr><tr><td style=\"white-space:nowrap\">55<a name=\"sf-BetNutChewYear-codesystem-55\"> </a></td><td>嚼55年</td></tr><tr><td style=\"white-space:nowrap\">56<a name=\"sf-BetNutChewYear-codesystem-56\"> </a></td><td>嚼56年</td></tr><tr><td style=\"white-space:nowrap\">57<a name=\"sf-BetNutChewYear-codesystem-57\"> </a></td><td>嚼57年</td></tr><tr><td style=\"white-space:nowrap\">58<a name=\"sf-BetNutChewYear-codesystem-58\"> </a></td><td>嚼58年</td></tr><tr><td style=\"white-space:nowrap\">59<a name=\"sf-BetNutChewYear-codesystem-59\"> </a></td><td>嚼59年</td></tr><tr><td style=\"white-space:nowrap\">60<a name=\"sf-BetNutChewYear-codesystem-60\"> </a></td><td>嚼60年</td></tr><tr><td style=\"white-space:nowrap\">61<a name=\"sf-BetNutChewYear-codesystem-61\"> </a></td><td>嚼61年</td></tr><tr><td style=\"white-space:nowrap\">62<a name=\"sf-BetNutChewYear-codesystem-62\"> </a></td><td>嚼62年</td></tr><tr><td style=\"white-space:nowrap\">63<a name=\"sf-BetNutChewYear-codesystem-63\"> </a></td><td>嚼63年</td></tr><tr><td style=\"white-space:nowrap\">64<a name=\"sf-BetNutChewYear-codesystem-64\"> </a></td><td>嚼64年</td></tr><tr><td style=\"white-space:nowrap\">65<a name=\"sf-BetNutChewYear-codesystem-65\"> </a></td><td>嚼65年</td></tr><tr><td style=\"white-space:nowrap\">66<a name=\"sf-BetNutChewYear-codesystem-66\"> </a></td><td>嚼66年</td></tr><tr><td style=\"white-space:nowrap\">67<a name=\"sf-BetNutChewYear-codesystem-67\"> </a></td><td>嚼67年</td></tr><tr><td style=\"white-space:nowrap\">68<a name=\"sf-BetNutChewYear-codesystem-68\"> </a></td><td>嚼68年</td></tr><tr><td style=\"white-space:nowrap\">69<a name=\"sf-BetNutChewYear-codesystem-69\"> </a></td><td>嚼69年</td></tr><tr><td style=\"white-space:nowrap\">70<a name=\"sf-BetNutChewYear-codesystem-70\"> </a></td><td>嚼70年</td></tr><tr><td style=\"white-space:nowrap\">71<a name=\"sf-BetNutChewYear-codesystem-71\"> </a></td><td>嚼71年</td></tr><tr><td style=\"white-space:nowrap\">72<a name=\"sf-BetNutChewYear-codesystem-72\"> </a></td><td>嚼72年</td></tr><tr><td style=\"white-space:nowrap\">73<a name=\"sf-BetNutChewYear-codesystem-73\"> </a></td><td>嚼73年</td></tr><tr><td style=\"white-space:nowrap\">74<a name=\"sf-BetNutChewYear-codesystem-74\"> </a></td><td>嚼74年</td></tr><tr><td style=\"white-space:nowrap\">75<a name=\"sf-BetNutChewYear-codesystem-75\"> </a></td><td>嚼75年</td></tr><tr><td style=\"white-space:nowrap\">76<a name=\"sf-BetNutChewYear-codesystem-76\"> </a></td><td>嚼76年</td></tr><tr><td style=\"white-space:nowrap\">77<a name=\"sf-BetNutChewYear-codesystem-77\"> </a></td><td>嚼77年</td></tr><tr><td style=\"white-space:nowrap\">78<a name=\"sf-BetNutChewYear-codesystem-78\"> </a></td><td>嚼78年</td></tr><tr><td style=\"white-space:nowrap\">79<a name=\"sf-BetNutChewYear-codesystem-79\"> </a></td><td>嚼79年</td></tr><tr><td style=\"white-space:nowrap\">80<a name=\"sf-BetNutChewYear-codesystem-80\"> </a></td><td>嚼80年</td></tr><tr><td style=\"white-space:nowrap\">81<a name=\"sf-BetNutChewYear-codesystem-81\"> </a></td><td>嚼81年</td></tr><tr><td style=\"white-space:nowrap\">82<a name=\"sf-BetNutChewYear-codesystem-82\"> </a></td><td>嚼82年</td></tr><tr><td style=\"white-space:nowrap\">83<a name=\"sf-BetNutChewYear-codesystem-83\"> </a></td><td>嚼83年</td></tr><tr><td style=\"white-space:nowrap\">84<a name=\"sf-BetNutChewYear-codesystem-84\"> </a></td><td>嚼84年</td></tr><tr><td style=\"white-space:nowrap\">85<a name=\"sf-BetNutChewYear-codesystem-85\"> </a></td><td>嚼85年</td></tr><tr><td style=\"white-space:nowrap\">86<a name=\"sf-BetNutChewYear-codesystem-86\"> </a></td><td>嚼86年</td></tr><tr><td style=\"white-space:nowrap\">87<a name=\"sf-BetNutChewYear-codesystem-87\"> </a></td><td>嚼87年</td></tr><tr><td style=\"white-space:nowrap\">88<a name=\"sf-BetNutChewYear-codesystem-88\"> </a></td><td>嚼88年</td></tr><tr><td style=\"white-space:nowrap\">89<a name=\"sf-BetNutChewYear-codesystem-89\"> </a></td><td>嚼89年</td></tr><tr><td style=\"white-space:nowrap\">90<a name=\"sf-BetNutChewYear-codesystem-90\"> </a></td><td>嚼90年</td></tr><tr><td style=\"white-space:nowrap\">91<a name=\"sf-BetNutChewYear-codesystem-91\"> </a></td><td>嚼91年</td></tr><tr><td style=\"white-space:nowrap\">92<a name=\"sf-BetNutChewYear-codesystem-92\"> </a></td><td>嚼92年</td></tr><tr><td style=\"white-space:nowrap\">93<a name=\"sf-BetNutChewYear-codesystem-93\"> </a></td><td>嚼93年</td></tr><tr><td style=\"white-space:nowrap\">94<a name=\"sf-BetNutChewYear-codesystem-94\"> </a></td><td>嚼94年</td></tr><tr><td style=\"white-space:nowrap\">95<a name=\"sf-BetNutChewYear-codesystem-95\"> </a></td><td>嚼95年</td></tr><tr><td style=\"white-space:nowrap\">96<a name=\"sf-BetNutChewYear-codesystem-96\"> </a></td><td>嚼96年</td></tr><tr><td style=\"white-space:nowrap\">97<a name=\"sf-BetNutChewYear-codesystem-97\"> </a></td><td>嚼97年</td></tr><tr><td style=\"white-space:nowrap\">98<a name=\"sf-BetNutChewYear-codesystem-98\"> </a></td><td>嚼檳榔，但年不詳</td></tr><tr><td style=\"white-space:nowrap\">99<a name=\"sf-BetNutChewYear-codesystem-99\"> </a></td><td>病歷未記載或嚼檳榔狀態完全不詳者</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "sf-BetNutChewYear-codesystem"] ;
+  fhir:CodeSystem.title [ fhir:value "嚼檳榔年代碼系統"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.date [ fhir:value "2026-07-23T22:22:27+08:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "Betel Nut Chewing Year Code System"] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "100"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "00" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "無嚼檳榔" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "01" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼1年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "02" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼2年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "03" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼3年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "04" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼4年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "05" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼5年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "06" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼6年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "07" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼7年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "08" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼8年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "09" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼9年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "10" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼10年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "11" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼11年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "12" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼12年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "13" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼13年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "14" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼14年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "15" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼15年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "16" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼16年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "17" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼17年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "18" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼18年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "19" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼19年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "20" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼20年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "21" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼21年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "22" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼22年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "23" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼23年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "24" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼24年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "25" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼25年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "26" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼26年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "27" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼27年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "28" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼28年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "29" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼29年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "30" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼30年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "31" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼31年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "32" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼32年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "33" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼33年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "34" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼34年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "35" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼35年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "36" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼36年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "37" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼37年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "38" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼38年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "39" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼39年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "40" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼40年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "41" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼41年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "42" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼42年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "43" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼43年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "44" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼44年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "45" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼45年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "46" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼46年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "47" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼47年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "48" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼48年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "49" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼49年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "50" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼50年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "51" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼51年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "52" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼52年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "53" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼53年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "54" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼54年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "55" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼55年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "56" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼56年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "57" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼57年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "58" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼58年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "59" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼59年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "60" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼60年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "61" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼61年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "62" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼62年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "63" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼63年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "64" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼64年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "65" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼65年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "66" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼66年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "67" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼67年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "68" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼68年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "69" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼69年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "70" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼70年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "71" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼71年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "72" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼72年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "73" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼73年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "74" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼74年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "75" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼75年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "76" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼76年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "77" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼77年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "78" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼78年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "79" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼79年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "80" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼80年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "81" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼81年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "82" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼82年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "83" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼83年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "84" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼84年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "85" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼85年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "86" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼86年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "87" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼87年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "88" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼88年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "89" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼89年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "90" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼90年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "91" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼91年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "92" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼92年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "93" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼93年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "94" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼94年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "95" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼95年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "96" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼96年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "97" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼97年" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "98" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼檳榔，但年不詳" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "99" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "病歷未記載或嚼檳榔狀態完全不詳者" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/sf-BetNutChewYear-codesystem.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
 
 # -------------------------------------------------------------------------------------
 

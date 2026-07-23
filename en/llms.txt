@@ -21,6 +21,7 @@
 
 ### CodeSystems
 
+* [附表十特別危害健康作業具名代碼系統](CodeSystem-CS-Appendix10Operation.md)
 * [檢查類型代碼系統](CodeSystem-CS-ExamType.md)
 * [適性配工建議代碼系統](CodeSystem-CS-FitnessForWork.md)
 * [特別危害健康作業類別代碼系統](CodeSystem-CS-HazardType.md)
@@ -40,6 +41,7 @@
 
 ### ValueSets
 
+* [附表十特別危害健康作業值集（35 項）](ValueSet-VS-Appendix10-Operation.md)
 * [健康檢查核心項目值集](ValueSet-VS-CoreDataset.md)
 * [檢查類型值集](ValueSet-VS-ExamType.md)
 * [健康檢查進階與領域擴充項目值集](ValueSet-VS-ExtendedDataset.md)
@@ -68,6 +70,7 @@
 * [健康檢查資料上傳封包 (Transaction Bundle) Profile](StructureDefinition-TWHA-Bundle-Transaction.md)
 * [健康檢查適性配工計畫 Profile](StructureDefinition-TWHA-CarePlan.md)
 * [健康檢查健檢醫師總評與分級 Profile](StructureDefinition-TWHA-ClinicalImpression.md)
+* [職業健康急診友善摘要 Composition Profile](StructureDefinition-TWHA-Composition-EmergencySummary.md)
 * [健康檢查健康服務執行紀錄組成結構 Profile](StructureDefinition-TWHA-Composition-ServiceRecord.md)
 * [健康檢查健檢報告組成結構 Profile](StructureDefinition-TWHA-Composition.md)
 * [健康檢查既往病史與不適作業疾病 Profile](StructureDefinition-TWHA-Condition.md)
@@ -118,6 +121,10 @@
 * [勞動部通報報告代碼擴充](StructureDefinition-ext-labor-report-code.md)
 * [吸菸量及菸齡擴充](StructureDefinition-ext-smoking-quantity.md)
 
+### ConceptMaps
+
+* [附表十 35 項法定作業 對 12 危害家族 對照](ConceptMap-Appendix10-to-HazardType.md)
+
 ### ImplementationGuides
 
 * [臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)](ImplementationGuide-mohw.tw.twha.md)
@@ -134,8 +141,10 @@
 * [UC-004 (Bundle)](Bundle-UC-004.md)
 * [UC-005 (Bundle)](Bundle-UC-005.md)
 * [UC-006 (Bundle)](Bundle-UC-006.md)
+* [UC-007 (Bundle)](Bundle-UC-007.md)
 * [TWHA-CapabilityStatement (CapabilityStatement)](CapabilityStatement-TWHA-CapabilityStatement.md)
 * [example-clinical-impression (ClinicalImpression)](ClinicalImpression-example-clinical-impression.md)
+* [職業健康急診友善摘要 (Composition)](Composition-composition-emergency-summary.md)
 * [一般健康檢查報告 (Composition)](Composition-composition-uc001.md)
 * [勞工一般體格及健康檢查紀錄 (Composition)](Composition-composition-uc002.md)
 * [特殊危害健康作業檢查報告 (Composition)](Composition-composition-uc003.md)
@@ -153,6 +162,7 @@
 * [obs-bmi (Observation)](Observation-obs-bmi.md)
 * [obs-endoscopy-colon (Observation)](Observation-obs-endoscopy-colon.md)
 * [obs-endoscopy-egd (Observation)](Observation-obs-endoscopy-egd.md)
+* [obs-exposure-lead (Observation)](Observation-obs-exposure-lead.md)
 * [obs-hearing (Observation)](Observation-obs-hearing.md)
 * [obs-height (Observation)](Observation-obs-height.md)
 * [obs-imaging-brain-mri (Observation)](Observation-obs-imaging-brain-mri.md)
@@ -160,6 +170,7 @@
 * [obs-imaging-lung-ct (Observation)](Observation-obs-imaging-lung-ct.md)
 * [obs-imaging-mammo (Observation)](Observation-obs-imaging-mammo.md)
 * [obs-imaging-pet (Observation)](Observation-obs-imaging-pet.md)
+* [obs-lab-egfr-absent (Observation)](Observation-obs-lab-egfr-absent.md)
 * [obs-lab-glucose (Observation)](Observation-obs-lab-glucose.md)
 * [obs-physical (Observation)](Observation-obs-physical.md)
 * [obs-pulmonary (Observation)](Observation-obs-pulmonary.md)

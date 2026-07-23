@@ -11,7 +11,7 @@
 **Usages:**
 
 * Use this Extension: [健康檢查健檢醫師總評與分級 Profile](StructureDefinition-TWHA-ClinicalImpression.md)
-* Examples for this Extension: [Bundle/UC-001](Bundle-UC-001.md), [Bundle/UC-002](Bundle-UC-002.md), [Bundle/UC-003](Bundle-UC-003.md), [Bundle/UC-004](Bundle-UC-004.md)... Show 2 more, [Bundle/UC-005](Bundle-UC-005.md) and [ClinicalImpression/example-clinical-impression](ClinicalImpression-example-clinical-impression.md)
+* Examples for this Extension: [Bundle/UC-001](Bundle-UC-001.md), [Bundle/UC-002](Bundle-UC-002.md), [Bundle/UC-003](Bundle-UC-003.md), [Bundle/UC-004](Bundle-UC-004.md)... Show 3 more, [Bundle/UC-005](Bundle-UC-005.md), [Bundle/UC-007](Bundle-UC-007.md) and [ClinicalImpression/example-clinical-impression](ClinicalImpression-example-clinical-impression.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-ext-health-mgmt-level.json)
 
@@ -37,7 +37,7 @@ Other representations of profile: [CSV](../StructureDefinition-ext-health-mgmt-l
   "title" : "健康管理分級擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-10T21:30:50+08:00",
+  "date" : "2026-07-23T22:22:27+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

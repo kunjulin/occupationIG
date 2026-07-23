@@ -1,11 +1,2265 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="894f32bd-2b98-4fdb-9799-577d7e4fe390"/>
+  <id value="5eac62d1-491c-4f11-ac2c-80f3e71f8078"/>
   <meta>
-    <lastUpdated value="2026-07-10T21:30:50.627+08:00"/>
+    <lastUpdated value="2026-07-23T22:22:27.019+08:00"/>
   </meta>
   <type value="collection"/>
+  <entry>
+    <fullUrl value="https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation"/>
+    <resource>
+      <ValueSet>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml" data-fhir="generated">
+            <p class="res-header-id"/>
+            <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion performed internally based on 
+              <a href="CodeSystem-CS-Appendix10Operation.html">codesystem 附表十特別危害健康作業具名代碼系統 v0.1.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation|0.1.0" title="Click to Copy URL" class="btn-copy"> </button>
+              </span>
+            </p>
+            <p>This value set contains 35 concepts</p>
+            <table class="codes" data-fhir="generated">
+              <tr>
+                <td>
+                  <b>System</b>
+                </td>
+                <td style="white-space:nowrap">
+                  <b>Code</b>
+                </td>
+                <td>
+                  <b>Display (en)</b>
+                </td>
+                <td>
+                  <b>
+                    <a href="ValueSet-VS-HazardType.html">附表十 35 項法定作業 對 12 危害家族 對照</a>
+                  </b>
+                </td>
+                <td>
+                  <b>JSON</b>
+                </td>
+                <td>
+                  <b>XML</b>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-01"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-01">app-01</a>
+                </td>
+                <td>高溫作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-high-temp">high-temp</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-01&quot;, &quot;display&quot;: &quot;高溫作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-01&quot;&gt;&lt;display value=&quot;高溫作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-02"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-02">app-02</a>
+                </td>
+                <td>噪音作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-noise">noise</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-02&quot;, &quot;display&quot;: &quot;噪音作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-02&quot;&gt;&lt;display value=&quot;噪音作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-03"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-03">app-03</a>
+                </td>
+                <td>游離輻射作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-radiation">radiation</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-03&quot;, &quot;display&quot;: &quot;游離輻射作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-03&quot;&gt;&lt;display value=&quot;游離輻射作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-04"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-04">app-04</a>
+                </td>
+                <td>異常氣壓作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-abnormal-pressure">abnormal-pressure</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-04&quot;, &quot;display&quot;: &quot;異常氣壓作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-04&quot;&gt;&lt;display value=&quot;異常氣壓作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-05"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-05">app-05</a>
+                </td>
+                <td>鉛作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-lead">lead</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-05&quot;, &quot;display&quot;: &quot;鉛作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-05&quot;&gt;&lt;display value=&quot;鉛作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-06"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-06">app-06</a>
+                </td>
+                <td>四烷基鉛作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-tetraalkyl-lead">tetraalkyl-lead</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-06&quot;, &quot;display&quot;: &quot;四烷基鉛作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-06&quot;&gt;&lt;display value=&quot;四烷基鉛作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-07"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-07">app-07</a>
+                </td>
+                <td>1,1,2,2-四氯乙烷作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-07&quot;, &quot;display&quot;: &quot;1,1,2,2-四氯乙烷作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-07&quot;&gt;&lt;display value=&quot;1,1,2,2-四氯乙烷作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-08"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-08">app-08</a>
+                </td>
+                <td>四氯化碳作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-08&quot;, &quot;display&quot;: &quot;四氯化碳作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-08&quot;&gt;&lt;display value=&quot;四氯化碳作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-09"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-09">app-09</a>
+                </td>
+                <td>二硫化碳作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-09&quot;, &quot;display&quot;: &quot;二硫化碳作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-09&quot;&gt;&lt;display value=&quot;二硫化碳作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-10"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-10">app-10</a>
+                </td>
+                <td>三氯乙烯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-10&quot;, &quot;display&quot;: &quot;三氯乙烯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-10&quot;&gt;&lt;display value=&quot;三氯乙烯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-11"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-11">app-11</a>
+                </td>
+                <td>二甲基甲醯胺作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-11&quot;, &quot;display&quot;: &quot;二甲基甲醯胺作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-11&quot;&gt;&lt;display value=&quot;二甲基甲醯胺作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-12"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-12">app-12</a>
+                </td>
+                <td>正己烷作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-12&quot;, &quot;display&quot;: &quot;正己烷作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-12&quot;&gt;&lt;display value=&quot;正己烷作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-13"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-13">app-13</a>
+                </td>
+                <td>聯苯胺及其鹽類作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-13&quot;, &quot;display&quot;: &quot;聯苯胺及其鹽類作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-13&quot;&gt;&lt;display value=&quot;聯苯胺及其鹽類作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-14"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-14">app-14</a>
+                </td>
+                <td>鈹及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-14&quot;, &quot;display&quot;: &quot;鈹及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-14&quot;&gt;&lt;display value=&quot;鈹及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-15"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-15">app-15</a>
+                </td>
+                <td>氯乙烯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-15&quot;, &quot;display&quot;: &quot;氯乙烯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-15&quot;&gt;&lt;display value=&quot;氯乙烯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-16"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-16">app-16</a>
+                </td>
+                <td>苯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-16&quot;, &quot;display&quot;: &quot;苯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-16&quot;&gt;&lt;display value=&quot;苯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-17"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-17">app-17</a>
+                </td>
+                <td>2,4-二異氰酸甲苯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-17&quot;, &quot;display&quot;: &quot;2,4-二異氰酸甲苯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-17&quot;&gt;&lt;display value=&quot;2,4-二異氰酸甲苯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-18"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-18">app-18</a>
+                </td>
+                <td>石綿作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-18&quot;, &quot;display&quot;: &quot;石綿作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-18&quot;&gt;&lt;display value=&quot;石綿作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-19"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-19">app-19</a>
+                </td>
+                <td>砷及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-19&quot;, &quot;display&quot;: &quot;砷及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-19&quot;&gt;&lt;display value=&quot;砷及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-20"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-20">app-20</a>
+                </td>
+                <td>錳及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-20&quot;, &quot;display&quot;: &quot;錳及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-20&quot;&gt;&lt;display value=&quot;錳及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-21"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-21">app-21</a>
+                </td>
+                <td>黃磷作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-yellow-phosphorus">yellow-phosphorus</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-21&quot;, &quot;display&quot;: &quot;黃磷作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-21&quot;&gt;&lt;display value=&quot;黃磷作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-22"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-22">app-22</a>
+                </td>
+                <td>聯吡啶或巴拉刈作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-paraquat">paraquat</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-22&quot;, &quot;display&quot;: &quot;聯吡啶或巴拉刈作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-22&quot;&gt;&lt;display value=&quot;聯吡啶或巴拉刈作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-23"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-23">app-23</a>
+                </td>
+                <td>粉塵作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-dust">dust</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-23&quot;, &quot;display&quot;: &quot;粉塵作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-23&quot;&gt;&lt;display value=&quot;粉塵作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-24"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-24">app-24</a>
+                </td>
+                <td>鉻酸及其鹽類作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-24&quot;, &quot;display&quot;: &quot;鉻酸及其鹽類作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-24&quot;&gt;&lt;display value=&quot;鉻酸及其鹽類作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-25"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-25">app-25</a>
+                </td>
+                <td>鎘及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-25&quot;, &quot;display&quot;: &quot;鎘及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-25&quot;&gt;&lt;display value=&quot;鎘及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-26"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-26">app-26</a>
+                </td>
+                <td>鎳及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-26&quot;, &quot;display&quot;: &quot;鎳及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-26&quot;&gt;&lt;display value=&quot;鎳及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-27"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-27">app-27</a>
+                </td>
+                <td>乙基汞化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-27&quot;, &quot;display&quot;: &quot;乙基汞化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-27&quot;&gt;&lt;display value=&quot;乙基汞化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-28"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-28">app-28</a>
+                </td>
+                <td>溴丙烷作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-28&quot;, &quot;display&quot;: &quot;溴丙烷作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-28&quot;&gt;&lt;display value=&quot;溴丙烷作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-29"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-29">app-29</a>
+                </td>
+                <td>1,3-丁二烯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-29&quot;, &quot;display&quot;: &quot;1,3-丁二烯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-29&quot;&gt;&lt;display value=&quot;1,3-丁二烯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-30"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-30">app-30</a>
+                </td>
+                <td>甲醛作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-30&quot;, &quot;display&quot;: &quot;甲醛作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-30&quot;&gt;&lt;display value=&quot;甲醛作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-31"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-31">app-31</a>
+                </td>
+                <td>銦及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-31&quot;, &quot;display&quot;: &quot;銦及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-31&quot;&gt;&lt;display value=&quot;銦及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-32"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-32">app-32</a>
+                </td>
+                <td>汞及其無機化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-32&quot;, &quot;display&quot;: &quot;汞及其無機化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-32&quot;&gt;&lt;display value=&quot;汞及其無機化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-33"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-33">app-33</a>
+                </td>
+                <td>苯乙烯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-33&quot;, &quot;display&quot;: &quot;苯乙烯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-33&quot;&gt;&lt;display value=&quot;苯乙烯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-34"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-34">app-34</a>
+                </td>
+                <td>甲苯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-34&quot;, &quot;display&quot;: &quot;甲苯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-34&quot;&gt;&lt;display value=&quot;甲苯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-35"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-35">app-35</a>
+                </td>
+                <td>二甲苯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-35&quot;, &quot;display&quot;: &quot;二甲苯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-35&quot;&gt;&lt;display value=&quot;二甲苯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </text>
+        <url value="https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation"/>
+        <version value="0.1.0"/>
+        <name value="VS_Appendix10Operation"/>
+        <title value="附表十特別危害健康作業值集（35 項）"/>
+        <status value="active"/>
+        <experimental value="false"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
+        <expansion>
+          <identifier value="urn:uuid:f7915212-a053-4754-b531-992e6784a352"/>
+          <timestamp value="2026-07-23T22:26:05+08:00"/>
+          <total value="35"/>
+          <offset value="0"/>
+          <parameter>
+            <name value="displayLanguage"/>
+            <valueCode value="en"/>
+          </parameter>
+          <parameter>
+            <name value="count"/>
+            <valueInteger value="1000"/>
+          </parameter>
+          <parameter>
+            <name value="offset"/>
+            <valueInteger value="0"/>
+          </parameter>
+          <parameter>
+            <name value="excludeNested"/>
+            <valueBoolean value="false"/>
+          </parameter>
+          <parameter>
+            <name value="used-codesystem"/>
+            <valueUri value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation|0.1.0"/>
+          </parameter>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-01"/>
+            <display value="高溫作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-02"/>
+            <display value="噪音作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-03"/>
+            <display value="游離輻射作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-04"/>
+            <display value="異常氣壓作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-05"/>
+            <display value="鉛作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-06"/>
+            <display value="四烷基鉛作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-07"/>
+            <display value="1,1,2,2-四氯乙烷作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-08"/>
+            <display value="四氯化碳作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-09"/>
+            <display value="二硫化碳作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-10"/>
+            <display value="三氯乙烯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-11"/>
+            <display value="二甲基甲醯胺作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-12"/>
+            <display value="正己烷作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-13"/>
+            <display value="聯苯胺及其鹽類作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-14"/>
+            <display value="鈹及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-15"/>
+            <display value="氯乙烯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-16"/>
+            <display value="苯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-17"/>
+            <display value="2,4-二異氰酸甲苯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-18"/>
+            <display value="石綿作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-19"/>
+            <display value="砷及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-20"/>
+            <display value="錳及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-21"/>
+            <display value="黃磷作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-22"/>
+            <display value="聯吡啶或巴拉刈作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-23"/>
+            <display value="粉塵作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-24"/>
+            <display value="鉻酸及其鹽類作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-25"/>
+            <display value="鎘及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-26"/>
+            <display value="鎳及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-27"/>
+            <display value="乙基汞化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-28"/>
+            <display value="溴丙烷作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-29"/>
+            <display value="1,3-丁二烯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-30"/>
+            <display value="甲醛作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-31"/>
+            <display value="銦及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-32"/>
+            <display value="汞及其無機化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-33"/>
+            <display value="苯乙烯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-34"/>
+            <display value="甲苯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-35"/>
+            <display value="二甲苯作業"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation"/>
+    <resource>
+      <ValueSet>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml" data-fhir="generated">
+            <p class="res-header-id"/>
+            <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion performed internally based on 
+              <a href="CodeSystem-CS-Appendix10Operation.html">codesystem 附表十特別危害健康作業具名代碼系統 v0.1.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation|0.1.0" title="Click to Copy URL" class="btn-copy"> </button>
+              </span>
+            </p>
+            <p>This value set contains 35 concepts</p>
+            <table class="codes" data-fhir="generated">
+              <tr>
+                <td>
+                  <b>System</b>
+                </td>
+                <td style="white-space:nowrap">
+                  <b>Code</b>
+                </td>
+                <td>
+                  <b>Display (en)</b>
+                </td>
+                <td>
+                  <b>
+                    <a href="ValueSet-VS-HazardType.html">附表十 35 項法定作業 對 12 危害家族 對照</a>
+                  </b>
+                </td>
+                <td>
+                  <b>JSON</b>
+                </td>
+                <td>
+                  <b>XML</b>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-01"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-01">app-01</a>
+                </td>
+                <td>高溫作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-high-temp">high-temp</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-01&quot;, &quot;display&quot;: &quot;高溫作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-01&quot;&gt;&lt;display value=&quot;高溫作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-02"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-02">app-02</a>
+                </td>
+                <td>噪音作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-noise">noise</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-02&quot;, &quot;display&quot;: &quot;噪音作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-02&quot;&gt;&lt;display value=&quot;噪音作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-03"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-03">app-03</a>
+                </td>
+                <td>游離輻射作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-radiation">radiation</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-03&quot;, &quot;display&quot;: &quot;游離輻射作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-03&quot;&gt;&lt;display value=&quot;游離輻射作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-04"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-04">app-04</a>
+                </td>
+                <td>異常氣壓作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-abnormal-pressure">abnormal-pressure</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-04&quot;, &quot;display&quot;: &quot;異常氣壓作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-04&quot;&gt;&lt;display value=&quot;異常氣壓作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-05"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-05">app-05</a>
+                </td>
+                <td>鉛作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-lead">lead</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-05&quot;, &quot;display&quot;: &quot;鉛作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-05&quot;&gt;&lt;display value=&quot;鉛作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-06"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-06">app-06</a>
+                </td>
+                <td>四烷基鉛作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-tetraalkyl-lead">tetraalkyl-lead</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-06&quot;, &quot;display&quot;: &quot;四烷基鉛作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-06&quot;&gt;&lt;display value=&quot;四烷基鉛作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-07"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-07">app-07</a>
+                </td>
+                <td>1,1,2,2-四氯乙烷作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-07&quot;, &quot;display&quot;: &quot;1,1,2,2-四氯乙烷作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-07&quot;&gt;&lt;display value=&quot;1,1,2,2-四氯乙烷作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-08"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-08">app-08</a>
+                </td>
+                <td>四氯化碳作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-08&quot;, &quot;display&quot;: &quot;四氯化碳作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-08&quot;&gt;&lt;display value=&quot;四氯化碳作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-09"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-09">app-09</a>
+                </td>
+                <td>二硫化碳作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-09&quot;, &quot;display&quot;: &quot;二硫化碳作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-09&quot;&gt;&lt;display value=&quot;二硫化碳作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-10"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-10">app-10</a>
+                </td>
+                <td>三氯乙烯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-10&quot;, &quot;display&quot;: &quot;三氯乙烯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-10&quot;&gt;&lt;display value=&quot;三氯乙烯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-11"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-11">app-11</a>
+                </td>
+                <td>二甲基甲醯胺作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-11&quot;, &quot;display&quot;: &quot;二甲基甲醯胺作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-11&quot;&gt;&lt;display value=&quot;二甲基甲醯胺作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-12"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-12">app-12</a>
+                </td>
+                <td>正己烷作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-12&quot;, &quot;display&quot;: &quot;正己烷作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-12&quot;&gt;&lt;display value=&quot;正己烷作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-13"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-13">app-13</a>
+                </td>
+                <td>聯苯胺及其鹽類作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-13&quot;, &quot;display&quot;: &quot;聯苯胺及其鹽類作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-13&quot;&gt;&lt;display value=&quot;聯苯胺及其鹽類作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-14"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-14">app-14</a>
+                </td>
+                <td>鈹及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-14&quot;, &quot;display&quot;: &quot;鈹及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-14&quot;&gt;&lt;display value=&quot;鈹及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-15"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-15">app-15</a>
+                </td>
+                <td>氯乙烯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-15&quot;, &quot;display&quot;: &quot;氯乙烯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-15&quot;&gt;&lt;display value=&quot;氯乙烯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-16"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-16">app-16</a>
+                </td>
+                <td>苯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-16&quot;, &quot;display&quot;: &quot;苯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-16&quot;&gt;&lt;display value=&quot;苯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-17"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-17">app-17</a>
+                </td>
+                <td>2,4-二異氰酸甲苯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-17&quot;, &quot;display&quot;: &quot;2,4-二異氰酸甲苯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-17&quot;&gt;&lt;display value=&quot;2,4-二異氰酸甲苯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-18"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-18">app-18</a>
+                </td>
+                <td>石綿作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-18&quot;, &quot;display&quot;: &quot;石綿作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-18&quot;&gt;&lt;display value=&quot;石綿作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-19"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-19">app-19</a>
+                </td>
+                <td>砷及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-19&quot;, &quot;display&quot;: &quot;砷及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-19&quot;&gt;&lt;display value=&quot;砷及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-20"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-20">app-20</a>
+                </td>
+                <td>錳及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-20&quot;, &quot;display&quot;: &quot;錳及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-20&quot;&gt;&lt;display value=&quot;錳及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-21"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-21">app-21</a>
+                </td>
+                <td>黃磷作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-yellow-phosphorus">yellow-phosphorus</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-21&quot;, &quot;display&quot;: &quot;黃磷作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-21&quot;&gt;&lt;display value=&quot;黃磷作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-22"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-22">app-22</a>
+                </td>
+                <td>聯吡啶或巴拉刈作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-paraquat">paraquat</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-22&quot;, &quot;display&quot;: &quot;聯吡啶或巴拉刈作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-22&quot;&gt;&lt;display value=&quot;聯吡啶或巴拉刈作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-23"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-23">app-23</a>
+                </td>
+                <td>粉塵作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-dust">dust</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-23&quot;, &quot;display&quot;: &quot;粉塵作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-23&quot;&gt;&lt;display value=&quot;粉塵作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-24"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-24">app-24</a>
+                </td>
+                <td>鉻酸及其鹽類作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-24&quot;, &quot;display&quot;: &quot;鉻酸及其鹽類作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-24&quot;&gt;&lt;display value=&quot;鉻酸及其鹽類作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-25"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-25">app-25</a>
+                </td>
+                <td>鎘及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-25&quot;, &quot;display&quot;: &quot;鎘及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-25&quot;&gt;&lt;display value=&quot;鎘及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-26"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-26">app-26</a>
+                </td>
+                <td>鎳及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-26&quot;, &quot;display&quot;: &quot;鎳及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-26&quot;&gt;&lt;display value=&quot;鎳及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-27"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-27">app-27</a>
+                </td>
+                <td>乙基汞化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-27&quot;, &quot;display&quot;: &quot;乙基汞化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-27&quot;&gt;&lt;display value=&quot;乙基汞化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-28"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-28">app-28</a>
+                </td>
+                <td>溴丙烷作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-28&quot;, &quot;display&quot;: &quot;溴丙烷作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-28&quot;&gt;&lt;display value=&quot;溴丙烷作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-29"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-29">app-29</a>
+                </td>
+                <td>1,3-丁二烯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-29&quot;, &quot;display&quot;: &quot;1,3-丁二烯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-29&quot;&gt;&lt;display value=&quot;1,3-丁二烯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-30"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-30">app-30</a>
+                </td>
+                <td>甲醛作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-30&quot;, &quot;display&quot;: &quot;甲醛作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-30&quot;&gt;&lt;display value=&quot;甲醛作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-31"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-31">app-31</a>
+                </td>
+                <td>銦及其化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-31&quot;, &quot;display&quot;: &quot;銦及其化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-31&quot;&gt;&lt;display value=&quot;銦及其化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-32"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-32">app-32</a>
+                </td>
+                <td>汞及其無機化合物作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-specific-chemical">specific-chemical</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-32&quot;, &quot;display&quot;: &quot;汞及其無機化合物作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-32&quot;&gt;&lt;display value=&quot;汞及其無機化合物作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-33"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-33">app-33</a>
+                </td>
+                <td>苯乙烯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-33&quot;, &quot;display&quot;: &quot;苯乙烯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-33&quot;&gt;&lt;display value=&quot;苯乙烯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-34"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-34">app-34</a>
+                </td>
+                <td>甲苯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-34&quot;, &quot;display&quot;: &quot;甲苯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-34&quot;&gt;&lt;display value=&quot;甲苯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation-app-35"> </a>
+                  <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-CS-Appendix10Operation.html#CS-Appendix10Operation-app-35">app-35</a>
+                </td>
+                <td>二甲苯作業</td>
+                <td>
+                  <span title="SOURCEISBROADERTHANTARGET">&gt;</span>
+                  <a href="CodeSystem-CS-HazardType.html#CS-HazardType-organic-solvent">organic-solvent</a>
+                  <i>(具名作業為該危害家族之特定成員，家族涵蓋範圍較廣（narrower：source 較 target 窄）。)</i>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;app-35&quot;, &quot;display&quot;: &quot;二甲苯作業&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;app-35&quot;&gt;&lt;display value=&quot;二甲苯作業&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </text>
+        <url value="https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation"/>
+        <version value="0.1.0"/>
+        <name value="VS_Appendix10Operation"/>
+        <title value="附表十特別危害健康作業值集（35 項）"/>
+        <status value="active"/>
+        <experimental value="false"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
+        <expansion>
+          <identifier value="urn:uuid:f7915212-a053-4754-b531-992e6784a352"/>
+          <timestamp value="2026-07-23T22:26:05+08:00"/>
+          <total value="35"/>
+          <offset value="0"/>
+          <parameter>
+            <name value="displayLanguage"/>
+            <valueCode value="en"/>
+          </parameter>
+          <parameter>
+            <name value="count"/>
+            <valueInteger value="1000"/>
+          </parameter>
+          <parameter>
+            <name value="offset"/>
+            <valueInteger value="0"/>
+          </parameter>
+          <parameter>
+            <name value="excludeNested"/>
+            <valueBoolean value="false"/>
+          </parameter>
+          <parameter>
+            <name value="used-codesystem"/>
+            <valueUri value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation|0.1.0"/>
+          </parameter>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-01"/>
+            <display value="高溫作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-02"/>
+            <display value="噪音作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-03"/>
+            <display value="游離輻射作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-04"/>
+            <display value="異常氣壓作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-05"/>
+            <display value="鉛作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-06"/>
+            <display value="四烷基鉛作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-07"/>
+            <display value="1,1,2,2-四氯乙烷作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-08"/>
+            <display value="四氯化碳作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-09"/>
+            <display value="二硫化碳作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-10"/>
+            <display value="三氯乙烯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-11"/>
+            <display value="二甲基甲醯胺作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-12"/>
+            <display value="正己烷作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-13"/>
+            <display value="聯苯胺及其鹽類作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-14"/>
+            <display value="鈹及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-15"/>
+            <display value="氯乙烯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-16"/>
+            <display value="苯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-17"/>
+            <display value="2,4-二異氰酸甲苯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-18"/>
+            <display value="石綿作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-19"/>
+            <display value="砷及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-20"/>
+            <display value="錳及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-21"/>
+            <display value="黃磷作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-22"/>
+            <display value="聯吡啶或巴拉刈作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-23"/>
+            <display value="粉塵作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-24"/>
+            <display value="鉻酸及其鹽類作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-25"/>
+            <display value="鎘及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-26"/>
+            <display value="鎳及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-27"/>
+            <display value="乙基汞化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-28"/>
+            <display value="溴丙烷作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-29"/>
+            <display value="1,3-丁二烯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-30"/>
+            <display value="甲醛作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-31"/>
+            <display value="銦及其化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-32"/>
+            <display value="汞及其無機化合物作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-33"/>
+            <display value="苯乙烯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-34"/>
+            <display value="甲苯作業"/>
+          </contains>
+          <contains>
+            <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"/>
+            <code value="app-35"/>
+            <display value="二甲苯作業"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </entry>
   <entry>
     <fullUrl value="https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExamType"/>
     <resource>
@@ -135,10 +2389,10 @@
         <title value="檢查類型值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:2618aa9a-74a3-4a6f-8e77-223f0298801b"/>
-          <timestamp value="2026-07-10T21:35:29+08:00"/>
+          <identifier value="urn:uuid:867d212f-e52a-4721-81e8-90b3bcacf8ad"/>
+          <timestamp value="2026-07-23T22:26:05+08:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
@@ -314,10 +2568,10 @@
         <title value="檢查類型值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:2618aa9a-74a3-4a6f-8e77-223f0298801b"/>
-          <timestamp value="2026-07-10T21:35:29+08:00"/>
+          <identifier value="urn:uuid:867d212f-e52a-4721-81e8-90b3bcacf8ad"/>
+          <timestamp value="2026-07-23T22:26:05+08:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
@@ -493,10 +2747,10 @@
         <title value="適性配工建議值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:77c3df03-35fc-481c-941e-dd300509787f"/>
-          <timestamp value="2026-07-10T21:35:29+08:00"/>
+          <identifier value="urn:uuid:bfe21515-efa7-4a78-8266-1c1a68965691"/>
+          <timestamp value="2026-07-23T22:26:05+08:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
@@ -672,10 +2926,10 @@
         <title value="適性配工建議值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:77c3df03-35fc-481c-941e-dd300509787f"/>
-          <timestamp value="2026-07-10T21:35:29+08:00"/>
+          <identifier value="urn:uuid:bfe21515-efa7-4a78-8266-1c1a68965691"/>
+          <timestamp value="2026-07-23T22:26:05+08:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
@@ -1019,10 +3273,10 @@
         <title value="特別危害健康作業類別值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:f7d8f72a-c810-4937-8514-72afeef8e13e"/>
-          <timestamp value="2026-07-10T21:35:25+08:00"/>
+          <identifier value="urn:uuid:3c73311c-1491-46e9-b47e-4d8d16e76561"/>
+          <timestamp value="2026-07-23T22:26:00+08:00"/>
           <total value="12"/>
           <offset value="0"/>
           <parameter>
@@ -1406,10 +3660,10 @@
         <title value="特別危害健康作業類別值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:f7d8f72a-c810-4937-8514-72afeef8e13e"/>
-          <timestamp value="2026-07-10T21:35:25+08:00"/>
+          <identifier value="urn:uuid:3c73311c-1491-46e9-b47e-4d8d16e76561"/>
+          <timestamp value="2026-07-23T22:26:00+08:00"/>
           <total value="12"/>
           <offset value="0"/>
           <parameter>
@@ -1751,10 +4005,10 @@
         <title value="健康諮詢與衛教指導項目值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:cac92aba-af5b-4433-b123-660839122ca7"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:ff7bc5ad-0501-4645-9da6-3414d728d16c"/>
+          <timestamp value="2026-07-23T22:26:06+08:00"/>
           <total value="10"/>
           <offset value="0"/>
           <parameter>
@@ -2086,10 +4340,10 @@
         <title value="健康諮詢與衛教指導項目值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:cac92aba-af5b-4433-b123-660839122ca7"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:ff7bc5ad-0501-4645-9da6-3414d728d16c"/>
+          <timestamp value="2026-07-23T22:26:06+08:00"/>
           <total value="10"/>
           <offset value="0"/>
           <parameter>
@@ -2295,10 +4549,10 @@
         <title value="健康管理分級值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:7086de37-6a23-4e66-aee7-99698bdb5b1e"/>
-          <timestamp value="2026-07-10T21:35:10+08:00"/>
+          <identifier value="urn:uuid:0c784062-fddd-4bed-8f33-f8135b845a33"/>
+          <timestamp value="2026-07-23T22:25:37+08:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
@@ -2474,10 +4728,10 @@
         <title value="健康管理分級值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:7086de37-6a23-4e66-aee7-99698bdb5b1e"/>
-          <timestamp value="2026-07-10T21:35:10+08:00"/>
+          <identifier value="urn:uuid:0c784062-fddd-4bed-8f33-f8135b845a33"/>
+          <timestamp value="2026-07-23T22:25:37+08:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
@@ -2674,10 +4928,10 @@
         <title value="勞動部通報報告代碼值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:d79180f2-5c80-4d1a-b046-0b755e67eed4"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:20f6ca71-746e-4816-85d6-e862607f1704"/>
+          <timestamp value="2026-07-23T22:26:06+08:00"/>
           <total value="5"/>
           <offset value="0"/>
           <parameter>
@@ -2879,10 +5133,10 @@
         <title value="勞動部通報報告代碼值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:d79180f2-5c80-4d1a-b046-0b755e67eed4"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:20f6ca71-746e-4816-85d6-e862607f1704"/>
+          <timestamp value="2026-07-23T22:26:06+08:00"/>
           <total value="5"/>
           <offset value="0"/>
           <parameter>
@@ -3116,10 +5370,10 @@
         <title value="有機溶劑種類值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:3302e974-0870-4558-83d4-722569ee426b"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:6abf0dc7-c5df-4946-90b6-9ad215da8bee"/>
+          <timestamp value="2026-07-23T22:26:06+08:00"/>
           <total value="7"/>
           <offset value="0"/>
           <parameter>
@@ -3363,10 +5617,10 @@
         <title value="有機溶劑種類值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:3302e974-0870-4558-83d4-722569ee426b"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:6abf0dc7-c5df-4946-90b6-9ad215da8bee"/>
+          <timestamp value="2026-07-23T22:26:06+08:00"/>
           <total value="7"/>
           <offset value="0"/>
           <parameter>
@@ -3620,10 +5874,10 @@
         <title value="身體檢查系統部位值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:216ee983-8f2c-4045-8583-82e0640eea81"/>
-          <timestamp value="2026-07-10T21:35:17+08:00"/>
+          <identifier value="urn:uuid:e029cf9f-dc0a-406e-8473-4777f39f5f99"/>
+          <timestamp value="2026-07-23T22:25:47+08:00"/>
           <total value="7"/>
           <offset value="0"/>
           <parameter>
@@ -3877,10 +6131,10 @@
         <title value="身體檢查系統部位值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:216ee983-8f2c-4045-8583-82e0640eea81"/>
-          <timestamp value="2026-07-10T21:35:17+08:00"/>
+          <identifier value="urn:uuid:e029cf9f-dc0a-406e-8473-4777f39f5f99"/>
+          <timestamp value="2026-07-23T22:25:47+08:00"/>
           <total value="7"/>
           <offset value="0"/>
           <parameter>
@@ -4155,10 +6409,10 @@
         <title value="臨場健康服務辦理事項值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:436a0c89-9857-43cd-840d-b47cfbac003a"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:afab0204-4186-4d29-92ea-a2aacb528ed6"/>
+          <timestamp value="2026-07-23T22:26:06+08:00"/>
           <total value="8"/>
           <offset value="0"/>
           <parameter>
@@ -4438,10 +6692,10 @@
         <title value="臨場健康服務辦理事項值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:436a0c89-9857-43cd-840d-b47cfbac003a"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:afab0204-4186-4d29-92ea-a2aacb528ed6"/>
+          <timestamp value="2026-07-23T22:26:06+08:00"/>
           <total value="8"/>
           <offset value="0"/>
           <parameter>
@@ -4637,10 +6891,10 @@
         <title value="吸菸狀態值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:38dd5680-f017-4171-a935-8e117020c6f5"/>
-          <timestamp value="2026-07-10T21:35:23+08:00"/>
+          <identifier value="urn:uuid:b46adbe5-f212-48b1-ad7f-de74480e9162"/>
+          <timestamp value="2026-07-23T22:25:57+08:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
@@ -4816,10 +7070,10 @@
         <title value="吸菸狀態值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:38dd5680-f017-4171-a935-8e117020c6f5"/>
-          <timestamp value="2026-07-10T21:35:23+08:00"/>
+          <identifier value="urn:uuid:b46adbe5-f212-48b1-ad7f-de74480e9162"/>
+          <timestamp value="2026-07-23T22:25:57+08:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
@@ -5148,10 +7402,10 @@
         <title value="特定化學物質種類值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:49796fd9-ee7d-40ee-aa02-3ae7a3caab11"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:5b2c2293-ce7e-4ab9-8a66-1d3509ce6705"/>
+          <timestamp value="2026-07-23T22:26:07+08:00"/>
           <total value="12"/>
           <offset value="0"/>
           <parameter>
@@ -5520,10 +7774,10 @@
         <title value="特定化學物質種類值集"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:49796fd9-ee7d-40ee-aa02-3ae7a3caab11"/>
-          <timestamp value="2026-07-10T21:35:30+08:00"/>
+          <identifier value="urn:uuid:5b2c2293-ce7e-4ab9-8a66-1d3509ce6705"/>
+          <timestamp value="2026-07-23T22:26:07+08:00"/>
           <total value="12"/>
           <offset value="0"/>
           <parameter>
@@ -7531,10 +9785,10 @@
         <name value="sf-BetNutChewAmount-valueset"/>
         <title value="每日嚼檳榔量值集"/>
         <status value="active"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:9470a708-4603-45d2-9839-327a659e7556"/>
-          <timestamp value="2026-07-10T21:35:22+08:00"/>
+          <identifier value="urn:uuid:ded4c60f-7aa4-4752-baa4-f2145cc0dd05"/>
+          <timestamp value="2026-07-23T22:25:55+08:00"/>
           <total value="94"/>
           <offset value="0"/>
           <parameter>
@@ -9952,10 +12206,10 @@
         <name value="sf-BetNutChewAmount-valueset"/>
         <title value="每日嚼檳榔量值集"/>
         <status value="active"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:9470a708-4603-45d2-9839-327a659e7556"/>
-          <timestamp value="2026-07-10T21:35:22+08:00"/>
+          <identifier value="urn:uuid:ded4c60f-7aa4-4752-baa4-f2145cc0dd05"/>
+          <timestamp value="2026-07-23T22:25:55+08:00"/>
           <total value="94"/>
           <offset value="0"/>
           <parameter>
@@ -10553,10 +12807,10 @@
         <name value="sf-BetNutChewBeh-valueset"/>
         <title value="嚼檳榔行為值集"/>
         <status value="active"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:03158929-c51c-4cec-9e9b-5388ae3525ef"/>
-          <timestamp value="2026-07-10T21:35:31+08:00"/>
+          <identifier value="urn:uuid:4c515db6-32fc-4720-9f94-22e3b8a16c24"/>
+          <timestamp value="2026-07-23T22:26:07+08:00"/>
           <total value="3"/>
           <offset value="0"/>
           <parameter>
@@ -10699,10 +12953,10 @@
         <name value="sf-BetNutChewBeh-valueset"/>
         <title value="嚼檳榔行為值集"/>
         <status value="active"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:03158929-c51c-4cec-9e9b-5388ae3525ef"/>
-          <timestamp value="2026-07-10T21:35:31+08:00"/>
+          <identifier value="urn:uuid:4c515db6-32fc-4720-9f94-22e3b8a16c24"/>
+          <timestamp value="2026-07-23T22:26:07+08:00"/>
           <total value="3"/>
           <offset value="0"/>
           <parameter>
@@ -12605,10 +14859,10 @@
         <name value="sf-BetNutChewQuit-valueset"/>
         <title value="戒嚼檳榔年值集"/>
         <status value="active"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:707edcb1-a3ff-4a1c-ad60-eb311dddae61"/>
-          <timestamp value="2026-07-10T21:35:22+08:00"/>
+          <identifier value="urn:uuid:8b88f645-5d36-44cf-ae44-df5ed536d359"/>
+          <timestamp value="2026-07-23T22:25:55+08:00"/>
           <total value="91"/>
           <offset value="0"/>
           <parameter>
@@ -14951,10 +17205,10 @@
         <name value="sf-BetNutChewQuit-valueset"/>
         <title value="戒嚼檳榔年值集"/>
         <status value="active"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:707edcb1-a3ff-4a1c-ad60-eb311dddae61"/>
-          <timestamp value="2026-07-10T21:35:22+08:00"/>
+          <identifier value="urn:uuid:8b88f645-5d36-44cf-ae44-df5ed536d359"/>
+          <timestamp value="2026-07-23T22:25:55+08:00"/>
           <total value="91"/>
           <offset value="0"/>
           <parameter>
@@ -17477,10 +19731,10 @@
         <name value="sf-BetNutChewYear-valueset"/>
         <title value="嚼檳榔年值集"/>
         <status value="active"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:10d14624-ed58-45a1-ad3b-2f159b8856ff"/>
-          <timestamp value="2026-07-10T21:35:22+08:00"/>
+          <identifier value="urn:uuid:2536b04b-4bb1-41aa-bc1b-74e86177d216"/>
+          <timestamp value="2026-07-23T22:25:55+08:00"/>
           <total value="100"/>
           <offset value="0"/>
           <parameter>
@@ -20048,10 +22302,10 @@
         <name value="sf-BetNutChewYear-valueset"/>
         <title value="嚼檳榔年值集"/>
         <status value="active"/>
-        <date value="2026-07-10T21:30:50+08:00"/>
+        <date value="2026-07-23T22:22:27+08:00"/>
         <expansion>
-          <identifier value="urn:uuid:10d14624-ed58-45a1-ad3b-2f159b8856ff"/>
-          <timestamp value="2026-07-10T21:35:22+08:00"/>
+          <identifier value="urn:uuid:2536b04b-4bb1-41aa-bc1b-74e86177d216"/>
+          <timestamp value="2026-07-23T22:25:55+08:00"/>
           <total value="100"/>
           <offset value="0"/>
           <parameter>

@@ -35,7 +35,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "職業健檢生命徵象項目值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-10T21:30:50+08:00",
+  "date" : "2026-07-23T22:22:27+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -62,6 +62,10 @@ No Expansion for this valueset (not supported by Publication Tooling)
       {
         "code" : "29463-7",
         "display" : "Body weight"
+      },
+      {
+        "code" : "8280-0",
+        "display" : "Waist Circumference at umbilicus by Tape measure"
       },
       {
         "code" : "56086-2",

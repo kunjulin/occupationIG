@@ -10,7 +10,7 @@ Profile: [臨場健康服務事件 Profile](StructureDefinition-TWHA-Encounter-S
 
 **status**: Finished
 
-**class**: [v3 Code System ActCode: FLD](http://hl7.org/fhir/R4/v3/ActCode/cs.html#v3-ActCode-FLD) (field)
+**class**: [ActCode: FLD](http://terminology.hl7.org/7.2.0/CodeSystem-v3-ActCode.html#v3-ActCode-FLD) (field)
 
 ### Participants
 

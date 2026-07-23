@@ -1,6 +1,5 @@
 @prefix fhir: <http://hl7.org/fhir/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -8,414 +7,601 @@
 
 <https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset> a fhir:ValueSet ;
   fhir:nodeRole fhir:treeRoot ;
-  fhir:id [ fhir:v "VS-ExtendedDataset"] ; # 
-  fhir:text [
-     fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet VS-ExtendedDataset</b></p><a name=\"VS-ExtendedDataset\"> </a><a name=\"hcVS-ExtendedDataset\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/11524-6/\">11524-6</a></td><td>EKG study</td></tr><tr><td><a href=\"https://loinc.org/2951-2/\">2951-2</a></td><td>Sodium [Moles/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2823-3/\">2823-3</a></td><td>Potassium [Moles/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2075-0/\">2075-0</a></td><td>Chloride [Moles/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/3094-0/\">3094-0</a></td><td>Urea nitrogen [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/5810-7/\">5810-7</a></td><td>Specific gravity of Urine</td></tr><tr><td><a href=\"https://loinc.org/89015-2/\">89015-2</a></td><td>Pure tone threshold audiometry panel</td></tr><tr><td><a href=\"https://loinc.org/89024-4/\">89024-4</a></td><td>Hearing threshold Ear - left --500 Hz</td></tr><tr><td><a href=\"https://loinc.org/89016-0/\">89016-0</a></td><td>Hearing threshold Ear - left --1000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89018-6/\">89018-6</a></td><td>Hearing threshold Ear - left --2000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89020-2/\">89020-2</a></td><td>Hearing threshold Ear - left --3000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89022-8/\">89022-8</a></td><td>Hearing threshold Ear - left --4000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89026-9/\">89026-9</a></td><td>Hearing threshold Ear - left --6000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89028-5/\">89028-5</a></td><td>Hearing threshold Ear - left --8000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89025-1/\">89025-1</a></td><td>Hearing threshold Ear - right --500 Hz</td></tr><tr><td><a href=\"https://loinc.org/89017-8/\">89017-8</a></td><td>Hearing threshold Ear - right --1000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89019-4/\">89019-4</a></td><td>Hearing threshold Ear - right --2000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89021-0/\">89021-0</a></td><td>Hearing threshold Ear - right --3000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89023-6/\">89023-6</a></td><td>Hearing threshold Ear - right --4000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89027-7/\">89027-7</a></td><td>Hearing threshold Ear - right --6000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89029-3/\">89029-3</a></td><td>Hearing threshold Ear - right --8000 Hz</td></tr><tr><td><a href=\"https://loinc.org/789-8/\">789-8</a></td><td>Erythrocytes [#/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/6690-2/\">6690-2</a></td><td>WBC [#/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/777-3/\">777-3</a></td><td>Platelets [#/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/718-7/\">718-7</a></td><td>Hemoglobin [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/4544-3/\">4544-3</a></td><td>Hematocrit [Volume Fraction] of Blood</td></tr><tr><td><a href=\"https://loinc.org/770-8/\">770-8</a></td><td>Neutrophils [Fraction] of WBC</td></tr><tr><td><a href=\"https://loinc.org/736-9/\">736-9</a></td><td>Lymphocytes [Fraction] of WBC</td></tr><tr><td><a href=\"https://loinc.org/11580-8/\">11580-8</a></td><td>Thyrotropin [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/3024-7/\">3024-7</a></td><td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/24579-5/\">24579-5</a></td><td>XR Bones.long Survey</td></tr><tr><td><a href=\"https://loinc.org/19876-2/\">19876-2</a></td><td>Forced vital capacity [Volume] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/20150-9/\">20150-9</a></td><td>Forced expiratory volume in 1 second [Volume] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/19926-5/\">19926-5</a></td><td>Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/5671-3/\">5671-3</a></td><td>Lead [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5676-2/\">5676-2</a></td><td>Lead [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/23749-5/\">23749-5</a></td><td>Lead [Mass/volume] in Specimen</td></tr><tr><td><a href=\"https://loinc.org/11212-8/\">11212-8</a></td><td>Coproporphyrin [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/11215-1/\">11215-1</a></td><td>Aminolevulinic acid [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/36643-5/\">36643-5</a></td><td>XR Chest 2 Views</td></tr><tr><td><a href=\"https://loinc.org/24648-8/\">24648-8</a></td><td>XR Chest PA upright</td></tr><tr><td><a href=\"https://loinc.org/2324-2/\">2324-2</a></td><td>Gamma glutamyltransferase [Enzymatic activity/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/6709-0/\">6709-0</a></td><td>Hippurate [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/2725-0/\">2725-0</a></td><td>p-Methylhippurate [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/13000-5/\">13000-5</a></td><td>Mandelate [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/3041-1/\">3041-1</a></td><td>Trichloroacetate [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/31170-4/\">31170-4</a></td><td>2,5-Hexanedione [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/2758-1/\">2758-1</a></td><td>Phenol [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/12543-5/\">12543-5</a></td><td>Methylformamide [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/12533-6/\">12533-6</a></td><td>TTCA [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5586-3/\">5586-3</a></td><td>Arsenic [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5609-3/\">5609-3</a></td><td>Cadmium [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5611-9/\">5611-9</a></td><td>Cadmium [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/13471-8/\">13471-8</a></td><td>Cadmium/Creatinine [Mass Ratio] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5622-6/\">5622-6</a></td><td>Chromium [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/5623-4/\">5623-4</a></td><td>Chromium [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/13464-3/\">13464-3</a></td><td>Chromium/Creatinine [Mass Ratio] in Urine</td></tr><tr><td><a href=\"https://loinc.org/14099-6/\">14099-6</a></td><td>Nickel [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5685-3/\">5685-3</a></td><td>Mercury [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5689-5/\">5689-5</a></td><td>Mercury [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/72665-3/\">72665-3</a></td><td>trans,trans-Muconic acid [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/10913-2/\">10913-2</a></td><td>4,4'-Methylenebis(2-chloroaniline) [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5653-1/\">5653-1</a></td><td>Formaldehyde [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/10909-0/\">10909-0</a></td><td>Benzidine [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5681-2/\">5681-2</a></td><td>Manganese [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5683-8/\">5683-8</a></td><td>Manganese [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/42221-2/\">42221-2</a></td><td>Manganese [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/34304-6/\">34304-6</a></td><td>Fluoride [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/2777-1/\">2777-1</a></td><td>Phosphate [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/24829-4/\">24829-4</a></td><td>XR Mandible Views</td></tr><tr><td><a href=\"https://loinc.org/9827-7/\">9827-7</a></td><td>Paraquat [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/60090-8/\">60090-8</a></td><td>Indium [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/5665-5/\">5665-5</a></td><td>Indium [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5627-5/\">5627-5</a></td><td>Cobalt [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/5625-9/\">5625-9</a></td><td>Cobalt [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/1984-4/\">1984-4</a></td><td>Bromide [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/1985-1/\">1985-1</a></td><td>Bromide [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/1709-5/\">1709-5</a></td><td>Acetylcholinesterase [Enzymatic activity/volume] in Red Blood Cells</td></tr><tr><td><a href=\"https://loinc.org/2098-2/\">2098-2</a></td><td>Cholinesterase [Enzymatic activity/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/43371-4/\">43371-4</a></td><td>Salmonella and Shigella [Presence] in Stool by Culture</td></tr><tr><td><a href=\"https://loinc.org/19266-6/\">19266-6</a></td><td>Amphetamines [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19299-7/\">19299-7</a></td><td>Opiates [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19283-1/\">19283-1</a></td><td>Benzodiazepines [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19501-6/\">19501-6</a></td><td>Ketamine [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19571-9/\">19571-9</a></td><td>MDMA [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19177-5/\">19177-5</a></td><td>Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2039-6/\">2039-6</a></td><td>Carcinoembryonic Ag [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2857-1/\">2857-1</a></td><td>Prostate specific Ag [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/19199-9/\">19199-9</a></td><td>Prostate specific Ag [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/10886-0/\">10886-0</a></td><td>Prostate specific Ag.free [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/97149-9/\">97149-9</a></td><td>[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/97150-7/\">97150-7</a></td><td>Prostate Health Index in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/10334-1/\">10334-1</a></td><td>Cancer Ag 125 [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/83082-8/\">83082-8</a></td><td>Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay</td></tr><tr><td><a href=\"https://loinc.org/83085-1/\">83085-1</a></td><td>Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay</td></tr><tr><td><a href=\"https://loinc.org/24108-3/\">24108-3</a></td><td>Cancer Ag 19-9 [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/83084-4/\">83084-4</a></td><td>Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay</td></tr><tr><td><a href=\"https://loinc.org/83083-6/\">83083-6</a></td><td>Cancer Ag 15-3 [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/83112-3/\">83112-3</a></td><td>Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay</td></tr><tr><td><a href=\"https://loinc.org/1834-1/\">1834-1</a></td><td>Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/9679-2/\">9679-2</a></td><td>Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/19113-0/\">19113-0</a></td><td>IgE [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/9633-9/\">9633-9</a></td><td>Epstein Barr virus VCA IgA Ab [Presence] in Serum</td></tr><tr><td><a href=\"https://loinc.org/10835-7/\">10835-7</a></td><td>Lipoprotein A [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/1869-7/\">1869-7</a></td><td>Apolipoprotein A-I [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/1884-6/\">1884-6</a></td><td>Apolipoprotein B [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/33762-6/\">33762-6</a></td><td>Natriuretic peptide.proB-type N-terminal [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/42254-3/\">42254-3</a></td><td>Nuclear Ab [Presence] in Serum by Immunofluorescence</td></tr><tr><td><a href=\"https://loinc.org/11572-5/\">11572-5</a></td><td>Rheumatoid factor [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/25390-6/\">25390-6</a></td><td>CYFRA 21-1 [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/24606-6/\">24606-6</a></td><td>Mammogram screening views study</td></tr><tr><td><a href=\"https://loinc.org/103892-6/\">103892-6</a></td><td>DBT Brst Screening</td></tr><tr><td><a href=\"https://loinc.org/24590-2/\">24590-2</a></td><td>MR Brain</td></tr><tr><td><a href=\"https://loinc.org/79086-5/\">79086-5</a></td><td>CT Chest Screening WO contr</td></tr><tr><td><a href=\"https://loinc.org/87279-6/\">87279-6</a></td><td>CT Chest Screening</td></tr><tr><td><a href=\"https://loinc.org/81555-5/\">81555-5</a></td><td>PT+CT Whole body Tum loc W 18F-FDG IV</td></tr><tr><td><a href=\"https://loinc.org/79073-3/\">79073-3</a></td><td>CTA Hrt+CA W contr IV</td></tr><tr><td><a href=\"https://loinc.org/28014-9/\">28014-9</a></td><td>EGD Study</td></tr><tr><td><a href=\"https://loinc.org/28023-0/\">28023-0</a></td><td>Colonoscopy Study</td></tr><tr><td><a href=\"https://loinc.org/24558-9/\">24558-9</a></td><td>Ultrasound of abdomen study</td></tr><tr><td><a href=\"https://loinc.org/24616-5/\">24616-5</a></td><td>US Carotid aa</td></tr><tr><td><a href=\"https://loinc.org/25010-0/\">25010-0</a></td><td>US Thyroid</td></tr><tr><td><a href=\"https://loinc.org/38268-9/\">38268-9</a></td><td>DXA Skeletal Sys Views for BMD</td></tr></table></li></ul></div>"^^rdf:XMLLiteral ]
-  ] ; # 
-  fhir:url [
-     fhir:v "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset"^^xsd:anyURI ;
-     fhir:l <https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset>
-  ] ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
-  fhir:name [ fhir:v "VS_ExtendedDataset"] ; # 
-  fhir:title [ fhir:v "健康檢查進階與領域擴充項目值集"] ; # 
-  fhir:status [ fhir:v "active"] ; # 
-  fhir:experimental [ fhir:v false] ; # 
-  fhir:date [ fhir:v "2026-07-10T21:30:50+08:00"^^xsd:dateTime] ; # 
-  fhir:publisher [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ; # 
-  fhir:contact ( [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] [
-     fhir:name [ fhir:v "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
-     fhir:telecom ( [
-       fhir:system [ fhir:v "url" ] ;
-       fhir:value [ fhir:v "https://twcore.mohw.gov.tw/twregistry/" ]
-     ] )
-  ] ) ; # 
-  fhir:description [ fhir:v "包含特殊健康檢查與體格檢查之實驗室與生理功能檢驗項目，以及自費健康檢查常見之影像學檢查（如 MRI、CT、PET/CT、超音波、骨密度等）與內視鏡檢查（如胃鏡、大腸鏡），對應至 LOINC 代碼。"] ; # 
-  fhir:compose [
-     fhir:include ( [
-       fhir:system [
-         fhir:v "http://loinc.org"^^xsd:anyURI ;
-         fhir:l <http://loinc.org>
-       ] ;
-       fhir:concept ( [
-         fhir:code [ fhir:v "11524-6" ] ;
-         fhir:display [ fhir:v "EKG study" ]
-       ] [
-         fhir:code [ fhir:v "2951-2" ] ;
-         fhir:display [ fhir:v "Sodium [Moles/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "2823-3" ] ;
-         fhir:display [ fhir:v "Potassium [Moles/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "2075-0" ] ;
-         fhir:display [ fhir:v "Chloride [Moles/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "3094-0" ] ;
-         fhir:display [ fhir:v "Urea nitrogen [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "5810-7" ] ;
-         fhir:display [ fhir:v "Specific gravity of Urine" ]
-       ] [
-         fhir:code [ fhir:v "89015-2" ] ;
-         fhir:display [ fhir:v "Pure tone threshold audiometry panel" ]
-       ] [
-         fhir:code [ fhir:v "89024-4" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - left --500 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89016-0" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - left --1000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89018-6" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - left --2000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89020-2" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - left --3000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89022-8" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - left --4000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89026-9" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - left --6000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89028-5" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - left --8000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89025-1" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - right --500 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89017-8" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - right --1000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89019-4" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - right --2000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89021-0" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - right --3000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89023-6" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - right --4000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89027-7" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - right --6000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "89029-3" ] ;
-         fhir:display [ fhir:v "Hearing threshold Ear - right --8000 Hz" ]
-       ] [
-         fhir:code [ fhir:v "789-8" ] ;
-         fhir:display [ fhir:v "Erythrocytes [#/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "6690-2" ] ;
-         fhir:display [ fhir:v "WBC [#/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "777-3" ] ;
-         fhir:display [ fhir:v "Platelets [#/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "718-7" ] ;
-         fhir:display [ fhir:v "Hemoglobin [Mass/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "4544-3" ] ;
-         fhir:display [ fhir:v "Hematocrit [Volume Fraction] of Blood" ]
-       ] [
-         fhir:code [ fhir:v "770-8" ] ;
-         fhir:display [ fhir:v "Neutrophils [Fraction] of WBC" ]
-       ] [
-         fhir:code [ fhir:v "736-9" ] ;
-         fhir:display [ fhir:v "Lymphocytes [Fraction] of WBC" ]
-       ] [
-         fhir:code [ fhir:v "11580-8" ] ;
-         fhir:display [ fhir:v "Thyrotropin [Units/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "3024-7" ] ;
-         fhir:display [ fhir:v "Thyroxine (T4) free [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "24579-5" ] ;
-         fhir:display [ fhir:v "XR Bones.long Survey" ]
-       ] [
-         fhir:code [ fhir:v "19876-2" ] ;
-         fhir:display [ fhir:v "Forced vital capacity [Volume] in Airways by Spirometry" ]
-       ] [
-         fhir:code [ fhir:v "20150-9" ] ;
-         fhir:display [ fhir:v "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry" ]
-       ] [
-         fhir:code [ fhir:v "19926-5" ] ;
-         fhir:display [ fhir:v "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry" ]
-       ] [
-         fhir:code [ fhir:v "5671-3" ] ;
-         fhir:display [ fhir:v "Lead [Mass/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "5676-2" ] ;
-         fhir:display [ fhir:v "Lead [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "23749-5" ] ;
-         fhir:display [ fhir:v "Lead [Mass/volume] in Specimen" ]
-       ] [
-         fhir:code [ fhir:v "11212-8" ] ;
-         fhir:display [ fhir:v "Coproporphyrin [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "11215-1" ] ;
-         fhir:display [ fhir:v "Aminolevulinic acid [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "36643-5" ] ;
-         fhir:display [ fhir:v "XR Chest 2 Views" ]
-       ] [
-         fhir:code [ fhir:v "24648-8" ] ;
-         fhir:display [ fhir:v "XR Chest PA upright" ]
-       ] [
-         fhir:code [ fhir:v "2324-2" ] ;
-         fhir:display [ fhir:v "Gamma glutamyltransferase [Enzymatic activity/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "6709-0" ] ;
-         fhir:display [ fhir:v "Hippurate [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "2725-0" ] ;
-         fhir:display [ fhir:v "p-Methylhippurate [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "13000-5" ] ;
-         fhir:display [ fhir:v "Mandelate [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "3041-1" ] ;
-         fhir:display [ fhir:v "Trichloroacetate [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "31170-4" ] ;
-         fhir:display [ fhir:v "2,5-Hexanedione [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "2758-1" ] ;
-         fhir:display [ fhir:v "Phenol [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "12543-5" ] ;
-         fhir:display [ fhir:v "Methylformamide [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "12533-6" ] ;
-         fhir:display [ fhir:v "TTCA [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "5586-3" ] ;
-         fhir:display [ fhir:v "Arsenic [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "5609-3" ] ;
-         fhir:display [ fhir:v "Cadmium [Mass/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "5611-9" ] ;
-         fhir:display [ fhir:v "Cadmium [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "13471-8" ] ;
-         fhir:display [ fhir:v "Cadmium/Creatinine [Mass Ratio] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "5622-6" ] ;
-         fhir:display [ fhir:v "Chromium [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "5623-4" ] ;
-         fhir:display [ fhir:v "Chromium [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "13464-3" ] ;
-         fhir:display [ fhir:v "Chromium/Creatinine [Mass Ratio] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "14099-6" ] ;
-         fhir:display [ fhir:v "Nickel [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "5685-3" ] ;
-         fhir:display [ fhir:v "Mercury [Mass/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "5689-5" ] ;
-         fhir:display [ fhir:v "Mercury [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "72665-3" ] ;
-         fhir:display [ fhir:v "trans,trans-Muconic acid [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "10913-2" ] ;
-         fhir:display [ fhir:v "4,4'-Methylenebis(2-chloroaniline) [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "5653-1" ] ;
-         fhir:display [ fhir:v "Formaldehyde [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "10909-0" ] ;
-         fhir:display [ fhir:v "Benzidine [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "5681-2" ] ;
-         fhir:display [ fhir:v "Manganese [Mass/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "5683-8" ] ;
-         fhir:display [ fhir:v "Manganese [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "42221-2" ] ;
-         fhir:display [ fhir:v "Manganese [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "34304-6" ] ;
-         fhir:display [ fhir:v "Fluoride [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "2777-1" ] ;
-         fhir:display [ fhir:v "Phosphate [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "24829-4" ] ;
-         fhir:display [ fhir:v "XR Mandible Views" ]
-       ] [
-         fhir:code [ fhir:v "9827-7" ] ;
-         fhir:display [ fhir:v "Paraquat [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "60090-8" ] ;
-         fhir:display [ fhir:v "Indium [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "5665-5" ] ;
-         fhir:display [ fhir:v "Indium [Mass/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "5627-5" ] ;
-         fhir:display [ fhir:v "Cobalt [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "5625-9" ] ;
-         fhir:display [ fhir:v "Cobalt [Mass/volume] in Blood" ]
-       ] [
-         fhir:code [ fhir:v "1984-4" ] ;
-         fhir:display [ fhir:v "Bromide [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "1985-1" ] ;
-         fhir:display [ fhir:v "Bromide [Mass/volume] in Urine" ]
-       ] [
-         fhir:code [ fhir:v "1709-5" ] ;
-         fhir:display [ fhir:v "Acetylcholinesterase [Enzymatic activity/volume] in Red Blood Cells" ]
-       ] [
-         fhir:code [ fhir:v "2098-2" ] ;
-         fhir:display [ fhir:v "Cholinesterase [Enzymatic activity/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "43371-4" ] ;
-         fhir:display [ fhir:v "Salmonella and Shigella [Presence] in Stool by Culture" ]
-       ] [
-         fhir:code [ fhir:v "19266-6" ] ;
-         fhir:display [ fhir:v "Amphetamines [Presence] in Urine by Screening test" ]
-       ] [
-         fhir:code [ fhir:v "19299-7" ] ;
-         fhir:display [ fhir:v "Opiates [Presence] in Urine by Screening test" ]
-       ] [
-         fhir:code [ fhir:v "19283-1" ] ;
-         fhir:display [ fhir:v "Benzodiazepines [Presence] in Urine by Screening test" ]
-       ] [
-         fhir:code [ fhir:v "19501-6" ] ;
-         fhir:display [ fhir:v "Ketamine [Presence] in Urine by Screening test" ]
-       ] [
-         fhir:code [ fhir:v "19571-9" ] ;
-         fhir:display [ fhir:v "MDMA [Presence] in Urine by Screening test" ]
-       ] [
-         fhir:code [ fhir:v "19177-5" ] ;
-         fhir:display [ fhir:v "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "2039-6" ] ;
-         fhir:display [ fhir:v "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "2857-1" ] ;
-         fhir:display [ fhir:v "Prostate specific Ag [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "19199-9" ] ;
-         fhir:display [ fhir:v "Prostate specific Ag [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "10886-0" ] ;
-         fhir:display [ fhir:v "Prostate specific Ag.free [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "97149-9" ] ;
-         fhir:display [ fhir:v "[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "97150-7" ] ;
-         fhir:display [ fhir:v "Prostate Health Index in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "10334-1" ] ;
-         fhir:display [ fhir:v "Cancer Ag 125 [Units/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "83082-8" ] ;
-         fhir:display [ fhir:v "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay" ]
-       ] [
-         fhir:code [ fhir:v "83085-1" ] ;
-         fhir:display [ fhir:v "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay" ]
-       ] [
-         fhir:code [ fhir:v "24108-3" ] ;
-         fhir:display [ fhir:v "Cancer Ag 19-9 [Units/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "83084-4" ] ;
-         fhir:display [ fhir:v "Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay" ]
-       ] [
-         fhir:code [ fhir:v "83083-6" ] ;
-         fhir:display [ fhir:v "Cancer Ag 15-3 [Units/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "83112-3" ] ;
-         fhir:display [ fhir:v "Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay" ]
-       ] [
-         fhir:code [ fhir:v "1834-1" ] ;
-         fhir:display [ fhir:v "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "9679-2" ] ;
-         fhir:display [ fhir:v "Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "19113-0" ] ;
-         fhir:display [ fhir:v "IgE [Units/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "9633-9" ] ;
-         fhir:display [ fhir:v "Epstein Barr virus VCA IgA Ab [Presence] in Serum" ]
-       ] [
-         fhir:code [ fhir:v "10835-7" ] ;
-         fhir:display [ fhir:v "Lipoprotein A [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "1869-7" ] ;
-         fhir:display [ fhir:v "Apolipoprotein A-I [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "1884-6" ] ;
-         fhir:display [ fhir:v "Apolipoprotein B [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "33762-6" ] ;
-         fhir:display [ fhir:v "Natriuretic peptide.proB-type N-terminal [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "42254-3" ] ;
-         fhir:display [ fhir:v "Nuclear Ab [Presence] in Serum by Immunofluorescence" ]
-       ] [
-         fhir:code [ fhir:v "11572-5" ] ;
-         fhir:display [ fhir:v "Rheumatoid factor [Units/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "25390-6" ] ;
-         fhir:display [ fhir:v "CYFRA 21-1 [Mass/volume] in Serum or Plasma" ]
-       ] [
-         fhir:code [ fhir:v "24606-6" ] ;
-         fhir:display [ fhir:v "Mammogram screening views study" ]
-       ] [
-         fhir:code [ fhir:v "103892-6" ] ;
-         fhir:display [ fhir:v "DBT Brst Screening" ]
-       ] [
-         fhir:code [ fhir:v "24590-2" ] ;
-         fhir:display [ fhir:v "MR Brain" ]
-       ] [
-         fhir:code [ fhir:v "79086-5" ] ;
-         fhir:display [ fhir:v "CT Chest Screening WO contr" ]
-       ] [
-         fhir:code [ fhir:v "87279-6" ] ;
-         fhir:display [ fhir:v "CT Chest Screening" ]
-       ] [
-         fhir:code [ fhir:v "81555-5" ] ;
-         fhir:display [ fhir:v "PT+CT Whole body Tum loc W 18F-FDG IV" ]
-       ] [
-         fhir:code [ fhir:v "79073-3" ] ;
-         fhir:display [ fhir:v "CTA Hrt+CA W contr IV" ]
-       ] [
-         fhir:code [ fhir:v "28014-9" ] ;
-         fhir:display [ fhir:v "EGD Study" ]
-       ] [
-         fhir:code [ fhir:v "28023-0" ] ;
-         fhir:display [ fhir:v "Colonoscopy Study" ]
-       ] [
-         fhir:code [ fhir:v "24558-9" ] ;
-         fhir:display [ fhir:v "Ultrasound of abdomen study" ]
-       ] [
-         fhir:code [ fhir:v "24616-5" ] ;
-         fhir:display [ fhir:v "US Carotid aa" ]
-       ] [
-         fhir:code [ fhir:v "25010-0" ] ;
-         fhir:display [ fhir:v "US Thyroid" ]
-       ] [
-         fhir:code [ fhir:v "38268-9" ] ;
-         fhir:display [ fhir:v "DXA Skeletal Sys Views for BMD" ]
-       ] )
-     ] )
-  ] . # 
+  fhir:Resource.id [ fhir:value "VS-ExtendedDataset"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet VS-ExtendedDataset</b></p><a name=\"VS-ExtendedDataset\"> </a><a name=\"hcVS-ExtendedDataset\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/11524-6/\">11524-6</a></td><td>EKG study</td></tr><tr><td><a href=\"https://loinc.org/2951-2/\">2951-2</a></td><td>Sodium [Moles/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2823-3/\">2823-3</a></td><td>Potassium [Moles/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2075-0/\">2075-0</a></td><td>Chloride [Moles/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/3094-0/\">3094-0</a></td><td>Urea nitrogen [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/5810-7/\">5810-7</a></td><td>Specific gravity of Urine</td></tr><tr><td><a href=\"https://loinc.org/89015-2/\">89015-2</a></td><td>Pure tone threshold audiometry panel</td></tr><tr><td><a href=\"https://loinc.org/89024-4/\">89024-4</a></td><td>Hearing threshold Ear - left --500 Hz</td></tr><tr><td><a href=\"https://loinc.org/89016-0/\">89016-0</a></td><td>Hearing threshold Ear - left --1000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89018-6/\">89018-6</a></td><td>Hearing threshold Ear - left --2000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89020-2/\">89020-2</a></td><td>Hearing threshold Ear - left --3000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89022-8/\">89022-8</a></td><td>Hearing threshold Ear - left --4000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89026-9/\">89026-9</a></td><td>Hearing threshold Ear - left --6000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89028-5/\">89028-5</a></td><td>Hearing threshold Ear - left --8000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89025-1/\">89025-1</a></td><td>Hearing threshold Ear - right --500 Hz</td></tr><tr><td><a href=\"https://loinc.org/89017-8/\">89017-8</a></td><td>Hearing threshold Ear - right --1000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89019-4/\">89019-4</a></td><td>Hearing threshold Ear - right --2000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89021-0/\">89021-0</a></td><td>Hearing threshold Ear - right --3000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89023-6/\">89023-6</a></td><td>Hearing threshold Ear - right --4000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89027-7/\">89027-7</a></td><td>Hearing threshold Ear - right --6000 Hz</td></tr><tr><td><a href=\"https://loinc.org/89029-3/\">89029-3</a></td><td>Hearing threshold Ear - right --8000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21104-5/\">21104-5</a></td><td>Pure tone audiometry - Audiometry study（panel 變異）</td></tr><tr><td><a href=\"https://loinc.org/21106-0/\">21106-0</a></td><td>Pure tone audiometry - Left ear 500 Hz</td></tr><tr><td><a href=\"https://loinc.org/21111-0/\">21111-0</a></td><td>Pure tone audiometry - Left ear 1000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21113-6/\">21113-6</a></td><td>Pure tone audiometry - Left ear 2000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21115-1/\">21115-1</a></td><td>Pure tone audiometry - Left ear 3000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21116-9/\">21116-9</a></td><td>Pure tone audiometry - Left ear 4000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21117-7/\">21117-7</a></td><td>Pure tone audiometry - Left ear 6000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21118-5/\">21118-5</a></td><td>Pure tone audiometry - Left ear 8000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21120-1/\">21120-1</a></td><td>Pure tone audiometry - Right ear 500 Hz</td></tr><tr><td><a href=\"https://loinc.org/21123-5/\">21123-5</a></td><td>Pure tone audiometry - Right ear 1000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21125-0/\">21125-0</a></td><td>Pure tone audiometry - Right ear 2000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21127-6/\">21127-6</a></td><td>Pure tone audiometry - Right ear 3000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21128-4/\">21128-4</a></td><td>Pure tone audiometry - Right ear 4000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21129-2/\">21129-2</a></td><td>Pure tone audiometry - Right ear 6000 Hz</td></tr><tr><td><a href=\"https://loinc.org/21130-0/\">21130-0</a></td><td>Pure tone audiometry - Right ear 8000 Hz</td></tr><tr><td><a href=\"https://loinc.org/789-8/\">789-8</a></td><td>Erythrocytes [#/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/6690-2/\">6690-2</a></td><td>WBC [#/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/777-3/\">777-3</a></td><td>Platelets [#/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/718-7/\">718-7</a></td><td>Hemoglobin [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/4544-3/\">4544-3</a></td><td>Hematocrit [Volume Fraction] of Blood</td></tr><tr><td><a href=\"https://loinc.org/770-8/\">770-8</a></td><td>Neutrophils [Fraction] of WBC</td></tr><tr><td><a href=\"https://loinc.org/736-9/\">736-9</a></td><td>Lymphocytes [Fraction] of WBC</td></tr><tr><td><a href=\"https://loinc.org/11580-8/\">11580-8</a></td><td>Thyrotropin [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/3024-7/\">3024-7</a></td><td>Thyroxine (T4) free [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/24579-5/\">24579-5</a></td><td>XR Bones.long Survey</td></tr><tr><td><a href=\"https://loinc.org/19876-2/\">19876-2</a></td><td>Forced vital capacity [Volume] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/20150-9/\">20150-9</a></td><td>Forced expiratory volume in 1 second [Volume] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/19926-5/\">19926-5</a></td><td>Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/5671-3/\">5671-3</a></td><td>Lead [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5676-2/\">5676-2</a></td><td>Lead [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/23749-5/\">23749-5</a></td><td>Lead [Mass/volume] in Specimen</td></tr><tr><td><a href=\"https://loinc.org/11212-8/\">11212-8</a></td><td>Coproporphyrin [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/11215-1/\">11215-1</a></td><td>Aminolevulinic acid [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/36643-5/\">36643-5</a></td><td>XR Chest 2 Views</td></tr><tr><td><a href=\"https://loinc.org/24648-8/\">24648-8</a></td><td>XR Chest PA upright</td></tr><tr><td><a href=\"https://loinc.org/2324-2/\">2324-2</a></td><td>Gamma glutamyltransferase [Enzymatic activity/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/6709-0/\">6709-0</a></td><td>Hippurate [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/2725-0/\">2725-0</a></td><td>p-Methylhippurate [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/13000-5/\">13000-5</a></td><td>Mandelate [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/3041-1/\">3041-1</a></td><td>Trichloroacetate [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/31170-4/\">31170-4</a></td><td>2,5-Hexanedione [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/2758-1/\">2758-1</a></td><td>Phenol [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/12543-5/\">12543-5</a></td><td>Methylformamide [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/12533-6/\">12533-6</a></td><td>TTCA [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5586-3/\">5586-3</a></td><td>Arsenic [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5609-3/\">5609-3</a></td><td>Cadmium [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5611-9/\">5611-9</a></td><td>Cadmium [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/13471-8/\">13471-8</a></td><td>Cadmium/Creatinine [Mass Ratio] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5622-6/\">5622-6</a></td><td>Chromium [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/5623-4/\">5623-4</a></td><td>Chromium [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/13464-3/\">13464-3</a></td><td>Chromium/Creatinine [Mass Ratio] in Urine</td></tr><tr><td><a href=\"https://loinc.org/14099-6/\">14099-6</a></td><td>Nickel [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5685-3/\">5685-3</a></td><td>Mercury [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5689-5/\">5689-5</a></td><td>Mercury [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/72665-3/\">72665-3</a></td><td>trans,trans-Muconic acid [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/10913-2/\">10913-2</a></td><td>4,4'-Methylenebis(2-chloroaniline) [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5653-1/\">5653-1</a></td><td>Formaldehyde [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/10909-0/\">10909-0</a></td><td>Benzidine [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/5681-2/\">5681-2</a></td><td>Manganese [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5683-8/\">5683-8</a></td><td>Manganese [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/42221-2/\">42221-2</a></td><td>Manganese [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/34304-6/\">34304-6</a></td><td>Fluoride [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/2777-1/\">2777-1</a></td><td>Phosphate [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/24829-4/\">24829-4</a></td><td>XR Mandible Views</td></tr><tr><td><a href=\"https://loinc.org/9827-7/\">9827-7</a></td><td>Paraquat [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/60090-8/\">60090-8</a></td><td>Indium [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/5665-5/\">5665-5</a></td><td>Indium [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/5627-5/\">5627-5</a></td><td>Cobalt [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/5625-9/\">5625-9</a></td><td>Cobalt [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/1984-4/\">1984-4</a></td><td>Bromide [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/1985-1/\">1985-1</a></td><td>Bromide [Mass/volume] in Urine</td></tr><tr><td><a href=\"https://loinc.org/1709-5/\">1709-5</a></td><td>Acetylcholinesterase [Enzymatic activity/volume] in Red Blood Cells</td></tr><tr><td><a href=\"https://loinc.org/2098-2/\">2098-2</a></td><td>Cholinesterase [Enzymatic activity/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/43371-4/\">43371-4</a></td><td>Salmonella and Shigella [Presence] in Stool by Culture</td></tr><tr><td><a href=\"https://loinc.org/19266-6/\">19266-6</a></td><td>Amphetamines [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19299-7/\">19299-7</a></td><td>Opiates [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19283-1/\">19283-1</a></td><td>Benzodiazepines [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19501-6/\">19501-6</a></td><td>Ketamine [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19571-9/\">19571-9</a></td><td>MDMA [Presence] in Urine by Screening test</td></tr><tr><td><a href=\"https://loinc.org/19177-5/\">19177-5</a></td><td>Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2039-6/\">2039-6</a></td><td>Carcinoembryonic Ag [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2857-1/\">2857-1</a></td><td>Prostate specific Ag [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/19199-9/\">19199-9</a></td><td>Prostate specific Ag [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/10886-0/\">10886-0</a></td><td>Prostate specific Ag.free [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/97149-9/\">97149-9</a></td><td>[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/97150-7/\">97150-7</a></td><td>Prostate Health Index in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/10334-1/\">10334-1</a></td><td>Cancer Ag 125 [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/83082-8/\">83082-8</a></td><td>Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay</td></tr><tr><td><a href=\"https://loinc.org/83085-1/\">83085-1</a></td><td>Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay</td></tr><tr><td><a href=\"https://loinc.org/24108-3/\">24108-3</a></td><td>Cancer Ag 19-9 [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/83084-4/\">83084-4</a></td><td>Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay</td></tr><tr><td><a href=\"https://loinc.org/83083-6/\">83083-6</a></td><td>Cancer Ag 15-3 [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/83112-3/\">83112-3</a></td><td>Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay</td></tr><tr><td><a href=\"https://loinc.org/1834-1/\">1834-1</a></td><td>Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/9679-2/\">9679-2</a></td><td>Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/19113-0/\">19113-0</a></td><td>IgE [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/9633-9/\">9633-9</a></td><td>Epstein Barr virus VCA IgA Ab [Presence] in Serum</td></tr><tr><td><a href=\"https://loinc.org/10835-7/\">10835-7</a></td><td>Lipoprotein A [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/1869-7/\">1869-7</a></td><td>Apolipoprotein A-I [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/1884-6/\">1884-6</a></td><td>Apolipoprotein B [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/33762-6/\">33762-6</a></td><td>Natriuretic peptide.proB-type N-terminal [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/42254-3/\">42254-3</a></td><td>Nuclear Ab [Presence] in Serum by Immunofluorescence</td></tr><tr><td><a href=\"https://loinc.org/11572-5/\">11572-5</a></td><td>Rheumatoid factor [Units/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/25390-6/\">25390-6</a></td><td>CYFRA 21-1 [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/24606-6/\">24606-6</a></td><td>Mammogram screening views study</td></tr><tr><td><a href=\"https://loinc.org/103892-6/\">103892-6</a></td><td>DBT Brst Screening</td></tr><tr><td><a href=\"https://loinc.org/24590-2/\">24590-2</a></td><td>MR Brain</td></tr><tr><td><a href=\"https://loinc.org/79086-5/\">79086-5</a></td><td>CT Chest Screening WO contr</td></tr><tr><td><a href=\"https://loinc.org/87279-6/\">87279-6</a></td><td>CT Chest Screening</td></tr><tr><td><a href=\"https://loinc.org/81555-5/\">81555-5</a></td><td>PT+CT Whole body Tum loc W 18F-FDG IV</td></tr><tr><td><a href=\"https://loinc.org/79073-3/\">79073-3</a></td><td>CTA Hrt+CA W contr IV</td></tr><tr><td><a href=\"https://loinc.org/28014-9/\">28014-9</a></td><td>EGD Study</td></tr><tr><td><a href=\"https://loinc.org/28023-0/\">28023-0</a></td><td>Colonoscopy Study</td></tr><tr><td><a href=\"https://loinc.org/24558-9/\">24558-9</a></td><td>Ultrasound of abdomen study</td></tr><tr><td><a href=\"https://loinc.org/24616-5/\">24616-5</a></td><td>US Carotid aa</td></tr><tr><td><a href=\"https://loinc.org/25010-0/\">25010-0</a></td><td>US Thyroid</td></tr><tr><td><a href=\"https://loinc.org/38268-9/\">38268-9</a></td><td>DXA Skeletal Sys Views for BMD</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset"] ;
+  fhir:ValueSet.version [ fhir:value "0.1.0"] ;
+  fhir:ValueSet.name [ fhir:value "VS_ExtendedDataset"] ;
+  fhir:ValueSet.title [ fhir:value "健康檢查進階與領域擴充項目值集"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-07-23T22:22:27+08:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:ValueSet.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "包含特殊健康檢查與體格檢查之實驗室與生理功能檢驗項目，以及自費健康檢查常見之影像學檢查（如 MRI、CT、PET/CT、超音波、骨密度等）與內視鏡檢查（如胃鏡、大腸鏡），對應至 LOINC 代碼。"] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index 0 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index 0 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "11524-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "EKG study" ]
+       ], [
+         fhir:index 1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2951-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Sodium [Moles/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 2 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2823-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Potassium [Moles/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 3 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2075-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Chloride [Moles/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 4 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "3094-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Urea nitrogen [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 5 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5810-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Specific gravity of Urine" ]
+       ], [
+         fhir:index 6 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89015-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone threshold audiometry panel" ]
+       ], [
+         fhir:index 7 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89024-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - left --500 Hz" ]
+       ], [
+         fhir:index 8 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89016-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - left --1000 Hz" ]
+       ], [
+         fhir:index 9 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89018-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - left --2000 Hz" ]
+       ], [
+         fhir:index 10 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89020-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - left --3000 Hz" ]
+       ], [
+         fhir:index 11 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89022-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - left --4000 Hz" ]
+       ], [
+         fhir:index 12 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89026-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - left --6000 Hz" ]
+       ], [
+         fhir:index 13 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89028-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - left --8000 Hz" ]
+       ], [
+         fhir:index 14 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89025-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - right --500 Hz" ]
+       ], [
+         fhir:index 15 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89017-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - right --1000 Hz" ]
+       ], [
+         fhir:index 16 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89019-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - right --2000 Hz" ]
+       ], [
+         fhir:index 17 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89021-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - right --3000 Hz" ]
+       ], [
+         fhir:index 18 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89023-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - right --4000 Hz" ]
+       ], [
+         fhir:index 19 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89027-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - right --6000 Hz" ]
+       ], [
+         fhir:index 20 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89029-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hearing threshold Ear - right --8000 Hz" ]
+       ], [
+         fhir:index 21 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21104-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Audiometry study（panel 變異）" ]
+       ], [
+         fhir:index 22 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21106-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Left ear 500 Hz" ]
+       ], [
+         fhir:index 23 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21111-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Left ear 1000 Hz" ]
+       ], [
+         fhir:index 24 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21113-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Left ear 2000 Hz" ]
+       ], [
+         fhir:index 25 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21115-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Left ear 3000 Hz" ]
+       ], [
+         fhir:index 26 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21116-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Left ear 4000 Hz" ]
+       ], [
+         fhir:index 27 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21117-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Left ear 6000 Hz" ]
+       ], [
+         fhir:index 28 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21118-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Left ear 8000 Hz" ]
+       ], [
+         fhir:index 29 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21120-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Right ear 500 Hz" ]
+       ], [
+         fhir:index 30 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21123-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Right ear 1000 Hz" ]
+       ], [
+         fhir:index 31 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21125-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Right ear 2000 Hz" ]
+       ], [
+         fhir:index 32 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21127-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Right ear 3000 Hz" ]
+       ], [
+         fhir:index 33 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21128-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Right ear 4000 Hz" ]
+       ], [
+         fhir:index 34 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21129-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Right ear 6000 Hz" ]
+       ], [
+         fhir:index 35 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "21130-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone audiometry - Right ear 8000 Hz" ]
+       ], [
+         fhir:index 36 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "789-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Erythrocytes [#/volume] in Blood" ]
+       ], [
+         fhir:index 37 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "6690-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "WBC [#/volume] in Blood" ]
+       ], [
+         fhir:index 38 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "777-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Platelets [#/volume] in Blood" ]
+       ], [
+         fhir:index 39 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "718-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hemoglobin [Mass/volume] in Blood" ]
+       ], [
+         fhir:index 40 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "4544-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hematocrit [Volume Fraction] of Blood" ]
+       ], [
+         fhir:index 41 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "770-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Neutrophils [Fraction] of WBC" ]
+       ], [
+         fhir:index 42 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "736-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lymphocytes [Fraction] of WBC" ]
+       ], [
+         fhir:index 43 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "11580-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Thyrotropin [Units/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 44 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "3024-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Thyroxine (T4) free [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 45 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "24579-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XR Bones.long Survey" ]
+       ], [
+         fhir:index 46 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19876-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Forced vital capacity [Volume] in Airways by Spirometry" ]
+       ], [
+         fhir:index 47 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "20150-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry" ]
+       ], [
+         fhir:index 48 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19926-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry" ]
+       ], [
+         fhir:index 49 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5671-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lead [Mass/volume] in Blood" ]
+       ], [
+         fhir:index 50 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5676-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lead [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 51 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "23749-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lead [Mass/volume] in Specimen" ]
+       ], [
+         fhir:index 52 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "11212-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Coproporphyrin [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 53 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "11215-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Aminolevulinic acid [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 54 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "36643-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XR Chest 2 Views" ]
+       ], [
+         fhir:index 55 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "24648-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XR Chest PA upright" ]
+       ], [
+         fhir:index 56 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2324-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Gamma glutamyltransferase [Enzymatic activity/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 57 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "6709-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hippurate [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 58 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2725-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "p-Methylhippurate [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 59 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "13000-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mandelate [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 60 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "3041-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Trichloroacetate [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 61 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "31170-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "2,5-Hexanedione [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 62 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2758-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Phenol [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 63 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "12543-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Methylformamide [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 64 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "12533-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "TTCA [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 65 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5586-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Arsenic [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 66 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5609-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cadmium [Mass/volume] in Blood" ]
+       ], [
+         fhir:index 67 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5611-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cadmium [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 68 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "13471-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cadmium/Creatinine [Mass Ratio] in Urine" ]
+       ], [
+         fhir:index 69 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5622-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Chromium [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 70 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5623-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Chromium [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 71 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "13464-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Chromium/Creatinine [Mass Ratio] in Urine" ]
+       ], [
+         fhir:index 72 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "14099-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Nickel [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 73 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5685-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mercury [Mass/volume] in Blood" ]
+       ], [
+         fhir:index 74 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5689-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mercury [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 75 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "72665-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "trans,trans-Muconic acid [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 76 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "10913-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "4,4'-Methylenebis(2-chloroaniline) [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 77 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5653-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Formaldehyde [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 78 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "10909-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Benzidine [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 79 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5681-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Manganese [Mass/volume] in Blood" ]
+       ], [
+         fhir:index 80 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5683-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Manganese [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 81 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "42221-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Manganese [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 82 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "34304-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fluoride [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 83 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2777-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Phosphate [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 84 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "24829-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XR Mandible Views" ]
+       ], [
+         fhir:index 85 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "9827-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Paraquat [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 86 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "60090-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Indium [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 87 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5665-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Indium [Mass/volume] in Blood" ]
+       ], [
+         fhir:index 88 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5627-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cobalt [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 89 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5625-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cobalt [Mass/volume] in Blood" ]
+       ], [
+         fhir:index 90 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "1984-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bromide [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 91 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "1985-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Bromide [Mass/volume] in Urine" ]
+       ], [
+         fhir:index 92 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "1709-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Acetylcholinesterase [Enzymatic activity/volume] in Red Blood Cells" ]
+       ], [
+         fhir:index 93 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2098-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cholinesterase [Enzymatic activity/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 94 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "43371-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Salmonella and Shigella [Presence] in Stool by Culture" ]
+       ], [
+         fhir:index 95 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19266-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Amphetamines [Presence] in Urine by Screening test" ]
+       ], [
+         fhir:index 96 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19299-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Opiates [Presence] in Urine by Screening test" ]
+       ], [
+         fhir:index 97 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19283-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Benzodiazepines [Presence] in Urine by Screening test" ]
+       ], [
+         fhir:index 98 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19501-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ketamine [Presence] in Urine by Screening test" ]
+       ], [
+         fhir:index 99 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19571-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "MDMA [Presence] in Urine by Screening test" ]
+       ], [
+         fhir:index 100 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19177-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 101 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2039-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 102 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2857-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Prostate specific Ag [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 103 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19199-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Prostate specific Ag [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 104 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "10886-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Prostate specific Ag.free [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 105 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "97149-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 106 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "97150-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Prostate Health Index in Serum or Plasma" ]
+       ], [
+         fhir:index 107 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "10334-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cancer Ag 125 [Units/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 108 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "83082-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay" ]
+       ], [
+         fhir:index 109 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "83085-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay" ]
+       ], [
+         fhir:index 110 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "24108-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cancer Ag 19-9 [Units/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 111 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "83084-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay" ]
+       ], [
+         fhir:index 112 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "83083-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cancer Ag 15-3 [Units/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 113 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "83112-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay" ]
+       ], [
+         fhir:index 114 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "1834-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 115 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "9679-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 116 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19113-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "IgE [Units/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 117 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "9633-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Epstein Barr virus VCA IgA Ab [Presence] in Serum" ]
+       ], [
+         fhir:index 118 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "10835-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lipoprotein A [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 119 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "1869-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Apolipoprotein A-I [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 120 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "1884-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Apolipoprotein B [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 121 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "33762-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Natriuretic peptide.proB-type N-terminal [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 122 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "42254-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Nuclear Ab [Presence] in Serum by Immunofluorescence" ]
+       ], [
+         fhir:index 123 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "11572-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Rheumatoid factor [Units/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 124 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "25390-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CYFRA 21-1 [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index 125 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "24606-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Mammogram screening views study" ]
+       ], [
+         fhir:index 126 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "103892-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DBT Brst Screening" ]
+       ], [
+         fhir:index 127 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "24590-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "MR Brain" ]
+       ], [
+         fhir:index 128 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "79086-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CT Chest Screening WO contr" ]
+       ], [
+         fhir:index 129 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "87279-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CT Chest Screening" ]
+       ], [
+         fhir:index 130 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "81555-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "PT+CT Whole body Tum loc W 18F-FDG IV" ]
+       ], [
+         fhir:index 131 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "79073-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "CTA Hrt+CA W contr IV" ]
+       ], [
+         fhir:index 132 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "28014-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "EGD Study" ]
+       ], [
+         fhir:index 133 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "28023-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Colonoscopy Study" ]
+       ], [
+         fhir:index 134 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "24558-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Ultrasound of abdomen study" ]
+       ], [
+         fhir:index 135 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "24616-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "US Carotid aa" ]
+       ], [
+         fhir:index 136 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "25010-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "US Thyroid" ]
+       ], [
+         fhir:index 137 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "38268-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "DXA Skeletal Sys Views for BMD" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
 
 # -------------------------------------------------------------------------------------
 
