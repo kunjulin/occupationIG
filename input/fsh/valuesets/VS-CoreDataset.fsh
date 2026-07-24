@@ -9,18 +9,18 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 * LNC#4544-3 "Hematocrit [Volume Fraction] of Blood"
 * LNC#789-8 "Erythrocytes [#/volume] in Blood"
 * LNC#6690-2 "Leukocytes [#/volume] in Blood"
-* LNC#804-5 "WBC [#/volume] in Blood by Manual count"            // Layer 2: WBC Manual
-* LNC#26464-8 "WBC [#/volume] in Blood"                          // Layer 2: WBC unspecified
+* LNC#804-5 "WBC [#/volume] in Blood by Manual count"            // Acceptable: WBC Manual
+* LNC#26464-8 "WBC [#/volume] in Blood"                          // Acceptable: WBC unspecified
 * LNC#777-3 "Platelets [#/volume] in Blood"
-* LNC#26515-7 "Platelets [#/volume] in Blood by Automated count" // Layer 2: Plt Automated
+* LNC#26515-7 "Platelets [#/volume] in Blood by Automated count" // Acceptable: Plt Automated
 * LNC#787-2 "MCV [Entitic volume] by Automated count"
-* LNC#30428-7 "MCV [Entitic volume] by calculation"              // Layer 2: MCV calculation
+* LNC#30428-7 "MCV [Entitic volume] by calculation"              // Acceptable: MCV calculation
 * LNC#785-6 "MCH [Entitic mass] by Automated count"
-* LNC#28539-5 "MCH [Entitic mass] by Automated count"            // Layer 2: MCH (full name)
+* LNC#28539-5 "MCH [Entitic mass] by Automated count"            // Acceptable: MCH (full name)
 * LNC#786-4 "MCHC [Mass/volume] by Automated count"
 * LNC#788-0 "Erythrocyte distribution width [Ratio] by Automated count"
 * LNC#770-8 "Neutrophils/100 leukocytes in Blood by Automated count"
-* LNC#26508-2 "Neutrophils/100 leukocytes in Blood by Manual count" // Layer 2: Neutrophil Manual
+* LNC#26508-2 "Neutrophils/100 leukocytes in Blood by Manual count" // Acceptable: Neutrophil Manual
 * LNC#736-9 "Lymphocytes/100 leukocytes in Blood by Automated count"
 * LNC#5905-5 "Monocytes/100 leukocytes in Blood by Automated count"
 * LNC#713-8 "Eosinophils/100 leukocytes in Blood by Automated count"
@@ -51,7 +51,7 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 * LNC#2339-0 "Glucose [Mass/volume] in Blood"
 * LNC#2345-7 "Glucose [Mass/volume] in Serum or Plasma -- post fasting"
 * LNC#4548-4 "Hemoglobin A1c/Hemoglobin.total in Blood"
-* LNC#59261-8 "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol" // Layer 2: HbA1c IFCC
+* LNC#59261-8 "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol" // Acceptable: HbA1c IFCC
 * LNC#20448-7 "Insulin [Units/volume] in Serum or Plasma"
 * LNC#47214-2 "Homeostasis model assessment"
 * LNC#2160-0 "Creatinine [Mass/volume] in Serum or Plasma"
@@ -69,13 +69,13 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 
 // 3. 肝膽、胰臟與心肌功能 (Liver/Pancreas/Cardiac)
 * LNC#1920-8 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* LNC#14409-7 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P" // Layer 2: AST UV
+* LNC#14409-7 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P" // Acceptable: AST UV
 * LNC#88112-8 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
 * LNC#1742-6 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* LNC#14390-9 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P"  // Layer 2: ALT UV
+* LNC#14390-9 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P"  // Acceptable: ALT UV
 * LNC#1744-2 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
 * LNC#6768-6 "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
-* LNC#1783-0 "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"                      // Layer 2: ALP unspecified
+* LNC#1783-0 "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"                      // Acceptable: ALP unspecified
 * LNC#2324-2 "Gamma glutamyltransferase [Enzymatic activity/volume] in Serum or Plasma"
 * LNC#1975-2 "Bilirubin.total [Mass/volume] in Serum or Plasma"
 * LNC#1968-7 "Bilirubin.direct [Mass/volume] in Serum or Plasma"
@@ -102,7 +102,7 @@ Description: "包含一般健康檢查及體格檢查之核心檢驗與實驗室
 
 // 5. 甲狀腺與營養指標 (Thyroid/Nutrition)
 * LNC#11580-8 "Thyrotropin [Units/volume] in Serum or Plasma"
-* LNC#3016-3 "Thyrotropin [Units/volume] in Serum or Plasma by 3rd IS"  // Layer 2: TSH 3rd gen
+* LNC#3016-3 "Thyrotropin [Units/volume] in Serum or Plasma by 3rd IS"  // Acceptable: TSH 3rd gen
 * LNC#3024-7 "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
 * LNC#3051-0 "Triiodothyronine (T3) free [Mass/volume] in Serum or Plasma"
 * LNC#3026-2 "Thyroxine (T4) total [Mass/volume] in Serum or Plasma"

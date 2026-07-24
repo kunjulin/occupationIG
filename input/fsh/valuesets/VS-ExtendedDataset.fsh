@@ -155,7 +155,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#19177-5 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
 * LNC#2039-6 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
 * LNC#2857-1 "Prostate specific Ag [Mass/volume] in Serum or Plasma"
-* LNC#19199-9 "Prostate specific Ag [Mass/volume] in Serum or Plasma"   // Layer 2: PSA unspecified method
+* LNC#19199-9 "Prostate specific Ag [Mass/volume] in Serum or Plasma"   // Acceptable: PSA unspecified method
 * LNC#10886-0 "Prostate specific Ag.free [Mass/volume] in Serum or Plasma"
 * LNC#97149-9 "[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma"
 * LNC#97150-7 "Prostate Health Index in Serum or Plasma"

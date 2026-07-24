@@ -39,28 +39,32 @@
 
 ---
 
-## 3. 三層式 LOINC 術語管理機制 (3-Layer LOINC Terminology Strategy)
+## 3. LOINC 術語治理機制 (LOINC Terminology Governance)
 
-由於各醫療院所檢驗資訊系統 (LIS) 的歷史代碼與檢驗方法存在差異（例如白血球計數可能使用自動計數或手動計數），本指引針對健康檢查核心檢驗項目採用**三層式術語值集與對應機制**，以提升互操作性並降低院所端系統對接成本。
+由於各醫療院所檢驗資訊系統 (LIS) 的歷史代碼與檢驗方法存在差異（例如白血球計數可能使用自動計數或手動計數），本指引針對健康檢查檢驗項目採用 **FHIR 國際標準之術語治理模式**——`extensible binding` ＋ `preferred (primary) code` ＋ `acceptable codes via ConceptMap`，以提升互操作性並降低院所端系統對接成本。
 
-### 3.1 三層架構定義
-*   **Layer 1: Preferred Code (優先代碼)**：
-    - 每個檢驗項目指定一個最優先推薦使用的標準 LOINC 代碼。例如 WBC 優先使用 `6690-2`。
-*   **Layer 2: Acceptable Codes (可接受值集)**：
-    - 建立核心值集 [VS-CoreDataset](ValueSet-VS-CoreDataset.html) (繫結強度為 `extensible`)，容納同義或情境相近之 LOINC 代碼（例如包含 `6690-2`、`804-5`、`26464-8`）。若院所上傳代碼在此範圍內，均視為合法格式。
-*   **Layer 3: Exclusion (排除/非範疇)**：
-    - 明確排除不適用於一般健康檢查之 LOINC 代碼。例如體液白血球代碼 `12227-5` 排除在一般健檢血常規之外。
+### 3.1 治理機制定義
+*   **Extensible binding（值集綁定強度）**：
+    - 檢驗項目代碼綁定至值集，綁定強度為 **`extensible`**：優先使用值集內代碼；值集外之代碼亦可接受，但建議回報以利術語治理。
+*   **Preferred (primary) code（優先代碼）**：
+    - 每個檢驗項目指定一個最優先推薦使用的標準 LOINC 代碼。例如 WBC 優先使用 `6690-2`、腰圍優先使用 `8280-0`。
+*   **Acceptable codes via ConceptMap（可接受代碼與歸一）**：
+    - 同義或情境相近之 LOINC 代碼（例如 WBC 之 `804-5`、`26464-8`）列為 acceptable，收錄於對應值集，並透過 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 歸一至 preferred code，供接收端進行標準化資料清洗。
+*   **平行跨術語對映（SNOMED CT／UCUM）**：
+    - **SNOMED CT 與 UCUM 為與 LOINC 平行之 code system**（非 LOINC 之下層）：LOINC 表達「檢驗項目」、SNOMED CT 表達臨床概念、UCUM 表達計量單位，三者於 §4 對照表並列呈現。
+*   **Exclusion（治理註記）**：
+    - 屬**治理註記**（非綁定層級）：明確排除不適用之過時或語意不符代碼。例如體液白血球代碼 `12227-5` 語意上不屬一般健檢血常規，於治理上標示排除。
 
-> **用語澄清（綁定強度 vs. Preferred 代碼）**：本節「Layer 1 Preferred（優先代碼）」係指三層術語中的**指定代碼層級**，與 FHIR 值集**綁定強度（binding strength）之 `preferred`** 為不同概念。本 IG 之 `VS-CoreDataset` 綁定強度為 **`extensible`**（與文件一 §6.3、實際建置一致），非 FHIR 之 `preferred` 綁定。
+> **用語澄清（綁定強度 vs. Preferred 代碼）**：本節之 **preferred (primary) code** 係指**指定優先代碼**，與 FHIR 值集**綁定強度（binding strength）之 `preferred`** 為不同概念。本 IG 之值集綁定強度為 **`extensible`**（與文件一 §6.3、實際建置一致），非 FHIR 之 `preferred` 綁定。
 
 ### 3.2 代碼映射 ConceptMap
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 Layer 2 可接受代碼至 Layer 1 優先推薦代碼的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **29 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 `2089-1`）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **32 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 `2089-1`）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）、腰圍（`56086-2`→`8280-0`）與純音聽力 panel（`21104-5`→`89015-2`）三組（聽力採 panel 對 panel，其 14 個頻率 component 對應列為後續 backlog）。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 ---
 
 ## 4. 核心檢驗項目 LOINC–SNOMED CT 跨術語對照表
 
-本節提供健康檢查核心資料集中各主要項目的跨術語標準對照，整合 LOINC（Layer 1 優先 / Layer 2 可接受）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照，供審查委員、實作廠商與術語標準對接使用。所有 SNOMED CT 代碼均已透過 SNOMED International Browser（2026-06-01 版）人工逐一確認。
+本節提供健康檢查核心資料集中各主要項目的跨術語標準對照，整合 LOINC（preferred 優先碼／acceptable 可接受碼）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照——三者為**平行之 code system**，供審查委員、實作廠商與術語標準對接使用。所有 SNOMED CT 代碼均已透過 SNOMED International Browser（2026-06-01 版）人工逐一確認。
 
 | 類別 | 中文名 | LOINC Preferred | LOINC Acceptable | SNOMED CT | UCUM | 法規 |
 |:---|:---|:---|:---|:---|:---|:---|
@@ -108,7 +112,7 @@
 完整的 LOINC–SNOMED CT–UCUM 跨術語對照表（CSV 格式）可從以下連結下載：
 - [snomed-loinc-mappings.csv](snomed-loinc-mappings.csv)
 
-CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`item_name_en`（英文名）、`loinc_preferred`（Layer 1）、`loinc_acceptable`（Layer 2 集合）、`snomed_ct`（代碼）、`snomed_display`（顯示名稱）、`snomed_status`（驗證狀態）、`ucum_unit`（UCUM 單位）、`regulatory_ref`（法規欄位）。
+CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`item_name_en`（英文名）、`loinc_preferred`（優先碼）、`loinc_acceptable`（可接受碼集合）、`snomed_ct`（代碼）、`snomed_display`（顯示名稱）、`snomed_status`（驗證狀態）、`ucum_unit`（UCUM 單位）、`regulatory_ref`（法規欄位）。
 
 ### 5.2 肺功能代碼雙 ValueSet 說明
 本指引中，肺功能代碼（`19876-2` FVC、`19868-9` FEV1、`19926-5` FEV1/FVC 比值）同時收錄於兩個不同的 ValueSet，用途各異：
@@ -119,7 +123,7 @@ CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`ite
 兩者並非重複，而是服務不同的查詢情境。`TWHAPulmonaryFunctionProfile` 的 `Observation.code` 為固定值（`= LNC#19876-2`），不受 VS 繫結直接限制，但兩個 VS 均供文件與術語服務查詢使用。
 
 ### 5.3 聽力頻率代碼設計說明
-聽力測試使用三層代碼架構：
+聽力測試之代碼結構層次如下（此為 panel／component 之**資源結構**設計，與 §3 之術語治理機制為不同概念）：
 1. **Panel（`89015-2`）**：記錄整場聽力測試，進入 `VS-CoreDataset` 作為 Observation.code
 2. **個別頻率/耳別代碼（`89024-4` 等 8 個）**：作為 `component.code` 由 `TWHAHearingTestProfile` 的 8 個 component 切片處理，收錄於 `VS-ExtendedDataset`
 3. **結果解釋**：臨床人員依 ISO 1999 標準判定各頻率閾值是否超過 25 dB HL

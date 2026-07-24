@@ -2,7 +2,7 @@ Instance: TWHealthCheckLaboratoryMap
 // We use ConceptMap directly
 InstanceOf: ConceptMap
 Title: "健康檢查檢驗項目代碼對應 ConceptMap"
-Description: "將健康檢查實驗室檢驗之可接受代碼 (Layer 2) 映射至最優先推薦之標準代碼 (Layer 1)。"
+Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。"
 * name = "TWHealthCheckLaboratoryMap"
 * status = #active
 * experimental = false
@@ -227,4 +227,30 @@ Description: "將健康檢查實驗室檢驗之可接受代碼 (Layer 2) 映射�
 * group[0].element[28].target[0].code = #2089-1
 * group[0].element[28].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
 * group[0].element[28].target[0].equivalence = #equivalent
+
+// =============================================================
+// v20260724（文件一/二 v3.0 對齊，P4：補齊已宣告為 Acceptable 但缺 ConceptMap 之對應）
+// =============================================================
+
+// 血中鉛：院內 LIS Specimen 碼 → Preferred Blood
+* group[0].element[29].code = #23749-5
+* group[0].element[29].display = "Lead [Mass/volume] in Specimen"
+* group[0].element[29].target[0].code = #5671-3
+* group[0].element[29].target[0].display = "Lead [Mass/volume] in Blood"
+* group[0].element[29].target[0].equivalence = #equivalent
+
+// 腰圍：一般腰圍碼（語意較廣） → Preferred 臍位皮尺法
+* group[0].element[30].code = #56086-2
+* group[0].element[30].display = "Waist Circumference"
+* group[0].element[30].target[0].code = #8280-0
+* group[0].element[30].target[0].display = "Waist Circumference at umbilicus by Tape measure"
+* group[0].element[30].target[0].equivalence = #wider
+
+// 聽力：純音聽力 panel 變異碼 → Preferred panel（採方案 A：僅 panel 對 panel；
+// 21104-5 系列之 14 個頻率 component 對應列為後續 backlog，另建 ConceptMap 處理）
+* group[0].element[31].code = #21104-5
+* group[0].element[31].display = "Pure tone audiometry - Audiometry study"
+* group[0].element[31].target[0].code = #89015-2
+* group[0].element[31].target[0].display = "Pure tone threshold audiometry panel"
+* group[0].element[31].target[0].equivalence = #equivalent
 
