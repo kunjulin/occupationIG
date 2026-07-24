@@ -842,9 +842,9 @@ Description: "國健署成人預防保健自填問卷與理學生化檢查 Docum
 // 9.1 dataAbsentReason 缺值範例
 // 示範治理原則「缺值須以 dataAbsentReason 標明，而非省略該筆 Observation」之實際填法。
 Instance: obs-lab-egfr-absent
-InstanceOf: TWHALabResultGeneralProfile
+InstanceOf: TWHALabResultSpecialProfile
 Title: "實驗室檢驗缺值範例 - eGFR 未檢測（dataAbsentReason）"
-Description: "受檢勞工王大同本次因故未完成腎絲球過濾率 (eGFR) 檢測。示範以 dataAbsentReason = not-performed 標明缺值原因，Observation 仍保留且合乎 twha-obs-1（value 或 dataAbsentReason 或 component 三者擇一）。"
+Description: "受檢勞工王大同本次因故未完成腎絲球過濾率 (eGFR) 檢測。示範以 dataAbsentReason = not-performed 標明缺值原因，Observation 仍保留且合乎 twha-obs-1（value 或 dataAbsentReason 或 component 三者擇一）。eGFR 屬成健延伸項目，v3.0 Core 重構後歸 Extended，故綁 TWHA-LabResult-Special（VS-ExtendedDataset）。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
 * code = LNC#88293-6 "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)"

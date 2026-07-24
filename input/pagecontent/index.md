@@ -22,15 +22,15 @@
 ---
 
 ## 3. 整體架構 (Overall Architecture)
-本指引以 `TW Core IG` 為母規範，以**勞工健康檢查（Core）為核心主體**，並以**不修改核心、加掛擴充**之方式向兩個方向延伸：
+本指引以 `TW Core IG` 為母規範，以**勞工健康檢查（Core）為核心主體**，並以**不修改核心、加掛擴充**之方式向兩個方向延伸。**Core ＝ 主管機關（國健署）制定之最小共通上傳集（21 列，USCDI regulator-defined minimum model）**，其餘一律歸 Extended；IG 整體範疇 ＝ **Core ∪ Extended**：
 
 ```
 臺灣勞工健康檢查交換實作指引 (TWHA IG)
-├── Core 勞工健康檢查共通核心 (附表九一般項目 + 交換必要行政欄位)
-│   ├── Social History (生活習慣)  --> 吸菸 / 飲酒 / 嚼檳榔 / 睡眠
-│   ├── Vital Signs (生理量測)     --> 身高 / 體重 / BMI / 腰圍 / 血壓
-│   ├── Laboratory (實驗室檢驗)    --> 全血球計數 (CBC) / 生化 / 血脂 / 尿液
-│   └── Screening (篩檢與生理功能)  --> 視力 / 聽力 / 胸部 X 光
+├── Core 主管機關最小共通上傳集 (國健署原案 21 列；全集群組 = VS-CoreUploadSet)
+│   ├── Social History (生活習慣)  --> 吸菸狀態/量/戒菸月數 / 嚼檳狀態
+│   ├── Vital Signs (生理量測)     --> 身高 / 體重 / 腰圍 / 血壓（VS-TWHAVitalSigns）
+│   ├── Laboratory (實驗室檢驗)    --> 血脂 / 飯前血糖 / 肌酸酐 / 尿蛋白 / 肝炎（VS-CoreDataset，10 項）
+│   └── (CBC、ALT、視聽力、胸X、尿潛血等附表九非上傳項 --> 歸 Extended)
 ├── 擴充一：特殊職類 (Special Occupational Extension，開放式擴充)
 │   └── 對應《勞工健康保護規則》附表十危害作業（噪音／鉛／粉塵／有機溶劑／輻射／特定化學物質…）
 │       以 CS-HazardType ＋ TWHA-LabResult-Special ＋ 各職類值集承載；新增職類僅需擴充值集／新增 Profile，不影響 Core
@@ -53,7 +53,7 @@
 ### 4.2 資料治理原則
 1. **Must Support**：發送端須能建立、儲存與傳送該欄位；接收端須能接收、保存與查詢，且不得因資料缺失而報錯（呈現為 Should Display）。
 2. **DataAbsentReason (必要)**：在 Observation 無檢驗數值或受檢者拒答時，必須填寫 `dataAbsentReason`（如 `not-performed`、`refused`），以確保缺項資料仍能通過驗證。
-3. **極簡化 ValueSet**：僅維護 Core 與 Extended 兩組主體 ValueSet，供 Core 及所有擴充共用，避免代碼重複。
+3. **極簡化 ValueSet**：綁定值集以 Core 檢驗子集（VS-CoreDataset）與 Extended（VS-ExtendedDataset）兩組為主體，供 Core 及所有擴充共用；另以 VS-CoreUploadSet 群組值集具體化「主管機關最小上傳集 21 列」供完整度參照（不作綁定）。
 
 ---
 
