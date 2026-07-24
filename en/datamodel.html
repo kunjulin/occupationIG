@@ -221,7 +221,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <ul id="markdown-toc">
   <li><a href="#資料模型與-resource-映射-data-model--mapping" id="markdown-toc-資料模型與-resource-映射-data-model--mapping">資料模型與 Resource 映射 (Data Model &amp; Mapping)</a>    <ul>
       <li><a href="#1-資料模型關係圖" id="markdown-toc-1-資料模型關係圖">1. 資料模型關係圖</a></li>
-      <li><a href="#2-core勞工健康檢查共通核心欄位映射" id="markdown-toc-2-core勞工健康檢查共通核心欄位映射">2. Core（勞工健康檢查共通核心）欄位映射</a></li>
+      <li><a href="#2-core主管機關最小共通上傳集欄位映射" id="markdown-toc-2-core主管機關最小共通上傳集欄位映射">2. Core（主管機關最小共通上傳集）欄位映射</a></li>
       <li><a href="#3-擴充extensions欄位映射" id="markdown-toc-3-擴充extensions欄位映射">3. 擴充（Extensions）欄位映射</a>        <ul>
           <li><a href="#31-特殊職類擴充勞工特殊健康檢查-special-occupational-health-check" id="markdown-toc-31-特殊職類擴充勞工特殊健康檢查-special-occupational-health-check">3.1 特殊職類擴充：勞工特殊健康檢查 (Special Occupational Health Check)</a></li>
           <li><a href="#32-一般健檢預防保健擴充成人預防保健-adult-preventive-care" id="markdown-toc-32-一般健檢預防保健擴充成人預防保健-adult-preventive-care">3.2 一般健檢／預防保健擴充：成人預防保健 (Adult Preventive Care)</a></li>
@@ -282,8 +282,39 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <hr />
 
-<h2 id="2-core勞工健康檢查共通核心欄位映射">2. Core（勞工健康檢查共通核心）欄位映射</h2>
-<p>本層收錄勞工健康檢查（附表九／十一）最基本且共通之生理指標，亦為一般健檢／預防保健擴充所重用之基礎，其對應之 FHIR 資源及 Profiles 如下：</p>
+<h2 id="2-core主管機關最小共通上傳集欄位映射">2. Core（主管機關最小共通上傳集）欄位映射</h2>
+<p><strong>Core 定義（文件一/二 v3.0）</strong>：Core ＝ 主管機關（國健署）制定之<strong>最小共通上傳集</strong>（「勞工/公教健檢上傳欄位原案」16 主項／21 列），對標 USCDI（regulator-defined minimum）；其餘項目一律歸 <strong>Extended</strong>，以維持 Core minimal。<strong>IG 之整體資料範疇 ＝ Core ∪ Extended 之組合</strong>。</p>
+
+<p>Core 21 列橫跨三種資料型別，分屬<strong>三個綁定值集</strong>，不集中於單一值集（避免 <code class="language-plaintext highlighter-rouge">LabResult-General.code</code> 綁到身高等生理量測碼造成語意錯誤）：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Core 子集</th>
+      <th style="text-align: left">綁定值集 / 承載</th>
+      <th style="text-align: left">內容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">檢驗子集（10 項）</td>
+      <td style="text-align: left"><a href="ValueSet-VS-CoreDataset.html">VS-CoreDataset</a>（<code class="language-plaintext highlighter-rouge">TWHA-LabResult-General.code</code>，extensible）</td>
+      <td style="text-align: left">總膽固醇、飯前血糖、TG、HDL、LDL、肌酸酐、尿蛋白定量/定性、B肝、C肝</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生理量測</td>
+      <td style="text-align: left"><a href="ValueSet-VS-TWHAVitalSigns.html">VS-TWHAVitalSigns</a>（<code class="language-plaintext highlighter-rouge">TWHA-VitalSigns</code>／<code class="language-plaintext highlighter-rouge">TWCoreBloodPressure</code>）</td>
+      <td style="text-align: left">身高、體重、腰圍、血壓</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">社會史</td>
+      <td style="text-align: left">SocialHistory profiles</td>
+      <td style="text-align: left">吸菸狀態/量/戒菸月數、嚼檳狀態</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Core 全集（21 列）以群組值集 <a href="ValueSet-VS-CoreUploadSet.html">VS-CoreUploadSet</a> 具體化</strong>（組合上述三者），僅供文件與完整度／覆蓋矩陣參照，不作 Observation.code 綁定。以下為各子集之對應 FHIR 資源及 Profiles：</p>
 
 <table>
   <thead>
@@ -426,8 +457,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-23 22:22:00 +0800">
-    2026-07-23
+  <span title="2026-07-24 13:54:00 +0800">
+    2026-07-24
   </span>
 
           <br/>

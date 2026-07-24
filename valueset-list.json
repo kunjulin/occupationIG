@@ -49,9 +49,18 @@
     "version" : "0.1.0",
     "status" : "active",
     "name" : "VS_CoreDataset",
-    "title" : "健康檢查核心項目值集",
-    "description" : "包含一般健康檢查及體格檢查之核心檢驗與實驗室項目，對應至 LOINC 代碼。",
+    "title" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
+    "description" : "Core 之檢驗子集（主管機關（國健署）最小共通上傳集之 Observation.code 綁定值集，綁定強度 extensible）。僅收錄 Core 之 10 檢驗項 preferred code 及其 acceptable 變異碼；生理量測（身高/體重/腰圍/血壓）碼分屬 VS-TWHAVitalSigns、社會史（吸菸/嚼檳）碼分屬 SocialHistory profile。Core 全集（21 列）之群組見 VS-CoreUploadSet。acceptable→preferred 歸一見 ConceptMap TWHealthCheckLaboratoryMap。",
     "systems" : ["http://loinc.org"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreUploadSet",
+    "version" : "0.1.0",
+    "status" : "active",
+    "name" : "VS_CoreUploadSet",
+    "title" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
+    "description" : "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳量／嚼檳月數屬本地 Extension（ext-betelnut-quantity），無國際碼，於文件註記。",
+    "systems" : ["http://loinc.org", "http://snomed.info/sct"]
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExamType",

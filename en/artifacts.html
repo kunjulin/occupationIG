@@ -905,13 +905,24 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="ValueSet-VS-CoreDataset.html" title="ValueSet/VS-CoreDataset">
-                  <span title="ValueSet/VS-CoreDataset">健康檢查核心項目值集
+               <a href="ValueSet-VS-CoreUploadSet.html" title="ValueSet/VS-CoreUploadSet">
+                  <span title="ValueSet/VS-CoreUploadSet">主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）
 </span>
                </a>
             </td>
             <td>
-<p>包含一般健康檢查及體格檢查之核心檢驗與實驗室項目，對應至 LOINC 代碼。</p>
+<p>群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳量／嚼檳月數屬本地 Extension（ext-betelnut-quantity），無國際碼，於文件註記。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-VS-CoreDataset.html" title="ValueSet/VS-CoreDataset">
+                  <span title="ValueSet/VS-CoreDataset">健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）
+</span>
+               </a>
+            </td>
+            <td>
+<p>Core 之檢驗子集（主管機關（國健署）最小共通上傳集之 Observation.code 綁定值集，綁定強度 extensible）。僅收錄 Core 之 10 檢驗項 preferred code 及其 acceptable 變異碼；生理量測（身高/體重/腰圍/血壓）碼分屬 VS-TWHAVitalSigns、社會史（吸菸/嚼檳）碼分屬 SocialHistory profile。Core 全集（21 列）之群組見 VS-CoreUploadSet。acceptable→preferred 歸一見 ConceptMap TWHealthCheckLaboratoryMap。</p>
 </td>
          </tr>
          <tr>
@@ -1499,7 +1510,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>將健康檢查實驗室檢驗之可接受代碼 (Layer 2) 映射至最優先推薦之標準代碼 (Layer 1)。</p>
+<p>將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。</p>
 </td>
          </tr>
          <tr>
@@ -1640,7 +1651,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>受檢勞工王大同本次因故未完成腎絲球過濾率 (eGFR) 檢測。示範以 dataAbsentReason = not-performed 標明缺值原因，Observation 仍保留且合乎 twha-obs-1（value 或 dataAbsentReason 或 component 三者擇一）。</p>
+<p>受檢勞工王大同本次因故未完成腎絲球過濾率 (eGFR) 檢測。示範以 dataAbsentReason = not-performed 標明缺值原因，Observation 仍保留且合乎 twha-obs-1（value 或 dataAbsentReason 或 component 三者擇一）。eGFR 屬成健延伸項目，v3.0 Core 重構後歸 Extended，故綁 TWHA-LabResult-Special（VS-ExtendedDataset）。</p>
 </td>
          </tr>
          <tr>
@@ -2082,8 +2093,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-23 22:22:00 +0800">
-    2026-07-23
+  <span title="2026-07-24 13:54:00 +0800">
+    2026-07-24
   </span>
 
           <br/>

@@ -2,7 +2,7 @@
 
 ## Example Observation: 實驗室檢驗缺值範例 - eGFR 未檢測（dataAbsentReason）
 
-Profile: [一般健檢實驗室檢驗 Profile](StructureDefinition-TWHA-LabResult-General.md)
+Profile: [特殊健檢實驗室檢驗 Profile](StructureDefinition-TWHA-LabResult-Special.md)
 
 **status**: Final
 
@@ -27,7 +27,7 @@ Profile: [一般健檢實驗室檢驗 Profile](StructureDefinition-TWHA-LabResul
   "resourceType" : "Observation",
   "id" : "obs-lab-egfr-absent",
   "meta" : {
-    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-General"]
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-Special"]
   },
   "status" : "final",
   "category" : [{

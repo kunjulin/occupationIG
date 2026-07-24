@@ -222,8 +222,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#術語與代碼系統-terminology--codesystems" id="markdown-toc-術語與代碼系統-terminology--codesystems">術語與代碼系統 (Terminology &amp; CodeSystems)</a>    <ul>
       <li><a href="#1-國際臨床術語遵循" id="markdown-toc-1-國際臨床術語遵循">1. 國際臨床術語遵循</a></li>
       <li><a href="#2-本地化行政代碼系統-codesystems-defined-in-this-ig" id="markdown-toc-2-本地化行政代碼系統-codesystems-defined-in-this-ig">2. 本地化行政代碼系統 (CodeSystems Defined in this IG)</a></li>
-      <li><a href="#3-三層式-loinc-術語管理機制-3-layer-loinc-terminology-strategy" id="markdown-toc-3-三層式-loinc-術語管理機制-3-layer-loinc-terminology-strategy">3. 三層式 LOINC 術語管理機制 (3-Layer LOINC Terminology Strategy)</a>        <ul>
-          <li><a href="#31-三層架構定義" id="markdown-toc-31-三層架構定義">3.1 三層架構定義</a></li>
+      <li><a href="#3-loinc-術語治理機制-loinc-terminology-governance" id="markdown-toc-3-loinc-術語治理機制-loinc-terminology-governance">3. LOINC 術語治理機制 (LOINC Terminology Governance)</a>        <ul>
+          <li><a href="#31-治理機制定義" id="markdown-toc-31-治理機制定義">3.1 治理機制定義</a></li>
           <li><a href="#32-代碼映射-conceptmap" id="markdown-toc-32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</a></li>
         </ul>
       </li>
@@ -319,41 +319,51 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <hr />
 
-<h2 id="3-三層式-loinc-術語管理機制-3-layer-loinc-terminology-strategy">3. 三層式 LOINC 術語管理機制 (3-Layer LOINC Terminology Strategy)</h2>
+<h2 id="3-loinc-術語治理機制-loinc-terminology-governance">3. LOINC 術語治理機制 (LOINC Terminology Governance)</h2>
 
-<p>由於各醫療院所檢驗資訊系統 (LIS) 的歷史代碼與檢驗方法存在差異（例如白血球計數可能使用自動計數或手動計數），本指引針對健康檢查核心檢驗項目採用<strong>三層式術語值集與對應機制</strong>，以提升互操作性並降低院所端系統對接成本。</p>
+<p>由於各醫療院所檢驗資訊系統 (LIS) 的歷史代碼與檢驗方法存在差異（例如白血球計數可能使用自動計數或手動計數），本指引針對健康檢查檢驗項目採用 <strong>FHIR 國際標準之術語治理模式</strong>——<code class="language-plaintext highlighter-rouge">extensible binding</code> ＋ <code class="language-plaintext highlighter-rouge">preferred (primary) code</code> ＋ <code class="language-plaintext highlighter-rouge">acceptable codes via ConceptMap</code>，以提升互操作性並降低院所端系統對接成本。</p>
 
-<h3 id="31-三層架構定義">3.1 三層架構定義</h3>
+<h3 id="31-治理機制定義">3.1 治理機制定義</h3>
 <ul>
-  <li><strong>Layer 1: Preferred Code (優先代碼)</strong>：
+  <li><strong>Extensible binding（值集綁定強度）</strong>：
     <ul>
-      <li>每個檢驗項目指定一個最優先推薦使用的標準 LOINC 代碼。例如 WBC 優先使用 <code class="language-plaintext highlighter-rouge">6690-2</code>。</li>
+      <li>檢驗項目代碼綁定至值集，綁定強度為 <strong><code class="language-plaintext highlighter-rouge">extensible</code></strong>：優先使用值集內代碼；值集外之代碼亦可接受，但建議回報以利術語治理。</li>
     </ul>
   </li>
-  <li><strong>Layer 2: Acceptable Codes (可接受值集)</strong>：
+  <li><strong>Preferred (primary) code（優先代碼）</strong>：
     <ul>
-      <li>建立核心值集 <a href="ValueSet-VS-CoreDataset.html">VS-CoreDataset</a> (繫結強度為 <code class="language-plaintext highlighter-rouge">extensible</code>)，容納同義或情境相近之 LOINC 代碼（例如包含 <code class="language-plaintext highlighter-rouge">6690-2</code>、<code class="language-plaintext highlighter-rouge">804-5</code>、<code class="language-plaintext highlighter-rouge">26464-8</code>）。若院所上傳代碼在此範圍內，均視為合法格式。</li>
+      <li>每個檢驗項目指定一個最優先推薦使用的標準 LOINC 代碼。例如 WBC 優先使用 <code class="language-plaintext highlighter-rouge">6690-2</code>、腰圍優先使用 <code class="language-plaintext highlighter-rouge">8280-0</code>。</li>
     </ul>
   </li>
-  <li><strong>Layer 3: Exclusion (排除/非範疇)</strong>：
+  <li><strong>Acceptable codes via ConceptMap（可接受代碼與歸一）</strong>：
     <ul>
-      <li>明確排除不適用於一般健康檢查之 LOINC 代碼。例如體液白血球代碼 <code class="language-plaintext highlighter-rouge">12227-5</code> 排除在一般健檢血常規之外。</li>
+      <li>同義或情境相近之 LOINC 代碼（例如 WBC 之 <code class="language-plaintext highlighter-rouge">804-5</code>、<code class="language-plaintext highlighter-rouge">26464-8</code>）列為 acceptable，收錄於對應值集，並透過 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 歸一至 preferred code，供接收端進行標準化資料清洗。</li>
+    </ul>
+  </li>
+  <li><strong>平行跨術語對映（SNOMED CT／UCUM）</strong>：
+    <ul>
+      <li><strong>SNOMED CT 與 UCUM 為與 LOINC 平行之 code system</strong>（非 LOINC 之下層）：LOINC 表達「檢驗項目」、SNOMED CT 表達臨床概念、UCUM 表達計量單位，三者於 §4 對照表並列呈現。</li>
+    </ul>
+  </li>
+  <li><strong>Exclusion（治理註記）</strong>：
+    <ul>
+      <li>屬<strong>治理註記</strong>（非綁定層級）：明確排除不適用之過時或語意不符代碼。例如體液白血球代碼 <code class="language-plaintext highlighter-rouge">12227-5</code> 語意上不屬一般健檢血常規，於治理上標示排除。</li>
     </ul>
   </li>
 </ul>
 
 <blockquote>
-  <p><strong>用語澄清（綁定強度 vs. Preferred 代碼）</strong>：本節「Layer 1 Preferred（優先代碼）」係指三層術語中的<strong>指定代碼層級</strong>，與 FHIR 值集<strong>綁定強度（binding strength）之 <code class="language-plaintext highlighter-rouge">preferred</code></strong> 為不同概念。本 IG 之 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 綁定強度為 <strong><code class="language-plaintext highlighter-rouge">extensible</code></strong>（與文件一 §6.3、實際建置一致），非 FHIR 之 <code class="language-plaintext highlighter-rouge">preferred</code> 綁定。</p>
+  <p><strong>用語澄清（綁定強度 vs. Preferred 代碼）</strong>：本節之 <strong>preferred (primary) code</strong> 係指<strong>指定優先代碼</strong>，與 FHIR 值集<strong>綁定強度（binding strength）之 <code class="language-plaintext highlighter-rouge">preferred</code></strong> 為不同概念。本 IG 之值集綁定強度為 <strong><code class="language-plaintext highlighter-rouge">extensible</code></strong>（與文件一 §6.3、實際建置一致），非 FHIR 之 <code class="language-plaintext highlighter-rouge">preferred</code> 綁定。</p>
 </blockquote>
 
 <h3 id="32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</h3>
-<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 Layer 2 可接受代碼至 Layer 1 優先推薦代碼的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>29 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 <code class="language-plaintext highlighter-rouge">2089-1</code>）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
+<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>32 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 <code class="language-plaintext highlighter-rouge">2089-1</code>）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）、腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）與純音聽力 panel（<code class="language-plaintext highlighter-rouge">21104-5</code>→<code class="language-plaintext highlighter-rouge">89015-2</code>）三組（聽力採 panel 對 panel，其 14 個頻率 component 對應列為後續 backlog）。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
 
 <hr />
 
 <h2 id="4-核心檢驗項目-loincsnomed-ct-跨術語對照表">4. 核心檢驗項目 LOINC–SNOMED CT 跨術語對照表</h2>
 
-<p>本節提供健康檢查核心資料集中各主要項目的跨術語標準對照，整合 LOINC（Layer 1 優先 / Layer 2 可接受）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照，供審查委員、實作廠商與術語標準對接使用。所有 SNOMED CT 代碼均已透過 SNOMED International Browser（2026-06-01 版）人工逐一確認。</p>
+<p>本節提供健康檢查核心資料集中各主要項目的跨術語標準對照，整合 LOINC（preferred 優先碼／acceptable 可接受碼）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照——三者為<strong>平行之 code system</strong>，供審查委員、實作廠商與術語標準對接使用。所有 SNOMED CT 代碼均已透過 SNOMED International Browser（2026-06-01 版）人工逐一確認。</p>
 
 <table>
   <thead>
@@ -696,7 +706,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="snomed-loinc-mappings.csv">snomed-loinc-mappings.csv</a></li>
 </ul>
 
-<p>CSV 欄位說明：<code class="language-plaintext highlighter-rouge">category</code>（類別）、<code class="language-plaintext highlighter-rouge">item_name_zh</code>（中文名）、<code class="language-plaintext highlighter-rouge">item_name_en</code>（英文名）、<code class="language-plaintext highlighter-rouge">loinc_preferred</code>（Layer 1）、<code class="language-plaintext highlighter-rouge">loinc_acceptable</code>（Layer 2 集合）、<code class="language-plaintext highlighter-rouge">snomed_ct</code>（代碼）、<code class="language-plaintext highlighter-rouge">snomed_display</code>（顯示名稱）、<code class="language-plaintext highlighter-rouge">snomed_status</code>（驗證狀態）、<code class="language-plaintext highlighter-rouge">ucum_unit</code>（UCUM 單位）、<code class="language-plaintext highlighter-rouge">regulatory_ref</code>（法規欄位）。</p>
+<p>CSV 欄位說明：<code class="language-plaintext highlighter-rouge">category</code>（類別）、<code class="language-plaintext highlighter-rouge">item_name_zh</code>（中文名）、<code class="language-plaintext highlighter-rouge">item_name_en</code>（英文名）、<code class="language-plaintext highlighter-rouge">loinc_preferred</code>（優先碼）、<code class="language-plaintext highlighter-rouge">loinc_acceptable</code>（可接受碼集合）、<code class="language-plaintext highlighter-rouge">snomed_ct</code>（代碼）、<code class="language-plaintext highlighter-rouge">snomed_display</code>（顯示名稱）、<code class="language-plaintext highlighter-rouge">snomed_status</code>（驗證狀態）、<code class="language-plaintext highlighter-rouge">ucum_unit</code>（UCUM 單位）、<code class="language-plaintext highlighter-rouge">regulatory_ref</code>（法規欄位）。</p>
 
 <h3 id="52-肺功能代碼雙-valueset-說明">5.2 肺功能代碼雙 ValueSet 說明</h3>
 <p>本指引中，肺功能代碼（<code class="language-plaintext highlighter-rouge">19876-2</code> FVC、<code class="language-plaintext highlighter-rouge">19868-9</code> FEV1、<code class="language-plaintext highlighter-rouge">19926-5</code> FEV1/FVC 比值）同時收錄於兩個不同的 ValueSet，用途各異：</p>
@@ -709,7 +719,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <p>兩者並非重複，而是服務不同的查詢情境。<code class="language-plaintext highlighter-rouge">TWHAPulmonaryFunctionProfile</code> 的 <code class="language-plaintext highlighter-rouge">Observation.code</code> 為固定值（<code class="language-plaintext highlighter-rouge">= LNC#19876-2</code>），不受 VS 繫結直接限制，但兩個 VS 均供文件與術語服務查詢使用。</p>
 
 <h3 id="53-聽力頻率代碼設計說明">5.3 聽力頻率代碼設計說明</h3>
-<p>聽力測試使用三層代碼架構：</p>
+<p>聽力測試之代碼結構層次如下（此為 panel／component 之<strong>資源結構</strong>設計，與 §3 之術語治理機制為不同概念）：</p>
 <ol>
   <li><strong>Panel（<code class="language-plaintext highlighter-rouge">89015-2</code>）</strong>：記錄整場聽力測試，進入 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 作為 Observation.code</li>
   <li><strong>個別頻率/耳別代碼（<code class="language-plaintext highlighter-rouge">89024-4</code> 等 8 個）</strong>：作為 <code class="language-plaintext highlighter-rouge">component.code</code> 由 <code class="language-plaintext highlighter-rouge">TWHAHearingTestProfile</code> 的 8 個 component 切片處理，收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code></li>
@@ -745,8 +755,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-23 22:22:00 +0800">
-    2026-07-23
+  <span title="2026-07-24 13:54:00 +0800">
+    2026-07-24
   </span>
 
           <br/>

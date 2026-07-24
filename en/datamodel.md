@@ -55,9 +55,19 @@ classDiagram
 
 -------
 
-## 2. Core（勞工健康檢查共通核心）欄位映射
+## 2. Core（主管機關最小共通上傳集）欄位映射
 
-本層收錄勞工健康檢查（附表九／十一）最基本且共通之生理指標，亦為一般健檢／預防保健擴充所重用之基礎，其對應之 FHIR 資源及 Profiles 如下：
+**Core 定義（文件一/二 v3.0）**：Core ＝ 主管機關（國健署）制定之**最小共通上傳集**（「勞工/公教健檢上傳欄位原案」16 主項／21 列），對標 USCDI（regulator-defined minimum）；其餘項目一律歸 **Extended**，以維持 Core minimal。**IG 之整體資料範疇 ＝ Core ∪ Extended 之組合**。
+
+Core 21 列橫跨三種資料型別，分屬**三個綁定值集**，不集中於單一值集（避免 `LabResult-General.code` 綁到身高等生理量測碼造成語意錯誤）：
+
+| | | |
+| :--- | :--- | :--- |
+| 檢驗子集（10 項） | [VS-CoreDataset](ValueSet-VS-CoreDataset.md)（`TWHA-LabResult-General.code`，extensible） | 總膽固醇、飯前血糖、TG、HDL、LDL、肌酸酐、尿蛋白定量/定性、B肝、C肝 |
+| 生理量測 | [VS-TWHAVitalSigns](ValueSet-VS-TWHAVitalSigns.md)（`TWHA-VitalSigns`／`TWCoreBloodPressure`） | 身高、體重、腰圍、血壓 |
+| 社會史 | SocialHistory profiles | 吸菸狀態/量/戒菸月數、嚼檳狀態 |
+
+**Core 全集（21 列）以群組值集 [VS-CoreUploadSet](ValueSet-VS-CoreUploadSet.md) 具體化**（組合上述三者），僅供文件與完整度／覆蓋矩陣參照，不作 Observation.code 綁定。以下為各子集之對應 FHIR 資源及 Profiles：
 
 | | | | |
 | :--- | :--- | :--- | :--- |

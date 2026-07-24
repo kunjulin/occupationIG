@@ -15,7 +15,7 @@
   "name" : "TWHealthCheckLaboratoryMap",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-23T22:22:27+08:00",
+  "date" : "2026-07-24T13:54:16+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -295,6 +295,33 @@
       "target" : [{
         "code" : "2089-1",
         "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "23749-5",
+      "display" : "Lead [Mass/volume] in Specimen",
+      "target" : [{
+        "code" : "5671-3",
+        "display" : "Lead [Mass/volume] in Blood",
+        "equivalence" : "equivalent"
+      }]
+    },
+    {
+      "code" : "56086-2",
+      "display" : "Waist Circumference",
+      "target" : [{
+        "code" : "8280-0",
+        "display" : "Waist Circumference at umbilicus by Tape measure",
+        "equivalence" : "wider"
+      }]
+    },
+    {
+      "code" : "21104-5",
+      "display" : "Pure tone audiometry - Audiometry study",
+      "target" : [{
+        "code" : "89015-2",
+        "display" : "Pure tone threshold audiometry panel",
         "equivalence" : "equivalent"
       }]
     }]

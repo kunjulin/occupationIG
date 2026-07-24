@@ -7,7 +7,7 @@
 
 **Usages:**
 
-* This Profile is not used by any profiles in this Specification
+* Examples for this Profile: [Observation/obs-lab-egfr-absent](Observation-obs-lab-egfr-absent.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-LabResult-Special.json)
 
@@ -32,7 +32,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-LabResult-Sp
   "name" : "TWHALabResultSpecialProfile",
   "title" : "特殊健檢實驗室檢驗 Profile",
   "status" : "active",
-  "date" : "2026-07-23T22:22:27+08:00",
+  "date" : "2026-07-24T13:54:16+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

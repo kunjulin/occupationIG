@@ -33,7 +33,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-WorkExposure
   "title" : "特別危害健康作業危害因子暴露史 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-23T22:22:27+08:00",
+  "date" : "2026-07-24T13:54:16+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

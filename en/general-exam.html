@@ -307,22 +307,22 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h2 id="4-實驗室檢驗項目-laboratory-tests">4. 實驗室檢驗項目 (Laboratory Tests)</h2>
 
-<p>一般實驗室檢驗採用 <code class="language-plaintext highlighter-rouge">TWHA-LabResult-General</code> Profile，檢驗項目代碼綁定至 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 值集（extensible，即優先使用值集內代碼，值集外之代碼亦可接受但建議回報以利術語治理）。其中依法規應於第一期優先必驗之項目草案子集另收錄於 <a href="ValueSet-VS-OccHealthCheck-Required.html">VS-OccHealthCheck-Required</a>（草案，範疇待附表九/十逐項法規盤點確認）。主要項目包括：</p>
+<p>附表九一般實驗室檢驗<strong>橫跨 Core 與 Extended 兩層</strong>（文件一/二 v3.0）：屬<strong>主管機關最小上傳集</strong>之檢驗項（血脂、飯前血糖、肌酸酐、尿蛋白、肝炎）為 <strong>Core</strong>，綁定 <a href="ValueSet-VS-CoreDataset.html">VS-CoreDataset</a>（<code class="language-plaintext highlighter-rouge">TWHA-LabResult-General</code>，extensible）；其餘附表九項目（CBC、ALT、尿潛血等<strong>非上傳項</strong>）為 <strong>Extended</strong>，綁定 <a href="ValueSet-VS-ExtendedDataset.html">VS-ExtendedDataset</a>（<code class="language-plaintext highlighter-rouge">TWHA-LabResult-Special</code>）。兩者綁定強度皆為 extensible（優先使用值集內代碼，值集外代碼亦可接受但建議回報）。依法規應於第一期優先必驗之項目草案子集另收錄於 <a href="ValueSet-VS-OccHealthCheck-Required.html">VS-OccHealthCheck-Required</a>（草案）。主要項目包括：</p>
 
 <ul>
-  <li><strong>空腹血糖</strong>: LOINC <code class="language-plaintext highlighter-rouge">1558-6</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
-  <li><strong>血清丙胺酸轉胺酶 (ALT/SGPT)</strong>: LOINC <code class="language-plaintext highlighter-rouge">1742-6</code>，單位：<code class="language-plaintext highlighter-rouge">U/L</code></li>
-  <li><strong>肌酸酐 (Creatinine)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2160-0</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
-  <li><strong>總膽固醇 (Cholesterol)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2093-3</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
-  <li><strong>三酸甘油酯 (Triglyceride)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2571-8</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
-  <li><strong>高密度脂蛋白膽固醇 (HDL-C)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2085-9</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
-  <li><strong>低密度脂蛋白膽固醇 (LDL-C)</strong>: Preferred LOINC <code class="language-plaintext highlighter-rouge">2089-1</code>（直接測定法, Direct assay），單位：<code class="language-plaintext highlighter-rouge">mg/dL</code>；可接受代碼 <code class="language-plaintext highlighter-rouge">13457-7</code>（計算法, by calculation）、<code class="language-plaintext highlighter-rouge">18262-6</code>（直接測定法舊碼），經 ConceptMap 歸一至 Preferred 代碼。</li>
-  <li><strong>尿蛋白 (Urine Protein)</strong>: LOINC <code class="language-plaintext highlighter-rouge">5804-0</code>（定性檢查，如 <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">++</code>）</li>
-  <li><strong>尿潛血 (Urine Occult Blood)</strong>: LOINC <code class="language-plaintext highlighter-rouge">5794-3</code>（定性檢查）</li>
-  <li><strong>血色素 (Hemoglobin)</strong>: LOINC <code class="language-plaintext highlighter-rouge">718-7</code>，單位：<code class="language-plaintext highlighter-rouge">g/dL</code></li>
-  <li><strong>白血球數 (WBC)</strong>: LOINC <code class="language-plaintext highlighter-rouge">6690-2</code>，單位：<code class="language-plaintext highlighter-rouge">/uL</code></li>
-  <li><strong>紅血球數 (RBC)</strong>: LOINC <code class="language-plaintext highlighter-rouge">789-8</code>，單位：<code class="language-plaintext highlighter-rouge">/uL</code>（附表九 115.06.26 修正新增）</li>
-  <li><strong>平均紅血球容積 (MCV)</strong>: LOINC <code class="language-plaintext highlighter-rouge">787-2</code>，單位：<code class="language-plaintext highlighter-rouge">fL</code>（附表九 115.06.26 修正新增）</li>
+  <li><strong>（Core）空腹血糖</strong>: LOINC <code class="language-plaintext highlighter-rouge">1558-6</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
+  <li><strong>（Core）肌酸酐 (Creatinine)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2160-0</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
+  <li><strong>（Core）總膽固醇 (Cholesterol)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2093-3</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
+  <li><strong>（Core）三酸甘油酯 (Triglyceride)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2571-8</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
+  <li><strong>（Core）高密度脂蛋白膽固醇 (HDL-C)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2085-9</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
+  <li><strong>（Core）低密度脂蛋白膽固醇 (LDL-C)</strong>: Preferred LOINC <code class="language-plaintext highlighter-rouge">2089-1</code>（直接測定法, Direct assay），單位：<code class="language-plaintext highlighter-rouge">mg/dL</code>；可接受代碼 <code class="language-plaintext highlighter-rouge">13457-7</code>（計算法, by calculation）、<code class="language-plaintext highlighter-rouge">18262-6</code>（直接測定法舊碼），經 ConceptMap 歸一至 Preferred 代碼。</li>
+  <li><strong>（Core）尿蛋白 (Urine Protein)</strong>: LOINC <code class="language-plaintext highlighter-rouge">5804-0</code>（定性檢查，如 <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">++</code>）</li>
+  <li><strong>（Extended）血清丙胺酸轉胺酶 (ALT/SGPT)</strong>: LOINC <code class="language-plaintext highlighter-rouge">1742-6</code>，單位：<code class="language-plaintext highlighter-rouge">U/L</code></li>
+  <li><strong>（Extended）尿潛血 (Urine Occult Blood)</strong>: LOINC <code class="language-plaintext highlighter-rouge">5794-3</code>（定性檢查）</li>
+  <li><strong>（Extended）血色素 (Hemoglobin)</strong>: LOINC <code class="language-plaintext highlighter-rouge">718-7</code>，單位：<code class="language-plaintext highlighter-rouge">g/dL</code></li>
+  <li><strong>（Extended）白血球數 (WBC)</strong>: LOINC <code class="language-plaintext highlighter-rouge">6690-2</code>，單位：<code class="language-plaintext highlighter-rouge">/uL</code></li>
+  <li><strong>（Extended）紅血球數 (RBC)</strong>: LOINC <code class="language-plaintext highlighter-rouge">789-8</code>，單位：<code class="language-plaintext highlighter-rouge">/uL</code>（附表九 115.06.26 修正新增）</li>
+  <li><strong>（Extended）平均紅血球容積 (MCV)</strong>: LOINC <code class="language-plaintext highlighter-rouge">787-2</code>，單位：<code class="language-plaintext highlighter-rouge">fL</code>（附表九 115.06.26 修正新增）</li>
 </ul>
 
 
@@ -353,8 +353,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-23 22:22:00 +0800">
-    2026-07-23
+  <span title="2026-07-24 13:54:00 +0800">
+    2026-07-24
   </span>
 
           <br/>

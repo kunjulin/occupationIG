@@ -51,19 +51,19 @@
 
 ## 4. 實驗室檢驗項目 (Laboratory Tests)
 
-一般實驗室檢驗採用 `TWHA-LabResult-General` Profile，檢驗項目代碼綁定至 `VS-CoreDataset` 值集（extensible，即優先使用值集內代碼，值集外之代碼亦可接受但建議回報以利術語治理）。其中依法規應於第一期優先必驗之項目草案子集另收錄於 [VS-OccHealthCheck-Required](ValueSet-VS-OccHealthCheck-Required.md)（草案，範疇待附表九/十逐項法規盤點確認）。主要項目包括：
+附表九一般實驗室檢驗**橫跨 Core 與 Extended 兩層**（文件一/二 v3.0）：屬**主管機關最小上傳集**之檢驗項（血脂、飯前血糖、肌酸酐、尿蛋白、肝炎）為 **Core**，綁定 [VS-CoreDataset](ValueSet-VS-CoreDataset.md)（`TWHA-LabResult-General`，extensible）；其餘附表九項目（CBC、ALT、尿潛血等**非上傳項**）為 **Extended**，綁定 [VS-ExtendedDataset](ValueSet-VS-ExtendedDataset.md)（`TWHA-LabResult-Special`）。兩者綁定強度皆為 extensible（優先使用值集內代碼，值集外代碼亦可接受但建議回報）。依法規應於第一期優先必驗之項目草案子集另收錄於 [VS-OccHealthCheck-Required](ValueSet-VS-OccHealthCheck-Required.md)（草案）。主要項目包括：
 
-* **空腹血糖**: LOINC `1558-6`，單位：`mg/dL`
-* **血清丙胺酸轉胺酶 (ALT/SGPT)**: LOINC `1742-6`，單位：`U/L`
-* **肌酸酐 (Creatinine)**: LOINC `2160-0`，單位：`mg/dL`
-* **總膽固醇 (Cholesterol)**: LOINC `2093-3`，單位：`mg/dL`
-* **三酸甘油酯 (Triglyceride)**: LOINC `2571-8`，單位：`mg/dL`
-* **高密度脂蛋白膽固醇 (HDL-C)**: LOINC `2085-9`，單位：`mg/dL`
-* **低密度脂蛋白膽固醇 (LDL-C)**: Preferred LOINC `2089-1`（直接測定法, Direct assay），單位：`mg/dL`；可接受代碼 `13457-7`（計算法, by calculation）、`18262-6`（直接測定法舊碼），經 ConceptMap 歸一至 Preferred 代碼。
-* **尿蛋白 (Urine Protein)**: LOINC `5804-0`（定性檢查，如 `-`, `+`, `++`）
-* **尿潛血 (Urine Occult Blood)**: LOINC `5794-3`（定性檢查）
-* **血色素 (Hemoglobin)**: LOINC `718-7`，單位：`g/dL`
-* **白血球數 (WBC)**: LOINC `6690-2`，單位：`/uL`
-* **紅血球數 (RBC)**: LOINC `789-8`，單位：`/uL`（附表九 115.06.26 修正新增）
-* **平均紅血球容積 (MCV)**: LOINC `787-2`，單位：`fL`（附表九 115.06.26 修正新增）
+* **（Core）空腹血糖**: LOINC `1558-6`，單位：`mg/dL`
+* **（Core）肌酸酐 (Creatinine)**: LOINC `2160-0`，單位：`mg/dL`
+* **（Core）總膽固醇 (Cholesterol)**: LOINC `2093-3`，單位：`mg/dL`
+* **（Core）三酸甘油酯 (Triglyceride)**: LOINC `2571-8`，單位：`mg/dL`
+* **（Core）高密度脂蛋白膽固醇 (HDL-C)**: LOINC `2085-9`，單位：`mg/dL`
+* **（Core）低密度脂蛋白膽固醇 (LDL-C)**: Preferred LOINC `2089-1`（直接測定法, Direct assay），單位：`mg/dL`；可接受代碼 `13457-7`（計算法, by calculation）、`18262-6`（直接測定法舊碼），經 ConceptMap 歸一至 Preferred 代碼。
+* **（Core）尿蛋白 (Urine Protein)**: LOINC `5804-0`（定性檢查，如 `-`, `+`, `++`）
+* **（Extended）血清丙胺酸轉胺酶 (ALT/SGPT)**: LOINC `1742-6`，單位：`U/L`
+* **（Extended）尿潛血 (Urine Occult Blood)**: LOINC `5794-3`（定性檢查）
+* **（Extended）血色素 (Hemoglobin)**: LOINC `718-7`，單位：`g/dL`
+* **（Extended）白血球數 (WBC)**: LOINC `6690-2`，單位：`/uL`
+* **（Extended）紅血球數 (RBC)**: LOINC `789-8`，單位：`/uL`（附表九 115.06.26 修正新增）
+* **（Extended）平均紅血球容積 (MCV)**: LOINC `787-2`，單位：`fL`（附表九 115.06.26 修正新增）
 

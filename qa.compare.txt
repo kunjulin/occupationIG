@@ -1,7 +1,7 @@
 TWHAIG : Validation Results
 =========================================
 
-err = 12, warn = 338, info = 253
+err = 12, warn = 341, info = 253
 $--
 Generated $--. FHIR version $-- for mohw.tw.twha#$-- (canonical = https://twcore.mohw.gov.tw/ig/twha)
  Build Errors : 0 / 5 / 0
@@ -97,7 +97,7 @@ Generated $--. FHIR version $-- for mohw.tw.twha#$-- (canonical = https://twcore
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-HearingTest : 0 / 0 / 3
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-ImagingStudy : 0 / 8 / 3
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-LabResult-General : 0 / 0 / 3
- C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-LabResult-Special : 0 / 1 / 3
+ C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-LabResult-Special : 0 / 0 / 3
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Observation-ServiceFinding : 0 / 0 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Occupation : 0 / 1 / 4
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Organization-Employer : 0 / 0 / 2
@@ -135,6 +135,7 @@ Generated $--. FHIR version $-- for mohw.tw.twha#$-- (canonical = https://twcore
  C:\repo\occupationIG-main\fsh-generated\resources\Task-example-service-task : 0 / 0 / 1
  C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-VS-Appendix10-Operation : 0 / 1 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-VS-CoreDataset : 2 / 2 / 1
+ C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-VS-CoreUploadSet : 0 / 5 / 1
  C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-VS-ExamType : 0 / 1 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-VS-ExtendedDataset : 2 / 2 / 1
  C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-VS-FitnessForWork : 0 / 1 / 2
@@ -407,7 +408,7 @@ WARNING: Bundle/UC-007: Bundle.entry[8].resource/*Observation/obs-lab-glucose*/.
 WARNING: Bundle/UC-007: Bundle.entry[8].resource/*Observation/obs-lab-glucose*/.referenceRange[0].low: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
 WARNING: Bundle/UC-007: Bundle.entry[8].resource/*Observation/obs-lab-glucose*/.referenceRange[0].high: Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
 INFORMATION: Bundle/UC-007: Bundle.entry[8].resource/*Observation/obs-lab-glucose*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset because there is no terminology service
-INFORMATION: Bundle/UC-007: Bundle.entry[9].resource/*Observation/obs-lab-egfr-absent*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset because there is no terminology service
+INFORMATION: Bundle/UC-007: Bundle.entry[9].resource/*Observation/obs-lab-egfr-absent*/.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset because there is no terminology service
 INFORMATION: Bundle/UC-007: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
 == fsh-generated\resources\CapabilityStatement-TWHA-CapabilityStatement.json ==
 == fsh-generated\resources\ClinicalImpression-example-clinical-impression.json ==
@@ -579,7 +580,7 @@ WARNING: Observation/obs-imaging-mammo: Observation: Best Practice Recommendatio
 == fsh-generated\resources\Observation-obs-imaging-pet.json ==
 WARNING: Observation/obs-imaging-pet: Observation: Best Practice Recommendation: In general, all observations should have a performer
 == fsh-generated\resources\Observation-obs-lab-egfr-absent.json ==
-INFORMATION: Observation/obs-lab-egfr-absent: Observation.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset because there is no terminology service
+INFORMATION: Observation/obs-lab-egfr-absent: Observation.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset because there is no terminology service
 == fsh-generated\resources\Observation-obs-lab-glucose.json ==
 INFORMATION: Observation/obs-lab-glucose: Observation.code: Could not confirm that the codes provided are from the extensible value set https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset because there is no terminology service
 WARNING: Observation/obs-lab-glucose: Observation.value.ofType(Quantity): Unable to validate code 'mg/dL' in system 'http://unitsofmeasure.org' because the validator is running without terminology services
@@ -713,7 +714,6 @@ INFORMATION: Resource: The resource StructureDefinition/TWHA-LabResult-General c
 == fsh-generated\resources\StructureDefinition-TWHA-LabResult-Special.json ==
 INFORMATION: StructureDefinition/TWHA-LabResult-Special: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
 INFORMATION: Resource: The resource StructureDefinition/TWHA-LabResult-Special could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
-WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-Special'): The Implementation Guide contains no examples for this profile
 == fsh-generated\resources\StructureDefinition-TWHA-Observation-ServiceFinding.json ==
 INFORMATION: Resource: The resource StructureDefinition/TWHA-Observation-ServiceFinding could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated\resources\StructureDefinition-TWHA-Occupation.json ==
@@ -832,6 +832,11 @@ WARNING: ValueSet/VS-CoreDataset: ValueSet.compose.include[0]: The value set ref
 WARNING: Resource: The resource ValueSet/VS-CoreDataset should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 ERROR: ValueSet.where(id = 'VS-CoreDataset'): No server available
 ERROR: ValueSet.where(id = 'VS-CoreDataset'): No server available
+== fsh-generated\resources\ValueSet-VS-CoreUploadSet.json ==
+WARNING: ValueSet/VS-CoreUploadSet: ValueSet.compose.include[2]: The value set references CodeSystem 'http://loinc.org' which has status 'not-present'
+WARNING: ValueSet/VS-CoreUploadSet: ValueSet.compose.include[3]: The value set references CodeSystem 'http://snomed.info/sct' which has status 'not-present'
+WARNING: Resource: The resource ValueSet/VS-CoreUploadSet should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
+WARNING: ValueSet.where(id = 'VS-CoreUploadSet'): Unable to expand included value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset': No server available
 == fsh-generated\resources\ValueSet-VS-ExamType.json ==
 INFORMATION: ValueSet/VS-ExamType: ValueSet.compose.include[0]: The concepts in the value set include have not been validated because there is no terminology server
 WARNING: Resource: The resource ValueSet/VS-ExamType should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
