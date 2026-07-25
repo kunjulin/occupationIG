@@ -6,7 +6,9 @@ Description: "用於記錄臨場服務中針對發現問題所提出之改善建
 * ^experimental = false
 * status from http://hl7.org/fhir/ValueSet/task-status (required)
 * intent = #plan
-* code = SCT#315640000 "Occupational health counseling (procedure)"
+// (-) 任務類別代碼從缺：原 SCT#315640000 經 tx 驗證實為「Influenza vaccination declined」，
+//     與「職業健康諮詢／改善建議」語意不符，已移除；SNOMED 現無對應之職業健康諮詢 procedure 代碼。
+//     Task.code 暫不固定，實作端可依需要以 CS-ServiceActivityType 本地碼標註。
 * requester only Reference(TWHAPractitionerProfile)
 * owner only Reference(TWCoreOrganization) // 主管或改善單位
 * focus only Reference(TWHAObservationServiceFindingProfile) // 指向發現的問題/風險

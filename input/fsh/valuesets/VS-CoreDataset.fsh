@@ -19,7 +19,8 @@ Description: "Core 之檢驗子集（主管機關（國健署）最小共通上�
 
 // 09043C 高密度脂蛋白膽固醇 (HDL-C) — Preferred 2085-9
 * LNC#2085-9 "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
-* LNC#3048-6 "Cholesterol in HDL [Mass/volume] in Blood"                 // Acceptable: 全血法
+// (-) HDL-C 無「全血」對應碼：原列 3048-6 經 tx 驗證實為 Triglyceride --fasting（非 HDL），已移除；
+//     LOINC 現無乾淨之 HDL-in-Blood 代碼，acceptable 從缺，僅保留 Preferred 2085-9。
 
 // 09044C 低密度脂蛋白膽固醇 (LDL-C) — Preferred 2089-1（tx 確認官方顯示名未含 "Direct assay"；18262-6 方為直接測定法具名碼，Preferred 選碼待覆核）
 * LNC#2089-1 "Cholesterol in LDL [Mass/volume] in Serum or Plasma"

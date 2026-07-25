@@ -10,7 +10,8 @@ Description: "包含身高、體重、腰圍及血壓等生理測量項目之 LO
 * LNC#8480-6 "Systolic blood pressure"
 * LNC#8462-4 "Diastolic blood pressure"
 * LNC#39156-5 "Body mass index (BMI) [Ratio]"
-* LNC#73708-3 "Waist-to-hip ratio"
+// (-) 腰臀比 (WHR)：LOINC 現無對應代碼（原列 73708-3 經 tx 驗證為無效碼，已移除）。
+//     如需交換，建議以本地擴充或俟 LOINC 新增後補列。
 
 /// -------------------------------------
 
