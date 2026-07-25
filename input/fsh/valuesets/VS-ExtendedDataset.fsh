@@ -71,9 +71,9 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // 1.4 異常氣壓作業 (abnormal-pressure) — 肺功能、長骨關節 X 光、心電圖
 // v1.1 修正：FEV1 之正確 LOINC 為 20150-9（原 19868-9 實為 FVC，已更正）
 * LNC#24579-5 "XR Bones.long Survey"                              // 長骨/關節 X 光（減壓性骨壞死）
-* LNC#19876-2 "Forced vital capacity [Volume] in Airways by Spirometry"  // FVC
-* LNC#20150-9 "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry" // FEV1（正確碼）
-* LNC#19926-5 "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry" // FEV1/FVC
+* LNC#19876-2 "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"  // FVC
+* LNC#20150-9 "FEV1" // FEV1（正確碼）
+* LNC#19926-5 "FEV1/FVC" // FEV1/FVC
 // 心電圖 11524-6（潛水/高壓作業心血管評估）已收錄於 1.1 高溫作業，不重複收錄
 
 // 1.5 鉛作業 (lead)
@@ -393,4 +393,4 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#19868-9 "Forced vital capacity [Volume] Respiratory system by Spirometry" // FVC (acceptable variant)
 
 // 3-x 視力檢查
-* LNC#79880-1 "Vision test panel"
+* LNC#98497-1 "Visual acuity panel"

@@ -75,7 +75,7 @@ Core 21 列橫跨三種資料型別，分屬**三個綁定值集**，不集中�
 | | 總膽固醇 / 三酸甘油酯 | `TWHALabResultGeneralProfile` | LOINC `2093-3` (TC), LOINC `2571-8` (TG) |
 | | HDL-C / LDL-C | `TWHALabResultGeneralProfile` | LOINC `2085-9` (HDL-C), LOINC `2089-1` (LDL-C, Preferred: Direct assay) |
 | | 尿蛋白定性 | `TWHALabResultGeneralProfile` | LOINC `5804-0` (Urine Protein) |
-| **Screening**<br>(篩檢與生理功能) | 視力及辨色力 | `TWHAVisionTestProfile` | LOINC `79880-1` (Vision test panel) |
+| **Screening**<br>(篩檢與生理功能) | 視力及辨色力 | `TWHAVisionTestProfile` | LOINC `98497-1` (Visual acuity panel) |
 | | 聽力篩檢 | `TWHAHearingTestProfile` | LOINC `89015-2` (Pure tone threshold audiometry panel) |
 
 ---

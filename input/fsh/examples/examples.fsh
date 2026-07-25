@@ -134,13 +134,13 @@ Title: "視力及辨色力檢查結果範例"
 Description: "受檢勞工王大同的視力（裸視左/右 1.0）及辨色力（正常）檢查結果。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#exam
-* code = LNC#79880-1 "Vision test panel"
+* code = LNC#98497-1 "Visual acuity panel"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:20:00+08:00"
 * performer = Reference(example-doctor)
-* component[leftEyeVision].code = LNC#70936-0 "Visual acuity Left eye"
+* component[leftEyeVision].code = LNC#98498-9 "Visual acuity uncorrected Left eye"
 * component[leftEyeVision].valueQuantity = 1.0 '1'
-* component[rightEyeVision].code = LNC#70935-2 "Visual acuity Right eye"
+* component[rightEyeVision].code = LNC#98499-7 "Visual acuity uncorrected Right eye"
 * component[rightEyeVision].valueQuantity = 1.0 '1'
 * component[colorVision].code = LNC#46673-0 "Color vision [RFC]"
 * component[colorVision].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N
@@ -178,7 +178,7 @@ Title: "理學檢查結果範例"
 Description: "受檢勞工王大同各系統理學檢查結果（正常）。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#exam
-* code = LNC#29545-1 "Physical findings Narrative"
+* code = LNC#29545-1 "Physical findings note"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:30:00+08:00"
 * performer = Reference(example-doctor)
@@ -193,7 +193,7 @@ Title: "肺功能檢查結果範例"
 Description: "受檢勞工王大同的肺功能檢查結果（FVC = 4.2 L, FEV1 = 3.5 L, FEV1/FVC = 83.3%）。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#exam
-* code = LNC#19876-2 "Forced vital capacity [Volume] in Airways by Spirometry"
+* code = LNC#19876-2 "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:45:00+08:00"
 * performer = Reference(example-doctor)
