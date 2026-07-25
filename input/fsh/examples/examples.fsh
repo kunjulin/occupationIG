@@ -98,7 +98,7 @@ Title: "腰圍測量結果範例"
 Description: "受檢勞工王大同的腰圍測量結果 (82 cm)。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs
-* code = LNC#56086-2 "Waist Circumference"
+* code = LNC#56086-2 "Adult Waist Circumference Protocol"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:15:00+08:00"
 * valueQuantity = 82 'cm' "cm"
@@ -356,7 +356,7 @@ InstanceOf: TWHAObservationServiceFindingProfile
 Title: "臨場服務現場發現問題範例"
 Description: "臨場服務中發現作業現場危害因子及問題。"
 * status = #final
-* code = SCT#278486003 "Occupational health hazard (finding)"
+* code = SCT#17458004 "Occupational hazard"
 * focus = Reference(example-employer)
 * valueString = "發現部分現場勞動條件局部排氣裝置風速異常降低，且現場作業人員於正己烷暴露區域未確實配戴防護面罩。"
 
@@ -592,7 +592,7 @@ Title: "自費健檢項目 - 乳房攝影"
 Description: "自費健檢中乳房攝影檢查的結果紀錄。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#imaging
-* code = LNC#24606-6 "Mammogram screening views study"
+* code = LNC#24606-6 "MG Breast Screening"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T10:00:00+08:00"
 * valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N
@@ -847,7 +847,7 @@ Title: "實驗室檢驗缺值範例 - eGFR 未檢測（dataAbsentReason）"
 Description: "受檢勞工王大同本次因故未完成腎絲球過濾率 (eGFR) 檢測。示範以 dataAbsentReason = not-performed 標明缺值原因，Observation 仍保留且合乎 twha-obs-1（value 或 dataAbsentReason 或 component 三者擇一）。eGFR 屬成健延伸項目，v3.0 Core 重構後歸 Extended，故綁 TWHA-LabResult-Special（VS-ExtendedDataset）。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
-* code = LNC#88293-6 "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)"
+* code = LNC#98979-8 "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T09:00:00+08:00"
 * performer = Reference(example-hospital)
@@ -860,13 +860,13 @@ Title: "特別危害作業暴露史範例 - 鉛作業"
 Description: "受檢勞工王大同從事鉛作業之暴露史，暴露年數 8 年，工作性質為電池極板熔鉛作業。"
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#social-history
-* code = LNC#74213-0 "Occupational hazard exposure"
+* code = LNC#87729-0 "History of Occupational hazard"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:00:00+08:00"
 * valueCodeableConcept = CS_HazardType#lead "鉛作業"
 * component[exposureYears].code = LNC#104905-5 "Duration of exposure"
 * component[exposureYears].valueQuantity = 8 'a' "years"
-* component[workDetails].code = LNC#80436-9 "Work activity"
+* component[workDetails].code = LNC#21847-9 "Usual occupation Narrative"
 * component[workDetails].valueString = "電池極板熔鉛作業"
 
 // 9.3 急診友善摘要 Composition 範例

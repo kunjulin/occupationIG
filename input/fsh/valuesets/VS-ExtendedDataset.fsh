@@ -185,7 +185,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // =================================================================
 
 // 2.1 乳房攝影 (Mammography)
-* LNC#24606-6 "Mammogram screening views study"
+* LNC#24606-6 "MG Breast Screening"
 * LNC#103892-6 "DBT Brst Screening" // 3D乳房斷層攝影
 
 // 2.2 腦部核磁共振造影 (Brain MRI)
@@ -266,7 +266,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#47214-2 "Homeostasis model assessment"
 * LNC#49154-8 "Uric acid [Mass/volume] in Blood"
 * LNC#59261-8 "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol" // Acceptable: HbA1c IFCC
-* LNC#88293-6 "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)"
+* LNC#98979-8 "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
 
 // 3-x 肝膽、胰臟與心肌功能
 * LNC#10834-0 "Globulin [Mass/volume] in Serum or Plasma by calculation"

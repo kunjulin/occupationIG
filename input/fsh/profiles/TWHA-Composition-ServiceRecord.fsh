@@ -5,7 +5,7 @@ Title: "健康檢查健康服務執行紀錄組成結構 Profile"
 Description: "本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。"
 * ^experimental = false
 * status = #final
-* type = http://loinc.org#34133-9 "Summarization of clinical note"
+* type = http://loinc.org#34133-9 "Summary of episode note"
 * subject only Reference(TWCoreOrganization)
 * author only Reference(TWHAPractitionerProfile)
 * title = "勞工健康服務執行紀錄表"

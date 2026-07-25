@@ -6,7 +6,7 @@ Description: "用於記錄受檢勞工從事特別危害作業（如高溫、噪
 * ^experimental = false
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#social-history
-* code = LNC#74213-0 "Occupational hazard exposure"
+* code = LNC#87729-0 "History of Occupational hazard"
 * subject only Reference(TWHAPatientProfile)
 * value[x] only CodeableConcept
 * valueCodeableConcept from VS_HazardType (required)
@@ -18,7 +18,7 @@ Description: "用於記錄受檢勞工從事特別危害作業（如高溫、噪
     workDetails 0..1
 * component[exposureYears].code = LNC#104905-5 "Duration of exposure"
 * component[exposureYears].value[x] only Quantity
-* component[workDetails].code = LNC#80436-9 "Work activity"
+* component[workDetails].code = LNC#21847-9 "Usual occupation Narrative"
 * component[workDetails].value[x] only string
 
 * obeys twha-obs-1
