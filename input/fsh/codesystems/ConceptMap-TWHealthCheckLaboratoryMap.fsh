@@ -28,7 +28,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[2].code = #2888-6
 * group[0].element[2].display = "Protein [Mass/volume] in Urine"
 * group[0].element[2].target[0].code = #5804-0
-* group[0].element[2].target[0].display = "Protein [Presence] in Urine by Test strip"
+* group[0].element[2].target[0].display = "Protein [Mass/volume] in Urine by Test strip"
 * group[0].element[2].target[0].equivalence = #wider
 
 // Glucose
@@ -54,7 +54,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 
 // Total Cholesterol
 * group[0].element[6].code = #35200-5
-* group[0].element[6].display = "Cholesterol [Mass/volume] in Blood"
+* group[0].element[6].display = "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
 * group[0].element[6].target[0].code = #2093-3
 * group[0].element[6].target[0].display = "Cholesterol [Mass/volume] in Serum or Plasma"
 * group[0].element[6].target[0].equivalence = #equivalent
@@ -77,7 +77,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[9].code = #13457-7
 * group[0].element[9].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
 * group[0].element[9].target[0].code = #2089-1
-* group[0].element[9].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
+* group[0].element[9].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
 * group[0].element[9].target[0].equivalence = #equivalent
 
 // eGFR
@@ -88,8 +88,8 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[10].target[0].equivalence = #equivalent
 
 // HBsAg
-* group[0].element[11].code = #22326-3
-* group[0].element[11].display = "Hepatitis B virus surface Ag [Presence] in Serum or Plasma"
+* group[0].element[11].code = #5195-3
+* group[0].element[11].display = "Hepatitis B virus surface Ag [Presence] in Serum"
 * group[0].element[11].target[0].code = #5196-1
 * group[0].element[11].target[0].display = "Hepatitis B virus surface Ag [Presence] in Serum"
 * group[0].element[11].target[0].equivalence = #equivalent
@@ -216,7 +216,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 
 // Glucose AC (Acceptable: 2345-7 post fasting → Preferred: 1558-6 fasting)
 * group[0].element[27].code = #2345-7
-* group[0].element[27].display = "Glucose [Mass/volume] in Serum or Plasma -- post fasting"
+* group[0].element[27].display = "Glucose [Mass/volume] in Serum or Plasma"
 * group[0].element[27].target[0].code = #1558-6
 * group[0].element[27].target[0].display = "Fasting Glucose [Mass/volume] in Serum or Plasma"
 * group[0].element[27].target[0].equivalence = #equivalent
@@ -225,7 +225,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[28].code = #18262-6
 * group[0].element[28].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
 * group[0].element[28].target[0].code = #2089-1
-* group[0].element[28].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
+* group[0].element[28].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
 * group[0].element[28].target[0].equivalence = #equivalent
 
 // =============================================================

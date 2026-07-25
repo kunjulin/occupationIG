@@ -18,10 +18,10 @@ Description: "第一期法定必驗之勞工健康檢查項目草案子集，涵
 * LNC#2093-3 "Cholesterol [Mass/volume] in Serum or Plasma" // 總膽固醇
 * LNC#2571-8 "Triglyceride [Mass/volume] in Serum or Plasma" // 三酸甘油酯
 * LNC#2085-9 "Cholesterol in HDL [Mass/volume] in Serum or Plasma" // HDL-C
-* LNC#2089-1 "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay" // LDL-C (Preferred)
+* LNC#2089-1 "Cholesterol in LDL [Mass/volume] in Serum or Plasma" // LDL-C (Preferred)
 * LNC#1742-6 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma" // ALT
 * LNC#2160-0 "Creatinine [Mass/volume] in Serum or Plasma" // 肌酸酐
-* LNC#5804-0 "Protein [Presence] in Urine by Test strip" // 尿蛋白
+* LNC#5804-0 "Protein [Mass/volume] in Urine by Test strip" // 尿蛋白
 * LNC#718-7 "Hemoglobin [Mass/volume] in Blood" // 血色素
 * LNC#6690-2 "Leukocytes [#/volume] in Blood" // WBC
 * LNC#789-8 "Erythrocytes [#/volume] in Blood" // 紅血球數 RBC（附表九 115.06.26 修正新增）
