@@ -16,7 +16,7 @@ Description: "用於記錄受檢勞工從事特別危害作業（如高溫、噪
 * component contains
     exposureYears 0..1 and
     workDetails 0..1
-* component[exposureYears].code = LNC#74212-2 "Exposure duration"
+* component[exposureYears].code = LNC#104905-5 "Duration of exposure"
 * component[exposureYears].value[x] only Quantity
 * component[workDetails].code = LNC#80436-9 "Work activity"
 * component[workDetails].value[x] only string

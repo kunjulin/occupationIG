@@ -142,7 +142,7 @@ Description: "受檢勞工王大同的視力（裸視左/右 1.0）及辨色力�
 * component[leftEyeVision].valueQuantity = 1.0 '1'
 * component[rightEyeVision].code = LNC#70935-2 "Visual acuity Right eye"
 * component[rightEyeVision].valueQuantity = 1.0 '1'
-* component[colorVision].code = LNC#48024-3 "Color vision Test"
+* component[colorVision].code = LNC#46673-0 "Color vision [RFC]"
 * component[colorVision].valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N
 
 Instance: obs-hearing
@@ -151,7 +151,7 @@ Title: "聽力檢查結果範例"
 Description: "受檢勞工王大同的純音聽力測試結果（左右耳 0.5–8 kHz 各頻率聽力閾值均在正常範圍 ≤25 dB）。v1.1 更新：使用正確 Panel code 89015-2 及更正／補齊之頻率×耳別切片（0.5/1/2/3/4/6/8 kHz）。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#exam
-* code = LNC#89015-2 "Pure tone threshold audiometry panel"
+* code = LNC#89015-2 "Pure tone air conduction threshold audiometry panel"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:25:00+08:00"
 * performer = Reference(example-doctor)
@@ -275,7 +275,7 @@ Title: "實驗室檢驗範例 - 空腹血糖"
 Description: "受檢勞工王大同的空腹血糖檢驗結果 (95 mg/dL)。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#laboratory
-* code = LNC#1558-6 "Fasting Glucose (mass/volume) in Serum or Plasma"
+* code = LNC#1558-6 "Fasting glucose [Mass/volume] in Serum or Plasma"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T09:00:00+08:00"
 * valueQuantity = 95 'mg/dL' "mg/dL"
@@ -864,7 +864,7 @@ Description: "受檢勞工王大同從事鉛作業之暴露史，暴露年數 8 
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:00:00+08:00"
 * valueCodeableConcept = CS_HazardType#lead "鉛作業"
-* component[exposureYears].code = LNC#74212-2 "Exposure duration"
+* component[exposureYears].code = LNC#104905-5 "Duration of exposure"
 * component[exposureYears].valueQuantity = 8 'a' "years"
 * component[workDetails].code = LNC#80436-9 "Work activity"
 * component[workDetails].valueString = "電池極板熔鉛作業"

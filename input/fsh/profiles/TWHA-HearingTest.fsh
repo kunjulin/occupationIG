@@ -7,7 +7,7 @@ Description: "用於記錄勞工純音聽力測試結果，依左右耳及頻率
 * status = #final
 // 89015-2 = "Pure tone threshold audiometry panel"（Panel code）
 // 各頻率×耳別代碼依 LOINC 89015-2 panel 成員逐一核對（v1.1 修正錯置並補齊 3/6/8 kHz）
-* code = LNC#89015-2 "Pure tone threshold audiometry panel"
+* code = LNC#89015-2 "Pure tone air conduction threshold audiometry panel"
 * subject only Reference(TWHAPatientProfile)
 * performer only Reference(TWHAPractitionerProfile)
 * component ^slicing.discriminator.type = #value

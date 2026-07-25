@@ -14,7 +14,7 @@ Description: "第一期法定必驗之勞工健康檢查項目草案子集，涵
 * LNC#8302-2 "Body height" // 身高
 * LNC#29463-7 "Body weight" // 體重
 * LNC#55284-4 "Blood pressure systolic and diastolic" // 血壓
-* LNC#1558-6 "Fasting Glucose [Mass/volume] in Serum or Plasma" // 空腹血糖
+* LNC#1558-6 "Fasting glucose [Mass/volume] in Serum or Plasma" // 空腹血糖
 * LNC#2093-3 "Cholesterol [Mass/volume] in Serum or Plasma" // 總膽固醇
 * LNC#2571-8 "Triglyceride [Mass/volume] in Serum or Plasma" // 三酸甘油酯
 * LNC#2085-9 "Cholesterol in HDL [Mass/volume] in Serum or Plasma" // HDL-C
@@ -28,7 +28,7 @@ Description: "第一期法定必驗之勞工健康檢查項目草案子集，涵
 * LNC#787-2 "MCV [Entitic volume] by Automated count" // 平均紅血球容積 MCV（附表九 115.06.26 修正新增）
 
 // 第一期結構化必驗特殊職類模組 (議題5 選項A：噪音／鉛／粉塵)
-* LNC#89015-2 "Pure tone threshold audiometry panel" // 噪音：純音聽力 Panel（0.5–8 kHz 各頻率以 TWHA-HearingTest component 承載）
+* LNC#89015-2 "Pure tone air conduction threshold audiometry panel" // 噪音：純音聽力 Panel（0.5–8 kHz 各頻率以 TWHA-HearingTest component 承載）
 * LNC#5671-3 "Lead [Mass/volume] in Blood" // 鉛：血中鉛（Preferred；院內 LIS 常以 23749-5 Specimen 報告，列為 Acceptable）
 * LNC#23749-5 "Lead [Mass/volume] in Specimen" // 鉛：血中鉛（林口長庚 LIS 實際報告碼）
 * LNC#19876-2 "Forced vital capacity [Volume] in Airways by Spirometry" // 粉塵：FVC

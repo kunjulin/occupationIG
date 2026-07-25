@@ -9,7 +9,7 @@ Description: "Core 之檢驗子集（主管機關（國健署）最小共通上�
 * LNC#35200-5 "Cholesterol [Mass/volume] in Blood"                       // Acceptable: 全血法
 
 // 09005C 飯前血糖 (Fasting Glucose) — Preferred 1558-6
-* LNC#1558-6 "Fasting Glucose [Mass/volume] in Serum or Plasma"
+* LNC#1558-6 "Fasting glucose [Mass/volume] in Serum or Plasma"
 * LNC#2339-0 "Glucose [Mass/volume] in Blood"                            // Acceptable: 全血血糖
 * LNC#2345-7 "Glucose [Mass/volume] in Serum or Plasma -- post fasting"  // Acceptable: 飯後血糖變異
 

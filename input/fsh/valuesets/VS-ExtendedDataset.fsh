@@ -21,7 +21,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // v1.1 修正：更正 v3 之錯置代碼並補齊 3/6/8 kHz，使全部代碼與 LOINC 89015-2 panel 成員一致，
 //            涵蓋《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率（7 頻率 × 左右耳 = 14 碼）。
 // Panel code 89015-2 收錄於 VS-CoreDataset，本 VS 收錄個別頻率/耳別代碼。
-* LNC#89015-2 "Pure tone threshold audiometry panel"              // Panel (重複收錄供查詢)
+* LNC#89015-2 "Pure tone air conduction threshold audiometry panel"              // Panel (重複收錄供查詢)
 // 左耳 (Left ear) 0.5–8 kHz
 * LNC#89024-4 "Hearing threshold Ear - left --500 Hz"
 * LNC#89016-0 "Hearing threshold Ear - left --1000 Hz"

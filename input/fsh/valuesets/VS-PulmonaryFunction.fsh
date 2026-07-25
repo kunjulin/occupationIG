@@ -9,7 +9,7 @@ Description: "包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的
 * LNC#19868-9 "Forced vital capacity [Volume] Respiratory system by Spirometry"   // FVC (variant)
 * LNC#20150-9 "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry" // FEV1 (Preferred)
 * LNC#19926-5 "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry" // FEV1/FVC
-* LNC#33439-8 "Left midclavicular line Peak expiratory flow rate"
+* LNC#19935-6 "Maximum expiratory gas flow Respiratory system airway by Peak flow meter"
 * LNC#19911-7 "Carbon monoxide diffusing capacity"
 * LNC#19862-2 "Total lung capacity"
 * LNC#20146-7 "Residual volume"

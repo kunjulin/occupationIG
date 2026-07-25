@@ -19,7 +19,7 @@ Description: "用於記錄勞工眼部檢查結果，包含左右眼裸視/矯�
 * component[leftEyeVision].value[x] only Quantity or CodeableConcept
 * component[rightEyeVision].code = LNC#70935-2 "Visual acuity Right eye"
 * component[rightEyeVision].value[x] only Quantity or CodeableConcept
-* component[colorVision].code = LNC#48024-3 "Color vision Test"
+* component[colorVision].code = LNC#46673-0 "Color vision [RFC]"
 * component[colorVision].value[x] only CodeableConcept
 
 * obeys twha-obs-1
