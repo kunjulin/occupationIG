@@ -1,0 +1,203 @@
+<hr/><a name="l1"> </a>
+<p>#1</p>
+<pre>
+GET https://tx.fhir.org/r4/metadata HTTP/1.1
+Accept: application/fhir+json; fhirVersion=4.0
+User-Agent: fhir/publisher
+</pre>
+<pre>
+200
+access-control-allow-credentials:true
+connection:keep-alive
+content-length:4229
+content-type:application/fhir+json; charset=utf-8
+date:Sat, 25 Jul 2026 08:18:31 GMT
+etag:W/&quot;1085-L8Mz5OA3o0YfnrtxwBF5EGhRZNc&quot;
+server:nginx
+vary:Origin
+x-powered-by:Express
+x-request-id:tx-7183130
+
+{&quot;resourceType&quot;:&quot;CapabilityStatement&quot;,&quot;id&quot;:&quot;FhirServer&quot;,&quot;extension&quot;:[{&quot;extension&quot;:[{&quot;url&quot;:&quot;definition&quot;,&quot;valueCanonical&quot;:&quot;http://hl7.org/fhir/uv/tx-tests/FeatureDefinition/test-version&quot;},{&quot;url&quot;:&quot;value&quot;,&quot;valueCode&quot;:&quot;1.9.1&quot;},{&quot;extension&quot;:[{&quot;url&quot;:&quot;name&quot;,&quot;valueCode&quot;:&quot;mode&quot;},{&quot;url&quot;:&quot;value&quot;,&quot;valueCode&quot;:&quot;tx.fhir.org&quot;}],&quot;url&quot;:&quot;qualifier&quot;}],&quot;url&quot;:&quot;http://hl7.org/fhir/uv/application-feature/StructureDefinition/feature&quot;},{&quot;extension&quot;:[{&quot;url&quot;:&quot;definition&quot;,&quot;valueCanonical&quot;:&quot;http://hl7.org/fhir/uv/tx-ecosystem/FeatureDefinition/CodeSystemAsParameter&quot;},{&quot;url&quot;:&quot;value&quot;,&quot;valueBoolean&quot;:true}],&quot;url&quot;:&quot;http://hl7.org/fhir/uv/application-feature/StructureDefinition/feature&quot;}],&quot;url&quot;:&quot;https://node.tx.fhir.org/r4/CapabilityStatement/tx&quot;,&quot;version&quot;:&quot;4.0.1-0.10.1&quot;,&quot;name&quot;:&quot;FHIRTerminologyServer&quot;,&quot;title&quot;:&quot;FHIR Terminology Server&quot;,&quot;status&quot;:&quot;active&quot;,&quot;date&quot;:&quot;2026-07-25T08:18:31.148Z&quot;,&quot;contact&quot;:[{&quot;telecom&quot;:[{&quot;system&quot;:&quot;other&quot;,&quot;value&quot;:&quot;http://example.org/&quot;}]}],&quot;description&quot;:&quot;FHIR Terminology Server&quot;,&quot;kind&quot;:&quot;instance&quot;,&quot;instantiates&quot;:[&quot;http://hl7.org/fhir/CapabilityStatement/terminology-server&quot;],&quot;software&quot;:{&quot;name&quot;:&quot;FHIRsmith&quot;,&quot;version&quot;:&quot;0.10.1&quot;,&quot;releaseDate&quot;:&quot;2026-07-25T08:18:31.148Z&quot;},&quot;implementation&quot;:{&quot;description&quot;:&quot;FHIR Server running at https://node.tx.fhir.org/r4&quot;,&quot;url&quot;:&quot;https://node.tx.fhir.org/r4&quot;},&quot;fhirVersion&quot;:&quot;4.0.1&quot;,&quot;format&quot;:[&quot;application/fhir+xml&quot;,&quot;application/fhir+json&quot;],&quot;rest&quot;:[{&quot;mode&quot;:&quot;server&quot;,&quot;security&quot;:{&quot;cors&quot;:true},&quot;resource&quot;:[{&quot;type&quot;:&quot;CodeSystem&quot;,&quot;interaction&quot;:[{&quot;code&quot;:&quot;read&quot;,&quot;documentation&quot;:&quot;Read a code system&quot;},{&quot;code&quot;:&quot;search-type&quot;,&quot;documentation&quot;:&quot;Search the code systems&quot;}],&quot;searchParam&quot;:[{&quot;name&quot;:&quot;url&quot;,&quot;type&quot;:&quot;uri&quot;},{&quot;name&quot;:&quot;version&quot;,&quot;type&quot;:&quot;token&quot;},{&quot;name&quot;:&quot;name&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;title&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;status&quot;,&quot;type&quot;:&quot;token&quot;},{&quot;name&quot;:&quot;_id&quot;,&quot;type&quot;:&quot;token&quot;}],&quot;operation&quot;:[{&quot;name&quot;:&quot;lookup&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/CodeSystem-lookup&quot;},{&quot;name&quot;:&quot;validate-code&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/CodeSystem-validate-code&quot;},{&quot;name&quot;:&quot;subsumes&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/CodeSystem-subsumes&quot;}]},{&quot;type&quot;:&quot;ValueSet&quot;,&quot;interaction&quot;:[{&quot;code&quot;:&quot;read&quot;,&quot;documentation&quot;:&quot;Read a ValueSet&quot;},{&quot;code&quot;:&quot;search-type&quot;,&quot;documentation&quot;:&quot;Search the value sets&quot;}],&quot;searchParam&quot;:[{&quot;name&quot;:&quot;url&quot;,&quot;type&quot;:&quot;uri&quot;},{&quot;name&quot;:&quot;version&quot;,&quot;type&quot;:&quot;token&quot;},{&quot;name&quot;:&quot;name&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;title&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;status&quot;,&quot;type&quot;:&quot;token&quot;},{&quot;name&quot;:&quot;_id&quot;,&quot;type&quot;:&quot;token&quot;}],&quot;operation&quot;:[{&quot;name&quot;:&quot;expand&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/ValueSet-expand&quot;},{&quot;name&quot;:&quot;validate-code&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/ValueSet-validate-code&quot;},{&quot;name&quot;:&quot;compare&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/tools/OperationDefinition/ValueSet-compare&quot;}]},{&quot;type&quot;:&quot;ConceptMap&quot;,&quot;interaction&quot;:[{&quot;code&quot;:&quot;read&quot;,&quot;documentation&quot;:&quot;Read a ConceptMap&quot;},{&quot;code&quot;:&quot;search-type&quot;,&quot;documentation&quot;:&quot;Search the concept maps&quot;}],&quot;searchParam&quot;:[{&quot;name&quot;:&quot;url&quot;,&quot;type&quot;:&quot;uri&quot;},{&quot;name&quot;:&quot;version&quot;,&quot;type&quot;:&quot;token&quot;},{&quot;name&quot;:&quot;name&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;title&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;status&quot;,&quot;type&quot;:&quot;token&quot;},{&quot;name&quot;:&quot;_id&quot;,&quot;type&quot;:&quot;token&quot;}],&quot;operation&quot;:[{&quot;name&quot;:&quot;translate&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/ConceptMap-translate&quot;},{&quot;name&quot;:&quot;closure&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/ConceptMap-closure&quot;}]}],&quot;interaction&quot;:[{&quot;code&quot;:&quot;transaction&quot;}],&quot;operation&quot;:[{&quot;name&quot;:&quot;expand&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/ValueSet-expand&quot;},{&quot;name&quot;:&quot;lookup&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/CodeSystem-lookup&quot;},{&quot;name&quot;:&quot;subsumes&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/CodeSystem-subsumes&quot;},{&quot;name&quot;:&quot;validate-code&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/Resource-validate-code&quot;},{&quot;name&quot;:&quot;translate&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/ConceptMap-translate&quot;},{&quot;name&quot;:&quot;closure&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/ConceptMap-closure&quot;},{&quot;name&quot;:&quot;compare&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/tools/OperationDefinition/ValueSet-compare&quot;},{&quot;name&quot;:&quot;cache-control&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/tools/OperationDefinition/cache-control&quot;},{&quot;name&quot;:&quot;versions&quot;,&quot;definition&quot;:&quot;http://hl7.org/fhir/OperationDefinition/fhir-versions&quot;}]}]}
+</pre>
+<hr/><a name="l2"> </a>
+<p>#2</p>
+<pre>
+POST https://tx.fhir.org/r4/$cache-control?mode=start HTTP/1.1
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"sealed","valueBoolean":false}]}
+</pre>
+<pre>
+200
+access-control-allow-credentials:true
+connection:keep-alive
+content-length:112
+content-type:application/fhir+json; charset=utf-8
+date:Sat, 25 Jul 2026 08:18:31 GMT
+etag:W/&quot;70-plbDYR0VtOWzSzAGh7yTwoNBGAQ&quot;
+server:nginx
+vary:Origin
+x-powered-by:Express
+x-request-id:tx-7183132
+
+{&quot;resourceType&quot;:&quot;Parameters&quot;,&quot;parameter&quot;:[{&quot;name&quot;:&quot;cache-id&quot;,&quot;valueId&quot;:&quot;f1e5c5cb-ae27-4c7d-ac5d-1945f16ec99b&quot;}]}
+</pre>
+<hr/><a name="l3"> </a>
+<p>#3</p>
+<pre>
+POST https://tx.fhir.org/r4/ValueSet/$expand HTTP/1.1
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+X-Cache-Id: f1e5c5cb-ae27-4c7d-ac5d-1945f16ec99b
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"defaultDisplayLanguage","valueCode":"en"},{"name":"includeDefinition","valueBoolean":false},{"name":"excludeNested","valueBoolean":false},{"name":"count","valueInteger":1000},{"name":"offset","valueInteger":0},{"name":"valueSet","resource":{"resourceType":"ValueSet","status":"active","compose":{"inactive":false,"include":[{"system":"http://loinc.org","concept":[{"code":"2093-3","display":"Cholesterol [Mass/volume] in Serum or Plasma"},{"code":"35200-5","display":"Cholesterol [Mass or Moles/volume] in Serum or Plasma"},{"code":"1558-6","display":"Fasting glucose [Mass/volume] in Serum or Plasma"},{"code":"2339-0","display":"Glucose [Mass/volume] in Blood"},{"code":"2345-7","display":"Glucose [Mass/volume] in Serum or Plasma"},{"code":"2571-8","display":"Triglyceride [Mass/volume] in Serum or Plasma"},{"code":"3043-7","display":"Triglyceride [Mass/volume] in Blood"},{"code":"2085-9","display":"Cholesterol in HDL [Mass/volume] in Serum or Plasma"},{"code":"2089-1","display":"Cholesterol in LDL [Mass/volume] in Serum or Plasma"},{"code":"13457-7","display":"Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"},{"code":"18262-6","display":"Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"},{"code":"2160-0","display":"Creatinine [Mass/volume] in Serum or Plasma"},{"code":"38483-4","display":"Creatinine [Mass/volume] in Blood"},{"code":"2888-6","display":"Protein [Mass/volume] in Urine"},{"code":"5804-0","display":"Protein [Mass/volume] in Urine by Test strip"},{"code":"57735-3","display":"Protein [Presence] in Urine by Automated test strip"},{"code":"5196-1","display":"Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"},{"code":"5195-3","display":"Hepatitis B virus surface Ag [Presence] in Serum"},{"code":"63557-3","display":"Hepatitis B virus surface Ag [Units/volume] in Serum or Plasma by Immunoassay"},{"code":"13955-0","display":"Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay"},{"code":"47365-2","display":"Hepatitis C virus Ab [Presence] in Serum from Donor by Immunoassay"}]}]}}}]}
+</pre>
+<pre>
+200
+access-control-allow-credentials:true
+connection:keep-alive
+content-length:2632
+content-type:application/fhir+json; charset=utf-8
+date:Sat, 25 Jul 2026 08:18:47 GMT
+etag:W/&quot;a48-hSVYXYsfSHWsKUvmK3dbMYgqHc8&quot;
+server:nginx
+vary:Origin
+x-powered-by:Express
+x-request-id:tx-7183138
+
+{&quot;resourceType&quot;:&quot;ValueSet&quot;,&quot;status&quot;:&quot;active&quot;,&quot;expansion&quot;:{&quot;timestamp&quot;:&quot;2026-07-25T08:18:47.260Z&quot;,&quot;identifier&quot;:&quot;urn:uuid:d6d9a467-182a-4702-a4d5-3899a74f3948&quot;,&quot;parameter&quot;:[{&quot;name&quot;:&quot;excludeNested&quot;,&quot;valueBoolean&quot;:false},{&quot;name&quot;:&quot;includeDefinition&quot;,&quot;valueBoolean&quot;:false},{&quot;name&quot;:&quot;offset&quot;,&quot;valueInteger&quot;:0},{&quot;name&quot;:&quot;count&quot;,&quot;valueInteger&quot;:1000},{&quot;name&quot;:&quot;used-codesystem&quot;,&quot;valueUri&quot;:&quot;http://loinc.org|2.82&quot;}],&quot;offset&quot;:0,&quot;total&quot;:20,&quot;contains&quot;:[{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2093-3&quot;,&quot;display&quot;:&quot;Cholesterol [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;1558-6&quot;,&quot;display&quot;:&quot;Fasting glucose [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2339-0&quot;,&quot;display&quot;:&quot;Glucose [Mass/volume] in Blood&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2345-7&quot;,&quot;display&quot;:&quot;Glucose [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2571-8&quot;,&quot;display&quot;:&quot;Triglyceride [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;3043-7&quot;,&quot;display&quot;:&quot;Triglyceride [Mass/volume] in Blood&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2085-9&quot;,&quot;display&quot;:&quot;Cholesterol in HDL [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2089-1&quot;,&quot;display&quot;:&quot;Cholesterol in LDL [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;13457-7&quot;,&quot;display&quot;:&quot;Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;18262-6&quot;,&quot;display&quot;:&quot;Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2160-0&quot;,&quot;display&quot;:&quot;Creatinine [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;38483-4&quot;,&quot;display&quot;:&quot;Creatinine [Mass/volume] in Blood&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2888-6&quot;,&quot;display&quot;:&quot;Protein [Mass/volume] in Urine&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;5804-0&quot;,&quot;display&quot;:&quot;Protein [Mass/volume] in Urine by Test strip&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;57735-3&quot;,&quot;display&quot;:&quot;Protein [Presence] in Urine by Automated test strip&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;5196-1&quot;,&quot;display&quot;:&quot;Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;5195-3&quot;,&quot;display&quot;:&quot;Hepatitis B virus surface Ag [Presence] in Serum&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;63557-3&quot;,&quot;display&quot;:&quot;Hepatitis B virus surface Ag [Units/volume] in Serum or Plasma by Immunoassay&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;13955-0&quot;,&quot;display&quot;:&quot;Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;47365-2&quot;,&quot;display&quot;:&quot;Hepatitis C virus Ab [Presence] in Serum from Donor by Immunoassay&quot;}]}}
+</pre>
+<hr/><a name="l4"> </a>
+<p>#4</p>
+<pre>
+POST https://tx.fhir.org/r4/ValueSet/$expand HTTP/1.1
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+X-Cache-Id: f1e5c5cb-ae27-4c7d-ac5d-1945f16ec99b
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"defaultDisplayLanguage","valueCode":"en"},{"name":"includeDefinition","valueBoolean":false},{"name":"excludeNested","valueBoolean":false},{"name":"count","valueInteger":1000},{"name":"offset","valueInteger":0},{"name":"valueSet","resource":{"resourceType":"ValueSet","status":"active","compose":{"inactive":false,"include":[{"system":"http://loinc.org","concept":[{"code":"8302-2","display":"Body height"},{"code":"29463-7","display":"Body weight"},{"code":"8280-0","display":"Waist Circumference at umbilicus by Tape measure"},{"code":"56086-2","display":"Adult Waist Circumference Protocol"},{"code":"8480-6","display":"Systolic blood pressure"},{"code":"8462-4","display":"Diastolic blood pressure"},{"code":"39156-5","display":"Body mass index (BMI) [Ratio]"}]}]}}}]}
+</pre>
+<pre>
+200
+access-control-allow-credentials:true
+connection:keep-alive
+content-length:1033
+content-type:application/fhir+json; charset=utf-8
+date:Sat, 25 Jul 2026 08:18:48 GMT
+etag:W/&quot;409-8VpNKXYqfBmYLPLgx7alo7umA/k&quot;
+server:nginx
+vary:Origin
+x-powered-by:Express
+x-request-id:tx-7183139
+
+{&quot;resourceType&quot;:&quot;ValueSet&quot;,&quot;status&quot;:&quot;active&quot;,&quot;expansion&quot;:{&quot;timestamp&quot;:&quot;2026-07-25T08:18:48.047Z&quot;,&quot;identifier&quot;:&quot;urn:uuid:264ab583-6c65-4c92-a408-e5935b8dec97&quot;,&quot;parameter&quot;:[{&quot;name&quot;:&quot;excludeNested&quot;,&quot;valueBoolean&quot;:false},{&quot;name&quot;:&quot;includeDefinition&quot;,&quot;valueBoolean&quot;:false},{&quot;name&quot;:&quot;offset&quot;,&quot;valueInteger&quot;:0},{&quot;name&quot;:&quot;count&quot;,&quot;valueInteger&quot;:1000},{&quot;name&quot;:&quot;used-codesystem&quot;,&quot;valueUri&quot;:&quot;http://loinc.org|2.82&quot;}],&quot;offset&quot;:0,&quot;total&quot;:7,&quot;contains&quot;:[{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;8302-2&quot;,&quot;display&quot;:&quot;Body height&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;29463-7&quot;,&quot;display&quot;:&quot;Body weight&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;8280-0&quot;,&quot;display&quot;:&quot;Waist Circumference at umbilicus by Tape measure&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;56086-2&quot;,&quot;display&quot;:&quot;Adult Waist Circumference Protocol&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;8480-6&quot;,&quot;display&quot;:&quot;Systolic blood pressure&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;8462-4&quot;,&quot;display&quot;:&quot;Diastolic blood pressure&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;39156-5&quot;,&quot;display&quot;:&quot;Body mass index (BMI) [Ratio]&quot;}]}}
+</pre>
+<hr/><a name="l5"> </a>
+<p>#5</p>
+<pre>
+POST https://tx.fhir.org/r4/CodeSystem/$validate-code? HTTP/1.1
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+X-Cache-Id: f1e5c5cb-ae27-4c7d-ac5d-1945f16ec99b
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"coding","valueCoding":{"system":"urn:oid:2.16.840.1.113883.6.24","code":"131329","display":"Lead I"}},{"name":"displayLanguage","valueString":"en"},{"name":"default-to-latest-version","valueBoolean":true},{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"diagnostics","valueBoolean":true}]}
+</pre>
+<pre>
+200
+access-control-allow-credentials:true
+connection:keep-alive
+content-length:918
+content-type:application/fhir+json; charset=utf-8
+date:Sat, 25 Jul 2026 08:18:59 GMT
+etag:W/&quot;396-SijqUo/bq5WkXIqja5FrSodCkTc&quot;
+server:nginx
+vary:Origin
+x-powered-by:Express
+x-request-id:tx-7183144
+
+{&quot;resourceType&quot;:&quot;Parameters&quot;,&quot;parameter&quot;:[{&quot;name&quot;:&quot;issues&quot;,&quot;resource&quot;:{&quot;resourceType&quot;:&quot;OperationOutcome&quot;,&quot;issue&quot;:[{&quot;severity&quot;:&quot;error&quot;,&quot;code&quot;:&quot;not-found&quot;,&quot;details&quot;:{&quot;text&quot;:&quot;A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.24' could not be found, so the code cannot be validated&quot;,&quot;coding&quot;:[{&quot;system&quot;:&quot;http://hl7.org/fhir/tools/CodeSystem/tx-issue-type&quot;,&quot;code&quot;:&quot;not-found&quot;}]},&quot;expression&quot;:[&quot;Coding.system&quot;],&quot;extension&quot;:[{&quot;url&quot;:&quot;http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id&quot;,&quot;valueString&quot;:&quot;UNKNOWN_CODESYSTEM&quot;}]}]}},{&quot;name&quot;:&quot;result&quot;,&quot;valueBoolean&quot;:false},{&quot;name&quot;:&quot;message&quot;,&quot;valueString&quot;:&quot;A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.24' could not be found, so the code cannot be validated&quot;},{&quot;name&quot;:&quot;system&quot;,&quot;valueUri&quot;:&quot;urn:oid:2.16.840.1.113883.6.24&quot;},{&quot;name&quot;:&quot;code&quot;,&quot;valueCode&quot;:&quot;131329&quot;},{&quot;name&quot;:&quot;x-caused-by-unknown-system&quot;,&quot;valueCanonical&quot;:&quot;urn:oid:2.16.840.1.113883.6.24&quot;}]}
+</pre>
+<hr/><a name="l6"> </a>
+<p>#6</p>
+<pre>
+POST https://tx.fhir.org/r4/ValueSet/$expand HTTP/1.1
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+X-Cache-Id: f1e5c5cb-ae27-4c7d-ac5d-1945f16ec99b
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"defaultDisplayLanguage","valueCode":"en"},{"name":"includeDefinition","valueBoolean":false},{"name":"excludeNested","valueBoolean":false},{"name":"count","valueInteger":1000},{"name":"offset","valueInteger":0},{"name":"valueSet","resource":{"resourceType":"ValueSet","status":"active","compose":{"inactive":true,"include":[{"system":"http://loinc.org","concept":[{"code":"2093-3","display":"Cholesterol [Mass/volume] in Serum or Plasma"},{"code":"35200-5","display":"Cholesterol [Mass or Moles/volume] in Serum or Plasma"},{"code":"1558-6","display":"Fasting glucose [Mass/volume] in Serum or Plasma"},{"code":"2339-0","display":"Glucose [Mass/volume] in Blood"},{"code":"2345-7","display":"Glucose [Mass/volume] in Serum or Plasma"},{"code":"2571-8","display":"Triglyceride [Mass/volume] in Serum or Plasma"},{"code":"3043-7","display":"Triglyceride [Mass/volume] in Blood"},{"code":"2085-9","display":"Cholesterol in HDL [Mass/volume] in Serum or Plasma"},{"code":"2089-1","display":"Cholesterol in LDL [Mass/volume] in Serum or Plasma"},{"code":"13457-7","display":"Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"},{"code":"18262-6","display":"Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"},{"code":"2160-0","display":"Creatinine [Mass/volume] in Serum or Plasma"},{"code":"38483-4","display":"Creatinine [Mass/volume] in Blood"},{"code":"2888-6","display":"Protein [Mass/volume] in Urine"},{"code":"5804-0","display":"Protein [Mass/volume] in Urine by Test strip"},{"code":"57735-3","display":"Protein [Presence] in Urine by Automated test strip"},{"code":"5196-1","display":"Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"},{"code":"5195-3","display":"Hepatitis B virus surface Ag [Presence] in Serum"},{"code":"63557-3","display":"Hepatitis B virus surface Ag [Units/volume] in Serum or Plasma by Immunoassay"},{"code":"13955-0","display":"Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay"},{"code":"47365-2","display":"Hepatitis C virus Ab [Presence] in Serum from Donor by Immunoassay"}]}]}}}]}
+</pre>
+<pre>
+200
+access-control-allow-credentials:true
+connection:keep-alive
+content-length:3197
+content-type:application/fhir+json; charset=utf-8
+date:Sat, 25 Jul 2026 08:20:55 GMT
+etag:W/&quot;c7d-oHsFHTaMSXalQfxJWvq5Q2YoyA4&quot;
+server:nginx
+vary:Origin
+x-powered-by:Express
+x-request-id:tx-7183230
+
+{&quot;resourceType&quot;:&quot;ValueSet&quot;,&quot;status&quot;:&quot;active&quot;,&quot;expansion&quot;:{&quot;timestamp&quot;:&quot;2026-07-25T08:20:55.380Z&quot;,&quot;identifier&quot;:&quot;urn:uuid:ae64dcf4-9a85-4814-ac6d-794eeae35609&quot;,&quot;parameter&quot;:[{&quot;name&quot;:&quot;excludeNested&quot;,&quot;valueBoolean&quot;:false},{&quot;name&quot;:&quot;includeDefinition&quot;,&quot;valueBoolean&quot;:false},{&quot;name&quot;:&quot;offset&quot;,&quot;valueInteger&quot;:0},{&quot;name&quot;:&quot;count&quot;,&quot;valueInteger&quot;:1000},{&quot;name&quot;:&quot;used-codesystem&quot;,&quot;valueUri&quot;:&quot;http://loinc.org|2.82&quot;}],&quot;offset&quot;:0,&quot;total&quot;:21,&quot;contains&quot;:[{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2093-3&quot;,&quot;display&quot;:&quot;Cholesterol [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;35200-5&quot;,&quot;inactive&quot;:true,&quot;display&quot;:&quot;Cholesterol [Mass or Moles/volume] in Serum or Plasma&quot;,&quot;extension&quot;:[{&quot;url&quot;:&quot;http://hl7.org/fhir/5.0/StructureDefinition/extension-ValueSet.expansion.contains.property&quot;,&quot;extension&quot;:[{&quot;url&quot;:&quot;code&quot;,&quot;valueCode&quot;:&quot;status&quot;},{&quot;url&quot;:&quot;value&quot;,&quot;valueCode&quot;:&quot;DISCOURAGED&quot;}]}]},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;1558-6&quot;,&quot;display&quot;:&quot;Fasting glucose [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2339-0&quot;,&quot;display&quot;:&quot;Glucose [Mass/volume] in Blood&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2345-7&quot;,&quot;display&quot;:&quot;Glucose [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2571-8&quot;,&quot;display&quot;:&quot;Triglyceride [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;3043-7&quot;,&quot;display&quot;:&quot;Triglyceride [Mass/volume] in Blood&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2085-9&quot;,&quot;display&quot;:&quot;Cholesterol in HDL [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2089-1&quot;,&quot;display&quot;:&quot;Cholesterol in LDL [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;13457-7&quot;,&quot;display&quot;:&quot;Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;18262-6&quot;,&quot;display&quot;:&quot;Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2160-0&quot;,&quot;display&quot;:&quot;Creatinine [Mass/volume] in Serum or Plasma&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;38483-4&quot;,&quot;display&quot;:&quot;Creatinine [Mass/volume] in Blood&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;2888-6&quot;,&quot;display&quot;:&quot;Protein [Mass/volume] in Urine&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;5804-0&quot;,&quot;display&quot;:&quot;Protein [Mass/volume] in Urine by Test strip&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;57735-3&quot;,&quot;display&quot;:&quot;Protein [Presence] in Urine by Automated test strip&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;5196-1&quot;,&quot;display&quot;:&quot;Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;5195-3&quot;,&quot;display&quot;:&quot;Hepatitis B virus surface Ag [Presence] in Serum&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;63557-3&quot;,&quot;display&quot;:&quot;Hepatitis B virus surface Ag [Units/volume] in Serum or Plasma by Immunoassay&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;13955-0&quot;,&quot;display&quot;:&quot;Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;47365-2&quot;,&quot;display&quot;:&quot;Hepatitis C virus Ab [Presence] in Serum from Donor by Immunoassay&quot;}],&quot;extension&quot;:[{&quot;url&quot;:&quot;http://hl7.org/fhir/5.0/StructureDefinition/extension-ValueSet.expansion.property&quot;,&quot;extension&quot;:[{&quot;url&quot;:&quot;code&quot;,&quot;valueCode&quot;:&quot;status&quot;},{&quot;url&quot;:&quot;uri&quot;,&quot;valueUri&quot;:&quot;http://hl7.org/fhir/concept-properties#status&quot;}]}]}}
+</pre>
+<hr/><a name="l7"> </a>
+<p>#7</p>
+<pre>
+POST https://tx.fhir.org/r4/ValueSet/$expand HTTP/1.1
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+X-Cache-Id: f1e5c5cb-ae27-4c7d-ac5d-1945f16ec99b
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters","parameter":[{"name":"x-system-cache-id","valueString":"dc8fd4bc-091a-424a-8a3b-6198ef146891"},{"name":"defaultDisplayLanguage","valueCode":"en"},{"name":"includeDefinition","valueBoolean":false},{"name":"excludeNested","valueBoolean":false},{"name":"count","valueInteger":1000},{"name":"offset","valueInteger":0},{"name":"valueSet","resource":{"resourceType":"ValueSet","status":"active","compose":{"inactive":true,"include":[{"system":"http://loinc.org","concept":[{"code":"8302-2","display":"Body height"},{"code":"29463-7","display":"Body weight"},{"code":"8280-0","display":"Waist Circumference at umbilicus by Tape measure"},{"code":"56086-2","display":"Adult Waist Circumference Protocol"},{"code":"8480-6","display":"Systolic blood pressure"},{"code":"8462-4","display":"Diastolic blood pressure"},{"code":"39156-5","display":"Body mass index (BMI) [Ratio]"}]}]}}}]}
+</pre>
+<pre>
+200
+access-control-allow-credentials:true
+connection:keep-alive
+content-length:1033
+content-type:application/fhir+json; charset=utf-8
+date:Sat, 25 Jul 2026 08:21:11 GMT
+etag:W/&quot;409-EzS3hQYyrguYwV48bH8oPioYxjs&quot;
+server:nginx
+vary:Origin
+x-powered-by:Express
+x-request-id:tx-7183242
+
+{&quot;resourceType&quot;:&quot;ValueSet&quot;,&quot;status&quot;:&quot;active&quot;,&quot;expansion&quot;:{&quot;timestamp&quot;:&quot;2026-07-25T08:21:11.877Z&quot;,&quot;identifier&quot;:&quot;urn:uuid:856ccbde-2e54-4d68-bee9-b7033b5188b8&quot;,&quot;parameter&quot;:[{&quot;name&quot;:&quot;excludeNested&quot;,&quot;valueBoolean&quot;:false},{&quot;name&quot;:&quot;includeDefinition&quot;,&quot;valueBoolean&quot;:false},{&quot;name&quot;:&quot;offset&quot;,&quot;valueInteger&quot;:0},{&quot;name&quot;:&quot;count&quot;,&quot;valueInteger&quot;:1000},{&quot;name&quot;:&quot;used-codesystem&quot;,&quot;valueUri&quot;:&quot;http://loinc.org|2.82&quot;}],&quot;offset&quot;:0,&quot;total&quot;:7,&quot;contains&quot;:[{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;8302-2&quot;,&quot;display&quot;:&quot;Body height&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;29463-7&quot;,&quot;display&quot;:&quot;Body weight&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;8280-0&quot;,&quot;display&quot;:&quot;Waist Circumference at umbilicus by Tape measure&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;56086-2&quot;,&quot;display&quot;:&quot;Adult Waist Circumference Protocol&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;8480-6&quot;,&quot;display&quot;:&quot;Systolic blood pressure&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;8462-4&quot;,&quot;display&quot;:&quot;Diastolic blood pressure&quot;},{&quot;system&quot;:&quot;http://loinc.org&quot;,&quot;code&quot;:&quot;39156-5&quot;,&quot;display&quot;:&quot;Body mass index (BMI) [Ratio]&quot;}]}}
+</pre>
+<hr/><a name="l8"> </a>
+<p>#8</p>
+<pre>
+POST https://tx.fhir.org/r4/$cache-control?mode=end HTTP/1.1
+Accept: application/fhir+json; fhirVersion=4.0
+Content-Type: application/fhir+json; fhirVersion=4.0;charset=UTF-8
+X-Cache-Id: f1e5c5cb-ae27-4c7d-ac5d-1945f16ec99b
+User-Agent: fhir/publisher
+
+{"resourceType":"Parameters"}
+</pre>
+<pre>
+200
+access-control-allow-credentials:true
+connection:keep-alive
+content-length:44
+content-type:application/fhir+json; charset=utf-8
+date:Sat, 25 Jul 2026 08:23:51 GMT
+etag:W/&quot;2c-x1uJoaQHjLTPHoTrltn2q6mUG9w&quot;
+server:nginx
+vary:Origin
+x-powered-by:Express
+x-request-id:tx-7183345
+
+{&quot;resourceType&quot;:&quot;Parameters&quot;,&quot;parameter&quot;:[]}
+</pre>

@@ -8,7 +8,7 @@ Profile: [身體理學檢查 Profile](StructureDefinition-TWHA-PhysicalExam.md)
 
 **category**: Exam
 
-**code**: Physical findings Narrative
+**code**: Physical findings note
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -42,7 +42,7 @@ Profile: [身體理學檢查 Profile](StructureDefinition-TWHA-PhysicalExam.md)
     "coding" : [{
       "system" : "http://loinc.org",
       "code" : "29545-1",
-      "display" : "Physical findings Narrative"
+      "display" : "Physical findings note"
     }]
   },
   "subject" : {

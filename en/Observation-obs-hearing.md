@@ -8,7 +8,7 @@ Profile: [聽力檢查 Profile](StructureDefinition-TWHA-HearingTest.md)
 
 **category**: Exam
 
-**code**: Pure tone threshold audiometry panel
+**code**: Pure tone air conduction threshold audiometry panel
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -66,7 +66,7 @@ Profile: [聽力檢查 Profile](StructureDefinition-TWHA-HearingTest.md)
     "coding" : [{
       "system" : "http://loinc.org",
       "code" : "89015-2",
-      "display" : "Pure tone threshold audiometry panel"
+      "display" : "Pure tone air conduction threshold audiometry panel"
     }]
   },
   "subject" : {

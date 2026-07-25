@@ -15,8 +15,6 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
 
 ### Expansion
 
-No Expansion for this valueset (not supported by Publication Tooling)
-
 -------
 
  [Description of the above table(s)](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
@@ -35,7 +33,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "肺功能檢查項目值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -57,7 +55,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
       "system" : "http://loinc.org",
       "concept" : [{
         "code" : "19876-2",
-        "display" : "Forced vital capacity [Volume] in Airways by Spirometry"
+        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
       },
       {
         "code" : "19870-5",
@@ -69,19 +67,19 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "20150-9",
-        "display" : "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry"
+        "display" : "FEV1"
       },
       {
         "code" : "19926-5",
-        "display" : "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry"
+        "display" : "FEV1/FVC"
       },
       {
-        "code" : "33439-8",
-        "display" : "Left midclavicular line Peak expiratory flow rate"
+        "code" : "19935-6",
+        "display" : "Maximum expiratory gas flow Respiratory system airway by Peak flow meter"
       },
       {
         "code" : "19911-7",
-        "display" : "Carbon monoxide diffusing capacity"
+        "display" : "Diffusion capacity.carbon monoxide"
       },
       {
         "code" : "19862-2",

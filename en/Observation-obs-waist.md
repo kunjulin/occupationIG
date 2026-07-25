@@ -8,7 +8,7 @@ Profile: [職業健檢生命徵象 Profile](StructureDefinition-TWHA-VitalSigns.
 
 **category**: Vital Signs
 
-**code**: Waist Circumference
+**code**: Adult Waist Circumference Protocol
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -38,7 +38,7 @@ Profile: [職業健檢生命徵象 Profile](StructureDefinition-TWHA-VitalSigns.
     "coding" : [{
       "system" : "http://loinc.org",
       "code" : "56086-2",
-      "display" : "Waist Circumference"
+      "display" : "Adult Waist Circumference Protocol"
     }]
   },
   "subject" : {

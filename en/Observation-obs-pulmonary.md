@@ -8,7 +8,7 @@ Profile: [肺功能檢查 Profile](StructureDefinition-TWHA-PulmonaryFunction.md
 
 **category**: Exam
 
-**code**: Forced vital capacity [Volume] in Airways by Spirometry
+**code**: Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -18,9 +18,9 @@ Profile: [肺功能檢查 Profile](StructureDefinition-TWHA-PulmonaryFunction.md
 
 **value**: 4.2 L (Details: UCUM codeL = 'L')
 
-> **component****code**: Forced expiratory volume in 1 second [Volume] in Airways by Spirometry**value**: 3.5 L (Details: UCUM codeL = 'L')
+> **component****code**: FEV1**value**: 3.5 L (Details: UCUM codeL = 'L')
 
-> **component****code**: Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry**value**: 83.3 % (Details: UCUM code% = '%')
+> **component****code**: FEV1/FVC**value**: 83.3 % (Details: UCUM code% = '%')
 
 
 
@@ -44,7 +44,7 @@ Profile: [肺功能檢查 Profile](StructureDefinition-TWHA-PulmonaryFunction.md
     "coding" : [{
       "system" : "http://loinc.org",
       "code" : "19876-2",
-      "display" : "Forced vital capacity [Volume] in Airways by Spirometry"
+      "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
     }]
   },
   "subject" : {
@@ -65,7 +65,7 @@ Profile: [肺功能檢查 Profile](StructureDefinition-TWHA-PulmonaryFunction.md
       "coding" : [{
         "system" : "http://loinc.org",
         "code" : "20150-9",
-        "display" : "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry"
+        "display" : "FEV1"
       }]
     },
     "valueQuantity" : {
@@ -80,7 +80,7 @@ Profile: [肺功能檢查 Profile](StructureDefinition-TWHA-PulmonaryFunction.md
       "coding" : [{
         "system" : "http://loinc.org",
         "code" : "19926-5",
-        "display" : "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry"
+        "display" : "FEV1/FVC"
       }]
     },
     "valueQuantity" : {

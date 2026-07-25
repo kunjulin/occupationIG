@@ -8,7 +8,7 @@ Profile: [特別危害健康作業危害因子暴露史 Profile](StructureDefini
 
 **category**: Social History
 
-**code**: Occupational hazard exposure
+**code**: History of Occupational hazard
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -16,9 +16,9 @@ Profile: [特別危害健康作業危害因子暴露史 Profile](StructureDefini
 
 **value**: 鉛作業
 
-> **component****code**: Exposure duration**value**: 8 years (Details: UCUM codea = 'a')
+> **component****code**: Duration of exposure**value**: 8 years (Details: UCUM codea = 'a')
 
-> **component****code**: Work activity**value**: 電池極板熔鉛作業
+> **component****code**: Usual occupation Narrative**value**: 電池極板熔鉛作業
 
 
 
@@ -41,8 +41,8 @@ Profile: [特別危害健康作業危害因子暴露史 Profile](StructureDefini
   "code" : {
     "coding" : [{
       "system" : "http://loinc.org",
-      "code" : "74213-0",
-      "display" : "Occupational hazard exposure"
+      "code" : "87729-0",
+      "display" : "History of Occupational hazard"
     }]
   },
   "subject" : {
@@ -60,8 +60,8 @@ Profile: [特別危害健康作業危害因子暴露史 Profile](StructureDefini
     "code" : {
       "coding" : [{
         "system" : "http://loinc.org",
-        "code" : "74212-2",
-        "display" : "Exposure duration"
+        "code" : "104905-5",
+        "display" : "Duration of exposure"
       }]
     },
     "valueQuantity" : {
@@ -75,8 +75,8 @@ Profile: [特別危害健康作業危害因子暴露史 Profile](StructureDefini
     "code" : {
       "coding" : [{
         "system" : "http://loinc.org",
-        "code" : "80436-9",
-        "display" : "Work activity"
+        "code" : "21847-9",
+        "display" : "Usual occupation Narrative"
       }]
     },
     "valueString" : "電池極板熔鉛作業"

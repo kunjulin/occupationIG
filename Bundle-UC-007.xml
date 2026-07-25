@@ -200,7 +200,7 @@
           <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-WorkExposure"/>
         </meta>
         <text>
-          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Observation_obs-exposure-lead"> </a><p class="res-header-id"><b>Generated Narrative: Observation obs-exposure-lead</b></p><a name="obs-exposure-lead"> </a><a name="hcobs-exposure-lead"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-WorkExposure.html">特別危害健康作業危害因子暴露史 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}">Social History</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 74213-0}">Occupational hazard exposure</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:00:00+0800</p><p><b>value</b>: <span title="Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType lead}">鉛作業</span></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 74212-2}">Exposure duration</span></p><p><b>value</b>: 8 years<span style="background: LightGoldenRodYellow"> (Details: UCUM  codea = 'a')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 80436-9}">Work activity</span></p><p><b>value</b>: 電池極板熔鉛作業</p></blockquote></div>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Observation_obs-exposure-lead"> </a><p class="res-header-id"><b>Generated Narrative: Observation obs-exposure-lead</b></p><a name="obs-exposure-lead"> </a><a name="hcobs-exposure-lead"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-WorkExposure.html">特別危害健康作業危害因子暴露史 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}">Social History</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 87729-0}">History of Occupational hazard</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:00:00+0800</p><p><b>value</b>: <span title="Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType lead}">鉛作業</span></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 104905-5}">Duration of exposure</span></p><p><b>value</b>: 8 years<span style="background: LightGoldenRodYellow"> (Details: UCUM  codea = 'a')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 21847-9}">Usual occupation Narrative</span></p><p><b>value</b>: 電池極板熔鉛作業</p></blockquote></div>
         </text>
         <status value="final"/>
         <category>
@@ -212,8 +212,8 @@
         <code>
           <coding>
             <system value="http://loinc.org"/>
-            <code value="74213-0"/>
-            <display value="Occupational hazard exposure"/>
+            <code value="87729-0"/>
+            <display value="History of Occupational hazard"/>
           </coding>
         </code>
         <subject>
@@ -231,8 +231,8 @@
           <code>
             <coding>
               <system value="http://loinc.org"/>
-              <code value="74212-2"/>
-              <display value="Exposure duration"/>
+              <code value="104905-5"/>
+              <display value="Duration of exposure"/>
             </coding>
           </code>
           <valueQuantity>
@@ -246,8 +246,8 @@
           <code>
             <coding>
               <system value="http://loinc.org"/>
-              <code value="80436-9"/>
-              <display value="Work activity"/>
+              <code value="21847-9"/>
+              <display value="Usual occupation Narrative"/>
             </coding>
           </code>
           <valueString value="電池極板熔鉛作業"/>
@@ -402,7 +402,7 @@
           <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-General"/>
         </meta>
         <text>
-          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Observation_obs-lab-glucose"> </a><p class="res-header-id"><b>Generated Narrative: Observation obs-lab-glucose</b></p><a name="obs-lab-glucose"> </a><a name="hcobs-lab-glucose"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-LabResult-General.html">一般健檢實驗室檢驗 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}">Laboratory</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 1558-6}">Fasting Glucose (mass/volume) in Serum or Plasma</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 09:00:00+0800</p><p><b>value</b>: 95 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  codemg/dL = 'mg/dL')</span></p><h3>ReferenceRanges</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Low</b></td><td><b>High</b></td></tr><tr><td style="display: none">*</td><td>70 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td><td>100 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td></tr></table></div>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Observation_obs-lab-glucose"> </a><p class="res-header-id"><b>Generated Narrative: Observation obs-lab-glucose</b></p><a name="obs-lab-glucose"> </a><a name="hcobs-lab-glucose"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-LabResult-General.html">一般健檢實驗室檢驗 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}">Laboratory</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 1558-6}">Fasting glucose [Mass/volume] in Serum or Plasma</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 09:00:00+0800</p><p><b>value</b>: 95 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  codemg/dL = 'mg/dL')</span></p><h3>ReferenceRanges</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Low</b></td><td><b>High</b></td></tr><tr><td style="display: none">*</td><td>70 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td><td>100 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  codemg/dL = 'mg/dL')</span></td></tr></table></div>
         </text>
         <status value="final"/>
         <category>
@@ -415,7 +415,7 @@
           <coding>
             <system value="http://loinc.org"/>
             <code value="1558-6"/>
-            <display value="Fasting Glucose (mass/volume) in Serum or Plasma"/>
+            <display value="Fasting glucose [Mass/volume] in Serum or Plasma"/>
           </coding>
         </code>
         <subject>
@@ -454,7 +454,7 @@
           <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-Special"/>
         </meta>
         <text>
-          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Observation_obs-lab-egfr-absent"> </a><p class="res-header-id"><b>Generated Narrative: Observation obs-lab-egfr-absent</b></p><a name="obs-lab-egfr-absent"> </a><a name="hcobs-lab-egfr-absent"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-LabResult-Special.html">特殊健檢實驗室檢驗 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}">Laboratory</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 88293-6}">Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 09:00:00+0800</p><p><b>performer</b>: <a href="Organization-example-hospital.html">Organization 交通部民用航空局航空醫務中心</a></p><p><b>dataAbsentReason</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/data-absent-reason not-performed}">Not Performed</span></p></div>
+          <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><a name="Observation_obs-lab-egfr-absent"> </a><p class="res-header-id"><b>Generated Narrative: Observation obs-lab-egfr-absent</b></p><a name="obs-lab-egfr-absent"> </a><a name="hcobs-lab-egfr-absent"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-LabResult-Special.html">特殊健檢實驗室檢驗 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}">Laboratory</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 98979-8}">Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 09:00:00+0800</p><p><b>performer</b>: <a href="Organization-example-hospital.html">Organization 交通部民用航空局航空醫務中心</a></p><p><b>dataAbsentReason</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/data-absent-reason not-performed}">Not Performed</span></p></div>
         </text>
         <status value="final"/>
         <category>
@@ -466,8 +466,8 @@
         <code>
           <coding>
             <system value="http://loinc.org"/>
-            <code value="88293-6"/>
-            <display value="Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)"/>
+            <code value="98979-8"/>
+            <display value="Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"/>
           </coding>
         </code>
         <subject>

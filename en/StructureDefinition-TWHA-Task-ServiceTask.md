@@ -33,7 +33,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Task-Service
   "title" : "臨場健康服務建議與改善任務 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -117,17 +117,6 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Task-Service
       "id" : "Task.intent",
       "path" : "Task.intent",
       "patternCode" : "plan"
-    },
-    {
-      "id" : "Task.code",
-      "path" : "Task.code",
-      "patternCodeableConcept" : {
-        "coding" : [{
-          "system" : "http://snomed.info/sct",
-          "code" : "315640000",
-          "display" : "Occupational health counseling (procedure)"
-        }]
-      }
     },
     {
       "id" : "Task.focus",

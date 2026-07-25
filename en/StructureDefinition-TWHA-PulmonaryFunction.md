@@ -33,7 +33,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-PulmonaryFun
   "title" : "肺功能檢查 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -110,7 +110,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-PulmonaryFun
         "coding" : [{
           "system" : "http://loinc.org",
           "code" : "19876-2",
-          "display" : "Forced vital capacity [Volume] in Airways by Spirometry"
+          "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
         }]
       }
     },
@@ -166,7 +166,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-PulmonaryFun
         "coding" : [{
           "system" : "http://loinc.org",
           "code" : "20150-9",
-          "display" : "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry"
+          "display" : "FEV1"
         }]
       }
     },
@@ -191,7 +191,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-PulmonaryFun
         "coding" : [{
           "system" : "http://loinc.org",
           "code" : "19926-5",
-          "display" : "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry"
+          "display" : "FEV1/FVC"
         }]
       }
     },

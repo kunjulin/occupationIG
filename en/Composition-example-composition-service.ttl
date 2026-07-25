@@ -19,7 +19,7 @@
   fhir:Resource.language [ fhir:value "en"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Composition example-composition-service</b></p><a name=\"example-composition-service\"> </a><a name=\"hcexample-composition-service\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition-ServiceRecord.html\">健康檢查健康服務執行紀錄組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 34133-9}\">Summarization of clinical note</span></p><p><b>date</b>: 2026-06-10 14:00:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 勞工健康服務執行紀錄表</p></div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Composition example-composition-service</b></p><a name=\"example-composition-service\"> </a><a name=\"hcexample-composition-service\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition-ServiceRecord.html\">健康檢查健康服務執行紀錄組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 34133-9}\">Summary of episode note</span></p><p><b>date</b>: 2026-06-10 14:00:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 勞工健康服務執行紀錄表</p></div>"
   ] ;
   fhir:Composition.status [ fhir:value "final"] ;
   fhir:Composition.type [
@@ -28,7 +28,7 @@
        a loinc:34133-9 ;
        fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
        fhir:Coding.code [ fhir:value "34133-9" ] ;
-       fhir:Coding.display [ fhir:value "Summarization of clinical note" ]
+       fhir:Coding.display [ fhir:value "Summary of episode note" ]
      ]
   ] ;
   fhir:Composition.subject [

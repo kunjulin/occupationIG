@@ -8,7 +8,7 @@ Profile: [一般健檢實驗室檢驗 Profile](StructureDefinition-TWHA-LabResul
 
 **category**: Laboratory
 
-**code**: Fasting Glucose (mass/volume) in Serum or Plasma
+**code**: Fasting glucose [Mass/volume] in Serum or Plasma
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -45,7 +45,7 @@ Profile: [一般健檢實驗室檢驗 Profile](StructureDefinition-TWHA-LabResul
     "coding" : [{
       "system" : "http://loinc.org",
       "code" : "1558-6",
-      "display" : "Fasting Glucose (mass/volume) in Serum or Plasma"
+      "display" : "Fasting glucose [Mass/volume] in Serum or Plasma"
     }]
   },
   "subject" : {

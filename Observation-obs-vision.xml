@@ -6,7 +6,7 @@
     <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VisionTest"/>
   </meta>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation obs-vision</b></p><a name="obs-vision"> </a><a name="hcobs-vision"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-VisionTest.html">視力與辨色力檢查 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}">Exam</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 79880-1}">Vision test panel</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:20:00+0800</p><p><b>performer</b>: <a href="Practitioner-example-doctor.html">Practitioner 林職醫(official)</a></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 70936-0}">Visual acuity Left eye</span></p><p><b>value</b>: 1 1<span style="background: LightGoldenRodYellow"> (Details: UCUM  code1 = '1')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 70935-2}">Visual acuity Right eye</span></p><p><b>value</b>: 1 1<span style="background: LightGoldenRodYellow"> (Details: UCUM  code1 = '1')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 48024-3}">Color vision Test</span></p><p><b>value</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}">None</span></p></blockquote></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation obs-vision</b></p><a name="obs-vision"> </a><a name="hcobs-vision"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-VisionTest.html">視力與辨色力檢查 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}">Exam</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 98497-1}">Visual acuity panel</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:20:00+0800</p><p><b>performer</b>: <a href="Practitioner-example-doctor.html">Practitioner 林職醫(official)</a></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 98498-9}">Visual acuity uncorrected Left eye</span></p><p><b>value</b>: 1 1<span style="background: LightGoldenRodYellow"> (Details: UCUM  code1 = '1')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 98499-7}">Visual acuity uncorrected Right eye</span></p><p><b>value</b>: 1 1<span style="background: LightGoldenRodYellow"> (Details: UCUM  code1 = '1')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 46673-0}">Color vision [RFC]</span></p><p><b>value</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}">None</span></p></blockquote></div>
   </text>
   <status value="final"/>
   <category>
@@ -18,8 +18,8 @@
   <code>
     <coding>
       <system value="http://loinc.org"/>
-      <code value="79880-1"/>
-      <display value="Vision test panel"/>
+      <code value="98497-1"/>
+      <display value="Visual acuity panel"/>
     </coding>
   </code>
   <subject>
@@ -33,8 +33,8 @@
     <code>
       <coding>
         <system value="http://loinc.org"/>
-        <code value="70936-0"/>
-        <display value="Visual acuity Left eye"/>
+        <code value="98498-9"/>
+        <display value="Visual acuity uncorrected Left eye"/>
       </coding>
     </code>
     <valueQuantity>
@@ -47,8 +47,8 @@
     <code>
       <coding>
         <system value="http://loinc.org"/>
-        <code value="70935-2"/>
-        <display value="Visual acuity Right eye"/>
+        <code value="98499-7"/>
+        <display value="Visual acuity uncorrected Right eye"/>
       </coding>
     </code>
     <valueQuantity>
@@ -61,8 +61,8 @@
     <code>
       <coding>
         <system value="http://loinc.org"/>
-        <code value="48024-3"/>
-        <display value="Color vision Test"/>
+        <code value="46673-0"/>
+        <display value="Color vision [RFC]"/>
       </coding>
     </code>
     <valueCodeableConcept>

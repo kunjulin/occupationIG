@@ -33,7 +33,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-VisionTest.c
   "title" : "視力與辨色力檢查 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -109,8 +109,8 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-VisionTest.c
       "patternCodeableConcept" : {
         "coding" : [{
           "system" : "http://loinc.org",
-          "code" : "79880-1",
-          "display" : "Vision test panel"
+          "code" : "98497-1",
+          "display" : "Visual acuity panel"
         }]
       }
     },
@@ -154,8 +154,8 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-VisionTest.c
       "patternCodeableConcept" : {
         "coding" : [{
           "system" : "http://loinc.org",
-          "code" : "70936-0",
-          "display" : "Visual acuity Left eye"
+          "code" : "98498-9",
+          "display" : "Visual acuity uncorrected Left eye"
         }]
       }
     },
@@ -182,8 +182,8 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-VisionTest.c
       "patternCodeableConcept" : {
         "coding" : [{
           "system" : "http://loinc.org",
-          "code" : "70935-2",
-          "display" : "Visual acuity Right eye"
+          "code" : "98499-7",
+          "display" : "Visual acuity uncorrected Right eye"
         }]
       }
     },
@@ -210,8 +210,8 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-VisionTest.c
       "patternCodeableConcept" : {
         "coding" : [{
           "system" : "http://loinc.org",
-          "code" : "48024-3",
-          "display" : "Color vision Test"
+          "code" : "46673-0",
+          "display" : "Color vision [RFC]"
         }]
       }
     },

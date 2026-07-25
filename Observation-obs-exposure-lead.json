@@ -6,7 +6,7 @@
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-exposure-lead</b></p><a name=\"obs-exposure-lead\"> </a><a name=\"hcobs-exposure-lead\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-WorkExposure.html\">特別危害健康作業危害因子暴露史 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 74213-0}\">Occupational hazard exposure</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2026-06-12 08:00:00+0800</p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType lead}\">鉛作業</span></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 74212-2}\">Exposure duration</span></p><p><b>value</b>: 8 years<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codea = 'a')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 80436-9}\">Work activity</span></p><p><b>value</b>: 電池極板熔鉛作業</p></blockquote></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-exposure-lead</b></p><a name=\"obs-exposure-lead\"> </a><a name=\"hcobs-exposure-lead\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-WorkExposure.html\">特別危害健康作業危害因子暴露史 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 87729-0}\">History of Occupational hazard</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2026-06-12 08:00:00+0800</p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType lead}\">鉛作業</span></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 104905-5}\">Duration of exposure</span></p><p><b>value</b>: 8 years<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codea = 'a')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 21847-9}\">Usual occupation Narrative</span></p><p><b>value</b>: 電池極板熔鉛作業</p></blockquote></div>"
   },
   "status" : "final",
   "category" : [{
@@ -18,8 +18,8 @@
   "code" : {
     "coding" : [{
       "system" : "http://loinc.org",
-      "code" : "74213-0",
-      "display" : "Occupational hazard exposure"
+      "code" : "87729-0",
+      "display" : "History of Occupational hazard"
     }]
   },
   "subject" : {
@@ -37,8 +37,8 @@
     "code" : {
       "coding" : [{
         "system" : "http://loinc.org",
-        "code" : "74212-2",
-        "display" : "Exposure duration"
+        "code" : "104905-5",
+        "display" : "Duration of exposure"
       }]
     },
     "valueQuantity" : {
@@ -52,8 +52,8 @@
     "code" : {
       "coding" : [{
         "system" : "http://loinc.org",
-        "code" : "80436-9",
-        "display" : "Work activity"
+        "code" : "21847-9",
+        "display" : "Usual occupation Narrative"
       }]
     },
     "valueString" : "電池極板熔鉛作業"

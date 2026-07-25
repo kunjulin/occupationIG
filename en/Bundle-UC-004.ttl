@@ -368,7 +368,7 @@
   fhir:Resource.language [ fhir:value "en"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-imaging-mammo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-imaging-mammo</b></p><a name=\"obs-imaging-mammo\"> </a><a name=\"hcobs-imaging-mammo\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category imaging}\">Imaging</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 24606-6}\">Mammogram screening views study</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 10:00:00+0800</p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-imaging-mammo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation obs-imaging-mammo</b></p><a name=\"obs-imaging-mammo\"> </a><a name=\"hcobs-imaging-mammo\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category imaging}\">Imaging</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 24606-6}\">MG Breast Screening</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 10:00:00+0800</p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
   ] ;
   fhir:Observation.status [ fhir:value "final"] ;
   fhir:Observation.category [
@@ -385,7 +385,7 @@
        a loinc:24606-6 ;
        fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
        fhir:Coding.code [ fhir:value "24606-6" ] ;
-       fhir:Coding.display [ fhir:value "Mammogram screening views study" ]
+       fhir:Coding.display [ fhir:value "MG Breast Screening" ]
      ]
   ] ;
   fhir:Observation.subject [

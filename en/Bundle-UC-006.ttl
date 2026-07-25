@@ -74,7 +74,7 @@
   fhir:Resource.language [ fhir:value "en"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Composition_example-composition-service\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Composition example-composition-service</b></p><a name=\"example-composition-service\"> </a><a name=\"hcexample-composition-service\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition-ServiceRecord.html\">健康檢查健康服務執行紀錄組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 34133-9}\">Summarization of clinical note</span></p><p><b>date</b>: 2026-06-10 14:00:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 勞工健康服務執行紀錄表</p></div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Composition_example-composition-service\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Composition example-composition-service</b></p><a name=\"example-composition-service\"> </a><a name=\"hcexample-composition-service\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition-ServiceRecord.html\">健康檢查健康服務執行紀錄組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 34133-9}\">Summary of episode note</span></p><p><b>date</b>: 2026-06-10 14:00:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 勞工健康服務執行紀錄表</p></div>"
   ] ;
   fhir:Composition.status [ fhir:value "final"] ;
   fhir:Composition.type [
@@ -83,7 +83,7 @@
        a loinc:34133-9 ;
        fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
        fhir:Coding.code [ fhir:value "34133-9" ] ;
-       fhir:Coding.display [ fhir:value "Summarization of clinical note" ]
+       fhir:Coding.display [ fhir:value "Summary of episode note" ]
      ]
   ] ;
   fhir:Composition.subject [
@@ -362,16 +362,16 @@
   fhir:Resource.language [ fhir:value "en"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_example-service-finding\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation example-service-finding</b></p><a name=\"example-service-finding\"> </a><a name=\"hcexample-service-finding\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Observation-ServiceFinding.html\">臨場健康服務發現問題/風險 Profile</a></p></div><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 278486003}\">Occupational health hazard (finding)</span></p><p><b>focus</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>value</b>: 發現部分現場勞動條件局部排氣裝置風速異常降低，且現場作業人員於正己烷暴露區域未確實配戴防護面罩。</p></div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_example-service-finding\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Observation example-service-finding</b></p><a name=\"example-service-finding\"> </a><a name=\"hcexample-service-finding\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Observation-ServiceFinding.html\">臨場健康服務發現問題/風險 Profile</a></p></div><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 17458004}\">Occupational hazard</span></p><p><b>focus</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>value</b>: 發現部分現場勞動條件局部排氣裝置風速異常降低，且現場作業人員於正己烷暴露區域未確實配戴防護面罩。</p></div>"
   ] ;
   fhir:Observation.status [ fhir:value "final"] ;
   fhir:Observation.code [
      fhir:CodeableConcept.coding [
        fhir:index -1 ;
-       a sct:278486003 ;
+       a sct:17458004 ;
        fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
-       fhir:Coding.code [ fhir:value "278486003" ] ;
-       fhir:Coding.display [ fhir:value "Occupational health hazard (finding)" ]
+       fhir:Coding.code [ fhir:value "17458004" ] ;
+       fhir:Coding.display [ fhir:value "Occupational hazard" ]
      ]
   ] ;
   fhir:Observation.focus [
@@ -393,7 +393,7 @@
   fhir:Resource.language [ fhir:value "en"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "extensions" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_example-service-task\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Task example-service-task</b></p><a name=\"example-service-task\"> </a><a name=\"hcexample-service-task\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Task-ServiceTask.html\">臨場健康服務建議與改善任務 Profile</a></p></div><p><b>雇主事業單位資訊擴充</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>status</b>: Requested</p><p><b>intent</b>: plan</p><p><b>description</b>: 大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。</p><p><b>focus</b>: <a href=\"Observation-example-service-finding.html\">Observation Occupational health hazard (finding)</a></p><p><b>requester</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>owner</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p></div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_example-service-task\"> </a><p class=\"res-header-id\"><b>Generated Narrative: Task example-service-task</b></p><a name=\"example-service-task\"> </a><a name=\"hcexample-service-task\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Task-ServiceTask.html\">臨場健康服務建議與改善任務 Profile</a></p></div><p><b>雇主事業單位資訊擴充</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>status</b>: Requested</p><p><b>intent</b>: plan</p><p><b>description</b>: 大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。</p><p><b>focus</b>: <a href=\"Observation-example-service-finding.html\">Observation Occupational hazard</a></p><p><b>requester</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>owner</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p></div>"
   ] ;
   fhir:DomainResource.extension [
      fhir:index -1 ;

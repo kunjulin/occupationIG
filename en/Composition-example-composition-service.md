@@ -6,7 +6,7 @@ Profile: [健康檢查健康服務執行紀錄組成結構 Profile](StructureDef
 
 **status**: Final
 
-**type**: Summarization of clinical note
+**type**: Summary of episode note
 
 **date**: 2026-06-10 14:00:00+0800
 
@@ -30,7 +30,7 @@ Profile: [健康檢查健康服務執行紀錄組成結構 Profile](StructureDef
     "coding" : [{
       "system" : "http://loinc.org",
       "code" : "34133-9",
-      "display" : "Summarization of clinical note"
+      "display" : "Summary of episode note"
     }]
   },
   "subject" : {

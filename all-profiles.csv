@@ -1193,7 +1193,7 @@ Some reporting work flows require that the original narrative of a final documen
   <coding>
     <system value=""http://loinc.org""/>
     <code value=""34133-9""/>
-    <display value=""Summarization of clinical note""/>
+    <display value=""Summary of episode note""/>
   </coding>
 </valueCodeableConcept>","","","",,"preferred","Type of a composition.","http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1","",,,,"Composition.type",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -4090,8 +4090,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Type of observation (code / type)","Describes what was observed. Sometimes this is called the observation ""name"".","*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.","Knowing what kind of observation is being made is essential to understanding the observation.","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://snomed.info/sct""/>
-    <code value=""371607000""/>
-    <display value=""Classification of health status (finding)""/>
+    <code value=""406221003""/>
+    <display value=""Health status""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","Codes identifying names of simple observations.","http://hl7.org/fhir/ValueSet/observation-codes|4.0.1","",,,,"Observation.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -4280,7 +4280,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
   <coding>
     <system value=""http://loinc.org""/>
     <code value=""89015-2""/>
-    <display value=""Pure tone threshold audiometry panel""/>
+    <display value=""Pure tone air conduction threshold audiometry panel""/>
   </coding>
 </valueCodeableConcept>","","","",,"extensible","鼓勵使用所綁定值集中的代碼，但不強制一定要使用此值集，你也可使用其他值集的代碼或單純以文字表示。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -5987,8 +5987,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Type of observation (code / type)","Describes what was observed. Sometimes this is called the observation ""name"".","*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.","Knowing what kind of observation is being made is essential to understanding the observation.","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://snomed.info/sct""/>
-    <code value=""278486003""/>
-    <display value=""Occupational health hazard (finding)""/>
+    <code value=""17458004""/>
+    <display value=""Occupational hazard""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","Codes identifying names of simple observations.","http://hl7.org/fhir/ValueSet/observation-codes|4.0.1","",,,,"Observation.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -7559,7 +7559,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
   <coding>
     <system value=""http://loinc.org""/>
     <code value=""29545-1""/>
-    <display value=""Physical findings Narrative""/>
+    <display value=""Physical findings note""/>
   </coding>
 </valueCodeableConcept>","","","",,"extensible","鼓勵使用所綁定值集中的代碼，但不強制一定要使用此值集，你也可使用其他值集的代碼或單純以文字表示。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -8597,7 +8597,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
   <coding>
     <system value=""http://loinc.org""/>
     <code value=""19876-2""/>
-    <display value=""Forced vital capacity [Volume] in Airways by Spirometry""/>
+    <display value=""Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation""/>
   </coding>
 </valueCodeableConcept>","","","",,"extensible","鼓勵使用所綁定值集中的代碼，但不強制一定要使用此值集，你也可使用其他值集的代碼或單純以文字表示。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -8762,7 +8762,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
   <coding>
     <system value=""http://loinc.org""/>
     <code value=""20150-9""/>
-    <display value=""Forced expiratory volume in 1 second [Volume] in Airways by Spirometry""/>
+    <display value=""FEV1""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -8802,7 +8802,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
   <coding>
     <system value=""http://loinc.org""/>
     <code value=""19926-5""/>
-    <display value=""Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry""/>
+    <display value=""FEV1/FVC""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -10770,13 +10770,7 @@ In most cases, Tasks will have an intent of ""order"".","","","","","<valueCode 
 ","routine | urgent | asap | stat","Indicates how quickly the Task should be addressed with respect to other requests.","","Used to identify the service level expected while performing a task.","","If missing, this task should be performed with normal priority","","","","","",,"required","The task's priority.","http://hl7.org/fhir/ValueSet/request-priority|4.0.1","",,,,"Task.priority",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "TWHA-Task-ServiceTask","Task.code","Task.code","","","",0,1,"","","Y","CodeableConcept {[]} {[]}
-","Task Type","A name or code (or both) briefly describing what the task involves.","The title (eg ""My Tasks"", ""Outstanding Tasks for Patient X"") should go into the code.","","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
-  <coding>
-    <system value=""http://snomed.info/sct""/>
-    <code value=""315640000""/>
-    <display value=""Occupational health counseling (procedure)""/>
-  </coding>
-</valueCodeableConcept>","","","",,"example","Codes to identify what the task involves.  These will typically be specific to a particular workflow.","http://hl7.org/fhir/ValueSet/task-code|4.0.1","",,,,"Task.code",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","Task Type","A name or code (or both) briefly describing what the task involves.","The title (eg ""My Tasks"", ""Outstanding Tasks for Patient X"") should go into the code.","","","","","","","","",,"example","Codes to identify what the task involves.  These will typically be specific to a particular workflow.","http://hl7.org/fhir/ValueSet/task-code|4.0.1","",,,,"Task.code",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "TWHA-Task-ServiceTask","Task.description","Task.description","","","",0,1,"","","Y","string {[]} {[]}
 ","Human-readable explanation of task","A free-text description of what is to be performed.","","","","","","","","","",,,,,"",,,,"Task.description",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
@@ -10960,8 +10954,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","概念（concept）－參照一個專門術語或只是純文字。","可以透過正式參照一個專門術語或本體論來定義一個概念，或者也可以文字表述此概念。","並非所有的專門術語使用都符合這個一般模式。在某些情況下，資料模型不應該使用CodeableConcept而應直接使用Coding，並提供他們自己的結構來管理text、codings、translation、資料項目之間的關係、以及先組合配對／前組合式（pre-coordination）和後組合配對／後組合式（post-coordination）。","知道正在進行的是哪種檢驗檢查是理解檢驗檢查的關鍵","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""79880-1""/>
-    <display value=""Vision test panel""/>
+    <code value=""98497-1""/>
+    <display value=""Visual acuity panel""/>
   </coding>
 </valueCodeableConcept>","","","",,"extensible","鼓勵使用所綁定值集中的代碼，但不強制一定要使用此值集，你也可使用其他值集的代碼或單純以文字表示。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -11125,8 +11119,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","組成之檢驗檢查的型別（代碼／型別）","描述所觀察到的情況，有時這被稱為檢驗檢查「代碼」。","所有的code-value和component.code-component.value都需要考慮到，以正確理解檢驗檢查的意義。","知道正在進行的是哪種檢驗檢查是理解檢驗檢查的關鍵","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""70936-0""/>
-    <display value=""Visual acuity Left eye""/>
+    <code value=""98498-9""/>
+    <display value=""Visual acuity uncorrected Left eye""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -11165,8 +11159,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","組成之檢驗檢查的型別（代碼／型別）","描述所觀察到的情況，有時這被稱為檢驗檢查「代碼」。","所有的code-value和component.code-component.value都需要考慮到，以正確理解檢驗檢查的意義。","知道正在進行的是哪種檢驗檢查是理解檢驗檢查的關鍵","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""70935-2""/>
-    <display value=""Visual acuity Right eye""/>
+    <code value=""98499-7""/>
+    <display value=""Visual acuity uncorrected Right eye""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -11205,8 +11199,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","組成之檢驗檢查的型別（代碼／型別）","描述所觀察到的情況，有時這被稱為檢驗檢查「代碼」。","所有的code-value和component.code-component.value都需要考慮到，以正確理解檢驗檢查的意義。","知道正在進行的是哪種檢驗檢查是理解檢驗檢查的關鍵","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""48024-3""/>
-    <display value=""Color vision Test""/>
+    <code value=""46673-0""/>
+    <display value=""Color vision [RFC]""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -11519,8 +11513,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Type of observation (code / type)","Describes what was observed. Sometimes this is called the observation ""name"".","*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.","Knowing what kind of observation is being made is essential to understanding the observation.","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""74213-0""/>
-    <display value=""Occupational hazard exposure""/>
+    <code value=""87729-0""/>
+    <display value=""History of Occupational hazard""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","Codes identifying names of simple observations.","http://hl7.org/fhir/ValueSet/observation-codes|4.0.1","",,,,"Observation.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -11670,8 +11664,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Type of component observation (code / type)","Describes what was observed. Sometimes this is called the observation ""code"".","*All* code-value and  component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.","Knowing what kind of observation is being made is essential to understanding the observation.","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""74212-2""/>
-    <display value=""Exposure duration""/>
+    <code value=""104905-5""/>
+    <display value=""Duration of exposure""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","Codes identifying names of simple observations.","http://hl7.org/fhir/ValueSet/observation-codes|4.0.1","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
@@ -11710,8 +11704,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Type of component observation (code / type)","Describes what was observed. Sometimes this is called the observation ""code"".","*All* code-value and  component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.","Knowing what kind of observation is being made is essential to understanding the observation.","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""80436-9""/>
-    <display value=""Work activity""/>
+    <code value=""21847-9""/>
+    <display value=""Usual occupation Narrative""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","Codes identifying names of simple observations.","http://hl7.org/fhir/ValueSet/observation-codes|4.0.1","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "

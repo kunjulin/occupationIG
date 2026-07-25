@@ -6,7 +6,7 @@ Profile: [臨場健康服務發現問題/風險 Profile](StructureDefinition-TWH
 
 **status**: Final
 
-**code**: Occupational health hazard (finding)
+**code**: Occupational hazard
 
 **focus**: [Organization 大同電子股份有限公司](Organization-example-employer.md)
 
@@ -27,8 +27,8 @@ Profile: [臨場健康服務發現問題/風險 Profile](StructureDefinition-TWH
   "code" : {
     "coding" : [{
       "system" : "http://snomed.info/sct",
-      "code" : "278486003",
-      "display" : "Occupational health hazard (finding)"
+      "code" : "17458004",
+      "display" : "Occupational hazard"
     }]
   },
   "focus" : [{

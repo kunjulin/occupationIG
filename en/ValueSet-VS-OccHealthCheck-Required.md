@@ -15,8 +15,6 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
 
 ### Expansion
 
-No Expansion for this valueset (not supported by Publication Tooling)
-
 -------
 
  [Description of the above table(s)](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
@@ -35,7 +33,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "勞工健康檢查法定必驗項目值集（第一期草案）",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -69,7 +67,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "1558-6",
-        "display" : "Fasting Glucose [Mass/volume] in Serum or Plasma"
+        "display" : "Fasting glucose [Mass/volume] in Serum or Plasma"
       },
       {
         "code" : "2093-3",
@@ -85,7 +83,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "2089-1",
-        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
+        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
       },
       {
         "code" : "1742-6",
@@ -97,7 +95,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "5804-0",
-        "display" : "Protein [Presence] in Urine by Test strip"
+        "display" : "Protein [Mass/volume] in Urine by Test strip"
       },
       {
         "code" : "718-7",
@@ -117,7 +115,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "89015-2",
-        "display" : "Pure tone threshold audiometry panel"
+        "display" : "Pure tone air conduction threshold audiometry panel"
       },
       {
         "code" : "5671-3",
@@ -129,15 +127,15 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "19876-2",
-        "display" : "Forced vital capacity [Volume] in Airways by Spirometry"
+        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
       },
       {
         "code" : "20150-9",
-        "display" : "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry"
+        "display" : "FEV1"
       },
       {
         "code" : "19926-5",
-        "display" : "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry"
+        "display" : "FEV1/FVC"
       },
       {
         "code" : "36643-5",

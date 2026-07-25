@@ -6,7 +6,7 @@
 
 **category**: Imaging
 
-**code**: Mammogram screening views study
+**code**: MG Breast Screening
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -33,7 +33,7 @@
     "coding" : [{
       "system" : "http://loinc.org",
       "code" : "24606-6",
-      "display" : "Mammogram screening views study"
+      "display" : "MG Breast Screening"
     }]
   },
   "subject" : {

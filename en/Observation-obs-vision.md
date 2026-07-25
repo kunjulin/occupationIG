@@ -8,7 +8,7 @@ Profile: [視力與辨色力檢查 Profile](StructureDefinition-TWHA-VisionTest.
 
 **category**: Exam
 
-**code**: Vision test panel
+**code**: Visual acuity panel
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -16,11 +16,11 @@ Profile: [視力與辨色力檢查 Profile](StructureDefinition-TWHA-VisionTest.
 
 **performer**: [Practitioner 林職醫(official)](Practitioner-example-doctor.md)
 
-> **component****code**: Visual acuity Left eye**value**: 1 1 (Details: UCUM code1 = '1')
+> **component****code**: Visual acuity uncorrected Left eye**value**: 1 1 (Details: UCUM code1 = '1')
 
-> **component****code**: Visual acuity Right eye**value**: 1 1 (Details: UCUM code1 = '1')
+> **component****code**: Visual acuity uncorrected Right eye**value**: 1 1 (Details: UCUM code1 = '1')
 
-> **component****code**: Color vision Test**value**: None
+> **component****code**: Color vision [RFC]**value**: None
 
 
 
@@ -43,8 +43,8 @@ Profile: [視力與辨色力檢查 Profile](StructureDefinition-TWHA-VisionTest.
   "code" : {
     "coding" : [{
       "system" : "http://loinc.org",
-      "code" : "79880-1",
-      "display" : "Vision test panel"
+      "code" : "98497-1",
+      "display" : "Visual acuity panel"
     }]
   },
   "subject" : {
@@ -58,8 +58,8 @@ Profile: [視力與辨色力檢查 Profile](StructureDefinition-TWHA-VisionTest.
     "code" : {
       "coding" : [{
         "system" : "http://loinc.org",
-        "code" : "70936-0",
-        "display" : "Visual acuity Left eye"
+        "code" : "98498-9",
+        "display" : "Visual acuity uncorrected Left eye"
       }]
     },
     "valueQuantity" : {
@@ -72,8 +72,8 @@ Profile: [視力與辨色力檢查 Profile](StructureDefinition-TWHA-VisionTest.
     "code" : {
       "coding" : [{
         "system" : "http://loinc.org",
-        "code" : "70935-2",
-        "display" : "Visual acuity Right eye"
+        "code" : "98499-7",
+        "display" : "Visual acuity uncorrected Right eye"
       }]
     },
     "valueQuantity" : {
@@ -86,8 +86,8 @@ Profile: [視力與辨色力檢查 Profile](StructureDefinition-TWHA-VisionTest.
     "code" : {
       "coding" : [{
         "system" : "http://loinc.org",
-        "code" : "48024-3",
-        "display" : "Color vision Test"
+        "code" : "46673-0",
+        "display" : "Color vision [RFC]"
       }]
     },
     "valueCodeableConcept" : {

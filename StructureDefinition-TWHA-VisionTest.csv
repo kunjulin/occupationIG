@@ -57,8 +57,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","概念（concept）－參照一個專門術語或只是純文字。","可以透過正式參照一個專門術語或本體論來定義一個概念，或者也可以文字表述此概念。","並非所有的專門術語使用都符合這個一般模式。在某些情況下，資料模型不應該使用CodeableConcept而應直接使用Coding，並提供他們自己的結構來管理text、codings、translation、資料項目之間的關係、以及先組合配對／前組合式（pre-coordination）和後組合配對／後組合式（post-coordination）。","知道正在進行的是哪種檢驗檢查是理解檢驗檢查的關鍵","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""79880-1""/>
-    <display value=""Vision test panel""/>
+    <code value=""98497-1""/>
+    <display value=""Visual acuity panel""/>
   </coding>
 </valueCodeableConcept>","","","",,"extensible","鼓勵使用所綁定值集中的代碼，但不強制一定要使用此值集，你也可使用其他值集的代碼或單純以文字表示。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","Event.code","< 363787002 |Observable entity| OR < 386053000 |Evaluation procedure|","OBX-3","code","FiveWs.what[x]","116680003 |Is a|"
@@ -222,8 +222,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","組成之檢驗檢查的型別（代碼／型別）","描述所觀察到的情況，有時這被稱為檢驗檢查「代碼」。","所有的code-value和component.code-component.value都需要考慮到，以正確理解檢驗檢查的意義。","知道正在進行的是哪種檢驗檢查是理解檢驗檢查的關鍵","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""70936-0""/>
-    <display value=""Visual acuity Left eye""/>
+    <code value=""98498-9""/>
+    <display value=""Visual acuity uncorrected Left eye""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","< 363787002 |Observable entity| OR < 386053000 |Evaluation procedure|","OBX-3","code","FiveWs.what[x]"
@@ -262,8 +262,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","組成之檢驗檢查的型別（代碼／型別）","描述所觀察到的情況，有時這被稱為檢驗檢查「代碼」。","所有的code-value和component.code-component.value都需要考慮到，以正確理解檢驗檢查的意義。","知道正在進行的是哪種檢驗檢查是理解檢驗檢查的關鍵","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""70935-2""/>
-    <display value=""Visual acuity Right eye""/>
+    <code value=""98499-7""/>
+    <display value=""Visual acuity uncorrected Right eye""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","< 363787002 |Observable entity| OR < 386053000 |Evaluation procedure|","OBX-3","code","FiveWs.what[x]"
@@ -302,8 +302,8 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","組成之檢驗檢查的型別（代碼／型別）","描述所觀察到的情況，有時這被稱為檢驗檢查「代碼」。","所有的code-value和component.code-component.value都需要考慮到，以正確理解檢驗檢查的意義。","知道正在進行的是哪種檢驗檢查是理解檢驗檢查的關鍵","","","","<valueCodeableConcept xmlns=""http://hl7.org/fhir"">
   <coding>
     <system value=""http://loinc.org""/>
-    <code value=""48024-3""/>
-    <display value=""Color vision Test""/>
+    <code value=""46673-0""/>
+    <display value=""Color vision [RFC]""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","< 363787002 |Observable entity| OR < 386053000 |Evaluation procedure|","OBX-3","code","FiveWs.what[x]"

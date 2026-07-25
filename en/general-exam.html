@@ -282,7 +282,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>體重 (Body Weight)</strong>: LOINC <code class="language-plaintext highlighter-rouge">29463-7</code>，單位：<code class="language-plaintext highlighter-rouge">kg</code></li>
   <li><strong>腰圍 (Waist Circumference)</strong>: LOINC <code class="language-plaintext highlighter-rouge">56086-2</code>，單位：<code class="language-plaintext highlighter-rouge">cm</code></li>
   <li><strong>血壓 (Blood Pressure)</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWCoreBloodPressure</code> Profile。包含收縮壓（LOINC <code class="language-plaintext highlighter-rouge">8480-6</code>，單位：<code class="language-plaintext highlighter-rouge">mmHg</code>）與舒張壓（LOINC <code class="language-plaintext highlighter-rouge">8462-4</code>，單位：<code class="language-plaintext highlighter-rouge">mmHg</code>）之雙 component 結構。</li>
-  <li><strong>視力與辨色力</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWHA-VisionTest</code> Profile，以 component 結構區分左眼視力（LOINC <code class="language-plaintext highlighter-rouge">70936-0</code>）、右眼視力（LOINC <code class="language-plaintext highlighter-rouge">70935-2</code>）及辨色力（LOINC <code class="language-plaintext highlighter-rouge">48024-3</code>，正常/異常）。</li>
+  <li><strong>視力與辨色力</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWHA-VisionTest</code> Profile（Panel <code class="language-plaintext highlighter-rouge">98497-1</code>），以 component 結構區分左眼裸視視力（LOINC <code class="language-plaintext highlighter-rouge">98498-9</code>）、右眼裸視視力（LOINC <code class="language-plaintext highlighter-rouge">98499-7</code>）及辨色力（LOINC <code class="language-plaintext highlighter-rouge">46673-0</code> Color vision [RFC]，正常/異常；原 <code class="language-plaintext highlighter-rouge">48024-3</code> 經 tx 驗證為無效碼已更正）。</li>
   <li><strong>聽力</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> Profile，Panel 代碼 LOINC <code class="language-plaintext highlighter-rouge">89015-2</code> (Pure tone threshold audiometry panel)，以 component 結構記錄左右耳於 0.5–8 kHz 各頻率之氣導聽閾（如左耳 500 Hz <code class="language-plaintext highlighter-rouge">89024-4</code>、右耳 500 Hz <code class="language-plaintext highlighter-rouge">89025-1</code>）。</li>
 </ul>
 
@@ -353,8 +353,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-24 13:54:00 +0800">
-    2026-07-24
+  <span title="2026-07-25 16:18:00 +0800">
+    2026-07-25
   </span>
 
           <br/>

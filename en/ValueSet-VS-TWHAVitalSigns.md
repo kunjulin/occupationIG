@@ -16,8 +16,6 @@
 
 ### Expansion
 
-No Expansion for this valueset (not supported by Publication Tooling)
-
 -------
 
  [Description of the above table(s)](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
@@ -36,7 +34,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "職業健檢生命徵象項目值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -70,7 +68,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "56086-2",
-        "display" : "Waist Circumference"
+        "display" : "Adult Waist Circumference Protocol"
       },
       {
         "code" : "8480-6",
@@ -83,10 +81,6 @@ No Expansion for this valueset (not supported by Publication Tooling)
       {
         "code" : "39156-5",
         "display" : "Body mass index (BMI) [Ratio]"
-      },
-      {
-        "code" : "73708-3",
-        "display" : "Waist-to-hip ratio"
       }]
     }]
   }

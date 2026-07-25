@@ -15,8 +15,6 @@
 
 ### Expansion
 
-No Expansion for this valueset (not supported by Publication Tooling)
-
 -------
 
  [Description of the above table(s)](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
@@ -35,7 +33,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "健康檢查進階與領域擴充項目值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -81,7 +79,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "89015-2",
-        "display" : "Pure tone threshold audiometry panel"
+        "display" : "Pure tone air conduction threshold audiometry panel"
       },
       {
         "code" : "89024-4",
@@ -241,15 +239,15 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "19876-2",
-        "display" : "Forced vital capacity [Volume] in Airways by Spirometry"
+        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
       },
       {
         "code" : "20150-9",
-        "display" : "Forced expiratory volume in 1 second [Volume] in Airways by Spirometry"
+        "display" : "FEV1"
       },
       {
         "code" : "19926-5",
-        "display" : "Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry"
+        "display" : "FEV1/FVC"
       },
       {
         "code" : "5671-3",
@@ -557,7 +555,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "24606-6",
-        "display" : "Mammogram screening views study"
+        "display" : "MG Breast Screening"
       },
       {
         "code" : "103892-6",
@@ -608,34 +606,6 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "DXA Skeletal Sys Views for BMD"
       },
       {
-        "code" : "10701-1",
-        "display" : "Ova and parasites [Presence] in Stool by Concentration method"
-      },
-      {
-        "code" : "10704-5",
-        "display" : "Ova and parasites [Presence] in Stool by Microscopy"
-      },
-      {
-        "code" : "10834-0",
-        "display" : "Globulin [Mass/volume] in Serum or Plasma by calculation"
-      },
-      {
-        "code" : "11218-5",
-        "display" : "Microalbumin [Mass/volume] in Urine by Test strip"
-      },
-      {
-        "code" : "11277-1",
-        "display" : "Epithelial cells.squamous [#/area] in Urine sediment by Microscopy high power field"
-      },
-      {
-        "code" : "12453-7",
-        "display" : "Amorphous phosphate crystals [Presence] in Urine sediment"
-      },
-      {
-        "code" : "12454-5",
-        "display" : "Amorphous urate crystals [Presence] in Urine sediment"
-      },
-      {
         "code" : "13046-8",
         "display" : "Atypical lymphocytes/100 leukocytes in Blood"
       },
@@ -644,156 +614,8 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "Plasma cells/100 leukocytes in Blood"
       },
       {
-        "code" : "13655-6",
-        "display" : "Leukocytes [Presence] in Stool by Microscopy"
-      },
-      {
-        "code" : "13658-0",
-        "display" : "Urobilinogen [Presence] in Urine by Test strip"
-      },
-      {
-        "code" : "13705-9",
-        "display" : "Albumin/Creatinine [Mass Ratio] in Urine"
-      },
-      {
-        "code" : "13945-1",
-        "display" : "Erythrocytes [#/area] in Urine sediment by Microscopy high power field"
-      },
-      {
-        "code" : "13950-1",
-        "display" : "Hepatitis A virus IgM Ab [Presence] in Serum or Plasma"
-      },
-      {
-        "code" : "13952-7",
-        "display" : "Hepatitis B virus core Ab [Presence] in Serum or Plasma"
-      },
-      {
-        "code" : "14390-9",
-        "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P"
-      },
-      {
-        "code" : "14409-7",
-        "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P"
-      },
-      {
-        "code" : "14957-5",
-        "display" : "Microalbumin [Mass/volume] in Urine"
-      },
-      {
-        "code" : "1742-6",
-        "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "1744-2",
-        "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
-      },
-      {
-        "code" : "1751-7",
-        "display" : "Albumin [Mass/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "1759-0",
-        "display" : "Albumin/Globulin [Mass Ratio] in Serum or Plasma"
-      },
-      {
-        "code" : "17780-8",
-        "display" : "Helicobacter pylori Ag [Presence] in Stool"
-      },
-      {
-        "code" : "1783-0",
-        "display" : "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "17861-6",
-        "display" : "Calcium [Mass/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "1798-8",
-        "display" : "Amylase [Enzymatic activity/volume] in Serum or Plasma"
-      },
-      {
         "code" : "19048-8",
         "display" : "Erythroblasts/100 leukocytes in Blood by Automated count"
-      },
-      {
-        "code" : "1920-8",
-        "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "1968-7",
-        "display" : "Bilirubin.direct [Mass/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "1975-2",
-        "display" : "Bilirubin.total [Mass/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "19868-9",
-        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry"
-      },
-      {
-        "code" : "1988-5",
-        "display" : "C reactive protein [Mass/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "20448-7",
-        "display" : "Insulin [Units/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "20456-0",
-        "display" : "Fungi yeast-like [Presence] in Urine sediment"
-      },
-      {
-        "code" : "20507-0",
-        "display" : "Reagin Ab [Presence] in Serum by RPR"
-      },
-      {
-        "code" : "20621-9",
-        "display" : "Albumin/Creatinine [Ratio] in Urine by Test strip"
-      },
-      {
-        "code" : "20627-6",
-        "display" : "Color of Urine"
-      },
-      {
-        "code" : "2132-9",
-        "display" : "Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "21440-3",
-        "display" : "Human papilloma virus 16+18+31+33+35+45+51+52+56 DNA [Presence] in Cervix by Probe"
-      },
-      {
-        "code" : "2161-8",
-        "display" : "Creatinine [Mass/volume] in Urine"
-      },
-      {
-        "code" : "22322-2",
-        "display" : "Hepatitis B virus surface Ab [Units/volume] in Serum"
-      },
-      {
-        "code" : "2284-8",
-        "display" : "Folate [Mass/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "2335-8",
-        "display" : "Hemoglobin [Presence] in Stool"
-      },
-      {
-        "code" : "24110-9",
-        "display" : "Treponema pallidum Ab [Presence] in Serum by Immunoassay"
-      },
-      {
-        "code" : "2428-1",
-        "display" : "Homocysteine [Moles/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "25145-4",
-        "display" : "Bacteria [Presence] in Urine sediment by Light microscopy"
-      },
-      {
-        "code" : "2532-0",
-        "display" : "Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma"
       },
       {
         "code" : "26446-5",
@@ -848,32 +670,8 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "Metamyelocytes/100 leukocytes in Blood"
       },
       {
-        "code" : "2885-2",
-        "display" : "Protein [Mass/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "29771-3",
-        "display" : "Hemoglobin.occult [Mass/volume] in Stool by Immunochemical method"
-      },
-      {
-        "code" : "30004-6",
-        "display" : "Creatinine [Mass/volume] in Urine by Test strip"
-      },
-      {
-        "code" : "3016-3",
-        "display" : "Thyrotropin [Units/volume] in Serum or Plasma by 3rd IS"
-      },
-      {
         "code" : "30180-4",
         "display" : "Basophils/100 leukocytes in Blood by Manual count"
-      },
-      {
-        "code" : "3026-2",
-        "display" : "Thyroxine (T4) total [Mass/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "3040-3",
-        "display" : "Lipase [Enzymatic activity/volume] in Serum or Plasma"
       },
       {
         "code" : "30413-9",
@@ -892,24 +690,316 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "Promonocytes/100 leukocytes in Blood"
       },
       {
-        "code" : "3051-0",
-        "display" : "Triiodothyronine (T3) free [Mass/volume] in Serum or Plasma"
+        "code" : "34921-7",
+        "display" : "Plasmacytoid lymphocytes/100 leukocytes in Blood"
+      },
+      {
+        "code" : "5905-5",
+        "display" : "Monocytes/100 leukocytes in Blood by Automated count"
+      },
+      {
+        "code" : "70028-6",
+        "display" : "Megakaryocytes/100 leukocytes in Blood"
+      },
+      {
+        "code" : "706-2",
+        "display" : "Basophils/100 leukocytes in Blood by Automated count"
+      },
+      {
+        "code" : "713-8",
+        "display" : "Eosinophils/100 leukocytes in Blood by Automated count"
+      },
+      {
+        "code" : "731-0",
+        "display" : "Lymphocytes [#/volume] in Blood by Automated count"
+      },
+      {
+        "code" : "751-8",
+        "display" : "Neutrophils [#/volume] in Blood by Automated count"
+      },
+      {
+        "code" : "785-6",
+        "display" : "MCH [Entitic mass] by Automated count"
+      },
+      {
+        "code" : "786-4",
+        "display" : "MCHC [Mass/volume] by Automated count"
+      },
+      {
+        "code" : "787-2",
+        "display" : "MCV [Entitic volume] by Automated count"
+      },
+      {
+        "code" : "788-0",
+        "display" : "Erythrocyte distribution width [Ratio] by Automated count"
+      },
+      {
+        "code" : "804-5",
+        "display" : "WBC [#/volume] in Blood by Manual count"
+      },
+      {
+        "code" : "17861-6",
+        "display" : "Calcium [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "20448-7",
+        "display" : "Insulin [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "2428-1",
+        "display" : "Homocysteine [Moles/volume] in Serum or Plasma"
       },
       {
         "code" : "30522-7",
         "display" : "C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"
       },
       {
-        "code" : "3053-6",
-        "display" : "Triiodothyronine (T3) total [Mass/volume] in Serum or Plasma"
-      },
-      {
         "code" : "3084-1",
         "display" : "Uric acid [Mass/volume] in Serum or Plasma"
       },
       {
+        "code" : "33863-2",
+        "display" : "Cystatin C [Mass/volume] in Serum, Plasma or Blood"
+      },
+      {
+        "code" : "33914-3",
+        "display" : "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation"
+      },
+      {
+        "code" : "4548-4",
+        "display" : "Hemoglobin A1c/Hemoglobin.total in Blood"
+      },
+      {
+        "code" : "47214-2",
+        "display" : "Homeostasis model assessment"
+      },
+      {
+        "code" : "49154-8",
+        "display" : "Uric acid [Mass/volume] in Blood"
+      },
+      {
+        "code" : "59261-8",
+        "display" : "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol"
+      },
+      {
+        "code" : "98979-8",
+        "display" : "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
+      },
+      {
+        "code" : "10834-0",
+        "display" : "Globulin [Mass/volume] in Serum or Plasma by calculation"
+      },
+      {
+        "code" : "14390-9",
+        "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P"
+      },
+      {
+        "code" : "14409-7",
+        "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P"
+      },
+      {
+        "code" : "1742-6",
+        "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "1744-2",
+        "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+      },
+      {
+        "code" : "1751-7",
+        "display" : "Albumin [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "1759-0",
+        "display" : "Albumin/Globulin [Mass Ratio] in Serum or Plasma"
+      },
+      {
+        "code" : "1783-0",
+        "display" : "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "1798-8",
+        "display" : "Amylase [Enzymatic activity/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "1920-8",
+        "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "1968-7",
+        "display" : "Bilirubin.direct [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "1975-2",
+        "display" : "Bilirubin.total [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "2532-0",
+        "display" : "Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "2885-2",
+        "display" : "Protein [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "3040-3",
+        "display" : "Lipase [Enzymatic activity/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "6768-6",
+        "display" : "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "88112-8",
+        "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+      },
+      {
+        "code" : "46986-6",
+        "display" : "Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation"
+      },
+      {
+        "code" : "9830-1",
+        "display" : "Cholesterol/Cholesterol in HDL [Mass Ratio] in Serum or Plasma"
+      },
+      {
+        "code" : "2132-9",
+        "display" : "Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "2284-8",
+        "display" : "Folate [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "3016-3",
+        "display" : "Thyrotropin [Units/volume] in Serum or Plasma by 3rd IS"
+      },
+      {
+        "code" : "3026-2",
+        "display" : "Thyroxine (T4) total [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "3051-0",
+        "display" : "Triiodothyronine (T3) free [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "3053-6",
+        "display" : "Triiodothyronine (T3) total [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "62292-8",
+        "display" : "25-hydroxyvitamin D3 [Mass/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "8099-4",
+        "display" : "Thyroid peroxidase Ab [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "13950-1",
+        "display" : "Hepatitis A virus IgM Ab [Presence] in Serum or Plasma"
+      },
+      {
+        "code" : "13952-7",
+        "display" : "Hepatitis B virus core Ab [Presence] in Serum or Plasma"
+      },
+      {
+        "code" : "17780-8",
+        "display" : "Helicobacter pylori Ag [Presence] in Stool"
+      },
+      {
+        "code" : "20507-0",
+        "display" : "Reagin Ab [Presence] in Serum by RPR"
+      },
+      {
+        "code" : "21440-3",
+        "display" : "Human papilloma virus 16+18+31+33+35+45+51+52+56 DNA [Presence] in Cervix by Probe"
+      },
+      {
+        "code" : "22322-2",
+        "display" : "Hepatitis B virus surface Ab [Units/volume] in Serum"
+      },
+      {
+        "code" : "24110-9",
+        "display" : "Treponema pallidum Ab [Presence] in Serum by Immunoassay"
+      },
+      {
+        "code" : "29771-3",
+        "display" : "Hemoglobin.occult [Mass/volume] in Stool by Immunochemical method"
+      },
+      {
         "code" : "31147-2",
         "display" : "Reagin Ab [Presence] in Serum by RPR -- titer"
+      },
+      {
+        "code" : "5176-3",
+        "display" : "Helicobacter pylori IgG Ab [Presence] in Serum"
+      },
+      {
+        "code" : "51913-2",
+        "display" : "Hepatitis A virus Ab [Presence] in Serum or Plasma"
+      },
+      {
+        "code" : "5193-8",
+        "display" : "Hepatitis B virus surface Ab [Presence] in Serum or Plasma"
+      },
+      {
+        "code" : "5334-8",
+        "display" : "Rubella virus IgG Ab [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "5403-1",
+        "display" : "Varicella zoster virus IgG Ab [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "56888-1",
+        "display" : "HIV 1 and 2 Ag and Ab panel [Presence] in Serum or Plasma"
+      },
+      {
+        "code" : "7962-4",
+        "display" : "Measles virus IgG Ab [Units/volume] in Serum or Plasma"
+      },
+      {
+        "code" : "11218-5",
+        "display" : "Microalbumin [Mass/volume] in Urine by Test strip"
+      },
+      {
+        "code" : "11277-1",
+        "display" : "Epithelial cells.squamous [#/area] in Urine sediment by Microscopy high power field"
+      },
+      {
+        "code" : "12453-7",
+        "display" : "Amorphous phosphate crystals [Presence] in Urine sediment"
+      },
+      {
+        "code" : "12454-5",
+        "display" : "Amorphous urate crystals [Presence] in Urine sediment"
+      },
+      {
+        "code" : "13658-0",
+        "display" : "Urobilinogen [Presence] in Urine by Test strip"
+      },
+      {
+        "code" : "13945-1",
+        "display" : "Erythrocytes [#/area] in Urine sediment by Microscopy high power field"
+      },
+      {
+        "code" : "20456-0",
+        "display" : "Fungi yeast-like [Presence] in Urine sediment"
+      },
+      {
+        "code" : "20621-9",
+        "display" : "Albumin/Creatinine [Ratio] in Urine by Test strip"
+      },
+      {
+        "code" : "20627-6",
+        "display" : "Color of Urine"
+      },
+      {
+        "code" : "25145-4",
+        "display" : "Bacteria [Presence] in Urine sediment by Light microscopy"
+      },
+      {
+        "code" : "30004-6",
+        "display" : "Creatinine [Mass/volume] in Urine by Test strip"
       },
       {
         "code" : "32356-8",
@@ -932,36 +1022,8 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "Epithelial cells [#/volume] in Urine sediment by Automated count"
       },
       {
-        "code" : "33668-5",
-        "display" : "Erythrocytes [Presence] in Stool by Microscopy"
-      },
-      {
-        "code" : "33863-2",
-        "display" : "Cystatin C [Mass/volume] in Serum, Plasma or Blood"
-      },
-      {
-        "code" : "33914-3",
-        "display" : "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation"
-      },
-      {
-        "code" : "34921-7",
-        "display" : "Plasmacytoid lymphocytes/100 leukocytes in Blood"
-      },
-      {
-        "code" : "42524-9",
-        "display" : "Mucus [Presence] in Stool by Microscopy"
-      },
-      {
         "code" : "43755-8",
         "display" : "Casts [#/volume] in Urine sediment by Automated count"
-      },
-      {
-        "code" : "4548-4",
-        "display" : "Hemoglobin A1c/Hemoglobin.total in Blood"
-      },
-      {
-        "code" : "4588-0",
-        "display" : "Hemoglobin H/Hemoglobin.total in Blood"
       },
       {
         "code" : "46419-8",
@@ -970,18 +1032,6 @@ No Expansion for this valueset (not supported by Publication Tooling)
       {
         "code" : "46702-7",
         "display" : "Leukocytes [#/volume] in Urine sediment by Automated count"
-      },
-      {
-        "code" : "46986-6",
-        "display" : "Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation"
-      },
-      {
-        "code" : "47214-2",
-        "display" : "Homeostasis model assessment"
-      },
-      {
-        "code" : "49154-8",
-        "display" : "Uric acid [Mass/volume] in Blood"
       },
       {
         "code" : "50235-1",
@@ -1008,36 +1058,12 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "Specific gravity of Urine by Refractometer"
       },
       {
-        "code" : "5176-3",
-        "display" : "Helicobacter pylori IgG Ab [Presence] in Serum"
-      },
-      {
-        "code" : "51913-2",
-        "display" : "Hepatitis A virus Ab [Presence] in Serum or Plasma"
-      },
-      {
-        "code" : "5193-8",
-        "display" : "Hepatitis B virus surface Ab [Presence] in Serum or Plasma"
-      },
-      {
         "code" : "53324-0",
         "display" : "Spermatozoa [#/volume] in Urine sediment by Automated count"
       },
       {
-        "code" : "5334-8",
-        "display" : "Rubella virus IgG Ab [Units/volume] in Serum or Plasma"
-      },
-      {
         "code" : "53975-9",
         "display" : "Drug crystals [Presence] in Urine sediment"
-      },
-      {
-        "code" : "5403-1",
-        "display" : "Varicella zoster virus IgG Ab [Units/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "56888-1",
-        "display" : "HIV 1 and 2 Ag and Ab panel [Presence] in Serum or Plasma"
       },
       {
         "code" : "5766-1",
@@ -1132,96 +1158,68 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "Leukocytes [#/area] in Urine sediment by Microscopy high power field"
       },
       {
-        "code" : "5905-5",
-        "display" : "Monocytes/100 leukocytes in Blood by Automated count"
-      },
-      {
-        "code" : "59261-8",
-        "display" : "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol"
-      },
-      {
         "code" : "60026-2",
         "display" : "Leukocyte esterase [Presence] in Urine by Test strip"
-      },
-      {
-        "code" : "62292-8",
-        "display" : "25-hydroxyvitamin D3 [Mass/volume] in Serum or Plasma"
       },
       {
         "code" : "62487-4",
         "display" : "Urobilinogen [Presence] in Urine by Test strip"
       },
       {
-        "code" : "6768-6",
-        "display" : "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
+        "code" : "13705-9",
+        "display" : "Albumin/Creatinine [Mass Ratio] in Urine"
       },
       {
-        "code" : "70028-6",
-        "display" : "Megakaryocytes/100 leukocytes in Blood"
+        "code" : "14957-5",
+        "display" : "Microalbumin [Mass/volume] in Urine"
       },
       {
-        "code" : "706-2",
-        "display" : "Basophils/100 leukocytes in Blood by Automated count"
+        "code" : "1988-5",
+        "display" : "C reactive protein [Mass/volume] in Serum or Plasma"
       },
       {
-        "code" : "713-8",
-        "display" : "Eosinophils/100 leukocytes in Blood by Automated count"
+        "code" : "2161-8",
+        "display" : "Creatinine [Mass/volume] in Urine"
       },
       {
-        "code" : "731-0",
-        "display" : "Lymphocytes [#/volume] in Blood by Automated count"
+        "code" : "4588-0",
+        "display" : "Hemoglobin H/Hemoglobin.total in Blood"
       },
       {
-        "code" : "751-8",
-        "display" : "Neutrophils [#/volume] in Blood by Automated count"
+        "code" : "10701-1",
+        "display" : "Ova and parasites [Presence] in Stool by Concentration method"
       },
       {
-        "code" : "785-6",
-        "display" : "MCH [Entitic mass] by Automated count"
+        "code" : "10704-5",
+        "display" : "Ova and parasites [Presence] in Stool by Microscopy"
       },
       {
-        "code" : "786-4",
-        "display" : "MCHC [Mass/volume] by Automated count"
+        "code" : "13655-6",
+        "display" : "Leukocytes [Presence] in Stool by Microscopy"
       },
       {
-        "code" : "787-2",
-        "display" : "MCV [Entitic volume] by Automated count"
+        "code" : "2335-8",
+        "display" : "Hemoglobin [Presence] in Stool"
       },
       {
-        "code" : "788-0",
-        "display" : "Erythrocyte distribution width [Ratio] by Automated count"
+        "code" : "33668-5",
+        "display" : "Erythrocytes [Presence] in Stool by Microscopy"
       },
       {
-        "code" : "7962-4",
-        "display" : "Measles virus IgG Ab [Units/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "79880-1",
-        "display" : "Vision test panel"
-      },
-      {
-        "code" : "804-5",
-        "display" : "WBC [#/volume] in Blood by Manual count"
-      },
-      {
-        "code" : "8099-4",
-        "display" : "Thyroid peroxidase Ab [Units/volume] in Serum or Plasma"
-      },
-      {
-        "code" : "88112-8",
-        "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
-      },
-      {
-        "code" : "88293-6",
-        "display" : "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)"
+        "code" : "42524-9",
+        "display" : "Mucus [Presence] in Stool by Microscopy"
       },
       {
         "code" : "9397-1",
         "display" : "Color of Stool"
       },
       {
-        "code" : "9830-1",
-        "display" : "Cholesterol/Cholesterol in HDL [Mass Ratio] in Serum or Plasma"
+        "code" : "19868-9",
+        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry"
+      },
+      {
+        "code" : "98497-1",
+        "display" : "Visual acuity panel"
       }]
     }]
   }

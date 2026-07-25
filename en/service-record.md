@@ -44,7 +44,7 @@
 
 1. **發現問題 (`TWHA-Observation-ServiceFinding`)**：
 * 記錄臨場服務中發現之具體危害。
-* `code` 為 SNOMED CT `278486003` "Occupational health hazard"。
+* `code` 為 SNOMED CT `17458004` "Occupational health hazard"。
 * 危害詳情描述於 `valueString`（例如：局部排氣風速不足，有化學品暴露風險）。
 * `focus` 指向事業單位。
 

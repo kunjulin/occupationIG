@@ -8,7 +8,7 @@ Profile: [特殊健檢實驗室檢驗 Profile](StructureDefinition-TWHA-LabResul
 
 **category**: Laboratory
 
-**code**: Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)
+**code**: Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -39,8 +39,8 @@ Profile: [特殊健檢實驗室檢驗 Profile](StructureDefinition-TWHA-LabResul
   "code" : {
     "coding" : [{
       "system" : "http://loinc.org",
-      "code" : "88293-6",
-      "display" : "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)"
+      "code" : "98979-8",
+      "display" : "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
     }]
   },
   "subject" : {

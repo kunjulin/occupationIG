@@ -16,8 +16,6 @@ Core 之檢驗子集（主管機關（國健署）最小共通上傳集之 Obser
 
 ### Expansion
 
-No Expansion for this valueset (not supported by Publication Tooling)
-
 -------
 
  [Description of the above table(s)](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
@@ -36,7 +34,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
   "title" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -62,11 +60,11 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "35200-5",
-        "display" : "Cholesterol [Mass/volume] in Blood"
+        "display" : "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
       },
       {
         "code" : "1558-6",
-        "display" : "Fasting Glucose [Mass/volume] in Serum or Plasma"
+        "display" : "Fasting glucose [Mass/volume] in Serum or Plasma"
       },
       {
         "code" : "2339-0",
@@ -74,7 +72,7 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "2345-7",
-        "display" : "Glucose [Mass/volume] in Serum or Plasma -- post fasting"
+        "display" : "Glucose [Mass/volume] in Serum or Plasma"
       },
       {
         "code" : "2571-8",
@@ -89,12 +87,8 @@ No Expansion for this valueset (not supported by Publication Tooling)
         "display" : "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
       },
       {
-        "code" : "3048-6",
-        "display" : "Cholesterol in HDL [Mass/volume] in Blood"
-      },
-      {
         "code" : "2089-1",
-        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
+        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
       },
       {
         "code" : "13457-7",
@@ -118,31 +112,31 @@ No Expansion for this valueset (not supported by Publication Tooling)
       },
       {
         "code" : "5804-0",
-        "display" : "Protein [Presence] in Urine by Test strip"
+        "display" : "Protein [Mass/volume] in Urine by Test strip"
       },
       {
         "code" : "57735-3",
-        "display" : "Protein [Presence] in Urine by Test strip"
+        "display" : "Protein [Presence] in Urine by Automated test strip"
       },
       {
         "code" : "5196-1",
-        "display" : "Hepatitis B virus surface Ag [Presence] in Serum"
-      },
-      {
-        "code" : "22326-3",
-        "display" : "Hepatitis B virus surface Ag [Presence] in Serum or Plasma"
-      },
-      {
-        "code" : "63557-3",
         "display" : "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"
       },
       {
+        "code" : "5195-3",
+        "display" : "Hepatitis B virus surface Ag [Presence] in Serum"
+      },
+      {
+        "code" : "63557-3",
+        "display" : "Hepatitis B virus surface Ag [Units/volume] in Serum or Plasma by Immunoassay"
+      },
+      {
         "code" : "13955-0",
-        "display" : "Hepatitis C virus Ab [Presence] in Serum or Plasma"
+        "display" : "Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay"
       },
       {
         "code" : "47365-2",
-        "display" : "Hepatitis C virus Ab [Presence] in Blood"
+        "display" : "Hepatitis C virus Ab [Presence] in Serum from Donor by Immunoassay"
       }]
     }]
   }

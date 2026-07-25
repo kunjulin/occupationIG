@@ -33,7 +33,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-WorkExposure
   "title" : "特別危害健康作業危害因子暴露史 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -119,8 +119,8 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-WorkExposure
       "patternCodeableConcept" : {
         "coding" : [{
           "system" : "http://loinc.org",
-          "code" : "74213-0",
-          "display" : "Occupational hazard exposure"
+          "code" : "87729-0",
+          "display" : "History of Occupational hazard"
         }]
       }
     },
@@ -167,8 +167,8 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-WorkExposure
       "patternCodeableConcept" : {
         "coding" : [{
           "system" : "http://loinc.org",
-          "code" : "74212-2",
-          "display" : "Exposure duration"
+          "code" : "104905-5",
+          "display" : "Duration of exposure"
         }]
       }
     },
@@ -192,8 +192,8 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-WorkExposure
       "patternCodeableConcept" : {
         "coding" : [{
           "system" : "http://loinc.org",
-          "code" : "80436-9",
-          "display" : "Work activity"
+          "code" : "21847-9",
+          "display" : "Usual occupation Narrative"
         }]
       }
     },

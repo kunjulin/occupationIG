@@ -58,7 +58,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
   <coding>
     <system value=""http://loinc.org""/>
     <code value=""19876-2""/>
-    <display value=""Forced vital capacity [Volume] in Airways by Spirometry""/>
+    <display value=""Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation""/>
   </coding>
 </valueCodeableConcept>","","","",,"extensible","鼓勵使用所綁定值集中的代碼，但不強制一定要使用此值集，你也可使用其他值集的代碼或單純以文字表示。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","Event.code","< 363787002 |Observable entity| OR < 386053000 |Evaluation procedure|","OBX-3","code","FiveWs.what[x]","116680003 |Is a|"
@@ -223,7 +223,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
   <coding>
     <system value=""http://loinc.org""/>
     <code value=""20150-9""/>
-    <display value=""Forced expiratory volume in 1 second [Volume] in Airways by Spirometry""/>
+    <display value=""FEV1""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","< 363787002 |Observable entity| OR < 386053000 |Evaluation procedure|","OBX-3","code","FiveWs.what[x]"
@@ -263,7 +263,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
   <coding>
     <system value=""http://loinc.org""/>
     <code value=""19926-5""/>
-    <display value=""Forced expiratory volume in 1 second/Forced vital capacity [Volume Ratio] in Airways by Spirometry""/>
+    <display value=""FEV1/FVC""/>
   </coding>
 </valueCodeableConcept>","","","",,"example","代碼指明檢驗檢查的名稱；可參考LOINCCodes值集，但此值集只是針對這個欄位的一個可能值的範例，不預期也不鼓勵使用者一定要使用此值集的代碼。","http://hl7.org/fhir/ValueSet/observation-codes","",,,,"Observation.component.code",1,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ","< 363787002 |Observable entity| OR < 386053000 |Evaluation procedure|","OBX-3","code","FiveWs.what[x]"

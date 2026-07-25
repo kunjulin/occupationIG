@@ -15,7 +15,7 @@
   "name" : "TWHealthCheckLaboratoryMap",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-24T13:54:16+08:00",
+  "date" : "2026-07-25T16:18:15+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -59,7 +59,7 @@
       "display" : "Protein [Mass/volume] in Urine",
       "target" : [{
         "code" : "5804-0",
-        "display" : "Protein [Presence] in Urine by Test strip",
+        "display" : "Protein [Mass/volume] in Urine by Test strip",
         "equivalence" : "wider"
       }]
     },
@@ -92,7 +92,7 @@
     },
     {
       "code" : "35200-5",
-      "display" : "Cholesterol [Mass/volume] in Blood",
+      "display" : "Cholesterol [Mass or Moles/volume] in Serum or Plasma",
       "target" : [{
         "code" : "2093-3",
         "display" : "Cholesterol [Mass/volume] in Serum or Plasma",
@@ -109,20 +109,11 @@
       }]
     },
     {
-      "code" : "3048-6",
-      "display" : "Cholesterol in HDL [Mass/volume] in Blood",
-      "target" : [{
-        "code" : "2085-9",
-        "display" : "Cholesterol in HDL [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
-      }]
-    },
-    {
       "code" : "13457-7",
       "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation",
       "target" : [{
         "code" : "2089-1",
-        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay",
+        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma",
         "equivalence" : "equivalent"
       }]
     },
@@ -130,14 +121,14 @@
       "code" : "33914-3",
       "display" : "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation",
       "target" : [{
-        "code" : "88293-6",
+        "code" : "98979-8",
         "display" : "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)",
         "equivalence" : "equivalent"
       }]
     },
     {
-      "code" : "22326-3",
-      "display" : "Hepatitis B virus surface Ag [Presence] in Serum or Plasma",
+      "code" : "5195-3",
+      "display" : "Hepatitis B virus surface Ag [Presence] in Serum",
       "target" : [{
         "code" : "5196-1",
         "display" : "Hepatitis B virus surface Ag [Presence] in Serum",
@@ -282,7 +273,7 @@
     },
     {
       "code" : "2345-7",
-      "display" : "Glucose [Mass/volume] in Serum or Plasma -- post fasting",
+      "display" : "Glucose [Mass/volume] in Serum or Plasma",
       "target" : [{
         "code" : "1558-6",
         "display" : "Fasting Glucose [Mass/volume] in Serum or Plasma",
@@ -294,7 +285,7 @@
       "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay",
       "target" : [{
         "code" : "2089-1",
-        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay",
+        "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma",
         "equivalence" : "equivalent"
       }]
     },

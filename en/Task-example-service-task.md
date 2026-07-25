@@ -12,7 +12,7 @@ Profile: [臨場健康服務建議與改善任務 Profile](StructureDefinition-T
 
 **description**: 大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。
 
-**focus**: [Observation Occupational health hazard (finding)](Observation-example-service-finding.md)
+**focus**: [Observation Occupational hazard](Observation-example-service-finding.md)
 
 **requester**: [Practitioner 林職醫(official)](Practitioner-example-doctor.md)
 
