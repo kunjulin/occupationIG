@@ -27,54 +27,103 @@
 
 ---
 
-## 1. 準備
+## 1. 需要什麼環境
 
-```powershell
-git fetch origin
-git checkout claude/occupational-health-ig-review-6vx9gn
-git pull origin claude/occupational-health-ig-review-6vx9gn
-npm ci
+**只要兩樣**：
+
+| 需要 | 檢查指令 | 備註 |
+|:--|:--|:--|
+| **Git** | `git --version` | 你已在推 GitHub，應該有 |
+| **Node.js 20+** | `node -v` | README 已列為 SUSHI 之前置需求，應該有 |
+
+**不需要**：Java、Ruby、Jekyll、IG Publisher，也**不需要 `npm ci`**。
+`scripts/lookup-loinc.js` 只用 Node 內建模組（`https`／`fs`／`path`），沒有任何套件相依。
+本階段不建置 IG，只是對術語伺服器發 74 次查詢。
+
+網路方面只要能連 `https://tx.fhir.org/r4` 即可——你平常跑 `_genonce_tx.bat` 就是連這台。
+
+### ⚠️ 先確認你的資料夾是不是 git clone
+
+qa.txt 顯示你的建置路徑是 `C:\repo\occupationIG-main`。
+**`occupationIG-main` 正是 GitHub「Download ZIP」解壓後的預設資料夾名稱**，
+若那是下載的 zip 而非 clone，裡面不會有 `.git`，`git fetch` 會失敗。
+
+```
+cd C:\repo\occupationIG-main
+git status
 ```
 
-若公司網路以 TLS 攔截（防毒／proxy）導致連線失敗，先設定（同 README）：
-
-```powershell
-set NODE_OPTIONS=--use-system-ca
-```
+- 正常顯示分支 → 是 clone，直接跳到 §2。
+- 出現 `not a git repository` → 是 zip，請依 §2 另外 clone 一份（不影響你原本的資料夾）。
 
 ---
 
-## 2. ① 取事實（一道指令）
+## 2. ① 取事實
 
-```powershell
-node scripts/lookup-loinc.js ^
-  --in docs/optimization/evidence/display-triage-2026-07-26.csv ^
-  --classes A,B ^
-  --csv-out docs/optimization/evidence/display-triage-with-lookup.csv
+### 指令（一行一道，cmd 與 PowerShell 皆可）
+
+> 下列每道都是**單行**，不含 `^` 或 `` ` `` 換行符，也不用 `&&`——
+> 這兩者在 cmd 與 PowerShell 的行為不同，分開執行最不會出錯。
+
+```
+git clone https://github.com/kunjulin/occupationIG.git twha-lookup
+cd twha-lookup
+git checkout claude/occupational-health-ig-review-6vx9gn
 ```
 
-會發生什麼：
+（若你原本的資料夾已是 clone，改為在該資料夾執行下列三道即可：
+`git fetch origin`、`git checkout claude/occupational-health-ig-review-6vx9gn`、
+`git pull origin claude/occupational-health-ig-review-6vx9gn`）
 
-- 對 74 個代碼依序查 `https://tx.fhir.org/r4/CodeSystem/$lookup`（間隔 300ms，勿調低）；
-- 逐筆顯示官方 display；
-- 產出兩個檔：
-  - `docs/optimization/evidence/lookup-<日期>.json` —— 完整結果（含六軸與 status）
-  - `docs/optimization/evidence/display-triage-with-lookup.csv` —— 在分流表上補入
-    `lookup_component` / `lookup_property` / `lookup_system` / `lookup_scale` /
-    `lookup_method` / `lookup_status` 等欄位
+### 先用 1 個代碼試水溫
 
-查證失敗的代碼會標 `lookup_error`。**失敗本身可能就是結論**（例如代碼根本不存在），
+```
+node scripts/lookup-loinc.js --codes 14390-9 --out check.json
+```
+
+預期輸出：
+
+```
+[  1/1] ? 14390-9 … Amylase [Enzymatic activity/volume] in Dialysis fluid
+成功 1／失敗 0
+```
+
+看到 `Amylase ... in Dialysis fluid` 就對了——這正是本 IG 標為「血清 ALT」的那個碼，
+連線與解析都正常。若出現 `HTTP 403`／`timeout`／憑證錯誤，先設定後重試：
+
+```
+set NODE_OPTIONS=--use-system-ca
+```
+
+（PowerShell 用 `$env:NODE_OPTIONS="--use-system-ca"`）
+
+試完可刪掉 `check.json`。
+
+### 正式跑 74 筆
+
+```
+node scripts/lookup-loinc.js --classes A,B --csv-out docs/optimization/evidence/display-triage-with-lookup.csv
+```
+
+約 30 秒（74 次查詢，每次間隔 300ms）。產出兩個檔：
+
+- `docs/optimization/evidence/lookup-<日期>.json` —— 完整結果（含六軸與 STATUS）
+- `docs/optimization/evidence/display-triage-with-lookup.csv` —— 在分流表上補入
+  `lookup_component` / `lookup_property` / `lookup_system` / `lookup_scale` /
+  `lookup_method` / `lookup_status` 欄位
+
+查證失敗者會標 `lookup_error`。**失敗本身可能就是結論**（例如代碼根本不存在），
 但也可能只是網路問題，請先看 error 內容再判定。
 
-然後：
+### 推上分支
 
-```powershell
+```
 git add docs/optimization/evidence/
-git commit -m "chore(terminology): JOB-01 A/B 類 74 碼之 $lookup 查證結果"
+git commit -m "chore(terminology): JOB-01 A/B 類 74 碼之 lookup 查證結果"
 git push origin claude/occupational-health-ig-review-6vx9gn
 ```
 
-**做到這裡就可以回到對話了。** 跟我說一聲，我接著做 ② 與 ③。
+**做到這裡就可以回到對話了。**
 
 ---
 
