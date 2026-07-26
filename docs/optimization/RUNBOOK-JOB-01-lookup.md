@@ -127,6 +127,43 @@ git push origin claude/occupational-health-ig-review-6vx9gn
 
 ---
 
+## 2b. ② 已完成——下一步是找 10 個替代碼（需再跑一次，約 5 分鐘）
+
+你推上來的 74 筆查證結果已經判定完畢（見 JOB-01 §7 第二階段），結果：
+
+| 判定 | 筆數 |
+|:--|--:|
+| `confirmed-wrong` 確認用錯碼 | **10** |
+| `needs-clinical` 須檢驗科／職醫決定 | **23** |
+| `rewrite-display` 代碼正確、僅 display 漂移 | **41** |
+
+`confirmed-wrong` 那 10 筆的 `replacement_code` **刻意留空**——替代碼必須實際查證，
+不能憑印象填。腳本已加上搜尋能力，請在可連 tx 的機器上跑下列 10 道，
+把結果貼回對話（或存檔推上分支）：
+
+```
+git pull origin claude/occupational-health-ig-review-6vx9gn
+
+node scripts/lookup-loinc.js --search "alanine aminotransferase serum plasma P-5'-P"
+node scripts/lookup-loinc.js --search "aspartate aminotransferase serum plasma P-5'-P"
+node scripts/lookup-loinc.js --search "prostate specific antigen serum plasma"
+node scripts/lookup-loinc.js --search "alkaline phosphatase serum plasma"
+node scripts/lookup-loinc.js --search "cholesterol VLDL calculated serum"
+node scripts/lookup-loinc.js --search "color of urine"
+node scripts/lookup-loinc.js --search "albumin creatinine ratio urine"
+node scripts/lookup-loinc.js --search "hypersegmented neutrophils leukocytes blood"
+node scripts/lookup-loinc.js --search "band form neutrophils leukocytes blood manual"
+node scripts/lookup-loinc.js --search "segmented neutrophils leukocytes blood"
+```
+
+每道會列出最多 25 個候選碼與其官方 display。**搜尋結果只是候選**——
+我會挑出正確者，再請你對選定的碼跑一次 `--codes` 做 `$lookup` 六軸覆核後才採用。
+
+> 若某道查無結果，LOINC 的搜尋對字序與用詞敏感，換短一點的關鍵字再試
+> （例如只留 `alanine aminotransferase`）。
+
+---
+
 ## 3. 若你想在本機用 Claude Code 一併做 ②
 
 在 repo 根目錄開 Claude Code，貼下面這段：

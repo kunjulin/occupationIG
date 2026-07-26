@@ -194,6 +194,99 @@ C 類 57 筆於 A/B 決策完成後一併處理（其中若干碼可能因 A/B �
 
 ---
 
+## 8. 執行紀錄（2026-07-26）— 第二階段：查證與判定
+
+### 查證結果
+
+於可連外環境執行 `scripts/lookup-loinc.js --classes A,B`（commit `e0be4faa`）：
+**74/74 全部成功，零失敗**，即 74 個代碼在 LOINC 中皆存在。
+產出 `evidence/lookup-2026-07-26.json`（含官方 display、六軸 LOINC part 代碼、STATUS）。
+
+> 註：tx.fhir.org 對 LOINC 六軸回傳的是 part 代碼（`LP7576-4`）而非可讀文字，
+> 故實質判定依據為**官方 display 全文 ＋ STATUS ＋ 代碼存在性**。
+
+### 判定結果（74 筆）
+
+| 判定 | 筆數 | 意義 |
+|:--|--:|:--|
+| **`confirmed-wrong`** | **10** | 分析物或檢體根本不同，確認用錯碼 |
+| **`needs-clinical`** | **23** | 須檢驗科或職業醫學科決定，AI 不得代決 |
+| `rewrite-display` | 41 | 代碼正確，僅官方用語與 IG 標示不同 |
+
+判定與逐筆理由已寫入 `evidence/display-triage-with-lookup.csv`
+（131 列 × 21 欄，含 `lookup_*` 欄位）。判定表本身固化於
+`scripts/apply-job01-verdicts.py`，可重複執行且可審查。
+
+### 確認用錯碼：10 筆
+
+| 代碼 | IG 標示 | LOINC 官方 | 性質 |
+|:--|:--|:--|:--|
+| `14390-9` | 血清 ALT（UV with P5P） | **Amylase in Dialysis fluid** | 分析物＋檢體皆不同 |
+| `14409-7` | AST in Serum or Plasma | AST in **Pleural fluid** | 檢體 |
+| `19199-9` | PSA in Serum or Plasma | PSA in **Semen** | 檢體 |
+| `1783-0` | ALP in Serum or Plasma | ALP in **Blood** | 檢體 |
+| `46986-6` | VLDL-C（計算法） | Cholesterol in **VLDL 3** | 次分群非總量 |
+| **`20627-6`** | **Color of Urine（尿液顏色）** | **Turbidity of Urine（濁度）** | **分析物完全不同** |
+| **`13705-9`** | Albumin/Creatinine in **Urine** | in **24 hour Urine** | **檢體：隨機尿 vs 24 小時尿** |
+| `26505-8` | Hypersegmented neutrophils | **Segmented** neutrophils | 概念 |
+| `26508-2` | Neutrophils by Manual count | **Band form** neutrophils | 概念 |
+| **`26511-6`** | Neutrophils.**segmented** | Neutrophils（**總量**） | 概念 |
+
+### 本階段新查出、先前未察覺者
+
+1. **`20627-6`「尿液顏色」實為「尿液濁度」** —— 兩個不同的檢驗項目。
+2. **`13705-9` 白蛋白／肌酸酐比值實為 24 小時尿** —— 健檢採隨機單次尿，
+   採檢方式與臨床判讀皆不同，屬臨床可致誤判之錯誤。
+3. **`26511-6` 完成了嗜中性球分類的錯置全貌** —— 與 `26505-8`、`26508-2` 合觀，
+   分葉核／帶狀核／總量三者整組錯置，須一併重排而非逐碼修補。
+4. **`22322-2` 與 `5193-8` 之標示疑似對調** —— 兩者皆為 B 型肝炎表面抗體：
+   `22322-2` 官方為 `[Presence]` 卻被標為 Units/volume；
+   `5193-8` 官方為 `[Units/volume]` 卻被標為 Presence。恰好互換。
+5. **`50551-1` 與 `5770-3` 在本 IG 中 display 完全相同** —— 但為兩個不同代碼
+   （Automated test strip vs Test strip），須確認是否兩者皆需保留。
+6. **尿沉渣自動化計數 9 碼之系統性量綱問題** —— `33218-9`／`33219-7`／`33223-9`／
+   `33342-7`／`43755-8`／`46419-8`／`46702-7`／`50235-1`／`53324-0` 全部標
+   `[#/volume]`，官方皆為 `[#/area]`。屬**同一個決策**（院內儀器報每 µL 或每視野），
+   不必逐碼討論。
+7. **`33914-3` 為 74 碼中唯一 STATUS ≠ ACTIVE 者**（DISCOURAGED），與既有 D 類判斷一致。
+
+### 過程中修正的自身缺陷
+
+`triage-display-mismatches.js` 之 CSV 輸出損毀：JavaScript 的 `&&`
+**回傳最後一個運算元而非布林值**，故 `sysDiff` 在條件成立時變成
+`'Serum, Plasma or Blood'` 這類字串；該欄又未經 escape，字串中的逗號
+把 `33863-2` 那一列撐成 22 欄（標頭 21 欄）。
+
+分類邏輯以 truthy 判斷，**A/B/C 分類結果不受影響**，損毀的只有 CSV 結構與 diff 欄位。
+已修正兩處（強制 `Boolean()` 轉型、所有欄位一律 `esc()`）並重新產生；
+現為 131 列 × 21 欄、無殘列。
+
+此缺陷是**下游步驟大聲失敗**才浮現的——若當初 CSV 是靜默地少一欄，
+錯誤會一路帶到判定階段。
+
+### 下一步：找 10 個替代碼
+
+`confirmed-wrong` 之 `replacement_code` **一律留空**，因為替代碼必須實際查證而非憑印象。
+`scripts/lookup-loinc.js` 已加入 `--search` 模式（`ValueSet/$expand`），
+10 道搜尋指令見 [`RUNBOOK-JOB-01-lookup.md`](RUNBOOK-JOB-01-lookup.md) §2b。
+
+流程：搜尋取候選 → 由人挑選 → 對選定碼跑 `--codes` 做 `$lookup` 六軸覆核 → 才填入 CSV。
+
+### 23 筆須臨床決定者之歸納（可一次問完）
+
+| 問題 | 涉及代碼 | 問誰 |
+|:--|:--|:--|
+| 尿液金屬／代謝物以質量或莫耳濃度報告？ | `42221-2` 尿錳、`34304-6` 尿氟、`19177-5` AFP、`2428-1` 同半胱胺酸 | 檢驗科 |
+| 自動尿液分析儀報每 µL 或每視野？ | 尿沉渣 9 碼 | 檢驗科 |
+| B 肝表面抗體報定性或定量？（兩碼疑似對調） | `22322-2`、`5193-8` | 檢驗科 |
+| 血清學項目報定性、定量或效價？ | `5176-3` 幽門桿菌、`9633-9` EBV、`43371-4` 糞便培養 | 檢驗科 |
+| 試紙尿糖／尿酮採定性判讀？ | `5792-7`、`5797-6` | 檢驗科 |
+| 維生素 D 報總量或僅 D3？ | `62292-8` | 檢驗科 |
+| 巨核細胞或巨核細胞核？ | `70028-6` | 檢驗科 |
+| MDRD eGFR（DISCOURAGED）移除或保留？ | `33914-3` | 職業醫學科 |
+
+---
+
 ## 6. 交給 Claude 規劃用提示（可直接複製）
 
 ```

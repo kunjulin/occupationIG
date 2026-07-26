@@ -125,10 +125,14 @@ for (const r of rows) {
   const off = cand.a;
   r.officialPrimary = cand.o;
 
+  // 注意：JS 的 && 回傳最後一個運算元而非布林值。此處必須以 Boolean() 強制轉型——
+  // 否則 sysDiff 會變成 'Serum, Plasma or Blood' 這類字串，寫入 CSV 時其中的逗號
+  // 會把該列撐出多餘欄位（2026-07-26 實際發生過）。分類邏輯用 truthy 判斷不受影響，
+  // 但輸出必然損毀。
   const compDiff = !componentSame(ig.component, off.component);
-  const sysDiff = norm(ig.system) !== norm(off.system) && (ig.system || off.system);
-  const propDiff = norm(ig.property) !== norm(off.property) && (ig.property || off.property);
-  const methDiff = norm(ig.method) !== norm(off.method);
+  const sysDiff = Boolean(norm(ig.system) !== norm(off.system) && (ig.system || off.system));
+  const propDiff = Boolean(norm(ig.property) !== norm(off.property) && (ig.property || off.property));
+  const methDiff = Boolean(norm(ig.method) !== norm(off.method));
 
   r.axes = { compDiff, sysDiff, propDiff, methDiff };
   if (compDiff || sysDiff) r.cls = 'A';
@@ -166,12 +170,13 @@ if (csvPath) {
   ];
   for (const r of rows) {
     const action = r.cls === 'C' ? 'rewrite-display' : 'REVIEW';
+    // 每一欄都經 esc()——包含看似安全的布林與代碼欄。少 escape 一欄就足以毀掉整份 CSV。
     out.push(
       [
         r.code,
         r.cls,
-        esc(r.igDisplay),
-        esc(r.officialPrimary),
+        r.igDisplay,
+        r.officialPrimary,
         r.axes.compDiff,
         r.axes.sysDiff,
         r.axes.propDiff,
@@ -181,7 +186,9 @@ if (csvPath) {
         '',
         '',
         '',
-      ].join(',')
+      ]
+        .map(esc)
+        .join(',')
     );
   }
   const abs = path.resolve(repoRoot, csvPath);

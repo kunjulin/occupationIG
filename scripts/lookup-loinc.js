@@ -42,6 +42,11 @@ const stamp = new Date().toISOString().slice(0, 10);
 const outJson = arg('--out', path.join('docs', 'optimization', 'evidence', `lookup-${stamp}.json`));
 const csvOut = arg('--csv-out', null);
 
+// ---------------------------------------------------------------- 搜尋模式
+// 確認用錯碼之後，要找「該換成哪個碼」需要的是搜尋而非 $lookup。
+//   node scripts/lookup-loinc.js --search "alanine aminotransferase serum P-5'-P"
+const searchTerm = arg('--search', null);
+
 // ---------------------------------------------------------------- 讀取代碼清單
 function parseCsvLine(line) {
   const out = [];
@@ -65,7 +70,9 @@ let targets = [];
 let csvRows = null;
 let csvHeader = null;
 
-if (codesArg) {
+if (searchTerm) {
+  // 走搜尋分支，不需要代碼清單
+} else if (codesArg) {
   targets = codesArg.split(',').map((s) => s.trim()).filter(Boolean).map((code) => ({ code, cls: '?' }));
 } else {
   const p = path.resolve(repoRoot, inCsv);
@@ -89,7 +96,7 @@ if (codesArg) {
   }
 }
 
-if (!targets.length) {
+if (!searchTerm && !targets.length) {
   console.error('沒有要查詢的代碼。');
   process.exit(1);
 }
@@ -161,6 +168,28 @@ function parseLookup(res) {
 // ---------------------------------------------------------------- 主流程
 (async () => {
   console.log(`術語伺服器：${tx}`);
+
+  // ── 搜尋模式：找候選替代碼 ──────────────────────────────────────
+  if (searchTerm) {
+    const url = `${tx}/ValueSet/$expand?url=${encodeURIComponent('http://loinc.org/vs')}&filter=${encodeURIComponent(searchTerm)}&count=25`;
+    console.log(`搜尋：「${searchTerm}」\n`);
+    let res;
+    try { res = await getJson(url); } catch (e) { console.error(`✖ ${e.message}`); process.exit(1); }
+    const items = res?.expansion?.contains || [];
+    if (!items.length) {
+      console.log('查無結果。請換較短或較通用的關鍵字（LOINC 搜尋對字序敏感）。');
+      if (res?.resourceType === 'OperationOutcome') {
+        console.log((res.issue || []).map((i) => i.diagnostics || i.details?.text).filter(Boolean).join('\n'));
+      }
+      return;
+    }
+    console.log(`${items.length} 筆（最多 25）：\n`);
+    for (const it of items) console.log(`  ${String(it.code).padEnd(10)} ${it.display}`);
+    console.log('\n⚠️ 搜尋結果僅為候選。採用前務必對該碼執行 $lookup 確認六軸：');
+    console.log(`   node scripts/lookup-loinc.js --codes <code>`);
+    return;
+  }
+
   console.log(`待查代碼：${targets.length} 筆（類別 ${classes.join('/')}）\n`);
 
   const results = [];
