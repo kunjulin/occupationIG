@@ -141,6 +141,29 @@ for (const level of regressedLevels) {
   for (const [sig, n] of top) console.log(`  ${String(n).padStart(5)} × ${sig}`);
 }
 
+// ---------------------------------------------------------------- CI 摘要
+// 把同一張表寫進 GitHub Step Summary，省去為了看幾個數字而撈數百行日誌。
+if (process.env.GITHUB_STEP_SUMMARY) {
+  const md = [
+    `### QA 閘門 — IG Publisher ${igVersion}`,
+    '',
+    '| 訊息類別 | 基準線 | 實際 | 差異 | 判定 |',
+    '|:--|--:|--:|--:|:--|',
+    ...rows.map((r) => {
+      const verdict = r.over ? '❌ 退步' : r.delta < 0 ? '✅ 改善' : 'OK';
+      const sign = r.delta > 0 ? `+${r.delta}` : `${r.delta}`;
+      return `| ${r.label} | ${r.limit} | ${r.actual} | ${sign} | ${verdict} |`;
+    }),
+    '',
+    improved ? '有類別低於基準線，可執行 `npm run qa -- --update` 下調並提交。' : '',
+  ].join('\n');
+  try {
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
+  } catch {
+    /* 摘要寫入失敗不應影響閘門判定 */
+  }
+}
+
 if (igVersion !== 'unknown' && igVersion !== baseline.igPublisherVersion) {
   console.log(
     `\n⚠ IG Publisher 版本與基準線不同（${baseline.igPublisherVersion} → ${igVersion}）。` +
