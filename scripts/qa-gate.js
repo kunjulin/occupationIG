@@ -118,7 +118,7 @@ function signature(line) {
     .replace(/\b\d+\b/g, 'N')
     .replace(/\s+/g, ' ')
     .trim()
-    .slice(0, 150);
+    .slice(0, 200);
 }
 
 // qa.txt 之行首標記與總數欄位名稱不同：err→ERROR、warn→WARNING、info→INFORMATION

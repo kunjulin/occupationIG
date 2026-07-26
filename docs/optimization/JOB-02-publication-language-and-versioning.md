@@ -246,10 +246,35 @@ output/index.html       603 bytes
 同一次執行之 QA 閘門於 `TOTAL info` 判定退步。`err` 維持 0、`warn` 維持 204，
 12 個具名類別全部持平，**僅 info 總數增加**。
 
-推定為切換預設語言後 IG Publisher 新增之語言／翻譯相關提示，但**尚未確認內容**，
-故**不逕行調高 info 基準線**——那會使閘門失去意義。
-已為 `scripts/qa-gate.js` 增加「退步明細」功能（總數退步時列出訊息形態分布），
-下一次 CI 執行即可看出這 218 筆的實際組成，再據以決定是修正或列為可接受並附理由調整基準線。
+**已查明組成**（run 30210656956 之退步明細，共 475 筆／202 種形態）：
+
+```
+  129 × Wrong Display Name（既有，未變）
+   28 × obs-hearing .component[N].code.coding[N].display:
+        There are no valid display names found for the code ...
+   15 × TWHA-HearingTest snapshot pattern ... （同上）
+   15 × TWHA-HearingTest differential pattern ... （同上）
+   14 × Observation/obs-hearing ... （同上）
+    8 × obs-bloodpressure component ... （同上）
+  5,5 × Encounter.class / Encounter.class.display ... （同上）
+  4×4 × obs-height／obs-weight／obs-bloodpressure／obs-lab-glucose .code.coding.display（同上）
+```
+
+新增者**全屬同一種訊息**：`There are no valid display names found for the code ... for language(s)`。
+
+**成因**：宣告 `i18n-default-lang: zh-TW` 後，IG Publisher 會檢查各代碼在 **zh-TW** 下是否有顯示名。
+LOINC／SNOMED CT／v3 等外部代碼系統並無繁體中文 designation，故逐筆回報。
+
+**判定：預期且無從修正。** 這是宣告中文為預設語言的必然結果，非本 IG 之缺陷；
+本專案無法為 LOINC 補中文顯示名。等級為 INFORMATION，`err` 與 `warn` 均未受影響。
+
+**處置**：`qa-baseline.json` 之 `info` 由 257 調為 475，**並具名追蹤**
+`There are no valid display names found for the code`（值 218），
+且於檔內以 `_infoNote`／`_categoriesNote` 記錄理由與推導方式——
+避免日後只看到一個放大的總數而不知其來由，也避免此類訊息掩蓋其他 info 增長。
+
+> 218 係由總數差額（475 − 257）推得而非直接量測（該類訊息在切換語言前並不存在，故差額即其筆數）。
+> 若實際值較低，閘門會標示「改善」並提示下調；若較高則會失敗，代表另有其他新增 info 需個別檢視。
 
 ### 本環境之驗證限制
 
