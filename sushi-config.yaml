@@ -23,6 +23,14 @@ dependencies:
   tw.gov.mohw.twcore: 1.0.0
 
 parameters:
+  # 預設翻譯語言。這才是決定輸出語言目錄名稱的參數。
+  #
+  # 僅設 IG 層級的 `language: zh-TW`（見上）不足以改變輸出目錄——實測 CI 建置後
+  # 內容仍落在 output/en/。IG Publisher 之 PublisherIGLoader 讀取的是本參數
+  # （對應其 defaultTranslationLang 欄位），`i18n-lang` 則用於追加其他語言。
+  # 兩者並存：`language` 宣告 ImplementationGuide 資源本身的語言，
+  # `i18n-default-lang` 宣告產出頁面的預設語言。
+  i18n-default-lang: zh-TW
   # 版本歷程頁位址。未設定時 IG Publisher 以 canonical + /history.html 推導，
   # 即 https://twcore.mohw.gov.tw/ig/twha/history.html —— 該站尚未建立，故連結必然 404。
   # 本草案以 GitHub Pages 供審閱，故指向實際可達位址；正式發佈於 twcore.mohw.gov.tw

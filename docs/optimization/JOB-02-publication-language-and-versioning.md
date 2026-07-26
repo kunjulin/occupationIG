@@ -132,15 +132,17 @@ language: zh-TW
 > 並在根目錄產生 `lang-redirects.js` 轉址殼頁（見 `template/content/assets/js/lang-redirects.js`，
 > 內容為 `window.location.replace(langs[0]+"/"+pageName)`），**與語言數量無關**。
 >
-> 因此宣告 `language: zh-TW` 的效果是 **`/en/` → `/zh-TW/`**（語言標記與目錄名皆正確），
-> 但**根目錄仍會是轉址殼頁**。要讓內容直接落在裸根目錄，必須換用未宣告
-> `multilanguage-format` 的模板。
+> 因此無論如何設定語言，**根目錄都會是轉址殼頁**；要讓內容直接落在裸根目錄，
+> 必須換用未宣告 `multilanguage-format` 的模板。
+>
+> ⚠️ 但**改變語言目錄名稱的參數不是 `language:`**——實測證明僅設 `language: zh-TW`
+> 輸出仍為 `en/`。正確參數為 `parameters.i18n-default-lang`，考證過程見 §7。
 
 三個選項：
 
 | 選項 | 做法 | 結果 | 風險 |
 |:--|:--|:--|:--|
-| **A 宣告 zh-TW（已採用）** | `language: zh-TW`，保留現行模板 | 內容至 `/zh-TW/`，`lang="zh-TW"` 正確；根目錄仍為轉址殼頁 | 低。已執行 |
+| **A 宣告 zh-TW（已採用）** | `language: zh-TW` **＋ `parameters.i18n-default-lang: zh-TW`**，保留現行模板 | 內容至 `/zh-TW/`，`lang="zh-TW"`；根目錄仍為轉址殼頁 | 低。已執行。⚠️ 僅設 `language:` 不足，見 §7 |
 | **B 換模板** | 改用未宣告 `multilanguage-format` 之模板 | 內容回到裸根目錄 | **中高**。會改變全站樣式與可用 fragment（JOB-03 依賴其中四個），且**必須實際建置後目視比對才能確認**。不宜在未建置驗證前變更送審文件之模板 |
 | **C 雙語** | 保留語言子目錄並實際提供英譯 | 真正的雙語站 | 高成本，且本期無英譯需求 |
 
@@ -192,21 +194,51 @@ language: zh-TW
 `history.md` 刻意**不列入 `menu`**——HL7 IG 慣例是版本歷程僅由 publish box 連結，
 不佔用主導覽；該頁仍會出現於 `toc.html`，故非孤兒頁。
 
-### 尚待在可建置環境驗證（本環境無法建置）
+### ⚠️ 第一次嘗試不足：`language:` 不改變輸出目錄（2026-07-26 實測）
+
+**原假設有誤。** 我原本認為宣告 `language: zh-TW` 會使輸出由 `en/` 變為 `zh-TW/`。
+CI 建置（run 30209833825）之診斷輸出否定了這個假設：
+
+```
+--- output/ 一層子目錄 ---
+assets/
+en/
+--- index.html 位置與大小 ---
+output/en/index.html  26954 bytes
+output/index.html       603 bytes
+```
+
+即 `language: zh-TW` **只設定了 `ImplementationGuide.language`（資源本身的語言），
+不影響 IG Publisher 產出頁面的語言目錄**。
+
+#### 真正的參數（自 publisher.jar 求證，非臆測）
+
+於 `input-cache/publisher.jar` 掃描 `org/hl7/fhir/igtools/publisher/PublisherIGLoader.class`
+（載入 IG 參數之類別）之字串常數，取得完整 IG 參數清單，其中與語言相關者：
+
+| 參數 | 對應之類別欄位 | 作用 |
+|:--|:--|:--|
+| **`i18n-default-lang`** | `defaultTranslationLang` | **預設翻譯語言——決定輸出語言目錄名稱** |
+| `i18n-lang` | `translationLangs` | 追加其他語言 |
+| `translation-supplements` | — | 翻譯供給檔來源 |
+| `language-translations-mode` / `lang-pack` / `resource-language-policy` | — | 翻譯行為細節 |
+| `multilanguage-format`（模板端） | `setNewMultiLangTemplateFormat` | 印證 §3.3 之發現：語言子目錄佈局由模板旗標驅動 |
+
+（`default-language` 亦出現於 jar 中，但屬 Saxon XSLT 函式，與 IG 無關。）
+
+#### 修正
+
+`sushi-config.yaml` 之 `parameters` 增列 `i18n-default-lang: zh-TW`，
+與 `language: zh-TW` 並存——前者宣告產出頁面的預設語言，後者宣告 IG 資源本身的語言。
+
+**此修正尚未經建置驗證**，需待下一次 CI 執行確認輸出目錄是否變為 `zh-TW/`。
+CI 之 `Verify publication layout` 步驟會自動判定，不需人工目視。
+
+### 本環境之驗證限制
 
 本環境無法執行 IG Publisher：`packages.fhir.org` 與 `tx.fhir.org` 皆不可連線，
-且未安裝 Jekyll。已完成的驗證僅到 **SUSHI 成功解析 `sushi-config.yaml`**
-（改動前後皆僅剩套件下載之網路錯誤，無新增組態錯誤）。
-
-請在可連外的 Windows／CI 環境執行 `_genonce_tx.bat` 後確認：
-
-1. 輸出目錄由 `output/en/` 變為 `output/zh-TW/`，且頁面為 `<html lang="zh-TW">`；
-2. `output/zh-TW/history.html` 存在，且 publish box 之「Directory of published versions」可點達；
-3. publish box 是否仍顯示 `Local Development build`——**預期仍會顯示**，
-   因該字串來自「非 CI 建置」而非缺少 `package-list.json`；真正的修正是改由 CI 建置（**JOB-08**）。
-   本 JOB 只保證版本歷程連結可達；
-4. gh-pages 上舊的 `en/` 目錄與 1012 個根目錄殼頁需在下次發佈時清理
-   （建議由 JOB-08 之發佈流程以全量覆蓋處理，而非增量推送）。
+且未安裝 Jekyll（`github.com` 可連，故 publisher.jar 本身取得得到——上述參數查證即以此進行）。
+故語言相關變更一律須由 CI 驗收。
 
 ### 未處理（需決策）
 
