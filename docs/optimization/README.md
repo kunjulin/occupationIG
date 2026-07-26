@@ -80,13 +80,20 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 第 5 波（治理深化，可與委員意見並行）：   JOB-11 → JOB-13
 ```
 
-> ⚠️ **第 1 波之變更尚未經建置驗證。**
-> 第 1 波是在無法執行 IG Publisher 的環境完成的（`packages.fhir.org`／`tx.fhir.org`
-> 不可連線、未安裝 Jekyll），已完成的驗證僅到 SUSHI 解析組態、參照檢查器與連結檢查。
+> ✅ **第 1、2 波已完成並經 CI 實證**（run 30211050020，閘門全綠：
+> `err 0` / `warn 204` / `info 475`，13 個具名類別全部持平）。
 >
-> 請先在可連外環境跑一次 `_genonce_tx.bat`，依各 JOB 之 §7 逐項確認後再進第 2 波；
-> 或直接做 **JOB-08（CI）**，讓建置驗證從此自動化——這也是把第 1 波「待驗證」
-> 狀態一次結清的最快路徑。
+> CI 於建立過程中連續攔下四個真實問題：佈局斷言的 `pipefail`＋`head` 誤報、
+> `language:` 參數用錯（實際應為 `i18n-default-lang`）、`Appendix10 xlsx` 之誤判、
+> 以及切換語言後 +218 筆 info。這些在原本「本機建置後手動推 gh-pages」的流程下
+> 皆不會被發現。
+
+### 現行基準線（每個 JOB 完成後應下調）
+
+`qa-baseline.json`：`err 0` / `warn 204` / `info 475` ＋ 13 個具名類別。
+`is not included anywhere ...` 已由 4 降至 0 並鎖定。
+`There are no valid display names found for the code`（218）為宣告中文預設語言之
+必然結果，非待修項目。
 
 ---
 

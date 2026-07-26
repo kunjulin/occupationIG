@@ -6,7 +6,7 @@
   ],
   "measuredAt": "2026-07-26",
   "igPublisherVersion": "2.2.11",
-  "source": "CI run 30208978845（commit 083c807b，tx 建置，--expect-tx 通過）。前次：gh-pages 9fd146f 之 qa.txt",
+  "source": "CI run 30211050020（commit f1bf96f2，tx 建置，--expect-tx 通過，閘門全綠）",
   "_infoNote": [
     "info 由 257 調為 475（+218）：宣告 i18n-default-lang: zh-TW 後，IG Publisher 會檢查",
     "各代碼在 zh-TW 下是否有顯示名。LOINC／SNOMED CT／v3 等外部代碼系統並無繁體中文",
@@ -21,10 +21,11 @@
     "info": 475
   },
   "_categoriesNote": [
-    "'There are no valid display names found for the code' 之值 218 係由 info 總數差額",
-    "（475 − 257）推得，而非直接量測——該類訊息在切換語言前並不存在，故差額即其筆數。",
-    "若下次執行顯示實際值低於 218，閘門會標示「改善」並提示下調；若高於 218 則會失敗，",
-    "屆時代表尚有其他新增之 info 訊息需個別檢視，不可逕行放寬。"
+    "'There are no valid display names found for the code' 之值 218 原由 info 總數差額",
+    "（475 − 257）推得；已於 CI run 30211050020 實測確認為 218，推導正確。",
+    "此類訊息為宣告 zh-TW 預設語言之必然結果（外部代碼系統無繁中 designation），",
+    "本專案無從修正，故列為具名上限而非待修項目。若日後超過 218 即代表另有新增 info，",
+    "須個別檢視，不可逕行放寬。"
   ],
   "categories": {
     "Wrong Display Name": 133,
