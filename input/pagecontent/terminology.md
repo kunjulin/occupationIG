@@ -10,7 +10,7 @@
     - 用於所有一般檢驗、生理功能檢查（肺功能、心電圖、聽力測試）及生理測量（身高、體重、血壓）的 Observation.code 定義。
     - 本指引所使用的 LOINC 代碼集已彙整至 [VS-CoreDataset](ValueSet-VS-CoreDataset.html) 與 [VS-ExtendedDataset](ValueSet-VS-ExtendedDataset.html)。
 *   **SNOMED CT (Systematized Nomenclature of Medicine - Clinical Terms)**：
-    - 用於生活習慣（如嚼檳榔狀態 `698188003`）、臨場服務現場發現之職業危害（`17458004`）等臨床發現與程序代碼。改善建議諮詢之 procedure 代碼 SNOMED 現無對應項，標示為 (-)（原 `315640000` 經術語伺服器驗證語意不符，已移除）。
+    - 用於生活習慣（如嚼檳榔狀態 `698188003`）、臨場服務現場發現之職業危害（`17458004`）等臨床發現與程序代碼。改善建議諮詢之 procedure 代碼 SNOMED 現無對應項，標示為 **`(-本地碼待治理)`**（原 `315640000` 經術語伺服器驗證實為「Influenza vaccination declined」，語意不符已移除；建議以 `CS-ServiceActivityType` 本地碼承載，惟該本地碼尚待治理）。
 *   **ICD-10-CM (Clinical Modification)**：
     - 用於記錄勞工既往病史（`TWHA-Condition`）以及附表十二所列之不適合從事特定危害作業疾病。
 
@@ -55,20 +55,54 @@
 *   **Exclusion（治理註記）**：
     - 屬**治理註記**（非綁定層級）：明確排除不適用之過時或語意不符代碼。例如體液白血球代碼 `12227-5` 語意上不屬一般健檢血常規，於治理上標示排除。
 
-> **用語澄清（綁定強度 vs. Preferred 代碼）**：本節之 **preferred (primary) code** 係指**指定優先代碼**，與 FHIR 值集**綁定強度（binding strength）之 `preferred`** 為不同概念。本 IG 之值集綁定強度為 **`extensible`**（與文件一 §6.3、實際建置一致），非 FHIR 之 `preferred` 綁定。
+> **用語澄清（重要，避免誤解）**：
+>
+> 1. **`preferred` 與 `acceptable` 均為本專案之治理術語，非 FHIR 規範用語。**
+>    - 本 IG 之 **`acceptable`** 指「本專案允許並可經 ConceptMap 歸一之變異碼」，**與 FHIR 之 binding strength 無關**（FHIR binding strength 僅有 `required`／`extensible`／`preferred`／`example` 四值）。
+>    - 本 IG 之 **`preferred (primary) code`** 指「**本 IG 建議之標準交換碼**」，**並非該項目之唯一臨床正確碼**；臨床上其他碼可能同樣正確，惟為利跨機構交換一致性而指定優先碼。
+> 2. **本 IG 之值集綁定強度一律為 `extensible`**（與文件一 §6.3、實際建置一致），與上述治理層級之 `preferred` 為不同概念，請勿混用。
 
 ### 3.2 代碼映射 ConceptMap
 本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **32 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）、腰圍（`56086-2`→`8280-0`）與純音聽力 panel（`21104-5`→`89015-2`）三組（聽力採 panel 對 panel，其 14 個頻率 component 對應列為後續 backlog）。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 ---
 
-## 4. 核心檢驗項目 LOINC–SNOMED CT 跨術語對照表
+## 4. 跨術語對照表
 
-本節提供健康檢查核心資料集中各主要項目的跨術語標準對照，整合 LOINC（preferred 優先碼／acceptable 可接受碼）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照——三者為**平行之 code system**，供審查委員、實作廠商與術語標準對接使用。所有 SNOMED CT 代碼均已透過 SNOMED International Browser（2026-06-01 版）人工逐一確認。
+> **⚠️ 本節分為兩區，效力不同，請勿混用：**
+> - **§4.1 已驗證之綁定代碼（verified）**：實際供 profile／ValueSet 綁定或正式 mapping 使用，且已通過術語伺服器 `$validate-code` 驗證。
+> - **§4.2 跨術語對照（draft／informative）**：僅供參考之對照資訊。其中 **SNOMED CT 欄位除 §4.1 所列者外，均未經術語伺服器驗證，不得作為正式建議 mapping 使用**。
 
-> **標示慣例**：`—` 表示該欄位不適用或無需列出；**`(-)` 表示經術語伺服器（tx.fhir.org, LOINC 2.82 / SNOMED International）查證後，該概念於國際術語系統中確無對應代碼**，而非尚未填寫。凡標示 (-) 者均已移除原先語意不符之代碼，俟術語系統新增後補列，或由實作端以本地擴充承載。
+### 4.1 已驗證之綁定 SNOMED CT 代碼（verified）
 
-| 類別 | 中文名 | LOINC Preferred | LOINC Acceptable | SNOMED CT | UCUM | 法規 |
+下列 SNOMED CT 代碼為本 IG **實際綁定使用**者，已於 **2026-07-26** 透過 `tx.fhir.org`（SNOMED International Edition）逐一完成 `$validate-code` 代碼有效性驗證：
+
+| SNOMED CT | 顯示名 | 使用位置 | 驗證狀態 |
+|:---|:---|:---|:---|
+| `698188003` | Chews betel quid | `TWHA-SocialHistory-BetelNut`／`VS-CoreUploadSet` | ✅ 已驗證 2026-07-26 |
+| `266919005` | Never smoked | 吸菸狀態範例（`obs-smoking`） | ✅ 已驗證 2026-07-26 |
+| `17458004` | Occupational hazard | `TWHA-Observation-ServiceFinding.code` | ✅ 已驗證 2026-07-26 |
+| `406221003` | Health status | `TWHA-HealthManagementLevel.code` | ✅ 已驗證 2026-07-26 |
+
+> 註：LOINC 代碼部分，凡被 profile／ValueSet 引用者，均已於同日以 `_genonce_tx.bat`（連線 `tx.fhir.org`，LOINC 2.82）完成代碼有效性與顯示名驗證。**惟此驗證不含臨床適切性與法規符合性**。
+
+### 4.2 跨術語對照（draft／informative）
+
+本節提供健康檢查資料集中各主要項目的跨術語對照，整合 LOINC（preferred 優先碼／acceptable 可接受碼）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照——三者為**平行之 code system**。
+
+> **⚠️ SNOMED CT 欄位之效力限制**：本表 SNOMED CT 欄位（§4.1 所列 4 碼除外）係先前以 SNOMED International Browser 人工填載，**未經術語伺服器逐碼驗證**，屬 **draft／informative** 性質，**僅供參考，不得作為正式建議 mapping 或交換要求使用**。實務上曾發現此類未驗證之人工對照有相當比例語意不符（本 IG 於 2026-07-26 之術語稽核即更正 4 個職業健康相關 SNOMED／LOINC 錯碼）。正式採用前應逐碼完成驗證（列為 backlog）。
+
+> **標示慣例**：`—` 表示該欄位不適用或無需列出。`(-)` 系列表示**經術語伺服器查證後之缺碼狀態**（非尚未填寫），依成因區分為三態：
+>
+> | 標示 | 意義 | 後續處置 |
+> |:--|:--|:--|
+> | `(-未找到)` | 已查詢但**未能檢索到**合適代碼，不排除存在但檢索策略未涵蓋 | 擴大檢索或請術語專家協助 |
+> | `(-確定無合適碼)` | 已確認國際術語系統**確無**語意相符之代碼 | 提報 LOINC／SNOMED 新增申請，或俟版本更新 |
+> | `(-本地碼待治理)` | 概念存在但**應以本地代碼承載**，惟本地碼尚未完成治理 | 納入本地 CodeSystem 治理流程 |
+>
+> 凡標示 `(-)` 系列者，均已移除原先語意不符之代碼，以免實作端誤用。
+
+| 類別 | 中文名 | LOINC Preferred | LOINC Acceptable | SNOMED CT<br>(informative・未驗證) | UCUM | 法規 |
 |:---|:---|:---|:---|:---|:---|:---|
 | 血液學 | 白血球計數 | `6690-2` | `{804-5, 26464-8}` | 767002 | 10\*3/uL | 附表九 |
 | 血液學 | 紅血球計數 RBC | `789-8` | — | 41653003 | 10\*6/uL | 附表九（115.06.26 新增）|
@@ -87,7 +121,7 @@
 | 肝功能 | ALP | `6768-6` | `{1783-0}` | 88810008 | U/L | 附表九 |
 | 脂質 | 總膽固醇 | `2093-3` | `{35200-5}` | 77068002 | mg/dL | 成健 |
 | 脂質 | 三酸甘油酯 | `2571-8` | `{3043-7}` | 14740000 | mg/dL | 成健 |
-| 脂質 | HDL-C | `2085-9` | (-) | 17888004 | mg/dL | 成健 |
+| 脂質 | HDL-C | `2085-9` | (-確定無合適碼) | 17888004 | mg/dL | 成健 |
 | 脂質 | LDL-C (方法通用) | `2089-1` | `{13457-7, 18262-6}` | 113079009 | mg/dL | 成健 |
 | 內分泌 | HbA1c (NGSP) | `4548-4` | `{59261-8}` | 43396009 | % | 成健/進階 |
 | 內分泌 | TSH | `11580-8` | `{3016-3}` | 61167004 | mIU/L | 進階 |
@@ -98,9 +132,9 @@
 | 肝炎 | anti-HCV | `13955-0` | `{16128-1}` | 32218006 | — | 成健 |
 | 尿液 | 尿蛋白 (試紙) | `5804-0` | `{2888-6}` | 167273002 | — | 附表九/成健 |
 | 生理 | BMI | `39156-5` | — | 60621009 | kg/m2 | 成健 |
-| 生理 | 腰臀比 WHR | (-) | — | 248362002 | {ratio} | 成健 |
+| 生理 | 腰臀比 WHR | (-確定無合適碼) | — | 248362002 | {ratio} | 成健 |
 | 生理 | 血壓 Panel | `55284-4` | — | 75367002 | — | 成健 |
-| 生理 | 腰圍 | `8280-0` | (-) | 276361009 | cm | 附表九/成健 |
+| 生理 | 腰圍 | `8280-0` | (-確定無合適碼) | 276361009 | cm | 附表九/成健 |
 | 肺功能 | FVC | `19868-9` | `{19876-2, 19870-5}` | 50834005 | L | 職業 |
 | 肺功能 | FEV1 | `20150-9` | — | 59328004 | L | 職業 |
 | 視力 | 視力 Panel | `98497-1` | — | 363983007 | — | 職業 |
