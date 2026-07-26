@@ -2,7 +2,13 @@ Profile: TWHAHearingTestProfile
 Parent: TWCoreClinicalResult
 Id: TWHA-HearingTest
 Title: "聽力檢查 Profile"
-Description: "用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。"
+Description: "用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。
+
+**交換規則（回應委員意見）**：
+1. **須保留原始 panel／component 代碼**：若來源系統採 `21104-5` 系列等變異碼，交換時**應同時保留原始代碼**（如置於 `code.coding` 之另一 coding），**不得僅存歸一後之代碼**，以維持可追溯性。
+2. **panel 層 mapping 不等於 component 層等價**：ConceptMap 現僅建立 panel 對 panel 之對應；**各頻率 component 之對應尚未建立（mapping unavailable）**，不得逕行推論等價。
+3. **聽閾單位**：以 UCUM `dB` 表達（臨床意義為 dB HL，依 ISO 1999 判讀）。
+4. **特殊情形不得以一般數值表達**：「未測」「無反應」「超出儀器上限」等情形，**應以 `dataAbsentReason` 或明確代碼表達**，不得填入 0、999 等假數值，亦不得省略該 component。"
 * ^experimental = false
 * status = #final
 // 89015-2 = "Pure tone threshold audiometry panel"（Panel code）
