@@ -26,16 +26,16 @@
 
 * **身高 (Body Height)**: LOINC `8302-2`，單位：`cm`
 * **體重 (Body Weight)**: LOINC `29463-7`，單位：`kg`
-* **腰圍 (Waist Circumference)**: LOINC `56086-2`，單位：`cm`
+* **腰圍 (Waist Circumference)**: LOINC `8280-0`（臍位皮尺法），單位：`cm`
 * **血壓 (Blood Pressure)**: 採用 `TWCoreBloodPressure` Profile。包含收縮壓（LOINC `8480-6`，單位：`mmHg`）與舒張壓（LOINC `8462-4`，單位：`mmHg`）之雙 component 結構。
 * **視力與辨色力**: 採用 `TWHA-VisionTest` Profile（Panel `98497-1`），以 component 結構區分左眼裸視視力（LOINC `98498-9`）、右眼裸視視力（LOINC `98499-7`）及辨色力（LOINC `46673-0` Color vision [RFC]，正常/異常；原 `48024-3` 經 tx 驗證為無效碼已更正）。
-* **聽力**: 採用 `TWHA-HearingTest` Profile，Panel 代碼 LOINC `89015-2` (Pure tone threshold audiometry panel)，以 component 結構記錄左右耳於 0.5–8 kHz 各頻率之氣導聽閾（如左耳 500 Hz `89024-4`、右耳 500 Hz `89025-1`）。
+* **聽力**: 採用 `TWHA-HearingTest` Profile，Panel 代碼 LOINC `89015-2` (Pure tone air conduction threshold audiometry panel)，以 component 結構記錄左右耳於 0.5–8 kHz 各頻率之氣導聽閾（如左耳 500 Hz `89024-4`、右耳 500 Hz `89025-1`）。
 
 -------
 
 ## 3. 理學檢查項目 (Physical Examinations)
 
-各系統理學檢查採用 `TWHA-PhysicalExam` Profile 記錄，其代碼為 LOINC `29545-1` (Physical findings panel)。其細項以 `component` 記錄，包括：
+各系統理學檢查採用 `TWHA-PhysicalExam` Profile 記錄，其代碼為 LOINC `29545-1` (Physical findings note)。其細項以 `component` 記錄，包括：
 
 * 頭頸部 (`head-neck`)
 * 呼吸系統 (`respiratory`)
@@ -58,7 +58,7 @@
 * **（Core）總膽固醇 (Cholesterol)**: LOINC `2093-3`，單位：`mg/dL`
 * **（Core）三酸甘油酯 (Triglyceride)**: LOINC `2571-8`，單位：`mg/dL`
 * **（Core）高密度脂蛋白膽固醇 (HDL-C)**: LOINC `2085-9`，單位：`mg/dL`
-* **（Core）低密度脂蛋白膽固醇 (LDL-C)**: Preferred LOINC `2089-1`（直接測定法, Direct assay），單位：`mg/dL`；可接受代碼 `13457-7`（計算法, by calculation）、`18262-6`（直接測定法舊碼），經 ConceptMap 歸一至 Preferred 代碼。
+* **（Core）低密度脂蛋白膽固醇 (LDL-C)**: Preferred LOINC `2089-1`（**方法通用碼**，未指定測定方法，可相容各院所），單位：`mg/dL`；可接受代碼 `13457-7`（計算法, by calculation）、`18262-6`（直接測定法, Direct assay），經 ConceptMap 歸一至 Preferred 代碼。
 * **（Core）尿蛋白 (Urine Protein)**: LOINC `5804-0`（定性檢查，如 `-`, `+`, `++`）
 * **（Extended）血清丙胺酸轉胺酶 (ALT/SGPT)**: LOINC `1742-6`，單位：`U/L`
 * **（Extended）尿潛血 (Urine Occult Blood)**: LOINC `5794-3`（定性檢查）

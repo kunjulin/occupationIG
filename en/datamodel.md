@@ -77,13 +77,13 @@ Core 21 列橫跨三種資料型別，分屬**三個綁定值集**，不集中�
 |   | 睡眠時間 | `TWHASocialHistorySleepProfile` | LOINC`93832-4`(Sleep duration) |
 | **Vital Signs**(生理量測) | 身高 / 體重 | `TWHAVitalSignsProfile` | LOINC`8302-2`(Height), LOINC`29463-7`(Weight) |
 |   | 舒張壓 / 收縮壓 | `TWCoreBloodPressure` | LOINC`85354-9`(BP panel) |
-|   | 腰圍 | `TWHAVitalSignsProfile` | LOINC`8280-0`(Waist Circumference, Preferred；`56086-2`為 Acceptable) |
+|   | 腰圍 | `TWHAVitalSignsProfile` | LOINC`8280-0`(Waist Circumference at umbilicus by Tape measure)；`56086-2`為 PhenX protocol 碼，不列入值集，經 ConceptMap 歸一 |
 | **Laboratory**(實驗室檢驗) | 空腹血糖 | `TWHALabResultGeneralProfile` | LOINC`1558-6`(Fasting Glucose) |
 |   | 總膽固醇 / 三酸甘油酯 | `TWHALabResultGeneralProfile` | LOINC`2093-3`(TC), LOINC`2571-8`(TG) |
-|   | HDL-C / LDL-C | `TWHALabResultGeneralProfile` | LOINC`2085-9`(HDL-C), LOINC`2089-1`(LDL-C, Preferred: Direct assay) |
+|   | HDL-C / LDL-C | `TWHALabResultGeneralProfile` | LOINC`2085-9`(HDL-C), LOINC`2089-1`(LDL-C, Preferred：方法通用碼) |
 |   | 尿蛋白定性 | `TWHALabResultGeneralProfile` | LOINC`5804-0`(Urine Protein) |
 | **Screening**(篩檢與生理功能) | 視力及辨色力 | `TWHAVisionTestProfile` | LOINC`98497-1`(Visual acuity panel) |
-|   | 聽力篩檢 | `TWHAHearingTestProfile` | LOINC`89015-2`(Pure tone threshold audiometry panel) |
+|   | 聽力篩檢 | `TWHAHearingTestProfile` | LOINC`89015-2`(Pure tone air conduction threshold audiometry panel) |
 
 -------
 

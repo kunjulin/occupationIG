@@ -33,7 +33,7 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
   "title" : "勞工健康檢查法定必驗項目值集（第一期草案）",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-07-25T16:18:15+08:00",
+  "date" : "2026-07-26T10:07:44+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -126,8 +126,8 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
         "display" : "Lead [Mass/volume] in Specimen"
       },
       {
-        "code" : "19876-2",
-        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
+        "code" : "19868-9",
+        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry"
       },
       {
         "code" : "20150-9",

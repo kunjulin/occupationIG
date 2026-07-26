@@ -357,7 +357,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </blockquote>
 
 <h3 id="32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</h3>
-<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>32 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 <code class="language-plaintext highlighter-rouge">2089-1</code>）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）、腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）與純音聽力 panel（<code class="language-plaintext highlighter-rouge">21104-5</code>→<code class="language-plaintext highlighter-rouge">89015-2</code>）三組（聽力採 panel 對 panel，其 14 個頻率 component 對應列為後續 backlog）。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
+<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>32 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred <code class="language-plaintext highlighter-rouge">2089-1</code> 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）、腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）與純音聽力 panel（<code class="language-plaintext highlighter-rouge">21104-5</code>→<code class="language-plaintext highlighter-rouge">89015-2</code>）三組（聽力採 panel 對 panel，其 14 個頻率 component 對應列為後續 backlog）。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
 
 <hr />
 
@@ -546,7 +546,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td style="text-align: left">脂質</td>
-      <td style="text-align: left">LDL-C (直接測定法)</td>
+      <td style="text-align: left">LDL-C (方法通用)</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2089-1</code></td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{13457-7, 18262-6}</code></td>
       <td style="text-align: left">113079009</td>
@@ -611,7 +611,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">肝炎</td>
       <td style="text-align: left">anti-HCV</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">13955-0</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{47365-2}</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{16128-1}</code></td>
       <td style="text-align: left">32218006</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">成健</td>
@@ -656,7 +656,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">生理</td>
       <td style="text-align: left">腰圍</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">8280-0</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{56086-2}</code></td>
+      <td style="text-align: left">(-)</td>
       <td style="text-align: left">276361009</td>
       <td style="text-align: left">cm</td>
       <td style="text-align: left">附表九/成健</td>
@@ -664,8 +664,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td style="text-align: left">肺功能</td>
       <td style="text-align: left">FVC</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19876-2</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{19868-9, 19870-5}</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19868-9</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{19876-2, 19870-5}</code></td>
       <td style="text-align: left">50834005</td>
       <td style="text-align: left">L</td>
       <td style="text-align: left">職業</td>
@@ -713,14 +713,14 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <p>CSV 欄位說明：<code class="language-plaintext highlighter-rouge">category</code>（類別）、<code class="language-plaintext highlighter-rouge">item_name_zh</code>（中文名）、<code class="language-plaintext highlighter-rouge">item_name_en</code>（英文名）、<code class="language-plaintext highlighter-rouge">loinc_preferred</code>（優先碼）、<code class="language-plaintext highlighter-rouge">loinc_acceptable</code>（可接受碼集合）、<code class="language-plaintext highlighter-rouge">snomed_ct</code>（代碼）、<code class="language-plaintext highlighter-rouge">snomed_display</code>（顯示名稱）、<code class="language-plaintext highlighter-rouge">snomed_status</code>（驗證狀態）、<code class="language-plaintext highlighter-rouge">ucum_unit</code>（UCUM 單位）、<code class="language-plaintext highlighter-rouge">regulatory_ref</code>（法規欄位）。</p>
 
 <h3 id="52-肺功能代碼雙-valueset-說明">5.2 肺功能代碼雙 ValueSet 說明</h3>
-<p>本指引中，肺功能代碼（<code class="language-plaintext highlighter-rouge">19876-2</code> FVC、<code class="language-plaintext highlighter-rouge">19868-9</code> FEV1、<code class="language-plaintext highlighter-rouge">19926-5</code> FEV1/FVC 比值）同時收錄於兩個不同的 ValueSet，用途各異：</p>
+<p>本指引中，肺功能代碼（<code class="language-plaintext highlighter-rouge">19868-9</code> FVC、<code class="language-plaintext highlighter-rouge">20150-9</code> FEV1、<code class="language-plaintext highlighter-rouge">19926-5</code> FEV1/FVC 比值）同時收錄於兩個不同的 ValueSet，用途各異：</p>
 
 <ul>
   <li><strong><a href="ValueSet-VS-PulmonaryFunction.html">VS-PulmonaryFunction</a></strong>：供 <code class="language-plaintext highlighter-rouge">TWHAPulmonaryFunctionProfile</code> 完整代碼集查詢使用，包含所有肺功能相關代碼（含 TLC、RV、DLCO 等）。</li>
   <li><strong><a href="ValueSet-VS-CoreDataset.html">VS-CoreDataset</a></strong>：供術語查詢與跨資料集完整性核對使用，僅收錄最核心的三個代碼。</li>
 </ul>
 
-<p>兩者並非重複，而是服務不同的查詢情境。<code class="language-plaintext highlighter-rouge">TWHAPulmonaryFunctionProfile</code> 的 <code class="language-plaintext highlighter-rouge">Observation.code</code> 為固定值（<code class="language-plaintext highlighter-rouge">= LNC#19876-2</code>），不受 VS 繫結直接限制，但兩個 VS 均供文件與術語服務查詢使用。</p>
+<p>兩者並非重複，而是服務不同的查詢情境。<code class="language-plaintext highlighter-rouge">TWHAPulmonaryFunctionProfile</code> 的 <code class="language-plaintext highlighter-rouge">Observation.code</code> 為固定值（<code class="language-plaintext highlighter-rouge">= LNC#19868-9</code>），不受 VS 繫結直接限制，但兩個 VS 均供文件與術語服務查詢使用。</p>
 
 <h3 id="53-聽力頻率代碼設計說明">5.3 聽力頻率代碼設計說明</h3>
 <p>聽力測試之代碼結構層次如下（此為 panel／component 之<strong>資源結構</strong>設計，與 §3 之術語治理機制為不同概念）：</p>
@@ -759,8 +759,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-25 16:18:00 +0800">
-    2026-07-25
+  <span title="2026-07-26 10:07:00 +0800">
+    2026-07-26
   </span>
 
           <br/>

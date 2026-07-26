@@ -8,7 +8,7 @@ Profile: [職業健檢生命徵象 Profile](StructureDefinition-TWHA-VitalSigns.
 
 **category**: Vital Signs
 
-**code**: Adult Waist Circumference Protocol
+**code**: Waist Circumference at umbilicus by Tape measure
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -37,8 +37,8 @@ Profile: [職業健檢生命徵象 Profile](StructureDefinition-TWHA-VitalSigns.
   "code" : {
     "coding" : [{
       "system" : "http://loinc.org",
-      "code" : "56086-2",
-      "display" : "Adult Waist Circumference Protocol"
+      "code" : "8280-0",
+      "display" : "Waist Circumference at umbilicus by Tape measure"
     }]
   },
   "subject" : {

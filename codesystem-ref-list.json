@@ -45,13 +45,13 @@
     "oids" : ["2.16.840.1.113883.6.1"],
     "uses" : {
     },
-    "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集",
+    "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集",
     "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
     "ValueSet-VS-CoreDataset.html" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
     "ValueSet-VS-OccHealthCheck-Required.html" : "勞工健康檢查法定必驗項目值集（第一期草案）",
-    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap",
     "ValueSet-VS-TWHAVitalSigns.html" : "職業健檢生命徵象項目值集",
-    "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集"
+    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap",
+    "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集"
   },
   {
     "url" : "http://snomed.info/sct",
@@ -118,8 +118,8 @@
     "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。",
     "uses" : {
     },
-    "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照",
-    "ValueSet-VS-Appendix10-Operation.html" : "附表十特別危害健康作業值集（35 項）"
+    "ValueSet-VS-Appendix10-Operation.html" : "附表十特別危害健康作業值集（35 項）",
+    "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",

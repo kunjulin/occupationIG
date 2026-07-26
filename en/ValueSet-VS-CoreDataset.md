@@ -34,7 +34,7 @@ Core 之檢驗子集（主管機關（國健署）最小共通上傳集之 Obser
   "title" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-25T16:18:15+08:00",
+  "date" : "2026-07-26T10:07:44+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -135,8 +135,8 @@ Core 之檢驗子集（主管機關（國健署）最小共通上傳集之 Obser
         "display" : "Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay"
       },
       {
-        "code" : "47365-2",
-        "display" : "Hepatitis C virus Ab [Presence] in Serum from Donor by Immunoassay"
+        "code" : "16128-1",
+        "display" : "Hepatitis C virus Ab [Presence] in Serum"
       }]
     }]
   }

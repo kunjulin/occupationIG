@@ -15,7 +15,7 @@
   "name" : "TWHealthCheckLaboratoryMap",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-25T16:18:15+08:00",
+  "date" : "2026-07-26T10:07:44+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -68,7 +68,7 @@
       "display" : "Glucose [Mass/volume] in Blood",
       "target" : [{
         "code" : "1558-6",
-        "display" : "Fasting Glucose [Mass/volume] in Serum or Plasma",
+        "display" : "Fasting glucose [Mass/volume] in Serum or Plasma",
         "equivalence" : "wider"
       }]
     },
@@ -122,7 +122,7 @@
       "display" : "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation",
       "target" : [{
         "code" : "98979-8",
-        "display" : "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)",
+        "display" : "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M",
         "equivalence" : "equivalent"
       }]
     },
@@ -131,16 +131,16 @@
       "display" : "Hepatitis B virus surface Ag [Presence] in Serum",
       "target" : [{
         "code" : "5196-1",
-        "display" : "Hepatitis B virus surface Ag [Presence] in Serum",
+        "display" : "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay",
         "equivalence" : "equivalent"
       }]
     },
     {
-      "code" : "47365-2",
-      "display" : "Hepatitis C virus Ab [Presence] in Blood",
+      "code" : "16128-1",
+      "display" : "Hepatitis C virus Ab [Presence] in Serum",
       "target" : [{
         "code" : "13955-0",
-        "display" : "Hepatitis C virus Ab [Presence] in Serum or Plasma",
+        "display" : "Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay",
         "equivalence" : "equivalent"
       }]
     },

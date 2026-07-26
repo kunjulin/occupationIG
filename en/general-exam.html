@@ -280,17 +280,17 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <ul>
   <li><strong>身高 (Body Height)</strong>: LOINC <code class="language-plaintext highlighter-rouge">8302-2</code>，單位：<code class="language-plaintext highlighter-rouge">cm</code></li>
   <li><strong>體重 (Body Weight)</strong>: LOINC <code class="language-plaintext highlighter-rouge">29463-7</code>，單位：<code class="language-plaintext highlighter-rouge">kg</code></li>
-  <li><strong>腰圍 (Waist Circumference)</strong>: LOINC <code class="language-plaintext highlighter-rouge">56086-2</code>，單位：<code class="language-plaintext highlighter-rouge">cm</code></li>
+  <li><strong>腰圍 (Waist Circumference)</strong>: LOINC <code class="language-plaintext highlighter-rouge">8280-0</code>（臍位皮尺法），單位：<code class="language-plaintext highlighter-rouge">cm</code></li>
   <li><strong>血壓 (Blood Pressure)</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWCoreBloodPressure</code> Profile。包含收縮壓（LOINC <code class="language-plaintext highlighter-rouge">8480-6</code>，單位：<code class="language-plaintext highlighter-rouge">mmHg</code>）與舒張壓（LOINC <code class="language-plaintext highlighter-rouge">8462-4</code>，單位：<code class="language-plaintext highlighter-rouge">mmHg</code>）之雙 component 結構。</li>
   <li><strong>視力與辨色力</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWHA-VisionTest</code> Profile（Panel <code class="language-plaintext highlighter-rouge">98497-1</code>），以 component 結構區分左眼裸視視力（LOINC <code class="language-plaintext highlighter-rouge">98498-9</code>）、右眼裸視視力（LOINC <code class="language-plaintext highlighter-rouge">98499-7</code>）及辨色力（LOINC <code class="language-plaintext highlighter-rouge">46673-0</code> Color vision [RFC]，正常/異常；原 <code class="language-plaintext highlighter-rouge">48024-3</code> 經 tx 驗證為無效碼已更正）。</li>
-  <li><strong>聽力</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> Profile，Panel 代碼 LOINC <code class="language-plaintext highlighter-rouge">89015-2</code> (Pure tone threshold audiometry panel)，以 component 結構記錄左右耳於 0.5–8 kHz 各頻率之氣導聽閾（如左耳 500 Hz <code class="language-plaintext highlighter-rouge">89024-4</code>、右耳 500 Hz <code class="language-plaintext highlighter-rouge">89025-1</code>）。</li>
+  <li><strong>聽力</strong>: 採用 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> Profile，Panel 代碼 LOINC <code class="language-plaintext highlighter-rouge">89015-2</code> (Pure tone air conduction threshold audiometry panel)，以 component 結構記錄左右耳於 0.5–8 kHz 各頻率之氣導聽閾（如左耳 500 Hz <code class="language-plaintext highlighter-rouge">89024-4</code>、右耳 500 Hz <code class="language-plaintext highlighter-rouge">89025-1</code>）。</li>
 </ul>
 
 <hr />
 
 <h2 id="3-理學檢查項目-physical-examinations">3. 理學檢查項目 (Physical Examinations)</h2>
 
-<p>各系統理學檢查採用 <code class="language-plaintext highlighter-rouge">TWHA-PhysicalExam</code> Profile 記錄，其代碼為 LOINC <code class="language-plaintext highlighter-rouge">29545-1</code> (Physical findings panel)。其細項以 <code class="language-plaintext highlighter-rouge">component</code> 記錄，包括：</p>
+<p>各系統理學檢查採用 <code class="language-plaintext highlighter-rouge">TWHA-PhysicalExam</code> Profile 記錄，其代碼為 LOINC <code class="language-plaintext highlighter-rouge">29545-1</code> (Physical findings note)。其細項以 <code class="language-plaintext highlighter-rouge">component</code> 記錄，包括：</p>
 <ul>
   <li>頭頸部 (<code class="language-plaintext highlighter-rouge">head-neck</code>)</li>
   <li>呼吸系統 (<code class="language-plaintext highlighter-rouge">respiratory</code>)</li>
@@ -315,7 +315,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>（Core）總膽固醇 (Cholesterol)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2093-3</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
   <li><strong>（Core）三酸甘油酯 (Triglyceride)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2571-8</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
   <li><strong>（Core）高密度脂蛋白膽固醇 (HDL-C)</strong>: LOINC <code class="language-plaintext highlighter-rouge">2085-9</code>，單位：<code class="language-plaintext highlighter-rouge">mg/dL</code></li>
-  <li><strong>（Core）低密度脂蛋白膽固醇 (LDL-C)</strong>: Preferred LOINC <code class="language-plaintext highlighter-rouge">2089-1</code>（直接測定法, Direct assay），單位：<code class="language-plaintext highlighter-rouge">mg/dL</code>；可接受代碼 <code class="language-plaintext highlighter-rouge">13457-7</code>（計算法, by calculation）、<code class="language-plaintext highlighter-rouge">18262-6</code>（直接測定法舊碼），經 ConceptMap 歸一至 Preferred 代碼。</li>
+  <li><strong>（Core）低密度脂蛋白膽固醇 (LDL-C)</strong>: Preferred LOINC <code class="language-plaintext highlighter-rouge">2089-1</code>（<strong>方法通用碼</strong>，未指定測定方法，可相容各院所），單位：<code class="language-plaintext highlighter-rouge">mg/dL</code>；可接受代碼 <code class="language-plaintext highlighter-rouge">13457-7</code>（計算法, by calculation）、<code class="language-plaintext highlighter-rouge">18262-6</code>（直接測定法, Direct assay），經 ConceptMap 歸一至 Preferred 代碼。</li>
   <li><strong>（Core）尿蛋白 (Urine Protein)</strong>: LOINC <code class="language-plaintext highlighter-rouge">5804-0</code>（定性檢查，如 <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">++</code>）</li>
   <li><strong>（Extended）血清丙胺酸轉胺酶 (ALT/SGPT)</strong>: LOINC <code class="language-plaintext highlighter-rouge">1742-6</code>，單位：<code class="language-plaintext highlighter-rouge">U/L</code></li>
   <li><strong>（Extended）尿潛血 (Urine Occult Blood)</strong>: LOINC <code class="language-plaintext highlighter-rouge">5794-3</code>（定性檢查）</li>
@@ -353,8 +353,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-25 16:18:00 +0800">
-    2026-07-25
+  <span title="2026-07-26 10:07:00 +0800">
+    2026-07-26
   </span>
 
           <br/>

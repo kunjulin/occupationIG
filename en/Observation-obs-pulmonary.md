@@ -8,7 +8,7 @@ Profile: [肺功能檢查 Profile](StructureDefinition-TWHA-PulmonaryFunction.md
 
 **category**: Exam
 
-**code**: Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation
+**code**: Forced vital capacity [Volume] Respiratory system by Spirometry
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -43,8 +43,8 @@ Profile: [肺功能檢查 Profile](StructureDefinition-TWHA-PulmonaryFunction.md
   "code" : {
     "coding" : [{
       "system" : "http://loinc.org",
-      "code" : "19876-2",
-      "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
+      "code" : "19868-9",
+      "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry"
     }]
   },
   "subject" : {
