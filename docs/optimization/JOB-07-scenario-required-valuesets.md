@@ -62,13 +62,14 @@ IG 花了整段篇幅強調「① ≠ ② ≠ ③」，並警告：
 
 ### 3.1 來源資料
 
-repo 根目錄已有四份法規附表 PDF，是本 JOB 的權威來源：
+`docs/regulations/` 已有四份法規附表 PDF，是本 JOB 的權威來源
+（2026-07-26 由 repo 根目錄歸檔至此，見 JOB-12）：
 
 ```
-附表九  一般體格檢查、健康檢查項目表.PDF
-附表十  特殊體格檢查、健康檢查項目表.PDF
-附表十一 勞工一般體格及健康檢查紀錄.PDF
-附表八  勞工健康服務執行紀錄表.PDF
+docs/regulations/附表九  一般體格檢查、健康檢查項目表.PDF
+docs/regulations/附表十  特殊體格檢查、健康檢查項目表.PDF
+docs/regulations/附表十一  勞工一般體格及健康檢查紀錄.PDF
+docs/regulations/附表八  勞工健康服務執行紀錄表.PDF
 ```
 
 `input/assets/Appendix10-to-HazardType.xlsx`（或已產出於發佈站者）與
@@ -129,7 +130,7 @@ input/fsh/codesystems/CS-Appendix10Operation.fsh 與 ConceptMap-Appendix10ToHaza
 為這個 JOB 產出實作計畫。
 
 要求：
-1. 以 repo 根目錄的「附表九」「附表十」PDF 為權威來源（請實際讀取 PDF，不要只轉抄現有 markdown 表格）。
+1. 以 docs/regulations/ 的「附表九」「附表十」PDF 為權威來源（請實際讀取 PDF，不要只轉抄現有 markdown 表格）。
 2. 提出值集顆粒度方案並比較取捨：附表十要做成 1 個、12 個（危害家族）、還是 35 個（具名作業）？
    建議方案要說明如何用既有 ConceptMap 串接 35 項 → 家族 → 值集。
 3. 明確區分「可用 LOINC 表達的檢驗項目」與「須以 profile 承載的非檢驗項目

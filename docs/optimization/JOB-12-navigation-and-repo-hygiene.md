@@ -116,6 +116,59 @@ repo 已有 `.claude/skills/fhir-tx-audit/SKILL.md`（品質很好），但沒�
 
 ---
 
+## 7. 執行紀錄（2026-07-26）
+
+### 已完成
+
+| # | 變更 | 檔案 |
+|--:|:--|:--|
+| 1 | `conformance.html` 納入 `menu`（於 JOB-03 一併完成），孤兒頁問題解除 | `sushi-config.yaml` |
+| 2 | 下載區改寫為表格並補齊：UC-007、`display-verification-report.csv`、`extended-ucum-reference.csv`、`snomed-loinc-mappings.csv`、附表十 ConceptMap 連結；每項加用途說明；標註「七個封包皆為 document，上傳範例待補（JOB-04）」 | `input/pagecontent/downloads.md` |
+| 3 | 參照檢查器改為區分「失效引用」與「同行標註 `backlog` 之刻意待辦」，預設 exit 0 可作為 CI 閘門；新增 `--strict` 供釋出前檢查 | `scripts/check-pagecontent-refs.js` |
+| 4 | 三份歷史規劃文件歸檔 ＋ 說明檔 | `docs/history/` |
+| 5 | 四份法規附表 PDF 歸檔 ＋ 說明檔（含「須逐項核對原文」之使用原則） | `docs/regulations/` |
+| 6 | `Requirements-fromNarrative.json` 歸檔 ＋ 說明檔（見下） | `docs/drafts/` |
+| 7 | `download.js`／`get_links.js` 移入 `scripts/` 並加註來歷（見下） | `scripts/` |
+| 8 | 新增作業前提索引（五條鐵則、常犯錯誤、檢查指令、未決事項） | `CLAUDE.md` |
+| 9 | 目錄結構說明更新 | `README.md`、`docs/optimization/JOB-07`（PDF 路徑） |
+
+檢查器修正前後：
+
+```
+（修正前）exit 1，三筆全為假警報 —— 因此無法作為閘門
+（修正後）exit 0；NOTE 列出 3 筆 backlog 標註並附行號；--strict 時 exit 1
+```
+
+### 三個「用途不明」檔案的真相
+
+逐一讀過內容後，這三個檔案都不是無用檔案，而是**既有問題的證據**：
+
+| 檔案 | 實際用途 | 處置 |
+|:--|:--|:--|
+| `download.js` | 嘗試下載 `https://mitw.dicom.org.tw/IG/TWCR_SF/package.tgz` | 移入 `scripts/` 並加註：這是**取得 TWCR_SF 正式套件失敗**的遺留物，正因為失敗才有了 `TWCRSF-mocks.fsh`。檔內位址是 **JOB-10** 查證的起點，故保留 |
+| `get_links.js` | 抓取 `https://twcore.mohw.gov.tw/ig/twcrsf/downloads.html` 找 `package.tgz` 位址 | 同上，兩者為同一件工作的兩半 |
+| `Requirements-fromNarrative.json` | `Requirements` 資源空殼，意圖是把敘述中的遵從性陳述收攏為可計算資源 | 移至 `docs/drafts/`。**原置於根目錄、不在 `input/` 之下，故從未被建置讀取**；且無任何 `statement`。接入或移除屬設計決策，已登記待與 JOB-04 一併評估 |
+
+### 另一項發現：發佈站有無源檔案
+
+`Appendix10-to-HazardType.xlsx` 存在於 gh-pages 根目錄，但**在 repo 全部歷史中從未出現**
+（`git log --all -- '*Appendix10-to-HazardType.xlsx'` 僅命中 gh-pages 的 deploy commit）。
+即發佈網站上有一個**無法由原始碼重現**的檔案。
+
+因此**未**將其加入 `downloads.md`——連結一個無源檔案，等於把不可重現的狀態固定下來。
+下載區改為連結可重現的 `ConceptMap-Appendix10-to-HazardType.html`。
+此發現為 **JOB-08**（發佈可重現性）之額外證據：若該 xlsx 確有價值，
+應將其產生方式納入建置流程，或至少把來源檔納入版控。
+
+### 尚待在可建置環境驗證
+
+* `menu` 改動後導覽是否正常、`conformance.html` 與 `ip-statements.html` 是否可達；
+* `downloads.md` 新增之三個 CSV 連結是否確實可下載
+  （`input/assets/` 之檔案在既有建置中會落到輸出根目錄，既有 `.xlsx` 連結即為此模式，
+  故預期可行，但仍需確認）。
+
+---
+
 ## 6. 交給 Claude 規劃用提示（可直接複製）
 
 ```

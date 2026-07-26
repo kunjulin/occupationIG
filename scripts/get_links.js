@@ -1,3 +1,10 @@
+// TWCR_SF 套件位址探查腳本（一次性工具，非建置流程之一部分）
+//
+// 用途：抓取 TWCR_SF 實作指引之下載頁，找出其 package.tgz 之實際位址。
+// 與 scripts/download.js 為同一件工作的兩半，背景與現況見該檔開頭註解，
+// 以及 docs/optimization/JOB-10-twcrsf-dependency-governance.md。
+'use strict';
+
 const https = require('https');
 const http = require('http');
 const url = require('url');

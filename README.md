@@ -12,9 +12,17 @@
 
 ## 專案結構與目錄說明
 
-* `input/`：包含 IG 的原始輸入內容，如頁面內容（`pagecontent/`）、FHIR 資源定義等。
-* `sushi-config.yaml`：SUSHI 編譯器的設定檔，包含專案中繼資料、依賴項以及導覽選單配置。
+* `CLAUDE.md`：作業前提索引（五條鐵則、常犯錯誤、檢查指令）。新接手者請先看這份。
+* `input/`：包含 IG 的原始輸入內容，如頁面內容（`pagecontent/`）、FHIR 資源定義（`fsh/`）、下載資產（`assets/`）等。
+* `sushi-config.yaml`：SUSHI 編譯器的設定檔，包含專案中繼資料、依賴項、建置參數以及導覽選單配置。
 * `ig.ini`：HL7 IG Publisher 的設定檔。
+* `package-list.json`：版本歷程清單，供 publish box 與發佈流程使用。
+* `docs/optimization/`：**現行優化工作範圍（13 個 JOB）——待辦事項看這裡。**
+* `docs/regulations/`：法規附表 PDF 原文，為各項涵蓋度對照表之權威來源。
+* `docs/history/`：已被取代之歷史規劃文件（非現行規範）。
+* `docs/drafts/`：尚未接入建置流程之資源草稿。
+* `scripts/`：檢查腳本（`check-pagecontent-refs.js`）與一次性工具。
+* `template/`：IG 模板之本機複本（角色待釐清，見 JOB-09）。
 * `_genonce.bat`：用於一鍵下載 IG Publisher 並執行編譯與發布的 Windows 批次檔。
 * `_updatePublisher.bat`：用於更新本地 `publisher.jar` 的批次檔。
 
