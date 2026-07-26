@@ -252,14 +252,14 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 |:---|:---|:---|:---|
 | `21104-5` 等 **15 碼** | 純音聽力 panel 與各頻率 | 大豆粉塵 IgE、牛肉 IgG、藍莓 IgG（**Deprecated** 過敏原檢測）、Borrelia 抗體、β-N-乙醯己醣胺酶、24 小時尿中鉍、鎘等 | ✅ **已於 v20260726 全數移除**（ValueSet 與 ConceptMap） |
 | `49154-8` | 尿酸全血法（acceptable） | **Rickettsia conorii IgG Ab [Titer]**（地中海斑疹熱抗體效價） | ✅ **已於 v20260726 移除**；尿酸 acceptable 標 `(-確定無合適碼)` |
-| `5671-3` | 血中鉛（Preferred） | 狀態 **DISCOURAGED** | 仍為有效碼，惟 LOINC 不建議新用途採用；是否改採他碼待覆核 |
+| `5671-3` | 血中鉛（原 Preferred） | 狀態 **DISCOURAGED** | ✅ **已處置**：Preferred 改為 `77307-7`（Venous blood, ACTIVE），本碼降為 acceptable 並經 ConceptMap 歸一 |
 | `33914-3` | eGFR MDRD（Acceptable） | 狀態 **DISCOURAGED** | 同上 |
 | `2532-0` | LDH | 狀態 **DISCOURAGED** | 同上 |
 | `1709-5` | RBC 乙醯膽鹼酯酶 | 狀態 **DISCOURAGED** | 同上 |
 | `35200-5` | 總膽固醇（acceptable） | 狀態 **DISCOURAGED** | v20260726 全面比對新發現 |
 | `55284-4` | 血壓 panel | 狀態 **DISCOURAGED** | v20260726 全面比對新發現 |
-| `19571-9` | MDMA 尿液篩檢 | **Methylenedioxymethamphetamine cutoff**（閾值概念碼，非結果碼） | ⚠️ **需覆核**：建議改用結果碼 |
-| `29771-3` | 糞便潛血（免疫法） | Hemoglobin [Presence] in Stool **from gastrointestinal tract** | ⚠️ **需覆核**：檢體描述與方法學是否相符 |
+| `19571-9` 等 **5 碼** | 尿液毒品篩檢（安非他命／鴉片／苯二氮平／K他命／MDMA） | 均為 **cutoff（閾值濃度）概念碼**（`[Mass/volume] ... for Screen method`，單位 ng/mL），非篩檢結果碼 | ✅ **已處置**：改列對應之 `[Presence]` 結果碼（`3349-8`／`3879-4`／`3390-2`／`12327-3`／`14267-9`） |
+| `29771-3` | 糞便潛血（免疫法 FIT） | Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay | ✅ **已覆核**：概念相符（下消化道人類血紅蛋白免疫分析），顯示名已校正 |
 
 > ⚠️ **關於 `21104-5` 系列（重要）**：該 15 碼係先前依「職業病醫師／院內 LIS 另採純音聽力研究系列」之敘述加入，
 > 惟經 `tx.fhir.org` `$lookup` 逐碼查證，其**真實語意為過敏原 RAST 檢測、酵素與重金屬等項目，與聽力無關**，
@@ -269,9 +269,10 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 > **不檢查 ValueSet 內之顯示名是否與代碼語意相符**；故該 15 碼雖語意全錯，仍可通過驗證。
 > 此為術語治理之已知盲區，處置方式應比照 `(-)` 標註原則。
 >
-> **血中鉛替代碼查詢結果（Wave 9-3）**：`5671-3` 雖為 DISCOURAGED 但仍屬有效碼；tx 未提供 `MAP_TO`。
-> 經檢索，現行 ACTIVE 之替代候選為 **`77307-7` Lead [Mass/volume] in **Venous** blood** 與 `10368-9`（Capillary blood）。
-> 職業健康之血鉛監測慣用靜脈血，故 `77307-7` 為較適之候選；**惟更換 Preferred 屬建模決策，尚待拍板**，本版維持 `5671-3`。
+> **血中鉛 Preferred 更換（Wave 9-3，已拍板）**：`5671-3` 之 LOINC 狀態為 DISCOURAGED；經檢索並確認，
+> 現行 ACTIVE 之 **`77307-7` Lead [Mass/volume] in Venous blood** 符合職業血鉛監測慣用之靜脈血檢體，
+> 已於 v20260726 改列為 **Preferred**；`5671-3` 降為 acceptable 並於 ConceptMap 建立歸一對應（equivalence = relatedto）。
+> 院內 LIS 之 `23749-5`（Lead in Specimen）之歸一 target 同步改為 `77307-7`。
 >
 > **處置結果（v20260726 / Wave 9）**：上述 `21104-5` 系列 15 碼與 `49154-8` 共 **16 碼已全數移除**（ValueSet 與 ConceptMap），
 > 相關 acceptable 欄位改標 `(-確定無合適碼)`。錯誤紀錄保留於本節供追溯。

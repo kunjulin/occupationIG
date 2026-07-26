@@ -20,7 +20,7 @@
 | 2 ★ | 噪音作業 | `noise` | 純音聽力 Panel `89015-2`（0.5–8 kHz 雙耳 14 碼）/ `TWHA-HearingTest` | ✓ | 已審 | 已驗 |
 | 3 | 游離輻射作業 | `radiation` | CBC＋白血球分類、TSH `11580-8`／Free T4 `3024-7`、皮膚/眼晶體（理學） | ✓ | 未審 | 部分驗證 |
 | 4 | 異常氣壓作業 | `abnormal-pressure` | 肺功能 `19868-9`/`20150-9`/`19926-5`、長骨 X 光 `24579-5`、心電圖 `11524-6`、聽力 | ✓ | 未審 | 部分驗證 |
-| 5 ★ | 鉛作業 | `lead` | 血中鉛 `5671-3`（Acc `23749-5`）、尿中鉛 `5676-2`、Copro `11212-8`、ALA `11215-1`、CBC | ✓ | 已審 | 已驗 |
+| 5 ★ | 鉛作業 | `lead` | 血中鉛 `77307-7`（Acc `5671-3`／`23749-5`）、尿中鉛 `5676-2`、Copro `11212-8`、ALA `11215-1`、CBC | ✓ | 已審 | 已驗 |
 | 6 | 四烷基鉛作業 | `tetraalkyl-lead` | 尿中鉛/Copro/ALA、神經精神（理學） | ✓ | 未審 | 部分驗證 |
 | 7 | 1,1,2,2-四氯乙烷作業 | `organic-solvent` | 肝功能 ALT/γ-GT `2324-2`、腎功能 | ✓ | 已審 | 已驗 |
 | 8 | 四氯化碳作業 | `organic-solvent` | 肝腎功能 | ✓ | 已審 | 已驗 |
@@ -107,7 +107,7 @@
 
 *   **適用對象**：從事鉛及其化合物之作業勞工（不含四烷基鉛）。
 *   **核心生理與實驗室檢查項目**：
-    *   **血中鉛含量 (Blood Lead)**：Preferred 代碼為 LOINC `5671-3` (Lead in Blood)，單位：`ug/dL`；院內 LIS（如林口長庚）常以 `23749-5` (Lead in Specimen) 報告，列為 Acceptable 對應碼。
+    *   **血中鉛含量 (Blood Lead)**：Preferred 代碼為 LOINC `77307-7` (Lead in Venous blood；v20260726 由 `5671-3` 改列，該碼 LOINC 狀態為 DISCOURAGED)，單位：`ug/dL`；院內 LIS（如林口長庚）常以 `23749-5` (Lead in Specimen) 報告，列為 Acceptable 對應碼。
     *   **尿中鉛含量 (Urine Lead)**：代碼為 LOINC `5676-2` (Lead in Urine)，單位：`ug/L`。
     *   **尿中紅血球生成素/共聚卟啉 (Urine Coproporphyrin)**：代碼為 LOINC `11212-8` (Copro in Urine)。
     *   **尿中 δ-胺基酮戊酸 (Urine delta-ALA)**：代碼為 LOINC `11215-1` (D-ALA in Urine)。

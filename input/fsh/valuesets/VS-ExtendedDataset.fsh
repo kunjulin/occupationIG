@@ -65,7 +65,8 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // 心電圖 11524-6（潛水/高壓作業心血管評估）已收錄於 1.1 高溫作業，不重複收錄
 
 // 1.5 鉛作業 (lead)
-* LNC#5671-3 "Lead [Mass/volume] in Blood"
+* LNC#77307-7 "Lead [Mass/volume] in Venous blood"                // 血中鉛 Preferred（v20260726 由 5671-3 改列；5671-3 之 LOINC 狀態為 DISCOURAGED）
+* LNC#5671-3 "Lead [Mass/volume] in Blood"                        // Acceptable：檢體未指定之舊碼（LOINC DISCOURAGED），經 ConceptMap 歸一至 77307-7
 * LNC#5676-2 "Lead [Mass/volume] in Urine"
 * LNC#23749-5 "Lead [Mass/volume] in Specimen"
 * LNC#11212-8 "Coproporphyrin [Mass/volume] in Urine"
@@ -132,12 +133,15 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // 1.13 微生物培養 (Microbiological Culture) [NEW]
 * LNC#43371-4 "Salmonella and Shigella [Presence] in Stool by Culture"
 
-// 1.14 尿液毒品篩檢 (Urine Drug Screening) [NEW]
-* LNC#19266-6 "Amphetamines [Presence] in Urine by Screening test"
-* LNC#19299-7 "Opiates [Presence] in Urine by Screening test"
-* LNC#19283-1 "Benzodiazepines [Presence] in Urine by Screening test"
-* LNC#19501-6 "Ketamine [Presence] in Urine by Screening test"
-* LNC#19571-9 "MDMA [Presence] in Urine by Screening test"
+// 1.14 尿液毒品篩檢 (Urine Drug Screening)
+// v20260726：原列 19266-6/19299-7/19283-1/19501-6/19571-9 經 tx $lookup 查證，均為
+//   「cutoff（閾值濃度）」概念碼（[Mass/volume] ... for Screen method，單位 ng/mL），
+//   非篩檢「結果」碼；本 IG 用途為記錄篩檢結果，已改列對應之 [Presence] 結果碼。
+* LNC#3349-8 "Amphetamines [Presence] in Urine"
+* LNC#3879-4 "Opiates [Presence] in Urine"
+* LNC#3390-2 "Benzodiazepines [Presence] in Urine"
+* LNC#12327-3 "Ketamine [Presence] in Urine"
+* LNC#14267-9 "Methylenedioxymethamphetamine [Presence] in Urine"
 
 // 1.15 癌症篩檢與 PHI (Cancer Markers/PHI) — v1.1 自 VS-CoreDataset 移入（develop.md §3.2）
 * LNC#19177-5 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
@@ -298,7 +302,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#21440-3 "Human papilloma virus 16+18+31+33+35+45+51+52+56 DNA [Presence] in Cervix by Probe"
 * LNC#22322-2 "Hepatitis B virus surface Ab [Units/volume] in Serum"
 * LNC#24110-9 "Treponema pallidum Ab [Presence] in Serum by Immunoassay"
-* LNC#29771-3 "Hemoglobin.occult [Mass/volume] in Stool by Immunochemical method"
+* LNC#29771-3 "Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay"  // 糞便免疫化學法潛血(FIT)
 * LNC#31147-2 "Reagin Ab [Presence] in Serum by RPR -- titer"
 * LNC#5176-3 "Helicobacter pylori IgG Ab [Presence] in Serum"
 * LNC#51913-2 "Hepatitis A virus Ab [Presence] in Serum or Plasma"

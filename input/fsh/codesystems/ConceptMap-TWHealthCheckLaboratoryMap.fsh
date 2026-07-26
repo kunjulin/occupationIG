@@ -261,8 +261,8 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 // 血中鉛：院內 LIS Specimen 碼 → Preferred Blood
 * group[0].element[27].code = #23749-5
 * group[0].element[27].display = "Lead [Mass/volume] in Specimen"
-* group[0].element[27].target[0].code = #5671-3
-* group[0].element[27].target[0].display = "Lead [Mass/volume] in Blood"
+* group[0].element[27].target[0].code = #77307-7
+* group[0].element[27].target[0].display = "Lead [Mass/volume] in Venous blood"
 * group[0].element[27].target[0].equivalence = #relatedto
 * group[0].element[27].target[0].comment = "source 檢體為泛稱 Specimen、target 限 Blood，非單純包含"
 
@@ -277,3 +277,10 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 // 聽力：(-確定無合適碼)。原 source 21104-5 經 tx 驗證實為 Deprecated 大豆粉塵 IgE 過敏原，
 //   非聽力之可接受碼，已移除該組對應；聽力代碼以 89015-2 panel 及其成員碼為準。
 
+// 血中鉛：檢體未指定舊碼（DISCOURAGED）→ Preferred 靜脈血
+* group[0].element[29].code = #5671-3
+* group[0].element[29].display = "Lead [Mass/volume] in Blood"
+* group[0].element[29].target[0].code = #77307-7
+* group[0].element[29].target[0].display = "Lead [Mass/volume] in Venous blood"
+* group[0].element[29].target[0].equivalence = #relatedto
+* group[0].element[29].target[0].comment = "source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。"
