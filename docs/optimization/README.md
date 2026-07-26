@@ -49,33 +49,44 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 
 ## 2. JOB 清單與優先序
 
-| JOB | 標題 | 優先序 | 類別 | 預估 | 相依 |
-|:--|:--|:--|:--|:--|:--|
-| [JOB-01](JOB-01-terminology-code-audit.md) | 術語稽核：133 筆 display 不符之錯碼分流與修正 | **P0** | 術語 | L（1–2 週） | JOB-08 較佳 |
-| [JOB-02](JOB-02-publication-language-and-versioning.md) | 發佈語言（zh-TW）、網址結構與版本歷程正式化 | **P0** | 發佈 | S（1–2 天） | — |
-| [JOB-03](JOB-03-ip-and-required-fragments.md) | LOINC/SNOMED 授權聲明與四個必要 HTML fragment 補納 | **P0** | 合規 | S（1 天） | — |
-| [JOB-04](JOB-04-upload-path-conformance.md) | 上傳路徑（Transaction Bundle ＋ `$submit`）契約與端到端範例 | **P1** | 可實作性 | M（3–5 天） | — |
-| [JOB-05](JOB-05-example-coverage.md) | 範例覆蓋率：9 profile／5 extension 補範例、performer 補齊 | **P1** | 可實作性 | M（3–5 天） | JOB-04 |
-| [JOB-06](JOB-06-identifier-namingsystem.md) | 識別碼命名系統（NamingSystem）定義與範例對齊 | **P1** | 術語／治理 | S（1–2 天） | — |
-| [JOB-07](JOB-07-scenario-required-valuesets.md) | 情境資料集值集（附表九／附表十 RequiredSet）落地 | **P1** | 內容 | L（1–2 週） | — |
-| [JOB-08](JOB-08-ci-cd-reproducible-build.md) | CI/CD：可重現 tx 建置、QA 閘門與自動發佈 | **P1** | 工程 | M（2–4 天） | — |
-| [JOB-09](JOB-09-build-config-hardening.md) | 建置組態固化：釘版、`pin-canonicals`、`no-validate` 正當性 | **P2** | 工程 | S（1–2 天） | JOB-08 |
-| [JOB-10](JOB-10-twcrsf-dependency-governance.md) | TWCR_SF mock 依賴治理（勿在他方命名空間下發佈代碼） | **P2** | 治理 | S（1–2 天） | — |
-| [JOB-11](JOB-11-security-privacy-depth.md) | 安全與隱私章節深化（可驗證化，非僅原則宣示） | **P2** | 內容 | M（3–5 天） | — |
-| [JOB-12](JOB-12-navigation-and-repo-hygiene.md) | 資訊架構與 repo 整理（孤兒頁、下載區、文件歸檔、CLAUDE.md） | **P2** | 文件 | S（1 天） | — |
-| [JOB-13](JOB-13-open-issues-register.md) | 未決事項登記簿（M-5／M-6／G-2／provisional canonical 集中揭露） | **P2** | 治理 | S（1 天） | — |
+| JOB | 標題 | 優先序 | 類別 | 預估 | 相依 | 狀態 |
+|:--|:--|:--|:--|:--|:--|:--|
+| [JOB-01](JOB-01-terminology-code-audit.md) | 術語稽核：133 筆 display 不符之錯碼分流與修正 | **P0** | 術語 | L（1–2 週） | JOB-08 較佳 | 待辦 |
+| [JOB-02](JOB-02-publication-language-and-versioning.md) | 發佈語言（zh-TW）、網址結構與版本歷程正式化 | **P0** | 發佈 | S（1–2 天） | — | ✅ **已執行**（待建置驗證） |
+| [JOB-03](JOB-03-ip-and-required-fragments.md) | LOINC/SNOMED 授權聲明與四個必要 HTML fragment 補納 | **P0** | 合規 | S（1 天） | — | ✅ **已執行**（待建置驗證） |
+| [JOB-04](JOB-04-upload-path-conformance.md) | 上傳路徑（Transaction Bundle ＋ `$submit`）契約與端到端範例 | **P1** | 可實作性 | M（3–5 天） | — | 待辦 |
+| [JOB-05](JOB-05-example-coverage.md) | 範例覆蓋率：9 profile／5 extension 補範例、performer 補齊 | **P1** | 可實作性 | M（3–5 天） | JOB-04 | 待辦 |
+| [JOB-06](JOB-06-identifier-namingsystem.md) | 識別碼命名系統（NamingSystem）定義與範例對齊 | **P1** | 術語／治理 | S（1–2 天） | — | 待辦 |
+| [JOB-07](JOB-07-scenario-required-valuesets.md) | 情境資料集值集（附表九／附表十 RequiredSet）落地 | **P1** | 內容 | L（1–2 週） | JOB-01 | 待辦 |
+| [JOB-08](JOB-08-ci-cd-reproducible-build.md) | CI/CD：可重現 tx 建置、QA 閘門與自動發佈 | **P1** | 工程 | M（2–4 天） | — | 待辦（**建議下一項**） |
+| [JOB-09](JOB-09-build-config-hardening.md) | 建置組態固化：釘版、`pin-canonicals`、`no-validate` 正當性 | **P2** | 工程 | S（1–2 天） | JOB-08 | 待辦 |
+| [JOB-10](JOB-10-twcrsf-dependency-governance.md) | TWCR_SF mock 依賴治理（勿在他方命名空間下發佈代碼） | **P2** | 治理 | S（1–2 天） | — | 待辦 |
+| [JOB-11](JOB-11-security-privacy-depth.md) | 安全與隱私章節深化（可驗證化，非僅原則宣示） | **P2** | 內容 | M（3–5 天） | — | 待辦 |
+| [JOB-12](JOB-12-navigation-and-repo-hygiene.md) | 資訊架構與 repo 整理（孤兒頁、下載區、文件歸檔、CLAUDE.md） | **P2** | 文件 | S（1 天） | — | ✅ **已執行** |
+| [JOB-13](JOB-13-open-issues-register.md) | 未決事項登記簿（M-5／M-6／G-2／provisional canonical 集中揭露） | **P2** | 治理 | S（1 天） | — | 待辦 |
+
+各已執行之 JOB 於其檔案 **§7 執行紀錄**載明實際變更、刻意未做的部分，
+以及**尚待在可建置環境驗證的項目**。
 
 預估規模：S ≈ 1–2 人日、M ≈ 3–5 人日、L ≈ 1–2 人週。
 
 ### 建議執行順序
 
 ```
-第 1 波（讓網站「看起來已發佈」＋合規）：JOB-02 → JOB-03 → JOB-12
-第 2 波（建立驗收基礎設施）：           JOB-08 → JOB-09
+第 1 波（讓網站「看起來已發佈」＋合規）：JOB-02 → JOB-03 → JOB-12   ✅ 已完成
+第 2 波（建立驗收基礎設施）：           JOB-08 → JOB-09              ← 現在在這裡
 第 3 波（正確性，最重）：                JOB-01 → JOB-06 → JOB-10
 第 4 波（可實作性）：                    JOB-04 → JOB-05 → JOB-07
 第 5 波（治理深化，可與委員意見並行）：   JOB-11 → JOB-13
 ```
+
+> ⚠️ **第 1 波之變更尚未經建置驗證。**
+> 第 1 波是在無法執行 IG Publisher 的環境完成的（`packages.fhir.org`／`tx.fhir.org`
+> 不可連線、未安裝 Jekyll），已完成的驗證僅到 SUSHI 解析組態、參照檢查器與連結檢查。
+>
+> 請先在可連外環境跑一次 `_genonce_tx.bat`，依各 JOB 之 §7 逐項確認後再進第 2 波；
+> 或直接做 **JOB-08（CI）**，讓建置驗證從此自動化——這也是把第 1 波「待驗證」
+> 狀態一次結清的最快路徑。
 
 ---
 
