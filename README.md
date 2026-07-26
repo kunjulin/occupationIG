@@ -49,6 +49,13 @@
 > ⚠️ **驗證結果之意義界定**：IG Publisher 之驗證通過，僅證明**語法正確**且**已被引用之術語**通過代碼有效性檢查；
 > **不包含臨床適切性、法規符合性與情境完整性之保證**，亦不涵蓋未被任何 profile／ValueSet 引用之對照表代碼。
 > 故不得以驗證結果作為 IG 整體品質之保證表述。
+>
+> ⚠️ **已知盲區——建置驗證不檢查 ValueSet 內之顯示名語意**：
+> IG Publisher 驗證 ValueSet 成員之「代碼是否存在於該 CodeSystem」，
+> **不驗證其 `display` 是否與代碼真實語意相符**。因此語意完全錯誤的代碼（例如以過敏原檢測之代碼
+> 標示為「純音聽力 500Hz」）可一路通過 0 Error 建置。本 IG 於 2026-07-26 即依此查出並移除 16 個錯碼。
+> **新增或引用代碼時，須另以 `$lookup` 取得官方 display 並人工確認語意**，
+> 程序見 [`.claude/skills/fhir-tx-audit/SKILL.md`](.claude/skills/fhir-tx-audit/SKILL.md)。
 
 若公司網路以 TLS 攔截（如防毒軟體／proxy）導致連線失敗，先設定：
 

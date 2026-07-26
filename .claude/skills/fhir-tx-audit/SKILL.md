@@ -8,6 +8,25 @@ description: Audit and fix LOINC/SNOMED codes in this FHIR IG using a real termi
 Verify and correct LOINC/SNOMED codes in `input/fsh/**` against a live terminology
 server, then fix only what is provably safe.
 
+## Three things every code must pass
+
+Checking only (a) is the single most common way wrong codes survive into a published IG.
+
+| # | Check | How | Why it is not enough alone |
+|:--|:--|:--|:--|
+| (a) **Existence** | `$validate-code`, or the IG Publisher build | A code that exists but means something else still passes |
+| (b) **Status** | `$lookup` → `STATUS` property | `DEPRECATED`/`DISCOURAGED` codes exist and validate fine |
+| (c) **Semantic match of the display** | `$lookup` → official `display`, compared against what the IG says the code means | **This is the only check that catches a wrong code** |
+
+**The build does not perform (c) for ValueSet members.** IG Publisher validates that a
+ValueSet's `concept.code` exists in the CodeSystem, but does **not** verify that the
+accompanying `concept.display` matches the code's real meaning. A ValueSet can therefore
+contain 15 allergen-panel codes labelled "pure tone audiometry 500 Hz" and still build
+with 0 errors. This happened in this repo (see the `21104-5` series below).
+
+Run a display audit over **every** code the IG uses whenever codes are added or inherited
+from a human-authored list — not just the ones the build complains about.
+
 ## The one rule that matters
 
 An IG Publisher `Wrong Display Name` error has **two different root causes**. Telling
@@ -20,6 +39,12 @@ silently corrupt semantics in the second case.
 | **(b) Wrong code** | tx's display is a *different concept* than what the IG uses the code for | **Do NOT touch the display.** The code itself is wrong → find a replacement code, or escalate |
 
 Real examples found in this repo:
+- The `21104-5` "pure tone audiometry" series: **15 codes, all wrong**. Their real meanings were
+  deprecated allergen RAST panels (soybean dust IgE, beef IgG, blueberry IgG), Borrelia antibodies,
+  an enzyme, and cadmium/bismuth assays. They had been added from a human-authored note claiming
+  "hospital LIS also uses the 21104-5 audiometry series". Every one built with 0 errors for weeks.
+- `49154-8`, labelled "Uric acid in Blood" and used as an acceptable variant, is really
+  **Rickettsia conorii IgG antibody titre**.
 - `1558-6` IG "Fasting **G**lucose…" vs tx "Fasting **g**lucose…" → **(a)**, fixed.
 - `3048-6` IG uses as *HDL cholesterol*, tx says **Triglyceride --fasting** → **(b)**. Changing the
   display would have relabelled the HDL field as triglycerides and it would then *pass validation*.
@@ -163,3 +188,31 @@ for c in 2093-3 1558-6 2085-9; do n=$(grep -E "^ERROR:" output/qa.txt | grep -c 
 
 Commit per coherent batch, stating in the message which codes were replaced, which displays were
 corrected, the error-count delta, and what remains for human decision.
+
+## Auditing displays across the whole IG
+
+Extract every `code`/`display` pair the IG asserts (FSH ValueSets, profile fixed codes,
+ConceptMap `element.display` and `target.display`, examples), `$lookup` each code, and
+compare token overlap between the asserted display and the official one:
+
+```python
+STOP = set("in of by the a and or with at to for [] / -- volume mass presence".split())
+def toks(s):
+    s = re.sub(r'[\[\]\(\),.:;/#\-]', ' ', s.lower())
+    return set(w for w in s.split() if w and w not in STOP and not w.isdigit())
+overlap = len(toks(ig) & toks(official)) / max(1, min(len(toks(ig)), len(toks(official))))
+```
+
+Triage by overlap: `>=0.7` matches, `0.4–0.7` needs a human look (usually naming variants such as
+"Aminolevulinic acid" vs "Delta aminolevulinate"), `<0.4` is a probable wrong code. Always read the
+low scorers yourself — the metric ranks candidates, it does not decide.
+
+Write the result to a CSV (`code, ig_display, loinc_display, loinc_status, overlap, verdict, files`)
+so the finding is reviewable and re-runnable, and record `STATUS` in the same pass to catch
+deprecated/discouraged codes for free.
+
+Practical notes: on Windows, decode `curl` output explicitly
+(`subprocess.run(..., capture_output=True)` then `.decode("utf-8","replace")`) — the default cp950
+decoding fails on LOINC's multilingual fields and silently loses every result. Set
+`PYTHONIOENCODING=utf-8` before printing CJK or emoji. Cache `$lookup` responses to a JSON file so
+re-runs are cheap.
