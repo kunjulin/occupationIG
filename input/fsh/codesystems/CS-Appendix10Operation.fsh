@@ -1,9 +1,11 @@
 CodeSystem: CS_Appendix10Operation
 Id: CS-Appendix10Operation
 Title: "附表十特別危害健康作業具名代碼系統"
-Description: "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。"
+Description: "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。"
 * ^experimental = false
 * ^caseSensitive = true
+* ^version = "115.06.26"  // 對應之法規版本；過渡期以本版本號與生效日表達，個案資料僅記錄檢查日期與所採規範版本
+
 * #app-01 "高溫作業"
 * #app-02 "噪音作業"
 * #app-03 "游離輻射作業"
@@ -37,8 +39,17 @@ Description: "《勞工健康保護規則》附表十（115.06.26 修正）逐�
 * #app-31 "銦及其化合物作業"
 * #app-32 "汞及其無機化合物作業"
 * #app-33 "苯乙烯作業"  // 115.06.26 新增
+* #app-33 ^designation[0].language = #zh-TW
+* #app-33 ^designation[0].value = "draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定"
+
 * #app-34 "甲苯作業"  // 115.06.26 新增
+* #app-34 ^designation[0].language = #zh-TW
+* #app-34 ^designation[0].value = "draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定"
+
 * #app-35 "二甲苯作業"  // 115.06.26 新增
+* #app-35 ^designation[0].language = #zh-TW
+* #app-35 ^designation[0].value = "draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定"
+
 
 ValueSet: VS_Appendix10Operation
 Id: VS-Appendix10-Operation
