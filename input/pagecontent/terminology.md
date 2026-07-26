@@ -62,8 +62,25 @@
 >    - 本 IG 之 **`preferred (primary) code`** 指「**本 IG 建議之標準交換碼**」，**並非該項目之唯一臨床正確碼**；臨床上其他碼可能同樣正確，惟為利跨機構交換一致性而指定優先碼。
 > 2. **本 IG 之值集綁定強度一律為 `extensible`**（與文件一 §6.3、實際建置一致），與上述治理層級之 `preferred` 為不同概念，請勿混用。
 
+> ⚠️ **代碼驗證之三項要件（治理要求）**：
+>
+> **`$validate-code` 通過僅代表「代碼存在」，不代表「語意正確」。** 新增或引用任何代碼前，須完成下列三項：
+>
+> | 要件 | 方法 | 單獨檢查為何不足 |
+> |:--|:--|:--|
+> | (a) **代碼存在性** | `$validate-code` 或 IG Publisher 建置 | 代碼存在但語意不同者仍會通過 |
+> | (b) **代碼狀態** | `$lookup` 之 `STATUS` 屬性 | `DEPRECATED`／`DISCOURAGED` 之代碼同樣存在且通過驗證 |
+> | (c) **顯示名語意相符性** | `$lookup` 取得官方 display，與本 IG 標示之意義**人工確認** | **唯有此項能攔截「用錯碼」** |
+>
+> **IG Publisher 不執行 (c)**：其驗證 ValueSet 之 `concept.code` 是否存在於 CodeSystem，
+> 但**不檢查 `concept.display` 是否與該代碼真實語意相符**。故一個值集可收錄 15 個過敏原檢測代碼、
+> 標示為「純音聽力各頻率」，仍以 0 Error 通過建置——此情形已實際發生於本 IG（見 §6.3）。
+>
+> 凡代碼來源為人工建議清單者，**均須執行全面 display 語意比對**，比對報告見
+> [display-verification-report.csv](display-verification-report.csv)。
+
 ### 3.2 代碼映射 ConceptMap
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **32 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）、腰圍（`56086-2`→`8280-0`）與純音聽力 panel（`21104-5`→`89015-2`）三組（聽力採 panel 對 panel，其 14 個頻率 component 對應列為後續 backlog）。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **29 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 ---
 
@@ -115,7 +132,7 @@
 | 生化/腎 | 空腹血糖 | `1558-6` | `{2339-0}` | 33747003 | mg/dL | 附表九/成健 |
 | 生化/腎 | 肌酸酐 | `2160-0` | `{38483-4}` | 15373003 | mg/dL | 附表九 |
 | 生化/腎 | eGFR | `98979-8` | `{33914-3}` | 80274001 | mL/min/{1.73_m2} | 成健 |
-| 生化/腎 | 尿酸 | `3084-1` | `{49154-8}` | 86228006 | mg/dL | 附表九 |
+| 生化/腎 | 尿酸 | `3084-1` | (-確定無合適碼) | 86228006 | mg/dL | 附表九 |
 | 肝功能 | AST (GOT) | `1920-8` | `{14409-7}` | 45896001 | U/L | 附表九/成健 |
 | 肝功能 | ALT (GPT) | `1742-6` | `{14390-9}` | 34608000 | U/L | 附表九/成健 |
 | 肝功能 | ALP | `6768-6` | `{1783-0}` | 88810008 | U/L | 附表九 |
@@ -163,7 +180,7 @@ CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`ite
 1. **Panel（`89015-2`）**：記錄整場聽力測試，進入 `VS-CoreDataset` 作為 Observation.code
 2. **個別頻率/耳別代碼（`89024-4` 等 8 個）**：作為 `component.code` 由 `TWHAHearingTestProfile` 的 8 個 component 切片處理，收錄於 `VS-ExtendedDataset`
 3. **結果解釋**：臨床人員依 ISO 1999 標準判定各頻率閾值是否超過 25 dB HL
-4. **⚠️ 關於 `21104-5` 系列（更正）**：先前依「院所 LIS／職業病醫師另採純音聽力研究系列」之敘述，將 `21104-5` 等 15 碼列為 Acceptable 變異碼。經 `tx.fhir.org` 逐碼查證，**該等代碼之真實語意為過敏原 RAST 檢測、酵素及重金屬等項目，與聽力無關**，多數並為 LOINC `DEPRECATED` 狀態。**該系列不得作為聽力代碼使用**，已列為待處置事項（見 §6.3）。本 IG 之聽力代碼以 `89015-2` panel 及其 0.5–8 kHz 雙耳 14 個成員碼為準。
+4. **⚠️ 關於 `21104-5` 系列（更正）**：先前依「院所 LIS／職業病醫師另採純音聽力研究系列」之敘述，將 `21104-5` 等 15 碼列為 Acceptable 變異碼。經 `tx.fhir.org` 逐碼查證，**該等代碼之真實語意為過敏原 RAST 檢測、酵素及重金屬等項目，與聽力無關**，多數並為 LOINC `DEPRECATED` 狀態。**該系列不得作為聽力代碼使用**，已於 v20260726 自 `VS-ExtendedDataset` 與 ConceptMap 全數移除（見 §6.3）；聽力 acceptable 變異碼標 `(-確定無合適碼)`。本 IG 之聽力代碼以 `89015-2` panel 及其 0.5–8 kHz 雙耳 14 個成員碼為準。
 
 ---
 
@@ -233,11 +250,16 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 
 | LOINC | 本 IG 標示 | LOINC 官方語意／狀態 | 說明 |
 |:---|:---|:---|:---|
-| `21104-5` 等 **15 碼** | 純音聽力 panel 與各頻率 | 大豆粉塵 IgE、牛肉 IgG、藍莓 IgG（**Deprecated** 過敏原檢測）、β-N-乙醯己醣胺酶、24 小時尿中鉍等 | ⚠️ **語意與本 IG 標示完全不符，非聽力代碼；建議移除**（詳見下方） |
+| `21104-5` 等 **15 碼** | 純音聽力 panel 與各頻率 | 大豆粉塵 IgE、牛肉 IgG、藍莓 IgG（**Deprecated** 過敏原檢測）、Borrelia 抗體、β-N-乙醯己醣胺酶、24 小時尿中鉍、鎘等 | ✅ **已於 v20260726 全數移除**（ValueSet 與 ConceptMap） |
+| `49154-8` | 尿酸全血法（acceptable） | **Rickettsia conorii IgG Ab [Titer]**（地中海斑疹熱抗體效價） | ✅ **已於 v20260726 移除**；尿酸 acceptable 標 `(-確定無合適碼)` |
 | `5671-3` | 血中鉛（Preferred） | 狀態 **DISCOURAGED** | 仍為有效碼，惟 LOINC 不建議新用途採用；是否改採他碼待覆核 |
 | `33914-3` | eGFR MDRD（Acceptable） | 狀態 **DISCOURAGED** | 同上 |
 | `2532-0` | LDH | 狀態 **DISCOURAGED** | 同上 |
 | `1709-5` | RBC 乙醯膽鹼酯酶 | 狀態 **DISCOURAGED** | 同上 |
+| `35200-5` | 總膽固醇（acceptable） | 狀態 **DISCOURAGED** | v20260726 全面比對新發現 |
+| `55284-4` | 血壓 panel | 狀態 **DISCOURAGED** | v20260726 全面比對新發現 |
+| `19571-9` | MDMA 尿液篩檢 | **Methylenedioxymethamphetamine cutoff**（閾值概念碼，非結果碼） | ⚠️ **需覆核**：建議改用結果碼 |
+| `29771-3` | 糞便潛血（免疫法） | Hemoglobin [Presence] in Stool **from gastrointestinal tract** | ⚠️ **需覆核**：檢體描述與方法學是否相符 |
 
 > ⚠️ **關於 `21104-5` 系列（重要）**：該 15 碼係先前依「職業病醫師／院內 LIS 另採純音聽力研究系列」之敘述加入，
 > 惟經 `tx.fhir.org` `$lookup` 逐碼查證，其**真實語意為過敏原 RAST 檢測、酵素與重金屬等項目，與聽力無關**，
@@ -247,4 +269,9 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 > **不檢查 ValueSet 內之顯示名是否與代碼語意相符**；故該 15 碼雖語意全錯，仍可通過驗證。
 > 此為術語治理之已知盲區，處置方式應比照 `(-)` 標註原則。
 >
-> 實際移除屬 ValueSet 變更，不在本次 UCUM 補建範圍，**列為待處置事項**。
+> **血中鉛替代碼查詢結果（Wave 9-3）**：`5671-3` 雖為 DISCOURAGED 但仍屬有效碼；tx 未提供 `MAP_TO`。
+> 經檢索，現行 ACTIVE 之替代候選為 **`77307-7` Lead [Mass/volume] in **Venous** blood** 與 `10368-9`（Capillary blood）。
+> 職業健康之血鉛監測慣用靜脈血，故 `77307-7` 為較適之候選；**惟更換 Preferred 屬建模決策，尚待拍板**，本版維持 `5671-3`。
+>
+> **處置結果（v20260726 / Wave 9）**：上述 `21104-5` 系列 15 碼與 `49154-8` 共 **16 碼已全數移除**（ValueSet 與 ConceptMap），
+> 相關 acceptable 欄位改標 `(-確定無合適碼)`。錯誤紀錄保留於本節供追溯。
