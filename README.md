@@ -27,16 +27,33 @@
 ### 準備環境
 1. **Node.js**：請安裝 Node.js (建議 LTS 版本)。
 2. **Java JDK**：HL7 IG Publisher 執行需要 Java 環境 (建議 Java 11 或以上)。
-3. **SUSHI 編譯器**：可透過 npm 安裝：
+3. **Ruby + Jekyll**：IG Publisher 最終階段以 Jekyll 產生頁面，需先安裝（`gem install jekyll bundler`）。
+4. **SUSHI 編譯器**：可透過 npm 安裝：
    ```bash
    npm install -g fsh-sushi
    ```
 
-### 執行編譯
-在 Windows 環境下，直接執行根目錄底下的 `_genonce.bat` 即可：
-1. **SUSHI 編譯**：將 FSH 程式碼編譯為 JSON 資源（置於 `fsh-generated/` 目錄）。
-2. **下載發布器**：若無 `input-cache/publisher.jar`，會自動下載最新版發布器。
-3. **產出網頁**：執行 HL7 IG Publisher 產出完整的 HTML 網頁與相關 Profile 定義（產出於 `output/` 目錄）。
+### 執行編譯（兩種建置，用途不同）
+
+| 腳本 | 術語伺服器 | 用途 |
+|:--|:--|:--|
+| `_genonce.bat` | `-tx n/a`（離線） | **日常快速建置**。不連外、速度快。 |
+| `_genonce_tx.bat` | `-tx https://tx.fhir.org/r4` | **送審／對外發佈前必跑**。逐碼驗證 LOINC/SNOMED。 |
+
+兩者流程相同（SUSHI 編譯 → 自動下載 `publisher.jar` → 產出 `output/`），差別僅在是否連線術語伺服器。
+
+> ⚠️ **離線建置（`-tx n/a`）不得作為送審依據**（文件一 v3.2 §6.6）。
+> 離線模式**不會驗證代碼是否存在、顯示名是否正確**——語法合法但語意錯誤的代碼（例如以「出院指示」的代碼記錄「職業危害暴露」）在離線建置下完全不會報錯。
+> **對外發佈或送委員審查前，一律以 `_genonce_tx.bat` 重建並確認 `output/qa.html` 之 Errors 為 0。**
+
+若公司網路以 TLS 攔截（如防毒軟體／proxy）導致連線失敗，先設定：
+
+```bash
+set JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStoreType=Windows-ROOT
+set NODE_OPTIONS=--use-system-ca
+```
+
+代碼問題之查證與修正流程見 [`.claude/skills/fhir-tx-audit/SKILL.md`](.claude/skills/fhir-tx-audit/SKILL.md)（特別注意：**「顯示名不符」可能代表用錯碼，而非僅顯示名不精確**）。
 
 ---
 
