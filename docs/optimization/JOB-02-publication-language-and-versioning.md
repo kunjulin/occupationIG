@@ -231,8 +231,25 @@ output/index.html       603 bytes
 `sushi-config.yaml` 之 `parameters` 增列 `i18n-default-lang: zh-TW`，
 與 `language: zh-TW` 並存——前者宣告產出頁面的預設語言，後者宣告 IG 資源本身的語言。
 
-**此修正尚未經建置驗證**，需待下一次 CI 執行確認輸出目錄是否變為 `zh-TW/`。
-CI 之 `Verify publication layout` 步驟會自動判定，不需人工目視。
+#### ✅ 已由 CI 驗證（run 30210248444，commit `f202a26a`）
+
+`Verify publication layout` 步驟**通過**，即三項斷言全部成立：
+
+* `output/zh-TW/{index,history,ip-statements,conformance}.html` 皆存在；
+* `output/en` **不存在**；
+* 內容首頁 `<html ... lang="zh-TW">`。
+
+`i18n-default-lang` 確為正確參數。JOB-02 之語言與網址結構目標達成。
+
+#### ⚠️ 連帶效應：INFORMATION 訊息由 257 增為 475（+218）
+
+同一次執行之 QA 閘門於 `TOTAL info` 判定退步。`err` 維持 0、`warn` 維持 204，
+12 個具名類別全部持平，**僅 info 總數增加**。
+
+推定為切換預設語言後 IG Publisher 新增之語言／翻譯相關提示，但**尚未確認內容**，
+故**不逕行調高 info 基準線**——那會使閘門失去意義。
+已為 `scripts/qa-gate.js` 增加「退步明細」功能（總數退步時列出訊息形態分布），
+下一次 CI 執行即可看出這 218 筆的實際組成，再據以決定是修正或列為可接受並附理由調整基準線。
 
 ### 本環境之驗證限制
 

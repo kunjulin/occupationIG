@@ -107,6 +107,40 @@ for (const r of rows) {
   );
 }
 
+// ---------------------------------------------------------------- 退步明細
+// 總數退步時只看到一個數字無從診斷，故就退步的等級列出訊息形態分布。
+// 形態＝把引號內容、數字與 URL 正規化後的訊息骨架，讓同類訊息聚合成一列。
+function signature(line) {
+  return line
+    .replace(/'[^']*'/g, "'X'")
+    .replace(/"[^"]*"/g, '"X"')
+    .replace(/https?:\/\/\S+/g, 'URL')
+    .replace(/\b\d+\b/g, 'N')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 150);
+}
+
+// qa.txt 之行首標記與總數欄位名稱不同：err→ERROR、warn→WARNING、info→INFORMATION
+const LEVEL_PREFIX = { err: 'ERROR', warn: 'WARNING', info: 'INFORMATION' };
+
+const regressedLevels = rows
+  .filter((r) => r.label.startsWith('TOTAL ') && r.over)
+  .map((r) => LEVEL_PREFIX[r.label.replace('TOTAL ', '')])
+  .filter(Boolean);
+
+for (const level of regressedLevels) {
+  const lines = qa.split(/\r?\n/).filter((l) => l.startsWith(`${level}:`));
+  const groups = new Map();
+  for (const l of lines) {
+    const s = signature(l);
+    groups.set(s, (groups.get(s) || 0) + 1);
+  }
+  const top = [...groups.entries()].sort((a, b) => b[1] - a[1]).slice(0, 15);
+  console.log(`\n${level} 退步明細——訊息形態分布（共 ${lines.length} 筆，${groups.size} 種形態，列出前 ${top.length} 種）：`);
+  for (const [sig, n] of top) console.log(`  ${String(n).padStart(5)} × ${sig}`);
+}
+
 if (igVersion !== 'unknown' && igVersion !== baseline.igPublisherVersion) {
   console.log(
     `\n⚠ IG Publisher 版本與基準線不同（${baseline.igPublisherVersion} → ${igVersion}）。` +
