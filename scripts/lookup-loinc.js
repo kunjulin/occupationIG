@@ -170,20 +170,38 @@ function parseLookup(res) {
   console.log(`術語伺服器：${tx}`);
 
   // ── 搜尋模式：找候選替代碼 ──────────────────────────────────────
+  //
+  // ⚠️ tx.fhir.org 之 $expand filter 為**連續子字串比對**，不是逐詞 AND。
+  //    2026-07-26 實測：「color of urine」命中（為 "Color of Urine" 之子字串），
+  //    而「alanine aminotransferase serum plasma P-5'-P」等 9 道多詞查詢全部落空——
+  //    因為 LOINC display 中間夾著 [Enzymatic activity/volume]、in、by 等，那些詞並不連續。
+  //
+  //    正確用法：給**單一連續片語**（通常就是 COMPONENT），再以較大的 count 瀏覽結果。
+  //      ✅  --search "Alanine aminotransferase" --count 50
+  //      ✖  --search "alanine aminotransferase serum plasma"
   if (searchTerm) {
-    const url = `${tx}/ValueSet/$expand?url=${encodeURIComponent('http://loinc.org/vs')}&filter=${encodeURIComponent(searchTerm)}&count=25`;
-    console.log(`搜尋：「${searchTerm}」\n`);
+    const count = Number(arg('--count', '50'));
+    const url = `${tx}/ValueSet/$expand?url=${encodeURIComponent('http://loinc.org/vs')}&filter=${encodeURIComponent(searchTerm)}&count=${count}`;
+    console.log(`搜尋：「${searchTerm}」（上限 ${count} 筆）\n`);
     let res;
     try { res = await getJson(url); } catch (e) { console.error(`✖ ${e.message}`); process.exit(1); }
     const items = res?.expansion?.contains || [];
     if (!items.length) {
-      console.log('查無結果。請換較短或較通用的關鍵字（LOINC 搜尋對字序敏感）。');
+      console.log('查無結果。');
+      console.log('');
+      console.log('filter 為「連續子字串」比對，不是逐詞 AND。多詞組合幾乎必然落空，');
+      console.log('因為 LOINC display 中間夾著 [Property]、in、by 等字。');
+      console.log('請改用單一連續片語，通常就是分析物名稱，例如：');
+      console.log('  ✅  --search "Alanine aminotransferase"');
+      console.log('  ✖  --search "alanine aminotransferase serum plasma"');
       if (res?.resourceType === 'OperationOutcome') {
+        console.log('\n伺服器訊息：');
         console.log((res.issue || []).map((i) => i.diagnostics || i.details?.text).filter(Boolean).join('\n'));
       }
       return;
     }
-    console.log(`${items.length} 筆（最多 25）：\n`);
+    const total = res?.expansion?.total;
+    console.log(`${items.length} 筆${total && total > items.length ? `（伺服器回報共 ${total} 筆，已截斷；如需更多請加 --count）` : ''}：\n`);
     for (const it of items) console.log(`  ${String(it.code).padEnd(10)} ${it.display}`);
     console.log('\n⚠️ 搜尋結果僅為候選。採用前務必對該碼執行 $lookup 確認六軸：');
     console.log(`   node scripts/lookup-loinc.js --codes <code>`);

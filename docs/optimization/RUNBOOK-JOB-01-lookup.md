@@ -127,9 +127,9 @@ git push origin claude/occupational-health-ig-review-6vx9gn
 
 ---
 
-## 2b. ② 已完成——下一步是找 10 個替代碼（需再跑一次，約 5 分鐘）
+## 2b. ② 已完成——下一步是找替代碼
 
-你推上來的 74 筆查證結果已經判定完畢（見 JOB-01 §7 第二階段），結果：
+你推上來的 74 筆查證結果已判定完畢（見 JOB-01 §8）：
 
 | 判定 | 筆數 |
 |:--|--:|
@@ -137,30 +137,52 @@ git push origin claude/occupational-health-ig-review-6vx9gn
 | `needs-clinical` 須檢驗科／職醫決定 | **23** |
 | `rewrite-display` 代碼正確、僅 display 漂移 | **41** |
 
-`confirmed-wrong` 那 10 筆的 `replacement_code` **刻意留空**——替代碼必須實際查證，
-不能憑印象填。腳本已加上搜尋能力，請在可連 tx 的機器上跑下列 10 道，
-把結果貼回對話（或存檔推上分支）：
+`confirmed-wrong` 之 `replacement_code` **刻意留空**——替代碼必須實際查證。
+
+### ⚠️ 搜尋語法：filter 是「連續子字串」，不是逐詞 AND
+
+2026-07-26 首次嘗試 10 道搜尋，**9 道落空**，只有 `color of urine` 命中
+（因為它恰好是 `Color of Urine` 的連續子字串）。
+
+原因：`ValueSet/$expand` 的 `filter` 對 tx.fhir.org 而言是連續子字串比對。
+LOINC 的 display 中間夾著 `[Enzymatic activity/volume]`、`in`、`by` 等字，
+所以「分析物 ＋ 檢體」這種多詞組合幾乎必然落空。
+
+```
+✅  --search "Alanine aminotransferase"
+✖  --search "alanine aminotransferase serum plasma P-5'-P"
+```
+
+**正確用法：只給單一連續片語（通常就是分析物名稱），再用較大的 `--count` 瀏覽。**
+腳本預設 `--count 50`，並會在結果被截斷時提示伺服器回報的總數。
+
+### 請跑這 7 道
 
 ```
 git pull origin claude/occupational-health-ig-review-6vx9gn
 
-node scripts/lookup-loinc.js --search "alanine aminotransferase serum plasma P-5'-P"
-node scripts/lookup-loinc.js --search "aspartate aminotransferase serum plasma P-5'-P"
-node scripts/lookup-loinc.js --search "prostate specific antigen serum plasma"
-node scripts/lookup-loinc.js --search "alkaline phosphatase serum plasma"
-node scripts/lookup-loinc.js --search "cholesterol VLDL calculated serum"
-node scripts/lookup-loinc.js --search "color of urine"
-node scripts/lookup-loinc.js --search "albumin creatinine ratio urine"
-node scripts/lookup-loinc.js --search "hypersegmented neutrophils leukocytes blood"
-node scripts/lookup-loinc.js --search "band form neutrophils leukocytes blood manual"
-node scripts/lookup-loinc.js --search "segmented neutrophils leukocytes blood"
+node scripts/lookup-loinc.js --search "Alanine aminotransferase"
+node scripts/lookup-loinc.js --search "Aspartate aminotransferase"
+node scripts/lookup-loinc.js --search "Prostate specific Ag"
+node scripts/lookup-loinc.js --search "Alkaline phosphatase"
+node scripts/lookup-loinc.js --search "Cholesterol in VLDL"
+node scripts/lookup-loinc.js --search "Albumin/Creatinine"
+node scripts/lookup-loinc.js --search "neutrophils/Leukocytes"
 ```
 
-每道會列出最多 25 個候選碼與其官方 display。**搜尋結果只是候選**——
-我會挑出正確者，再請你對選定的碼跑一次 `--codes` 做 `$lookup` 六軸覆核後才採用。
+比原本少 3 道：`color of urine` 已完成（得 **`5778-6` Color of Urine**），
+而嗜中性球那三碼改用共同片語 `neutrophils/Leukocytes` **一次抓全**——
+因為 `26505-8`／`26508-2`／`26511-6` 是整組錯置，必須看到全部候選才能重新分派，
+逐碼分開搜反而看不出全貌。
 
-> 若某道查無結果，LOINC 的搜尋對字序與用詞敏感，換短一點的關鍵字再試
-> （例如只留 `alanine aminotransferase`）。
+若某道結果太多被截斷，加大上限即可：
+
+```
+node scripts/lookup-loinc.js --search "neutrophils/Leukocytes" --count 100
+```
+
+把輸出貼回對話即可。我挑出正確者後，會再請你對選定的碼跑一次
+`--codes` 做 `$lookup` 六軸覆核，確認後才填入 CSV。
 
 ---
 
