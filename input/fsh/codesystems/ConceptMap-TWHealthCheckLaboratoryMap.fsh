@@ -35,7 +35,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[3].code = #2339-0
 * group[0].element[3].display = "Glucose [Mass/volume] in Blood"
 * group[0].element[3].target[0].code = #1558-6
-* group[0].element[3].target[0].display = "Fasting Glucose [Mass/volume] in Serum or Plasma"
+* group[0].element[3].target[0].display = "Fasting glucose [Mass/volume] in Serum or Plasma"
 * group[0].element[3].target[0].equivalence = #wider
 
 // Creatinine
@@ -67,9 +67,9 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[7].target[0].equivalence = #equivalent
 
 // HDL：(-) 無 acceptable 變異碼。原 element[8] 之 source 3048-6 經 tx 驗證實為 Triglyceride --fasting，
-//      非 HDL 之可接受碼，已移除該組對應（保留 element index 不重編，以免影響既有引用）。
+//      非 HDL 之可接受碼，已移除該組對應（其後 element 已重新編號為連續索引）。
 
-// LDL (v1.1 修正：Preferred 改為直接測定法 2089-1，計算法 13457-7 及舊版直接法 18262-6 皆為 Acceptable)
+// LDL (Preferred 2089-1 為方法通用碼；計算法 13457-7 與直接測定法 18262-6 為方法具名之 Acceptable)
 * group[0].element[8].code = #13457-7
 * group[0].element[8].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
 * group[0].element[8].target[0].code = #2089-1
@@ -80,21 +80,21 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[9].code = #33914-3
 * group[0].element[9].display = "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation"
 * group[0].element[9].target[0].code = #98979-8
-* group[0].element[9].target[0].display = "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (CKD-EPI 2021)"
+* group[0].element[9].target[0].display = "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
 * group[0].element[9].target[0].equivalence = #equivalent
 
 // HBsAg
 * group[0].element[10].code = #5195-3
 * group[0].element[10].display = "Hepatitis B virus surface Ag [Presence] in Serum"
 * group[0].element[10].target[0].code = #5196-1
-* group[0].element[10].target[0].display = "Hepatitis B virus surface Ag [Presence] in Serum"
+* group[0].element[10].target[0].display = "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"
 * group[0].element[10].target[0].equivalence = #equivalent
 
 // anti-HCV
-* group[0].element[11].code = #47365-2
-* group[0].element[11].display = "Hepatitis C virus Ab [Presence] in Blood"
+* group[0].element[11].code = #16128-1
+* group[0].element[11].display = "Hepatitis C virus Ab [Presence] in Serum"
 * group[0].element[11].target[0].code = #13955-0
-* group[0].element[11].target[0].display = "Hepatitis C virus Ab [Presence] in Serum or Plasma"
+* group[0].element[11].target[0].display = "Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay"
 * group[0].element[11].target[0].equivalence = #equivalent
 
 // =============================================================

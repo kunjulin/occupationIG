@@ -98,7 +98,7 @@ Title: "腰圍測量結果範例"
 Description: "受檢勞工王大同的腰圍測量結果 (82 cm)。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#vital-signs
-* code = LNC#56086-2 "Adult Waist Circumference Protocol"
+* code = LNC#8280-0 "Waist Circumference at umbilicus by Tape measure"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:15:00+08:00"
 * valueQuantity = 82 'cm' "cm"
@@ -193,7 +193,7 @@ Title: "肺功能檢查結果範例"
 Description: "受檢勞工王大同的肺功能檢查結果（FVC = 4.2 L, FEV1 = 3.5 L, FEV1/FVC = 83.3%）。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#exam
-* code = LNC#19876-2 "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
+* code = LNC#19868-9 "Forced vital capacity [Volume] Respiratory system by Spirometry"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:45:00+08:00"
 * performer = Reference(example-doctor)

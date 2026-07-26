@@ -22,7 +22,8 @@ Description: "Core 之檢驗子集（主管機關（國健署）最小共通上�
 // (-) HDL-C 無「全血」對應碼：原列 3048-6 經 tx 驗證實為 Triglyceride --fasting（非 HDL），已移除；
 //     LOINC 現無乾淨之 HDL-in-Blood 代碼，acceptable 從缺，僅保留 Preferred 2085-9。
 
-// 09044C 低密度脂蛋白膽固醇 (LDL-C) — Preferred 2089-1（tx 確認官方顯示名未含 "Direct assay"；18262-6 方為直接測定法具名碼，Preferred 選碼待覆核）
+// 09044C 低密度脂蛋白膽固醇 (LDL-C) — Preferred 2089-1（**方法通用碼**：tx 確認其官方顯示名未指定方法，
+//        適合作為 Preferred 以相容各院所方法；13457-7 計算法、18262-6 直接測定法為方法具名之 Acceptable）
 * LNC#2089-1 "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
 * LNC#13457-7 "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation" // Acceptable: 計算法
 * LNC#18262-6 "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay" // Acceptable: 直接法舊碼
@@ -45,4 +46,4 @@ Description: "Core 之檢驗子集（主管機關（國健署）最小共通上�
 
 // 14051C C型肝炎抗體 (anti-HCV) — Preferred 13955-0
 * LNC#13955-0 "Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay"
-* LNC#47365-2 "Hepatitis C virus Ab [Presence] in Serum from Donor by Immunoassay" // Acceptable: 捐血者情境變異（tx 確認非全血法；一般健檢適用性待覆核）
+* LNC#16128-1 "Hepatitis C virus Ab [Presence] in Serum"                  // Acceptable: 血清通用碼（原 47365-2 為捐血者篩檢情境碼，不適用一般健檢，已更正）

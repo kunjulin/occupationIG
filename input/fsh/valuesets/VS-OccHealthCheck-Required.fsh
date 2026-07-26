@@ -31,7 +31,7 @@ Description: "第一期法定必驗之勞工健康檢查項目草案子集，涵
 * LNC#89015-2 "Pure tone air conduction threshold audiometry panel" // 噪音：純音聽力 Panel（0.5–8 kHz 各頻率以 TWHA-HearingTest component 承載）
 * LNC#5671-3 "Lead [Mass/volume] in Blood" // 鉛：血中鉛（Preferred；院內 LIS 常以 23749-5 Specimen 報告，列為 Acceptable）
 * LNC#23749-5 "Lead [Mass/volume] in Specimen" // 鉛：血中鉛（林口長庚 LIS 實際報告碼）
-* LNC#19876-2 "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation" // 粉塵：FVC
+* LNC#19868-9 "Forced vital capacity [Volume] Respiratory system by Spirometry" // 粉塵：FVC
 * LNC#20150-9 "FEV1" // 粉塵：FEV1（正確碼，v1.1 更正）
 * LNC#19926-5 "FEV1/FVC" // 粉塵：FEV1/FVC
 * LNC#36643-5 "XR Chest 2 Views" // 粉塵：胸部 X 光（2 views，塵肺症）

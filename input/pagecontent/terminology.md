@@ -58,7 +58,7 @@
 > **用語澄清（綁定強度 vs. Preferred 代碼）**：本節之 **preferred (primary) code** 係指**指定優先代碼**，與 FHIR 值集**綁定強度（binding strength）之 `preferred`** 為不同概念。本 IG 之值集綁定強度為 **`extensible`**（與文件一 §6.3、實際建置一致），非 FHIR 之 `preferred` 綁定。
 
 ### 3.2 代碼映射 ConceptMap
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **32 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、HDL-C、LDL-C，Preferred 已修正為直接測定法 `2089-1`）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）、腰圍（`56086-2`→`8280-0`）與純音聽力 panel（`21104-5`→`89015-2`）三組（聽力採 panel 對 panel，其 14 個頻率 component 對應列為後續 backlog）。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **32 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、尿酸、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）、腰圍（`56086-2`→`8280-0`）與純音聽力 panel（`21104-5`→`89015-2`）三組（聽力採 panel 對 panel，其 14 個頻率 component 對應列為後續 backlog）。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 ---
 
@@ -88,20 +88,20 @@
 | 脂質 | 總膽固醇 | `2093-3` | `{35200-5}` | 77068002 | mg/dL | 成健 |
 | 脂質 | 三酸甘油酯 | `2571-8` | `{3043-7}` | 14740000 | mg/dL | 成健 |
 | 脂質 | HDL-C | `2085-9` | (-) | 17888004 | mg/dL | 成健 |
-| 脂質 | LDL-C (直接測定法) | `2089-1` | `{13457-7, 18262-6}` | 113079009 | mg/dL | 成健 |
+| 脂質 | LDL-C (方法通用) | `2089-1` | `{13457-7, 18262-6}` | 113079009 | mg/dL | 成健 |
 | 內分泌 | HbA1c (NGSP) | `4548-4` | `{59261-8}` | 43396009 | % | 成健/進階 |
 | 內分泌 | TSH | `11580-8` | `{3016-3}` | 61167004 | mIU/L | 進階 |
 | 癌標 | PSA | `2857-1` | `{19199-9}` | 63476009 | ng/mL | 進階 |
 | 癌標 | CA-125 | `10334-1` | `{83082-8}` | 50610001 | U/mL | 進階 |
 | 癌標 | CEA | `2039-6` | `{83085-1}` | 60267001 | ng/mL | 進階 |
 | 肝炎 | HBsAg | `5196-1` | `{5195-3}` | 39082004 | — | 成健 |
-| 肝炎 | anti-HCV | `13955-0` | `{47365-2}` | 32218006 | — | 成健 |
+| 肝炎 | anti-HCV | `13955-0` | `{16128-1}` | 32218006 | — | 成健 |
 | 尿液 | 尿蛋白 (試紙) | `5804-0` | `{2888-6}` | 167273002 | — | 附表九/成健 |
 | 生理 | BMI | `39156-5` | — | 60621009 | kg/m2 | 成健 |
 | 生理 | 腰臀比 WHR | (-) | — | 248362002 | {ratio} | 成健 |
 | 生理 | 血壓 Panel | `55284-4` | — | 75367002 | — | 成健 |
-| 生理 | 腰圍 | `8280-0` | `{56086-2}` | 276361009 | cm | 附表九/成健 |
-| 肺功能 | FVC | `19876-2` | `{19868-9, 19870-5}` | 50834005 | L | 職業 |
+| 生理 | 腰圍 | `8280-0` | (-) | 276361009 | cm | 附表九/成健 |
+| 肺功能 | FVC | `19868-9` | `{19876-2, 19870-5}` | 50834005 | L | 職業 |
 | 肺功能 | FEV1 | `20150-9` | — | 59328004 | L | 職業 |
 | 視力 | 視力 Panel | `98497-1` | — | 363983007 | — | 職業 |
 | 聽力 | 純音聽力 Panel | `89015-2` | — | 406081008 | dB | 職業 |
@@ -117,12 +117,12 @@
 CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`item_name_en`（英文名）、`loinc_preferred`（優先碼）、`loinc_acceptable`（可接受碼集合）、`snomed_ct`（代碼）、`snomed_display`（顯示名稱）、`snomed_status`（驗證狀態）、`ucum_unit`（UCUM 單位）、`regulatory_ref`（法規欄位）。
 
 ### 5.2 肺功能代碼雙 ValueSet 說明
-本指引中，肺功能代碼（`19876-2` FVC、`19868-9` FEV1、`19926-5` FEV1/FVC 比值）同時收錄於兩個不同的 ValueSet，用途各異：
+本指引中，肺功能代碼（`19868-9` FVC、`20150-9` FEV1、`19926-5` FEV1/FVC 比值）同時收錄於兩個不同的 ValueSet，用途各異：
 
 *   **[VS-PulmonaryFunction](ValueSet-VS-PulmonaryFunction.html)**：供 `TWHAPulmonaryFunctionProfile` 完整代碼集查詢使用，包含所有肺功能相關代碼（含 TLC、RV、DLCO 等）。
 *   **[VS-CoreDataset](ValueSet-VS-CoreDataset.html)**：供術語查詢與跨資料集完整性核對使用，僅收錄最核心的三個代碼。
 
-兩者並非重複，而是服務不同的查詢情境。`TWHAPulmonaryFunctionProfile` 的 `Observation.code` 為固定值（`= LNC#19876-2`），不受 VS 繫結直接限制，但兩個 VS 均供文件與術語服務查詢使用。
+兩者並非重複，而是服務不同的查詢情境。`TWHAPulmonaryFunctionProfile` 的 `Observation.code` 為固定值（`= LNC#19868-9`），不受 VS 繫結直接限制，但兩個 VS 均供文件與術語服務查詢使用。
 
 ### 5.3 聽力頻率代碼設計說明
 聽力測試之代碼結構層次如下（此為 panel／component 之**資源結構**設計，與 §3 之術語治理機制為不同概念）：

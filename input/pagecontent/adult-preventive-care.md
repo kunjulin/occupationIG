@@ -31,7 +31,7 @@
 ### 2.2 身體與理學檢查 (Observation)
 *   **身高與體重**：基本物理測量。
 *   **身體質量指數 (BMI)**：LOINC `39156-5`，評估肥胖與健康風險。
-*   **腰圍 (Waist Circumference)**：LOINC `56086-2`，評估代謝症候群風險。
+*   **腰圍 (Waist Circumference)**：LOINC `8280-0`（臍位皮尺法），評估代謝症候群風險。
 *   **血壓測量**：收縮壓與舒張壓。
 
 ### 2.3 實驗室檢驗項目 (Observation - Core Dataset)

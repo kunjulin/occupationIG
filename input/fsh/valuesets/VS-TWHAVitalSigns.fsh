@@ -6,7 +6,9 @@ Description: "包含身高、體重、腰圍及血壓等生理測量項目之 LO
 * LNC#8302-2 "Body height"
 * LNC#29463-7 "Body weight"
 * LNC#8280-0 "Waist Circumference at umbilicus by Tape measure"  // 腰圍 Preferred（委員建議，臍位皮尺法；送件前以 loinc.org 覆核顯示名）
-* LNC#56086-2 "Adult Waist Circumference Protocol"                             // 腰圍 Acceptable（沿用）
+// (-) 腰圍無第二個「量測」對應碼：原列 56086-2 經 tx 驗證為 PhenX「Adult Waist Circumference Protocol」
+//     （屬protocol/方法碼，非量測碼），已移出本值集；院所若以 56086-2 上傳，
+//     仍可經 ConceptMap TWHealthCheckLaboratoryMap 歸一至 Preferred 8280-0。
 * LNC#8480-6 "Systolic blood pressure"
 * LNC#8462-4 "Diastolic blood pressure"
 * LNC#39156-5 "Body mass index (BMI) [Ratio]"

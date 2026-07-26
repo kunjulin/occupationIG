@@ -5,7 +5,7 @@ Title: "肺功能檢查 Profile"
 Description: "用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。"
 * ^experimental = false
 * status = #final
-* code = LNC#19876-2 "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
+* code = LNC#19868-9 "Forced vital capacity [Volume] Respiratory system by Spirometry"
 * value[x] only Quantity
 * subject only Reference(TWHAPatientProfile)
 * performer only Reference(TWHAPractitionerProfile)
