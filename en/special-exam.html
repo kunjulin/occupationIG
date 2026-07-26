@@ -1,58 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE HTML>
-
-
-
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
   <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>Special Exam - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
 
-    <link href="fhir.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="fhir.css"/>
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
 
-    <!-- Project extras -->
-    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
-    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
-  	<link href="assets/css/prism.css" rel="stylesheet" />
-    <link href="assets/css/project.css" rel="stylesheet"/>
-  	<link href="assets/css/cqf.css" rel="stylesheet" />
-    <!-- Placeholder for child template CSS declarations -->
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+    <link rel="stylesheet" href="assets/css/project.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
 
-    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
-    <script type="text/javascript" src="assets/js/direction-management.js"> </script>
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+    <script src="assets/js/direction-management.js" type="text/javascript"> </script>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
+    <![endif] -->
 
-    <!-- Favicons -->
-    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
-    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
-    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+      <!-- Favicons -->
+    <link sizes="144x144" rel="fhir-logo" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="fhir-logo" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="fhir-logo" href="assets/ico/icon-fhir-72.png"/>
     <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
     <link rel="shortcut icon" href="assets/ico/favicon.png"/>
   </head>
   <body onload="document.body.style.opacity='1'">
 
-	  <script type="text/javascript" src="assets/js/prism.js"></script>
-	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
-	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
-    <script type="text/javascript" src="assets/js/mermaid.js"></script>
-    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+	  <script src="assets/js/prism.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-fhirpath.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-cql.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
     <style type="text/css">h2{--heading-prefix:"11"}
     h3,h4,h5,h6{--heading-prefix:"11"}</style>
-    <div id="segment-header" class="segment">  <!-- segment-header -->
-      <div class="container">  <!-- container -->
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
 
-        <!-- Placeholder for child template header declarations -->
+          <!-- Placeholder for child template header declarations -->
 
 
         <div id="ig-status" data-fhir="generated">
@@ -64,28 +61,28 @@
             </span>
           </p>
         </div>
-      </div> <!-- /container -->
-    </div>  <!-- /segment-header -->
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
 
-    <div id="segment-navbar" class="segment" data-fhir="generated">  <!-- segment-navbar -->
+    <div id="segment-navbar" class="segment" data-fhir="generated">    <!-- segment-navbar -->
       <div id="stripe"> </div>
-      <div class="container">  <!-- container -->
-        <!-- HEADER CONTENT -->
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
 
         <nav class="navbar navbar-inverse">
-          <!--status-bar-->
+            <!-- status-bar -->
           <div class="container">
 
-            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
               <span class="icon-bar"> </span>
               <span class="icon-bar"> </span>
               <span class="icon-bar"> </span>
             </button>
-            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
-              <!-- menu.xml  -->
+                <!-- menu.xml -->
 
-<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+<ul class="nav navbar-nav">
   <li>
     <a href="index.html">首頁 (Home)</a>
   </li>
@@ -166,29 +163,29 @@
     <a href="downloads.html">下載區 (Downloads)</a>
   </li>
 </ul>
-            </div>  <!-- /.nav-collapse -->
+            </div>    <!-- /.nav-collapse -->
 
               
 
-          </div>  <!-- /.container -->
-        </nav>  <!-- /.navbar -->
-      <!-- /HEADER CONTENT -->
-      </div>  <!-- /container -->
-    </div>  <!-- /segment-navbar -->
-    <!--status-bar-->
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
 
-    <div id="segment-breadcrumb" class="segment" data-fhir="generated">  <!-- segment-breadcrumb -->
-      <div class="container">  <!-- container -->
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
         <ul class="breadcrumb">
-          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Special Exam</b></li>
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Special Exam</b></li>
 
         </ul>
-      </div>  <!-- /container -->
-    </div>  <!-- /segment-breadcrumb -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
 
     <a name="top"> </a>
-    <div id="segment-content" class="segment">  <!-- segment-content -->
-      <div class="container">  <!-- container -->
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
         <div class="row">
           <div class="inner-wrapper">
 
@@ -200,7 +197,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='https://twcore.mohw.gov.tw/ig/twha/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+    <!-- ReleaseHeader --><p id="publish-box">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) - Local Development build (v0.1.0) built by the FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>Special Exam</h2>
   
 
@@ -216,9 +213,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
 
-    <p><!-- white space is critical inside of capture --></p>
+    <p>  <!-- white space is critical inside of capture --></p>
 <div>
-<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+  <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown. -->
 </div>
 <h1 id="特殊體格及健康檢查-special-physical--health-examination">特殊體格及健康檢查 (Special Physical &amp; Health Examination)</h1>
 
@@ -480,21 +477,21 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">苯乙烯作業</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
       <td style="text-align: left">尿中扁桃酸 <code class="language-plaintext highlighter-rouge">13000-5</code>、肝腎功能</td>
-      <td style="text-align: left">✓（115.06.26 新增）</td>
+      <td style="text-align: left">✓（115.06.26 新增・<strong>過渡期</strong>）</td>
     </tr>
     <tr>
       <td style="text-align: left">34</td>
       <td style="text-align: left">甲苯作業</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
       <td style="text-align: left">尿中馬尿酸 <code class="language-plaintext highlighter-rouge">6709-0</code>、肝腎功能</td>
-      <td style="text-align: left">✓（115.06.26 新增）</td>
+      <td style="text-align: left">✓（115.06.26 新增・<strong>過渡期</strong>）</td>
     </tr>
     <tr>
       <td style="text-align: left">35</td>
       <td style="text-align: left">二甲苯作業</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">organic-solvent</code></td>
       <td style="text-align: left">尿中甲基馬尿酸 <code class="language-plaintext highlighter-rouge">2725-0</code>、eGFR <code class="language-plaintext highlighter-rouge">98979-8</code></td>
-      <td style="text-align: left">✓（115.06.26 新增）</td>
+      <td style="text-align: left">✓（115.06.26 新增・<strong>過渡期</strong>）</td>
     </tr>
   </tbody>
 </table>
@@ -503,7 +500,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <p><strong>臨床適當性註記</strong>：(1) 噪音純音聽力圖為 0.5–8 kHz 雙耳 14 個氣導聽閾 LOINC 代碼（<code class="language-plaintext highlighter-rouge">89015-2</code> panel 成員）；院內/職醫另用之 <code class="language-plaintext highlighter-rouge">21104-5</code> 系列列為 Acceptable 變異碼。(2) FEV1 正確 LOINC 為 <code class="language-plaintext highlighter-rouge">20150-9</code>。(3) <strong>eGFR（腎絲球過濾率）</strong>：115.06.26 修正於高溫、鎳、乙基汞、汞及其無機化合物、二甲苯等類別新增，本 IG 以 <code class="language-plaintext highlighter-rouge">98979-8</code>（CKD-EPI 2021，Core 已收）承載，MDRD <code class="language-plaintext highlighter-rouge">33914-3</code> 為 Acceptable。(4) 手部 X 光（氯乙烯）、尿液細胞學（聯苯胺類）目前以通用承載，代碼結構化待後續期別補齊。(5) 鈹之生物偵測無公認定量 LOINC，以定性/理學評估記錄。</p>
 </blockquote>
 
-<hr />
+<blockquote>
+  <p><strong>⚠️ 過渡期聲明（附表十編號 33 苯乙烯／34 甲苯／35 二甲苯）</strong>：本三項為《勞工健康保護規則》115.06.26 修正新增之具名作業。其<strong>施行日期、既有勞工銜接適用與過渡期安排，尚待向勞動部職業安全衛生署確認</strong>。本 IG 已先行建立對應代碼（苯乙烯：尿中扁桃酸 <code class="language-plaintext highlighter-rouge">13000-5</code>；甲苯：尿中馬尿酸 <code class="language-plaintext highlighter-rouge">6709-0</code>；二甲苯：尿中甲基馬尿酸 <code class="language-plaintext highlighter-rouge">2725-0</code>）與家族歸併（<code class="language-plaintext highlighter-rouge">organic-solvent</code>），惟均屬<strong>過渡期之暫定配置</strong>；正式施行辦法公告後，應據以覆核檢查項目、週期與代碼配置。（對應文件一 v3.2 <span class="fhir-conformance">4.3、文件二 v3.2 </span><span class="fhir-conformance">4.3、文件二 v3.2 </span></p>
+</blockquote>
+
+<hr/>
 
 <h2 id="1-高溫作業-high-temperature-operations">1. 高溫作業 (High Temperature Operations)</h2>
 
@@ -519,7 +520,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="2-噪音作業-noise-operations">2. 噪音作業 (Noise Operations)</h2>
 
@@ -533,7 +534,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="3-游離輻射作業-radiation-operations">3. 游離輻射作業 (Radiation Operations)</h2>
 
@@ -555,7 +556,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="4-異常氣壓作業-abnormal-pressure-operations">4. 異常氣壓作業 (Abnormal Pressure Operations)</h2>
 
@@ -571,7 +572,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="5-鉛作業-lead-operations">5. 鉛作業 (Lead Operations)</h2>
 
@@ -588,7 +589,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="6-四烷基鉛作業-tetraalkyl-lead-operations">6. 四烷基鉛作業 (Tetraalkyl-lead Operations)</h2>
 
@@ -602,7 +603,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="7-粉塵作業-dust-operations">7. 粉塵作業 (Dust Operations)</h2>
 
@@ -616,7 +617,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="8-有機溶劑作業-organic-solvent-operations">8. 有機溶劑作業 (Organic Solvent Operations)</h2>
 
@@ -625,9 +626,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>肝腎功能與血液 (共用項目)</strong>：肝功能 ALT (LOINC <code class="language-plaintext highlighter-rouge">1742-6</code>)、γ-GT (LOINC <code class="language-plaintext highlighter-rouge">2324-2</code>)，腎功能 Creatinine (LOINC <code class="language-plaintext highlighter-rouge">2160-0</code>)，及 CBC（收錄於 Core），並輔以神經學理學檢查。二硫化碳作業另需心電圖 (LOINC <code class="language-plaintext highlighter-rouge">11524-6</code>)、血脂與眼底檢查。</li>
   <li><strong>各溶劑之尿中生物監測代謝物</strong>：
     <ul>
-      <li><strong>尿中馬尿酸 (Hippuric acid)</strong>：甲苯（Toluene）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">6709-0</code>。</li>
-      <li><strong>尿中甲基馬尿酸 (Methylhippuric acid)</strong>：二甲苯（Xylene）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">2725-0</code>。</li>
-      <li><strong>尿中扁桃酸 (Mandelic acid)</strong>：苯乙烯（Styrene）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">13000-5</code>。</li>
+      <li><strong>尿中馬尿酸 (Hippuric acid)</strong>：甲苯（Toluene）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">6709-0</code>。〔附表十 34 甲苯作業，115.06.26 新增，<strong>過渡期暫定配置</strong>〕</li>
+      <li><strong>尿中甲基馬尿酸 (Methylhippuric acid)</strong>：二甲苯（Xylene）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">2725-0</code>。〔附表十 35 二甲苯作業，115.06.26 新增，<strong>過渡期暫定配置</strong>〕</li>
+      <li><strong>尿中扁桃酸 (Mandelic acid)</strong>：苯乙烯（Styrene）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">13000-5</code>。〔附表十 33 苯乙烯作業，115.06.26 新增，<strong>過渡期暫定配置</strong>；第 19 條另定苯乙烯相關紀錄保存 30 年〕</li>
       <li><strong>尿中三氯乙酸 (Trichloroacetic acid)</strong>：三氯乙烯之代謝物，LOINC <code class="language-plaintext highlighter-rouge">3041-1</code>。</li>
       <li><strong>尿中 2,5-己二酮 (2,5-Hexanedione)</strong>：正己烷（n-Hexane）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">31170-4</code>。</li>
       <li><strong>尿中酚 (Phenol)</strong>：苯（Benzene）之代謝物，LOINC <code class="language-plaintext highlighter-rouge">2758-1</code>。</li>
@@ -637,7 +638,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="9-特定化學物質作業-specific-chemical-operations">9. 特定化學物質作業 (Specific Chemical Operations)</h2>
 
@@ -668,7 +669,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="10-黃磷作業-yellow-phosphorus-operations">10. 黃磷作業 (Yellow Phosphorus Operations)</h2>
 
@@ -688,7 +689,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="11-聯吡啶或巴拉刈作業-paraquat-operations">11. 聯吡啶或巴拉刈作業 (Paraquat Operations)</h2>
 
@@ -708,7 +709,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </li>
 </ul>
 
-<hr />
+<hr/>
 
 <h2 id="12-其他指定作業-other-operations">12. 其他指定作業 (Other Operations)</h2>
 
@@ -728,31 +729,31 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
 </div>
-        </div>  <!-- /inner-wrapper -->
-      </div>  <!-- /row -->
-    </div>  <!-- /container -->
-  </div>  <!-- /segment-content -->
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
 
-  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
-  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
-  <script type="text/javascript" src="assets/js/flags.js"> </script>
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+  <script src="assets/js/flags.js" type="text/javascript"> </script>
 
-  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
-  <script type="text/javascript" src="assets/js/togglechanges.js"> </script>
-  <script type="text/javascript" src="assets/js/requirements-table.js"> </script>
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <script src="assets/js/togglechanges.js" type="text/javascript"> </script>
+  <script src="assets/js/requirements-table.js" type="text/javascript"> </script>
   <a name="bottom"> </a>
-  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
-    <div class="container" data-fhir="generated">  <!-- container -->
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container" data-fhir="generated">    <!-- container -->
 
       <div class="inner-wrapper">
         <p>
 
 
 
-          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
+          IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-26 10:07:00 +0800">
+  <span title="2026-07-26 12:18:00 +0800">
     2026-07-26
   </span>
 
@@ -764,27 +765,26 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                 
           </span>
         </p>
-      </div>  <!-- /inner-wrapper -->
-    </div>  <!-- /container -->
-  </div>  <!-- /segment-footer -->
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
   
-  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
-    <div class="container">  <!-- container -->
-    </div>  <!-- /container -->
-  </div>  <!-- /segment-post-footer -->
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
 
-  <!-- JS and analytics only. -->
-  <!-- Bootstrap core JavaScript
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
   ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
-  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
-  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
-  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
-  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
-  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
-  <!-- Analytics Below
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
   ================================================== -->
   </body>
 </html>
-

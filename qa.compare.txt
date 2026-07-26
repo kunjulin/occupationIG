@@ -1,10 +1,10 @@
 TWHAIG : Validation Results
 =========================================
 
-err = 0, warn = 204, info = 272
+err = 0, warn = 204, info = 273
 $--
 Generated $--. FHIR version $-- for mohw.tw.twha#$-- (canonical = https://twcore.mohw.gov.tw/ig/twha)
- Build Errors : 0 / 5 / 0
+ Build Errors : 0 / 5 / 1
  C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-001 : 0 / 8 / 33
  C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-002 : 0 / 8 / 37
  C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-003 : 0 / 3 / 19
@@ -159,6 +159,7 @@ Generated $--. FHIR version $-- for mohw.tw.twha#$-- (canonical = https://twcore
 </table>
 == n/a ==
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource OperationDefinition/Bundle-submit.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+INFORMATION: en/special-exam.html: No conformance term found in the text: 4.3、文件二 v3.2 
 WARNING: 1: The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
 WARNING: 2: An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
 WARNING: 3: An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide

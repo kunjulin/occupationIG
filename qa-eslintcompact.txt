@@ -2,6 +2,7 @@ TWHAIG
 =========================================
 
 Generic: line 0, col 0, Warning - Unable to find ImplementationGuide.definition.resource.description for the resource OperationDefinition/Bundle-submit.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list. (INVARIANT)
+Generic: line 0, col 0, Info - No conformance term found in the text: 4.3、文件二 v3.2  (BUSINESSRULE)
 Generic: line 0, col 0, Warning - The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide (NOTFOUND)
 Generic: line 0, col 0, Warning - An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide (NOTFOUND)
 Generic: line 0, col 0, Warning - An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide (NOTFOUND)
@@ -478,5 +479,5 @@ C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-sf-BetNutChewYear-val
 C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-sf-BetNutChewYear-valueset.json: line 1, col 1315, Warning - Published value sets SHOULD conform to the ShareableValueSet profile, which says that the element ValueSet.experimental is mandatory, but it is not present (REQUIRED)
 C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-sf-BetNutChewYear-valueset.json: line 0, col 0, Warning - The resource ValueSet/sf-BetNutChewYear-valueset should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root) (BUSINESSRULE)
 
-err = 0, warn = 204, info = 272
+err = 0, warn = 204, info = 273
 IG Publisher Version: 2.2.11

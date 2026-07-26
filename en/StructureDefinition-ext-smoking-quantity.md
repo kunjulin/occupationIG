@@ -36,7 +36,7 @@ Other representations of profile: [CSV](../StructureDefinition-ext-smoking-quant
   "title" : "吸菸量及菸齡擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-26T10:07:44+08:00",
+  "date" : "2026-07-26T12:18:37+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
