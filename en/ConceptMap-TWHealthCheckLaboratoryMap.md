@@ -87,16 +87,6 @@
       }]
     },
     {
-      "code" : "49154-8",
-      "display" : "Uric acid [Mass/volume] in Blood",
-      "target" : [{
-        "code" : "3084-1",
-        "display" : "Uric acid [Mass/volume] in Serum or Plasma",
-        "equivalence" : "relatedto",
-        "comment" : "檢體不同(Blood vs Serum/Plasma)"
-      }]
-    },
-    {
       "code" : "35200-5",
       "display" : "Cholesterol [Mass or Moles/volume] in Serum or Plasma",
       "target" : [{
@@ -334,16 +324,6 @@
         "display" : "Waist Circumference at umbilicus by Tape measure",
         "equivalence" : "relatedto",
         "comment" : "source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同"
-      }]
-    },
-    {
-      "code" : "21104-5",
-      "display" : "Pure tone audiometry - Audiometry study",
-      "target" : [{
-        "code" : "89015-2",
-        "display" : "Pure tone threshold audiometry panel",
-        "equivalence" : "relatedto",
-        "comment" : "panel 層對應；兩者頻率成分結構未逐一對齊，component 層等價未經確立"
       }]
     }]
   }]
