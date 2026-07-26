@@ -53,6 +53,7 @@
 附表十 35 項具名作業與 12 危害家族之對映：
 
 *   [ConceptMap：附表十 → 危害類別](ConceptMap-Appendix10-to-HazardType.html) — 線上檢視，頁內提供 JSON／XML／TTL 下載。
+*   [附表十 → 危害類別對照表 (XLSX)](Appendix10-to-HazardType.xlsx) — 同一份對映之試算表格式，由建置工具自 ConceptMap 產生。
 *   [特殊危害健康作業](special-exam.html) — 以附表十 35 項為列主鍵之涵蓋度對照表。
 
 法規附表原文（PDF）置於原始碼倉庫之

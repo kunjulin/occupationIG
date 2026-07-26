@@ -149,16 +149,23 @@ repo 已有 `.claude/skills/fhir-tx-audit/SKILL.md`（品質很好），但沒�
 | `get_links.js` | 抓取 `https://twcore.mohw.gov.tw/ig/twcrsf/downloads.html` 找 `package.tgz` 位址 | 同上，兩者為同一件工作的兩半 |
 | `Requirements-fromNarrative.json` | `Requirements` 資源空殼，意圖是把敘述中的遵從性陳述收攏為可計算資源 | 移至 `docs/drafts/`。**原置於根目錄、不在 `input/` 之下，故從未被建置讀取**；且無任何 `statement`。接入或移除屬設計決策，已登記待與 JOB-04 一併評估 |
 
-### 另一項發現：發佈站有無源檔案
+### 更正：`Appendix10-to-HazardType.xlsx` 並非無源檔案
 
-`Appendix10-to-HazardType.xlsx` 存在於 gh-pages 根目錄，但**在 repo 全部歷史中從未出現**
-（`git log --all -- '*Appendix10-to-HazardType.xlsx'` 僅命中 gh-pages 的 deploy commit）。
-即發佈網站上有一個**無法由原始碼重現**的檔案。
+初步檢視時發現該檔存在於 gh-pages 根目錄，卻在 repo 全部歷史中查無
+（`git log --all -- '*Appendix10-to-HazardType.xlsx'` 僅命中 gh-pages 的 deploy commit），
+故當時判定為「發佈站上有無法由原始碼重現的檔案」，並據此**不**將其列入下載區。
 
-因此**未**將其加入 `downloads.md`——連結一個無源檔案，等於把不可重現的狀態固定下來。
-下載區改為連結可重現的 `ConceptMap-Appendix10-to-HazardType.html`。
-此發現為 **JOB-08**（發佈可重現性）之額外證據：若該 xlsx 確有價值，
-應將其產生方式納入建置流程，或至少把來源檔納入版控。
+**該判定有誤。** 2026-07-26 之 CI 建置（run 30209412428）在乾淨環境中由原始碼建置後，
+`output/` 根層即含 `Appendix10-to-HazardType.xlsx`——它是 **IG Publisher 依
+`ConceptMap-Appendix10-to-HazardType` 自動產生**的試算表產出物，
+本來就不該存在於原始碼中，也完全可重現。
+
+因此：
+
+* 該檔**可以**安全連結，已補入 `downloads.md` §4；
+* 原先「此為 JOB-08 發佈可重現性之額外證據」的推論**撤回**——
+  JOB-08 的可重現性問題成立，但依據是建置來源為 `C:\repo\...` 之本機建置且
+  gh-pages 與 main 無血緣關係，與本檔無關。
 
 ### 尚待在可建置環境驗證
 

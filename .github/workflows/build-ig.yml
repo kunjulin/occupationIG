@@ -118,18 +118,42 @@ jobs:
       # 把 JOB-02／JOB-03 的驗收條件固化為斷言，而非靠人工目視。
       # 語言目錄來自模板之 multilanguage-format: true（見 JOB-02 §3.3），
       # 故輸出必然落在語言子目錄；此處驗證它是 zh-TW 而非 en。
+      # 刻意不使用 `set -e` 與 `cmd | head`：pipefail 下 head 提早關閉會讓上游收到
+      # SIGPIPE 而使整步以 exit 2 失敗（第一版即因此誤報）。此處逐項判定後才決定結果。
+      #
+      # 佈局不預設：模板之 multilanguage-format: true 會產生語言子目錄，但仍以實際
+      # 產出為準——先定位真正的內容首頁，再斷言「語言是 zh-TW」與「不存在 en/」，
+      # 這兩項才是 JOB-02 的實質主張，且與佈局無關。
       - name: Verify publication layout
         run: |
-          set -euo pipefail
-          echo "--- output/ 頂層 ---"
-          ls -1 output | head -20
+          set -u
+          echo "--- output/ 一層子目錄 ---"
+          find output -mindepth 1 -maxdepth 1 -type d -printf '%f/\n' | sort
+          echo "--- output/ 根層檔案數 ---"
+          find output -mindepth 1 -maxdepth 1 -type f | wc -l
+          echo "--- index.html 位置與大小 ---"
+          find output -maxdepth 2 -name index.html -printf '%p  %s bytes\n' | sort
 
           fail=0
-          for f in zh-TW/index.html zh-TW/history.html zh-TW/ip-statements.html zh-TW/conformance.html; do
-            if [ -f "output/$f" ]; then
-              echo "OK   output/$f"
+
+          # 定位內容首頁：語言子目錄優先；否則根目錄的 index.html 需夠大才算內容
+          # （multilanguage 佈局下根目錄 index.html 是約 560 bytes 的轉址殼頁）。
+          if [ -f output/zh-TW/index.html ]; then
+            base=output/zh-TW
+            echo "偵測到語言子目錄佈局：$base"
+          elif [ -f output/index.html ] && [ "$(stat -c%s output/index.html)" -gt 2000 ]; then
+            base=output
+            echo "偵測到單語言根目錄佈局：$base"
+          else
+            echo "FAIL 找不到內容首頁（output/zh-TW/index.html 不存在，且 output/index.html 過小或不存在）"
+            exit 1
+          fi
+
+          for f in index.html history.html ip-statements.html conformance.html; do
+            if [ -f "$base/$f" ]; then
+              echo "OK   $base/$f"
             else
-              echo "FAIL output/$f 不存在"; fail=1
+              echo "FAIL $base/$f 不存在"; fail=1
             fi
           done
 
@@ -139,9 +163,12 @@ jobs:
             echo "OK   無 output/en"
           fi
 
-          lang=$(sed -n 's/.*<html[^>]*[^-]lang="\([^"]*\)".*/\1/p' output/zh-TW/index.html | head -1)
-          echo "首頁 html lang = ${lang:-<未偵測到>}"
-          [ "$lang" = "zh-TW" ] || { echo "FAIL 預期 lang=zh-TW"; fail=1; }
+          # 前導空白使其只取 lang= 而非 xml:lang=
+          lang=$(grep -o '<html[^>]*>' "$base/index.html" | head -1 | grep -o ' lang="[^"]*"' | sed 's/ lang="//; s/"$//')
+          echo "內容首頁 html lang = ${lang:-<未偵測到>}"
+          if [ "$lang" != "zh-TW" ]; then
+            echo "FAIL 預期 lang=zh-TW"; fail=1
+          fi
 
           exit $fail
 
