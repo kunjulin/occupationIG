@@ -190,5 +190,75 @@ CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`ite
 1. **Panel（`89015-2`）**：記錄整場聽力測試，進入`VS-CoreDataset`作為 Observation.code
 1. **個別頻率/耳別代碼（`89024-4` 等 8 個）**：作為`component.code`由`TWHAHearingTestProfile`的 8 個 component 切片處理，收錄於`VS-ExtendedDataset`
 1. **結果解釋**：臨床人員依 ISO 1999 標準判定各頻率閾值是否超過 25 dB HL
-1. **院內/職醫變異碼（Acceptable）**：部分院所 LIS 與職業病醫師建議採用`21104-5`（Audiometry study）及`21106-0`等頻率系列碼；本 IG 維持`89015-2`panel 為 Preferred，`21104-5`系列列為 Acceptable 變異（收錄於`VS-ExtendedDataset`），供 LIS 對接。
+1. **⚠️ 關於 `21104-5` 系列（更正）**：先前依「院所 LIS／職業病醫師另採純音聽力研究系列」之敘述，將`21104-5`等 15 碼列為 Acceptable 變異碼。經`tx.fhir.org`逐碼查證，**該等代碼之真實語意為過敏原 RAST 檢測、酵素及重金屬等項目，與聽力無關**，多數並為 LOINC`DEPRECATED`狀態。**該系列不得作為聽力代碼使用**，已列為待處置事項（見 §6.3）。本 IG 之聽力代碼以`89015-2`panel 及其 0.5–8 kHz 雙耳 14 個成員碼為準。
+
+-------
+
+## 6. Extended 量值項目建議單位對照（UCUM）
+
+> 本表所列為 **LOINC 官方建議單位**（`EXAMPLE_UCUM_UNITS` 欄位，經 `tx.fhir.org` `$lookup` 查詢，LOINC 2.82），供實作參照； **實際單位以各機構 LIS 報告為準，跨機構比較前應確認單位一致或完成換算。**⚠️ **全部項目之驗證狀態均為「需覆核」**，須經檢驗醫學專業確認後方可改為「已覆核」。 本節**未修改任何 ValueSet 綁定**——UCUM 於 FHIR 中係存在於 Observation 實例之 `valueQuantity.system = "http://unitsofmeasure.org"` 與 `.code`，ValueSet 本身不承載單位。
+
+### 6.1 盤點結果
+
+| | |
+| :--- | :--- |
+| VS-ExtendedDataset 代碼總數 | 292 |
+| **LOINC 有提供建議單位** | **209** |
+| LOINC 未提供建議單位（多為定性／影像／鏡檢項目） | 83 |
+
+完整對照表（292 筆，含 LOINC 官方顯示名與來源標註）： **[extended-ucum-reference.csv](extended-ucum-reference.csv)**
+
+CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC 官方顯示名）、 `ucum_suggested`（建議單位）、`source`（來源）、`verification`（驗證狀態）、`note`（註記）。
+
+### 6.2 重點項目與單位陷阱（覆核時優先檢視）
+
+下列項目之單位**易生誤用且誤差可達 10 倍以上，屬病人安全風險**，覆核時應優先確認：
+
+| | | | | |
+| :--- | :--- | :--- | :--- | :--- |
+| `5671-3` | 血中鉛（LOINC 狀態：DISCOURAGED） | `ug/dL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `5676-2` | 尿中鉛 | `ug/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `5685-3` | 血中汞 | `ng/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `5689-5` | 尿中汞 | `ug/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `5609-3` | 血中鎘 | `ng/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `5611-9` | 尿中鎘 | `ng/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `5622-6` | 血清鉻 | `ng/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `5623-4` | 尿中鉻 | `ug/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `14099-6` | 尿中鎳 | `ng/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `5586-3` | 尿中砷 | `ug/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `5681-2` | 血中錳 | `ng/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `42221-2` | 尿中錳 | `nmol/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `6709-0` | 尿中馬尿酸（甲苯） | `g/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `2725-0` | 尿中甲基馬尿酸（二甲苯） | `mg/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `13000-5` | 尿中扁桃酸（苯乙烯） | — | **LOINC 未提供** | 需覆核 |
+| `3041-1` | 尿中三氯乙酸 | `ug/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `31170-4` | 尿中2,5-己二酮（正己烷） | `mg/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `2758-1` | 尿中酚（苯） | `mg/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `12533-6` | 尿中TTCA（二硫化碳） | — | **LOINC 未提供** | 需覆核 |
+| `4548-4` | HbA1c (NGSP) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `59261-8` | HbA1c (IFCC) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `98979-8` | eGFR (CKD-EPI 2021) | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `33914-3` | eGFR (MDRD)（LOINC 狀態：DISCOURAGED） | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+
+**特別提醒：**
+
+* **重金屬單位不一致**：血中鉛為 `ug/dL`、尿中鉛為 `ug/L`、血中汞與鎘為 `ng/mL`——**量級不同，不可互換**。
+* **肌酸酐校正**：尿中代謝物實務上常以 `mg/g{creatinine}` 報告（經肌酸酐校正），與 LOINC 建議之 `g/L`／`mg/mL` **非同一量測基礎**，交換時須明確標示是否已校正。
+* **HbA1c**：NGSP（`%`）與 IFCC（`mmol/mol`）需換算，換算式見 ConceptMap 之 comment。
+* **eGFR**：`mL/min/{1.73_m2}`；另注意 MDRD 與 CKD-EPI 2021 為不同公式，數值不可直接互換。
+* **聽閾**：`dB`（已於 `TWHA-HearingTest` 規範，見該 Profile 說明）。
+
+### 6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）
+
+盤點時以 `$lookup` 一併取得 LOINC 代碼狀態，發現下列情形，一併列出供後續處置：
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| `21104-5`等**15 碼** | 純音聽力 panel 與各頻率 | 大豆粉塵 IgE、牛肉 IgG、藍莓 IgG（**Deprecated**過敏原檢測）、β-N-乙醯己醣胺酶、24 小時尿中鉍等 | ⚠️**語意與本 IG 標示完全不符，非聽力代碼；建議移除**（詳見下方） |
+| `5671-3` | 血中鉛（Preferred） | 狀態**DISCOURAGED** | 仍為有效碼，惟 LOINC 不建議新用途採用；是否改採他碼待覆核 |
+| `33914-3` | eGFR MDRD（Acceptable） | 狀態**DISCOURAGED** | 同上 |
+| `2532-0` | LDH | 狀態**DISCOURAGED** | 同上 |
+| `1709-5` | RBC 乙醯膽鹼酯酶 | 狀態**DISCOURAGED** | 同上 |
+
+> ⚠️ **關於 `21104-5` 系列（重要）**：該 15 碼係先前依「職業病醫師／院內 LIS 另採純音聽力研究系列」之敘述加入， 惟經 `tx.fhir.org` `$lookup` 逐碼查證，其**真實語意為過敏原 RAST 檢測、酵素與重金屬等項目，與聽力無關**， 且多數已為 LOINC `DEPRECATED` 狀態。**此類錯誤不會被 IG Publisher 攔截**——建置驗證僅確認「代碼於 LOINC 中存在」， **不檢查 ValueSet 內之顯示名是否與代碼語意相符**；故該 15 碼雖語意全錯，仍可通過驗證。 此為術語治理之已知盲區，處置方式應比照 `(-)` 標註原則。實際移除屬 ValueSet 變更，不在本次 UCUM 補建範圍，**列為待處置事項**。
 

@@ -26,27 +26,27 @@
     "sources" : ["2.16.840.1.113883.4.642.3.141"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
-    "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
-    "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-Condition.html" : "健康檢查既往病史與不適作業疾病 Profile",
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
     "StructureDefinition-TWHA-ImagingStudy.html" : "健康檢查健檢影像檢查 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
+    "StructureDefinition-TWHA-Condition.html" : "健康檢查既往病史與不適作業疾病 Profile",
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
+    "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/bodysite-laterality",
@@ -159,8 +159,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.232"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-CarePlan.html" : "健康檢查適性配工計畫 Profile",
-    "StructureDefinition-TWHA-DiagnosticReport.html" : "健康檢查健檢診斷報告 Profile"
+    "StructureDefinition-TWHA-DiagnosticReport.html" : "健康檢查健檢診斷報告 Profile",
+    "StructureDefinition-TWHA-CarePlan.html" : "健康檢查適性配工計畫 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/clinicalimpression-prognosis",
@@ -202,8 +202,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.238"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
+    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile"
   },
   {
@@ -218,8 +218,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.241"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
+    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile"
   },
   {
@@ -262,9 +262,9 @@
     "sources" : ["2.16.840.1.113883.4.642.3.161"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
     "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
-    "StructureDefinition-TWHA-ClinicalImpression.html" : "健康檢查健檢醫師總評與分級 Profile"
+    "StructureDefinition-TWHA-ClinicalImpression.html" : "健康檢查健檢醫師總評與分級 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/condition-severity",
@@ -334,8 +334,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.71"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Organization-Employer.html" : "健康檢查所屬事業單位（雇主公司） Profile",
+    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Organization-Facility.html" : "實施健康檢查之醫療機構 Profile",
     "StructureDefinition-TWHA-Patient.html" : "受檢者 Profile"
   },
@@ -351,8 +351,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.73"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Organization-Employer.html" : "健康檢查所屬事業單位（雇主公司） Profile",
+    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Organization-Facility.html" : "實施健康檢查之醫療機構 Profile",
     "StructureDefinition-TWHA-Patient.html" : "受檢者 Profile"
   },
@@ -383,22 +383,22 @@
     "sources" : ["2.16.840.1.113883.4.642.3.5"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
     "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
     "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
     "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/device-action",
@@ -412,8 +412,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.425"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/device-kind",
@@ -427,8 +427,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.208"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/diagnosis-role",
@@ -527,8 +527,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.244"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
+    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile"
   },
   {
@@ -695,8 +695,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.109"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/http-verb",
@@ -726,8 +726,8 @@
     "uses" : {
     },
     "StructureDefinition-TWHA-Encounter-Service.html" : "臨場健康服務事件 Profile",
-    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Encounter.html" : "健康檢查健檢就醫事件 Profile",
+    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Patient.html" : "受檢者 Profile"
   },
   {
@@ -742,10 +742,10 @@
     "sources" : ["2.16.840.1.113883.4.642.3.57"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Encounter-Service.html" : "臨場健康服務事件 Profile",
-    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Organization-Employer.html" : "健康檢查所屬事業單位（雇主公司） Profile",
+    "StructureDefinition-TWHA-Encounter-Service.html" : "臨場健康服務事件 Profile",
     "StructureDefinition-TWHA-Encounter.html" : "健康檢查健檢就醫事件 Profile",
+    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Organization-Facility.html" : "實施健康檢查之醫療機構 Profile",
     "StructureDefinition-TWHA-Patient.html" : "受檢者 Profile"
   },
@@ -819,46 +819,46 @@
     "sources" : ["2.16.840.1.113883.4.642.3.20"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
-    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
-    "StructureDefinition-TWHA-QuestionnaireResponse.html" : "自覺症狀問卷回覆 Profile",
-    "StructureDefinition-TWHA-Organization-Employer.html" : "健康檢查所屬事業單位（雇主公司） Profile",
-    "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
-    "StructureDefinition-TWHA-Encounter.html" : "健康檢查健檢就醫事件 Profile",
-    "StructureDefinition-TWHA-Organization-Facility.html" : "實施健康檢查之醫療機構 Profile",
-    "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Condition.html" : "健康檢查既往病史與不適作業疾病 Profile",
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
+    "StructureDefinition-TWHA-Questionnaire.html" : "健康檢查自覺症狀問卷定義 Profile",
     "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
-    "StructureDefinition-TWHA-ImagingStudy.html" : "健康檢查健檢影像檢查 Profile",
-    "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile",
     "StructureDefinition-TWHA-DiagnosticReport.html" : "健康檢查健檢診斷報告 Profile",
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Encounter-Service.html" : "臨場健康服務事件 Profile",
+    "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
+    "StructureDefinition-TWHA-Bundle-Transaction.html" : "健康檢查資料上傳封包 (Transaction Bundle) Profile",
+    "StructureDefinition-TWHA-Condition.html" : "健康檢查既往病史與不適作業疾病 Profile",
+    "StructureDefinition-TWHA-CarePlan.html" : "健康檢查適性配工計畫 Profile",
+    "StructureDefinition-TWHA-ClinicalImpression.html" : "健康檢查健檢醫師總評與分級 Profile",
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
+    "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-Encounter.html" : "健康檢查健檢就醫事件 Profile",
+    "StructureDefinition-TWHA-QuestionnaireResponse-HT.html" : "成人預防保健問卷回覆 Profile",
     "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
     "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
-    "StructureDefinition-TWHA-Bundle-Transaction.html" : "健康檢查資料上傳封包 (Transaction Bundle) Profile",
-    "StructureDefinition-TWHA-Encounter-Service.html" : "臨場健康服務事件 Profile",
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-QuestionnaireResponse-HT.html" : "成人預防保健問卷回覆 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-Task-ServiceTask.html" : "臨場健康服務建議與改善任務 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
-    "StructureDefinition-TWHA-CarePlan.html" : "健康檢查適性配工計畫 Profile",
-    "StructureDefinition-TWHA-Questionnaire.html" : "健康檢查自覺症狀問卷定義 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-Patient.html" : "受檢者 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-ImagingStudy.html" : "健康檢查健檢影像檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
+    "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
     "StructureDefinition-TWHA-SDOH-QuestionnaireResponse.html" : "社會決定因素 (SDOH) 問卷回覆 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-QuestionnaireResponse.html" : "自覺症狀問卷回覆 Profile",
+    "StructureDefinition-TWHA-Task-ServiceTask.html" : "臨場健康服務建議與改善任務 Profile",
+    "StructureDefinition-TWHA-Organization-Employer.html" : "健康檢查所屬事業單位（雇主公司） Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile",
+    "StructureDefinition-TWHA-Organization-Facility.html" : "實施健康檢查之醫療機構 Profile",
     "StructureDefinition-TWHA-Bundle-Document.html" : "健康檢查報告交換封包 (Document Bundle) Profile",
-    "StructureDefinition-TWHA-ClinicalImpression.html" : "健康檢查健檢醫師總評與分級 Profile"
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
+    "StructureDefinition-TWHA-Patient.html" : "受檢者 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/link-type",
@@ -886,8 +886,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.322"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
+    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile"
   },
   {
@@ -902,8 +902,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.318"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
+    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile"
   },
   {
@@ -918,8 +918,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.324"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
+    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile"
   },
   {
@@ -1021,22 +1021,22 @@
     "sources" : ["2.16.840.1.113883.4.642.3.403"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
     "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
     "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
     "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/observation-codes",
@@ -1050,22 +1050,22 @@
     "sources" : ["2.16.840.1.113883.4.642.3.396"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
-    "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
     "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-DiagnosticReport.html" : "健康檢查健檢診斷報告 Profile",
+    "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
     "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
-    "StructureDefinition-TWHA-DiagnosticReport.html" : "健康檢查健檢診斷報告 Profile"
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/observation-interpretation",
@@ -1079,22 +1079,22 @@
     "sources" : ["2.16.840.1.113883.4.642.3.399"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
     "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
     "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
     "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/observation-methods",
@@ -1108,22 +1108,22 @@
     "sources" : ["2.16.840.1.113883.4.642.3.395"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
     "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
     "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
     "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/observation-status",
@@ -1137,22 +1137,22 @@
     "sources" : ["2.16.840.1.113883.4.642.3.400"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
     "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
     "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
     "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/organization-type",
@@ -1196,8 +1196,8 @@
     "uses" : {
     },
     "StructureDefinition-TWHA-Task-ServiceTask.html" : "臨場健康服務建議與改善任務 Profile",
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/procedure-category",
@@ -1211,8 +1211,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.430"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/procedure-code",
@@ -1226,9 +1226,9 @@
     "sources" : ["2.16.840.1.113883.4.642.3.427"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
     "StructureDefinition-TWHA-CarePlan.html" : "健康檢查適性配工計畫 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/procedure-followup",
@@ -1242,8 +1242,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.429"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/procedure-not-performed-reason",
@@ -1257,8 +1257,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.431"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/procedure-outcome",
@@ -1272,8 +1272,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.428"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/procedure-reason",
@@ -1287,9 +1287,9 @@
     "sources" : ["2.16.840.1.113883.4.642.3.432"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile",
+    "StructureDefinition-TWHA-ImagingStudy.html" : "健康檢查健檢影像檢查 Profile",
     "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
-    "StructureDefinition-TWHA-ImagingStudy.html" : "健康檢查健檢影像檢查 Profile"
+    "StructureDefinition-TWHA-Procedure-ServiceActivity.html" : "臨場服務執行活動項目 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/publication-status",
@@ -1317,8 +1317,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.59"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile"
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/questionnaire-answers",
@@ -1332,10 +1332,10 @@
     "sources" : ["2.16.840.1.113883.4.642.3.446"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-QuestionnaireResponse-HT.html" : "成人預防保健問卷回覆 Profile",
-    "StructureDefinition-TWHA-QuestionnaireResponse.html" : "自覺症狀問卷回覆 Profile",
+    "StructureDefinition-TWHA-SDOH-QuestionnaireResponse.html" : "社會決定因素 (SDOH) 問卷回覆 Profile",
     "StructureDefinition-TWHA-Questionnaire.html" : "健康檢查自覺症狀問卷定義 Profile",
-    "StructureDefinition-TWHA-SDOH-QuestionnaireResponse.html" : "社會決定因素 (SDOH) 問卷回覆 Profile"
+    "StructureDefinition-TWHA-QuestionnaireResponse.html" : "自覺症狀問卷回覆 Profile",
+    "StructureDefinition-TWHA-QuestionnaireResponse-HT.html" : "成人預防保健問卷回覆 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/questionnaire-answers-status",
@@ -1349,9 +1349,9 @@
     "sources" : ["required"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-QuestionnaireResponse-HT.html" : "成人預防保健問卷回覆 Profile",
+    "StructureDefinition-TWHA-SDOH-QuestionnaireResponse.html" : "社會決定因素 (SDOH) 問卷回覆 Profile",
     "StructureDefinition-TWHA-QuestionnaireResponse.html" : "自覺症狀問卷回覆 Profile",
-    "StructureDefinition-TWHA-SDOH-QuestionnaireResponse.html" : "社會決定因素 (SDOH) 問卷回覆 Profile"
+    "StructureDefinition-TWHA-QuestionnaireResponse-HT.html" : "成人預防保健問卷回覆 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior",
@@ -1408,22 +1408,22 @@
     "sources" : ["2.16.840.1.113883.4.642.3.407"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
     "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
     "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
     "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/referencerange-meaning",
@@ -1437,22 +1437,22 @@
     "sources" : ["2.16.840.1.113883.4.642.3.397"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
     "StructureDefinition-TWHA-SocialHistory-BetelNut.html" : "嚼檳榔歷史與狀態 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
-    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile",
-    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
     "StructureDefinition-TWHA-VitalSigns.html" : "職業健檢生命徵象 Profile",
-    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
-    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
-    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
     "StructureDefinition-TWHA-SocialHistory-Smoking.html" : "吸菸歷史與狀態 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-Occupation.html" : "健康檢查工作經歷與職業別 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Sleep.html" : "睡眠狀況 Profile",
+    "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
+    "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-SocialHistory-Alcohol.html" : "飲酒歷史與狀態 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-Observation-ServiceFinding.html" : "臨場健康服務發現問題/風險 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
+    "StructureDefinition-TWHA-ECG.html" : "心電圖檢查 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype",
@@ -1495,8 +1495,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.115"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-Task-ServiceTask.html" : "臨場健康服務建議與改善任務 Profile"
+    "StructureDefinition-TWHA-Task-ServiceTask.html" : "臨場健康服務建議與改善任務 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/request-status",
@@ -1510,8 +1510,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.111"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-CarePlan.html" : "健康檢查適性配工計畫 Profile"
+    "StructureDefinition-TWHA-CarePlan.html" : "健康檢查適性配工計畫 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/resource-types",
@@ -1693,8 +1693,8 @@
     "systems" : ["http://terminology.hl7.org/CodeSystem/v3-ActCode"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
+    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile"
   },
   {
@@ -1739,8 +1739,8 @@
     "sources" : ["2.16.840.1.113883.1.11.10228"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition-ServiceRecord.html" : "健康檢查健康服務執行紀錄組成結構 Profile",
+    "StructureDefinition-TWHA-Composition-EmergencySummary.html" : "職業健康急診友善摘要 Composition Profile",
     "StructureDefinition-TWHA-Composition.html" : "健康檢查健檢報告組成結構 Profile"
   },
   {
@@ -1838,8 +1838,8 @@
     "systems" : ["http://snomed.info/sct"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-Condition.html" : "健康檢查既往病史與不適作業疾病 Profile"
+    "StructureDefinition-TWHA-Condition.html" : "健康檢查既往病史與不適作業疾病 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twcore/ValueSet/health-professional-sct-tw",
@@ -1900,8 +1900,8 @@
     "systems" : ["https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd-10-pcs-2014-tw"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twcore/ValueSet/icd-10-pcs-2021-tw",
@@ -1913,10 +1913,10 @@
     "systems" : ["https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd-10-pcs-2021-tw"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
     "StructureDefinition-TWHA-ImagingStudy.html" : "健康檢查健檢影像檢查 Profile",
-    "StructureDefinition-TWHA-DiagnosticReport.html" : "健康檢查健檢診斷報告 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-DiagnosticReport.html" : "健康檢查健檢診斷報告 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twcore/ValueSet/icd-10-pcs-2023-tw",
@@ -1928,10 +1928,10 @@
     "systems" : ["https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd-10-pcs-2023-tw"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
     "StructureDefinition-TWHA-ImagingStudy.html" : "健康檢查健檢影像檢查 Profile",
-    "StructureDefinition-TWHA-DiagnosticReport.html" : "健康檢查健檢診斷報告 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-DiagnosticReport.html" : "健康檢查健檢診斷報告 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twcore/ValueSet/icd-9-cm-2001-tw",
@@ -1956,8 +1956,8 @@
     "http://terminology.hl7.org/CodeSystem/v2-0203"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Organization-Employer.html" : "健康檢查所屬事業單位（雇主公司） Profile",
+    "StructureDefinition-TWHA-Practitioner.html" : "執業/健檢醫護與服務人員 Profile",
     "StructureDefinition-TWHA-Organization-Facility.html" : "實施健康檢查之醫療機構 Profile",
     "StructureDefinition-TWHA-Patient.html" : "受檢者 Profile"
   },
@@ -1996,8 +1996,8 @@
     "http://loinc.org"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twcore/ValueSet/loinc-doc-section-code",
@@ -2111,12 +2111,12 @@
     "systems" : ["http://terminology.hl7.org/CodeSystem/observation-category"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
     "StructureDefinition-TWHA-VisionTest.html" : "視力與辨色力檢查 Profile",
-    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
-    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile",
     "StructureDefinition-TWHA-PulmonaryFunction.html" : "肺功能檢查 Profile",
-    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile"
+    "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-PhysicalExam.html" : "身體理學檢查 Profile",
+    "StructureDefinition-TWHA-LabResult-Special.html" : "特殊健檢實驗室檢驗 Profile",
+    "StructureDefinition-TWHA-HearingTest.html" : "聽力檢查 Profile"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twcore/ValueSet/occupation-lia-roc-tw",
@@ -2164,8 +2164,8 @@
     "systems" : ["https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/medical-service-payment-tw"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile",
-    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile"
+    "StructureDefinition-TWHA-Procedure-Counseling.html" : "健康諮詢與衛教指導 Profile",
+    "StructureDefinition-TWHA-ServiceRequest.html" : "健康檢查健檢追蹤檢查要求 Profile"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twcore/ValueSet/serviceRequest-category",
@@ -2238,9 +2238,9 @@
     "systems" : ["http://loinc.org"],
     "uses" : {
     },
-    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
+    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap",
     "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
-    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap"
+    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreUploadSet",
@@ -2297,9 +2297,9 @@
     "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
+    "StructureDefinition-ext-hazard-type.html" : "特別危害健康作業類別擴充",
     "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照",
-    "StructureDefinition-ext-hazard-type.html" : "特別危害健康作業類別擴充"
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthCounseling",
@@ -2323,8 +2323,8 @@
     "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile",
-    "StructureDefinition-ext-health-mgmt-level.html" : "健康管理分級擴充"
+    "StructureDefinition-ext-health-mgmt-level.html" : "健康管理分級擴充",
+    "StructureDefinition-TWHA-HealthManagementLevel.html" : "健康檢查健康管理分級 Observation Profile"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-LaborReportCode",

@@ -238,6 +238,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           <li><a href="#53-聽力頻率代碼設計說明" id="markdown-toc-53-聽力頻率代碼設計說明">5.3 聽力頻率代碼設計說明</a></li>
         </ul>
       </li>
+      <li><a href="#6-extended-量值項目建議單位對照ucum" id="markdown-toc-6-extended-量值項目建議單位對照ucum">6. Extended 量值項目建議單位對照（UCUM）</a>        <ul>
+          <li><a href="#61-盤點結果" id="markdown-toc-61-盤點結果">6.1 盤點結果</a></li>
+          <li><a href="#62-重點項目與單位陷阱覆核時優先檢視" id="markdown-toc-62-重點項目與單位陷阱覆核時優先檢視">6.2 重點項目與單位陷阱（覆核時優先檢視）</a></li>
+          <li><a href="#63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性" id="markdown-toc-63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性">6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>
@@ -830,8 +836,299 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><strong>Panel（<code class="language-plaintext highlighter-rouge">89015-2</code>）</strong>：記錄整場聽力測試，進入 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 作為 Observation.code</li>
   <li><strong>個別頻率/耳別代碼（<code class="language-plaintext highlighter-rouge">89024-4</code> 等 8 個）</strong>：作為 <code class="language-plaintext highlighter-rouge">component.code</code> 由 <code class="language-plaintext highlighter-rouge">TWHAHearingTestProfile</code> 的 8 個 component 切片處理，收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code></li>
   <li><strong>結果解釋</strong>：臨床人員依 ISO 1999 標準判定各頻率閾值是否超過 25 dB HL</li>
-  <li><strong>院內/職醫變異碼（Acceptable）</strong>：部分院所 LIS 與職業病醫師建議採用 <code class="language-plaintext highlighter-rouge">21104-5</code>（Audiometry study）及 <code class="language-plaintext highlighter-rouge">21106-0</code> 等頻率系列碼；本 IG 維持 <code class="language-plaintext highlighter-rouge">89015-2</code> panel 為 Preferred，<code class="language-plaintext highlighter-rouge">21104-5</code> 系列列為 Acceptable 變異（收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>），供 LIS 對接。</li>
+  <li><strong>⚠️ 關於 <code class="language-plaintext highlighter-rouge">21104-5</code> 系列（更正）</strong>：先前依「院所 LIS／職業病醫師另採純音聽力研究系列」之敘述，將 <code class="language-plaintext highlighter-rouge">21104-5</code> 等 15 碼列為 Acceptable 變異碼。經 <code class="language-plaintext highlighter-rouge">tx.fhir.org</code> 逐碼查證，<strong>該等代碼之真實語意為過敏原 RAST 檢測、酵素及重金屬等項目，與聽力無關</strong>，多數並為 LOINC <code class="language-plaintext highlighter-rouge">DEPRECATED</code> 狀態。<strong>該系列不得作為聽力代碼使用</strong>，已列為待處置事項（見 §6.3）。本 IG 之聽力代碼以 <code class="language-plaintext highlighter-rouge">89015-2</code> panel 及其 0.5–8 kHz 雙耳 14 個成員碼為準。</li>
 </ol>
+
+<hr />
+
+<h2 id="6-extended-量值項目建議單位對照ucum">6. Extended 量值項目建議單位對照（UCUM）</h2>
+
+<blockquote>
+  <p>本表所列為 <strong>LOINC 官方建議單位</strong>（<code class="language-plaintext highlighter-rouge">EXAMPLE_UCUM_UNITS</code> 欄位，經 <code class="language-plaintext highlighter-rouge">tx.fhir.org</code> <code class="language-plaintext highlighter-rouge">$lookup</code> 查詢，LOINC 2.82），供實作參照；
+<strong>實際單位以各機構 LIS 報告為準，跨機構比較前應確認單位一致或完成換算。</strong></p>
+
+  <p>⚠️ <strong>全部項目之驗證狀態均為「需覆核」</strong>，須經檢驗醫學專業確認後方可改為「已覆核」。
+本節<strong>未修改任何 ValueSet 綁定</strong>——UCUM 於 FHIR 中係存在於 Observation 實例之
+<code class="language-plaintext highlighter-rouge">valueQuantity.system = "http://unitsofmeasure.org"</code> 與 <code class="language-plaintext highlighter-rouge">.code</code>，ValueSet 本身不承載單位。</p>
+</blockquote>
+
+<h3 id="61-盤點結果">6.1 盤點結果</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">項目</th>
+      <th style="text-align: right">筆數</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">VS-ExtendedDataset 代碼總數</td>
+      <td style="text-align: right">292</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>LOINC 有提供建議單位</strong></td>
+      <td style="text-align: right"><strong>209</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LOINC 未提供建議單位（多為定性／影像／鏡檢項目）</td>
+      <td style="text-align: right">83</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>完整對照表（292 筆，含 LOINC 官方顯示名與來源標註）：
+<strong><a href="extended-ucum-reference.csv">extended-ucum-reference.csv</a></strong></p>
+
+<p>CSV 欄位：<code class="language-plaintext highlighter-rouge">loinc</code>、<code class="language-plaintext highlighter-rouge">ig_display</code>（本 IG 標示）、<code class="language-plaintext highlighter-rouge">loinc_display</code>（LOINC 官方顯示名）、
+<code class="language-plaintext highlighter-rouge">ucum_suggested</code>（建議單位）、<code class="language-plaintext highlighter-rouge">source</code>（來源）、<code class="language-plaintext highlighter-rouge">verification</code>（驗證狀態）、<code class="language-plaintext highlighter-rouge">note</code>（註記）。</p>
+
+<h3 id="62-重點項目與單位陷阱覆核時優先檢視">6.2 重點項目與單位陷阱（覆核時優先檢視）</h3>
+
+<p>下列項目之單位<strong>易生誤用且誤差可達 10 倍以上，屬病人安全風險</strong>，覆核時應優先確認：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">LOINC</th>
+      <th style="text-align: left">項目</th>
+      <th style="text-align: left">LOINC 建議單位</th>
+      <th style="text-align: left">來源</th>
+      <th style="text-align: left">驗證狀態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5671-3</code></td>
+      <td style="text-align: left">血中鉛（LOINC 狀態：DISCOURAGED）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/dL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5676-2</code></td>
+      <td style="text-align: left">尿中鉛</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5685-3</code></td>
+      <td style="text-align: left">血中汞</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5689-5</code></td>
+      <td style="text-align: left">尿中汞</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5609-3</code></td>
+      <td style="text-align: left">血中鎘</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5611-9</code></td>
+      <td style="text-align: left">尿中鎘</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5622-6</code></td>
+      <td style="text-align: left">血清鉻</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5623-4</code></td>
+      <td style="text-align: left">尿中鉻</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">14099-6</code></td>
+      <td style="text-align: left">尿中鎳</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5586-3</code></td>
+      <td style="text-align: left">尿中砷</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5681-2</code></td>
+      <td style="text-align: left">血中錳</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">42221-2</code></td>
+      <td style="text-align: left">尿中錳</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">nmol/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">6709-0</code></td>
+      <td style="text-align: left">尿中馬尿酸（甲苯）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">g/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2725-0</code></td>
+      <td style="text-align: left">尿中甲基馬尿酸（二甲苯）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mg/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">13000-5</code></td>
+      <td style="text-align: left">尿中扁桃酸（苯乙烯）</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left"><strong>LOINC 未提供</strong></td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">3041-1</code></td>
+      <td style="text-align: left">尿中三氯乙酸</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">31170-4</code></td>
+      <td style="text-align: left">尿中2,5-己二酮（正己烷）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mg/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2758-1</code></td>
+      <td style="text-align: left">尿中酚（苯）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mg/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">12533-6</code></td>
+      <td style="text-align: left">尿中TTCA（二硫化碳）</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left"><strong>LOINC 未提供</strong></td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">4548-4</code></td>
+      <td style="text-align: left">HbA1c (NGSP)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">%</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">59261-8</code></td>
+      <td style="text-align: left">HbA1c (IFCC)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">%</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">98979-8</code></td>
+      <td style="text-align: left">eGFR (CKD-EPI 2021)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mL/min/{1.73_m2}</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">33914-3</code></td>
+      <td style="text-align: left">eGFR (MDRD)（LOINC 狀態：DISCOURAGED）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mL/min/{1.73_m2}</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>特別提醒：</strong></p>
+<ul>
+  <li><strong>重金屬單位不一致</strong>：血中鉛為 <code class="language-plaintext highlighter-rouge">ug/dL</code>、尿中鉛為 <code class="language-plaintext highlighter-rouge">ug/L</code>、血中汞與鎘為 <code class="language-plaintext highlighter-rouge">ng/mL</code>——<strong>量級不同，不可互換</strong>。</li>
+  <li><strong>肌酸酐校正</strong>：尿中代謝物實務上常以 <code class="language-plaintext highlighter-rouge">mg/g{creatinine}</code> 報告（經肌酸酐校正），與 LOINC 建議之 <code class="language-plaintext highlighter-rouge">g/L</code>／<code class="language-plaintext highlighter-rouge">mg/mL</code> <strong>非同一量測基礎</strong>，交換時須明確標示是否已校正。</li>
+  <li><strong>HbA1c</strong>：NGSP（<code class="language-plaintext highlighter-rouge">%</code>）與 IFCC（<code class="language-plaintext highlighter-rouge">mmol/mol</code>）需換算，換算式見 ConceptMap 之 comment。</li>
+  <li><strong>eGFR</strong>：<code class="language-plaintext highlighter-rouge">mL/min/{1.73_m2}</code>；另注意 MDRD 與 CKD-EPI 2021 為不同公式，數值不可直接互換。</li>
+  <li><strong>聽閾</strong>：<code class="language-plaintext highlighter-rouge">dB</code>（已於 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> 規範，見該 Profile 說明）。</li>
+</ul>
+
+<h3 id="63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性">6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）</h3>
+
+<p>盤點時以 <code class="language-plaintext highlighter-rouge">$lookup</code> 一併取得 LOINC 代碼狀態，發現下列情形，一併列出供後續處置：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">LOINC</th>
+      <th style="text-align: left">本 IG 標示</th>
+      <th style="text-align: left">LOINC 官方語意／狀態</th>
+      <th style="text-align: left">說明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">21104-5</code> 等 <strong>15 碼</strong></td>
+      <td style="text-align: left">純音聽力 panel 與各頻率</td>
+      <td style="text-align: left">大豆粉塵 IgE、牛肉 IgG、藍莓 IgG（<strong>Deprecated</strong> 過敏原檢測）、β-N-乙醯己醣胺酶、24 小時尿中鉍等</td>
+      <td style="text-align: left">⚠️ <strong>語意與本 IG 標示完全不符，非聽力代碼；建議移除</strong>（詳見下方）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5671-3</code></td>
+      <td style="text-align: left">血中鉛（Preferred）</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">仍為有效碼，惟 LOINC 不建議新用途採用；是否改採他碼待覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">33914-3</code></td>
+      <td style="text-align: left">eGFR MDRD（Acceptable）</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">同上</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2532-0</code></td>
+      <td style="text-align: left">LDH</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">同上</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1709-5</code></td>
+      <td style="text-align: left">RBC 乙醯膽鹼酯酶</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">同上</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>⚠️ <strong>關於 <code class="language-plaintext highlighter-rouge">21104-5</code> 系列（重要）</strong>：該 15 碼係先前依「職業病醫師／院內 LIS 另採純音聽力研究系列」之敘述加入，
+惟經 <code class="language-plaintext highlighter-rouge">tx.fhir.org</code> <code class="language-plaintext highlighter-rouge">$lookup</code> 逐碼查證，其<strong>真實語意為過敏原 RAST 檢測、酵素與重金屬等項目，與聽力無關</strong>，
+且多數已為 LOINC <code class="language-plaintext highlighter-rouge">DEPRECATED</code> 狀態。</p>
+
+  <p><strong>此類錯誤不會被 IG Publisher 攔截</strong>——建置驗證僅確認「代碼於 LOINC 中存在」，
+<strong>不檢查 ValueSet 內之顯示名是否與代碼語意相符</strong>；故該 15 碼雖語意全錯，仍可通過驗證。
+此為術語治理之已知盲區，處置方式應比照 <code class="language-plaintext highlighter-rouge">(-)</code> 標註原則。</p>
+
+  <p>實際移除屬 ValueSet 變更，不在本次 UCUM 補建範圍，<strong>列為待處置事項</strong>。</p>
+</blockquote>
 
 
 
@@ -861,7 +1158,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-26 14:28:00 +0800">
+  <span title="2026-07-26 15:21:00 +0800">
     2026-07-26
   </span>
 
