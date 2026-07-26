@@ -45,10 +45,37 @@
 
 | 腳本 | 術語伺服器 | 用途 |
 |:--|:--|:--|
-| `_genonce.bat` | `-tx n/a`（離線） | **日常快速建置**。不連外、速度快。 |
-| `_genonce_tx.bat` | `-tx https://tx.fhir.org/r4` | **送審／對外發佈前必跑**。逐碼驗證 LOINC/SNOMED。 |
+| `_genonce.bat` / `npm run build:offline` | `-tx n/a`（離線） | **日常快速建置**。不連外、速度快。 |
+| `_genonce_tx.bat` / `npm run build` | `-tx https://tx.fhir.org/r4` | **送審／對外發佈前必跑**。逐碼驗證 LOINC/SNOMED。 |
 
-兩者流程相同（SUSHI 編譯 → 自動下載 `publisher.jar` → 產出 `output/`），差別僅在是否連線術語伺服器。
+兩者流程相同（SUSHI 編譯 → 下載 `publisher.jar` → 產出 `output/`），差別僅在是否連線術語伺服器。
+
+**跨平台建置（Linux/macOS/CI）**：`.bat` 為 Windows 專用，等效之跨平台指令為
+
+```bash
+npm ci                 # 安裝已釘版之 SUSHI（3.20.0）
+npm run build          # SUSHI → IG Publisher（帶 tx，publisher 釘版 2.2.11）
+npm run verify         # pagecontent 參照檢查 + QA 閘門
+```
+
+`npm run build` 會將 publisher 完整輸出寫入 `input-cache/publisher-run.log`，
+供 QA 閘門做獨立的術語伺服器連線檢查。
+
+### QA 閘門
+
+```bash
+npm run qa             # 比對 output/qa.txt 與 qa-baseline.json
+npm run qa:tx          # 另要求日誌能證明確實連上術語伺服器
+npm run qa -- --update # 改善後下調基準線（請一併提交）
+```
+
+`qa-baseline.json` 記錄各類訊息之允許上限，**任一類別數值高於基準線即失敗**（只能降不能升）。
+現行基準線量測於 2026-07-26（`err = 0, warn = 208, info = 257`），
+明細見 [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)。
+
+CI（[`.github/workflows/build-ig.yml`](.github/workflows/build-ig.yml)）於 push 與 PR 時
+自動執行上述流程並上傳 `qa.txt`／`qa.html`／建置產出物。
+**目前 CI 不自動發佈** gh-pages，發佈仍為手動。
 
 > ⚠️ **離線建置（`-tx n/a`）不得作為送審依據**（文件一 v3.2 §6.6）。
 > 離線模式**不會驗證代碼是否存在、顯示名是否正確**——語法合法但語意錯誤的代碼（例如以「出院指示」的代碼記錄「職業危害暴露」）在離線建置下完全不會報錯。

@@ -142,6 +142,84 @@ jobs:
 
 ---
 
+## 7. 執行紀錄（2026-07-26）
+
+**範圍決策（使用者確認）**：本階段只做**建置 ＋ QA 閘門**，**不含自動發佈**。
+gh-pages 目前是委員審閱中的網站，且 JOB-02 會把輸出路徑由 `en/` 改為 `zh-TW/`，
+故先確認 CI 建置正確，再另行加上發佈步驟。
+
+### 已完成
+
+| # | 變更 | 檔案 |
+|--:|:--|:--|
+| 1 | CI workflow：快速檢查 → Java/Ruby/Jekyll 環境 → 套件與 jar 快取 → SUSHI → IG Publisher（帶 tx）→ QA 閘門 → 上傳產出物 | `.github/workflows/build-ig.yml` |
+| 2 | QA 閘門，含基準線比對（只能降不能升）、改善時提示下調、`--update` 自動下調 | `scripts/qa-gate.js` |
+| 3 | 基準線（源自 2026-07-26 之 qa.txt，12 個類別 ＋ 三項總數） | `qa-baseline.json` |
+| 4 | 跨平台 publisher 執行器，**版本可釘定**（預設 2.2.11，與基準線一致），並寫出執行日誌 | `scripts/run-publisher.js` |
+| 5 | npm scripts（`build`／`build:offline`／`qa`／`qa:tx`／`check:refs`／`verify`）＋ `fsh-sushi` 釘版 3.20.0 ＋ lockfile | `package.json`、`package-lock.json` |
+| 6 | `node_modules/` 加入忽略清單 | `.gitignore` |
+
+### 對「tx 連線失敗被抑制」的處理（JOB-08 §5 之要求）
+
+`input/ignoreWarnings.txt` 以泛用字串抑制 `No server available` 與 PKIX 錯誤，
+會讓送審用的 tx 建置「連不上 tx」與「通過驗證」外觀相同。
+本 JOB **不改抑制檔**（屬 JOB-09），而是在 CI 層補一道獨立的網：
+
+* `run-publisher.js` 把 publisher 的完整輸出寫入 `input-cache/publisher-run.log`；
+* `qa-gate.js --log <日誌> --expect-tx` 掃描**日誌**而非只看 qa.txt——
+  抑制檔管不到日誌，因此這道檢查無法被抑制；
+* 偵測到離線跡象、或 `--expect-tx` 時找不到 tx 使用證據，即失敗；
+* workflow 僅在 `tx = n/a` 時降級為警告，並在 Actions 上明示「未經術語驗證，不得作為送審依據」。
+
+### 本機已驗證
+
+| 項目 | 結果 |
+|:--|:--|
+| `qa-gate.js` 對真實 qa.txt（gh-pages `9fd146f`） | 12 類別 ＋ 3 總數**全部與基準線相符**，exit 0 |
+| 退步偵測（人工加一筆 `Wrong Display Name`） | 顯示 `133 → 134 +1 FAIL 退步`，exit 1 |
+| 連線失敗偵測（人工加入 `No server available`） | 失敗並輸出送審警語，exit 1 |
+| `--expect-tx` 未給 `--log` | 失敗並說明，exit 1 |
+| 缺 `output/qa.txt` | 失敗並提示先建置，exit 1 |
+| 改善偵測（暫時提高基準線） | 標記「OK 改善」並提示 `npm run qa -- --update`，exit 0 |
+| `npm run check:refs` | exit 0 |
+| `npm run sushi` | 正常解析組態，僅剩套件下載之網路錯誤 |
+| `scripts/run-publisher.js` | **成功下載 publisher.jar 2.2.11（230MB）並實際啟動 IG Publisher**；因缺 FHIR 套件而中止 |
+| workflow YAML／各 JSON 語法 | 全部通過（14 steps） |
+
+### 為何仍需 CI 才能完整驗證
+
+本環境之網路政策：
+
+| 端點 | 狀態 |
+|:--|:--|
+| `registry.npmjs.org` | ✅ 可連 |
+| `github.com`（release 下載） | ✅ 可連（publisher.jar 已實測下載成功） |
+| `packages.fhir.org`／`packages2.fhir.org` | ❌ 封鎖 |
+| `tx.fhir.org` | ❌ 封鎖 |
+| `build.fhir.org` | ❌ 封鎖 |
+
+FHIR 套件與術語伺服器皆不可達，故**本機無法完成建置**。
+GitHub Actions runner 無此限制，因此 CI 的第一次執行即為 JOB-02／JOB-03 之
+「待建置驗證」項目的實際驗收場。
+
+### 第一次 CI 執行後應確認
+
+1. QA 閘門是否通過；`is not included anywhere in the produced implementation guide`
+   應由 4 **降為 0**（JOB-03 之驗收）→ 屆時以 `npm run qa -- --update` 下調基準線；
+2. 下載 `site-<sha>` 產出物，確認輸出目錄為 `zh-TW/` 且頁面為 `<html lang="zh-TW">`、
+   `zh-TW/history.html` 與 `zh-TW/ip-statements.html` 存在（JOB-02／JOB-03 之驗收）；
+3. `Wrong Display Name` 是否仍為 133（尚未進 JOB-01，預期不變）；
+4. 建置耗時，據以調整 `timeout-minutes`（現設 60）。
+
+### 尚未做（下一階段）
+
+* **自動發佈至 gh-pages**：依使用者決定暫緩。加入時需注意
+  舊 `en/` 目錄與 1012 個根目錄殼頁應以**全量覆蓋**清除，而非增量推送。
+* **`en/` 轉址**：使用者確認**不需保留**，直接切換至 `zh-TW/`。
+* 發佈內容記錄來源 commit（`build-info.json`）——併入發佈階段。
+
+---
+
 ## 6. 交給 Claude 規劃用提示（可直接複製）
 
 ```

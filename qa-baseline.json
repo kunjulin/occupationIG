@@ -1,0 +1,29 @@
+{
+  "_comment": [
+    "QA 訊息基準線。scripts/qa-gate.js 據此判定建置是否退步：任一數值高於基準線即失敗。",
+    "數值只能降不能升。每完成一個 JOB 使某類別下降後，以 `npm run qa -- --update` 重新下調並提交。",
+    "基準線來源見 docs/optimization/evidence/qa-summary-2026-07-26.md。"
+  ],
+  "measuredAt": "2026-07-26",
+  "igPublisherVersion": "2.2.11",
+  "source": "gh-pages 9fd146f 之 qa.txt（tx 建置）",
+  "totals": {
+    "err": 0,
+    "warn": 208,
+    "info": 257
+  },
+  "categories": {
+    "Wrong Display Name": 133,
+    "has a status of DISCOURAGED": 6,
+    "should have an OID assigned": 40,
+    "should have a performer": 47,
+    "There are multiple different potential matches": 29,
+    "No definition could be found for URL value": 24,
+    "contains no examples for this profile": 9,
+    "contains no examples for this extension": 5,
+    "is experimental, but this structure is not labeled as experimental": 11,
+    "is not included anywhere in the produced implementation guide": 4,
+    "SHOULD conform to the ShareableValueSet profile": 4,
+    "Constraint failed: vsd-0": 4
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "twha-ig",
+  "version": "0.1.0",
+  "private": true,
+  "description": "臺灣勞工健康檢查交換實作指引 (TWHA IG) — 建置與檢查腳本",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "sushi": "sushi .",
+    "build": "npm run sushi && node scripts/run-publisher.js --tx https://tx.fhir.org/r4",
+    "build:offline": "npm run sushi && node scripts/run-publisher.js --tx n/a",
+    "qa": "node scripts/qa-gate.js",
+    "qa:tx": "node scripts/qa-gate.js --log input-cache/publisher-run.log --expect-tx",
+    "check:refs": "node scripts/check-pagecontent-refs.js",
+    "check:refs:strict": "node scripts/check-pagecontent-refs.js --strict",
+    "verify": "npm run check:refs && npm run qa"
+  },
+  "devDependencies": {
+    "fsh-sushi": "3.20.0"
+  }
+}

@@ -1,0 +1,136 @@
+name: Build IG
+
+# JOB-08 第一階段：建置 ＋ QA 閘門。**刻意不含自動發佈**。
+# gh-pages 目前是委員審閱中的網站，且 JOB-02 會把輸出路徑由 en/ 改為 zh-TW/，
+# 故先確認 CI 建置與 QA 閘門正確，再另行加上發佈步驟。
+#
+# 產出物（Artifacts）：qa.txt / qa.html / publisher 執行日誌，可從 Actions 頁面下載，
+# 用來逐項驗收 JOB-02、JOB-03 之 §7 檢查清單。
+
+on:
+  push:
+    branches:
+      - main
+      - 'claude/**'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      tx:
+        description: '術語伺服器（n/a = 離線，不得作為送審依據）'
+        required: false
+        default: 'https://tx.fhir.org/r4'
+      publisher-version:
+        description: 'IG Publisher 版本（須與 qa-baseline.json 一致，否則 QA 數字不可比）'
+        required: false
+        default: '2.2.11'
+
+# 同一分支的新 push 取消舊的執行；建置需 10–20 分鐘，避免排隊堆積。
+concurrency:
+  group: build-ig-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    env:
+      TX_SERVER: ${{ github.event.inputs.tx || 'https://tx.fhir.org/r4' }}
+      IG_PUBLISHER_VERSION: ${{ github.event.inputs.publisher-version || '2.2.11' }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # ---------------------------------------------------------------- 快速檢查
+      # 不需要建置就能跑的檢查放前面，讓明顯錯誤在 1 分鐘內就失敗。
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Check pagecontent references
+        run: npm run check:refs
+
+      # ---------------------------------------------------------------- 建置環境
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # IG Publisher 最終階段以 Jekyll 產生頁面，故 CI 必須具備 Ruby + Jekyll。
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Install Jekyll
+        run: gem install jekyll bundler --no-document
+
+      # FHIR 套件快取。未快取時每次建置都要重新抓 hl7.fhir.r4.core 等套件，
+      # 會讓 CI 慢上數分鐘，也增加對 packages.fhir.org 的依賴。
+      - name: Cache FHIR packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.fhir/packages
+          key: fhir-packages-${{ hashFiles('sushi-config.yaml') }}
+          restore-keys: |
+            fhir-packages-
+
+      - name: Cache IG Publisher jar
+        uses: actions/cache@v4
+        with:
+          path: input-cache/publisher.jar
+          key: ig-publisher-${{ env.IG_PUBLISHER_VERSION }}
+
+      # ---------------------------------------------------------------- 建置
+      - name: Run SUSHI
+        run: npm run sushi
+
+      - name: Run IG Publisher
+        run: node scripts/run-publisher.js --tx "$TX_SERVER" --publisher-version "$IG_PUBLISHER_VERSION"
+
+      # ---------------------------------------------------------------- 閘門
+      # 先上傳產出物，再跑閘門：閘門失敗時仍要能下載 qa.txt 診斷。
+      - name: Upload QA output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-${{ github.sha }}
+          path: |
+            output/qa.txt
+            output/qa.html
+            output/qa.json
+            input-cache/publisher-run.log
+          if-no-files-found: warn
+          retention-days: 30
+
+      # --expect-tx 要求日誌能證明確實連上術語伺服器。這道檢查獨立於
+      # input/ignoreWarnings.txt——該抑制檔管不到 publisher 日誌，
+      # 否則「連不上 tx」會與「通過驗證」外觀相同（見 JOB-09）。
+      - name: QA gate
+        run: |
+          if [ "$TX_SERVER" = "n/a" ]; then
+            echo "::warning::離線建置（-tx n/a），未經術語驗證，不得作為送審依據。"
+            npm run qa -- --log input-cache/publisher-run.log
+          else
+            npm run qa -- --log input-cache/publisher-run.log --expect-tx
+          fi
+
+      - name: Upload built site
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-${{ github.sha }}
+          path: output
+          if-no-files-found: error
+          retention-days: 14
