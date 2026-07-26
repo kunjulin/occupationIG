@@ -74,6 +74,22 @@ set NODE_OPTIONS=--use-system-ca
 
 ---
 
+## 優化工作範圍 (Optimization Job Scopes)
+
+2026-07-26 就發佈網站（<https://kunjulin.github.io/occupationIG/>）進行審閱後，
+已將待優化事項整理為 **13 個可獨立執行的 JOB**，置於 [`docs/optimization/`](docs/optimization/README.md)：
+
+* [`docs/optimization/README.md`](docs/optimization/README.md)：審閱總結、優先序矩陣、建議執行順序、全域驗收標準。
+* [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)：
+  tx 建置 QA 統計基準線（err 0 / warn 208 / info 257）與術語稽核明細，供各 JOB 驗收比對。
+  **重跑 tx 建置後請一併更新此檔。**
+* `docs/optimization/JOB-01` ~ `JOB-13`：各 JOB 之問題證據、驗收標準、工作項目與風險；
+  每份結尾均附「交給 Claude 規劃用提示」，可直接複製使用。
+
+建議節奏：一個 JOB → 一次規劃 → 一個 commit。優先處理 P0（JOB-01～03）。
+
+---
+
 ## 版本與更新記錄 (Update History)
 
 ### 2026-07-23 更新（法規 115.06.26 同步 ＋ 四方委員意見合併）
