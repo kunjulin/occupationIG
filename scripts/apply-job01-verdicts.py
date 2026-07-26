@@ -27,6 +27,16 @@ CSV_OUT = os.path.join(ROOT, 'docs/optimization/evidence/display-triage-with-loo
 LOOKUP_COLS = ['lookup_display', 'lookup_component', 'lookup_property', 'lookup_system',
                'lookup_scale', 'lookup_method', 'lookup_status', 'lookup_error']
 VERIFIED_BY = 'lookup=tx.fhir.org(2026-07-26); 判定=Claude Opus 5（待人工覆核）'
+# 已覆核之替代碼（$lookup 8/8 成功，display 與預期一致）。空字串＝移除而非換碼。
+REPLACEMENT = {
+    '14390-9': '1743-4',    # ALT with P-5'-P in Ser/Plas
+    '14409-7': '30239-8',   # AST with P-5'-P in Ser/Plas
+    '46986-6': '13458-5',   # VLDL-C by calculation
+    '20627-6': '5778-6',    # Color of Urine
+    '13705-9': '9318-7',    # ACR 隨機尿
+    '19199-9': '',          # 移除：Preferred 2857-1 已在值集中
+    '1783-0':  '',          # 移除：Preferred 6768-6 已在值集中
+}
 VERIFIED_DATE = '2026-07-26'
 
 W = 'confirmed-wrong'
@@ -156,7 +166,7 @@ def main():
         action, rationale = v
         r['action'] = action
         r['rationale'] = rationale
-        r['replacement_code'] = ''      # 一律留空：替代碼須經 $expand 搜尋＋$lookup 覆核
+        r['replacement_code'] = REPLACEMENT.get(r['code'], '')
         r['verified_by'] = VERIFIED_BY
         r['verified_date'] = VERIFIED_DATE
         stats[action] += 1

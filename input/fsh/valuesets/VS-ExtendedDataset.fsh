@@ -147,7 +147,6 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#19177-5 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
 * LNC#2039-6 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
 * LNC#2857-1 "Prostate specific Ag [Mass/volume] in Serum or Plasma"
-* LNC#19199-9 "Prostate specific Ag [Mass/volume] in Serum or Plasma"   // Acceptable: PSA unspecified method
 * LNC#10886-0 "Prostate specific Ag.free [Mass/volume] in Serum or Plasma"
 * LNC#97149-9 "[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma"
 * LNC#97150-7 "Prostate Health Index in Serum or Plasma"
@@ -221,9 +220,9 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#26478-8 "Lymphocytes/100 leukocytes in Blood by Manual count"
 * LNC#26485-3 "Monocytes/100 leukocytes in Blood by Manual count"
 * LNC#26498-6 "Myelocytes/100 leukocytes in Blood"
-* LNC#26505-8 "Hypersegmented neutrophils/100 leukocytes in Blood"
-* LNC#26508-2 "Neutrophils/100 leukocytes in Blood by Manual count" // Acceptable: Neutrophil Manual
-* LNC#26511-6 "Neutrophils.segmented/100 leukocytes in Blood"
+* LNC#26505-8 "Segmented neutrophils/Leukocytes in Blood"  // 2026-07-26 更正 display（原誤標 Hypersegmented）；⚠️ 待確認：如確需「過度分葉核」項目應另加 30450-1
+* LNC#26508-2 "Band form neutrophils/Leukocytes in Blood"  // 2026-07-26 更正 display（原誤標為總嗜中性球手工計數）
+* LNC#26511-6 "Neutrophils/Leukocytes in Blood"  // 2026-07-26 更正 display（原誤標 segmented）；⚠️ 待確認：如確需「手工計數」版本應另加 23761-0
 * LNC#26515-7 "Platelets [#/volume] in Blood by Automated count" // Acceptable: Plt Automated
 * LNC#26524-9 "Promyelocytes/100 leukocytes in Blood"
 * LNC#28539-5 "MCH [Entitic mass] by Automated count"            // Acceptable: MCH (full name)
@@ -263,13 +262,12 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 
 // 3-x 肝膽、胰臟與心肌功能
 * LNC#10834-0 "Globulin [Mass/volume] in Serum or Plasma by calculation"
-* LNC#14390-9 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P"  // Acceptable: ALT UV
-* LNC#14409-7 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P" // Acceptable: AST UV
+* LNC#1743-4 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"  // Acceptable: ALT with P-5'-P（2026-07-26 換碼，原 14390-9 實為透析液澱粉酶）
+* LNC#30239-8 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P" // Acceptable: AST with P-5'-P（2026-07-26 換碼，原 14409-7 檢體為胸膜液）
 * LNC#1742-6 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
 * LNC#1744-2 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
 * LNC#1751-7 "Albumin [Mass/volume] in Serum or Plasma"
 * LNC#1759-0 "Albumin/Globulin [Mass Ratio] in Serum or Plasma"
-* LNC#1783-0 "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"                      // Acceptable: ALP unspecified
 * LNC#1798-8 "Amylase [Enzymatic activity/volume] in Serum or Plasma"
 * LNC#1920-8 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
 * LNC#1968-7 "Bilirubin.direct [Mass/volume] in Serum or Plasma"
@@ -281,7 +279,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#88112-8 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
 
 // 3-x 脂質分析
-* LNC#46986-6 "Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation"
+* LNC#13458-5 "Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation"  // 2026-07-26 換碼，原 46986-6 實為 VLDL 3 次分群
 * LNC#9830-1 "Cholesterol/Cholesterol in HDL [Mass Ratio] in Serum or Plasma"
 
 // 3-x 甲狀腺與營養指標
@@ -321,7 +319,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#13945-1 "Erythrocytes [#/area] in Urine sediment by Microscopy high power field"
 * LNC#20456-0 "Fungi yeast-like [Presence] in Urine sediment"
 * LNC#20621-9 "Albumin/Creatinine [Ratio] in Urine by Test strip"
-* LNC#20627-6 "Color of Urine"
+* LNC#5778-6 "Color of Urine"  // 2026-07-26 換碼，原 20627-6 實為尿液濁度 (Turbidity)
 * LNC#25145-4 "Bacteria [Presence] in Urine sediment by Light microscopy"
 * LNC#30004-6 "Creatinine [Mass/volume] in Urine by Test strip"
 * LNC#32356-8 "Yeast [Presence] in Urine sediment"
@@ -367,7 +365,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#62487-4 "Urobilinogen [Presence] in Urine by Test strip"
 
 // 3-x 一般心血管與腎臟篩檢
-* LNC#13705-9 "Albumin/Creatinine [Mass Ratio] in Urine"
+* LNC#9318-7 "Albumin/Creatinine [Mass Ratio] in Urine"  // 2026-07-26 換碼，原 13705-9 檢體為 24 小時尿；⚠️ 待確認：健檢 ACR 若驗微白蛋白應改用 14959-1（Microalbumin/Creatinine）
 * LNC#14957-5 "Microalbumin [Mass/volume] in Urine"
 * LNC#1988-5 "C reactive protein [Mass/volume] in Serum or Plasma"
 * LNC#2161-8 "Creatinine [Mass/volume] in Urine"
