@@ -33,7 +33,7 @@
   "title" : "健康檢查進階與領域擴充項目值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-26T16:11:18+08:00",
+  "date" : "2026-07-26T18:45:10+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -188,6 +188,10 @@
       {
         "code" : "19926-5",
         "display" : "FEV1/FVC"
+      },
+      {
+        "code" : "77307-7",
+        "display" : "Lead [Mass/volume] in Venous blood"
       },
       {
         "code" : "5671-3",
@@ -374,24 +378,24 @@
         "display" : "Salmonella and Shigella [Presence] in Stool by Culture"
       },
       {
-        "code" : "19266-6",
-        "display" : "Amphetamines [Presence] in Urine by Screening test"
+        "code" : "3349-8",
+        "display" : "Amphetamines [Presence] in Urine"
       },
       {
-        "code" : "19299-7",
-        "display" : "Opiates [Presence] in Urine by Screening test"
+        "code" : "3879-4",
+        "display" : "Opiates [Presence] in Urine"
       },
       {
-        "code" : "19283-1",
-        "display" : "Benzodiazepines [Presence] in Urine by Screening test"
+        "code" : "3390-2",
+        "display" : "Benzodiazepines [Presence] in Urine"
       },
       {
-        "code" : "19501-6",
-        "display" : "Ketamine [Presence] in Urine by Screening test"
+        "code" : "12327-3",
+        "display" : "Ketamine [Presence] in Urine"
       },
       {
-        "code" : "19571-9",
-        "display" : "MDMA [Presence] in Urine by Screening test"
+        "code" : "14267-9",
+        "display" : "Methylenedioxymethamphetamine [Presence] in Urine"
       },
       {
         "code" : "19177-5",
@@ -859,7 +863,7 @@
       },
       {
         "code" : "29771-3",
-        "display" : "Hemoglobin.occult [Mass/volume] in Stool by Immunochemical method"
+        "display" : "Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay"
       },
       {
         "code" : "31147-2",

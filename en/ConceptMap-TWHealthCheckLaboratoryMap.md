@@ -310,8 +310,8 @@
       "code" : "23749-5",
       "display" : "Lead [Mass/volume] in Specimen",
       "target" : [{
-        "code" : "5671-3",
-        "display" : "Lead [Mass/volume] in Blood",
+        "code" : "77307-7",
+        "display" : "Lead [Mass/volume] in Venous blood",
         "equivalence" : "relatedto",
         "comment" : "source 檢體為泛稱 Specimen、target 限 Blood，非單純包含"
       }]
@@ -324,6 +324,16 @@
         "display" : "Waist Circumference at umbilicus by Tape measure",
         "equivalence" : "relatedto",
         "comment" : "source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同"
+      }]
+    },
+    {
+      "code" : "5671-3",
+      "display" : "Lead [Mass/volume] in Blood",
+      "target" : [{
+        "code" : "77307-7",
+        "display" : "Lead [Mass/volume] in Venous blood",
+        "equivalence" : "relatedto",
+        "comment" : "source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。"
       }]
     }]
   }]

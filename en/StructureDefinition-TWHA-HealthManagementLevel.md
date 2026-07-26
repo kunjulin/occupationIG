@@ -33,7 +33,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-HealthManage
   "title" : "健康檢查健康管理分級 Observation Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-26T16:11:18+08:00",
+  "date" : "2026-07-26T18:45:10+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

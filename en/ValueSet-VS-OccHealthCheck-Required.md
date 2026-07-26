@@ -33,7 +33,7 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
   "title" : "勞工健康檢查法定必驗項目值集（第一期草案）",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-07-26T16:11:18+08:00",
+  "date" : "2026-07-26T18:45:10+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -118,8 +118,8 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
         "display" : "Pure tone air conduction threshold audiometry panel"
       },
       {
-        "code" : "5671-3",
-        "display" : "Lead [Mass/volume] in Blood"
+        "code" : "77307-7",
+        "display" : "Lead [Mass/volume] in Venous blood"
       },
       {
         "code" : "23749-5",

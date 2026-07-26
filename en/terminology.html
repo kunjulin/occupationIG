@@ -1139,9 +1139,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5671-3</code></td>
-      <td style="text-align: left">血中鉛（Preferred）</td>
+      <td style="text-align: left">血中鉛（原 Preferred）</td>
       <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
-      <td style="text-align: left">仍為有效碼，惟 LOINC 不建議新用途採用；是否改採他碼待覆核</td>
+      <td style="text-align: left">✅ <strong>已處置</strong>：Preferred 改為 <code class="language-plaintext highlighter-rouge">77307-7</code>（Venous blood, ACTIVE），本碼降為 acceptable 並經 ConceptMap 歸一</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">33914-3</code></td>
@@ -1174,16 +1174,16 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">v20260726 全面比對新發現</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19571-9</code></td>
-      <td style="text-align: left">MDMA 尿液篩檢</td>
-      <td style="text-align: left"><strong>Methylenedioxymethamphetamine cutoff</strong>（閾值概念碼，非結果碼）</td>
-      <td style="text-align: left">⚠️ <strong>需覆核</strong>：建議改用結果碼</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19571-9</code> 等 <strong>5 碼</strong></td>
+      <td style="text-align: left">尿液毒品篩檢（安非他命／鴉片／苯二氮平／K他命／MDMA）</td>
+      <td style="text-align: left">均為 <strong>cutoff（閾值濃度）概念碼</strong>（<code class="language-plaintext highlighter-rouge">[Mass/volume] ... for Screen method</code>，單位 ng/mL），非篩檢結果碼</td>
+      <td style="text-align: left">✅ <strong>已處置</strong>：改列對應之 <code class="language-plaintext highlighter-rouge">[Presence]</code> 結果碼（<code class="language-plaintext highlighter-rouge">3349-8</code>／<code class="language-plaintext highlighter-rouge">3879-4</code>／<code class="language-plaintext highlighter-rouge">3390-2</code>／<code class="language-plaintext highlighter-rouge">12327-3</code>／<code class="language-plaintext highlighter-rouge">14267-9</code>）</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">29771-3</code></td>
-      <td style="text-align: left">糞便潛血（免疫法）</td>
-      <td style="text-align: left">Hemoglobin [Presence] in Stool <strong>from gastrointestinal tract</strong></td>
-      <td style="text-align: left">⚠️ <strong>需覆核</strong>：檢體描述與方法學是否相符</td>
+      <td style="text-align: left">糞便潛血（免疫法 FIT）</td>
+      <td style="text-align: left">Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay</td>
+      <td style="text-align: left">✅ <strong>已覆核</strong>：概念相符（下消化道人類血紅蛋白免疫分析），顯示名已校正</td>
     </tr>
   </tbody>
 </table>
@@ -1197,9 +1197,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <strong>不檢查 ValueSet 內之顯示名是否與代碼語意相符</strong>；故該 15 碼雖語意全錯，仍可通過驗證。
 此為術語治理之已知盲區，處置方式應比照 <code class="language-plaintext highlighter-rouge">(-)</code> 標註原則。</p>
 
-  <p><strong>血中鉛替代碼查詢結果（Wave 9-3）</strong>：<code class="language-plaintext highlighter-rouge">5671-3</code> 雖為 DISCOURAGED 但仍屬有效碼；tx 未提供 <code class="language-plaintext highlighter-rouge">MAP_TO</code>。
-經檢索，現行 ACTIVE 之替代候選為 <strong><code class="language-plaintext highlighter-rouge">77307-7</code> Lead [Mass/volume] in **Venous</strong> blood** 與 <code class="language-plaintext highlighter-rouge">10368-9</code>（Capillary blood）。
-職業健康之血鉛監測慣用靜脈血，故 <code class="language-plaintext highlighter-rouge">77307-7</code> 為較適之候選；<strong>惟更換 Preferred 屬建模決策，尚待拍板</strong>，本版維持 <code class="language-plaintext highlighter-rouge">5671-3</code>。</p>
+  <p><strong>血中鉛 Preferred 更換（Wave 9-3，已拍板）</strong>：<code class="language-plaintext highlighter-rouge">5671-3</code> 之 LOINC 狀態為 DISCOURAGED；經檢索並確認，
+現行 ACTIVE 之 <strong><code class="language-plaintext highlighter-rouge">77307-7</code> Lead [Mass/volume] in Venous blood</strong> 符合職業血鉛監測慣用之靜脈血檢體，
+已於 v20260726 改列為 <strong>Preferred</strong>；<code class="language-plaintext highlighter-rouge">5671-3</code> 降為 acceptable 並於 ConceptMap 建立歸一對應（equivalence = relatedto）。
+院內 LIS 之 <code class="language-plaintext highlighter-rouge">23749-5</code>（Lead in Specimen）之歸一 target 同步改為 <code class="language-plaintext highlighter-rouge">77307-7</code>。</p>
 
   <p><strong>處置結果（v20260726 / Wave 9）</strong>：上述 <code class="language-plaintext highlighter-rouge">21104-5</code> 系列 15 碼與 <code class="language-plaintext highlighter-rouge">49154-8</code> 共 <strong>16 碼已全數移除</strong>（ValueSet 與 ConceptMap），
 相關 acceptable 欄位改標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。錯誤紀錄保留於本節供追溯。</p>
@@ -1233,7 +1234,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-26 16:11:00 +0800">
+  <span title="2026-07-26 18:45:00 +0800">
     2026-07-26
   </span>
 
