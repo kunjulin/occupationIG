@@ -272,6 +272,67 @@ C 類 57 筆於 A/B 決策完成後一併處理（其中若干碼可能因 A/B �
 
 流程：搜尋取候選 → 由人挑選 → 對選定碼跑 `--codes` 做 `$lookup` 六軸覆核 → 才填入 CSV。
 
+### 第三階段（2026-07-26）：搜尋候選替代碼
+
+首輪 10 道搜尋 9 道落空——`$expand` 之 `filter` 為**連續子字串**比對而非逐詞 AND，
+我給的多詞查詢全部違反此點。改用單一片語後 7 道全部命中。
+
+#### 候選替代碼（**尚待 `$lookup` 六軸覆核**）
+
+| 原碼 | IG 意圖 | 候選替代 | 依據（搜尋回傳之官方 display） |
+|:--|:--|:--|:--|
+| `14390-9` | ALT with P-5'-P, Ser/Plas | **`1743-4`** | `Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P` |
+| `14409-7` | AST with P-5'-P, Ser/Plas | **`30239-8`** | `Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P` |
+| `19199-9` | 總 PSA, Ser/Plas | **`2857-1`** | `Prostate specific Ag [Mass/volume] in Serum or Plasma` |
+| `1783-0` | ALP, Ser/Plas | **`6768-6`** | `Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma` |
+| `46986-6` | VLDL-C 計算法 | **`13458-5`** | `Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation` |
+| `20627-6` | 尿液顏色 | **`5778-6`** | `Color of Urine` |
+| `13705-9` | ACR 隨機尿 | **`9318-7`** | `Albumin/Creatinine [Mass Ratio] in Urine` |
+
+#### ⚠️ 先前之未覆核候選有誤
+
+第一階段 evidence 檔曾列 `1916-6` 為 AST-with-P5P 之候選。搜尋結果顯示
+
+```
+1916-6   Aspartate aminotransferase/Alanine aminotransferase [Enzymatic activity ratio] in Serum or Plasma
+```
+
+即 **AST/ALT 比值**，非 AST。若當初照填，等於以「比值」之碼承載 AST 數值——
+與原本 `14390-9` 屬同一類錯誤。正確者為 `30239-8`。
+
+這證實了「候選碼一律留空、必須經查證才填入」不是形式主義。
+
+#### 嗜中性球三碼：改判為 `rewrite-display`
+
+比對值集第 224–226 行（手工分類計數區塊）之意圖與官方 display 後發現，
+三碼**恰好覆蓋標準 differential 之三個概念**：
+
+| 碼 | IG 標示 | 官方 | 實為 |
+|:--|:--|:--|:--|
+| `26505-8` | Hypersegmented neutrophils | Segmented neutrophils | 分葉核 |
+| `26508-2` | Neutrophils by Manual count | Band form neutrophils | 帶狀核 |
+| `26511-6` | Neutrophils.segmented | Neutrophils | 總數 |
+
+即**代碼皆正確，錯的是三個 display 互相錯位**，只需改標籤、毋須換碼。
+`confirmed-wrong` 因此由 10 筆降為 **7 筆**。
+
+兩個附帶問題（須臨床決定，已寫入 CSV rationale）：
+
+* 改後 IG 將不再有「過度分葉核」項目——須確認是否真需要
+  （巨球性貧血之形態學所見，一般健檢 CBC 不常規報告）。
+* 若確需「手工計數」之總嗜中性球，應另採 `23761-0`
+  （`Neutrophils/Leukocytes in Blood by Manual count`）。
+
+#### 現況統計
+
+| 判定 | 筆數 |
+|:--|--:|
+| `confirmed-wrong`（候選已備，待覆核） | **7** |
+| `needs-clinical` | 23 |
+| `rewrite-display` | 44 |
+
+---
+
 ### 23 筆須臨床決定者之歸納（可一次問完）
 
 | 問題 | 涉及代碼 | 問誰 |

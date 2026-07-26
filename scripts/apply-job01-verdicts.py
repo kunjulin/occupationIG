@@ -43,9 +43,17 @@ V = {
     '46986-6': (W, '分析物不同：IG 標 VLDL-C（計算法），官方為 Cholesterol in VLDL 3——VLDL 之次分群，非總 VLDL 膽固醇。'),
     '20627-6': (W, '分析物完全不同：IG 標「Color of Urine（尿液顏色）」，官方為「Turbidity（濁度）of Urine Qualitative」。顏色與濁度為兩個不同檢驗項目。'),
     '13705-9': (W, '檢體不同：IG 標 Urine（隨機尿），官方為 24 hour Urine（24 小時尿）。健檢之白蛋白／肌酸酐比值採隨機單次尿，非 24 小時收集尿，臨床意義與採檢方式皆不同。'),
-    '26505-8': (W, '概念不同：IG 標 Hypersegmented neutrophils（過度分葉核），官方為 Segmented neutrophils（分葉核）。兩者為不同之血液形態學所見。'),
-    '26508-2': (W, '概念不同：IG 標 Neutrophils by Manual count（總嗜中性球），官方為 Band form neutrophils（帶狀核）。'),
-    '26511-6': (W, '概念不同：IG 標 Neutrophils.segmented（分葉核），官方為 Neutrophils（總嗜中性球）。與 26505-8／26508-2 合觀，嗜中性球分類整組錯置，須一併重排。'),
+    # 嗜中性球三碼：2026-07-26 覆核後由 confirmed-wrong 改判為 rewrite-display。
+    # 三碼恰好覆蓋手工分類計數之三個標準概念（分葉核／帶狀核／總數），
+    # 代碼本身正確，錯的是三個 display 互相錯位，故只需改標籤、毋須換碼。
+    '26505-8': (R, '標籤錯位（三碼一組）：IG 標 Hypersegmented neutrophils，官方為 Segmented neutrophils（分葉核）。'
+                   '本碼即分葉核之正確代碼，改 display 即可。⚠️ 附帶問題：改後 IG 將不再有「過度分葉核」項目，'
+                   '須確認是否真需要該項（巨球性貧血之形態學所見，一般健檢 CBC 不常規報告）。'),
+    '26508-2': (R, '標籤錯位（三碼一組）：IG 標 Neutrophils by Manual count，官方為 Band form neutrophils（帶狀核）。'
+                   '本碼即帶狀核之正確代碼，改 display 即可。'),
+    '26511-6': (R, '標籤錯位（三碼一組）：IG 標 Neutrophils.segmented，官方為 Neutrophils（總嗜中性球，無方法軸）。'
+                   '本碼即總嗜中性球之正確代碼，改 display 即可。⚠️ 附帶問題：若確需「手工計數」版本，'
+                   '應另採 23761-0（Neutrophils/Leukocytes in Blood by Manual count）。'),
 
     # ── 須臨床／檢驗科決定 ───────────────────────────────────────────
     '42221-2': (C, '量綱不符：IG 標 Mass/volume，官方為 Moles/volume。尿錳為附表十錳作業之指標。須確認院內 LIS 以 µg/L（質量）或 µmol/L（莫耳）報告——前者須換碼，後者須改單位宣告。決定者：檢驗科。'),
