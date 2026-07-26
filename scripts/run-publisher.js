@@ -16,7 +16,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-const { spawnSync } = require('child_process');
+const { spawn } = require('child_process');
 
 const repoRoot = path.resolve(__dirname, '..');
 const cacheDir = path.join(repoRoot, 'input-cache');
@@ -100,20 +100,36 @@ function download(url, dest, redirects = 0) {
   const args = ['-Xmx' + maxMem, '-jar', jarPath, '-ig', 'ig.ini', '-no-sushi', '-tx', tx];
   console.log(`java ${args.join(' ')}\n`);
 
-  const res = spawnSync('java', args, { cwd: repoRoot, encoding: 'utf8', maxBuffer: 512 * 1024 * 1024 });
+  // 建置需 10–20 分鐘。以 spawn 串流輸出（而非 spawnSync 全部緩衝），
+  // 讓 CI 日誌即時可見——否則逾時或卡住時完全看不出卡在哪一步。
+  // 同時把 stdout/stderr 寫入日誌檔，供 qa-gate.js 做獨立的 tx 連線檢查。
+  const status = await new Promise((resolve, reject) => {
+    const logStream = fs.createWriteStream(logPath);
+    const child = spawn('java', args, { cwd: repoRoot, stdio: ['ignore', 'pipe', 'pipe'] });
 
-  const combined = `${res.stdout || ''}\n${res.stderr || ''}`;
-  fs.writeFileSync(logPath, combined);
-  process.stdout.write(combined);
+    child.stdout.on('data', (d) => {
+      process.stdout.write(d);
+      logStream.write(d);
+    });
+    child.stderr.on('data', (d) => {
+      process.stderr.write(d);
+      logStream.write(d);
+    });
 
-  if (res.error) {
-    console.error(`\n✖ 無法執行 java：${res.error.message}`);
+    child.on('error', (e) => {
+      logStream.end();
+      reject(e);
+    });
+    child.on('close', (code) => logStream.end(() => resolve(code)));
+  }).catch((e) => {
+    console.error(`\n✖ 無法執行 java：${e.message}`);
     process.exit(1);
-  }
+  });
+
   console.log(`\n執行日誌：${path.relative(repoRoot, logPath)}`);
-  if (res.status !== 0) {
-    console.error(`\n✖ IG Publisher 以 exit code ${res.status} 結束。`);
-    process.exit(res.status || 1);
+  if (status !== 0) {
+    console.error(`\n✖ IG Publisher 以 exit code ${status} 結束。`);
+    process.exit(status || 1);
   }
   console.log('IG Publisher 執行完成。請接著執行 QA 閘門：npm run qa');
 })();

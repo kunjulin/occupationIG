@@ -8,10 +8,11 @@ name: Build IG
 # 用來逐項驗收 JOB-02、JOB-03 之 §7 檢查清單。
 
 on:
+  # push 只掛 main：功能分支一旦開了 PR，push 與 pull_request 會各觸發一次，
+  # 而本建置要 10–20 分鐘，重複執行純屬浪費。功能分支交由 pull_request 觸發。
   push:
     branches:
       - main
-      - 'claude/**'
   pull_request:
     branches:
       - main
