@@ -121,14 +121,31 @@ language: zh-TW
 
 ### 3.3 決定語言佈局
 
-兩個選項，請在 plan 中比較後選一：
+> 🔍 **已查明根因（2026-07-26）**：語言子目錄**不是**因為缺少設定，而是模板主動要求的。
+> `template/config.json`（`fhir2.base.template`）第 4 行：
+>
+> ```json
+> "multilanguage-format": true,
+> ```
+>
+> 只要模板宣告此旗標，IG Publisher 就會把內容輸出到語言子目錄，
+> 並在根目錄產生 `lang-redirects.js` 轉址殼頁（見 `template/content/assets/js/lang-redirects.js`，
+> 內容為 `window.location.replace(langs[0]+"/"+pageName)`），**與語言數量無關**。
+>
+> 因此宣告 `language: zh-TW` 的效果是 **`/en/` → `/zh-TW/`**（語言標記與目錄名皆正確），
+> 但**根目錄仍會是轉址殼頁**。要讓內容直接落在裸根目錄，必須換用未宣告
+> `multilanguage-format` 的模板。
 
-| 選項 | 做法 | 適用 |
-|:--|:--|:--|
-| **A（建議）單語言** | 只宣告 `zh-TW`，輸出回到根目錄，移除 `en/` 與空殼轉址頁 | 本 IG 讀者為國內醫院／事業單位／主管機關，且目前**沒有英文敘述內容** |
-| **B 雙語** | 保留語言子目錄，並實際提供英譯（`input/pagecontent/` 之翻譯供給檔） | 需要送 HL7 international 或供國外檢視時 |
+三個選項：
 
-**現況等於「選了 B 卻沒做翻譯」**——這是最差的組合。若短期不打算翻譯，應改為 A。
+| 選項 | 做法 | 結果 | 風險 |
+|:--|:--|:--|:--|
+| **A 宣告 zh-TW（已採用）** | `language: zh-TW`，保留現行模板 | 內容至 `/zh-TW/`，`lang="zh-TW"` 正確；根目錄仍為轉址殼頁 | 低。已執行 |
+| **B 換模板** | 改用未宣告 `multilanguage-format` 之模板 | 內容回到裸根目錄 | **中高**。會改變全站樣式與可用 fragment（JOB-03 依賴其中四個），且**必須實際建置後目視比對才能確認**。不宜在未建置驗證前變更送審文件之模板 |
+| **C 雙語** | 保留語言子目錄並實際提供英譯 | 真正的雙語站 | 高成本，且本期無英譯需求 |
+
+**現況（改前）等於「選了 C 卻沒做翻譯」**——最差的組合。
+本次採 **A**：先讓語言標記與目錄名誠實，把 B 留為需建置驗證的後續決策（見 §7 執行紀錄）。
 
 ### 3.4 標題語言一致性
 
@@ -157,6 +174,50 @@ language: zh-TW
 - `package-list.json` 之 `path` 一旦寫入錯誤主機，publish box 與 registry 都會沿用；請與 JOB-13 的 canonical 決議一起確認。
 - `status: ci-build` 與 `draft` 的選擇會影響 FHIR registry 是否收錄；本 IG 為「研製中草案」，
   不宜標為 `release`。
+
+---
+
+## 7. 執行紀錄（2026-07-26）
+
+### 已完成
+
+| # | 變更 | 檔案 |
+|--:|:--|:--|
+| 1 | 宣告 `language: zh-TW`（附註說明未宣告時的後果） | `sushi-config.yaml` |
+| 2 | 新增 `parameters.path-history`，指向實際可達之 GitHub Pages 位址 | `sushi-config.yaml` |
+| 3 | 新增 `package-list.json`（`current` ci-build ＋ `0.1.0` draft／STU 1） | `package-list.json` |
+| 4 | 新增版本歷程頁，使 publish box 之「Directory of published versions」不再 404；頁內揭露 canonical 與實際發佈位址不一致、以及建置來源不可追溯 | `input/pagecontent/history.md` |
+| 5 | 查明並記錄 `/en/` 之根因為模板之 `multilanguage-format: true`（見 §3.3） | 本檔 |
+
+`history.md` 刻意**不列入 `menu`**——HL7 IG 慣例是版本歷程僅由 publish box 連結，
+不佔用主導覽；該頁仍會出現於 `toc.html`，故非孤兒頁。
+
+### 尚待在可建置環境驗證（本環境無法建置）
+
+本環境無法執行 IG Publisher：`packages.fhir.org` 與 `tx.fhir.org` 皆不可連線，
+且未安裝 Jekyll。已完成的驗證僅到 **SUSHI 成功解析 `sushi-config.yaml`**
+（改動前後皆僅剩套件下載之網路錯誤，無新增組態錯誤）。
+
+請在可連外的 Windows／CI 環境執行 `_genonce_tx.bat` 後確認：
+
+1. 輸出目錄由 `output/en/` 變為 `output/zh-TW/`，且頁面為 `<html lang="zh-TW">`；
+2. `output/zh-TW/history.html` 存在，且 publish box 之「Directory of published versions」可點達；
+3. publish box 是否仍顯示 `Local Development build`——**預期仍會顯示**，
+   因該字串來自「非 CI 建置」而非缺少 `package-list.json`；真正的修正是改由 CI 建置（**JOB-08**）。
+   本 JOB 只保證版本歷程連結可達；
+4. gh-pages 上舊的 `en/` 目錄與 1012 個根目錄殼頁需在下次發佈時清理
+   （建議由 JOB-08 之發佈流程以全量覆蓋處理，而非增量推送）。
+
+### 未處理（需決策）
+
+- **選項 B（換模板讓內容回到裸根目錄）**：需先建置比對樣式與 fragment 可用性，
+  且與 JOB-09 之模板釘版決策相關，故未執行。
+- **舊 `/en/` 路徑之轉址**：`/en/` 是既有殼頁轉址的目標而非來源，改為 `/zh-TW/` 後
+  舊連結會失效。若已有對外散佈之 `/en/...` 連結，需在發佈流程中額外保留 `en/` 轉址頁
+  （建議 `<meta http-equiv="refresh">` 以支援無 JS 環境）。目前未知是否已有外部引用，
+  故列為 JOB-08 發佈流程之待確認項。
+- `package-list.json` 之 `canonical`（`twcore.mohw.gov.tw`）與 `path`（GitHub Pages）
+  目前刻意不一致，反映 provisional 現況；正式命名空間核定後須一併更新（JOB-13）。
 
 ---
 

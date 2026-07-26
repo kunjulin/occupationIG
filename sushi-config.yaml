@@ -5,6 +5,9 @@ title: 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examinati
 description: 以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】
 status: active
 version: 0.1.0
+# 本指引之敘述性內容為繁體中文（臺灣）。未宣告時 IG Publisher 會預設為 en，
+# 導致整份中文內容被標記為 lang="en" 並輸出至 en/ 子目錄（JOB-02）。
+language: zh-TW
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 releaseLabel: STU1
@@ -20,6 +23,11 @@ dependencies:
   tw.gov.mohw.twcore: 1.0.0
 
 parameters:
+  # 版本歷程頁位址。未設定時 IG Publisher 以 canonical + /history.html 推導，
+  # 即 https://twcore.mohw.gov.tw/ig/twha/history.html —— 該站尚未建立，故連結必然 404。
+  # 本草案以 GitHub Pages 供審閱，故指向實際可達位址；正式發佈於 twcore.mohw.gov.tw
+  # 後應改回官方站並改由 HL7 發佈流程依 package-list.json 產生 history.html。
+  path-history: https://kunjulin.github.io/occupationIG/history.html
   special-url:
     - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem
     - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem
