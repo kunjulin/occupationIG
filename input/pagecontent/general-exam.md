@@ -61,3 +61,22 @@
 *   **（Extended）白血球數 (WBC)**: LOINC `6690-2`，單位：`/uL`
 *   **（Extended）紅血球數 (RBC)**: LOINC `789-8`，單位：`/uL`（附表九 115.06.26 修正新增）
 *   **（Extended）平均紅血球容積 (MCV)**: LOINC `787-2`，單位：`fL`（附表九 115.06.26 修正新增）
+
+### 4.1 附表九法定項目 → Core／Extended 對照（implementation note）
+
+下表說明附表九各法定檢查項目**如何由 Core ＋ Extended 組合滿足**。
+**「歸屬層」僅表示該項目落在哪一個交換值集，與其法定必要性無關**——凡附表九所列者均為法規要求執行之項目。
+
+| 附表九項次 | 法定項目 | 歸屬層 | 承載 Profile／值集 | Preferred LOINC |
+|:---|:---|:---|:---|:---|
+| 1–3 | 作業經歷、既往病史、生活習慣 | Extended | `TWHA-Occupation`／`TWHA-Condition`／SocialHistory | `72166-2` 等 |
+| 4 | 自覺症狀及身體檢查 | Extended | `TWHA-PhysicalExam` | `29545-1` |
+| 5 | 身高、體重、腰圍、視力、辨色力、聽力、血壓 | **Core**（腰圍/血壓/身高/體重）＋ Extended（視力/辨色力/聽力） | `VS-TWHAVitalSigns`／`TWHA-VisionTest`／`TWHA-HearingTest` | `8302-2`,`29463-7`,`8280-0`,`85354-9`,`98497-1`,`89015-2` |
+| 5 | 血色素、紅血球數、MCV、白血球數 | Extended | `TWHA-LabResult-Special`（`VS-ExtendedDataset`） | `718-7`,`789-8`,`787-2`,`6690-2` |
+| 6 | 空腹血糖、ALT、肌酸酐、膽固醇、TG、HDL（健檢另含 LDL） | **Core**（血糖/肌酸酐/血脂）＋ Extended（ALT） | `VS-CoreDataset`／`VS-ExtendedDataset` | `1558-6`,`2160-0`,`2093-3`,`2571-8`,`2085-9`,`2089-1`／ALT `1742-6` |
+| 6 | 尿蛋白、尿潛血 | **Core**（尿蛋白）＋ Extended（尿潛血） | `VS-CoreDataset`／`VS-ExtendedDataset` | `5804-0`／`5794-3` |
+| 7 | 胸部 X 光 | Extended | `TWHA-ImagingStudy`／`TWHA-DiagnosticReport` | `24648-8`（單張 PA） |
+
+> ⚠️ **本表為 implementation note，非情境值集**。本期尚未以 ValueSet 形式定義「附表九完整法定需求集」
+> （backlog：`VS-Appendix9-RequiredSet`）；在此之前，實作端應以本表作為附表九涵蓋度之對照依據，
+> **不得**逕以 `VS-CoreDataset` 或 `VS-CoreUploadSet` 作為附表九之完整需求。
