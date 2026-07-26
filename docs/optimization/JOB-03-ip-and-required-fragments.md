@@ -113,6 +113,50 @@ WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in 
 
 ---
 
+## 7. 執行紀錄（2026-07-26）
+
+### 已完成
+
+| # | 變更 | 檔案 |
+|--:|:--|:--|
+| 1 | 新增智慧財產權與授權聲明頁：`{% raw %}{% include ip-statements.xhtml %}{% endraw %}` ＋ LOINC／SNOMED CT／UCUM／HL7 FHIR／TW Core／TWCR_SF／法規來源之中文導讀 | `input/pagecontent/ip-statements.md` |
+| 2 | 於遵從性頁納入 `dependency-table.xhtml`、`globals-table.xhtml`、`cross-version-analysis-inline.xhtml`，並補「驗證通過之意義界定」警語 | `input/pagecontent/conformance.md` |
+| 3 | `menu` 新增「遵從性與依賴」與「智慧財產權聲明」兩項——**同時解決 JOB-12 之 `conformance.html` 孤兒頁問題** | `sushi-config.yaml` |
+
+四個 fragment 各納入一次，對應 qa.txt 之四筆 WARNING：
+
+| Fragment | 納入位置 |
+|:--|:--|
+| `ip-statements.xhtml` | `ip-statements.md` §1 |
+| `dependency-table.xhtml` | `conformance.md` §3 |
+| `globals-table.xhtml` | `conformance.md` §4 |
+| `cross-version-analysis-inline.xhtml` | `conformance.md` §5 |
+
+### 刻意未做的兩件事
+
+1. **未填 `sushi-config.yaml` 之 `license`**。本指引之著作權歸屬涉及工研院委託契約，
+   尚待確認。填入未經確認之授權條款比留空更危險（會讓第三方誤以為可自由再散布），
+   故改為在 `ip-statements.md` §3 明確標示「授權條件待確認」並說明為何留空。
+   → 待登記至 JOB-13。
+2. **未就臺灣境內 SNOMED CT 之授權管道作任何陳述**。`ip-statements.md` §2.2 明文
+   「本指引不就臺灣境內 SNOMED CT 之授權管道、涵蓋範圍或費用作任何陳述」，
+   並要求實作機構自行確認。→ 待登記至 JOB-13。
+
+### 尚待在可建置環境驗證
+
+本環境無法建置（見 JOB-02 §7 之限制說明）。請於 `_genonce_tx.bat` 重建後確認：
+
+1. qa.txt 之四筆 `The HTML fragment ... is not included anywhere` **歸零**；
+2. `ip-statements.xhtml` 之產出內容確實包含 LOINC 與 SNOMED CT 聲明
+   （若某術語系統未出現，表示 IG Publisher 未偵測到引用，需回頭確認該系統是否真的被引用）；
+3. `cross-version-analysis-inline.xhtml` 若在此模板版本不存在，改用
+   `cross-version-analysis.xhtml`（兩者同屬一組，納入其一即可消除警告）；
+4. `globals-table.xhtml` 在本指引未宣告全域 profile 時可能產出空表——
+   若為空表且視覺突兀，可改將該 include 移至頁尾或加註說明，但**不可移除**，
+   否則警告會再度出現。
+
+---
+
 ## 6. 交給 Claude 規劃用提示（可直接複製）
 
 ```
