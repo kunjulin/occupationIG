@@ -114,6 +114,83 @@ GET https://tx.fhir.org/r4/CodeSystem/$lookup?system=http://loinc.org&code=<code
 
 ---
 
+## 7. 執行紀錄（2026-07-26）— 第一階段：分流
+
+### 關鍵發現：分流毋須連線術語伺服器
+
+`Wrong Display Name` 訊息**本身即含術語伺服器回報的官方 display**：
+
+```
+Wrong Display Name 'ALT ... by UV with P5P' for http://loinc.org#14390-9.
+Valid display is one of 3 choices: 'Amylase [Enzymatic activity/volume] in Dialysis fluid' (en-US), ...
+```
+
+亦即 tx.fhir.org 的權威答案已經寫在 qa.txt 裡。因此**分流階段可完全離線完成**，
+只有「A/B 類確認後要換成哪一個碼」才需要 `$lookup`。
+
+### 已完成
+
+| # | 產出 | 說明 |
+|--:|:--|:--|
+| 1 | `scripts/triage-display-mismatches.js` | 可重複執行之分流工具。解析 qa.txt → 拆解 LOINC 六軸 → 分為 A/B/C/D 四類 → 輸出 CSV |
+| 2 | `docs/optimization/evidence/display-triage-2026-07-26.csv` | 131 筆之完整分流工作清單，含每筆的軸差異旗標與待填欄位（`action`／`replacement_code`／`rationale`／`verified_by`／`verified_date`） |
+
+### 分流結果
+
+| 類別 | 判準 | 筆數 |
+|:--|:--|--:|
+| **A** | COMPONENT 或 SYSTEM 不同 → 高度可疑用錯碼 | **54** |
+| **B** | PROPERTY（量綱）不同 → 質量／莫耳濃度互換等 | **20** |
+| **C** | 僅 METHOD 或用語差異 → 代碼正確、display 漂移 | **57** |
+| D | 無法自動判定 | 0 |
+
+（qa.txt 共 133 筆訊息，去除跨值集重複後為 131 個不同的「代碼＋IG display」組合。）
+
+A 類 54 筆包含先前人工挑出的全部高度可疑者
+（`14390-9` ALT→透析液澱粉酶、`14409-7` AST→胸膜液、`19199-9` PSA→精液、
+`1783-0` ALP→全血、`46986-6` VLDL-C→VLDL 3、`26505-8`、`26508-2`、`70028-6`、`9633-9`、`19048-8`）。
+
+### 工具的設計取捨（重要）
+
+* **刻意偏向多報**：寧可把 54 筆送人工檢視，也不要漏掉一個錯碼。
+  A 類必然包含純命名差異之偽陽性（例如放射科代碼之長名本就精簡），這是可接受的成本。
+* **候選挑選**：LOINC 同時提供長名與短名（`RBC # Bld Auto`、`Sp Gr Ur Refractometry`）。
+  初版以字串長度挑選比對基準，導致大量假陽性（A 類一度達 64 筆）；已改為
+  以與 IG 標示之詞彙重疊度挑選，同分取較長者。
+* **已知同義詞**：`WBC↔Leukocytes`、`RBC↔Erythrocytes`、`Uric acid↔Urate`、
+  `CYFRA 21-1↔Cytokeratin 19`、以及 LOINC 舊式 `/100 leukocytes` → 現行 `/Leukocytes`，
+  皆不視為 COMPONENT 不同。
+
+### 刻意未做
+
+1. **未套用任何 display 覆寫**，即使 C 類看似可批次處理。理由：
+   分流器是**篩選工具而非權威**，且 C 類仍可能含「檢體範圍不同」
+   （如 `10834-0` Serum or Plasma vs Serum）這類實為選碼問題的案例。
+   本 JOB 的核心鐵則正是「顯示名不符可能代表用錯碼」——由一個未經人工覆核的
+   啟發式分類器直接改檔，恰好會犯下該鐵則所警告的錯誤。
+2. **未覆寫 `input/assets/display-verification-report.csv`**。該檔為已發佈之資產，
+   內含既有稽核成果；以不完整的自動分流蓋掉並不恰當。本次產出改置於
+   `docs/optimization/evidence/`，待人工覆核完成後再合併回發佈資產。
+3. **未決定 A/B 類之替代碼**。本環境無法連線 `tx.fhir.org`（見 JOB-08 §7 之網路限制表），
+   無從執行 `$lookup` 覆核。
+
+### 下一步（需可連外環境）
+
+```bash
+# 1) 重新產生分流（以最新 CI 之 qa.txt 為準）
+node scripts/triage-display-mismatches.js --qa output/qa.txt \
+     --csv docs/optimization/evidence/display-triage-<date>.csv
+
+# 2) 對 A(54) + B(20) 逐碼取六軸
+curl "https://tx.fhir.org/r4/CodeSystem/\$lookup?system=http://loinc.org&code=<code>&property=*"
+```
+
+逐碼填寫 CSV 之 `action`／`replacement_code`／`rationale`／`verified_by`／`verified_date`，
+再據以修改值集、ConceptMap、`terminology.md` 與受影響範例。
+C 類 57 筆於 A/B 決策完成後一併處理（其中若干碼可能因 A/B 之換碼而連帶變動）。
+
+---
+
 ## 6. 交給 Claude 規劃用提示（可直接複製）
 
 ```
