@@ -202,14 +202,39 @@ FHIR 套件與術語伺服器皆不可達，故**本機無法完成建置**。
 GitHub Actions runner 無此限制，因此 CI 的第一次執行即為 JOB-02／JOB-03 之
 「待建置驗證」項目的實際驗收場。
 
-### 第一次 CI 執行後應確認
+### ✅ 第一次 CI 執行結果（run 30208978845，commit `083c807b`）
 
-1. QA 閘門是否通過；`is not included anywhere in the produced implementation guide`
-   應由 4 **降為 0**（JOB-03 之驗收）→ 屆時以 `npm run qa -- --update` 下調基準線；
-2. 下載 `site-<sha>` 產出物，確認輸出目錄為 `zh-TW/` 且頁面為 `<html lang="zh-TW">`、
-   `zh-TW/history.html` 與 `zh-TW/ip-statements.html` 存在（JOB-02／JOB-03 之驗收）；
-3. `Wrong Display Name` 是否仍為 133（尚未進 JOB-01，預期不變）；
-4. 建置耗時，據以調整 `timeout-minutes`（現設 60）。
+**全部步驟成功**，總耗時 6:51（IG Publisher 5:32），遠低於 `timeout-minutes: 60`。
+
+| 事項 | 結果 |
+|:--|:--|
+| 環境（Java 17／Ruby 3.2／Jekyll／Node 20） | 全部就緒 |
+| `npm run check:refs` | ✅ 通過——**修正前這步會 exit 1**，證明 JOB-12 之修正使其成為可用閘門 |
+| SUSHI | ✅ 通過，`language: zh-TW` 被接受、套件解析正常 |
+| IG Publisher（`-tx https://tx.fhir.org/r4`） | ✅ 成功 |
+| QA 閘門（`--expect-tx`） | ✅ 通過。tx 連線檢查證實確為連線建置 |
+| 產出物 | `qa-<sha>`（qa.txt／qa.html／qa.json／publisher 日誌）、`site-<sha>`（4502 檔、89MB） |
+| 快取 | publisher.jar（212MB）與 FHIR 套件（76MB）已存入，後續建置會更快 |
+
+QA 閘門實際輸出：`err 0`、`warn 208 → 204`、
+`is not included anywhere ... → 0`（**JOB-03 達成**），其餘 10 類持平。
+基準線已下調並提交，改善已鎖定。
+
+### 據 CI 結果所做的追加修正
+
+| 問題 | 修正 |
+|:--|:--|
+| 同一 commit 觸發兩份建置（push 與 pull_request 各一） | `push` 改為只掛 `main`，功能分支交由 `pull_request` |
+| `spawnSync` 緩衝全部輸出，CI 上看不到建置進度 | 改為 `spawn` 串流，仍寫日誌 |
+| 「輸出是否落在 `zh-TW/`」只能靠人工目視 | 新增 **Verify publication layout** 步驟，斷言 `output/zh-TW/{index,history,ip-statements,conformance}.html` 存在、`output/en` 不存在、首頁 `lang="zh-TW"`——把 JOB-02／JOB-03 之驗收條件固化為每次建置皆執行的檢查 |
+
+### 其餘應持續留意
+
+1. **`Verify publication layout` 步驟的第一次執行結果**——該步驟於本輪之後才加入，
+   故 run 30208978845 未執行到它。下一次 CI 執行即為 JOB-02（`zh-TW/` 輸出）之正式驗收。
+2. IG Publisher 若升版，`qa-baseline.json` 之 `igPublisherVersion` 與
+   `scripts/run-publisher.js` 之 `PINNED_VERSION` 須同步；閘門會在版本不一致時提示。
+3. Actions 已警告 `actions/*@v4` 系列的 Node 20 執行環境即將淘汰，屆時需升版 action。
 
 ### 尚未做（下一階段）
 

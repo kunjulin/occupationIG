@@ -142,11 +142,25 @@ WARNING: 4: The HTML fragment 'globals-table.xhtml' is not included anywhere in 
    「本指引不就臺灣境內 SNOMED CT 之授權管道、涵蓋範圍或費用作任何陳述」，
    並要求實作機構自行確認。→ 待登記至 JOB-13。
 
-### 尚待在可建置環境驗證
+### ✅ 已由 CI 實證（run 30208978845，commit `083c807b`）
 
-本環境無法建置（見 JOB-02 §7 之限制說明）。請於 `_genonce_tx.bat` 重建後確認：
+第一次 CI tx 建置（`--expect-tx` 通過）之 QA 閘門結果：
 
-1. qa.txt 之四筆 `The HTML fragment ... is not included anywhere` **歸零**；
+```
+is not included anywhere in the produced implementation guide            4      0      -4  OK  改善
+TOTAL warn                                                            208    204      -4  OK  改善
+TOTAL err                                                               0      0       0  OK
+```
+
+四筆 fragment 警告**確實歸零**，且 warn 總數正好降 4，未連帶影響其他類別。
+`qa-baseline.json` 已據此下調（fragment `4 → 0`、warn `208 → 204`），
+故此改善已被閘門鎖定——以修正前之 qa.txt 重跑會被判為退步並失敗。
+
+`cross-version-analysis-inline.xhtml` 在此模板版本**存在且可用**，無須改用備援名稱。
+
+### 尚待確認（次要）
+
+1. ~~qa.txt 之四筆 `The HTML fragment ... is not included anywhere` 歸零~~ → **已完成**；
 2. `ip-statements.xhtml` 之產出內容確實包含 LOINC 與 SNOMED CT 聲明
    （若某術語系統未出現，表示 IG Publisher 未偵測到引用，需回頭確認該系統是否真的被引用）；
 3. `cross-version-analysis-inline.xhtml` 若在此模板版本不存在，改用

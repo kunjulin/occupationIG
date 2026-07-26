@@ -115,6 +115,36 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+      # 把 JOB-02／JOB-03 的驗收條件固化為斷言，而非靠人工目視。
+      # 語言目錄來自模板之 multilanguage-format: true（見 JOB-02 §3.3），
+      # 故輸出必然落在語言子目錄；此處驗證它是 zh-TW 而非 en。
+      - name: Verify publication layout
+        run: |
+          set -euo pipefail
+          echo "--- output/ 頂層 ---"
+          ls -1 output | head -20
+
+          fail=0
+          for f in zh-TW/index.html zh-TW/history.html zh-TW/ip-statements.html zh-TW/conformance.html; do
+            if [ -f "output/$f" ]; then
+              echo "OK   output/$f"
+            else
+              echo "FAIL output/$f 不存在"; fail=1
+            fi
+          done
+
+          if [ -d output/en ]; then
+            echo "FAIL 仍存在 output/en——language: zh-TW 未生效"; fail=1
+          else
+            echo "OK   無 output/en"
+          fi
+
+          lang=$(sed -n 's/.*<html[^>]*[^-]lang="\([^"]*\)".*/\1/p' output/zh-TW/index.html | head -1)
+          echo "首頁 html lang = ${lang:-<未偵測到>}"
+          [ "$lang" = "zh-TW" ] || { echo "FAIL 預期 lang=zh-TW"; fail=1; }
+
+          exit $fail
+
       # --expect-tx 要求日誌能證明確實連上術語伺服器。這道檢查獨立於
       # input/ignoreWarnings.txt——該抑制檔管不到 publisher 日誌，
       # 否則「連不上 tx」會與「通過驗證」外觀相同（見 JOB-09）。
