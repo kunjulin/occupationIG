@@ -45,7 +45,7 @@
     "status" : "active",
     "name" : "CS_Appendix10Operation",
     "title" : "附表十特別危害健康作業具名代碼系統",
-    "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。"
+    "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",
@@ -61,7 +61,7 @@
     "status" : "active",
     "name" : "CS_FitnessForWork",
     "title" : "適性配工建議代碼系統",
-    "description" : "第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。"
+    "description" : "第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType",
@@ -85,7 +85,7 @@
     "status" : "active",
     "name" : "CS_HealthMgmtLevel",
     "title" : "健康管理分級代碼系統",
-    "description" : "依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。"
+    "description" : "依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode",
@@ -93,7 +93,7 @@
     "status" : "active",
     "name" : "CS_LaborReportCode",
     "title" : "勞動部通報報告代碼系統",
-    "description" : "勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。"
+    "description" : "勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-OrganicSolventType",
@@ -117,7 +117,7 @@
     "status" : "active",
     "name" : "CS_ServiceActivityType",
     "title" : "臨場健康服務辦理事項代碼系統",
-    "description" : "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。"
+    "description" : "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。（**provisional**：本地代碼配置，尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）。另因 SNOMED 現無適切之職業健康諮詢 procedure 代碼，改善建議諮詢暫以本代碼系統承載，該用法列為本地碼治理事項。）"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus",

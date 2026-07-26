@@ -15,7 +15,7 @@
   "name" : "TWHealthCheckLaboratoryMap",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-26T12:18:37+08:00",
+  "date" : "2026-07-26",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -42,7 +42,8 @@
       "target" : [{
         "code" : "6690-2",
         "display" : "Leukocytes [#/volume] in Blood",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 Manual count，target 方法未指定，source 為其特化"
       }]
     },
     {
@@ -51,7 +52,8 @@
       "target" : [{
         "code" : "6690-2",
         "display" : "Leukocytes [#/volume] in Blood",
-        "equivalence" : "equivalent"
+        "equivalence" : "equivalent",
+        "comment" : "同概念、同檢體、方法均未指定"
       }]
     },
     {
@@ -60,7 +62,8 @@
       "target" : [{
         "code" : "5804-0",
         "display" : "Protein [Mass/volume] in Urine by Test strip",
-        "equivalence" : "wider"
+        "equivalence" : "relatedto",
+        "comment" : "定量(Mass/volume)與試紙法屬不同量測方式，非包含關係"
       }]
     },
     {
@@ -69,7 +72,8 @@
       "target" : [{
         "code" : "1558-6",
         "display" : "Fasting glucose [Mass/volume] in Serum or Plasma",
-        "equivalence" : "wider"
+        "equivalence" : "wider",
+        "comment" : "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣；另檢體不同"
       }]
     },
     {
@@ -78,7 +82,8 @@
       "target" : [{
         "code" : "2160-0",
         "display" : "Creatinine [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "檢體不同(Blood vs Serum/Plasma)，非包含關係"
       }]
     },
     {
@@ -87,7 +92,8 @@
       "target" : [{
         "code" : "3084-1",
         "display" : "Uric acid [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "檢體不同(Blood vs Serum/Plasma)"
       }]
     },
     {
@@ -96,7 +102,8 @@
       "target" : [{
         "code" : "2093-3",
         "display" : "Cholesterol [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "wider",
+        "comment" : "source 允許質量或莫耳濃度兩種尺度，語意較 target 廣"
       }]
     },
     {
@@ -105,7 +112,8 @@
       "target" : [{
         "code" : "2571-8",
         "display" : "Triglyceride [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "檢體不同(Blood vs Serum/Plasma)"
       }]
     },
     {
@@ -114,7 +122,8 @@
       "target" : [{
         "code" : "2089-1",
         "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定計算法，target 方法未指定"
       }]
     },
     {
@@ -123,7 +132,8 @@
       "target" : [{
         "code" : "98979-8",
         "display" : "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換"
       }]
     },
     {
@@ -132,7 +142,8 @@
       "target" : [{
         "code" : "5196-1",
         "display" : "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄"
       }]
     },
     {
@@ -141,7 +152,8 @@
       "target" : [{
         "code" : "13955-0",
         "display" : "Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄"
       }]
     },
     {
@@ -150,7 +162,8 @@
       "target" : [{
         "code" : "777-3",
         "display" : "Platelets [#/volume] in Blood",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 Automated count，target 方法未指定"
       }]
     },
     {
@@ -159,7 +172,8 @@
       "target" : [{
         "code" : "787-2",
         "display" : "MCV [Entitic volume] by Automated count",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "calculation 與 Automated count 為不同具體方法，無包含關係"
       }]
     },
     {
@@ -168,7 +182,8 @@
       "target" : [{
         "code" : "785-6",
         "display" : "MCH [Entitic mass] by Automated count",
-        "equivalence" : "equivalent"
+        "equivalence" : "equivalent",
+        "comment" : "同概念、同方法(Automated count)，僅顯示名長短不同"
       }]
     },
     {
@@ -177,7 +192,8 @@
       "target" : [{
         "code" : "770-8",
         "display" : "Neutrophils/100 leukocytes in Blood by Automated count",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "Manual 與 Automated 為不同具體方法，無包含關係"
       }]
     },
     {
@@ -186,7 +202,8 @@
       "target" : [{
         "code" : "1920-8",
         "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 UV with P5P，target 方法未指定"
       }]
     },
     {
@@ -195,7 +212,8 @@
       "target" : [{
         "code" : "1742-6",
         "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 UV with P5P，target 方法未指定"
       }]
     },
     {
@@ -204,7 +222,8 @@
       "target" : [{
         "code" : "6768-6",
         "display" : "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "equivalent",
+        "comment" : "同概念同檢體，兩碼方法均未指定"
       }]
     },
     {
@@ -213,7 +232,7 @@
       "target" : [{
         "code" : "4548-4",
         "display" : "Hemoglobin A1c/Hemoglobin.total in Blood",
-        "equivalence" : "equivalent",
+        "equivalence" : "relatedto",
         "comment" : "Unit conversion required: NGSP(%) = IFCC(mmol/mol) * 0.9148 + 2.152"
       }]
     },
@@ -223,7 +242,8 @@
       "target" : [{
         "code" : "11580-8",
         "display" : "Thyrotropin [Units/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 3rd IS 標準品，target 未指定"
       }]
     },
     {
@@ -232,7 +252,8 @@
       "target" : [{
         "code" : "2857-1",
         "display" : "Prostate specific Ag [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "equivalent",
+        "comment" : "同概念同檢體，方法均未指定"
       }]
     },
     {
@@ -241,7 +262,8 @@
       "target" : [{
         "code" : "10334-1",
         "display" : "Cancer Ag 125 [Units/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 Immunoassay，target 方法未指定"
       }]
     },
     {
@@ -250,7 +272,8 @@
       "target" : [{
         "code" : "2039-6",
         "display" : "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 Immunoassay，target 方法未指定"
       }]
     },
     {
@@ -259,7 +282,8 @@
       "target" : [{
         "code" : "1920-8",
         "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 No addition of P-5'-P，target 方法未指定"
       }]
     },
     {
@@ -268,7 +292,8 @@
       "target" : [{
         "code" : "1742-6",
         "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 No addition of P-5'-P，target 方法未指定"
       }]
     },
     {
@@ -277,7 +302,8 @@
       "target" : [{
         "code" : "1558-6",
         "display" : "Fasting Glucose [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "wider",
+        "comment" : "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣"
       }]
     },
     {
@@ -286,7 +312,8 @@
       "target" : [{
         "code" : "2089-1",
         "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma",
-        "equivalence" : "equivalent"
+        "equivalence" : "narrower",
+        "comment" : "source 指定 Direct assay，target 方法未指定"
       }]
     },
     {
@@ -295,7 +322,8 @@
       "target" : [{
         "code" : "5671-3",
         "display" : "Lead [Mass/volume] in Blood",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "source 檢體為泛稱 Specimen、target 限 Blood，非單純包含"
       }]
     },
     {
@@ -304,7 +332,8 @@
       "target" : [{
         "code" : "8280-0",
         "display" : "Waist Circumference at umbilicus by Tape measure",
-        "equivalence" : "wider"
+        "equivalence" : "relatedto",
+        "comment" : "source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同"
       }]
     },
     {
@@ -313,7 +342,8 @@
       "target" : [{
         "code" : "89015-2",
         "display" : "Pure tone threshold audiometry panel",
-        "equivalence" : "equivalent"
+        "equivalence" : "relatedto",
+        "comment" : "panel 層對應；兩者頻率成分結構未逐一對齊，component 層等價未經確立"
       }]
     }]
   }]

@@ -4,6 +4,7 @@
 
  
 用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。 
+**subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。 
 
 **Usages:**
 
@@ -33,7 +34,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Procedure-Se
   "title" : "臨場服務執行活動項目 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-26T12:18:37+08:00",
+  "date" : "2026-07-26T14:28:30+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -49,7 +50,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Procedure-Se
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。",
+  "description" : "用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。\r\n\r\n**subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",

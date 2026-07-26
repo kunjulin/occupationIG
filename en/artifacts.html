@@ -285,7 +285,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。</p>
+<p>本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。
+
+<strong>subject／custodian 語意界定（回應委員意見）</strong>：本文件之標的為「<strong>一次臨場服務事件與其紀錄</strong>」，故 <code class="language-plaintext highlighter-rouge">subject</code> 為受服務之事業單位（作業場所），<code class="language-plaintext highlighter-rouge">custodian</code> 為保管該紀錄之醫療機構。<strong>惟本 IG 並非一律以 Organization 作 subject</strong>：文件內各關聯資源依其性質分別設定——個人健康指導以 Patient 為 subject、群體衛教以 Group 為 subject、事業單位則以 <code class="language-plaintext highlighter-rouge">serviceProvider</code>／<code class="language-plaintext highlighter-rouge">custodian</code>／<code class="language-plaintext highlighter-rouge">focus</code>／<code class="language-plaintext highlighter-rouge">extension[employerInfo]</code> 表達，詳見各該 Profile。</p>
 </td>
          </tr>
          <tr>
@@ -609,7 +611,17 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用，形成可驗證、可交換的摘要文件。</p>
+<p>職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用。
+
+<strong>定位</strong>：本 Profile 為<strong>按需產生之臨床摘要原型（prototype）</strong>，屬工作小組建議方案，<strong>非正式交換要求</strong>；俟臨床測試與回饋後再確認其範圍與必填欄位。
+
+<strong>使用限制（負向表列，實作與臨床使用時必須遵守）</strong>：</p>
+<ol>
+  <li><strong>本摘要不取代急診臨床評估</strong>：所載資料為既有健檢紀錄之彙整，不構成診斷或處置建議，急診決策仍應以當下臨床評估為準。</li>
+  <li><strong>舊值必須顯示資料日期與來源機構</strong>：所引用之每筆檢驗／量測結果，均須可辨識其 <code class="language-plaintext highlighter-rouge">effectiveDateTime</code> 與 <code class="language-plaintext highlighter-rouge">performer</code>／來源機構；未標示日期與來源之數值不得呈現。</li>
+  <li><strong>無資料不等於無暴露</strong>：本摘要未列出某項危害暴露，僅表示系統中無相關紀錄，<strong>不得推論該勞工未曾暴露</strong>；必要時仍應詢問病史。</li>
+  <li><strong>受檢者自述與機構驗證資料必須可區分</strong>：以問卷／自述取得之資訊（如 QuestionnaireResponse）與經醫療機構檢驗驗證之結果，須於呈現時明確區分，不得混同陳列。</li>
+</ol>
 </td>
          </tr>
          <tr>
@@ -633,7 +645,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。</p>
+<p>用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。
+
+<strong>交換規則（回應委員意見）</strong>：</p>
+<ol>
+  <li><strong>須保留原始 panel／component 代碼</strong>：若來源系統採 <code class="language-plaintext highlighter-rouge">21104-5</code> 系列等變異碼，交換時<strong>應同時保留原始代碼</strong>（如置於 <code class="language-plaintext highlighter-rouge">code.coding</code> 之另一 coding），<strong>不得僅存歸一後之代碼</strong>，以維持可追溯性。</li>
+  <li><strong>panel 層 mapping 不等於 component 層等價</strong>：ConceptMap 現僅建立 panel 對 panel 之對應；<strong>各頻率 component 之對應尚未建立（mapping unavailable）</strong>，不得逕行推論等價。</li>
+  <li><strong>聽閾單位</strong>：以 UCUM <code class="language-plaintext highlighter-rouge">dB</code> 表達（臨床意義為 dB HL，依 ISO 1999 判讀）。</li>
+  <li><strong>特殊情形不得以一般數值表達</strong>：「未測」「無反應」「超出儀器上限」等情形，<strong>應以 <code class="language-plaintext highlighter-rouge">dataAbsentReason</code> 或明確代碼表達</strong>，不得填入 0、999 等假數值，亦不得省略該 component。</li>
+</ol>
 </td>
          </tr>
          <tr>
@@ -657,7 +677,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。</p>
+<p>本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。
+
+<strong>語意界定（回應委員意見）</strong>：本資源表達「<strong>一次臨場服務事件</strong>」。<code class="language-plaintext highlighter-rouge">serviceProvider</code> 為提供服務之醫療機構；受服務之事業單位以 <code class="language-plaintext highlighter-rouge">extension[employerInfo]</code> 表達，<strong>不置於 subject</strong>。</p>
 </td>
          </tr>
          <tr>
@@ -669,7 +691,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。</p>
+<p>用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。
+
+<strong>for／focus／owner 語意界定（回應委員意見）</strong>：本資源表達「<strong>後續改善工作</strong>」。<code class="language-plaintext highlighter-rouge">focus</code> 指向所依據之現場發現（ServiceFinding）；<code class="language-plaintext highlighter-rouge">owner</code> 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 <code class="language-plaintext highlighter-rouge">for</code> 表達該 Patient。<strong>事業單位以 <code class="language-plaintext highlighter-rouge">owner</code> 表達，不置於 <code class="language-plaintext highlighter-rouge">for</code>。</strong></p>
 </td>
          </tr>
          <tr>
@@ -681,7 +705,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。</p>
+<p>用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。
+
+<strong>subject／focus 語意界定（回應委員意見）</strong>：本資源記錄「<strong>現場發現</strong>」。所發現問題<strong>所屬之事業單位以 <code class="language-plaintext highlighter-rouge">focus</code> 表達</strong>，不置於 <code class="language-plaintext highlighter-rouge">subject</code>；若該發現係針對特定勞工個人（如個別健康異常），則 <code class="language-plaintext highlighter-rouge">subject</code> 為該 Patient。事業單位不作為 <code class="language-plaintext highlighter-rouge">subject</code>。</p>
 </td>
          </tr>
          <tr>
@@ -693,7 +719,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。</p>
+<p>用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。
+
+<strong>subject 選用規則（回應委員意見）</strong>：<strong>個人健康指導／個案追蹤 → <code class="language-plaintext highlighter-rouge">subject</code> = Patient</strong>；<strong>群體衛教／全廠宣導 → <code class="language-plaintext highlighter-rouge">subject</code> = Group</strong>。<strong>事業單位不作為 <code class="language-plaintext highlighter-rouge">subject</code></strong>，改以 <code class="language-plaintext highlighter-rouge">extension[employerInfo]</code> 表達所屬事業單位。</p>
 </td>
          </tr>
          <tr>
@@ -946,7 +974,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>包含健康管理分級（第一級至第四級）代碼之值集。</p>
+<p>包含健康管理分級（第一級至第四級）代碼之值集。（provisional，隨 CS-HealthMgmtLevel 待官方確認）</p>
 </td>
          </tr>
          <tr>
@@ -970,7 +998,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>包含勞動部通報報告類別代碼之值集。</p>
+<p>包含勞動部通報報告類別代碼之值集。（provisional，隨 CS-LaborReportCode 待官方確認）</p>
 </td>
          </tr>
          <tr>
@@ -1123,7 +1151,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>包含臨場健康服務項目活動類別代碼之值集。</p>
+<p>包含臨場健康服務項目活動類別代碼之值集。（provisional，隨 CS-ServiceActivityType 待官方確認）</p>
 </td>
          </tr>
          <tr>
@@ -1147,7 +1175,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>包含適性配工或工作調整建議代碼之值集。</p>
+<p>包含適性配工或工作調整建議代碼之值集。（provisional，隨 CS-FitnessForWork 待官方確認）</p>
 </td>
          </tr>
          <tr>
@@ -1191,7 +1219,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。</p>
+<p>依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。（<strong>provisional</strong>：本代碼系統為工作小組建議之本地代碼配置，<strong>尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）</strong>；不得表述為已對接官方申報系統。）</p>
 </td>
          </tr>
          <tr>
@@ -1215,7 +1243,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。</p>
+<p>勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。（<strong>provisional</strong>：本代碼系統為工作小組建議之本地代碼配置，<strong>尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）</strong>；不得表述為已對接官方申報系統。）</p>
 </td>
          </tr>
          <tr>
@@ -1333,7 +1361,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。</p>
+<p>附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。（<strong>provisional</strong>：本地代碼配置，尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）。另因 SNOMED 現無適切之職業健康諮詢 procedure 代碼，改善建議諮詢暫以本代碼系統承載，該用法列為本地碼治理事項。）</p>
 </td>
          </tr>
          <tr>
@@ -1357,7 +1385,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。</p>
+<p>第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。（<strong>provisional</strong>：本代碼系統為工作小組建議之本地代碼配置，<strong>尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）</strong>；不得表述為已對接官方申報系統。）</p>
 </td>
          </tr>
          <tr>
@@ -1369,7 +1397,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。</p>
+<p>《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 <strong>draft</strong>：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。</p>
 </td>
          </tr>
       </tbody>
@@ -1510,7 +1538,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。</p>
+<p>將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。
+
+<strong>來源版本</strong>：LOINC 2.82（經 tx.fhir.org 驗證）。<strong>驗證狀態</strong>：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。<strong>審查狀態</strong>：equivalence 已於 2026-07-26 依 FHIR 語意逐筆覆核並補列理由（comment），工作小組建議方案，提請確認可否作為下一階段試作基礎。
+
+<strong>equivalence 使用原則</strong>：<code class="language-plaintext highlighter-rouge">equivalent</code> 僅用於完全等義（同概念、同檢體、方法同為未指定或同一方法）；source 為 target 之方法特化者用 <code class="language-plaintext highlighter-rouge">narrower</code>；source 語意較廣者用 <code class="language-plaintext highlighter-rouge">wider</code>；不同具體方法、不同檢體、或需數值換算而無包含關係者用 <code class="language-plaintext highlighter-rouge">relatedto</code>（R4 之 ConceptMapEquivalence 代碼，語意為「有關聯但確切關係未知」）。
+
+⚠️ <strong>歸一之臨床限制</strong>：本對照供資料標準化之用，<strong>不表示歸一後之數值可直接互換比較</strong>（例如 MDRD 與 CKD-EPI eGFR、IFCC 與 NGSP HbA1c 均需換算或不可互換）。交換時應保留原始代碼。</p>
 </td>
          </tr>
          <tr>
@@ -2093,7 +2127,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-26 12:18:00 +0800">
+  <span title="2026-07-26 14:28:00 +0800">
     2026-07-26
   </span>
 

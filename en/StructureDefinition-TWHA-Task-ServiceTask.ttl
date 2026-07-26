@@ -19,7 +19,7 @@
   fhir:StructureDefinition.title [ fhir:value "臨場健康服務建議與改善任務 Profile"] ;
   fhir:StructureDefinition.status [ fhir:value "active"] ;
   fhir:StructureDefinition.experimental [ fhir:value "false"^^xsd:boolean] ;
-  fhir:StructureDefinition.date [ fhir:value "2026-07-26T12:18:37+08:00"^^xsd:dateTime] ;
+  fhir:StructureDefinition.date [ fhir:value "2026-07-26T14:28:30+08:00"^^xsd:dateTime] ;
   fhir:StructureDefinition.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:StructureDefinition.contact [
      fhir:index -1 ;
@@ -38,7 +38,7 @@
        fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
      ]
   ] ;
-  fhir:StructureDefinition.description [ fhir:value "用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。"] ;
+  fhir:StructureDefinition.description [ fhir:value "用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。\r\n\r\n**for／focus／owner 語意界定（回應委員意見）**：本資源表達「**後續改善工作**」。`focus` 指向所依據之現場發現（ServiceFinding）；`owner` 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 `for` 表達該 Patient。**事業單位以 `owner` 表達，不置於 `for`。**"] ;
   fhir:StructureDefinition.fhirVersion [ fhir:value "4.0.1"] ;
   fhir:StructureDefinition.mapping [
      fhir:index -1 ;

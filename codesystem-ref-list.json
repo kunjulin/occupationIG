@@ -45,13 +45,13 @@
     "oids" : ["2.16.840.1.113883.6.1"],
     "uses" : {
     },
-    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap",
-    "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集",
-    "ValueSet-VS-CoreDataset.html" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
     "ValueSet-VS-TWHAVitalSigns.html" : "職業健檢生命徵象項目值集",
     "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
+    "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集",
+    "ValueSet-VS-CoreDataset.html" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
+    "ValueSet-VS-OccHealthCheck-Required.html" : "勞工健康檢查法定必驗項目值集（第一期草案）",
     "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集",
-    "ValueSet-VS-OccHealthCheck-Required.html" : "勞工健康檢查法定必驗項目值集（第一期草案）"
+    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap"
   },
   {
     "url" : "http://snomed.info/sct",
@@ -115,7 +115,7 @@
     "status" : "active",
     "name" : "CS_Appendix10Operation",
     "title" : "附表十特別危害健康作業具名代碼系統",
-    "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。",
+    "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。",
     "uses" : {
     },
     "ValueSet-VS-Appendix10-Operation.html" : "附表十特別危害健康作業值集（35 項）",
@@ -138,7 +138,7 @@
     "status" : "active",
     "name" : "CS_FitnessForWork",
     "title" : "適性配工建議代碼系統",
-    "description" : "第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。",
+    "description" : "第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）",
     "uses" : {
     },
     "ValueSet-VS-FitnessForWork.html" : "適性配工建議值集"
@@ -172,7 +172,7 @@
     "status" : "active",
     "name" : "CS_HealthMgmtLevel",
     "title" : "健康管理分級代碼系統",
-    "description" : "依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。",
+    "description" : "依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）",
     "uses" : {
     },
     "ValueSet-VS-HealthMgmtLevel.html" : "健康管理分級值集"
@@ -183,7 +183,7 @@
     "status" : "active",
     "name" : "CS_LaborReportCode",
     "title" : "勞動部通報報告代碼系統",
-    "description" : "勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。",
+    "description" : "勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）",
     "uses" : {
     },
     "ValueSet-VS-LaborReportCode.html" : "勞動部通報報告代碼值集"
@@ -216,7 +216,7 @@
     "status" : "active",
     "name" : "CS_ServiceActivityType",
     "title" : "臨場健康服務辦理事項代碼系統",
-    "description" : "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。",
+    "description" : "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。（**provisional**：本地代碼配置，尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）。另因 SNOMED 現無適切之職業健康諮詢 procedure 代碼，改善建議諮詢暫以本代碼系統承載，該用法列為本地碼治理事項。）",
     "uses" : {
     },
     "ValueSet-VS-ServiceActivityType.html" : "臨場健康服務辦理事項值集"

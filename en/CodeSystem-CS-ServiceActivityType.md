@@ -1,9 +1,9 @@
 # 臨場健康服務辦理事項代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
-## CodeSystem: 臨場健康服務辦理事項代碼系統 
+## CodeSystem: 臨場健康服務辦理事項代碼系統 (Experimental) 
 
  
-附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。 
+附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。（**provisional**：本地代碼配置，尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）。另因 SNOMED 現無適切之職業健康諮詢 procedure 代碼，改善建議諮詢暫以本代碼系統承載，該用法列為本地碼治理事項。） 
 
 This Code system is referenced in the definition of the following value sets:
 
@@ -26,8 +26,8 @@ This Code system is referenced in the definition of the following value sets:
   "name" : "CS_ServiceActivityType",
   "title" : "臨場健康服務辦理事項代碼系統",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2026-07-26T12:18:37+08:00",
+  "experimental" : true,
+  "date" : "2026-07-26T14:28:30+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -43,7 +43,7 @@ This Code system is referenced in the definition of the following value sets:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。",
+  "description" : "附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。（**provisional**：本地代碼配置，尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）。另因 SNOMED 現無適切之職業健康諮詢 procedure 代碼，改善建議諮詢暫以本代碼系統承載，該用法列為本地碼治理事項。）",
   "caseSensitive" : true,
   "content" : "complete",
   "count" : 8,

@@ -224,6 +224,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li><a href="#2-計畫定位與目標-project-positioning--objectives" id="markdown-toc-2-計畫定位與目標-project-positioning--objectives">2. 計畫定位與目標 (Project Positioning &amp; Objectives)</a></li>
       <li><a href="#3-法規與政策依據-regulatory--policy-context" id="markdown-toc-3-法規與政策依據-regulatory--policy-context">3. 法規與政策依據 (Regulatory &amp; Policy Context)</a>        <ul>
           <li><a href="#31-勞工健康檢查與服務紀錄" id="markdown-toc-31-勞工健康檢查與服務紀錄">3.1 勞工健康檢查與服務紀錄</a></li>
+          <li><a href="#311-紀錄保存期限推導規則第-19-條" id="markdown-toc-311-紀錄保存期限推導規則第-19-條">3.1.1 紀錄保存期限推導規則（第 19 條）</a></li>
           <li><a href="#32-成人預防保健服務" id="markdown-toc-32-成人預防保健服務">3.2 成人預防保健服務</a></li>
         </ul>
       </li>
@@ -268,11 +269,79 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li><strong>第 14 條</strong>：明定雇主對辦理勞工健康服務時，應依「附表八」項目完整記錄，並至少保存七年。</li>
       <li><strong>第 16、17 條</strong>：一般體格與健康檢查之項目與週期如「附表九」。</li>
       <li><strong>第 18 條</strong>：特別危害作業特殊健檢之項目如「附表十」。</li>
-      <li><strong>第 19 條</strong>：檢查結果紀錄保存期限（附表九 ≥7 年；附表十特殊檢查 ≥10 年；部分致癌物更長，如苯乙烯相關紀錄 30 年）。</li>
+      <li><strong>第 19 條</strong>：檢查結果紀錄保存期限，詳見下方推導規則表。</li>
       <li><strong>第 21、23 條</strong>：健康管理分級判定（一至四級）與後續適性配工或追蹤措施。</li>
     </ul>
   </li>
 </ul>
+
+<h3 id="311-紀錄保存期限推導規則第-19-條">3.1.1 紀錄保存期限推導規則（第 19 條）</h3>
+
+<p>保存期限<strong>非單一固定值</strong>，而係由下列輸入推導而得。實作端應依此規則計算，不宜硬編碼單一年限：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">#</th>
+      <th style="text-align: left">推導輸入</th>
+      <th style="text-align: left">說明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left"><strong>檢查類型</strong></td>
+      <td style="text-align: left">一般體格／健康檢查（附表九）vs. 特殊體格／健康檢查（附表十）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left"><strong>作業類別</strong></td>
+      <td style="text-align: left">附表十之危害作業別；部分致癌物類別另有加長規定</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left"><strong>結果日期</strong></td>
+      <td style="text-align: left">保存期間之起算基準（<code class="language-plaintext highlighter-rouge">Observation.effectiveDateTime</code>／報告日期）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left"><strong>適用法規版本</strong></td>
+      <td style="text-align: left">依檢查當時有效之《勞工健康保護規則》版本判定</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>現行（115.06.26 版）推導結果：</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">檢查類型／作業類別</th>
+      <th style="text-align: left">保存期限</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">附表九 一般體格及健康檢查</td>
+      <td style="text-align: left">≥ <strong>7</strong> 年</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">附表十 特殊體格及健康檢查（一般情形）</td>
+      <td style="text-align: left">≥ <strong>10</strong> 年</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">附表十 特定致癌物相關作業（如<strong>苯乙烯</strong>）</td>
+      <td style="text-align: left">≥ <strong>30</strong> 年</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>⚠️ <strong>起算點之解釋尚待確認（M-6）</strong>：保存期間應自「檢查日」「報告日」或「勞工離職日」起算，
+各界解讀不一，<strong>尚待勞動部職業安全衛生署釋示</strong>。本 IG 現階段僅載明規則要素，
+<strong>不以 extension 結構化保存期限</strong>（列為 backlog：<code class="language-plaintext highlighter-rouge">ext-retention-period</code>）；
+實作端應保留結果日期與作業類別，俾利日後依確定之起算規則計算。</p>
+</blockquote>
 
 <blockquote>
   <p><strong>法規版本與過渡期</strong>：本指引對應《勞工健康保護規則》<strong>115.06.26 修正版</strong>。附表十所列特別危害健康作業由 32 項增為 <strong>35 項</strong>，其中 <strong>33 苯乙烯／34 甲苯／35 二甲苯</strong>為本次新增之具名作業；該三項之<strong>施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認</strong>，本 IG 之代碼與家族歸併配置屬<strong>過渡期暫定</strong>，詳見<a href="special-exam.html">特殊危害健康作業</a>之過渡期聲明。</p>
@@ -292,7 +361,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <hr />
 
 <h2 id="4-資料保存年限要求-data-retention-policies">4. 資料保存年限要求 (Data Retention Policies)</h2>
-<p>為確保職業史、生活習慣與疾病因果關係之追溯，相關健康檢查紀錄之保存年限如下：</p>
+<p>為確保職業史、生活習慣與疾病因果關係之追溯，相關紀錄之保存年限依 <strong>§3.1.1 之推導規則</strong>判定。
+下表為現行（115.06.26 版）之推導結果彙整：</p>
 
 <table>
   <thead>
@@ -304,27 +374,31 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><strong>一般體格/健康檢查</strong></td>
+      <td style="text-align: left"><strong>一般體格/健康檢查</strong>（附表九）</td>
       <td style="text-align: left">至少保存 <strong>7 年</strong></td>
       <td style="text-align: left">適用於一般受檢者及在職勞工之基本紀錄。</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>特殊體格/健康檢查</strong></td>
+      <td style="text-align: left"><strong>特殊體格/健康檢查</strong>（附表十，一般情形）</td>
       <td style="text-align: left">至少保存 <strong>10 年</strong></td>
       <td style="text-align: left">適用於噪音、鉛、粉塵等大多數特別危害作業。</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>特定暴露作業健檢</strong></td>
+      <td style="text-align: left"><strong>特定致癌／長潛伏期作業健檢</strong></td>
       <td style="text-align: left">至少保存 <strong>30 年</strong></td>
-      <td style="text-align: left">適用於石綿、游離輻射、聯苯胺等致癌或具長期潛伏期之作業。</td>
+      <td style="text-align: left">適用於石綿、游離輻射、聯苯胺、<strong>苯乙烯</strong>等致癌或具長期潛伏期之作業。</td>
     </tr>
     <tr>
-      <td style="text-align: left"><strong>臨場服務執行紀錄</strong></td>
+      <td style="text-align: left"><strong>臨場服務執行紀錄</strong>（附表八）</td>
       <td style="text-align: left">至少保存 <strong>7 年</strong></td>
-      <td style="text-align: left">附表八之臨場健康服務紀錄。</td>
+      <td style="text-align: left">依第 14 條。</td>
     </tr>
   </tbody>
 </table>
+
+<blockquote>
+  <p>⚠️ 本表為推導結果之彙整，非獨立規則；<strong>起算點之解釋尚待主管機關釋示（M-6）</strong>，詳見 §3.1.1。</p>
+</blockquote>
 
 <hr />
 
@@ -363,7 +437,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-26 12:18:00 +0800">
+  <span title="2026-07-26 14:28:00 +0800">
     2026-07-26
   </span>
 

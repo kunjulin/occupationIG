@@ -4,6 +4,7 @@
 
  
 用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。 
+**subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。 
 
 **Usages:**
 
@@ -34,7 +35,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Observation-
   "title" : "臨場健康服務發現問題/風險 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-26T12:18:37+08:00",
+  "date" : "2026-07-26T14:28:30+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -50,7 +51,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Observation-
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。",
+  "description" : "用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。\r\n\r\n**subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",
@@ -114,6 +115,14 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Observation-
           "display" : "Occupational hazard"
         }]
       }
+    },
+    {
+      "id" : "Observation.subject",
+      "path" : "Observation.subject",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient"]
+      }]
     },
     {
       "id" : "Observation.focus",

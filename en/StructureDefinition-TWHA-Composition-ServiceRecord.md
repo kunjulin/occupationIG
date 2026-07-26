@@ -4,6 +4,7 @@
 
  
 本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。 
+**subject／custodian 語意界定（回應委員意見）**：本文件之標的為「**一次臨場服務事件與其紀錄**」，故 `subject` 為受服務之事業單位（作業場所），`custodian` 為保管該紀錄之醫療機構。**惟本 IG 並非一律以 Organization 作 subject**：文件內各關聯資源依其性質分別設定——個人健康指導以 Patient 為 subject、群體衛教以 Group 為 subject、事業單位則以 `serviceProvider`／`custodian`／`focus`／`extension[employerInfo]` 表達，詳見各該 Profile。 
 
 **Usages:**
 
@@ -33,7 +34,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Composition-
   "title" : "健康檢查健康服務執行紀錄組成結構 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-26T12:18:37+08:00",
+  "date" : "2026-07-26T14:28:30+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -49,7 +50,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Composition-
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。",
+  "description" : "本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。\r\n\r\n**subject／custodian 語意界定（回應委員意見）**：本文件之標的為「**一次臨場服務事件與其紀錄**」，故 `subject` 為受服務之事業單位（作業場所），`custodian` 為保管該紀錄之醫療機構。**惟本 IG 並非一律以 Organization 作 subject**：文件內各關聯資源依其性質分別設定——個人健康指導以 Patient 為 subject、群體衛教以 Group 為 subject、事業單位則以 `serviceProvider`／`custodian`／`focus`／`extension[employerInfo]` 表達，詳見各該 Profile。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",
@@ -122,6 +123,14 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Composition-
       "id" : "Composition.title",
       "path" : "Composition.title",
       "patternString" : "勞工健康服務執行紀錄表"
+    },
+    {
+      "id" : "Composition.custodian",
+      "path" : "Composition.custodian",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility"]
+      }]
     },
     {
       "id" : "Composition.section",

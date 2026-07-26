@@ -7,7 +7,7 @@
 
 **Usages:**
 
-* Refer to this Profile: [健康檢查健檢診斷報告 Profile](StructureDefinition-TWHA-DiagnosticReport.md), [臨場健康服務事件 Profile](StructureDefinition-TWHA-Encounter-Service.md), [健康檢查健檢就醫事件 Profile](StructureDefinition-TWHA-Encounter.md) and [健康檢查健檢追蹤檢查要求 Profile](StructureDefinition-TWHA-ServiceRequest.md)
+* Refer to this Profile: [健康檢查健康服務執行紀錄組成結構 Profile](StructureDefinition-TWHA-Composition-ServiceRecord.md), [健康檢查健檢診斷報告 Profile](StructureDefinition-TWHA-DiagnosticReport.md), [臨場健康服務事件 Profile](StructureDefinition-TWHA-Encounter-Service.md), [健康檢查健檢就醫事件 Profile](StructureDefinition-TWHA-Encounter.md) and [健康檢查健檢追蹤檢查要求 Profile](StructureDefinition-TWHA-ServiceRequest.md)
 * Examples for this Profile: [交通部民用航空局航空醫務中心](Organization-example-hospital.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-Organization-Facility.json)
@@ -33,7 +33,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Organization
   "name" : "TWHAOrganizationFacilityProfile",
   "title" : "實施健康檢查之醫療機構 Profile",
   "status" : "active",
-  "date" : "2026-07-26T12:18:37+08:00",
+  "date" : "2026-07-26T14:28:30+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

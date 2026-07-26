@@ -3,7 +3,7 @@
 ## CodeSystem: 附表十特別危害健康作業具名代碼系統 
 
  
-《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。 
+《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。 
 
 This Code system is referenced in the definition of the following value sets:
 
@@ -27,7 +27,7 @@ This Code system is referenced in the definition of the following value sets:
   "title" : "附表十特別危害健康作業具名代碼系統",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-26T12:18:37+08:00",
+  "date" : "2026-07-26T14:28:30+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -43,7 +43,7 @@ This Code system is referenced in the definition of the following value sets:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增。",
+  "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。",
   "caseSensitive" : true,
   "content" : "complete",
   "count" : 35,
@@ -177,15 +177,27 @@ This Code system is referenced in the definition of the following value sets:
   },
   {
     "code" : "app-33",
-    "display" : "苯乙烯作業"
+    "display" : "苯乙烯作業",
+    "designation" : [{
+      "language" : "zh-TW",
+      "value" : "draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定"
+    }]
   },
   {
     "code" : "app-34",
-    "display" : "甲苯作業"
+    "display" : "甲苯作業",
+    "designation" : [{
+      "language" : "zh-TW",
+      "value" : "draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定"
+    }]
   },
   {
     "code" : "app-35",
-    "display" : "二甲苯作業"
+    "display" : "二甲苯作業",
+    "designation" : [{
+      "language" : "zh-TW",
+      "value" : "draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定"
+    }]
   }]
 }
 

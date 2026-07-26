@@ -3,7 +3,14 @@
 ## Resource Profile: 職業健康急診友善摘要 Composition Profile 
 
  
-職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用，形成可驗證、可交換的摘要文件。 
+職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用。 
+**定位**：本 Profile 為**按需產生之臨床摘要原型（prototype）**，屬工作小組建議方案，**非正式交換要求**；俟臨床測試與回饋後再確認其範圍與必填欄位。 
+**使用限制（負向表列，實作與臨床使用時必須遵守）**： 
+1. **本摘要不取代急診臨床評估**：所載資料為既有健檢紀錄之彙整，不構成診斷或處置建議，急診決策仍應以當下臨床評估為準。
+1. **舊值必須顯示資料日期與來源機構**：所引用之每筆檢驗／量測結果，均須可辨識其`effectiveDateTime`與`performer`／來源機構；未標示日期與來源之數值不得呈現。
+1. **無資料不等於無暴露**：本摘要未列出某項危害暴露，僅表示系統中無相關紀錄，**不得推論該勞工未曾暴露**；必要時仍應詢問病史。
+1. **受檢者自述與機構驗證資料必須可區分**：以問卷／自述取得之資訊（如 QuestionnaireResponse）與經醫療機構檢驗驗證之結果，須於呈現時明確區分，不得混同陳列。
+ 
 
 **Usages:**
 
@@ -33,7 +40,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Composition-
   "title" : "職業健康急診友善摘要 Composition Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-26T12:18:37+08:00",
+  "date" : "2026-07-26T14:28:30+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -49,7 +56,7 @@ Other representations of profile: [CSV](../StructureDefinition-TWHA-Composition-
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用，形成可驗證、可交換的摘要文件。",
+  "description" : "職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用。\r\n\r\n**定位**：本 Profile 為**按需產生之臨床摘要原型（prototype）**，屬工作小組建議方案，**非正式交換要求**；俟臨床測試與回饋後再確認其範圍與必填欄位。\r\n\r\n**使用限制（負向表列，實作與臨床使用時必須遵守）**：\r\n1. **本摘要不取代急診臨床評估**：所載資料為既有健檢紀錄之彙整，不構成診斷或處置建議，急診決策仍應以當下臨床評估為準。\r\n2. **舊值必須顯示資料日期與來源機構**：所引用之每筆檢驗／量測結果，均須可辨識其 `effectiveDateTime` 與 `performer`／來源機構；未標示日期與來源之數值不得呈現。\r\n3. **無資料不等於無暴露**：本摘要未列出某項危害暴露，僅表示系統中無相關紀錄，**不得推論該勞工未曾暴露**；必要時仍應詢問病史。\r\n4. **受檢者自述與機構驗證資料必須可區分**：以問卷／自述取得之資訊（如 QuestionnaireResponse）與經醫療機構檢驗驗證之結果，須於呈現時明確區分，不得混同陳列。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",

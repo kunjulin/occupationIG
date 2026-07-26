@@ -1,19 +1,19 @@
 TWHAIG : Validation Results
 =========================================
 
-err = 0, warn = 204, info = 273
+err = 0, warn = 214, info = 281
 IG Publisher Version: 2.2.11
-Generated Sun Jul 26 12:24:38 CST 2026. FHIR version 4.0.1 for mohw.tw.twha#0.1.0 (canonical = https://twcore.mohw.gov.tw/ig/twha)
+Generated Sun Jul 26 14:35:05 CST 2026. FHIR version 4.0.1 for mohw.tw.twha#0.1.0 (canonical = https://twcore.mohw.gov.tw/ig/twha)
  Build Errors : 0 / 5 / 1
- C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-001 : 0 / 8 / 33
- C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-002 : 0 / 8 / 37
- C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-003 : 0 / 3 / 19
- C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-004 : 0 / 10 / 22
- C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-005 : 0 / 9 / 43
- C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-006 : 0 / 6 / 19
- C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-007 : 0 / 8 / 31
+ C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-001 : 0 / 8 / 34
+ C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-002 : 0 / 8 / 38
+ C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-003 : 0 / 3 / 20
+ C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-004 : 0 / 10 / 23
+ C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-005 : 0 / 9 / 44
+ C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-006 : 0 / 6 / 20
+ C:\repo\occupationIG-main\fsh-generated\resources\Bundle-UC-007 : 0 / 8 / 32
  C:\repo\occupationIG-main\fsh-generated\resources\CapabilityStatement-TWHA-CapabilityStatement : 0 / 0 / 1
- C:\repo\occupationIG-main\fsh-generated\resources\ClinicalImpression-example-clinical-impression : 0 / 0 / 1
+ C:\repo\occupationIG-main\fsh-generated\resources\ClinicalImpression-example-clinical-impression : 0 / 0 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\CodeSystem-CS-Appendix10Operation : 0 / 1 / 1
  C:\repo\occupationIG-main\fsh-generated\resources\CodeSystem-CS-ExamType : 0 / 1 / 1
  C:\repo\occupationIG-main\fsh-generated\resources\CodeSystem-CS-FitnessForWork : 0 / 1 / 1
@@ -93,7 +93,7 @@ Generated Sun Jul 26 12:24:38 CST 2026. FHIR version 4.0.1 for mohw.tw.twha#0.1.
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-ECG : 0 / 13 / 5
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Encounter : 0 / 4 / 3
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Encounter-Service : 0 / 4 / 3
- C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-HealthManagementLevel : 0 / 1 / 2
+ C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-HealthManagementLevel : 0 / 3 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-HearingTest : 0 / 0 / 3
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-ImagingStudy : 0 / 5 / 3
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-LabResult-General : 0 / 0 / 3
@@ -106,7 +106,7 @@ Generated Sun Jul 26 12:24:38 CST 2026. FHIR version 4.0.1 for mohw.tw.twha#0.1.
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-PhysicalExam : 0 / 0 / 3
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Practitioner : 0 / 0 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Procedure-Counseling : 0 / 0 / 3
- C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Procedure-ServiceActivity : 0 / 0 / 2
+ C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Procedure-ServiceActivity : 0 / 2 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-PulmonaryFunction : 0 / 0 / 3
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-Questionnaire : 0 / 0 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-TWHA-QuestionnaireResponse : 0 / 5 / 2
@@ -127,10 +127,10 @@ Generated Sun Jul 26 12:24:38 CST 2026. FHIR version 4.0.1 for mohw.tw.twha#0.1.
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-employment-date : 0 / 0 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-exam-interval : 0 / 0 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-exam-type : 0 / 0 / 2
- C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-fitness-for-work : 0 / 1 / 2
+ C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-fitness-for-work : 0 / 3 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-hazard-type : 0 / 1 / 2
- C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-health-mgmt-level : 0 / 0 / 2
- C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-labor-report-code : 0 / 1 / 2
+ C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-health-mgmt-level : 0 / 2 / 2
+ C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-labor-report-code : 0 / 3 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\StructureDefinition-ext-smoking-quantity : 0 / 1 / 2
  C:\repo\occupationIG-main\fsh-generated\resources\Task-example-service-task : 0 / 0 / 1
  C:\repo\occupationIG-main\fsh-generated\resources\ValueSet-VS-Appendix10-Operation : 0 / 1 / 1
@@ -174,6 +174,7 @@ WARNING: Bundle/UC-001: Bundle.entry[6].resource/*Observation/obs-weight*/: Best
 WARNING: Bundle/UC-001: Bundle.entry[7].resource/*Observation/obs-waist*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-001: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-001: Bundle.entry[10].resource/*Observation/obs-lab-glucose*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-001: Bundle.entry[11].resource/*ClinicalImpression/example-clinical-impression*/.extension[0].value.ofType(CodeableConcept): Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.1.0
 INFORMATION: Bundle/UC-001: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
 == fsh-generated\resources\Bundle-UC-002.json ==
 WARNING: Bundle/UC-002: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
@@ -185,12 +186,14 @@ WARNING: Bundle/UC-002: Bundle.entry[6].resource/*Observation/obs-weight*/: Best
 WARNING: Bundle/UC-002: Bundle.entry[7].resource/*Observation/obs-waist*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-002: Bundle.entry[8].resource/*Observation/obs-bloodpressure*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-002: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-002: Bundle.entry[13].resource/*ClinicalImpression/example-clinical-impression*/.extension[0].value.ofType(CodeableConcept): Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.1.0
 INFORMATION: Bundle/UC-002: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
 == fsh-generated\resources\Bundle-UC-003.json ==
 WARNING: Bundle/UC-003: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
 WARNING: Bundle/UC-003: Bundle.entry[1].resource/*Patient/example-worker*/.identifier[0].system: No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'
 WARNING: Bundle/UC-003: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0].system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw'
 INFORMATION: Bundle/UC-003: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Bundle/UC-003: Bundle.entry[7].resource/*ClinicalImpression/example-clinical-impression*/.extension[0].value.ofType(CodeableConcept): Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.1.0
 INFORMATION: Bundle/UC-003: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
 == fsh-generated\resources\Bundle-UC-004.json ==
 WARNING: Bundle/UC-004: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
@@ -204,6 +207,7 @@ WARNING: Bundle/UC-004: Bundle.entry[8].resource/*Observation/obs-imaging-pet*/:
 WARNING: Bundle/UC-004: Bundle.entry[9].resource/*Observation/obs-imaging-cta*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-004: Bundle.entry[10].resource/*Observation/obs-endoscopy-egd*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-004: Bundle.entry[11].resource/*Observation/obs-endoscopy-colon*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-004: Bundle.entry[12].resource/*ClinicalImpression/example-clinical-impression*/.extension[0].value.ofType(CodeableConcept): Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.1.0
 INFORMATION: Bundle/UC-004: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
 == fsh-generated\resources\Bundle-UC-005.json ==
 WARNING: Bundle/UC-005: Bundle.identifier.system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twha/bundle-id'
@@ -216,6 +220,7 @@ WARNING: Bundle/UC-005: Bundle.entry[9].resource/*Observation/obs-bmi*/: Best Pr
 WARNING: Bundle/UC-005: Bundle.entry[10].resource/*Observation/obs-waist*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-005: Bundle.entry[11].resource/*Observation/obs-bloodpressure*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-005: Bundle.entry[12].resource/*Observation/obs-lab-glucose*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-005: Bundle.entry[13].resource/*ClinicalImpression/example-clinical-impression*/.extension[0].value.ofType(CodeableConcept): Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.1.0
 INFORMATION: Bundle/UC-005: Bundle.entry[14].resource/*Procedure/example-procedure-counseling*/.code.coding[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Bundle/UC-005: Bundle.entry[14].resource/*Procedure/example-procedure-counseling*/.code.coding[1]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-Counseling|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Bundle/UC-005: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
@@ -224,6 +229,7 @@ WARNING: Bundle/UC-006: Bundle.identifier.system: No definition could be found f
 WARNING: Bundle/UC-006: Bundle.entry[1].resource/*Organization/example-employer*/.identifier[0].system: No definition could be found for URL value 'https://gcis.nat.gov.tw'
 WARNING: Bundle/UC-006: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0].system: No definition could be found for URL value 'https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw'
 INFORMATION: Bundle/UC-006: Bundle.entry[2].resource/*Practitioner/example-doctor*/.identifier[0]: This element does not match any known slice defined in the profile https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Bundle/UC-006: Bundle.entry[6].resource/*Procedure/example-procedure-activity*/.code: Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType|0.1.0
 WARNING: Bundle/UC-006: Bundle.entry[7].resource/*Observation/example-service-finding*/: Best Practice Recommendation: In general, all observations should have a subject
 WARNING: Bundle/UC-006: Bundle.entry[7].resource/*Observation/example-service-finding*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-006: Bundle.entry[7].resource/*Observation/example-service-finding*/: Best Practice Recommendation: In general, all observations should have an effective[x] ()
@@ -237,9 +243,11 @@ WARNING: Bundle/UC-007: Bundle.entry[5].resource/*Observation/obs-height*/: Best
 WARNING: Bundle/UC-007: Bundle.entry[6].resource/*Observation/obs-weight*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-007: Bundle.entry[7].resource/*Observation/obs-bloodpressure*/: Best Practice Recommendation: In general, all observations should have a performer
 WARNING: Bundle/UC-007: Bundle.entry[8].resource/*Observation/obs-lab-glucose*/: Best Practice Recommendation: In general, all observations should have a performer
+INFORMATION: Bundle/UC-007: Bundle.entry[10].resource/*ClinicalImpression/example-clinical-impression*/.extension[0].value.ofType(CodeableConcept): Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.1.0
 INFORMATION: Bundle/UC-007: Bundle: Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])
 == fsh-generated\resources\CapabilityStatement-TWHA-CapabilityStatement.json ==
 == fsh-generated\resources\ClinicalImpression-example-clinical-impression.json ==
+INFORMATION: ClinicalImpression/example-clinical-impression: ClinicalImpression.extension[0].value.ofType(CodeableConcept): Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.1.0
 == fsh-generated\resources\CodeSystem-CS-Appendix10Operation.json ==
 WARNING: Resource: The resource CodeSystem/CS-Appendix10Operation should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated\resources\CodeSystem-CS-ExamType.json ==
@@ -403,7 +411,7 @@ INFORMATION: StructureDefinition/TWHA-Composition-EmergencySummary: StructureDef
 INFORMATION: Resource: The resource StructureDefinition/TWHA-Composition-EmergencySummary could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated\resources\StructureDefinition-TWHA-Composition-ServiceRecord.json ==
 WARNING: StructureDefinition/TWHA-Composition-ServiceRecord: StructureDefinition.snapshot.element[37].binding.valueSet: There are multiple different potential matches for the url 'http://terminology.hl7.org/ValueSet/v3-ActCode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '3.0.0', found versions: 2.0.0 (from hl7.terminology.r4#5.0.0), 3.0.0 (from hl7.terminology.r4#7.2.0). Suggested fix: change the canonical reference from 'http://terminology.hl7.org/ValueSet/v3-ActCode' to 'http://terminology.hl7.org/ValueSet/v3-ActCode|3.0.0'
-INFORMATION: StructureDefinition/TWHA-Composition-ServiceRecord: StructureDefinition.differential.element[6].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+INFORMATION: StructureDefinition/TWHA-Composition-ServiceRecord: StructureDefinition.differential.element[7].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
 INFORMATION: StructureDefinition/TWHA-Composition-ServiceRecord: StructureDefinition.snapshot.element[40].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
 INFORMATION: Resource: The resource StructureDefinition/TWHA-Composition-ServiceRecord could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated\resources\StructureDefinition-TWHA-Condition.json ==
@@ -434,6 +442,8 @@ WARNING: StructureDefinition/TWHA-Encounter-Service: StructureDefinition.snapsho
 INFORMATION: StructureDefinition/TWHA-Encounter-Service: StructureDefinition.snapshot.element[38].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
 INFORMATION: Resource: The resource StructureDefinition/TWHA-Encounter-Service could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated\resources\StructureDefinition-TWHA-HealthManagementLevel.json ==
+WARNING: StructureDefinition/TWHA-HealthManagementLevel: StructureDefinition.differential.element[4].binding: The definition for the element 'Observation.value[x]' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthMgmtLevel' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/TWHA-HealthManagementLevel: StructureDefinition.snapshot.element[21].binding: The definition for the element 'Observation.value[x]' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthMgmtLevel' which is experimental, but this structure is not labeled as experimental
 INFORMATION: Resource: The resource StructureDefinition/TWHA-HealthManagementLevel could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel'): The Implementation Guide contains no examples for this profile
 == fsh-generated\resources\StructureDefinition-TWHA-HearingTest.json ==
@@ -478,6 +488,8 @@ INFORMATION: Resource: The resource StructureDefinition/TWHA-Practitioner could 
 INFORMATION: StructureDefinition/TWHA-Procedure-Counseling: StructureDefinition.snapshot.element[20].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
 INFORMATION: Resource: The resource StructureDefinition/TWHA-Procedure-Counseling could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated\resources\StructureDefinition-TWHA-Procedure-ServiceActivity.json ==
+WARNING: StructureDefinition/TWHA-Procedure-ServiceActivity: StructureDefinition.differential.element[4].binding: The definition for the element 'Procedure.code' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ServiceActivityType' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/TWHA-Procedure-ServiceActivity: StructureDefinition.snapshot.element[18].binding: The definition for the element 'Procedure.code' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ServiceActivityType' which is experimental, but this structure is not labeled as experimental
 INFORMATION: Resource: The resource StructureDefinition/TWHA-Procedure-ServiceActivity could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated\resources\StructureDefinition-TWHA-PulmonaryFunction.json ==
 INFORMATION: StructureDefinition/TWHA-PulmonaryFunction: StructureDefinition.snapshot.element[13].slicing.discriminator[0]: The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
@@ -549,14 +561,20 @@ INFORMATION: Resource: The resource StructureDefinition/ext-exam-interval could 
 == fsh-generated\resources\StructureDefinition-ext-exam-type.json ==
 INFORMATION: Resource: The resource StructureDefinition/ext-exam-type could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated\resources\StructureDefinition-ext-fitness-for-work.json ==
+WARNING: StructureDefinition/ext-fitness-for-work: StructureDefinition.differential.element[3].binding: The definition for the element 'Extension.value[x]' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-FitnessForWork' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/ext-fitness-for-work: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Extension.value[x]' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-FitnessForWork' which is experimental, but this structure is not labeled as experimental
 INFORMATION: Resource: The resource StructureDefinition/ext-fitness-for-work could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work'): The Implementation Guide contains no examples for this extension
 == fsh-generated\resources\StructureDefinition-ext-hazard-type.json ==
 INFORMATION: Resource: The resource StructureDefinition/ext-hazard-type could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-hazard-type'): The Implementation Guide contains no examples for this extension
 == fsh-generated\resources\StructureDefinition-ext-health-mgmt-level.json ==
+WARNING: StructureDefinition/ext-health-mgmt-level: StructureDefinition.differential.element[3].binding: The definition for the element 'Extension.value[x]' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthMgmtLevel' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/ext-health-mgmt-level: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Extension.value[x]' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthMgmtLevel' which is experimental, but this structure is not labeled as experimental
 INFORMATION: Resource: The resource StructureDefinition/ext-health-mgmt-level could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated\resources\StructureDefinition-ext-labor-report-code.json ==
+WARNING: StructureDefinition/ext-labor-report-code: StructureDefinition.differential.element[3].binding: The definition for the element 'Extension.value[x]' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-LaborReportCode' which is experimental, but this structure is not labeled as experimental
+WARNING: StructureDefinition/ext-labor-report-code: StructureDefinition.snapshot.element[4].binding: The definition for the element 'Extension.value[x]' binds to the value set 'https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-LaborReportCode' which is experimental, but this structure is not labeled as experimental
 INFORMATION: Resource: The resource StructureDefinition/ext-labor-report-code could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 WARNING: StructureDefinition.where(url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-labor-report-code'): The Implementation Guide contains no examples for this extension
 == fsh-generated\resources\StructureDefinition-ext-smoking-quantity.json ==

@@ -57,7 +57,9 @@ classDiagram
 
 ## 2. Core（主管機關最小共通上傳集）欄位映射
 
-**Core 定義（文件一/二 v3.0）**：Core ＝ 主管機關（國健署）制定之**最小共通上傳集**（「勞工/公教健檢上傳欄位原案」16 主項／21 列），對標 USCDI（regulator-defined minimum）；其餘項目一律歸 **Extended**，以維持 Core minimal。**IG 之整體資料範疇 ＝ Core ∪ Extended 之組合**。
+**Core 定義（文件一/二 v3.2）**：Core ＝ 主管機關（國健署）制定之**最小共通上傳集**（「勞工/公教健檢上傳欄位原案」16 主項／21 列），對標 USCDI（regulator-defined minimum）；其餘項目一律歸 **Extended**，以維持 Core minimal。
+
+> ⚠️ **Core 之來源與效力（M-5）**：本 Core 係依據國健署上傳欄位之**工作原案**建立，**正式公告版本尚待確認**，得依主管機關正式公告調整。⚠️ **Core ≠ 附表九 ≠ 完整法定檢查集**：Core 為「最小交換集」，非任一法定情境之完整需求。 **不在 Core 者並非不重要，亦非不需 Must Support**——例如附表九法定必驗之 CBC、ALT 等雖歸 Extended， 仍為法規要求執行之項目。三個層次之區辨見[首頁](index.md)之說明。
 
 Core 21 列橫跨三種資料型別，分屬**三個綁定值集**，不集中於單一值集（避免 `LabResult-General.code` 綁到身高等生理量測碼造成語意錯誤）：
 

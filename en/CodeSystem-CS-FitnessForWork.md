@@ -1,9 +1,9 @@
 # 適性配工建議代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0
 
-## CodeSystem: 適性配工建議代碼系統 
+## CodeSystem: 適性配工建議代碼系統 (Experimental) 
 
  
-第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。 
+第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。） 
 
 This Code system is referenced in the definition of the following value sets:
 
@@ -26,8 +26,8 @@ This Code system is referenced in the definition of the following value sets:
   "name" : "CS_FitnessForWork",
   "title" : "適性配工建議代碼系統",
   "status" : "active",
-  "experimental" : false,
-  "date" : "2026-07-26T12:18:37+08:00",
+  "experimental" : true,
+  "date" : "2026-07-26T14:28:30+08:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -43,7 +43,7 @@ This Code system is referenced in the definition of the following value sets:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。",
+  "description" : "第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）",
   "caseSensitive" : true,
   "content" : "complete",
   "count" : 4,

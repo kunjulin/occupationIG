@@ -275,7 +275,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           <li><a href="#22-計畫定位" id="markdown-toc-22-計畫定位">2.2 計畫定位</a></li>
         </ul>
       </li>
-      <li><a href="#3-整體架構-overall-architecture" id="markdown-toc-3-整體架構-overall-architecture">3. 整體架構 (Overall Architecture)</a></li>
+      <li><a href="#3-整體架構-overall-architecture" id="markdown-toc-3-整體架構-overall-architecture">3. 整體架構 (Overall Architecture)</a>        <ul>
+          <li><a href="#三個不同層次的資料集概念請勿混用" id="markdown-toc-三個不同層次的資料集概念請勿混用">三個不同層次的「資料集」概念（請勿混用）</a></li>
+        </ul>
+      </li>
       <li><a href="#4-exchange-package-與資料治理-exchange-package--governance" id="markdown-toc-4-exchange-package-與資料治理-exchange-package--governance">4. Exchange Package 與資料治理 (Exchange Package &amp; Governance)</a>        <ul>
           <li><a href="#41-exchange-package-設計" id="markdown-toc-41-exchange-package-設計">4.1 Exchange Package 設計</a></li>
           <li><a href="#42-資料治理原則" id="markdown-toc-42-資料治理原則">4.2 資料治理原則</a></li>
@@ -331,6 +334,48 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <blockquote>
   <p>本指引之核心主體為勞工健康檢查；「特殊職類」與「一般健檢／預防保健」為其可擴充方向，並非與 Core 並列之獨立領域。</p>
+</blockquote>
+
+<h3 id="三個不同層次的資料集概念請勿混用">三個不同層次的「資料集」概念（請勿混用）</h3>
+
+<p>實作前請先辨明以下三者，<strong>避免將「Core 與 Extended 之聯集」逕行推論為某一法定情境之完整需求</strong>：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">層次</th>
+      <th style="text-align: left">意義</th>
+      <th style="text-align: left">對應產物</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>① IG scope（本 IG 涵蓋範圍）</strong></td>
+      <td style="text-align: left">本指引所定義之全部代碼與結構，即 <strong>Core ∪ Extended</strong>。屬「本 IG 能表達什麼」。</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> ∪ <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code> 等</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>② Core upload set（主管機關最小交換集）</strong></td>
+      <td style="text-align: left">主管機關（國健署）制定之<strong>最小共通上傳欄位</strong>（21 列）。屬「至少要交換什麼」。</td>
+      <td style="text-align: left"><a href="ValueSet-VS-CoreUploadSet.html">VS-CoreUploadSet</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>③ 情境資料集（法定情境需求）</strong></td>
+      <td style="text-align: left">特定法定情境（如附表九一般健檢、附表十某一危害作業）<strong>依法應執行之完整檢查項目</strong>。屬「該情境依法要做什麼」。</td>
+      <td style="text-align: left"><strong>本期尚未以值集形式完整定義</strong>（列為 backlog：<code class="language-plaintext highlighter-rouge">VS-Appendix9/10-RequiredSet</code>）</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>⚠️ <strong>① ≠ ② ≠ ③</strong>。本 IG 涵蓋範圍（①）不等於任一法定情境之完整需求（③）；
+亦<strong>不得</strong>以「某項目不在 Core（②）」推論該項目不重要或非 Must Support。
+附表九各法定項目如何由 Core ＋ Extended 組合滿足，見<a href="general-exam.html">一般體格及健康檢查</a>之對照說明。</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Core 之來源與效力（M-5）</strong>：本 IG 之 Core 係依據國民健康署健檢上傳欄位之<strong>工作原案</strong>建立，
+<strong>正式公告版本尚待確認</strong>；其內容得依主管機關正式公告調整。</p>
 </blockquote>
 
 <hr />
@@ -398,7 +443,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           Package mohw.tw.twha#0.1.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
           Generated 
-  <span title="2026-07-26 12:18:00 +0800">
+  <span title="2026-07-26 14:28:00 +0800">
     2026-07-26
   </span>
 
