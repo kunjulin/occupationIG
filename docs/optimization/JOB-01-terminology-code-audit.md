@@ -176,17 +176,20 @@ A 類 54 筆包含先前人工挑出的全部高度可疑者
 
 ### 下一步（需可連外環境）
 
-```bash
-# 1) 重新產生分流（以最新 CI 之 qa.txt 為準）
-node scripts/triage-display-mismatches.js --qa output/qa.txt \
-     --csv docs/optimization/evidence/display-triage-<date>.csv
+已備妥 `scripts/lookup-loinc.js`——讀取分流 CSV、對 A／B 類 74 碼依序執行 `$lookup`、
+解析六軸後併回 CSV。**本工具只取事實不做判斷**，`verdict` 欄一律留空。
 
-# 2) 對 A(54) + B(20) 逐碼取六軸
-curl "https://tx.fhir.org/r4/CodeSystem/\$lookup?system=http://loinc.org&code=<code>&property=*"
+完整步驟、可直接複製的提示詞、以及「哪些不是 AI 該決定的」清單，
+見 [`RUNBOOK-JOB-01-lookup.md`](RUNBOOK-JOB-01-lookup.md)。
+
+一句話版本（在可連 tx 的機器上）：
+
+```powershell
+node scripts/lookup-loinc.js --classes A,B ^
+  --csv-out docs/optimization/evidence/display-triage-with-lookup.csv
 ```
 
-逐碼填寫 CSV 之 `action`／`replacement_code`／`rationale`／`verified_by`／`verified_date`，
-再據以修改值集、ConceptMap、`terminology.md` 與受影響範例。
+推上分支後即可回主工作流套用變更（值集 ＋ ConceptMap ＋ `terminology.md` ＋ 範例）。
 C 類 57 筆於 A/B 決策完成後一併處理（其中若干碼可能因 A/B 之換碼而連帶變動）。
 
 ---
