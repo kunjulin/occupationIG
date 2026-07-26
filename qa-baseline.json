@@ -6,40 +6,48 @@
   ],
   "measuredAt": "2026-07-26",
   "igPublisherVersion": "2.2.11",
-  "source": "CI run 30211050020（commit f1bf96f2，tx 建置，--expect-tx 通過，閘門全綠）",
+  "source": "CI run 30221206326（commit 8e6f5fd5，tx 建置）— JOB-09 pin-canonicals ＋ experimental 修正後",
   "_infoNote": [
-    "info 由 257 調為 475（+218）：宣告 i18n-default-lang: zh-TW 後，IG Publisher 會檢查",
-    "各代碼在 zh-TW 下是否有顯示名。LOINC／SNOMED CT／v3 等外部代碼系統並無繁體中文",
-    "designation，故逐筆回報 'There are no valid display names found for the code ...'。",
-    "此為宣告中文預設語言之必然結果，非本 IG 之缺陷，且本專案無從修正（無法為 LOINC",
-    "補中文顯示名）。等級為 INFORMATION，err 與 warn 均未受影響。",
-    "為免此類訊息掩蓋其他 info 增長，已於 categories 具名追蹤，見該欄位之註記。"
+    "info 475 → 504（+29）：pin-canonicals: pin-multiples 生效後，IG Publisher 不再就",
+    "版本歧義發出 29 筆 WARNING，改為發出等量之 INFORMATION「Pinned the version of ...」",
+    "告知實際釘定到哪個版本。此為嚴格改善（warn −29、info +29），非退步。",
+    "",
+    "另 218 筆為宣告 i18n-default-lang: zh-TW 後之「代碼在 zh-TW 無顯示名」提示：",
+    "LOINC／SNOMED CT／v3 等外部代碼系統並無繁體中文 designation，本專案無從修正。",
+    "兩者皆已於 categories 具名追蹤，以免掩蓋其他 info 增長。"
   ],
   "totals": {
     "err": 0,
-    "warn": 204,
-    "info": 475
+    "warn": 165,
+    "info": 504
   },
   "_categoriesNote": [
-    "'There are no valid display names found for the code' 之值 218 原由 info 總數差額",
-    "（475 − 257）推得；已於 CI run 30211050020 實測確認為 218，推導正確。",
-    "此類訊息為宣告 zh-TW 預設語言之必然結果（外部代碼系統無繁中 designation），",
-    "本專案無從修正，故列為具名上限而非待修項目。若日後超過 218 即代表另有新增 info，",
-    "須個別檢視，不可逕行放寬。"
+    "已鎖定之改善（不得回升）：",
+    "  is not included anywhere ...            4 → 0   （JOB-03）",
+    "  There are multiple different matches   29 → 0   （JOB-09 pin-canonicals）",
+    "  is experimental, but not labeled       11 → 1   （JOB-09；殘留 1 筆為 TWHA-ImagingStudy",
+    "                                                   之 snapshot 繼承綁定，來源為 TW Core 上游）",
+    "",
+    "非待修項目（外部條件所致，列為具名上限）：",
+    "  There are no valid display names ...  218  外部代碼系統無繁中 designation",
+    "  Pinned the version of                  29  pin-canonicals 生效後之釘版通知",
+    "",
+    "其餘類別為 JOB-01／05／06 等之待修項目，完成後應逐一下調。"
   ],
   "categories": {
     "Wrong Display Name": 133,
     "has a status of DISCOURAGED": 6,
     "should have an OID assigned": 40,
     "should have a performer": 47,
-    "There are multiple different potential matches": 29,
+    "There are multiple different potential matches": 0,
     "No definition could be found for URL value": 24,
     "contains no examples for this profile": 9,
     "contains no examples for this extension": 5,
-    "is experimental, but this structure is not labeled as experimental": 11,
+    "is experimental, but this structure is not labeled as experimental": 1,
     "is not included anywhere in the produced implementation guide": 0,
     "SHOULD conform to the ShareableValueSet profile": 4,
     "Constraint failed: vsd-0": 4,
-    "There are no valid display names found for the code": 218
+    "There are no valid display names found for the code": 218,
+    "Pinned the version of": 29
   }
 }

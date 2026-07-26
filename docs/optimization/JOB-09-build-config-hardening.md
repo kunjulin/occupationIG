@@ -198,13 +198,44 @@ PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderExce
 | **`auto-oid-root`（40 筆 OID 警告）** | 需要一個**有正當來源的 OID 根節點**。本專案目前沒有，而 OID 一經發佈即不宜變更（變更會破壞已發佈之 OID）。隨意取一個數字比不設定更糟。已登記為待確認事項（JOB-13） |
 | **`template/` 目錄角色釐清** | 與模板釘版同一件事，待版本確定後一併處理 |
 
-### 預期效果與驗收
+### ✅ CI 實證結果（run 30221206326，commit `8e6f5fd5`）
 
-若 `pin-canonicals` 與 `experimental` 兩項如預期生效，`warn` 應由 **204** 降至約 **165**
-（−29 −10）。實際值由 CI 判定；下降後以 `npm run qa -- --update` 下調基準線並提交。
+```
+TOTAL warn                                                        204    165     -39  改善
+TOTAL info                                                        475    504     +29
+TOTAL err                                                           0      0       0
+There are multiple different potential matches                     29      0     -29  改善
+is experimental, but this structure is not labeled as experimental 11      1     -10  改善
+```
 
-**注意**：`pin-canonicals: pin-multiples` 會改變 snapshot 中的 canonical 參照（加上版本），
-屬產出內容的實質變動，需確認未連帶產生新的訊息類別。
+`warn` 之 −39 恰為 −29 −10，兩項修正皆完全如預期生效，且未連帶影響其餘類別。
+
+**殘留 1 筆 experimental 警告確為 `TWHA-ImagingStudy`**，與事前研判一致
+（snapshot 之繼承綁定，來源為 TW Core 上游），刻意未動是正確判斷。
+
+#### info +29 的來由：不是退步
+
+`pin-canonicals` 生效後，IG Publisher 不再就版本歧義發出 29 筆 WARNING，
+改為發出**等量的 INFORMATION**告知實際釘定結果：
+
+```
+16 × INFORMATION: StructureDefinition.snapshot.element[N].type[N].profile[N]:
+     Pinned the version of URL to N.N.N from choices of ...
+13 × INFORMATION: StructureDefinition.snapshot.element[N].binding.valueSet:
+     Pinned the version of URL to N.N.N from choices of ...
+```
+
+16 + 13 = 29，與消失的 29 筆警告數量完全相同。這是**嚴格的改善**——
+工具由「警告你有歧義」轉為「告知你解析成了哪個版本」。
+
+已於 `qa-baseline.json` 具名為 `Pinned the version of`（29）並註明成因，
+避免日後只見 info 總數上升而誤判為退步。
+
+#### 基準線下調
+
+`warn 204 → 165`、`info 475 → 504`，並鎖定
+`There are multiple different potential matches: 0`、
+`is experimental, but this structure is not labeled as experimental: 1`。
 
 ---
 
