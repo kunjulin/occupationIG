@@ -39,22 +39,10 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#89027-7 "Hearing threshold Ear - right --6000 Hz"
 * LNC#89029-3 "Hearing threshold Ear - right --8000 Hz"
 
-// v20260723：職業病醫師/院內 LIS 另採 21104-5 純音聽力研究系列；本 IG 維持 89015-2 panel 為 Preferred，以下 21104-5 系列列為 Acceptable 變異碼（供 LIS 對接，非新增結構）。
-* LNC#21104-5 "Pure tone audiometry - Audiometry study（panel 變異）"
-* LNC#21106-0 "Pure tone audiometry - Left ear 500 Hz"
-* LNC#21111-0 "Pure tone audiometry - Left ear 1000 Hz"
-* LNC#21113-6 "Pure tone audiometry - Left ear 2000 Hz"
-* LNC#21115-1 "Pure tone audiometry - Left ear 3000 Hz"
-* LNC#21116-9 "Pure tone audiometry - Left ear 4000 Hz"
-* LNC#21117-7 "Pure tone audiometry - Left ear 6000 Hz"
-* LNC#21118-5 "Pure tone audiometry - Left ear 8000 Hz"
-* LNC#21120-1 "Pure tone audiometry - Right ear 500 Hz"
-* LNC#21123-5 "Pure tone audiometry - Right ear 1000 Hz"
-* LNC#21125-0 "Pure tone audiometry - Right ear 2000 Hz"
-* LNC#21127-6 "Pure tone audiometry - Right ear 3000 Hz"
-* LNC#21128-4 "Pure tone audiometry - Right ear 4000 Hz"
-* LNC#21129-2 "Pure tone audiometry - Right ear 6000 Hz"
-* LNC#21130-0 "Pure tone audiometry - Right ear 8000 Hz"
+// (-確定無合適碼) 聽力 acceptable 變異碼：原列 21104-5 等 15 碼，經 tx.fhir.org $lookup 逐碼查證，
+//   其真實語意為過敏原 RAST 檢測、Borrelia 抗體、酵素與重金屬等項目（多數為 LOINC DEPRECATED），
+//   與純音聽力完全無關，已於 v20260726 全數移除。聽力代碼以 89015-2 panel 及其 14 個頻率成員碼為準。
+//   治理紀錄：此類錯誤不被 IG Publisher 攔截（僅驗代碼存在，不驗 ValueSet 內顯示名語意）。
 
 // 1.3 游離輻射作業 (radiation) — CBC 與白血球分類、甲狀腺功能、皮膚/眼晶體（理學檢查）
 // v1.1 補齊：附表十游離輻射作業另需甲狀腺功能監測（TSH、Free T4）
@@ -64,7 +52,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#718-7 "Hemoglobin [Mass/volume] in Blood"
 * LNC#4544-3 "Hematocrit [Volume Fraction] of Blood"
 * LNC#770-8 "Neutrophils [Fraction] of WBC"
-* LNC#736-9 "Lymphocytes [Fraction] of WBC"
+* LNC#736-9 "Lymphocytes/Leukocytes in Blood by Automated count"
 * LNC#11580-8 "Thyrotropin [Units/volume] in Serum or Plasma"    // TSH（輻射甲狀腺監測）
 * LNC#3024-7 "Thyroxine (T4) free [Mass/volume] in Serum or Plasma" // Free T4（輻射甲狀腺監測）
 
@@ -81,7 +69,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#5676-2 "Lead [Mass/volume] in Urine"
 * LNC#23749-5 "Lead [Mass/volume] in Specimen"
 * LNC#11212-8 "Coproporphyrin [Mass/volume] in Urine"
-* LNC#11215-1 "Aminolevulinic acid [Mass/volume] in Urine"
+* LNC#11215-1 "Delta aminolevulinate [Mass/volume] in Urine"
 
 // 1.6 四烷基鉛作業 (tetraalkyl-lead) — 與鉛作業共用以下代碼（已收錄於 1.5，此處不重複）
 // 另有特有代碼：無（四烷基鉛主要透過皮膚及呼吸道吸收，生物標記與鉛作業相同）
@@ -260,11 +248,12 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#2428-1 "Homocysteine [Moles/volume] in Serum or Plasma"
 * LNC#30522-7 "C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"
 * LNC#3084-1 "Uric acid [Mass/volume] in Serum or Plasma"
+// (-確定無合適碼) 尿酸 acceptable：原列 49154-8 經 tx 查證實為 Rickettsia conorii IgG Ab [Titer]（地中海斑疹熱抗體），
+//   非尿酸全血法，已於 v20260726 移除；如確有全血法需求，須經 $lookup 查證後再新增。
 * LNC#33863-2 "Cystatin C [Mass/volume] in Serum, Plasma or Blood"
 * LNC#33914-3 "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation"
 * LNC#4548-4 "Hemoglobin A1c/Hemoglobin.total in Blood"
 * LNC#47214-2 "Homeostasis model assessment"
-* LNC#49154-8 "Uric acid [Mass/volume] in Blood"
 * LNC#59261-8 "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol" // Acceptable: HbA1c IFCC
 * LNC#98979-8 "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
 
