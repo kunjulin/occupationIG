@@ -133,6 +133,81 @@ experimental, but this structure is not labeled as experimental
 
 ---
 
+## 7. 執行紀錄（2026-07-26）
+
+### 已完成
+
+| # | 項目 | 變更 |
+|--:|:--|:--|
+| 1 | `pin-canonicals` | `sushi-config.yaml` 增列 `pin-canonicals: pin-multiples`。取值自 publisher.jar 之 `PublisherUtils$PinningPolicy` 求證（`pin-none`／`pin-multiples`／`pin-all`），非臆測。預期消除 29 筆 `multiple different potential matches` |
+| 2 | `experimental` 一致性 | 5 個結構由 `false` 改為 `true`（見下），預期消除 10 筆 |
+| 3 | `ignoreWarnings.txt` | **移除兩條遮蔽 tx 連線失敗的規則**，並改寫全檔註解（見下） |
+| 4 | `no-validate` 正當性 | 逐項無法給出理由——原始理由未見於任何文件或 commit。已於 `sushi-config.yaml` 註明現況、不逕行移除之原因、以及「JOB-01 完成後應重新評估」，並登記為待確認事項 |
+| 5 | 模板釘版 | **未執行**。改為先在 CI 加一步印出實際解析到的模板版本（見下） |
+| 6 | `auto-oid-root` | **未執行**（見下） |
+
+### `experimental` 之修正方向與理由
+
+qa.txt 的 11 筆警告指出：某些結構標為 `^experimental = false`，卻綁定到 experimental 的值集。
+逐一查證後發現，被綁定的四個值集
+（`VS-FitnessForWork`、`VS-HealthMgmtLevel`、`VS-LaborReportCode`、`VS-ServiceActivityType`）
+**是刻意標為 `^experimental = true` 的**——其底層 CodeSystem 之 Description 皆明載
+「provisional：本地代碼配置，尚待勞動部職業安全衛生署確認官方代碼與定義（**M-2**）」。
+
+因此這不是標記疏漏，而是**真實的矛盾**：一個 extension 不可能既宣稱非實驗性，
+又規定其唯一合法取值來自一組尚待官方確認的暫定代碼。
+
+故採「把依賴方也標為實驗性」而非「把值集改為非實驗性」——後者會抹除 M-2 這個重要訊號。
+受影響者 5 個，各於 FSH 內就地註明理由：
+
+```
+input/fsh/extensions/ext-fitness-for-work.fsh
+input/fsh/extensions/ext-health-mgmt-level.fsh
+input/fsh/extensions/ext-labor-report-code.fsh
+input/fsh/profiles/TWHA-HealthManagementLevel.fsh
+input/fsh/profiles/TWHA-Procedure-ServiceActivity.fsh
+```
+
+第 11 筆屬 `TWHA-ImagingStudy`，其 experimental 警告落在 **snapshot 的繼承綁定**上
+（該 profile 自身未宣告 `^experimental`，亦未於 differential 綁定任何值集），
+來源應為 TW Core 之上游定義，**不宜逕行將本 IG 之 profile 標為實驗性**。
+留待下次 CI 觀察是否仍有 1 筆殘留，再個別處理。
+
+### `ignoreWarnings.txt` 之處理
+
+移除下列兩條：
+
+```
+No server available
+PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException
+```
+
+理由：本檔對**所有建置模式一體適用**。這兩條原為離線建置而設，用意是讓離線建置看起來乾淨；
+但**離線建置本就不得作為送審依據**，這份「乾淨」沒有價值，卻讓送審建置失去偵測連線失敗的能力。
+離線建置出現這些警告是正確且應該的。
+
+其餘三條（RadLex／DICOM／MDC OID）保留但加註**可能未生效**之疑慮：其措辭係為離線建置撰寫，
+與 tx 建置實際產生之訊息（`A definition could not be found for Canonical URL '...'`，
+2026-07-26 qa.txt 有 3 筆）不同。待以實際 qa.txt 逐條核對後再整理。
+
+### 未執行之項目與理由
+
+| 項目 | 為何未做 |
+|:--|:--|
+| **模板釘版** | `ig.ini` 現為 `fhir2.base.template#current`。釘版需知道可用版本號，但本環境無法連線模板來源，**不宜憑猜測寫入版本號**——寫錯會讓建置直接失敗。改為在 CI 加一步 `Report resolved template version`，自 publisher 日誌印出實際解析到的模板版本，作為下次釘版之依據 |
+| **`auto-oid-root`（40 筆 OID 警告）** | 需要一個**有正當來源的 OID 根節點**。本專案目前沒有，而 OID 一經發佈即不宜變更（變更會破壞已發佈之 OID）。隨意取一個數字比不設定更糟。已登記為待確認事項（JOB-13） |
+| **`template/` 目錄角色釐清** | 與模板釘版同一件事，待版本確定後一併處理 |
+
+### 預期效果與驗收
+
+若 `pin-canonicals` 與 `experimental` 兩項如預期生效，`warn` 應由 **204** 降至約 **165**
+（−29 −10）。實際值由 CI 判定；下降後以 `npm run qa -- --update` 下調基準線並提交。
+
+**注意**：`pin-canonicals: pin-multiples` 會改變 snapshot 中的 canonical 參照（加上版本），
+屬產出內容的實質變動，需確認未連帶產生新的訊息類別。
+
+---
+
 ## 6. 交給 Claude 規劃用提示（可直接複製）
 
 ```

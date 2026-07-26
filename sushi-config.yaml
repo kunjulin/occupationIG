@@ -31,6 +31,12 @@ parameters:
   # 兩者並存：`language` 宣告 ImplementationGuide 資源本身的語言，
   # `i18n-default-lang` 宣告產出頁面的預設語言。
   i18n-default-lang: zh-TW
+  # 當同一 canonical 於多個套件中有不同版本時，將參照釘定至實際採用的版本。
+  # 未設定時 IG Publisher 逐筆警告「There are multiple different potential matches」
+  # （2026-07-26 基準線 29 筆），且實作端可能解析到非預期版本之定義。
+  # 取值為 PublisherUtils$PinningPolicy：pin-none／pin-multiples／pin-all。
+  # 採 pin-multiples——僅在確有多版本衝突時釘定，不對其餘參照加註版本。
+  pin-canonicals: pin-multiples
   # 版本歷程頁位址。未設定時 IG Publisher 以 canonical + /history.html 推導，
   # 即 https://twcore.mohw.gov.tw/ig/twha/history.html —— 該站尚未建立，故連結必然 404。
   # 本草案以 GitHub Pages 供審閱，故指向實際可達位址；正式發佈於 twcore.mohw.gov.tw
@@ -46,6 +52,13 @@ parameters:
     - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset
     - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset
     - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset
+  # ⚠️ 待確認（JOB-09）：以下六個值集被排除於驗證之外，但**原始理由未見於任何文件或
+  # commit 訊息**。這六個正是本 IG 的核心術語資產，將其排除會削弱「0 Error」的說服力
+  # （審查者必然會看本檔）。
+  #
+  # 目前不逕行移除：移除後可能一次浮出大量訊息，須有 JOB-01 之術語稽核結果為基礎才能
+  # 判斷何者為真問題。**JOB-01 完成後應重新評估並儘可能移除**；屆時若仍需保留，
+  # 必須逐項寫明理由。此項已登記為待確認事項（JOB-13）。
   no-validate:
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset

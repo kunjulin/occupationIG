@@ -115,6 +115,16 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+      # ig.ini 目前為 template = fhir2.base.template#current（未釘版），送審文件之
+      # 建置輸入應可釘版。本步驟先把實際解析到的模板版本印出來，作為釘版依據——
+      # 本機環境無法連線模板來源，不宜憑猜測寫入版本號（JOB-09）。
+      - name: Report resolved template version
+        if: always()
+        run: |
+          set -u
+          echo "--- publisher 日誌中與 template 相關之行 ---"
+          grep -iE 'template' input-cache/publisher-run.log | head -25 || echo "(日誌中查無 template 字樣)"
+
       # 把 JOB-02／JOB-03 的驗收條件固化為斷言，而非靠人工目視。
       # 語言目錄來自模板之 multilanguage-format: true（見 JOB-02 §3.3），
       # 故輸出必然落在語言子目錄；此處驗證它是 zh-TW 而非 en。
