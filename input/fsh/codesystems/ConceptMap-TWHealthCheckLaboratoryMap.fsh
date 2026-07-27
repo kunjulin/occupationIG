@@ -21,16 +21,16 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].source = "http://loinc.org"
 * group[0].target = "http://loinc.org"
 * group[0].element[0].code = #804-5
-* group[0].element[0].display = "WBC [#/volume] in Blood by Manual count"
+* group[0].element[0].display = "Leukocytes [#/volume] in Blood by Manual count"
 * group[0].element[0].target[0].code = #6690-2
-* group[0].element[0].target[0].display = "Leukocytes [#/volume] in Blood"
+* group[0].element[0].target[0].display = "Leukocytes [#/volume] in Blood by Automated count"
 * group[0].element[0].target[0].equivalence = #narrower
 * group[0].element[0].target[0].comment = "source 指定 Manual count，target 方法未指定，source 為其特化"
 
 * group[0].element[1].code = #26464-8
-* group[0].element[1].display = "WBC [#/volume] in Blood"
+* group[0].element[1].display = "Leukocytes [#/volume] in Blood"
 * group[0].element[1].target[0].code = #6690-2
-* group[0].element[1].target[0].display = "Leukocytes [#/volume] in Blood"
+* group[0].element[1].target[0].display = "Leukocytes [#/volume] in Blood by Automated count"
 * group[0].element[1].target[0].equivalence = #equivalent
 * group[0].element[1].target[0].comment = "同概念、同檢體、方法均未指定"
 
@@ -119,23 +119,23 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 
 // Platelet (Acceptable: 26515-7 Automated count → Preferred: 777-3)
 * group[0].element[11].code = #26515-7
-* group[0].element[11].display = "Platelets [#/volume] in Blood by Automated count"
+* group[0].element[11].display = "Platelets [#/volume] in Blood"
 * group[0].element[11].target[0].code = #777-3
-* group[0].element[11].target[0].display = "Platelets [#/volume] in Blood"
+* group[0].element[11].target[0].display = "Platelets [#/volume] in Blood by Automated count"
 * group[0].element[11].target[0].equivalence = #narrower
 * group[0].element[11].target[0].comment = "source 指定 Automated count，target 方法未指定"
 
 // MCV (Acceptable: 30428-7 by calculation → Preferred: 787-2 by Automated count)
 * group[0].element[12].code = #30428-7
-* group[0].element[12].display = "MCV [Entitic volume] by calculation"
+* group[0].element[12].display = "MCV [Entitic mean volume] in Red Blood Cells"
 * group[0].element[12].target[0].code = #787-2
-* group[0].element[12].target[0].display = "MCV [Entitic volume] by Automated count"
+* group[0].element[12].target[0].display = "MCV [Entitic mean volume] in Red Blood Cells by Automated count"
 * group[0].element[12].target[0].equivalence = #relatedto
 * group[0].element[12].target[0].comment = "calculation 與 Automated count 為不同具體方法，無包含關係"
 
 // MCH (Acceptable: 28539-5 by Automated count → Preferred: 785-6 by Automated count)
 * group[0].element[13].code = #28539-5
-* group[0].element[13].display = "MCH [Entitic mass] by Automated count"
+* group[0].element[13].display = "MCH [Entitic mass]"
 * group[0].element[13].target[0].code = #785-6
 * group[0].element[13].target[0].display = "MCH [Entitic mass] by Automated count"
 * group[0].element[13].target[0].equivalence = #equivalent
@@ -145,7 +145,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[14].code = #26508-2
 * group[0].element[14].display = "Neutrophils/100 leukocytes in Blood by Manual count"
 * group[0].element[14].target[0].code = #770-8
-* group[0].element[14].target[0].display = "Neutrophils/100 leukocytes in Blood by Automated count"
+* group[0].element[14].target[0].display = "Neutrophils/Leukocytes in Blood by Automated count"
 * group[0].element[14].target[0].equivalence = #relatedto
 * group[0].element[14].target[0].comment = "Manual 與 Automated 為不同具體方法，無包含關係"
 
@@ -177,7 +177,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 // HbA1c (Acceptable: 59261-8 IFCC mmol/mol → Preferred: 4548-4 NGSP %)
 // 單位換算說明：IFCC (mmol/mol) = (NGSP(%) - 2.152) / 0.9148
 * group[0].element[17].code = #59261-8
-* group[0].element[17].display = "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol"
+* group[0].element[17].display = "Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood"
 * group[0].element[17].target[0].code = #4548-4
 * group[0].element[17].target[0].display = "Hemoglobin A1c/Hemoglobin.total in Blood"
 * group[0].element[17].target[0].equivalence = #relatedto
@@ -185,9 +185,9 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 
 // TSH (Acceptable: 3016-3 3rd generation IS → Preferred: 11580-8)
 * group[0].element[18].code = #3016-3
-* group[0].element[18].display = "Thyrotropin [Units/volume] in Serum or Plasma by 3rd IS"
+* group[0].element[18].display = "Thyrotropin [Units/volume] in Serum or Plasma"
 * group[0].element[18].target[0].code = #11580-8
-* group[0].element[18].target[0].display = "Thyrotropin [Units/volume] in Serum or Plasma"
+* group[0].element[18].target[0].display = "Thyrotropin [Units/volume] in Serum or Plasma by Detection limit <= 0.005 mIU/L"
 * group[0].element[18].target[0].equivalence = #narrower
 * group[0].element[18].target[0].comment = "source 指定 3rd IS 標準品，target 未指定"
 

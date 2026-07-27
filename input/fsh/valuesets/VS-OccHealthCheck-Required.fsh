@@ -23,9 +23,9 @@ Description: "第一期法定必驗之勞工健康檢查項目草案子集，涵
 * LNC#2160-0 "Creatinine [Mass/volume] in Serum or Plasma" // 肌酸酐
 * LNC#5804-0 "Protein [Mass/volume] in Urine by Test strip" // 尿蛋白
 * LNC#718-7 "Hemoglobin [Mass/volume] in Blood" // 血色素
-* LNC#6690-2 "Leukocytes [#/volume] in Blood" // WBC
-* LNC#789-8 "Erythrocytes [#/volume] in Blood" // 紅血球數 RBC（附表九 115.06.26 修正新增）
-* LNC#787-2 "MCV [Entitic volume] by Automated count" // 平均紅血球容積 MCV（附表九 115.06.26 修正新增）
+* LNC#6690-2 "Leukocytes [#/volume] in Blood by Automated count" // WBC
+* LNC#789-8 "Erythrocytes [#/volume] in Blood by Automated count" // 紅血球數 RBC（附表九 115.06.26 修正新增）
+* LNC#787-2 "MCV [Entitic mean volume] in Red Blood Cells by Automated count" // 平均紅血球容積 MCV（附表九 115.06.26 修正新增）
 
 // 第一期結構化必驗特殊職類模組 (議題5 選項A：噪音／鉛／粉塵)
 * LNC#89015-2 "Pure tone air conduction threshold audiometry panel" // 噪音：純音聽力 Panel（0.5–8 kHz 各頻率以 TWHA-HearingTest component 承載）

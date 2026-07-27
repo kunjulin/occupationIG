@@ -15,7 +15,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#2823-3 "Potassium [Moles/volume] in Serum or Plasma"       // 鉀
 * LNC#2075-0 "Chloride [Moles/volume] in Serum or Plasma"        // 氯（v1.1 補齊電解質三項）
 * LNC#3094-0 "Urea nitrogen [Mass/volume] in Serum or Plasma"    // BUN（腎功能/脫水評估）
-* LNC#5810-7 "Specific gravity of Urine"                         // 尿比重（脫水評估）
+* LNC#5810-7 "Specific gravity of Urine by Refractometry"                         // 尿比重（脫水評估）
 
 // 1.2 噪音作業 (noise) — 純音氣導聽閾個別頻率代碼
 // v1.1 修正：更正 v3 之錯置代碼並補齊 3/6/8 kHz，使全部代碼與 LOINC 89015-2 panel 成員一致，
@@ -46,14 +46,14 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 
 // 1.3 游離輻射作業 (radiation) — CBC 與白血球分類、甲狀腺功能、皮膚/眼晶體（理學檢查）
 // v1.1 補齊：附表十游離輻射作業另需甲狀腺功能監測（TSH、Free T4）
-* LNC#789-8 "Erythrocytes [#/volume] in Blood"
-* LNC#6690-2 "WBC [#/volume] in Blood"
-* LNC#777-3 "Platelets [#/volume] in Blood"
+* LNC#789-8 "Erythrocytes [#/volume] in Blood by Automated count"
+* LNC#6690-2 "Leukocytes [#/volume] in Blood by Automated count"
+* LNC#777-3 "Platelets [#/volume] in Blood by Automated count"
 * LNC#718-7 "Hemoglobin [Mass/volume] in Blood"
-* LNC#4544-3 "Hematocrit [Volume Fraction] of Blood"
-* LNC#770-8 "Neutrophils [Fraction] of WBC"
+* LNC#4544-3 "Hematocrit [Volume Fraction] of Blood by Automated count"
+* LNC#770-8 "Neutrophils/Leukocytes in Blood by Automated count"
 * LNC#736-9 "Lymphocytes/Leukocytes in Blood by Automated count"
-* LNC#11580-8 "Thyrotropin [Units/volume] in Serum or Plasma"    // TSH（輻射甲狀腺監測）
+* LNC#11580-8 "Thyrotropin [Units/volume] in Serum or Plasma by Detection limit <= 0.005 mIU/L"    // TSH（輻射甲狀腺監測）
 * LNC#3024-7 "Thyroxine (T4) free [Mass/volume] in Serum or Plasma" // Free T4（輻射甲狀腺監測）
 
 // 1.4 異常氣壓作業 (abnormal-pressure) — 肺功能、長骨關節 X 光、心電圖
@@ -82,15 +82,15 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 
 // 1.8 有機溶劑作業 (organic-solvent) — 肝功能、腎功能、CBC、神經學檢查、尿中代謝物
 // 附表十有機溶劑作業另需肝功能監測（ALT、γ-GT，收錄於 VS-CoreDataset）；以下為各溶劑之尿中生物偵測代謝物
-* LNC#2324-2 "Gamma glutamyltransferase [Enzymatic activity/volume] in Serum or Plasma" // γ-GT（肝功能，v1.1 明列）
+* LNC#2324-2 "Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma" // γ-GT（肝功能，v1.1 明列）
 * LNC#6709-0 "Hippurate [Mass/volume] in Urine"                  // 馬尿酸（甲苯）
-* LNC#2725-0 "p-Methylhippurate [Mass/volume] in Urine"         // 甲基馬尿酸（二甲苯）
+* LNC#2725-0 "Para methylhippurate [Mass/volume] in Urine"         // 甲基馬尿酸（二甲苯）
 * LNC#13000-5 "Mandelate [Mass/volume] in Urine"                // 扁桃酸（苯乙烯）
 * LNC#3041-1 "Trichloroacetate [Mass/volume] in Urine"          // 三氯乙酸（三氯乙烯/四氯乙烯）
 * LNC#31170-4 "2,5-Hexanedione [Mass/volume] in Urine"          // 2,5-己二酮（正己烷）
 * LNC#2758-1 "Phenol [Mass/volume] in Urine"                    // 酚（苯）
-* LNC#12543-5 "Methylformamide [Mass/volume] in Urine"          // N-甲基甲醯胺（DMF）
-* LNC#12533-6 "TTCA [Mass/volume] in Urine"                     // TTCA（二硫化碳）
+* LNC#12543-5 "Methyl formamide [Mass/volume] in Urine"          // N-甲基甲醯胺（DMF）
+* LNC#12533-6 "Thiazolidine-2-Thione-4-Carboxylic acid [Mass/volume] in Urine"                     // TTCA（二硫化碳）
 // 二硫化碳作業 (carbon disulfide) 另需心電圖（11524-6，已收錄於 1.1）、血脂（Core）、眼底檢查（理學）
 
 // 1.9 特定化學物質作業 (specific-chemical)
@@ -105,7 +105,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#5685-3 "Mercury [Mass/volume] in Blood"
 * LNC#5689-5 "Mercury [Mass/volume] in Urine"
 * LNC#72665-3 "trans,trans-Muconic acid [Mass/volume] in Urine"
-* LNC#10913-2 "4,4'-Methylenebis(2-chloroaniline) [Mass/volume] in Urine"
+* LNC#10913-2 "4,4'-Methylene bis(2-Chloroaniline) [Mass/volume] in Urine"
 * LNC#5653-1 "Formaldehyde [Mass/volume] in Urine"
 * LNC#10909-0 "Benzidine [Mass/volume] in Urine"
 * LNC#5681-2 "Manganese [Mass/volume] in Blood"
@@ -147,15 +147,15 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#19177-5 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
 * LNC#2039-6 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
 * LNC#2857-1 "Prostate specific Ag [Mass/volume] in Serum or Plasma"
-* LNC#10886-0 "Prostate specific Ag.free [Mass/volume] in Serum or Plasma"
-* LNC#97149-9 "[-2]pro-prostate specific antigen [Mass/volume] in Serum or Plasma"
-* LNC#97150-7 "Prostate Health Index in Serum or Plasma"
+* LNC#10886-0 "Prostate Specific Ag Free [Mass/volume] in Serum or Plasma"
+* LNC#97149-9 "proPSA isoform 2 [Mass/volume] in Serum or Plasma by Immunoassay"
+* LNC#97150-7 "Prostate health index in Serum or Plasma by calculation"
 * LNC#10334-1 "Cancer Ag 125 [Units/volume] in Serum or Plasma"
 * LNC#83082-8 "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
 * LNC#83085-1 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
 * LNC#24108-3 "Cancer Ag 19-9 [Units/volume] in Serum or Plasma"
 * LNC#83084-4 "Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay"
-* LNC#83083-6 "Cancer Ag 15-3 [Units/volume] in Serum or Plasma"
+* LNC#83083-6 "Cancer Ag 15-3 [Units/volume] in Serum or Plasma by Immunoassay"
 * LNC#83112-3 "Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay"
 * LNC#1834-1 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
 * LNC#9679-2 "Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma"
@@ -166,10 +166,10 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#10835-7 "Lipoprotein A [Mass/volume] in Serum or Plasma"
 * LNC#1869-7 "Apolipoprotein A-I [Mass/volume] in Serum or Plasma"
 * LNC#1884-6 "Apolipoprotein B [Mass/volume] in Serum or Plasma"
-* LNC#33762-6 "Natriuretic peptide.proB-type N-terminal [Mass/volume] in Serum or Plasma"
+* LNC#33762-6 "Natriuretic peptide.B prohormone N-Terminal [Mass/volume] in Serum or Plasma"
 * LNC#42254-3 "Nuclear Ab [Presence] in Serum by Immunofluorescence"
 * LNC#11572-5 "Rheumatoid factor [Units/volume] in Serum or Plasma"
-* LNC#25390-6 "CYFRA 21-1 [Mass/volume] in Serum or Plasma"
+* LNC#25390-6 "Cytokeratin 19 [Mass/volume] in Serum or Plasma"
 
 // =================================================================
 // 2. 自費健康檢查常見之進階影像學及鏡檢項目 (Advanced Imaging & Endoscopy)
@@ -197,7 +197,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#28023-0 "Colonoscopy Study" // 大腸鏡檢查
 
 // 2.7 超音波檢查 (Ultrasounds)
-* LNC#24558-9 "Ultrasound of abdomen study" // 腹部超音波
+* LNC#24558-9 "US Abdomen" // 腹部超音波
 * LNC#24616-5 "US Carotid aa" // 頸動脈超音波
 * LNC#25010-0 "US Thyroid" // 甲狀腺超音波
 
@@ -211,57 +211,57 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // =================================================================
 
 // 3-x 血液學
-* LNC#13046-8 "Atypical lymphocytes/100 leukocytes in Blood"
-* LNC#13047-6 "Plasma cells/100 leukocytes in Blood"
-* LNC#19048-8 "Erythroblasts/100 leukocytes in Blood by Automated count"
-* LNC#26446-5 "Blasts/100 leukocytes in Blood"
-* LNC#26450-7 "Eosinophils/100 leukocytes in Blood by Manual count"
-* LNC#26464-8 "WBC [#/volume] in Blood"                          // Acceptable: WBC unspecified
-* LNC#26478-8 "Lymphocytes/100 leukocytes in Blood by Manual count"
-* LNC#26485-3 "Monocytes/100 leukocytes in Blood by Manual count"
-* LNC#26498-6 "Myelocytes/100 leukocytes in Blood"
+* LNC#13046-8 "Variant lymphocytes/Leukocytes in Blood"
+* LNC#13047-6 "Plasma cells/Leukocytes in Blood"
+* LNC#19048-8 "Nucleated erythrocytes/Leukocytes [Ratio] in Blood"
+* LNC#26446-5 "Blasts/Leukocytes in Blood"
+* LNC#26450-7 "Eosinophils/Leukocytes in Blood"
+* LNC#26464-8 "Leukocytes [#/volume] in Blood"                          // Acceptable: WBC unspecified
+* LNC#26478-8 "Lymphocytes/Leukocytes in Blood"
+* LNC#26485-3 "Monocytes/Leukocytes in Blood"
+* LNC#26498-6 "Myelocytes/Leukocytes in Blood"
 * LNC#26505-8 "Segmented neutrophils/Leukocytes in Blood"  // 2026-07-26 更正 display（原誤標 Hypersegmented）；⚠️ 待確認：如確需「過度分葉核」項目應另加 30450-1
 * LNC#26508-2 "Band form neutrophils/Leukocytes in Blood"  // 2026-07-26 更正 display（原誤標為總嗜中性球手工計數）
 * LNC#26511-6 "Neutrophils/Leukocytes in Blood"  // 2026-07-26 更正 display（原誤標 segmented）；⚠️ 待確認：如確需「手工計數」版本應另加 23761-0
-* LNC#26515-7 "Platelets [#/volume] in Blood by Automated count" // Acceptable: Plt Automated
-* LNC#26524-9 "Promyelocytes/100 leukocytes in Blood"
-* LNC#28539-5 "MCH [Entitic mass] by Automated count"            // Acceptable: MCH (full name)
-* LNC#28541-1 "Metamyelocytes/100 leukocytes in Blood"
-* LNC#30180-4 "Basophils/100 leukocytes in Blood by Manual count"
-* LNC#30413-9 "Abnormal lymphocytes/100 leukocytes in Blood"
-* LNC#30428-7 "MCV [Entitic volume] by calculation"              // Acceptable: MCV calculation
-* LNC#30441-0 "Abnormal monocytes/100 leukocytes in Blood"
-* LNC#30466-7 "Promonocytes/100 leukocytes in Blood"
-* LNC#34921-7 "Plasmacytoid lymphocytes/100 leukocytes in Blood"
-* LNC#5905-5 "Monocytes/100 leukocytes in Blood by Automated count"
+* LNC#26515-7 "Platelets [#/volume] in Blood" // Acceptable: Plt Automated
+* LNC#26524-9 "Promyelocytes/Leukocytes in Blood"
+* LNC#28539-5 "MCH [Entitic mass]"            // Acceptable: MCH (full name)
+* LNC#28541-1 "Metamyelocytes/Leukocytes in Blood"
+* LNC#30180-4 "Basophils/Leukocytes in Blood"
+* LNC#30413-9 "Abnormal lymphocytes/Leukocytes in Blood"
+* LNC#30428-7 "MCV [Entitic mean volume] in Red Blood Cells"              // Acceptable: MCV calculation
+* LNC#30441-0 "Monocytes Abnormal/Leukocytes in Blood"
+* LNC#30466-7 "Promonocytes/Leukocytes in Blood"
+* LNC#34921-7 "Lymphocytes Plasmacytoid/Leukocytes in Blood"
+* LNC#5905-5 "Monocytes/Leukocytes in Blood by Automated count"
 * LNC#70028-6 "Megakaryocytes/100 leukocytes in Blood"
-* LNC#706-2 "Basophils/100 leukocytes in Blood by Automated count"
-* LNC#713-8 "Eosinophils/100 leukocytes in Blood by Automated count"
+* LNC#706-2 "Basophils/Leukocytes in Blood by Automated count"
+* LNC#713-8 "Eosinophils/Leukocytes in Blood by Automated count"
 * LNC#731-0 "Lymphocytes [#/volume] in Blood by Automated count"
 * LNC#751-8 "Neutrophils [#/volume] in Blood by Automated count"
 * LNC#785-6 "MCH [Entitic mass] by Automated count"
-* LNC#786-4 "MCHC [Mass/volume] by Automated count"
-* LNC#787-2 "MCV [Entitic volume] by Automated count"
-* LNC#788-0 "Erythrocyte distribution width [Ratio] by Automated count"
-* LNC#804-5 "WBC [#/volume] in Blood by Manual count"            // Acceptable: WBC Manual
+* LNC#786-4 "MCHC [Entitic Mass/volume] in Red Blood Cells by Automated count"
+* LNC#787-2 "MCV [Entitic mean volume] in Red Blood Cells by Automated count"
+* LNC#788-0 "Erythrocyte [DistWidth] in Blood by Automated count"
+* LNC#804-5 "Leukocytes [#/volume] in Blood by Manual count"            // Acceptable: WBC Manual
 
 // 3-x 生化、腎功能與心血管風險
 * LNC#17861-6 "Calcium [Mass/volume] in Serum or Plasma"
 * LNC#20448-7 "Insulin [Units/volume] in Serum or Plasma"
 * LNC#2428-1 "Homocysteine [Moles/volume] in Serum or Plasma"
 * LNC#30522-7 "C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"
-* LNC#3084-1 "Uric acid [Mass/volume] in Serum or Plasma"
+* LNC#3084-1 "Urate [Mass/volume] in Serum or Plasma"
 // (-確定無合適碼) 尿酸 acceptable：原列 49154-8 經 tx 查證實為 Rickettsia conorii IgG Ab [Titer]（地中海斑疹熱抗體），
 //   非尿酸全血法，已於 v20260726 移除；如確有全血法需求，須經 $lookup 查證後再新增。
-* LNC#33863-2 "Cystatin C [Mass/volume] in Serum, Plasma or Blood"
+* LNC#33863-2 "Cystatin C [Mass/volume] in Serum or Plasma"
 * LNC#33914-3 "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation"
 * LNC#4548-4 "Hemoglobin A1c/Hemoglobin.total in Blood"
 * LNC#47214-2 "Homeostasis model assessment"
-* LNC#59261-8 "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol" // Acceptable: HbA1c IFCC
+* LNC#59261-8 "Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood" // Acceptable: HbA1c IFCC
 * LNC#98979-8 "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
 
 // 3-x 肝膽、胰臟與心肌功能
-* LNC#10834-0 "Globulin [Mass/volume] in Serum or Plasma by calculation"
+* LNC#10834-0 "Globulin [Mass/volume] in Serum by calculation"
 * LNC#1743-4 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"  // Acceptable: ALT with P-5'-P（2026-07-26 換碼，原 14390-9 實為透析液澱粉酶）
 * LNC#30239-8 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P" // Acceptable: AST with P-5'-P（2026-07-26 換碼，原 14409-7 檢體為胸膜液）
 * LNC#1742-6 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
@@ -280,49 +280,49 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 
 // 3-x 脂質分析
 * LNC#13458-5 "Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation"  // 2026-07-26 換碼，原 46986-6 實為 VLDL 3 次分群
-* LNC#9830-1 "Cholesterol/Cholesterol in HDL [Mass Ratio] in Serum or Plasma"
+* LNC#9830-1 "Cholesterol.total/Cholesterol in HDL [Mass Ratio] in Serum or Plasma"
 
 // 3-x 甲狀腺與營養指標
 * LNC#2132-9 "Cobalamin (Vitamin B12) [Mass/volume] in Serum or Plasma"
 * LNC#2284-8 "Folate [Mass/volume] in Serum or Plasma"
-* LNC#3016-3 "Thyrotropin [Units/volume] in Serum or Plasma by 3rd IS"  // Acceptable: TSH 3rd gen
-* LNC#3026-2 "Thyroxine (T4) total [Mass/volume] in Serum or Plasma"
+* LNC#3016-3 "Thyrotropin [Units/volume] in Serum or Plasma"  // Acceptable: TSH 3rd gen
+* LNC#3026-2 "Thyroxine (T4) [Mass/volume] in Serum or Plasma"
 * LNC#3051-0 "Triiodothyronine (T3) free [Mass/volume] in Serum or Plasma"
-* LNC#3053-6 "Triiodothyronine (T3) total [Mass/volume] in Serum or Plasma"
+* LNC#3053-6 "Triiodothyronine (T3) [Mass/volume] in Serum or Plasma"
 * LNC#62292-8 "25-hydroxyvitamin D3 [Mass/volume] in Serum or Plasma"
-* LNC#8099-4 "Thyroid peroxidase Ab [Units/volume] in Serum or Plasma"
+* LNC#8099-4 "Thyroperoxidase Ab [Units/volume] in Serum or Plasma"
 
 // 3-x 傳染病、HPV與胃部篩檢
-* LNC#13950-1 "Hepatitis A virus IgM Ab [Presence] in Serum or Plasma"
-* LNC#13952-7 "Hepatitis B virus core Ab [Presence] in Serum or Plasma"
-* LNC#17780-8 "Helicobacter pylori Ag [Presence] in Stool"
+* LNC#13950-1 "Hepatitis A virus IgM Ab [Presence] in Serum or Plasma by Immunoassay"
+* LNC#13952-7 "Hepatitis B virus core Ab [Presence] in Serum or Plasma by Immunoassay"
+* LNC#17780-8 "Helicobacter pylori Ag [Presence] in Stool by Immunoassay"
 * LNC#20507-0 "Reagin Ab [Presence] in Serum by RPR"
 * LNC#21440-3 "Human papilloma virus 16+18+31+33+35+45+51+52+56 DNA [Presence] in Cervix by Probe"
 * LNC#22322-2 "Hepatitis B virus surface Ab [Units/volume] in Serum"
 * LNC#24110-9 "Treponema pallidum Ab [Presence] in Serum by Immunoassay"
 * LNC#29771-3 "Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay"  // 糞便免疫化學法潛血(FIT)
-* LNC#31147-2 "Reagin Ab [Presence] in Serum by RPR -- titer"
+* LNC#31147-2 "Reagin Ab [Titer] in Serum by RPR"
 * LNC#5176-3 "Helicobacter pylori IgG Ab [Presence] in Serum"
-* LNC#51913-2 "Hepatitis A virus Ab [Presence] in Serum or Plasma"
+* LNC#51913-2 "Hepatitis A virus IgG+IgM Ab [Presence] in Serum"
 * LNC#5193-8 "Hepatitis B virus surface Ab [Presence] in Serum or Plasma"
-* LNC#5334-8 "Rubella virus IgG Ab [Units/volume] in Serum or Plasma"
-* LNC#5403-1 "Varicella zoster virus IgG Ab [Units/volume] in Serum or Plasma"
-* LNC#56888-1 "HIV 1 and 2 Ag and Ab panel [Presence] in Serum or Plasma"
-* LNC#7962-4 "Measles virus IgG Ab [Units/volume] in Serum or Plasma"
+* LNC#5334-8 "Rubella virus IgG Ab [Units/volume] in Serum or Plasma by Immunoassay"
+* LNC#5403-1 "Varicella zoster virus IgG Ab [Units/volume] in Serum by Immunoassay"
+* LNC#56888-1 "HIV 1+2 Ab+HIV1 p24 Ag [Presence] in Serum or Plasma by Immunoassay"
+* LNC#7962-4 "Measles virus IgG Ab [Units/volume] in Serum"
 
 // 3-x 尿液常規
 * LNC#11218-5 "Microalbumin [Mass/volume] in Urine by Test strip"
 * LNC#11277-1 "Epithelial cells.squamous [#/area] in Urine sediment by Microscopy high power field"
-* LNC#12453-7 "Amorphous phosphate crystals [Presence] in Urine sediment"
-* LNC#12454-5 "Amorphous urate crystals [Presence] in Urine sediment"
-* LNC#13658-0 "Urobilinogen [Presence] in Urine by Test strip"
+* LNC#12453-7 "Phosphate crystals amorphous [Presence] in Urine sediment by Light microscopy"
+* LNC#12454-5 "Urate crystals amorphous [Presence] in Urine sediment by Light microscopy"
+* LNC#13658-0 "Urobilinogen [Presence] in Urine"
 * LNC#13945-1 "Erythrocytes [#/area] in Urine sediment by Microscopy high power field"
-* LNC#20456-0 "Fungi yeast-like [Presence] in Urine sediment"
-* LNC#20621-9 "Albumin/Creatinine [Ratio] in Urine by Test strip"
+* LNC#20456-0 "Fungi.yeastlike [Presence] in Urine sediment by Light microscopy"
+* LNC#20621-9 "Albumin/Creatinine [Mass Ratio] in Urine by Test strip"
 * LNC#5778-6 "Color of Urine"  // 2026-07-26 換碼，原 20627-6 實為尿液濁度 (Turbidity)
 * LNC#25145-4 "Bacteria [Presence] in Urine sediment by Light microscopy"
 * LNC#30004-6 "Creatinine [Mass/volume] in Urine by Test strip"
-* LNC#32356-8 "Yeast [Presence] in Urine sediment"
+* LNC#32356-8 "Yeast [Presence] in Urine sediment by Light microscopy"
 * LNC#33218-9 "Bacteria [#/volume] in Urine sediment by Automated count"
 * LNC#33219-7 "Epithelial cells.squamous [#/volume] in Urine sediment by Automated count"
 * LNC#33223-9 "Hyaline casts [#/volume] in Urine sediment by Automated count"
@@ -331,25 +331,25 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#46419-8 "Erythrocytes [#/volume] in Urine sediment by Automated count"
 * LNC#46702-7 "Leukocytes [#/volume] in Urine sediment by Automated count"
 * LNC#50235-1 "Mucus [#/volume] in Urine sediment by Automated count"
-* LNC#50551-1 "Bilirubin [Presence] in Urine by Test strip"
-* LNC#50555-2 "Glucose [Presence] in Urine by Test strip"
-* LNC#50558-6 "Nitrite [Presence] in Urine by Test strip"
-* LNC#50560-2 "pH of Urine by Test strip"
-* LNC#50562-8 "Specific gravity of Urine by Refractometer"
+* LNC#50551-1 "Bilirubin.total [Presence] in Urine by Automated test strip"
+* LNC#50555-2 "Glucose [Presence] in Urine by Automated test strip"
+* LNC#50558-6 "Nitrite [Presence] in Urine by Automated test strip"
+* LNC#50560-2 "pH of Urine by Automated test strip"
+* LNC#50562-8 "Specific gravity of Urine by Refractometry automated"
 * LNC#53324-0 "Spermatozoa [#/volume] in Urine sediment by Automated count"
-* LNC#53975-9 "Drug crystals [Presence] in Urine sediment"
-* LNC#5766-1 "Ammonium acid urate crystals [Presence] in Urine sediment"
-* LNC#5770-3 "Bilirubin [Presence] in Urine by Test strip"
-* LNC#5771-1 "Bilirubin crystals [Presence] in Urine sediment"
-* LNC#5773-7 "Calcium carbonate crystals [Presence] in Urine sediment"
-* LNC#57734-6 "Ketones [Presence] in Urine by Test strip"
-* LNC#5774-5 "Calcium oxalate crystals [Presence] in Urine sediment"
-* LNC#5775-2 "Calcium phosphate crystals [Presence] in Urine sediment"
-* LNC#57751-0 "Hemoglobin [Presence] in Urine by Test strip"
-* LNC#5777-8 "Cholesterol crystals [Presence] in Urine sediment"
-* LNC#5784-4 "Cystine crystals [Presence] in Urine sediment"
+* LNC#53975-9 "Drug crystals [Presence] in Urine sediment by Light microscopy"
+* LNC#5766-1 "Ammonium urate crystals [Presence] in Urine sediment by Light microscopy"
+* LNC#5770-3 "Bilirubin.total [Presence] in Urine by Test strip"
+* LNC#5771-1 "Bilirubin crystals [Presence] in Urine sediment by Light microscopy"
+* LNC#5773-7 "Calcium carbonate crystals [Presence] in Urine sediment by Light microscopy"
+* LNC#57734-6 "Ketones [Presence] in Urine by Automated test strip"
+* LNC#5774-5 "Calcium oxalate crystals [Presence] in Urine sediment by Light microscopy"
+* LNC#5775-2 "Calcium phosphate crystals [Presence] in Urine sediment by Light microscopy"
+* LNC#57751-0 "Hemoglobin [Presence] in Urine by Automated test strip"
+* LNC#5777-8 "Cholesterol crystals [Presence] in Urine sediment by Light microscopy"
+* LNC#5784-4 "Cystine crystals [Presence] in Urine sediment by Light microscopy"
 * LNC#5787-7 "Epithelial cells [#/area] in Urine sediment by Microscopy high power field"
-* LNC#5788-5 "Oval fat bodies [#/area] in Urine sediment by Microscopy high power field"
+* LNC#5788-5 "Oval fat bodies (globules) [#/area] in Urine sediment by Microscopy high power field"
 * LNC#5792-7 "Glucose [Presence] in Urine by Test strip"
 * LNC#5794-3 "Hemoglobin [Presence] in Urine by Test strip"
 * LNC#5796-8 "Hyaline casts [#/area] in Urine sediment by Microscopy low power field"
@@ -357,12 +357,12 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#5799-2 "Leukocyte esterase [Presence] in Urine by Test strip"
 * LNC#5802-4 "Nitrite [Presence] in Urine by Test strip"
 * LNC#5803-2 "pH of Urine by Test strip"
-* LNC#5813-1 "Trichomonas vaginalis [Presence] in Urine sediment"
-* LNC#5814-9 "Calcium magnesium ammonium phosphate crystals [Presence] in Urine sediment"
-* LNC#5817-2 "Uric acid crystals [Presence] in Urine sediment"
+* LNC#5813-1 "Trichomonas vaginalis [Presence] in Urine sediment by Light microscopy"
+* LNC#5814-9 "Triple phosphate crystals [Presence] in Urine sediment by Light microscopy"
+* LNC#5817-2 "Urate crystals [Presence] in Urine sediment by Light microscopy"
 * LNC#5821-4 "Leukocytes [#/area] in Urine sediment by Microscopy high power field"
-* LNC#60026-2 "Leukocyte esterase [Presence] in Urine by Test strip"
-* LNC#62487-4 "Urobilinogen [Presence] in Urine by Test strip"
+* LNC#60026-2 "Leukocyte esterase [Presence] in Urine by Automated test strip"
+* LNC#62487-4 "Urobilinogen [Presence] in Urine by Automated test strip"
 
 // 3-x 一般心血管與腎臟篩檢
 * LNC#9318-7 "Albumin/Creatinine [Mass Ratio] in Urine"  // 2026-07-26 換碼，原 13705-9 檢體為 24 小時尿；⚠️ 待確認：健檢 ACR 若驗微白蛋白應改用 14959-1（Microalbumin/Creatinine）
@@ -372,12 +372,12 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#4588-0 "Hemoglobin H/Hemoglobin.total in Blood"
 
 // 3-x 糞便檢查
-* LNC#10701-1 "Ova and parasites [Presence] in Stool by Concentration method"
-* LNC#10704-5 "Ova and parasites [Presence] in Stool by Microscopy"
-* LNC#13655-6 "Leukocytes [Presence] in Stool by Microscopy"
-* LNC#2335-8 "Hemoglobin [Presence] in Stool"
-* LNC#33668-5 "Erythrocytes [Presence] in Stool by Microscopy"
-* LNC#42524-9 "Mucus [Presence] in Stool by Microscopy"
+* LNC#10701-1 "Ova and parasites identified in Stool by Concentration"
+* LNC#10704-5 "Ova and parasites identified in Stool by Light microscopy"
+* LNC#13655-6 "Leukocytes [Presence] in Stool by Light microscopy"
+* LNC#2335-8 "Hemoglobin [Presence] in Stool from gastrointestinal"
+* LNC#33668-5 "Erythrocytes [Presence] in Stool"
+* LNC#42524-9 "Mucus [Presence] in Stool by Light microscopy"
 * LNC#9397-1 "Color of Stool"
 
 // 3-x 肺功能檢查核心代碼
