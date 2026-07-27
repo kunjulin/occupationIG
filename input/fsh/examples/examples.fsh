@@ -669,7 +669,7 @@ Instance: UC-001
 InstanceOf: TWHABundleDocumentProfile
 Title: "UC-001 一般健康檢查報告封包"
 Description: "一般健康檢查結果 Document Bundle 打包範例。"
-* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/bundle-id"
+* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/sid/report-id"
 * identifier.value = "bundle-uc-001"
 * type = #document
 * timestamp = "2026-06-12T12:00:00+08:00"
@@ -702,7 +702,7 @@ Instance: UC-002
 InstanceOf: TWHABundleDocumentProfile
 Title: "UC-002 勞工一般體格與健康檢查報告封包"
 Description: "勞工一般健康檢查結果 Document Bundle 打包範例。"
-* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/bundle-id"
+* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/sid/report-id"
 * identifier.value = "bundle-uc-002"
 * type = #document
 * timestamp = "2026-06-12T12:00:00+08:00"
@@ -739,7 +739,7 @@ Instance: UC-003
 InstanceOf: TWHABundleDocumentProfile
 Title: "UC-003 特殊危害健康作業檢查報告封包"
 Description: "噪音/鉛/粉塵等特殊危害健康作業檢查報告封包。"
-* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/bundle-id"
+* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/sid/report-id"
 * identifier.value = "bundle-uc-003"
 * type = #document
 * timestamp = "2026-06-12T12:00:00+08:00"
@@ -764,7 +764,7 @@ Instance: UC-004
 InstanceOf: TWHABundleDocumentProfile
 Title: "UC-004 企業自費健康檢查報告封包"
 Description: "企業自費健檢報告封包，包含自費影像檢查及內視鏡檢查項目。"
-* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/bundle-id"
+* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/sid/report-id"
 * identifier.value = "bundle-uc-004"
 * type = #document
 * timestamp = "2026-06-12T12:00:00+08:00"
@@ -799,7 +799,7 @@ Instance: UC-005
 InstanceOf: TWHABundleDocumentProfile
 Title: "UC-005 成人預防保健檢查報告封包"
 Description: "國健署成人預防保健自填問卷與理學生化檢查 Document Bundle 範例。"
-* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/bundle-id"
+* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/sid/report-id"
 * identifier.value = "bundle-uc-005"
 * type = #document
 * timestamp = "2026-06-12T12:00:00+08:00"
@@ -900,7 +900,7 @@ Instance: UC-007
 InstanceOf: TWHABundleDocumentProfile
 Title: "UC-007 職業健康急診友善摘要封包"
 Description: "急診友善摘要 Composition（含鉛作業暴露史、生命徵象、關鍵檢驗值與缺值示範）之 Document Bundle 範例。"
-* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/bundle-id"
+* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/sid/report-id"
 * identifier.value = "bundle-uc-007"
 * type = #document
 * timestamp = "2026-06-12T12:00:00+08:00"
@@ -931,7 +931,7 @@ Instance: UC-006
 InstanceOf: TWHABundleDocumentProfile
 Title: "UC-006 勞工健康服務臨場服務紀錄封包"
 Description: "臨場服務紀錄 Composition（附表八）與關聯活動資料 Document Bundle 範例。"
-* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/bundle-id"
+* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/sid/report-id"
 * identifier.value = "bundle-uc-006"
 * type = #document
 * timestamp = "2026-06-10T14:00:00+08:00"
