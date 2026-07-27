@@ -182,4 +182,3 @@ input/fsh/examples/examples.fsh、input/pagecontent/conformance.md 與 usecases.
    請提出收緊約束或修正描述的方案，並列出需同步的文件段落。
 6. 說明每一項如何以 _genonce_tx.bat 的 qa.txt 驗收。
 ```
-</content>

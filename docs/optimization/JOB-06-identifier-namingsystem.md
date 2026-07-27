@@ -151,4 +151,3 @@ input/fsh/profiles/TWHA-Patient.fsh、TWHA-Practitioner.fsh、TWHA-Organization.
 5. 列出改動 identifier slicing 後會失效的範例，以及與 JOB-05 的協調順序。
 6. 驗收：qa.txt 之 "No definition could be found for URL value" 歸零。
 ```
-</content>

@@ -118,4 +118,3 @@
 5. 同步 sushi-config.yaml 的 menu 與 README.md 的連結。
 6. 規劃「後續 JOB 遇到需外部決策事項就回填此頁」的維護慣例，並寫入 CLAUDE.md（JOB-12）。
 ```
-</content>

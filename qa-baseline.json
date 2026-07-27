@@ -6,7 +6,7 @@
   ],
   "measuredAt": "2026-07-26",
   "igPublisherVersion": "2.2.11",
-  "source": "CI run 30224842336（commit 566baaf8，tx 建置）— JOB-01 第一批換碼後",
+  "source": "CI run 30227494797（commit 8c817bf1，tx 建置）— JOB-01 第二批 display 覆寫後",
   "_infoNote": [
     "info 475 → 504（+29）：pin-canonicals: pin-multiples 生效後，IG Publisher 不再就",
     "版本歧義發出 29 筆 WARNING，改為發出等量之 INFORMATION「Pinned the version of ...」",
@@ -19,7 +19,7 @@
   "totals": {
     "err": 0,
     "warn": 165,
-    "info": 494
+    "info": 394
   },
   "_categoriesNote": [
     "已鎖定之改善（不得回升）：",
@@ -27,19 +27,18 @@
     "  There are multiple different matches   29 → 0   （JOB-09 pin-canonicals）",
     "  is experimental, but not labeled       11 → 1   （JOB-09；殘留 1 筆為 TWHA-ImagingStudy",
     "                                                   之 snapshot 繼承綁定，來源為 TW Core 上游）",
-    "  Wrong Display Name                    133 → 123 （JOB-01 第一批：5 換碼＋2 移除＋3 改 display）",
+    "  Wrong Display Name                    133 → 23  （JOB-01 兩批：第一批 -10、第二批 -100）",
     "",
     "非待修項目（外部條件所致，列為具名上限）：",
     "  There are no valid display names ...  218  外部代碼系統無繁中 designation",
     "  Pinned the version of                  29  pin-canonicals 生效後之釘版通知",
     "",
-    "Wrong Display Name 尚餘 123 筆，待 JOB-01 後續批次處理：",
-    "  44 筆 rewrite-display（代碼正確、僅 display 漂移）",
-    "  23 筆 needs-clinical（須檢驗科／職業醫學科決定）",
-    "  57 筆 C 類（待 A/B 收斂後一併處理）"
+    "Wrong Display Name 尚餘 23 筆，恰等於 needs-clinical 之筆數——",
+    "即剩下的全部是待檢驗科／職業醫學科決定者，已無可由本專案逕行處理之項目。",
+    "該 23 筆之 display 不符是未決問題的訊號，刻意保留；決策完成前不得覆寫。"
   ],
   "categories": {
-    "Wrong Display Name": 123,
+    "Wrong Display Name": 23,
     "has a status of DISCOURAGED": 6,
     "should have an OID assigned": 40,
     "should have a performer": 47,

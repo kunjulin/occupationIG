@@ -131,4 +131,3 @@ input/fsh/profiles/TWHA-CapabilityStatement.fsh 與 TWHA-Composition-EmergencySu
 7. 保存期限：評估是否實作 background.md 預留的 ext-retention-period。
 8. 遇到法規解釋問題（個資法、第 19 條起算點 M-6）不要臆測，登記為未決事項。
 ```
-</content>

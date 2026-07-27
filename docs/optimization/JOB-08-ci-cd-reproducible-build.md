@@ -264,4 +264,3 @@ ig.ini、input/ignoreWarnings.txt 與 scripts/check-pagecontent-refs.js，為這
 5. 規劃發佈內容如何記錄來源 commit，以及與 JOB-02（語言／路徑變更）的協調順序。
 6. 先以 workflow_dispatch 手動驗證再改自動，請在計畫中排入這個階段。
 ```
-</content>

@@ -371,4 +371,47 @@ docs/optimization/evidence/qa-summary-2026-07-26.md，並依 .claude/skills/fhir
 注意：本環境可能無法連外至 tx.fhir.org。若無法連線，請改為產出「逐碼查證工作清單」
 （含要打的 $lookup URL 與判定準則），由我在可連外環境執行後回報結果，你再據以修正。
 ```
-</content>
+
+---
+
+## 9. 執行紀錄（2026-07-26）— 第四階段：套用變更
+
+### 第一批：7 筆錯碼（CI run 30224842336）
+
+換碼 5 筆、移除 2 筆、嗜中性球三碼改 display。
+`Wrong Display Name` **133 → 123（−10）**，恰為本批動到之代碼數。
+
+動手前查出兩筆不能「換」只能「移除」：`2857-1`（PSA Preferred）與
+`6768-6`（ALP Preferred）**本來就在值集中**，逕行替換會產生重複代碼。
+
+### 第二批：97 個代碼之 display（CI run 30227494797）
+
+`Wrong Display Name` **123 → 23（−100）**、`info` 494 → 394。
+（97 個代碼產生 100 筆訊息，因部分代碼同時出現於多個值集。）
+
+覆寫 113 處：`VS-ExtendedDataset` 97、`VS-OccHealthCheck-Required` 3、
+`ConceptMap` 13。工具為 `scripts/apply-job01-displays.py`（可重複執行、含 `--dry-run`）。
+
+順帶揭露：**ConceptMap 中 Acceptable／Preferred 配對的方法學後綴一路貼反**，
+例如 `26515-7` 標「by Automated count」而官方無方法、`777-3` 標無方法而官方為
+「by Automated count」；`3016-3` 標「by 3rd IS」而官方為一般 TSH、`11580-8` 標
+一般 TSH 而官方為高敏感度。實作者照原標示會誤判哪一個才是自動化／高敏感度版本。
+Preferred/Acceptable 之**指派**經檢視為正確，錯的僅是標籤。
+
+### 累計成果
+
+| 指標 | 起始 | 現在 | 降幅 |
+|:--|--:|--:|--:|
+| `Wrong Display Name` | 133 | **23** | **−110（−83%）** |
+| `TOTAL info` | 257 → 504（語言／釘版之連帶） | 394 | — |
+| `TOTAL warn` | 208 | 165 | −43 |
+| `TOTAL err` | 0 | 0 | — |
+
+**剩餘 23 筆恰等於 `needs-clinical` 之筆數**——即已無可由本專案逕行處理之項目，
+全數待檢驗科／職業醫學科決定。該 23 筆之 display 不符是未決問題的訊號，
+**刻意保留不覆寫**；決策完成後方可處理。
+
+### 尚待外部決策（8 個問題，涵蓋 23 筆）
+
+見 §8 末之歸納表。其中「自動尿液分析儀報每 µL 或每視野」一題即涵蓋 9 筆，
+建議優先確認。

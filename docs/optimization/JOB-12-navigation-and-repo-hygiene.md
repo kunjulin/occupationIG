@@ -197,4 +197,3 @@ input/pagecontent/downloads.md、input/assets/ 內容、scripts/check-pageconten
 6. 確認 Requirements-fromNarrative.json、download.js、get_links.js 的用途後再決定保留或移除，
    不要在不清楚用途的情況下刪檔。
 ```
-</content>

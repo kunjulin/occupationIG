@@ -121,4 +121,3 @@ input/fsh/codesystems/TWCRSF-mocks.fsh、sushi-config.yaml（dependencies 與 pa
 5. 列出受影響的既有範例與需同步更新的文件（terminology.md、README.md 依賴指引段落）。
 6. 若採路徑 B，規劃如何登記為 JOB-13 的未決事項（待套件可用後轉為路徑 A）。
 ```
-</content>

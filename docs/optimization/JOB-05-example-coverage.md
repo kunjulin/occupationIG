@@ -147,4 +147,3 @@ docs/optimization/evidence/qa-summary-2026-07-26.md §2，並檢視 input/fsh/ex
    node scripts/check-pagecontent-refs.js 的驗收步驟。
 6. 分批提交，每批可獨立以 _genonce_tx.bat 驗收。
 ```
-</content>

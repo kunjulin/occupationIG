@@ -171,4 +171,3 @@ ext-smoking-quantity
 | 14 | `security.md` 僅 26 行，全為原則宣示；未對應到任何 FHIR 機制（Consent／Provenance／AuditEvent／SMART scope） | `input/pagecontent/security.md` | JOB-11 |
 | 15 | 根目錄有 `implementation_plan_0615.md`、`_0622.md`、`_0622b.md` 三份歷史計畫；4 個 PDF 附表原始檔亦置於根目錄 | `ls` | JOB-12 |
 | 16 | repo 無 `CLAUDE.md`、無 `.github/workflows/` | `ls -a` | JOB-08 / JOB-12 |
-</content>

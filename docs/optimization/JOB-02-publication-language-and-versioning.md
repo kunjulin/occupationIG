@@ -312,4 +312,3 @@ docs/optimization/evidence/qa-summary-2026-07-26.md §4，為這個 JOB 產出�
    gh-pages 上 1012 個空殼頁的清理方式）。
 5. 明確排除英譯工作。
 ```
-</content>

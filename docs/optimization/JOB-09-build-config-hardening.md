@@ -261,4 +261,3 @@ input/ignoreWarnings.txt，並參考 docs/optimization/evidence/qa-summary-2026-
 6. 為 sushi-config.yaml 的 6 項 no-validate 逐項研擬理由註解，並規劃 JOB-01 完成後的移除評估。
 7. 釐清 repo 內已 commit 的 template/ 目錄角色（離線快取還是誤入版控），提出處理建議。
 ```
-</content>
