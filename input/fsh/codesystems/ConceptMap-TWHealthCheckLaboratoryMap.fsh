@@ -21,16 +21,16 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].source = "http://loinc.org"
 * group[0].target = "http://loinc.org"
 * group[0].element[0].code = #804-5
-* group[0].element[0].display = "WBC [#/volume] in Blood by Manual count"
+* group[0].element[0].display = "Leukocytes [#/volume] in Blood by Manual count"
 * group[0].element[0].target[0].code = #6690-2
-* group[0].element[0].target[0].display = "Leukocytes [#/volume] in Blood"
+* group[0].element[0].target[0].display = "Leukocytes [#/volume] in Blood by Automated count"
 * group[0].element[0].target[0].equivalence = #narrower
 * group[0].element[0].target[0].comment = "source 指定 Manual count，target 方法未指定，source 為其特化"
 
 * group[0].element[1].code = #26464-8
-* group[0].element[1].display = "WBC [#/volume] in Blood"
+* group[0].element[1].display = "Leukocytes [#/volume] in Blood"
 * group[0].element[1].target[0].code = #6690-2
-* group[0].element[1].target[0].display = "Leukocytes [#/volume] in Blood"
+* group[0].element[1].target[0].display = "Leukocytes [#/volume] in Blood by Automated count"
 * group[0].element[1].target[0].equivalence = #equivalent
 * group[0].element[1].target[0].comment = "同概念、同檢體、方法均未指定"
 
@@ -119,23 +119,23 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 
 // Platelet (Acceptable: 26515-7 Automated count → Preferred: 777-3)
 * group[0].element[11].code = #26515-7
-* group[0].element[11].display = "Platelets [#/volume] in Blood by Automated count"
+* group[0].element[11].display = "Platelets [#/volume] in Blood"
 * group[0].element[11].target[0].code = #777-3
-* group[0].element[11].target[0].display = "Platelets [#/volume] in Blood"
+* group[0].element[11].target[0].display = "Platelets [#/volume] in Blood by Automated count"
 * group[0].element[11].target[0].equivalence = #narrower
 * group[0].element[11].target[0].comment = "source 指定 Automated count，target 方法未指定"
 
 // MCV (Acceptable: 30428-7 by calculation → Preferred: 787-2 by Automated count)
 * group[0].element[12].code = #30428-7
-* group[0].element[12].display = "MCV [Entitic volume] by calculation"
+* group[0].element[12].display = "MCV [Entitic mean volume] in Red Blood Cells"
 * group[0].element[12].target[0].code = #787-2
-* group[0].element[12].target[0].display = "MCV [Entitic volume] by Automated count"
+* group[0].element[12].target[0].display = "MCV [Entitic mean volume] in Red Blood Cells by Automated count"
 * group[0].element[12].target[0].equivalence = #relatedto
 * group[0].element[12].target[0].comment = "calculation 與 Automated count 為不同具體方法，無包含關係"
 
 // MCH (Acceptable: 28539-5 by Automated count → Preferred: 785-6 by Automated count)
 * group[0].element[13].code = #28539-5
-* group[0].element[13].display = "MCH [Entitic mass] by Automated count"
+* group[0].element[13].display = "MCH [Entitic mass]"
 * group[0].element[13].target[0].code = #785-6
 * group[0].element[13].target[0].display = "MCH [Entitic mass] by Automated count"
 * group[0].element[13].target[0].equivalence = #equivalent
@@ -145,7 +145,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[14].code = #26508-2
 * group[0].element[14].display = "Neutrophils/100 leukocytes in Blood by Manual count"
 * group[0].element[14].target[0].code = #770-8
-* group[0].element[14].target[0].display = "Neutrophils/100 leukocytes in Blood by Automated count"
+* group[0].element[14].target[0].display = "Neutrophils/Leukocytes in Blood by Automated count"
 * group[0].element[14].target[0].equivalence = #relatedto
 * group[0].element[14].target[0].comment = "Manual 與 Automated 為不同具體方法，無包含關係"
 
@@ -153,29 +153,22 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 // 肝功能群組 (Liver Function) — 新增 3 組
 // =============================================================
 
-// AST / GOT (Acceptable: 14409-7 by UV with P5P → Preferred: 1920-8)
-* group[0].element[15].code = #14409-7
-* group[0].element[15].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P"
+// AST / GOT (Acceptable: 30239-8 with P-5'-P → Preferred: 1920-8)
+* group[0].element[15].code = #30239-8
+* group[0].element[15].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"
 * group[0].element[15].target[0].code = #1920-8
 * group[0].element[15].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
 * group[0].element[15].target[0].equivalence = #narrower
 * group[0].element[15].target[0].comment = "source 指定 UV with P5P，target 方法未指定"
 
-// ALT / GPT (Acceptable: 14390-9 by UV with P5P → Preferred: 1742-6)
-* group[0].element[16].code = #14390-9
-* group[0].element[16].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by UV with P5P"
+// ALT / GPT (Acceptable: 1743-4 with P-5'-P → Preferred: 1742-6)
+* group[0].element[16].code = #1743-4
+* group[0].element[16].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"
 * group[0].element[16].target[0].code = #1742-6
 * group[0].element[16].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
 * group[0].element[16].target[0].equivalence = #narrower
 * group[0].element[16].target[0].comment = "source 指定 UV with P5P，target 方法未指定"
 
-// ALP (Acceptable: 1783-0 method-unspecified → Preferred: 6768-6)
-* group[0].element[17].code = #1783-0
-* group[0].element[17].display = "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[17].target[0].code = #6768-6
-* group[0].element[17].target[0].display = "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[17].target[0].equivalence = #equivalent
-* group[0].element[17].target[0].comment = "同概念同檢體，兩碼方法均未指定"
 
 // =============================================================
 // 內分泌與癌症標記群組 (Endocrine & Tumor Markers) — 新增 4 組
@@ -183,104 +176,97 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 
 // HbA1c (Acceptable: 59261-8 IFCC mmol/mol → Preferred: 4548-4 NGSP %)
 // 單位換算說明：IFCC (mmol/mol) = (NGSP(%) - 2.152) / 0.9148
-* group[0].element[18].code = #59261-8
-* group[0].element[18].display = "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol"
-* group[0].element[18].target[0].code = #4548-4
-* group[0].element[18].target[0].display = "Hemoglobin A1c/Hemoglobin.total in Blood"
-* group[0].element[18].target[0].equivalence = #relatedto
-* group[0].element[18].target[0].comment = "Unit conversion required: NGSP(%) = IFCC(mmol/mol) * 0.9148 + 2.152"
+* group[0].element[17].code = #59261-8
+* group[0].element[17].display = "Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood"
+* group[0].element[17].target[0].code = #4548-4
+* group[0].element[17].target[0].display = "Hemoglobin A1c/Hemoglobin.total in Blood"
+* group[0].element[17].target[0].equivalence = #relatedto
+* group[0].element[17].target[0].comment = "Unit conversion required: NGSP(%) = IFCC(mmol/mol) * 0.9148 + 2.152"
 
 // TSH (Acceptable: 3016-3 3rd generation IS → Preferred: 11580-8)
-* group[0].element[19].code = #3016-3
-* group[0].element[19].display = "Thyrotropin [Units/volume] in Serum or Plasma by 3rd IS"
-* group[0].element[19].target[0].code = #11580-8
-* group[0].element[19].target[0].display = "Thyrotropin [Units/volume] in Serum or Plasma"
-* group[0].element[19].target[0].equivalence = #narrower
-* group[0].element[19].target[0].comment = "source 指定 3rd IS 標準品，target 未指定"
+* group[0].element[18].code = #3016-3
+* group[0].element[18].display = "Thyrotropin [Units/volume] in Serum or Plasma"
+* group[0].element[18].target[0].code = #11580-8
+* group[0].element[18].target[0].display = "Thyrotropin [Units/volume] in Serum or Plasma by Detection limit <= 0.005 mIU/L"
+* group[0].element[18].target[0].equivalence = #narrower
+* group[0].element[18].target[0].comment = "source 指定 3rd IS 標準品，target 未指定"
 
-// PSA (Acceptable: 19199-9 method-unspecified → Preferred: 2857-1)
-* group[0].element[20].code = #19199-9
-* group[0].element[20].display = "Prostate specific Ag [Mass/volume] in Serum or Plasma"
-* group[0].element[20].target[0].code = #2857-1
-* group[0].element[20].target[0].display = "Prostate specific Ag [Mass/volume] in Serum or Plasma"
-* group[0].element[20].target[0].equivalence = #equivalent
-* group[0].element[20].target[0].comment = "同概念同檢體，方法均未指定"
 
 // CA-125 (Acceptable: 83082-8 by IA → Preferred: 10334-1)
-* group[0].element[21].code = #83082-8
-* group[0].element[21].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
-* group[0].element[21].target[0].code = #10334-1
-* group[0].element[21].target[0].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma"
-* group[0].element[21].target[0].equivalence = #narrower
-* group[0].element[21].target[0].comment = "source 指定 Immunoassay，target 方法未指定"
+* group[0].element[19].code = #83082-8
+* group[0].element[19].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
+* group[0].element[19].target[0].code = #10334-1
+* group[0].element[19].target[0].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma"
+* group[0].element[19].target[0].equivalence = #narrower
+* group[0].element[19].target[0].comment = "source 指定 Immunoassay，target 方法未指定"
 
 // CEA (Acceptable: 83085-1 by IA → Preferred: 2039-6)
-* group[0].element[22].code = #83085-1
-* group[0].element[22].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
-* group[0].element[22].target[0].code = #2039-6
-* group[0].element[22].target[0].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
-* group[0].element[22].target[0].equivalence = #narrower
-* group[0].element[22].target[0].comment = "source 指定 Immunoassay，target 方法未指定"
+* group[0].element[20].code = #83085-1
+* group[0].element[20].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
+* group[0].element[20].target[0].code = #2039-6
+* group[0].element[20].target[0].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
+* group[0].element[20].target[0].equivalence = #narrower
+* group[0].element[20].target[0].comment = "source 指定 Immunoassay，target 方法未指定"
 
 // AST (Acceptable: 88112-8 w/o P-5'-P → Preferred: 1920-8)
-* group[0].element[23].code = #88112-8
-* group[0].element[23].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
-* group[0].element[23].target[0].code = #1920-8
-* group[0].element[23].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[23].target[0].equivalence = #narrower
-* group[0].element[23].target[0].comment = "source 指定 No addition of P-5'-P，target 方法未指定"
+* group[0].element[21].code = #88112-8
+* group[0].element[21].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+* group[0].element[21].target[0].code = #1920-8
+* group[0].element[21].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+* group[0].element[21].target[0].equivalence = #narrower
+* group[0].element[21].target[0].comment = "source 指定 No addition of P-5'-P，target 方法未指定"
 
 // ALT (Acceptable: 1744-2 w/o P-5'-P → Preferred: 1742-6)
-* group[0].element[24].code = #1744-2
-* group[0].element[24].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
-* group[0].element[24].target[0].code = #1742-6
-* group[0].element[24].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[24].target[0].equivalence = #narrower
-* group[0].element[24].target[0].comment = "source 指定 No addition of P-5'-P，target 方法未指定"
+* group[0].element[22].code = #1744-2
+* group[0].element[22].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+* group[0].element[22].target[0].code = #1742-6
+* group[0].element[22].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+* group[0].element[22].target[0].equivalence = #narrower
+* group[0].element[22].target[0].comment = "source 指定 No addition of P-5'-P，target 方法未指定"
 
 // Glucose AC (Acceptable: 2345-7 post fasting → Preferred: 1558-6 fasting)
-* group[0].element[25].code = #2345-7
-* group[0].element[25].display = "Glucose [Mass/volume] in Serum or Plasma"
-* group[0].element[25].target[0].code = #1558-6
-* group[0].element[25].target[0].display = "Fasting Glucose [Mass/volume] in Serum or Plasma"
-* group[0].element[25].target[0].equivalence = #wider
-* group[0].element[25].target[0].comment = "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣"
+* group[0].element[23].code = #2345-7
+* group[0].element[23].display = "Glucose [Mass/volume] in Serum or Plasma"
+* group[0].element[23].target[0].code = #1558-6
+* group[0].element[23].target[0].display = "Fasting Glucose [Mass/volume] in Serum or Plasma"
+* group[0].element[23].target[0].equivalence = #wider
+* group[0].element[23].target[0].comment = "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣"
 
 // LDL (舊版直接測定法代碼 → Preferred 2089-1)
-* group[0].element[26].code = #18262-6
-* group[0].element[26].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
-* group[0].element[26].target[0].code = #2089-1
-* group[0].element[26].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
-* group[0].element[26].target[0].equivalence = #narrower
-* group[0].element[26].target[0].comment = "source 指定 Direct assay，target 方法未指定"
+* group[0].element[24].code = #18262-6
+* group[0].element[24].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
+* group[0].element[24].target[0].code = #2089-1
+* group[0].element[24].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
+* group[0].element[24].target[0].equivalence = #narrower
+* group[0].element[24].target[0].comment = "source 指定 Direct assay，target 方法未指定"
 
 // =============================================================
 // v20260724（文件一/二 v3.0 對齊，P4：補齊已宣告為 Acceptable 但缺 ConceptMap 之對應）
 // =============================================================
 
 // 血中鉛：院內 LIS Specimen 碼 → Preferred Blood
-* group[0].element[27].code = #23749-5
-* group[0].element[27].display = "Lead [Mass/volume] in Specimen"
-* group[0].element[27].target[0].code = #77307-7
-* group[0].element[27].target[0].display = "Lead [Mass/volume] in Venous blood"
-* group[0].element[27].target[0].equivalence = #relatedto
-* group[0].element[27].target[0].comment = "source 檢體為泛稱 Specimen、target 限 Blood，非單純包含"
+* group[0].element[25].code = #23749-5
+* group[0].element[25].display = "Lead [Mass/volume] in Specimen"
+* group[0].element[25].target[0].code = #77307-7
+* group[0].element[25].target[0].display = "Lead [Mass/volume] in Venous blood"
+* group[0].element[25].target[0].equivalence = #relatedto
+* group[0].element[25].target[0].comment = "source 檢體為泛稱 Specimen、target 限 Blood，非單純包含"
 
 // 腰圍：一般腰圍碼（語意較廣） → Preferred 臍位皮尺法
-* group[0].element[28].code = #56086-2
-* group[0].element[28].display = "Waist Circumference"
-* group[0].element[28].target[0].code = #8280-0
-* group[0].element[28].target[0].display = "Waist Circumference at umbilicus by Tape measure"
-* group[0].element[28].target[0].equivalence = #relatedto
-* group[0].element[28].target[0].comment = "source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同"
+* group[0].element[26].code = #56086-2
+* group[0].element[26].display = "Waist Circumference"
+* group[0].element[26].target[0].code = #8280-0
+* group[0].element[26].target[0].display = "Waist Circumference at umbilicus by Tape measure"
+* group[0].element[26].target[0].equivalence = #relatedto
+* group[0].element[26].target[0].comment = "source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同"
 
 // 聽力：(-確定無合適碼)。原 source 21104-5 經 tx 驗證實為 Deprecated 大豆粉塵 IgE 過敏原，
 //   非聽力之可接受碼，已移除該組對應；聽力代碼以 89015-2 panel 及其成員碼為準。
 
 // 血中鉛：檢體未指定舊碼（DISCOURAGED）→ Preferred 靜脈血
-* group[0].element[29].code = #5671-3
-* group[0].element[29].display = "Lead [Mass/volume] in Blood"
-* group[0].element[29].target[0].code = #77307-7
-* group[0].element[29].target[0].display = "Lead [Mass/volume] in Venous blood"
-* group[0].element[29].target[0].equivalence = #relatedto
-* group[0].element[29].target[0].comment = "source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。"
+* group[0].element[27].code = #5671-3
+* group[0].element[27].display = "Lead [Mass/volume] in Blood"
+* group[0].element[27].target[0].code = #77307-7
+* group[0].element[27].target[0].display = "Lead [Mass/volume] in Venous blood"
+* group[0].element[27].target[0].equivalence = #relatedto
+* group[0].element[27].target[0].comment = "source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。"

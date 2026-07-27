@@ -1,16 +1,27 @@
 == Suppressed Messages ==
 
-# SSL certificate error: building offline, cannot fix network certificate issue
-PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException
+# ⚠️ 本檔之抑制規則對**所有建置模式一體適用**——包含送審用的 tx 建置。
+# 因此任何可能遮蔽「術語伺服器連線失敗」的字串都**不得**列於此處，
+# 否則 _genonce_tx.bat 的「連不上 tx」與「通過驗證」將無從區分。
+#
+# 已於 2026-07-26 移除兩條危險規則（JOB-09）：
+#   - "No server available"
+#   - "PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException"
+# 兩者原為離線建置（-tx n/a）而設，用意是讓離線建置看起來乾淨。但離線建置本就
+# **不得作為送審依據**，這份「乾淨」沒有價值，卻讓送審建置失去了偵測連線失敗的能力。
+# 離線建置出現這些警告是正確且應該的。
+#
+# CI 另有一道不依賴本檔的檢查：scripts/qa-gate.js --expect-tx 掃描 publisher 執行
+# 日誌（本檔管不到日誌），確認建置確實連上術語伺服器。
 
-# Building without FHIR terminology server (-tx n/a), expected for offline build
-No server available
-
-# MDC/DICOM OID CodeSystem (ECG lead codes) not available offline
-A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.24' could not be found, so the code cannot be validated
-
-# External RadLex PlayBook ValueSet cannot be resolved offline
+# 外部 RadLex／DICOM 值集參照無法解析。
+# ⚠️ 此二規則係為離線建置撰寫，措辭與 tx 建置實際產生之訊息
+#   （"A definition could not be found for Canonical URL '...'"，2026-07-26 qa.txt 有 3 筆）
+# 不同，故在 tx 建置下**可能並未生效**。保留待以實際 qa.txt 逐條核對後整理；
+# 在此之前，相關未解析參照由 qa-baseline.json 之總數上限控管。
 The valueSet reference http://www.rsna.org/RadLex_Playbook.aspx on element
-
-# External DICOM SOP class ValueSet reference cannot be resolved offline
 The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html
+
+# MDC/DICOM OID CodeSystem（心電圖導程代碼）無法取得，故代碼無法驗證。
+# 同上，於 tx 建置下未必生效。
+A definition for CodeSystem 'urn:oid:2.16.840.1.113883.6.24' could not be found, so the code cannot be validated

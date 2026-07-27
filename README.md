@@ -12,9 +12,17 @@
 
 ## 專案結構與目錄說明
 
-* `input/`：包含 IG 的原始輸入內容，如頁面內容（`pagecontent/`）、FHIR 資源定義等。
-* `sushi-config.yaml`：SUSHI 編譯器的設定檔，包含專案中繼資料、依賴項以及導覽選單配置。
+* `CLAUDE.md`：作業前提索引（五條鐵則、常犯錯誤、檢查指令）。新接手者請先看這份。
+* `input/`：包含 IG 的原始輸入內容，如頁面內容（`pagecontent/`）、FHIR 資源定義（`fsh/`）、下載資產（`assets/`）等。
+* `sushi-config.yaml`：SUSHI 編譯器的設定檔，包含專案中繼資料、依賴項、建置參數以及導覽選單配置。
 * `ig.ini`：HL7 IG Publisher 的設定檔。
+* `package-list.json`：版本歷程清單，供 publish box 與發佈流程使用。
+* `docs/optimization/`：**現行優化工作範圍（13 個 JOB）——待辦事項看這裡。**
+* `docs/regulations/`：法規附表 PDF 原文，為各項涵蓋度對照表之權威來源。
+* `docs/history/`：已被取代之歷史規劃文件（非現行規範）。
+* `docs/drafts/`：尚未接入建置流程之資源草稿。
+* `scripts/`：檢查腳本（`check-pagecontent-refs.js`）與一次性工具。
+* `template/`：IG 模板之本機複本（角色待釐清，見 JOB-09）。
 * `_genonce.bat`：用於一鍵下載 IG Publisher 並執行編譯與發布的 Windows 批次檔。
 * `_updatePublisher.bat`：用於更新本地 `publisher.jar` 的批次檔。
 
@@ -37,10 +45,37 @@
 
 | 腳本 | 術語伺服器 | 用途 |
 |:--|:--|:--|
-| `_genonce.bat` | `-tx n/a`（離線） | **日常快速建置**。不連外、速度快。 |
-| `_genonce_tx.bat` | `-tx https://tx.fhir.org/r4` | **送審／對外發佈前必跑**。逐碼驗證 LOINC/SNOMED。 |
+| `_genonce.bat` / `npm run build:offline` | `-tx n/a`（離線） | **日常快速建置**。不連外、速度快。 |
+| `_genonce_tx.bat` / `npm run build` | `-tx https://tx.fhir.org/r4` | **送審／對外發佈前必跑**。逐碼驗證 LOINC/SNOMED。 |
 
-兩者流程相同（SUSHI 編譯 → 自動下載 `publisher.jar` → 產出 `output/`），差別僅在是否連線術語伺服器。
+兩者流程相同（SUSHI 編譯 → 下載 `publisher.jar` → 產出 `output/`），差別僅在是否連線術語伺服器。
+
+**跨平台建置（Linux/macOS/CI）**：`.bat` 為 Windows 專用，等效之跨平台指令為
+
+```bash
+npm ci                 # 安裝已釘版之 SUSHI（3.20.0）
+npm run build          # SUSHI → IG Publisher（帶 tx，publisher 釘版 2.2.11）
+npm run verify         # pagecontent 參照檢查 + QA 閘門
+```
+
+`npm run build` 會將 publisher 完整輸出寫入 `input-cache/publisher-run.log`，
+供 QA 閘門做獨立的術語伺服器連線檢查。
+
+### QA 閘門
+
+```bash
+npm run qa             # 比對 output/qa.txt 與 qa-baseline.json
+npm run qa:tx          # 另要求日誌能證明確實連上術語伺服器
+npm run qa -- --update # 改善後下調基準線（請一併提交）
+```
+
+`qa-baseline.json` 記錄各類訊息之允許上限，**任一類別數值高於基準線即失敗**（只能降不能升）。
+現行基準線量測於 2026-07-26（`err = 0, warn = 208, info = 257`），
+明細見 [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)。
+
+CI（[`.github/workflows/build-ig.yml`](.github/workflows/build-ig.yml)）於 push 與 PR 時
+自動執行上述流程並上傳 `qa.txt`／`qa.html`／建置產出物。
+**目前 CI 不自動發佈** gh-pages，發佈仍為手動。
 
 > ⚠️ **離線建置（`-tx n/a`）不得作為送審依據**（文件一 v3.2 §6.6）。
 > 離線模式**不會驗證代碼是否存在、顯示名是否正確**——語法合法但語意錯誤的代碼（例如以「出院指示」的代碼記錄「職業危害暴露」）在離線建置下完全不會報錯。
@@ -71,6 +106,22 @@ set NODE_OPTIONS=--use-system-ca
 ## 依賴指引 (Dependencies)
 * **tw.gov.mohw.twcore**: `1.0.0`（`sushi-config.yaml` 之 IG 套件依賴）
 * 嚼檳榔相關 CodeSystem/ValueSet 引用臺灣癌症登記短表實作指引 (TWCR_SF, `hapi.fhir.tw`) 之外部 canonical URL（見 `sushi-config.yaml` 之 `parameters.special-url`），非套件層級依賴。
+
+---
+
+## 優化工作範圍 (Optimization Job Scopes)
+
+2026-07-26 就發佈網站（<https://kunjulin.github.io/occupationIG/>）進行審閱後，
+已將待優化事項整理為 **13 個可獨立執行的 JOB**，置於 [`docs/optimization/`](docs/optimization/README.md)：
+
+* [`docs/optimization/README.md`](docs/optimization/README.md)：審閱總結、優先序矩陣、建議執行順序、全域驗收標準。
+* [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)：
+  tx 建置 QA 統計基準線（err 0 / warn 208 / info 257）與術語稽核明細，供各 JOB 驗收比對。
+  **重跑 tx 建置後請一併更新此檔。**
+* `docs/optimization/JOB-01` ~ `JOB-13`：各 JOB 之問題證據、驗收標準、工作項目與風險；
+  每份結尾均附「交給 Claude 規劃用提示」，可直接複製使用。
+
+建議節奏：一個 JOB → 一次規劃 → 一個 commit。優先處理 P0（JOB-01～03）。
 
 ---
 

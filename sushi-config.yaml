@@ -5,6 +5,9 @@ title: 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examinati
 description: 以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】
 status: active
 version: 0.1.0
+# 本指引之敘述性內容為繁體中文（臺灣）。未宣告時 IG Publisher 會預設為 en，
+# 導致整份中文內容被標記為 lang="en" 並輸出至 en/ 子目錄（JOB-02）。
+language: zh-TW
 fhirVersion: 4.0.1
 copyrightYear: 2026+
 releaseLabel: STU1
@@ -20,6 +23,25 @@ dependencies:
   tw.gov.mohw.twcore: 1.0.0
 
 parameters:
+  # 預設翻譯語言。這才是決定輸出語言目錄名稱的參數。
+  #
+  # 僅設 IG 層級的 `language: zh-TW`（見上）不足以改變輸出目錄——實測 CI 建置後
+  # 內容仍落在 output/en/。IG Publisher 之 PublisherIGLoader 讀取的是本參數
+  # （對應其 defaultTranslationLang 欄位），`i18n-lang` 則用於追加其他語言。
+  # 兩者並存：`language` 宣告 ImplementationGuide 資源本身的語言，
+  # `i18n-default-lang` 宣告產出頁面的預設語言。
+  i18n-default-lang: zh-TW
+  # 當同一 canonical 於多個套件中有不同版本時，將參照釘定至實際採用的版本。
+  # 未設定時 IG Publisher 逐筆警告「There are multiple different potential matches」
+  # （2026-07-26 基準線 29 筆），且實作端可能解析到非預期版本之定義。
+  # 取值為 PublisherUtils$PinningPolicy：pin-none／pin-multiples／pin-all。
+  # 採 pin-multiples——僅在確有多版本衝突時釘定，不對其餘參照加註版本。
+  pin-canonicals: pin-multiples
+  # 版本歷程頁位址。未設定時 IG Publisher 以 canonical + /history.html 推導，
+  # 即 https://twcore.mohw.gov.tw/ig/twha/history.html —— 該站尚未建立，故連結必然 404。
+  # 本草案以 GitHub Pages 供審閱，故指向實際可達位址；正式發佈於 twcore.mohw.gov.tw
+  # 後應改回官方站並改由 HL7 發佈流程依 package-list.json 產生 history.html。
+  path-history: https://kunjulin.github.io/occupationIG/history.html
   special-url:
     - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem
     - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem
@@ -30,6 +52,13 @@ parameters:
     - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset
     - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset
     - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset
+  # ⚠️ 待確認（JOB-09）：以下六個值集被排除於驗證之外，但**原始理由未見於任何文件或
+  # commit 訊息**。這六個正是本 IG 的核心術語資產，將其排除會削弱「0 Error」的說服力
+  # （審查者必然會看本檔）。
+  #
+  # 目前不逕行移除：移除後可能一次浮出大量訊息，須有 JOB-01 之術語稽核結果為基礎才能
+  # 判斷何者為真問題。**JOB-01 完成後應重新評估並儘可能移除**；屆時若仍需保留，
+  # 必須逐項寫明理由。此項已登記為待確認事項（JOB-13）。
   no-validate:
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset
@@ -56,8 +85,10 @@ menu:
     Extensions: artifacts.html#2
     Value Sets: artifacts.html#3
     Code Systems: artifacts.html#4
+    遵從性與依賴 (Conformance & Dependencies): conformance.html
   術語與安全 (Terminology & Security):
     術語定義 (Terminology): terminology.html
     安全性考量 (Security): security.html
+    智慧財產權聲明 (IP Statements): ip-statements.html
   下載區 (Downloads): downloads.html
 
