@@ -1,49 +1,72 @@
 {
   "_comment": [
     "QA 訊息基準線。scripts/qa-gate.js 據此判定建置是否退步：任一數值高於基準線即失敗。",
-    "數值只能降不能升。每完成一個 JOB 使某類別下降後，以 `npm run qa -- --update` 重新下調並提交。",
+    "數值原則上只能降不能升。每完成一個 JOB 使某類別下降後，以 `npm run qa -- --update` 重新下調並提交。",
+    "例外：新增 artifact 會帶進該 artifact 自身的訊息，此時得上調，但**必須具名說明多出來的是什麼**（見 _infoNote）。",
     "基準線來源見 docs/optimization/evidence/qa-summary-2026-07-26.md。"
   ],
-  "measuredAt": "2026-07-26",
+  "measuredAt": "2026-07-27",
   "igPublisherVersion": "2.2.11",
-  "source": "CI run 30227494797（commit 8c817bf1，tx 建置）— JOB-01 第二批 display 覆寫後",
+  "source": "CI run 30269800561／30270757878（commit 84ca8f7b／8a6f9680，tx 建置）— JOB-06 第一階段",
+  "_runVarianceNote": [
+    "⚠️ 同一份建置輸入之連續三次 tx 建置實測到 ±2 的差異：",
+    "  d2571cb5 → info 397 / warn 160",
+    "  84ca8f7b → info 397 / warn 160   （與前者僅差一個不影響建置的診斷步驟）",
+    "  8a6f9680 → info 395 / warn 158   （同上）",
+    "",
+    "故總數並非完全可重現，推測為 tx 回應波動導致少數代碼之驗證結果不同。",
+    "基準線取觀測到的**上界**（info 397 / warn 160），以免波動造成假性失敗；",
+    "真正的把關靠下方具名類別——那些數字在三次建置中完全一致。",
+    "若日後總數持續低於上界，再行下調。"
+  ],
   "_infoNote": [
-    "info 475 → 504（+29）：pin-canonicals: pin-multiples 生效後，IG Publisher 不再就",
-    "版本歧義發出 29 筆 WARNING，改為發出等量之 INFORMATION「Pinned the version of ...」",
-    "告知實際釘定到哪個版本。此為嚴格改善（warn −29、info +29），非退步。",
+    "info 394 → 397（+3）之組成：",
+    "  +2  新增 NamingSystem/NS-ReportIdentifier 自身之訊息（qa.txt 逐檔統計為 0 err / 0 warn / 2 info），",
+    "      其一為 could usefully have an OID assigned——待 JOB-09 之 auto-oid-root 定案後可一併消除。",
+    "  +1  落在上述 ±2 之 run-to-run 波動範圍內，無法歸因於本次變更。",
     "",
     "另 218 筆為宣告 i18n-default-lang: zh-TW 後之「代碼在 zh-TW 無顯示名」提示：",
     "LOINC／SNOMED CT／v3 等外部代碼系統並無繁體中文 designation，本專案無從修正。",
-    "兩者皆已於 categories 具名追蹤，以免掩蓋其他 info 增長。"
+    "另 29 筆為 pin-canonicals 生效後之釘版通知（原為等量之 WARNING，屬嚴格改善）。"
   ],
   "totals": {
     "err": 0,
-    "warn": 165,
-    "info": 394
+    "warn": 160,
+    "info": 397
   },
   "_categoriesNote": [
     "已鎖定之改善（不得回升）：",
     "  is not included anywhere ...            4 → 0   （JOB-03）",
     "  There are multiple different matches   29 → 0   （JOB-09 pin-canonicals）",
-    "  is experimental, but not labeled       11 → 1   （JOB-09；殘留 1 筆為 TWHA-ImagingStudy",
-    "                                                   之 snapshot 繼承綁定，來源為 TW Core 上游）",
+    "  is experimental, but not labeled       11 → 1   （JOB-09；殘留 1 筆來源為 TW Core 上游）",
     "  Wrong Display Name                    133 → 23  （JOB-01 兩批：第一批 -10、第二批 -100）",
+    "  No definition could be found for URL   24 → 17  （JOB-06：NamingSystem 使 Bundle.identifier",
+    "                                                   之 7 處被視為已定義；餘 17 待 TW Core 盤點）",
     "",
     "非待修項目（外部條件所致，列為具名上限）：",
     "  There are no valid display names ...  218  外部代碼系統無繁中 designation",
     "  Pinned the version of                  29  pin-canonicals 生效後之釘版通知",
     "",
     "Wrong Display Name 尚餘 23 筆，恰等於 needs-clinical 之筆數——",
-    "即剩下的全部是待檢驗科／職業醫學科決定者，已無可由本專案逕行處理之項目。",
-    "該 23 筆之 display 不符是未決問題的訊號，刻意保留；決策完成前不得覆寫。"
+    "即剩下的全部是待檢驗科／職業醫學科決定者（見 CLINICAL-QUERY-JOB-01.md）。",
+    "該 23 筆之 display 不符是未決問題的訊號，刻意保留；決策完成前不得覆寫。",
+    "",
+    "⚠️ 「cannot be resolved」（斷鏈）是 **IG Publisher 摘要行之 err 未涵蓋**的類別：",
+    "qa.txt 以 ERROR: 開頭列出斷鏈，但 `err = N` 之計數不含斷鏈區段，故閘門原本對此完全盲目。",
+    "2026 筆指向 https://twcore.mohw.gov.tw/ig/twha/history.html——publish box 的",
+    "「Directory of published versions」連結，指向 provisional canonical 下不存在的頁面，",
+    "**網站每一頁都斷**。此為既有問題（JOB-02 僅記錄「history.html 不可達」，未察覺其規模），",
+    "與 canonical 核定綁在一起，於本 JOB 不處理，僅納入追蹤以免繼續增長。",
+    "另 51 筆 #tabs-diff 為模板產生之錨點、1 筆為 Appendix10-to-HazardType.xlsx 之下載連結。"
   ],
   "categories": {
     "Wrong Display Name": 23,
     "has a status of DISCOURAGED": 6,
     "should have an OID assigned": 40,
+    "could usefully have an OID assigned": 1,
     "should have a performer": 47,
     "There are multiple different potential matches": 0,
-    "No definition could be found for URL value": 24,
+    "No definition could be found for URL value": 17,
     "contains no examples for this profile": 9,
     "contains no examples for this extension": 5,
     "is experimental, but this structure is not labeled as experimental": 1,
@@ -51,6 +74,7 @@
     "SHOULD conform to the ShareableValueSet profile": 4,
     "Constraint failed: vsd-0": 4,
     "There are no valid display names found for the code": 218,
-    "Pinned the version of": 29
+    "Pinned the version of": 29,
+    "cannot be resolved": 2078
   }
 }

@@ -129,6 +129,18 @@ const regressedLevels = rows
   .map((r) => LEVEL_PREFIX[r.label.replace('TOTAL ', '')])
   .filter(Boolean);
 
+// 具名類別退步時，總數表只給一個數字，同樣無從診斷。列出實際訊息（取樣），
+// 免得每次都要臨時加一個 grep 步驟才知道多出來的是什麼。
+const regressedCategories = rows.filter((r) => !r.label.startsWith('TOTAL ') && r.over);
+for (const r of regressedCategories) {
+  const samples = qa
+    .split(/\r?\n/)
+    .filter((l) => l.includes(r.label))
+    .slice(0, 10);
+  console.log(`\n類別「${r.label}」退步 +${r.delta}——實際訊息（最多 10 筆）：`);
+  for (const s of samples) console.log(`  ${s.trim().slice(0, 200)}`);
+}
+
 for (const level of regressedLevels) {
   const lines = qa.split(/\r?\n/).filter((l) => l.startsWith(`${level}:`));
   const groups = new Map();

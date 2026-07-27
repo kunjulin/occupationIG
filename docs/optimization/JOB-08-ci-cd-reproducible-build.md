@@ -397,3 +397,51 @@ ig.ini、input/ignoreWarnings.txt 與 scripts/check-pagecontent-refs.js，為這
 5. 規劃發佈內容如何記錄來源 commit，以及與 JOB-02（語言／路徑變更）的協調順序。
 6. 先以 workflow_dispatch 手動驗證再改自動，請在計畫中排入這個階段。
 ```
+
+---
+
+## 10. 閘門的兩個盲點（2026-07-27，JOB-06 執行中發現）
+
+### 10.1 斷鏈完全不在閘門視野內
+
+qa.txt 以 `ERROR:` 開頭列出斷鏈，但 IG Publisher 摘要行的 `err = N`
+**不含斷鏈區段**。實測：`err = 0` 的同一份 qa.txt 裡有 **2078 筆**斷鏈。
+
+```
+2026 × The link 'https://twcore.mohw.gov.tw/ig/twha/history.html'
+  51 × The link '#tabs-diff'
+   1 × The link 'Appendix10-to-HazardType.xlsx'
+```
+
+那 2026 筆是 publish box 的「Directory of published versions」連結，
+指向 provisional canonical 下不存在的 `history.html`——**網站每一頁都斷**。
+JOB-02 §1 只記錄「`history.html` 不可達」，未察覺其規模，也未察覺閘門看不到它。
+
+**已處置**：`cannot be resolved` 納入 `qa-baseline.json` 之具名類別（上限 2078），
+並新增 workflow 步驟列出目標網址分布。**未修復**——與 canonical 核定綁在一起
+（`path-history` 指向未核定之網域），屬 JOB-02／JOB-13 範圍。
+
+### 10.2 總數有 run-to-run 波動，具名類別沒有
+
+同一份建置輸入連續三次 tx 建置：
+
+| commit | info | warn | 差異來源 |
+|:--|--:|--:|:--|
+| `d2571cb5` | 397 | 160 | — |
+| `84ca8f7b` | 397 | 160 | 僅多一個不影響建置的診斷步驟 |
+| `8a6f9680` | 395 | 158 | 同上 |
+
+±2 的浮動，推測為 tx 回應波動使少數代碼之驗證結果不同。
+**16 個具名類別在三次建置中完全一致**——這正是當初不只看總數、
+而逐類具名追蹤的價值：總數會抖，具名類別不會。
+
+基準線之總數改取觀測上界，並於 `_runVarianceNote` 載明；
+把關實質倚賴具名類別。
+
+### 10.3 連帶改進
+
+- `qa-gate.js`：**具名類別退步時列出實際訊息（最多 10 筆）**。
+  先前只有總數退步才有形態分布，類別退步只給一個數字，
+  每次都得臨時加一個 grep 步驟才知道多出來的是什麼（本次即如此）。
+- 開發環境無法下載 qa.txt 產出物（代理封鎖 GitHub blob 儲存之重導，
+  `CONNECT tunnel failed 403`），CI 日誌是唯一取得管道，故診斷須由 workflow 印出。
