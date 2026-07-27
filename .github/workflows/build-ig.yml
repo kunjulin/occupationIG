@@ -215,8 +215,20 @@ jobs:
         run: |
           set -u
           [ -f output/qa.txt ] || { echo "(無 qa.txt)"; exit 0; }
-          echo "--- 提及 NamingSystem／report-id／sid 之訊息 ---"
-          grep -nE 'NamingSystem|report-id|/sid/' output/qa.txt || echo "(無)"
+
+          echo "=== (1) NamingSystem 區段前後文（取其第 2 筆 info）==="
+          awk '/NamingSystem-NS-ReportIdentifier\.json ==/{f=1} f{print NR": "$0; n++} n>6{exit}' output/qa.txt
+
+          echo ""
+          echo "=== (2) 逐檔統計：warn 或 info 非 0 者（格式 路徑 : err / warn / info）==="
+          grep -nE ' : [0-9]+ / [0-9]+ / [0-9]+$' output/qa.txt \
+            | awk -F' : ' '{split($2,a," / "); if (a[2]+0>0 || a[3]+0>0) print}' || echo "(無)"
+
+          echo ""
+          echo "=== (3) 斷鏈 ERROR 總數（不計入摘要行之 err）==="
+          grep -cE '^ERROR: .*cannot be resolved' output/qa.txt || echo 0
+          echo "--- 其中不同的目標網址 ---"
+          grep -oE "The link '[^']+'" output/qa.txt | sort | uniq -c | sort -rn | head -10 || echo "(無)"
 
       # --expect-tx 要求日誌能證明確實連上術語伺服器。這道檢查獨立於
       # input/ignoreWarnings.txt——該抑制檔管不到 publisher 日誌，
