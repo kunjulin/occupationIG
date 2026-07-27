@@ -15,6 +15,7 @@
 'use strict';
 
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const https = require('https');
 const { spawn } = require('child_process');
@@ -55,6 +56,23 @@ const maxMem = arg('--max-mem', process.env.IG_PUBLISHER_MAXMEM || '4096m');
 const repoSource = arg('--repo', process.env.IG_REPO_SOURCE || null);
 const targetOutput = arg('--target', process.env.IG_TARGET_OUTPUT || null);
 const autoBuild = Boolean(repoSource || targetOutput);
+
+// ⚠️ -auto-ig-build 會連帶把 FHIR **套件快取**由使用者家目錄改為系統目錄。
+// PublisherBase.getFilesystemPackageCacheManager() 之邏輯（反編譯確認）：
+//
+//   if (settings.getPackageCacheFolder() != null)  → 用指定的資料夾
+//   else if (mode == MANUAL || mode == PUBLICATION) → ~/.fhir/packages
+//   else                                            → 系統快取（Linux 為 /var/lib/.fhir/packages）
+//
+// GitHub runner 上 /var/lib/.fhir/packages 不存在，findPackageFolder() 對
+// listFiles() 之 null 直接取 .length，建置在載入模板時即以 NullPointerException
+// 中止（實測：run 30233555524，1 秒內失敗，錯誤訊息指向 template 但根因是快取路徑）。
+//
+// 故啟用 CI 模式時一律明示套件快取位置，讓它與 workflow 所快取的目錄一致。
+const packageCache = arg(
+  '--package-cache',
+  process.env.IG_PACKAGE_CACHE || (autoBuild ? path.join(os.homedir(), '.fhir', 'packages') : null)
+);
 
 function jarUrl(v) {
   return v === 'latest'
@@ -135,6 +153,12 @@ function download(url, dest, redirects = 0) {
         `  網站網址：${targetOutput}\n` +
         `  注意：此模式下術語快取改用系統暫存目錄（非 ~/.fhir/vscache）。\n`
     );
+  }
+
+  if (packageCache) {
+    fs.mkdirSync(packageCache, { recursive: true });
+    args.push('-package-cache-folder', packageCache);
+    console.log(`FHIR 套件快取：${packageCache}\n`);
   } else {
     console.log(
       '本機建置模式：publish box 會標示為「Local Development build」。\n' +

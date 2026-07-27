@@ -331,9 +331,48 @@ QA 訊息數」，並據此暫緩採用。**該敘述有誤**：那個 `current`
 
 | 差異 | 影響 |
 |:--|:--|
+| **FHIR 套件快取改用系統目錄** | **會使 CI 建置失敗**——見下 |
 | 術語快取由 `~/.fhir/vscache` 改為系統暫存目錄 | CI 未快取該目錄，無影響；且每次都是乾淨的 tx 查詢 |
 | `genVMessage` 之連結片段由 `dev` 改為 `current` | 驗證訊息連結文字，外觀差異 |
 | 略過寫入逐資源之 QA 頁 | 不影響 `qa.txt` 統計 |
+
+### 第一次啟用即失敗：套件快取路徑（run 30233555524）
+
+啟用後第一次 CI 建置在 **1 秒內**失敗，訊息看起來像模板問題：
+
+```
+Load Template from fhir2.base.template#current
+Publishing Content Failed: Error loading template fhir2.base.template#current:
+  Cannot read the array length because "<local2>" is null
+```
+
+**但根因不是模板。** 日誌上一行才是關鍵：
+
+```
+Package Cache: /var/lib/.fhir/packages          ← 不是 ~/.fhir/packages
+```
+
+堆疊指向 `FilesystemPackageCacheManager.findPackageFolder` → `Utilities.reverseSorted`：
+對不存在目錄之 `listFiles()`（回傳 `null`）直接取 `.length`。
+
+`PublisherBase.getFilesystemPackageCacheManager()` 之邏輯（反編譯確認）：
+
+```java
+if (settings.getPackageCacheFolder() != null)   → 用指定的資料夾
+else if (mode == MANUAL || mode == PUBLICATION) → ~/.fhir/packages
+else                                            → 系統快取（Linux: /var/lib/.fhir/packages）
+```
+
+`-auto-ig-build` 使 mode 落入第三支。HL7 官方 CI 有預先佈建的系統快取，
+GitHub runner 沒有，於是 NPE。
+
+**修法**：CI 模式一律加 `-package-cache-folder $HOME/.fhir/packages`——
+該參數在解析時不受 `-auto-ig-build` 限制，且優先於一切模式判斷，
+可讓套件快取與 workflow 所快取的目錄保持一致。
+
+> 這是「錯誤訊息指向 A、根因在 B」的典型：若照訊息去釘模板版本，
+> 會改掉一個沒有壞的東西，而真正的問題（快取路徑）仍在。
+> 讀 stack trace 與其上一行的 `Package Cache:` 才看得出來。
 
 QA 訊息數是否變動由 CI 實測認定，不預先宣稱。
 
