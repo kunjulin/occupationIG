@@ -206,6 +206,21 @@ jobs:
       # --expect-tx 要求日誌能證明確實連上術語伺服器。這道檢查獨立於
       # input/ignoreWarnings.txt——該抑制檔管不到 publisher 日誌，
       # 否則「連不上 tx」會與「通過驗證」外觀相同（見 JOB-09）。
+      # 閘門之前先把「本次新增之 artifact 相關訊息」印進日誌。
+      # 起因：JOB-06 新增 NamingSystem 後 info 由 394 升至 397、warn 另有 +2，
+      # 閘門只報總數，而訊息形態分布只列前 15 種，新增的少量訊息會沉在長尾看不到。
+      # 開發環境無法下載 qa.txt 產出物（代理封鎖 blob 儲存），日誌是唯一取得管道。
+      - name: Show messages for newly added artifacts
+        if: always()
+        run: |
+          set -u
+          [ -f output/qa.txt ] || { echo "(無 qa.txt)"; exit 0; }
+          echo "--- 提及 NamingSystem／report-id／sid 之訊息 ---"
+          grep -nE 'NamingSystem|report-id|/sid/' output/qa.txt || echo "(無)"
+
+      # --expect-tx 要求日誌能證明確實連上術語伺服器。這道檢查獨立於
+      # input/ignoreWarnings.txt——該抑制檔管不到 publisher 日誌，
+      # 否則「連不上 tx」會與「通過驗證」外觀相同（見 JOB-09）。
       - name: QA gate
         run: |
           if [ "$TX_SERVER" = "n/a" ]; then
