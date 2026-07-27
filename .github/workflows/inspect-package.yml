@@ -1,0 +1,81 @@
+name: Inspect FHIR package
+
+# 盤點上游 FHIR 套件定義了哪些 NamingSystem／identifier.system／CodeSystem。
+#
+# 為什麼要有這個 workflow：JOB-06 的第一步是「先查 TW Core 已定義什麼，能沿用的一律
+# 沿用」——同一個識別碼有兩個 canonical 比現況更糟。但開發環境的網路政策封鎖
+# packages.fhir.org、packages2.fhir.org 與 twcore.mohw.gov.tw，無從盤點；
+# runner 連得到。JOB-10（TWCR_SF mock 依賴治理）同樣需要盤點上游套件。
+#
+# 只吃 workflow_dispatch，不隨建置跑；約 1 分鐘完成，結果寫進 Step Summary。
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: '套件 ID（例：tw.gov.mohw.twcore）'
+        required: true
+        default: 'tw.gov.mohw.twcore'
+      version:
+        description: '版本（例：1.0.0）'
+        required: true
+        default: '1.0.0'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 兩個 registry 都試：packages.fhir.org 偶有不穩，packages2 為官方鏡像。
+      - name: Download package
+        env:
+          PKG: ${{ inputs.package }}
+          VER: ${{ inputs.version }}
+        run: |
+          set -euo pipefail
+          mkdir -p pkg
+          ok=0
+          for base in "https://packages.fhir.org/$PKG/$VER" \
+                      "https://packages2.fhir.org/packages/$PKG/$VER" \
+                      "https://packages.simplifier.net/$PKG/$VER"; do
+            echo "嘗試 $base"
+            if curl -fsSL --max-time 120 "$base" -o pkg.tgz; then
+              echo "  下載成功（$(stat -c%s pkg.tgz) bytes）"
+              ok=1
+              break
+            fi
+            echo "  失敗，換下一個"
+          done
+          [ "$ok" = 1 ] || { echo "✖ 三個 registry 都取不到 $PKG#$VER"; exit 1; }
+          tar xzf pkg.tgz -C pkg
+          echo "解壓後檔案數：$(find pkg -type f | wc -l)"
+
+      - name: Inspect
+        run: |
+          set -euo pipefail
+          node scripts/inspect-package.js --dir pkg --json inventory.json | tee inventory.txt
+          {
+            echo '### `${{ inputs.package }}#${{ inputs.version }}` 盤點結果'
+            echo ''
+            echo '```'
+            cat inventory.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inventory-${{ inputs.package }}-${{ inputs.version }}
+          path: |
+            inventory.txt
+            inventory.json
+          retention-days: 30

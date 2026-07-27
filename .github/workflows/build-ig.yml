@@ -206,6 +206,21 @@ jobs:
       # --expect-tx 要求日誌能證明確實連上術語伺服器。這道檢查獨立於
       # input/ignoreWarnings.txt——該抑制檔管不到 publisher 日誌，
       # 否則「連不上 tx」會與「通過驗證」外觀相同（見 JOB-09）。
+      # 斷鏈是 IG Publisher 摘要行 `err = N` **未涵蓋**的類別（qa.txt 以 ERROR: 列出，
+      # 但不計入 err），閘門原本對此完全盲目。已將 "cannot be resolved" 納入
+      # qa-baseline.json 之具名類別追蹤；此處另列出目標網址分布，數字變動時才知道是哪一批。
+      - name: Broken link breakdown
+        if: always()
+        run: |
+          set -u
+          [ -f output/qa.txt ] || { echo "(無 qa.txt)"; exit 0; }
+          echo "斷鏈總數：$(grep -cE '^ERROR: .*cannot be resolved' output/qa.txt || echo 0)"
+          echo "--- 目標網址分布 ---"
+          grep -oE "The link '[^']+'" output/qa.txt | sort | uniq -c | sort -rn | head -10 || echo "(無)"
+
+      # --expect-tx 要求日誌能證明確實連上術語伺服器。這道檢查獨立於
+      # input/ignoreWarnings.txt——該抑制檔管不到 publisher 日誌，
+      # 否則「連不上 tx」會與「通過驗證」外觀相同（見 JOB-09）。
       - name: QA gate
         run: |
           if [ "$TX_SERVER" = "n/a" ]; then

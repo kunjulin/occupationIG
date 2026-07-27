@@ -132,7 +132,99 @@ Usage: #definition
 
 ---
 
-## 6. 交給 Claude 規劃用提示（可直接複製）
+## 7. 執行紀錄（2026-07-27）— 第一階段
+
+### 7.1 本 IG 實際使用的 identifier.system（全部盤點）
+
+只有 **5 個**，不是 §2 表格所列的 8 類：
+
+| system URI | 用處 | 出現次數 | 歸屬 |
+|:--|:--|--:|:--|
+| `…/ig/twha/bundle-id` | `Bundle.identifier` | 7 | **本 IG** |
+| `…/ig/twcore/CodeSystem/practitioner-license-tw` | 醫師證書字號 | 1 | TW Core？ |
+| `…/ig/twcore/CodeSystem/organization-identifier-tw` | 醫事機構代號 | 1 | TW Core？ |
+| `https://gcis.nat.gov.tw` | 事業單位統一編號 | 1 | 經濟部商業司 |
+| `https://www.cgmh.org.tw/tw/patient-id` | 受檢者病歷號 | 1 | 單一醫院本地 |
+
+### 7.2 更正 §2 表格的一項誤列
+
+§2 把「勞工通報代碼」列為待定義之識別碼。**這是誤列**：`ext-labor-report-code`
+的 `value[x]` 為 `CodeableConcept`，綁定 `VS_LaborReportCode`——它是**代碼值**，
+不是識別碼，沒有 `identifier.system` 可言，本 JOB 不需為它定義命名空間。
+
+同理，「去識別化雜湊 Token」目前**未在任何範例或 profile 中出現**，
+`security.md` 只是前瞻性提及。在其使用方式定案前定義命名空間是空轉。
+
+### 7.3 已做：`NS-ReportIdentifier`
+
+新增 `input/fsh/namingsystems/NS-ReportIdentifier.fsh`，並將 7 處範例的
+`…/ig/twha/bundle-id` 改為 `…/ig/twha/sid/report-id`。
+
+改用 `/sid/` 路徑的理由：原值與 artifact canonical
+（`…/ig/twha/StructureDefinition/…`）混在同一層命名空間，分不出這是識別碼命名空間
+還是某個 artifact 的 canonical。`/sid/`（system identifier）是 FHIR 慣例。
+canonical 目前仍為 provisional，此時改動的成本遠低於日後。
+
+NamingSystem 的 `description` 寫入三項實作端真正需要的規範，而非只是名稱：
+
+- **唯一性**——值在同一健檢機構內唯一；跨機構唯一性由「命名空間＋值」達成。
+- **穩定性**——同一份報告更正後重送**應沿用相同識別碼**，否則監理端無從分辨
+  「更正」與「新的一筆」。這正是 JOB-04 上傳去重的基礎。
+- **不得**以可回推受檢者身分之內容組成（身分證號、病歷號）。
+
+`responsible` 標為「產生封包之健檢機構」而非本 IG 發布者——本 IG 只規範命名空間，
+不集中發放識別碼。
+
+### 7.4 未做：其餘 4 個 system，卡在 TW Core 盤點
+
+§3.1 已載明「最大風險是重複定義 TW Core 已有的 system」。身分證統一編號、
+統一編號、醫事機構代號、醫事人員證書字號**極可能已由 TW Core 定義**，
+在盤點完成前自行另定，會製造同一識別碼兩個 canonical——比現況更糟。
+
+**本環境無法盤點**：`packages.fhir.org`、`packages2.fhir.org`、
+`packages.simplifier.net`、`twcore.mohw.gov.tw` 全部連線失敗（實測 HTTP 000）。
+CI runner 連得到，故改由 CI 執行：
+
+- `scripts/inspect-package.js` — 吃已解壓的套件目錄，列出其 NamingSystem
+  （含 `uniqueId`）、profile 中固定之 `identifier.system`、以及 CodeSystem 清單。
+  本檔**不碰網路**，任何環境都能重跑。
+- `.github/workflows/inspect-package.yml` — `workflow_dispatch` 專用，下載並解壓後
+  呼叫上述腳本，結果寫進 Step Summary。約 1 分鐘。三個 registry 依序重試。
+
+> ⚠️ `workflow_dispatch` 要求 workflow 檔**存在於預設分支**才能觸發。
+> 故本工具須先合併至 `main`，盤點才跑得起來。這是本 JOB 第二階段的前置條件。
+
+JOB-10（TWCR_SF mock 依賴治理）同樣需要盤點上游套件，故工具不寫死套件 ID。
+
+### 7.5 待盤點後確認的兩個疑點
+
+**(a) 以 CodeSystem canonical 充當 identifier.system。**
+`practitioner-license-tw` 與 `organization-identifier-tw` 兩個 URL 的路徑是
+`/CodeSystem/`。`Identifier.system` 的語意是「該識別碼值所屬的命名空間」，
+而 CodeSystem 定義的是**代碼**。若 TW Core 的原意是提供識別碼**類別**的代碼，
+正確模型應為 `identifier.type.coding.system = <CodeSystem>` ＋
+`identifier.system = <命名空間 URI>`，兩者不可混用。
+**但這需要看過 TW Core 實際定義才能斷言**——TW Core 也可能同時以 NamingSystem
+宣告了同一個 URL。盤點時一併確認。
+
+**(b) 全國性 IG 的範例使用單一醫院的本地命名空間。**
+`example-worker` 的病歷號用 `https://www.cgmh.org.tw/tw/patient-id`。
+病歷號本就是機構本地識別碼，這件事本身沒錯；問題在於**一份全國性規範的示範資料**
+若用特定醫院的命名空間，讀者容易誤讀為建議值。
+（附帶發現：IG Publisher 對 `isExampleUrl()` 命中的網址會跳過此項檢查，
+故改用明確的範例命名空間可能同時消除該 6 筆警告——待實測。）
+
+### 7.6 尚未量測
+
+`No definition could be found for URL value` 目前基準線 **24**。
+定義 NamingSystem 是否足以讓 IG Publisher 視該 URL 為「已定義」，
+反編譯未能定論（`isKnownSpace()` 只白名單 `hl7.org`／`terminology.hl7.org`／
+`fhir.org/guides`，但那是另一條分支）。**由 CI 實測認定，不預先宣稱**。
+若有效，預期降至 17。
+
+---
+
+## 8. 交給 Claude 規劃用提示（可直接複製）
 
 ```
 請閱讀 docs/optimization/JOB-06-identifier-namingsystem.md，並檢視
