@@ -51,7 +51,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 
 | JOB | 標題 | 優先序 | 類別 | 預估 | 相依 | 狀態 |
 |:--|:--|:--|:--|:--|:--|:--|
-| [JOB-01](JOB-01-terminology-code-audit.md) | 術語稽核：133 筆 display 不符之錯碼分流與修正 | **P0** | 術語 | L（1–2 週） | JOB-08 較佳 | 🔶 **133 → 23（−83%）**；剩餘 23 筆全待臨床決定 |
+| [JOB-01](JOB-01-terminology-code-audit.md) | 術語稽核：133 筆 display 不符之錯碼分流與修正 | **P0** | 術語 | L（1–2 週） | JOB-08 較佳 | 🔶 **133 → 23（−83%）**；剩餘 23 筆待臨床回覆（見[確認單](CLINICAL-QUERY-JOB-01.md)） |
 | [JOB-02](JOB-02-publication-language-and-versioning.md) | 發佈語言（zh-TW）、網址結構與版本歷程正式化 | **P0** | 發佈 | S（1–2 天） | — | ✅ **已執行**（待建置驗證） |
 | [JOB-03](JOB-03-ip-and-required-fragments.md) | LOINC/SNOMED 授權聲明與四個必要 HTML fragment 補納 | **P0** | 合規 | S（1 天） | — | ✅ **已執行**（待建置驗證） |
 | [JOB-04](JOB-04-upload-path-conformance.md) | 上傳路徑（Transaction Bundle ＋ `$submit`）契約與端到端範例 | **P1** | 可實作性 | M（3–5 天） | — | 待辦 |

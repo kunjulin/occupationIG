@@ -143,7 +143,7 @@ ext-smoking-quantity
 | 代碼 | 出現位置 | 備註 |
 |:--|:--|:--|
 | `5671-3` | `VS-OccHealthCheck-Required`、`VS-ExtendedDataset`、`ConceptMap-TWHealthCheckLaboratoryMap` | **血中鉛**。已於 `7169521` 將 Preferred 改為 `77307-7`，但 `5671-3` 仍以 Acceptable 保留且狀態為 DISCOURAGED，須決定是否降級／移除 |
-| `33914-3` | `VS-ExtendedDataset`、ConceptMap | eGFR（MDRD 公式）。臨床已改採 CKD-EPI；Core 已收 `88293-6`，宜評估移除 MDRD |
+| `33914-3` | `VS-ExtendedDataset`、ConceptMap | eGFR（MDRD 公式）。臨床已改採 CKD-EPI；本 IG 已收 `98979-8`（CKD-EPI 2021），宜評估移除 MDRD |
 | `35200-5` | `VS-CoreDataset`、ConceptMap | 總膽固醇（無方法學）。Core 值集內含 DISCOURAGED 碼需特別說明 |
 | `55284-4` | `VS-OccHealthCheck-Required` | 血壓 panel |
 | `1709-5` | `VS-ExtendedDataset` | — |

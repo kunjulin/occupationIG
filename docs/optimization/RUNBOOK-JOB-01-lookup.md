@@ -241,7 +241,7 @@ verified_by / verified_date 五個欄位。判定只有三種結果：
 | `42221-2` 尿錳、`34304-6` 尿氟 | IG 標質量濃度、官方為莫耳濃度。院內 LIS 實際以 µg/L 還是 µmol/L 報告？前者要換碼，後者要改單位宣告 | 檢驗科 |
 | `19177-5` AFP、`2428-1` 同半胱胺酸 | 同上之量綱問題 | 檢驗科 |
 | `5671-3` 血中鉛（DISCOURAGED） | 已改 Preferred 為 `77307-7`，但 `5671-3` 仍在**法定必驗子集**內。要移除還是保留為 Acceptable？移除可能造成院內 LIS 無法對應 | 職業醫學科 ＋ 檢驗科 |
-| `33914-3` MDRD eGFR（DISCOURAGED） | 臨床已改採 CKD-EPI，Core 已收 `88293-6`。要不要移除 MDRD？ | 職業醫學科 |
+| `33914-3` MDRD eGFR（DISCOURAGED） | 臨床已改採 CKD-EPI，本 IG 已收 `98979-8`（CKD-EPI 2021）。要不要移除 MDRD？ | 職業醫學科 |
 | `26505-8`／`26508-2` 嗜中性球分類 | 官方為「Segmented」「Band form」，IG 標「Hypersegmented」「總嗜中性球」。要的是哪一個概念？ | 檢驗科 |
 | `9633-9` EBV VCA IgA | 官方為 [Titer] by IF，IG 標 [Presence]。院內報定性還是效價？ | 檢驗科 |
 
