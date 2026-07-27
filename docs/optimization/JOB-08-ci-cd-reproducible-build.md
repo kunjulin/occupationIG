@@ -236,12 +236,63 @@ QA 閘門實際輸出：`err 0`、`warn 208 → 204`、
    `scripts/run-publisher.js` 之 `PINNED_VERSION` 須同步；閘門會在版本不一致時提示。
 3. Actions 已警告 `actions/*@v4` 系列的 Node 20 執行環境即將淘汰，屆時需升版 action。
 
-### 尚未做（下一階段）
+---
 
-* **自動發佈至 gh-pages**：依使用者決定暫緩。加入時需注意
-  舊 `en/` 目錄與 1012 個根目錄殼頁應以**全量覆蓋**清除，而非增量推送。
-* **`en/` 轉址**：使用者確認**不需保留**，直接切換至 `zh-TW/`。
-* 發佈內容記錄來源 commit（`build-info.json`）——併入發佈階段。
+## 8. 第二階段：發佈 gh-pages（2026-07-27）
+
+於 `build-ig.yml` 新增 `publish` job。
+
+### 觸發條件——預設不會自動執行
+
+| 情境 | 是否發佈 |
+|:--|:--|
+| 一般 PR | ✗ |
+| `workflow_dispatch` 於 `main` 且勾選 `publish` | ✓ 手動發佈 |
+| push 至 `main` 且 repo variable `AUTO_PUBLISH_PAGES = true` | ✓ 持續發佈 |
+| push 至 `main` 但未設該變數 | ✗ |
+
+如此**「合併」與「發佈」是兩個各自獨立的決定**：合併 PR 不會動到線上網站。
+確認手動發佈無誤後，再到 Settings → Secrets and variables → Actions → Variables
+新增 `AUTO_PUBLISH_PAGES = true` 轉為自動。此即 §6 計畫所要求的
+「先以 workflow_dispatch 手動驗證再改自動」。
+
+`workflow_dispatch` 之發佈亦限定 `main`——把功能分支的建置推上線是不可逆的誤操作。
+
+### 設計要點
+
+| 要點 | 作法與理由 |
+|:--|:--|
+| **發佈受閘門保護** | `needs: build`。QA 閘門失敗就不會有東西被推上去 |
+| **發佈受檢的那一份** | 下載 build job 的 `site-<sha>` artifact，**不重新建置**——重建可能因上游套件變動而產出與受檢版本不同的內容 |
+| **全量覆蓋** | 保留 `.git`，其餘全部刪除後再複製。增量推送會把現行的 1012 個根目錄殼頁與 `en/` 目錄永久留在站上 |
+| **`.nojekyll`** | GitHub Pages 預設對 gh-pages 跑 Jekyll，底線開頭的檔案會被略過。IG Publisher 的輸出不是 Jekyll 專案（Jekyll 在建置階段已跑過） |
+| **發佈前二次驗收** | 對**即將上線的檔案**再驗一次首頁存在、`lang="zh-TW"`、無 `en/`、根目錄有 `index.html`。複製或清除若出錯，這裡才擋得住 |
+| **`build-info.json`** | 記錄來源 commit、ref、workflow run URL、publisher 版本、建置時間。線上網站可自證來源 |
+| **不可 cancel-in-progress** | 發佈中途被取消會讓 gh-pages 停在只刪不補的狀態 |
+| **權限最小化** | `contents: write` 只給 `publish` job；`build` 維持唯讀 |
+| **內容相同則不推** | `git diff --cached --quiet` 時直接結束，避免無意義的 commit |
+
+### 已知後果
+
+**舊網址 `https://kunjulin.github.io/occupationIG/en/…` 將失效。** JOB-02 把輸出語言
+目錄由 `en/` 改為 `zh-TW/`，且經確認**不保留轉址**。已將舊網址發給審閱委員時，
+須一併通知改用網站根網址。發佈完成後的 Step Summary 會再提醒一次。
+
+### 尚未做
+
+* **publish box 仍顯示 `Local Development build`**——JOB-02 驗收條件之一未達成。
+  經反編譯 `publisher.jar` 確認：該文字由 `PublisherGenerator` 依
+  `PublisherSettings.getMode()` 決定，三種模式對應三種文案
+  （`MANUAL` → `STATUS_MSG_LOCAL_BUILD`、`AUTOBUILD` → `STATUS_MSG_AUTOBUILD`、
+  `PUBLICATION` → `STATUS_MSG_PUBLICATION_HOLDER`）。
+  `-auto-ig-build`（搭配 `-target <網址>`）會將模式設為 `AUTOBUILD`，文案改為
+  「…**This guide is not an authorized publication; it is the continuous build for
+  version …**」——與 `package-list.json` 之 `status: ci-build` 相符，且比
+  「Local Development build」更貼近本站實況。
+  **未逕行採用**：反編譯時另見 `AUTOBUILD` 模式會把 workingVersion 取為
+  `current`（而非 `0.1.0`），可能連帶影響輸出中的版本標示與 QA 訊息數。
+  屬需實測的建置行為變更，不宜與發佈功能同批送出。
+* `actions/*@v4` 之 Node 20 執行環境即將淘汰，屆時需升版。
 
 ---
 
