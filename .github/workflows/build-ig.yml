@@ -112,7 +112,13 @@ jobs:
       - name: Run SUSHI
         run: npm run sushi
 
+      # --repo/--target 啟用 -auto-ig-build，使 publish box 由「Local Development
+      # build」改為 CI build 文案（JOB-02 驗收條件 #2）。網址由 github context 推導，
+      # 不寫死；fork 或改名後仍然正確。
       - name: Run IG Publisher
+        env:
+          IG_REPO_SOURCE: ${{ github.server_url }}/${{ github.repository }}
+          IG_TARGET_OUTPUT: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: node scripts/run-publisher.js --tx "$TX_SERVER" --publisher-version "$IG_PUBLISHER_VERSION"
 
       # ---------------------------------------------------------------- 閘門
@@ -208,6 +214,31 @@ jobs:
           else
             npm run qa -- --log input-cache/publisher-run.log --expect-tx
           fi
+
+      # JOB-02 驗收條件 #2：publish box 不得再顯示 Local Development build。
+      # 刻意排在 QA 閘門**之後**——閘門的數字是比較有診斷價值的訊號，
+      # 就算本步驟失敗也要先把它記錄下來。本步驟失敗會使 job 失敗，
+      # 因而不會上傳 site artifact，也就不會有東西可發佈——這是預期行為。
+      - name: Verify publish box
+        run: |
+          set -u
+          if [ -f output/zh-TW/index.html ]; then base=output/zh-TW; else base=output; fi
+
+          box=$(grep -o '<p id="publish-box">.*</p>' "$base/index.html" | head -1)
+          if [ -z "$box" ]; then
+            echo "FAIL 在 $base/index.html 找不到 publish-box"; exit 1
+          fi
+          echo "publish box："
+          echo "  $box" | sed 's/<[^>]*>//g' | cut -c1-300
+
+          if printf '%s' "$box" | grep -q 'Local Development build'; then
+            echo ""
+            echo "FAIL publish box 仍為「Local Development build」。"
+            echo "  應由 -auto-ig-build 切換為 CI build 文案；請確認 Run IG Publisher"
+            echo "  步驟確實帶了 --repo 與 --target。"
+            exit 1
+          fi
+          echo "OK   已非 Local Development build"
 
       - name: Upload built site
         if: success()

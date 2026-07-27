@@ -11,9 +11,11 @@
 //   node scripts/run-publisher.js --tx https://tx.fhir.org/r4
 //   node scripts/run-publisher.js --tx n/a              # 離線；不得作為送審依據
 //   node scripts/run-publisher.js --publisher-version 2.2.11
+//   node scripts/run-publisher.js --repo <git 網址> --target <網站網址>   # CI 建置模式
 'use strict';
 
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const https = require('https');
 const { spawn } = require('child_process');
@@ -35,6 +37,42 @@ function arg(name, fallback) {
 const tx = arg('--tx', 'https://tx.fhir.org/r4');
 const version = arg('--publisher-version', process.env.IG_PUBLISHER_VERSION || PINNED_VERSION);
 const maxMem = arg('--max-mem', process.env.IG_PUBLISHER_MAXMEM || '4096m');
+
+// CI 建置模式（-auto-ig-build）。給定 --repo／--target 即啟用。
+//
+// 作用：把 publish box 由「Local Development build」改為 CI build 文案——
+//   「…This guide is not an authorized publication; it is the continuous build for
+//     version {v}… based on the current content of {repo}…」
+// 與 package-list.json 之 status: ci-build 相符，也才是本站的實況。
+//
+// 依據（反編譯 publisher.jar 2.2.11 確認，非推測）：
+//   PublisherGenerator 依 PublisherSettings.getMode() 三選一產生 publish box——
+//     MANUAL      → STATUS_MSG_LOCAL_BUILD       「Local Development build」
+//     AUTOBUILD   → STATUS_MSG_AUTOBUILD         CI build 文案
+//     PUBLICATION → STATUS_MSG_PUBLICATION_HOLDER 由發佈工具鏈填寫
+//   Publisher 之 CLI 解析：-auto-ig-build 設 mode=AUTOBUILD，且**只有在該旗標存在時**
+//   才會讀取 -target 與 -repo，故三者必須同時給。
+//   文案中的來源網址取自 gh()：優先用 -repo，否則以 -target 推導。
+const repoSource = arg('--repo', process.env.IG_REPO_SOURCE || null);
+const targetOutput = arg('--target', process.env.IG_TARGET_OUTPUT || null);
+const autoBuild = Boolean(repoSource || targetOutput);
+
+// ⚠️ -auto-ig-build 會連帶把 FHIR **套件快取**由使用者家目錄改為系統目錄。
+// PublisherBase.getFilesystemPackageCacheManager() 之邏輯（反編譯確認）：
+//
+//   if (settings.getPackageCacheFolder() != null)  → 用指定的資料夾
+//   else if (mode == MANUAL || mode == PUBLICATION) → ~/.fhir/packages
+//   else                                            → 系統快取（Linux 為 /var/lib/.fhir/packages）
+//
+// GitHub runner 上 /var/lib/.fhir/packages 不存在，findPackageFolder() 對
+// listFiles() 之 null 直接取 .length，建置在載入模板時即以 NullPointerException
+// 中止（實測：run 30233555524，1 秒內失敗，錯誤訊息指向 template 但根因是快取路徑）。
+//
+// 故啟用 CI 模式時一律明示套件快取位置，讓它與 workflow 所快取的目錄一致。
+const packageCache = arg(
+  '--package-cache',
+  process.env.IG_PACKAGE_CACHE || (autoBuild ? path.join(os.homedir(), '.fhir', 'packages') : null)
+);
 
 function jarUrl(v) {
   return v === 'latest'
@@ -98,6 +136,36 @@ function download(url, dest, redirects = 0) {
   }
 
   const args = ['-Xmx' + maxMem, '-jar', jarPath, '-ig', 'ig.ini', '-no-sushi', '-tx', tx];
+
+  if (autoBuild) {
+    if (!repoSource || !targetOutput) {
+      console.error(
+        '\n✖ --repo 與 --target 必須同時給定。\n' +
+          '  IG Publisher 只有在 -auto-ig-build 存在時才讀取這兩個參數，\n' +
+          '  只給其中一個會讓 publish box 的來源網址落空。'
+      );
+      process.exit(1);
+    }
+    args.push('-auto-ig-build', '-repo', repoSource, '-target', targetOutput);
+    console.log(
+      `CI 建置模式（-auto-ig-build）：publish box 將標示為 continuous build。\n` +
+        `  來源 repo：${repoSource}\n` +
+        `  網站網址：${targetOutput}\n` +
+        `  注意：此模式下術語快取改用系統暫存目錄（非 ~/.fhir/vscache）。\n`
+    );
+  }
+
+  if (packageCache) {
+    fs.mkdirSync(packageCache, { recursive: true });
+    args.push('-package-cache-folder', packageCache);
+    console.log(`FHIR 套件快取：${packageCache}\n`);
+  } else {
+    console.log(
+      '本機建置模式：publish box 會標示為「Local Development build」。\n' +
+        '  對外發佈之建置請加 --repo 與 --target。\n'
+    );
+  }
+
   console.log(`java ${args.join(' ')}\n`);
 
   // 建置需 10–20 分鐘。以 spawn 串流輸出（而非 spawnSync 全部緩衝），

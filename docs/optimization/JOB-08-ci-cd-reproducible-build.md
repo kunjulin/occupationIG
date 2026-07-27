@@ -280,19 +280,101 @@ QA 閘門實際輸出：`err 0`、`warn 208 → 204`、
 
 ### 尚未做
 
-* **publish box 仍顯示 `Local Development build`**——JOB-02 驗收條件之一未達成。
-  經反編譯 `publisher.jar` 確認：該文字由 `PublisherGenerator` 依
-  `PublisherSettings.getMode()` 決定，三種模式對應三種文案
-  （`MANUAL` → `STATUS_MSG_LOCAL_BUILD`、`AUTOBUILD` → `STATUS_MSG_AUTOBUILD`、
-  `PUBLICATION` → `STATUS_MSG_PUBLICATION_HOLDER`）。
-  `-auto-ig-build`（搭配 `-target <網址>`）會將模式設為 `AUTOBUILD`，文案改為
-  「…**This guide is not an authorized publication; it is the continuous build for
-  version …**」——與 `package-list.json` 之 `status: ci-build` 相符，且比
-  「Local Development build」更貼近本站實況。
-  **未逕行採用**：反編譯時另見 `AUTOBUILD` 模式會把 workingVersion 取為
-  `current`（而非 `0.1.0`），可能連帶影響輸出中的版本標示與 QA 訊息數。
-  屬需實測的建置行為變更，不宜與發佈功能同批送出。
 * `actions/*@v4` 之 Node 20 執行環境即將淘汰，屆時需升版。
+
+---
+
+## 9. publish box：改為 CI build 文案（2026-07-27）
+
+JOB-02 驗收條件 #2「publish box 不再顯示 `Local Development build`」。
+
+### 這段文字從哪來——反編譯 `publisher.jar` 2.2.11 之結論
+
+`PublisherGenerator` 依 `PublisherSettings.getMode()` 三選一：
+
+| 模式 | 訊息鍵 | 文案 |
+|:--|:--|:--|
+| `MANUAL`（預設） | `STATUS_MSG_LOCAL_BUILD` | 「{title} - **Local Development build** (v{ver})…」 |
+| `AUTOBUILD` | `STATUS_MSG_AUTOBUILD` | 「{title}, published by {publisher}. **This guide is not an authorized publication; it is the continuous build for version {ver}**… based on the current content of {repo}…」 |
+| `PUBLICATION` | `STATUS_MSG_PUBLICATION_HOLDER` | 「Publication Build: This will be filled in by the publication tooling」 |
+
+`Publisher` 之 CLI 解析：`-auto-ig-build` 設 `mode = AUTOBUILD`，且**只有在該旗標存在時
+才會讀取 `-target` 與 `-repo`**，故三者必須同時給。文案中的來源網址取自 `gh()`：
+優先用 `-repo`，否則由 `-target` 推導。
+
+`AUTOBUILD` 文案與 `package-list.json` 的 `status: ci-build` 相符，且比
+「Local Development build」更貼近本站實況——這確實是一份從 CI 持續建置、
+尚未經授權發佈的草案。
+
+### 作法
+
+`scripts/run-publisher.js` 新增 `--repo`／`--target`（或環境變數
+`IG_REPO_SOURCE`／`IG_TARGET_OUTPUT`），給定即加上 `-auto-ig-build`。
+只給其中一個會直接失敗——參數落空會讓文案的來源網址變成 `null`。
+
+workflow 由 github context 推導兩個網址，不寫死，fork 或改名後仍正確。
+另新增 **Verify publish box** 步驟斷言文字已非 `Local Development build`，
+排在 QA 閘門**之後**：閘門的數字診斷價值較高，就算本步驟失敗也要先記錄下來。
+
+本機直接跑 `npm run build` 不帶這兩個參數，仍會是 `MANUAL` 模式並印出提示——
+本機建置本來就不該偽裝成 CI 建置。
+
+### 一併更正前一版的敘述
+
+§8 初稿曾寫「`AUTOBUILD` 會把 workingVersion 取為 `current`，可能影響版本標示與
+QA 訊息數」，並據此暫緩採用。**該敘述有誤**：那個 `current` 位於
+`genVMessage`（驗證訊息連結的路徑片段），與 `workingVersion()` 無關。
+`workingVersion()` 定義於 `PublisherBase`，取 `businessVersion`，
+否則取 `publishedIg.getVersion()`（即 `0.1.0`），**不受建置模式影響**。
+
+`AUTOBUILD` 實際造成的其他差異，逐項確認如下：
+
+| 差異 | 影響 |
+|:--|:--|
+| **FHIR 套件快取改用系統目錄** | **會使 CI 建置失敗**——見下 |
+| 術語快取由 `~/.fhir/vscache` 改為系統暫存目錄 | CI 未快取該目錄，無影響；且每次都是乾淨的 tx 查詢 |
+| `genVMessage` 之連結片段由 `dev` 改為 `current` | 驗證訊息連結文字，外觀差異 |
+| 略過寫入逐資源之 QA 頁 | 不影響 `qa.txt` 統計 |
+
+### 第一次啟用即失敗：套件快取路徑（run 30233555524）
+
+啟用後第一次 CI 建置在 **1 秒內**失敗，訊息看起來像模板問題：
+
+```
+Load Template from fhir2.base.template#current
+Publishing Content Failed: Error loading template fhir2.base.template#current:
+  Cannot read the array length because "<local2>" is null
+```
+
+**但根因不是模板。** 日誌上一行才是關鍵：
+
+```
+Package Cache: /var/lib/.fhir/packages          ← 不是 ~/.fhir/packages
+```
+
+堆疊指向 `FilesystemPackageCacheManager.findPackageFolder` → `Utilities.reverseSorted`：
+對不存在目錄之 `listFiles()`（回傳 `null`）直接取 `.length`。
+
+`PublisherBase.getFilesystemPackageCacheManager()` 之邏輯（反編譯確認）：
+
+```java
+if (settings.getPackageCacheFolder() != null)   → 用指定的資料夾
+else if (mode == MANUAL || mode == PUBLICATION) → ~/.fhir/packages
+else                                            → 系統快取（Linux: /var/lib/.fhir/packages）
+```
+
+`-auto-ig-build` 使 mode 落入第三支。HL7 官方 CI 有預先佈建的系統快取，
+GitHub runner 沒有，於是 NPE。
+
+**修法**：CI 模式一律加 `-package-cache-folder $HOME/.fhir/packages`——
+該參數在解析時不受 `-auto-ig-build` 限制，且優先於一切模式判斷，
+可讓套件快取與 workflow 所快取的目錄保持一致。
+
+> 這是「錯誤訊息指向 A、根因在 B」的典型：若照訊息去釘模板版本，
+> 會改掉一個沒有壞的東西，而真正的問題（快取路徑）仍在。
+> 讀 stack trace 與其上一行的 `Package Cache:` 才看得出來。
+
+QA 訊息數是否變動由 CI 實測認定，不預先宣稱。
 
 ---
 
