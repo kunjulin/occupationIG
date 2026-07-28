@@ -189,3 +189,38 @@ input/fsh/codesystems/TWCRSF-mocks.fsh、sushi-config.yaml（dependencies 與 pa
 
 `SHOULD conform to the ShareableValueSet profile` 4 筆與 `Constraint failed: vsd-0`
 4 筆應歸零（§2 共同驗收）。**由 CI 認定，不預先宣稱。**
+
+### 7.6 實測結果（CI run 30370717630／30372286217，tx 建置）
+
+| 訊息類別 | 基準線 | 實際 | |
+|:--|--:|--:|:--|
+| `SHOULD conform to the ShareableValueSet profile` | 4 | **0** | ✅ §2 驗收 |
+| `Constraint failed: vsd-0` | 4 | **0** | ✅ §2 驗收 |
+| `TOTAL err` | 0 | 0 | — |
+| `TOTAL warn` | 152 | 137 | −15 |
+| `TOTAL info` | 397 | 416 | +19 |
+
+兩項驗收條件皆達成。另有兩件不在原規劃內、由本變更引發者：
+
+**(1) experimental 旗標的傳播。** stub 值集標為 experimental 後，以 `required`
+綁定它們的 `TWHA-SocialHistory-BetelNut` 隨即產生 6 筆
+`is experimental, but this structure is not labeled as experimental`。
+解法是把該 Profile 自身標為 `experimental = true`（commit `6bc7d64d`），
+與 JOB-09 對 `ext-fitness-for-work` 等 5 個 structure 的做法一致。
+**未採**反向做法（把值集的 experimental 改回 false）——那等於宣稱 stub 是權威定義，
+與 §5 相斥。
+
+**(2) info +19 的歸因。** 基準線規則要求上調必須具名說明來源，但 `TOTAL info`
+不是具名類別，閘門的抽樣機制對它無效。故先把疑似來源加為具名類別並**刻意設為 0**，
+讓閘門印出實際筆數與抽樣（run 30372286217 因此而失敗，屬量測，非退步）。
+設 0 而非填估計值，是為了避免估高時閘門靜默通過、把猜測固化成基準線。
+
+實測顯示 `Reference to experimental` 共 23 筆，且**並非全部為本次新增**——
+其中一部分指向本 IG 自有的 `twcore.mohw.gov.tw/.../CS-*`（JOB-09 已標 experimental），
+只有指向 `hapi.fhir.tw/.../sf-*` 者才是本次帶進來的。已拆為兩個具名類別分別追蹤，
+後者於 TWCR_SF 正式套件可用後（G-5）應歸零。組成與拆分理由見
+[`qa-baseline.json`](../../qa-baseline.json) 之 `_job10Note`。
+
+`warn` 的 −15 只有 −13 可歸因，其中 −5 係由算術推得而非直接量測，
+故 `warn` 基準線**不下調**（理由見 `_warnNote`）。閘門只對上升失敗，
+留著較寬的上限不會放過退步；宣稱一個未經直接證實的改善才是風險。
