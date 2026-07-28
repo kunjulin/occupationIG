@@ -121,3 +121,124 @@ input/fsh/codesystems/TWCRSF-mocks.fsh、sushi-config.yaml（dependencies 與 pa
 5. 列出受影響的既有範例與需同步更新的文件（terminology.md、README.md 依賴指引段落）。
 6. 若採路徑 B，規劃如何登記為 JOB-13 的未決事項（待套件可用後轉為路徑 A）。
 ```
+
+---
+
+## 7. 執行紀錄（2026-07-28）
+
+### 7.1 查證結果：路徑 A 不可行
+
+§3.1 要求「查證 TWCR_SF 套件可用性——這是決定路徑 A/B 的唯一依據」。
+開發環境連不到 `packages.fhir.org` 與 `hapi.fhir.tw`（本機測到的 403 是代理的回應，
+不是伺服器的，**不得作為證據**），故新增工具由 CI 執行：
+
+| 探測 | 工具 | 結果 |
+|:--|:--|:--|
+| `fhir.twcrsf` 套件（3 個 registry 之**根路徑**） | `inspect-package.yml` 新增之 Probe registry 步驟 | **全部 404**（run 30368332715） |
+| 10 個 canonical 於 `hapi.fhir.tw` | 新增 `scripts/probe-canonicals.js` | **全部 404**（run 30368750214） |
+
+兩項區分很重要：
+
+- 查**根路徑**而非特定版本，才能區分「套件不存在」與「版本號給錯」——兩者都是 404。
+- canonical 形如 `hapi.fhir.tw/fhir/CodeSystem/<id>`，那是 FHIR **伺服器資源端點**
+  而非套件 canonical，故套件不存在**不等於**資源不存在，必須分別查證。
+  結果顯示伺服器有回應（404 而非連線失敗），只是不服務這些資源。
+
+**結論：上游既無套件、亦不服務該命名空間下的這些資源 → 採路徑 B。**
+
+### 7.2 已執行（路徑 B）
+
+| # | 變更 | 依據 |
+|--:|:--|:--|
+| 1 | `^content` `#complete` → **`#fragment`**（5 個 CodeSystem） | §2 路徑 B.2 |
+| 2 | `^status` `#active` → `#draft`（9 個） | §2 路徑 B.2 |
+| 3 | `^experimental = true`（9 個，原本全無） | §2 路徑 B.2 |
+| 4 | Title 冠【本地 stub】並註明（非權威定義）（9 個） | §2 路徑 B.1 |
+| 5 | `^copyright` 載明權威來源與引用限制（9 個） | §2 路徑 B.3 |
+| 6 | ValueSet 宣告名改 UpperCamelCase（4 個，消 `vsd-0`） | §2 共同驗收 |
+| 7 | 檔頭改寫：載明 stub 性質、實測證據、降級內容、待辦 | §2 路徑 B.1 |
+| 8 | `sushi-config.yaml` 之 `special-url` 加註保留理由 | §5 |
+| 9 | `README.md` 依賴指引更正 | §3.5 |
+| 10 | `terminology.md` §6.2b 新增權威來源說明 | §3.4 |
+| 11 | `open-issues.md` G-5 以實測結果更新 | §2 路徑 B.4 |
+
+**`#fragment` 是重點，不是妥協。** 它正是 FHIR 為「外部代碼系統之局部複本」
+設計的機制；原本標 `#complete` 等於宣稱本 IG 是該代碼系統的權威完整定義。
+
+### 7.3 刻意未做
+
+- **canonical 未改為本 IG 命名空間。** 路徑 B 的用意是「誠實標示為局部複本」，
+  而非把他方的代碼搬進自己的命名空間——後者會讓同一組代碼在兩個 canonical 下並存，
+  與 TWCR_SF 的資料無法勾稽。`#fragment` 已正名其性質。
+- **綁定強度未動。** `TWHA-SocialHistory-BetelNut` 之三個 component 為 `required`
+  綁定。對 `#fragment` 內容做 `required` 綁定在模型上值得商榷（fragment 未必涵蓋
+  上游全部代碼），但改綁定強度屬規範性變更，超出本 JOB 範圍。**列為觀察項**。
+- **CodeSystem 宣告名未改 UpperCamelCase。** 只有 ValueSet 的 `vsd-0` 有實測筆數（4 筆）；
+  CodeSystem 未見對應告警，不做未經量測的改動。
+
+### 7.4 殘留風險
+
+本 IG 產出中仍存在 9 個掛在他方命名空間下的資源。`#fragment` 已將其正名為
+「局部複本」，但**命名空間本身仍非本專案所有**。若 TWCR_SF 日後於同一 canonical
+發佈與本 stub 不同的內容，同時載入兩者的系統會遇到衝突——而本 stub 之代碼清單
+（嚼檳榔量 91 碼、年 100 碼、戒檳榔年 91 碼）**未經上游核對，無從核對**。
+
+唯一的根本解法是上游正式發佈套件（G-5），屬行政協調，§4 已列為本 JOB 範圍外。
+
+### 7.5 預期量測
+
+`SHOULD conform to the ShareableValueSet profile` 4 筆與 `Constraint failed: vsd-0`
+4 筆應歸零（§2 共同驗收）。**由 CI 認定，不預先宣稱。**
+
+### 7.6 實測結果（CI run 30370717630／30372286217，tx 建置）
+
+| 訊息類別 | 基準線 | 實際 | |
+|:--|--:|--:|:--|
+| `SHOULD conform to the ShareableValueSet profile` | 4 | **0** | ✅ §2 驗收 |
+| `Constraint failed: vsd-0` | 4 | **0** | ✅ §2 驗收 |
+| `TOTAL err` | 0 | 0 | — |
+| `TOTAL warn` | 152 | 137 | −15 |
+| `TOTAL info` | 397 | 416 | +19 |
+
+兩項驗收條件皆達成。另有兩件不在原規劃內、由本變更引發者：
+
+**(1) experimental 旗標的傳播。** stub 值集標為 experimental 後，以 `required`
+綁定它們的 `TWHA-SocialHistory-BetelNut` 隨即產生 6 筆
+`is experimental, but this structure is not labeled as experimental`。
+解法是把該 Profile 自身標為 `experimental = true`（commit `6bc7d64d`），
+與 JOB-09 對 `ext-fitness-for-work` 等 5 個 structure 的做法一致。
+**未採**反向做法（把值集的 experimental 改回 false）——那等於宣稱 stub 是權威定義，
+與 §5 相斥。
+
+**(2) info +19 的歸因。** 基準線規則要求上調必須具名說明來源，但 `TOTAL info`
+不是具名類別，閘門的抽樣機制對它無效。故先把疑似來源加為具名類別並**刻意設為 0**，
+讓閘門印出實際筆數與抽樣（run 30372286217 因此而失敗，屬量測，非退步）。
+設 0 而非填估計值，是為了避免估高時閘門靜默通過、把猜測固化成基準線。
+
+實測顯示 `Reference to experimental` 共 23 筆，且**並非全部為本次新增**——
+一部分指向本 IG 自有的 `twcore.mohw.gov.tw/.../CS-*`（JOB-09 已標 experimental），
+只有指向 `hapi.fhir.tw/.../sf-*` 者才是本次帶進來的。已拆為兩個具名類別分別追蹤，
+後者於 TWCR_SF 正式套件可用後（G-5）應整批歸零。
+
+拆分時刻意讓兩者之和被實測總數 23 釘住：任一項填錯，另一項必定低於實際而使閘門失敗。
+**這道機制當場發揮了作用**——第一次拆分依算術推得 10／13，run 30373147487 打成
+**15／8**。若當初只填總數 23、不做拆分，這個錯誤的歸因會原封不動寫進基準線且無從發現。
+
+修正後之 `+19` 組成，與實測完全相符：
+
+| 來源 | 筆數 | 說明 |
+|:--|--:|:--|
+| hapi stub 之 experimental 參照 | **15** | 降級前該批 CodeSystem 為 `active` 且非 experimental，此類訊息變更前為 0 |
+| 值集指向 `status = draft` 之 CodeSystem | **4** | 同理，變更前為 0 |
+| | **19** | |
+
+`stated value for the caseSensitive element` 那 5 筆**不屬於增量**：5 個 CodeSystem
+在變更前即已存在且同樣未宣告 `caseSensitive`，訊息本來就是 INFORMATION 級。
+列為具名類別純粹是納入追蹤。
+
+`warn` 的 −15 僅 −8 可歸因（ShareableValueSet 4 ＋ vsd-0 4），故 `warn` 基準線
+**不下調**。曾推測其餘 −5 為 caseSensitive 由 WARNING 轉 INFORMATION，但拆分量測顯示
+`+19` 已由 15+4 足額解釋，該推測已被推翻。閘門只對上升失敗，留著較寬的上限不會放過退步；
+把一個解釋不了的改善寫死成基準線，等於宣稱理解了實際上並不理解的東西。
+釐清方式與本次相同（具名類別設 0，由 CI 印出筆數與嚴重度），但與 TWCR_SF 治理無關，
+不列入本 JOB 範圍。

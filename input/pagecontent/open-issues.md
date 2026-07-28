@@ -221,18 +221,37 @@ IG Publisher 只檢查「代碼是否存在於該 CodeSystem」，**不檢查 `d
 
 ## G-5　TWCR_SF 相依套件之可用性 <a id="g-5"></a>
 
-**現況**　`sf-*` 系列代碼系統與值集之 canonical 位於 `hapi.fhir.tw` 命名空間，
-以 `special-url` 參數標示為外部網址。該套件之正式發佈狀態與可用性未確認。
+**現況（2026-07-28 已查證）**　`sf-*` 系列（5 個 CodeSystem、4 個 ValueSet）之 canonical
+位於 `hapi.fhir.tw` 命名空間。CI 實測結果：
 
-**待決**　該套件是否有正式發佈版本可依賴；若無，本指引之 `sf-*` 引用如何處置。
+| 探測對象 | 結果 |
+|:--|:--|
+| `fhir.twcrsf` 套件（3 個 registry 之**根路徑**） | **全部 404**——套件 ID 不存在，非版本號給錯 |
+| 10 個 canonical 於 `hapi.fhir.tw` | **全部 404**——伺服器有回應，只是不服務這些資源 |
 
-**所需輸入**　上游套件維護者之答覆。
+即**上游既無套件、亦不服務該命名空間下的這些資源**。
 
-**影響範圍**　`sushi-config.yaml` 之 `special-url`；引用 `sf-*` 之值集與範例。
+已依 JOB-10 路徑 B 處置：本 IG 之複本明確降級為 stub——
+`content = #fragment`（FHIR 為「外部代碼系統之局部複本」設計的機制，
+原標 `#complete` 等於宣稱自己是權威完整定義）、`status = #draft`、
+`experimental = true`、標題冠【本地 stub】、`copyright` 載明權威來源。
 
-**若決策不同**　若上游不可用，需自行承載或移除；**但不得在他方命名空間下發佈代碼**。
+**待決**　TWCR_SF 是否會正式發佈套件。
 
-**出處**　`sushi-config.yaml`；JOB-10
+**所需輸入**　上游維護者之答覆（屬行政協調，JOB-10 §4 列為範圍外）。
+
+**影響範圍**　`TWCRSF-mocks.fsh`、`sushi-config.yaml` 之 `special-url`、
+`TWHA-SocialHistory` 之綁定、嚼檳榔範例。
+
+**若決策不同**　套件一旦可用，應改為正式 `dependencies` 並**刪除整個 stub 檔**
+（JOB-10 路徑 A）。在此之前，本 IG 產出中仍存在 9 個掛在他方命名空間下的資源——
+`#fragment` 已將其正名為「局部複本」而非權威定義，但**命名空間本身仍非本專案所有**。
+
+> ⚠️ **未解的殘留風險**：若 TWCR_SF 日後於同一 canonical 發佈與本 stub 內容不同的定義，
+> 同時載入兩者的系統會遇到衝突。本 stub 之代碼清單（嚼檳榔量 91 碼、年 100 碼、
+> 戒檳榔年 91 碼）**未經上游核對**——無從核對，因為上游不可達。
+
+**出處**　`sushi-config.yaml`；JOB-10；CI run 30368332715／30368750214
 
 ---
 

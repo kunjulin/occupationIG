@@ -22,7 +22,17 @@ Parent: Observation
 Id: TWHA-SocialHistory-BetelNut
 Title: "嚼檳榔歷史與狀態 Profile"
 Description: "用於記錄勞工之嚼檳榔習慣與量化資料。本 Profile 基於 Observation 資源，採用與臺灣癌症登記短表實作指引 (TWCR_SF) 相同之元件架構及值集，以便進行跨系統之整合介接。"
-* ^experimental = false
+// experimental = true：本 Profile 之三個 component 以 required 綁定
+// TWCR_SF 之值集，而該批值集在本 IG 中僅為【本地 stub】（content = fragment，
+// 非權威定義，見 JOB-10 §7）。綁定非權威術語的 structure 自身即應標為 experimental
+// ——這也是 JOB-09 對 ext-fitness-for-work 等 5 個 structure 採取的一致做法。
+//
+// 未標時 IG Publisher 逐一發出 "is experimental, but this structure is not labeled
+// as experimental"（實測 6 筆，run 30369414096）。**不得**反向把值集的
+// experimental 設為 false 來消警告——那等於宣稱 stub 是權威定義（JOB-10 §5）。
+//
+// TWCR_SF 正式套件可用後（未決事項 G-5），本旗標應隨 stub 一併重新評估。
+* ^experimental = true
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#social-history
 * code = TWCRSFObsBehCS#BetelNutChewing "嚼檳榔行為"

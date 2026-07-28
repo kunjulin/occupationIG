@@ -13,13 +13,17 @@ on:
   workflow_dispatch:
     inputs:
       package:
-        description: '套件 ID（例：tw.gov.mohw.twcore）'
-        required: true
+        description: '套件 ID（例：tw.gov.mohw.twcore）；留空則只做 canonical 探測'
+        required: false
         default: 'tw.gov.mohw.twcore'
       version:
         description: '版本（例：1.0.0）'
-        required: true
+        required: false
         default: '1.0.0'
+      canonicals-file:
+        description: 'canonical 清單檔（每行一個 URL），例：docs/optimization/evidence/twcrsf-canonicals.txt'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -36,8 +40,36 @@ jobs:
         with:
           node-version: '20'
 
+      # 先探測套件是否存在、有哪些版本。JOB-10 的問題是「這個套件到底存不存在」，
+      # 直接下載指定版本無法區分「套件不存在」與「版本號給錯」——兩者都是 404。
+      # 本步驟不使 job 失敗（|| true），僅提供判讀資訊。
+      - name: Probe registry
+        if: inputs.package != ''
+        env:
+          PKG: ${{ inputs.package }}
+        run: |
+          set -u
+          for base in "https://packages.fhir.org/$PKG" \
+                      "https://packages2.fhir.org/packages/$PKG" \
+                      "https://packages.simplifier.net/$PKG"; do
+            code=$(curl -sS -o probe.json -w '%{http_code}' --max-time 60 "$base" || echo 000)
+            echo "── $base → HTTP $code"
+            if [ "$code" = 200 ]; then
+              node -e '
+                const d=JSON.parse(require("fs").readFileSync("probe.json","utf8"));
+                console.log("   name:", d.name ?? "(無)");
+                console.log("   description:", (d.description ?? "(無)").slice(0,120));
+                const vs = Object.keys(d.versions ?? {});
+                console.log("   versions:", vs.length ? vs.join(", ") : "(無)");
+                if (d["dist-tags"]) console.log("   dist-tags:", JSON.stringify(d["dist-tags"]));
+              ' || echo "   （回應非預期之 JSON）"
+            fi
+          done
+          rm -f probe.json
+
       # 兩個 registry 都試：packages.fhir.org 偶有不穩，packages2 為官方鏡像。
       - name: Download package
+        if: inputs.package != ''
         env:
           PKG: ${{ inputs.package }}
           VER: ${{ inputs.version }}
@@ -61,6 +93,7 @@ jobs:
           echo "解壓後檔案數：$(find pkg -type f | wc -l)"
 
       - name: Inspect
+        if: inputs.package != ''
         run: |
           set -euo pipefail
           node scripts/inspect-package.js --dir pkg --json inventory.json | tee inventory.txt
@@ -72,10 +105,34 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # 探測一組 canonical 是否真的被對方伺服器服務，並列出其內容摘要。
+      # JOB-10：本 IG 在 hapi.fhir.tw 命名空間下定義了 9 個 artifact，
+      # 必須確認對方是否服務同一批 canonical、內容是否一致——不一致代表同一個
+      # canonical 有兩份互相衝突的權威來源。開發環境連不到該主機（代理回 403），
+      # 本機實測無效，只有 runner 問得到。
+      - name: Probe canonicals
+        if: inputs.canonicals-file != ''
+        run: |
+          set -u
+          f="${{ inputs.canonicals-file }}"
+          [ -f "$f" ] || { echo "✖ 找不到清單檔：$f"; exit 1; }
+          echo "清單：$f（$(grep -cve '^\s*$' "$f") 個 URL）"
+          node scripts/probe-canonicals.js --urls-from "$f" --json canonicals.json | tee canonicals.txt
+          {
+            echo '### canonical 探測結果'
+            echo ''
+            echo '```'
+            cat canonicals.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - uses: actions/upload-artifact@v4
         with:
           name: inventory-${{ inputs.package }}-${{ inputs.version }}
+          if-no-files-found: ignore
           path: |
             inventory.txt
             inventory.json
+            canonicals.txt
+            canonicals.json
           retention-days: 30

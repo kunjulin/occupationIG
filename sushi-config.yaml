@@ -42,6 +42,15 @@ parameters:
   # 本草案以 GitHub Pages 供審閱，故指向實際可達位址；正式發佈於 twcore.mohw.gov.tw
   # 後應改回官方站並改由 HL7 發佈流程依 package-list.json 產生 history.html。
   path-history: https://kunjulin.github.io/occupationIG/history.html
+  # special-url：宣告下列網址雖非本 IG 之 canonical，仍容許出現於本 IG 產出中。
+  #
+  # 這 9 個屬 TWCR_SF（臺灣癌症登記短表 IG，hapi.fhir.tw）之命名空間，本 IG 以
+  # 【本地 stub】承載（input/fsh/codesystems/TWCRSF-mocks.fsh，content = fragment）。
+  #
+  # 2026-07-28 CI 實測：fhir.twcrsf 套件在三個 registry 之根路徑皆 404，
+  # 且該 10 個 canonical 於 hapi.fhir.tw 亦全部 404（伺服器有回應，只是不服務這些資源），
+  # 故無法改為正式 dependencies（JOB-10 路徑 A）。**本參數於路徑 B 下應保留**——
+  # 移除只會讓建置失敗，不會解決治理問題。套件一旦可用即應連同 stub 一併移除。
   special-url:
     - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem
     - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem

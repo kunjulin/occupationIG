@@ -244,6 +244,26 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 - **eGFR**：`mL/min/{1.73_m2}`；另注意 MDRD 與 CKD-EPI 2021 為不同公式，數值不可直接互換。
 - **聽閾**：`dB`（已於 `TWHA-HearingTest` 規範，見該 Profile 說明）。
 
+### 6.2b 嚼檳榔相關代碼之權威來源（TWCR_SF）
+
+`TWHA-SocialHistory-BetelNut` 所用之嚼檳榔量／年／戒檳榔年代碼，
+權威來源為**臺灣癌症登記短表實作指引（TWCR_SF）**，命名空間 `https://hapi.fhir.tw`。
+
+本指引以**【本地 stub】**承載這些定義（`content = fragment`、`status = draft`、
+`experimental = true`），**非權威定義**。原因：
+
+| 探測（2026-07-28，CI 實測） | 結果 |
+|:--|:--|
+| `fhir.twcrsf` 套件（3 個 registry 之根路徑） | 全部 404——套件 ID 不存在 |
+| 10 個 canonical 於 `hapi.fhir.tw` | 全部 404——伺服器有回應，不服務這些資源 |
+
+**實作端應以 TWCR_SF 官方定義為準。** 本 stub 之代碼清單未經上游核對——
+無從核對，因為上游不可達。若 TWCR_SF 日後於同一 canonical 發佈不同內容，
+同時載入兩者的系統會遇到衝突。
+
+上游套件一旦可用，本指引應改為正式套件依賴並刪除 stub。
+見[未決事項 G-5](open-issues.html#g-5)。
+
 ### 6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）
 
 盤點時以 `$lookup` 一併取得 LOINC 代碼狀態，發現下列情形，一併列出供後續處置：
