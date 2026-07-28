@@ -28,6 +28,22 @@
     "    395–397 的下緣，並非真實改善。",
     "  No definition 取實測值 9：該類別在三次建置中數字完全一致，屬穩定類別。"
   ],
+  "_measurementInProgress": [
+    "⚠️ 本次提交為**量測用**，CI 預期失敗，不得視為退步。",
+    "",
+    "JOB-10 把 TWCR_SF mock 降級為本地 stub（content #fragment、status #draft、experimental）後，",
+    "實測 TOTAL info 397 → 416（+19）、TOTAL warn 152 → 137（-15）。",
+    "基準線規則要求「上調必須具名說明多出來的是什麼」，但 TOTAL info 不是具名類別，",
+    "閘門的抽樣對它無效——手上只有一個總數，無從歸因。推測性的 _infoNote 正是本專案禁止的東西。",
+    "",
+    "故先把三個疑似來源加為具名類別並**刻意設為 0**，讓閘門在下一輪 CI 印出各自的實際筆數",
+    "與抽樣（抽樣含 WARNING:/INFORMATION: 前綴，可一併判定嚴重度）。",
+    "設 0 而非填估計值，是為了避免估高時閘門靜默通過、把猜測固化成基準線。",
+    "",
+    "取得實測值後，下一個提交才據以填正確數字並調整 TOTAL info／warn，屆時刪除本區塊。",
+    "warn 在數字釐清前不下調：152 → 137 之中僅 -8 可歸因（ShareableValueSet 4 ＋ vsd-0 4），",
+    "其餘 -7 尚無證據，宣稱未經解釋的改善比留著寬鬆上限更糟。"
+  ],
   "_infoNote": [
     "info 394 → 397（+3）之組成：",
     "  +2  新增 NamingSystem/NS-ReportIdentifier 自身之訊息（qa.txt 逐檔統計為 0 err / 0 warn / 2 info），",
@@ -91,6 +107,9 @@
     "is not included anywhere in the produced implementation guide": 0,
     "SHOULD conform to the ShareableValueSet profile": 4,
     "Constraint failed: vsd-0": 4,
+    "Reference to experimental": 0,
+    "The value set references CodeSystem": 0,
+    "stated value for the caseSensitive element": 0,
     "There are no valid display names found for the code": 218,
     "Pinned the version of": 29,
     "cannot be resolved": 2080
