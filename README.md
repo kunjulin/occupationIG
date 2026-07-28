@@ -156,7 +156,7 @@ set NODE_OPTIONS=--use-system-ca
   - terminology.md：§2/§3.1 補「Preferred（代碼層級）≠ 綁定強度 preferred（本 IG 為 extensible）」用語澄清；§4 對照表新增 RBC 與腰圍列。
 - **一致性與可實作補強（Batch 3）**：
   - `Observation.performer` 於 [TWHA-LabResult-General](input/fsh/profiles/TWHA-LabResult-General.fsh)、[TWHA-LabResult-Special](input/fsh/profiles/TWHA-LabResult-Special.fsh)、[TWHA-VitalSigns](input/fsh/profiles/TWHA-VitalSigns.fsh) 標 **Must Support**，支援第 19 條紀錄保存與稽核之執行者追溯。
-  - 新增 **dataAbsentReason 缺值範例** `obs-lab-egfr-absent`（[examples.fsh](input/fsh/examples/examples.fsh) §9），示範治理原則「缺值以 dataAbsentReason 標明而非省略」之實際填法。
+  - 新增 **dataAbsentReason 缺值範例** `obs-lab-egfr-absent`（[10-absent-and-emergency.fsh](input/fsh/examples/10-absent-and-emergency.fsh)），示範治理原則「缺值以 dataAbsentReason 標明而非省略」之實際填法。
   - 新增 **職業健康急診友善摘要** Profile [TWHA-Composition-EmergencySummary](input/fsh/profiles/TWHA-Composition-EmergencySummary.fsh) 及範例（暴露史 `obs-exposure-lead`＋摘要 Composition `composition-emergency-summary`＋封包 UC-007），將原候選欄位清單落實為可驗證之 FHIR 文件。
 - **未決事項**：所有需外部機關或臨床單位決定之事項，集中列於網站之
   [未決事項與已知限制](https://kunjulin.github.io/occupationIG/open-issues.html)頁
