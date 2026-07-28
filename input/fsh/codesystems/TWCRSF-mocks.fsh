@@ -1,15 +1,54 @@
-// ==========================================
-// Mocked TWCRSF CodeSystems and ValueSets
-// (Generated to bypass dependency errors from fhir.twcrsf)
-// ==========================================
+// =============================================================================
+// TWCR_SF 代碼系統與值集之【本地 stub】——非權威定義
+// =============================================================================
+//
+// 權威來源：臺灣癌症登記短表 IG（TWCR_SF），命名空間 https://hapi.fhir.tw。
+// 本檔為建置與驗證所需之**局部複本**，實作端應以 TWCR_SF 官方定義為準。
+//
+// ## 為何是 stub 而非正式依賴（JOB-10 路徑 B）
+//
+// 2026-07-28 由 CI 實測（開發環境連不到這些主機，本機測不得數）：
+//
+//   套件（run 30368332715）——三個 registry 之**套件根路徑**皆 404，
+//   即 fhir.twcrsf 這個 package id 不存在，非版本號給錯：
+//     https://packages.fhir.org/fhir.twcrsf           → 404
+//     https://packages2.fhir.org/packages/fhir.twcrsf → 404
+//     https://packages.simplifier.net/fhir.twcrsf     → 404
+//
+//   canonical 端點（run 30368750214）——本檔 9 個 canonical 加上
+//   sf-BetNutChewBeh-profile，共 10 個，**全部 404**。
+//   404 表示 hapi.fhir.tw 有回應，只是不服務這些資源。
+//
+// 故 JOB-10 路徑 A（改為正式套件依賴）無法執行，採路徑 B。
+//
+// ## 本次降級之內容
+//
+//   ^content  #complete → #fragment   ← 關鍵。#fragment 正是 FHIR 為「外部代碼
+//                                        系統之局部複本」設計的機制；原本標
+//                                        #complete 等於宣稱自己是權威完整定義。
+//   ^status   #active   → #draft
+//   ^experimental       → true
+//   Title               → 冠【本地 stub】並註明非權威定義
+//   ^copyright          → 載明權威來源與引用限制
+//
+// ⚠️ **不得**為了消除 ShareableValueSet 警告而把 experimental 設為 false——
+//    那等於更強力地宣稱這是權威定義（JOB-10 §5）。
+//
+// ## 待辦
+//
+// TWCR_SF 套件一旦可用，應改為 sushi-config.yaml 之正式 dependencies 並**刪除本檔**
+// （JOB-10 路徑 A）。已登記為未決事項 G-5（input/pagecontent/open-issues.md）。
+// ==============================================================================
 
 CodeSystem: sf-BetNutChewAmount-codesystem
 Id: sf-BetNutChewAmount-codesystem
-Title: "每日嚼檳榔量代碼系統"
+Title: "【本地 stub】每日嚼檳榔量代碼系統（非權威定義）"
 Description: "Betel Nut Chewing Amount Code System"
 * ^url = "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem"
-* ^status = #active
-* ^content = #complete
+* ^status = #draft
+* ^experimental = true
+* ^content = #fragment
+* ^copyright = "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"
 * #00 "無嚼檳榔"
 * #01 "每日1顆"
 * #02 "每日2顆"
@@ -107,22 +146,26 @@ Description: "Betel Nut Chewing Amount Code System"
 
 CodeSystem: sf-BetNutChewBeh-codesystem
 Id: sf-BetNutChewBeh-codesystem
-Title: "Betel Nut Chewing Behavior Code System"
+Title: "【本地 stub】Betel Nut Chewing Behavior Code System（非權威定義）"
 Description: "Betel Nut Chewing Behavior Code System"
 * ^url = "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"
-* ^status = #active
-* ^content = #complete
+* ^status = #draft
+* ^experimental = true
+* ^content = #fragment
+* ^copyright = "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"
 * #amount "每日嚼檳榔量，以 ”顆” 計算"
 * #year "嚼檳榔年"
 * #quit "戒嚼檳榔年"
 
 CodeSystem: sf-BetNutChewQuit-codesystem
 Id: sf-BetNutChewQuit-codesystem
-Title: "戒嚼檳榔年代碼系統"
+Title: "【本地 stub】戒嚼檳榔年代碼系統（非權威定義）"
 Description: "Betel Nut Chewing Quit Code System"
 * ^url = "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem"
-* ^status = #active
-* ^content = #complete
+* ^status = #draft
+* ^experimental = true
+* ^content = #fragment
+* ^copyright = "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"
 * #00 "無戒嚼檳榔"
 * #01 "已戒1年"
 * #02 "已戒2年"
@@ -217,11 +260,13 @@ Description: "Betel Nut Chewing Quit Code System"
 
 CodeSystem: sf-BetNutChewYear-codesystem
 Id: sf-BetNutChewYear-codesystem
-Title: "嚼檳榔年代碼系統"
+Title: "【本地 stub】嚼檳榔年代碼系統（非權威定義）"
 Description: "Betel Nut Chewing Year Code System"
 * ^url = "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"
-* ^status = #active
-* ^content = #complete
+* ^status = #draft
+* ^experimental = true
+* ^content = #fragment
+* ^copyright = "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"
 * #00 "無嚼檳榔"
 * #01 "嚼1年"
 * #02 "嚼2年"
@@ -325,44 +370,54 @@ Description: "Betel Nut Chewing Year Code System"
 
 CodeSystem: sf-ObserBeh-codesystem
 Id: sf-ObserBeh-codesystem
-Title: "相關行為代碼系統"
+Title: "【本地 stub】相關行為代碼系統（非權威定義）"
 Description: "Observation Behavior Code System"
 * ^url = "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem"
-* ^status = #active
-* ^content = #complete
+* ^status = #draft
+* ^experimental = true
+* ^content = #fragment
+* ^copyright = "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"
 * #Smoking "吸菸行為"
 * #BetelNutChewing "嚼檳榔行為"
 * #Drinking "喝酒行為"
 
-ValueSet: sf-BetNutChewAmount-valueset
+ValueSet: SFBetNutChewAmountValueSet
 Id: sf-BetNutChewAmount-valueset
-Title: "每日嚼檳榔量值集"
+Title: "【本地 stub】每日嚼檳榔量值集（非權威定義）"
 Description: "Betel Nut Chewing Amount Value Set"
 * ^url = "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset"
-* ^status = #active
+* ^status = #draft
+* ^experimental = true
+* ^copyright = "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"
 * include codes from system https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem
 
-ValueSet: sf-BetNutChewBeh-valueset
+ValueSet: SFBetNutChewBehValueSet
 Id: sf-BetNutChewBeh-valueset
-Title: "嚼檳榔行為值集"
+Title: "【本地 stub】嚼檳榔行為值集（非權威定義）"
 Description: "Betel Nut Chewing Behavior Value Set"
 * ^url = "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset"
-* ^status = #active
+* ^status = #draft
+* ^experimental = true
+* ^copyright = "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"
 * include codes from system https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem
 
-ValueSet: sf-BetNutChewQuit-valueset
+ValueSet: SFBetNutChewQuitValueSet
 Id: sf-BetNutChewQuit-valueset
-Title: "戒嚼檳榔年值集"
+Title: "【本地 stub】戒嚼檳榔年值集（非權威定義）"
 Description: "Betel Nut Chewing Quit Value Set"
 * ^url = "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset"
-* ^status = #active
+* ^status = #draft
+* ^experimental = true
+* ^copyright = "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"
 * include codes from system https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem
 
-ValueSet: sf-BetNutChewYear-valueset
+ValueSet: SFBetNutChewYearValueSet
 Id: sf-BetNutChewYear-valueset
-Title: "嚼檳榔年值集"
+Title: "【本地 stub】嚼檳榔年值集（非權威定義）"
 Description: "Betel Nut Chewing Year Value Set"
 * ^url = "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset"
-* ^status = #active
+* ^status = #draft
+* ^experimental = true
+* ^copyright = "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"
 * include codes from system https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem
 

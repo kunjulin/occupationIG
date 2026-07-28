@@ -121,3 +121,71 @@ input/fsh/codesystems/TWCRSF-mocks.fsh、sushi-config.yaml（dependencies 與 pa
 5. 列出受影響的既有範例與需同步更新的文件（terminology.md、README.md 依賴指引段落）。
 6. 若採路徑 B，規劃如何登記為 JOB-13 的未決事項（待套件可用後轉為路徑 A）。
 ```
+
+---
+
+## 7. 執行紀錄（2026-07-28）
+
+### 7.1 查證結果：路徑 A 不可行
+
+§3.1 要求「查證 TWCR_SF 套件可用性——這是決定路徑 A/B 的唯一依據」。
+開發環境連不到 `packages.fhir.org` 與 `hapi.fhir.tw`（本機測到的 403 是代理的回應，
+不是伺服器的，**不得作為證據**），故新增工具由 CI 執行：
+
+| 探測 | 工具 | 結果 |
+|:--|:--|:--|
+| `fhir.twcrsf` 套件（3 個 registry 之**根路徑**） | `inspect-package.yml` 新增之 Probe registry 步驟 | **全部 404**（run 30368332715） |
+| 10 個 canonical 於 `hapi.fhir.tw` | 新增 `scripts/probe-canonicals.js` | **全部 404**（run 30368750214） |
+
+兩項區分很重要：
+
+- 查**根路徑**而非特定版本，才能區分「套件不存在」與「版本號給錯」——兩者都是 404。
+- canonical 形如 `hapi.fhir.tw/fhir/CodeSystem/<id>`，那是 FHIR **伺服器資源端點**
+  而非套件 canonical，故套件不存在**不等於**資源不存在，必須分別查證。
+  結果顯示伺服器有回應（404 而非連線失敗），只是不服務這些資源。
+
+**結論：上游既無套件、亦不服務該命名空間下的這些資源 → 採路徑 B。**
+
+### 7.2 已執行（路徑 B）
+
+| # | 變更 | 依據 |
+|--:|:--|:--|
+| 1 | `^content` `#complete` → **`#fragment`**（5 個 CodeSystem） | §2 路徑 B.2 |
+| 2 | `^status` `#active` → `#draft`（9 個） | §2 路徑 B.2 |
+| 3 | `^experimental = true`（9 個，原本全無） | §2 路徑 B.2 |
+| 4 | Title 冠【本地 stub】並註明（非權威定義）（9 個） | §2 路徑 B.1 |
+| 5 | `^copyright` 載明權威來源與引用限制（9 個） | §2 路徑 B.3 |
+| 6 | ValueSet 宣告名改 UpperCamelCase（4 個，消 `vsd-0`） | §2 共同驗收 |
+| 7 | 檔頭改寫：載明 stub 性質、實測證據、降級內容、待辦 | §2 路徑 B.1 |
+| 8 | `sushi-config.yaml` 之 `special-url` 加註保留理由 | §5 |
+| 9 | `README.md` 依賴指引更正 | §3.5 |
+| 10 | `terminology.md` §6.2b 新增權威來源說明 | §3.4 |
+| 11 | `open-issues.md` G-5 以實測結果更新 | §2 路徑 B.4 |
+
+**`#fragment` 是重點，不是妥協。** 它正是 FHIR 為「外部代碼系統之局部複本」
+設計的機制；原本標 `#complete` 等於宣稱本 IG 是該代碼系統的權威完整定義。
+
+### 7.3 刻意未做
+
+- **canonical 未改為本 IG 命名空間。** 路徑 B 的用意是「誠實標示為局部複本」，
+  而非把他方的代碼搬進自己的命名空間——後者會讓同一組代碼在兩個 canonical 下並存，
+  與 TWCR_SF 的資料無法勾稽。`#fragment` 已正名其性質。
+- **綁定強度未動。** `TWHA-SocialHistory-BetelNut` 之三個 component 為 `required`
+  綁定。對 `#fragment` 內容做 `required` 綁定在模型上值得商榷（fragment 未必涵蓋
+  上游全部代碼），但改綁定強度屬規範性變更，超出本 JOB 範圍。**列為觀察項**。
+- **CodeSystem 宣告名未改 UpperCamelCase。** 只有 ValueSet 的 `vsd-0` 有實測筆數（4 筆）；
+  CodeSystem 未見對應告警，不做未經量測的改動。
+
+### 7.4 殘留風險
+
+本 IG 產出中仍存在 9 個掛在他方命名空間下的資源。`#fragment` 已將其正名為
+「局部複本」，但**命名空間本身仍非本專案所有**。若 TWCR_SF 日後於同一 canonical
+發佈與本 stub 不同的內容，同時載入兩者的系統會遇到衝突——而本 stub 之代碼清單
+（嚼檳榔量 91 碼、年 100 碼、戒檳榔年 91 碼）**未經上游核對，無從核對**。
+
+唯一的根本解法是上游正式發佈套件（G-5），屬行政協調，§4 已列為本 JOB 範圍外。
+
+### 7.5 預期量測
+
+`SHOULD conform to the ShareableValueSet profile` 4 筆與 `Constraint failed: vsd-0`
+4 筆應歸零（§2 共同驗收）。**由 CI 認定，不預先宣稱。**

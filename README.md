@@ -105,7 +105,19 @@ set NODE_OPTIONS=--use-system-ca
 
 ## 依賴指引 (Dependencies)
 * **tw.gov.mohw.twcore**: `1.0.0`（`sushi-config.yaml` 之 IG 套件依賴）
-* 嚼檳榔相關 CodeSystem/ValueSet 引用臺灣癌症登記短表實作指引 (TWCR_SF, `hapi.fhir.tw`) 之外部 canonical URL（見 `sushi-config.yaml` 之 `parameters.special-url`），非套件層級依賴。
+* **TWCR_SF（臺灣癌症登記短表 IG, `hapi.fhir.tw`）**：**非套件層級依賴**。
+  嚼檳榔相關之 5 個 CodeSystem 與 4 個 ValueSet 由本 IG 以【本地 stub】承載
+  （`input/fsh/codesystems/TWCRSF-mocks.fsh`），其 canonical 屬 TWCR_SF 命名空間，
+  並以 `sushi-config.yaml` 之 `parameters.special-url` 列為例外。
+
+  > ⚠️ **這不是「引用外部定義」，是本 IG 自行定義了他方命名空間下的資源。**
+  > 2026-07-28 CI 實測：`fhir.twcrsf` 套件在三個 registry 之根路徑皆 404，
+  > 該 10 個 canonical 於 `hapi.fhir.tw` 亦全部 404（伺服器有回應，只是不服務這些資源）。
+  > 故已依 JOB-10 路徑 B 降級為 stub：`content = #fragment`、`status = #draft`、
+  > `experimental = true`、標題冠【本地 stub】、`copyright` 載明權威來源。
+  >
+  > **實作端應以 TWCR_SF 官方定義為準。** 本 stub 之代碼清單未經上游核對——
+  > 無從核對，因為上游不可達。詳見[未決事項 G-5](input/pagecontent/open-issues.md)。
 
 ---
 
