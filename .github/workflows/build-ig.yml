@@ -129,13 +129,6 @@ jobs:
           IG_TARGET_OUTPUT: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: node scripts/run-publisher.js --tx "$TX_SERVER" --publisher-version "$IG_PUBLISHER_VERSION"
 
-      # JOB-05：MS 是對實作端的要求，宣告了卻沒有任何範例示範怎麼填，實作端無從照做，
-      # 而 IG Publisher 不檢查這件事（它只檢查範例是否符合 profile）。
-      # 目前不加 --strict——先讓缺口在每次建置中可見，補齊後再收緊為硬性條件。
-      - name: Must Support 覆蓋檢核
-        if: always()
-        run: npm run check:ms
-
       # ---------------------------------------------------------------- 閘門
       # 先上傳產出物，再跑閘門：閘門失敗時仍要能下載 qa.txt 診斷。
       - name: Upload QA output
@@ -236,6 +229,13 @@ jobs:
       # --expect-tx 要求日誌能證明確實連上術語伺服器。這道檢查獨立於
       # input/ignoreWarnings.txt——該抑制檔管不到 publisher 日誌，
       # 否則「連不上 tx」會與「通過驗證」外觀相同（見 JOB-09）。
+      # JOB-05：MS 是對實作端的要求，宣告了卻沒有任何範例示範怎麼填，實作端無從照做，
+      # 而 IG Publisher 不檢查這件事（它只檢查範例是否符合 profile）。
+      # 目前不加 --strict——先讓缺口在每次建置中可見，補齊後再收緊為硬性條件。
+      - name: Must Support 覆蓋檢核
+        if: always()
+        run: npm run check:ms
+
       - name: QA gate
         run: |
           if [ "$TX_SERVER" = "n/a" ]; then

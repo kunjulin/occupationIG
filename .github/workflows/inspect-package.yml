@@ -96,6 +96,19 @@ jobs:
           tar xzf pkg.tgz -C pkg
           echo "解壓後檔案數：$(find pkg -type f | wc -l)"
 
+      - name: Inspect
+        if: inputs.package != ''
+        run: |
+          set -euo pipefail
+          node scripts/inspect-package.js --dir pkg --json inventory.json | tee inventory.txt
+          {
+            echo '### `${{ inputs.package }}#${{ inputs.version }}` 盤點結果'
+            echo ''
+            echo '```'
+            cat inventory.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       # JOB-05：為繼承自 TW Core 的 profile 補範例前，必須先知道上游的必填欄位、
       # 固定值與 required 綁定。開發環境封鎖 packages.fhir.org，本機看不到，
       # 盲寫只會換來好幾輪「CI 報錯→猜→再報錯」。
@@ -112,19 +125,6 @@ jobs:
             echo ''
             echo '```'
             cat profiles.txt
-            echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Inspect
-        if: inputs.package != ''
-        run: |
-          set -euo pipefail
-          node scripts/inspect-package.js --dir pkg --json inventory.json | tee inventory.txt
-          {
-            echo '### `${{ inputs.package }}#${{ inputs.version }}` 盤點結果'
-            echo ''
-            echo '```'
-            cat inventory.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
