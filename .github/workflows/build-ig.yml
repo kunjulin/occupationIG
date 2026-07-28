@@ -218,6 +218,20 @@ jobs:
           echo "--- 目標網址分布 ---"
           grep -oE "The link '[^']+'" output/qa.txt | sort | uniq -c | sort -rn | head -10 || echo "(無)"
 
+      # qa-baseline.json 的規則是「總數上調必須具名說明多出來的是什麼」。
+      # 但 TOTAL info 不是具名類別，閘門的抽樣只對具名類別生效，總數一動就無從歸因。
+      # 本步驟把 INFORMATION 訊息去掉檔案位置與可變值後歸群，總數變動時才知道是哪一批。
+      - name: INFORMATION 訊息分布
+        if: always()
+        run: |
+          set -u
+          [ -f output/qa.txt ] || { echo "(無 qa.txt)"; exit 0; }
+          echo "INFORMATION 總數：$(grep -c '^INFORMATION' output/qa.txt || echo 0)"
+          echo "--- 訊息樣式分布（去除位置、引號內容與數字後歸群，前 25 名）---"
+          grep '^INFORMATION' output/qa.txt \
+            | sed -E "s/^INFORMATION: [^:]*: //; s/'[^']*'/'…'/g; s/\"[^\"]*\"/\"…\"/g; s/[0-9]+/N/g" \
+            | cut -c1-110 | sort | uniq -c | sort -rn | head -25 || echo "(無)"
+
       # --expect-tx 要求日誌能證明確實連上術語伺服器。這道檢查獨立於
       # input/ignoreWarnings.txt——該抑制檔管不到 publisher 日誌，
       # 否則「連不上 tx」會與「通過驗證」外觀相同（見 JOB-09）。
