@@ -12,6 +12,7 @@ Description: "自費健檢中乳房攝影檢查的結果紀錄。"
 * code = LNC#24606-6 "MG Breast Screening"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T10:00:00+08:00"
+* performer = Reference(example-hospital)
 * valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N
 
 Instance: obs-imaging-brain-mri
@@ -23,6 +24,7 @@ Description: "自費健檢中腦部核磁共振造影 (Brain MRI) 的結果紀�
 * code = LNC#24590-2 "MR Brain"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T10:15:00+08:00"
+* performer = Reference(example-hospital)
 * valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N
 
 Instance: obs-imaging-lung-ct
@@ -34,6 +36,7 @@ Description: "自費健檢中肺部低劑量電腦斷層 (LDCT) 的結果紀錄�
 * code = LNC#79086-5 "CT Chest Screening WO contr"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T10:30:00+08:00"
+* performer = Reference(example-hospital)
 * valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N
 
 Instance: obs-imaging-pet
@@ -45,6 +48,7 @@ Description: "自費健檢中全身正子造影 (FDG PET/CT) 的結果紀錄。"
 * code = LNC#81555-5 "PT+CT Whole body Tum loc W 18F-FDG IV"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T10:45:00+08:00"
+* performer = Reference(example-hospital)
 * valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N
 
 Instance: obs-imaging-cta
@@ -56,6 +60,7 @@ Description: "自費健檢中心臟冠狀動脈電腦斷層血管攝影 (Cardiac
 * code = LNC#79073-3 "CTA Hrt+CA W contr IV"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T11:00:00+08:00"
+* performer = Reference(example-hospital)
 * valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N
 
 Instance: obs-endoscopy-egd
@@ -67,6 +72,7 @@ Description: "自費健檢中上消化道胃鏡鏡檢 (EGD) 的結果紀錄。"
 * code = LNC#28014-9 "EGD Study"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T11:15:00+08:00"
+* performer = Reference(example-hospital)
 * valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N
 
 Instance: obs-endoscopy-colon
@@ -78,4 +84,5 @@ Description: "自費健檢中下消化道大腸鏡鏡檢 (Colonoscopy) 的結果
 * code = LNC#28023-0 "Colonoscopy Study"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T11:30:00+08:00"
+* performer = Reference(example-hospital)
 * valueCodeableConcept = http://terminology.hl7.org/CodeSystem/v3-ObservationValue#N

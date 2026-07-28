@@ -11,6 +11,7 @@ Description: "受檢勞工王大同的身高測量結果 (175 cm)。"
 * code = LNC#8302-2 "Body height"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:15:00+08:00"
+* performer = Reference(example-nurse)
 * valueQuantity = 175 'cm' "cm"
 
 Instance: obs-weight
@@ -22,6 +23,7 @@ Description: "受檢勞工王大同的體重測量結果 (70 kg)。"
 * code = LNC#29463-7 "Body weight"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:15:00+08:00"
+* performer = Reference(example-nurse)
 * valueQuantity = 70 'kg' "kg"
 
 Instance: obs-waist
@@ -33,6 +35,7 @@ Description: "受檢勞工王大同的腰圍測量結果 (82 cm)。"
 * code = LNC#8280-0 "Waist Circumference at umbilicus by Tape measure"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:15:00+08:00"
+* performer = Reference(example-nurse)
 * valueQuantity = 82 'cm' "cm"
 
 Instance: obs-bmi
@@ -44,6 +47,7 @@ Description: "受檢勞工王大同的身體質量指數 (BMI) 測量結果 (22.
 * code = LNC#39156-5 "Body mass index (BMI) [Ratio]"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:15:00+08:00"
+* performer = Reference(example-nurse)
 * valueQuantity = 22.86 'kg/m2' "kg/m2"
 
 Instance: obs-bloodpressure
@@ -55,6 +59,7 @@ Description: "受檢勞工王大同的血壓測量結果 (120/80 mmHg)，繼承�
 * code = LNC#85354-9 "Blood pressure panel with all children optional"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:15:00+08:00"
+* performer = Reference(example-nurse)
 * component[0].code = LNC#8480-6 "Systolic blood pressure"
 * component[0].valueQuantity = 120 'mm[Hg]' "mmHg"
 * component[1].code = LNC#8462-4 "Diastolic blood pressure"

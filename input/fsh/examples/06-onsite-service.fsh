@@ -50,6 +50,7 @@ Description: "臨場服務中發現作業現場危害因子及問題。"
 * status = #final
 * code = SCT#17458004 "Occupational hazard"
 * focus = Reference(example-employer)
+* performer = Reference(example-doctor)
 * valueString = "發現部分現場勞動條件局部排氣裝置風速異常降低，且現場作業人員於正己烷暴露區域未確實配戴防護面罩。"
 
 Instance: example-service-task

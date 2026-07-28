@@ -66,6 +66,18 @@ Description: "實施勞工體格及健康檢查評估並判定分級之林職醫
 * name[0].use = #official
 * name[0].text = "林職醫"
 
+Instance: example-nurse
+InstanceOf: TWHAPractitionerProfile
+Title: "執業醫護人員範例 - 陳健護"
+Description: "執行生理量測（身高、體重、腰圍、血壓）與健康問診（吸菸、嚼檳榔、睡眠）之陳健護理師。用於示範 Observation.performer 之「人員」型態——與機構型態（example-hospital）對照。"
+* identifier[0].use = #official
+// 命名空間問題與 example-doctor 相同（護理師證書字號之命名空間同樣未定案），
+// 說明見上方 example-doctor 之註解與未決事項 T-2。實作端不得沿用此值。
+* identifier[0].system = "http://example.org/fhir/sid/tw-practitioner-license"
+* identifier[0].value = "RN-66666" // 護理師證書字號（命名空間待主管機關核定）
+* name[0].use = #official
+* name[0].text = "陳健護"
+
 // ==========================================
 // 2. 檢查事件範例（Encounter）
 // ==========================================

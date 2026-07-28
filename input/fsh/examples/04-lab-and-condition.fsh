@@ -11,6 +11,7 @@ Description: "受檢勞工王大同的空腹血糖檢驗結果 (95 mg/dL)。"
 * code = LNC#1558-6 "Fasting glucose [Mass/volume] in Serum or Plasma"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T09:00:00+08:00"
+* performer = Reference(example-hospital)
 * valueQuantity = 95 'mg/dL' "mg/dL"
 * referenceRange[0].low = 70 'mg/dL' "mg/dL"
 * referenceRange[0].high = 100 'mg/dL' "mg/dL"

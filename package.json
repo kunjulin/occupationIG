@@ -17,6 +17,8 @@
     "qa:tx": "node scripts/qa-gate.js --log input-cache/publisher-run.log --expect-tx",
     "check:refs": "node scripts/check-pagecontent-refs.js",
     "check:refs:strict": "node scripts/check-pagecontent-refs.js --strict",
+    "check:ms": "node scripts/check-ms-coverage.js",
+    "check:ms:strict": "node scripts/check-ms-coverage.js --strict",
     "verify": "npm run check:refs && npm run check:assets && npm run qa"
   },
   "devDependencies": {

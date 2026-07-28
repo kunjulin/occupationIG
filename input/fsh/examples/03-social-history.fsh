@@ -11,6 +11,7 @@ Description: "受檢勞工王大同的吸菸史（從未吸菸）。"
 * code = LNC#72166-2 "Tobacco smoking status"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:05:00+08:00"
+* performer = Reference(example-nurse)
 * valueCodeableConcept.coding[0] = http://snomed.info/sct#266919005 "Never smoked tobacco"
 * valueCodeableConcept.coding[1] = CS_SmokingStatus#0-never "從未吸菸"
 
@@ -21,6 +22,7 @@ Description: "受檢勞工王大同的嚼檳榔習慣，每日嚼食 5 顆，嚼
 * status = #final
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:05:00+08:00"
+* performer = Reference(example-nurse)
 * component[amount].valueCodeableConcept = TWCRSFBetNutChewAmountCS#05 "每日5顆"
 * component[year].valueCodeableConcept = TWCRSFBetNutChewYearCS#10 "嚼10年"
 * component[quit].valueCodeableConcept = TWCRSFBetNutChewQuitCS#01 "已戒1年"
@@ -32,6 +34,7 @@ Description: "受檢勞工王大同的平均每日睡眠時間 (7 小時)。"
 * status = #final
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:05:00+08:00"
+* performer = Reference(example-nurse)
 * valueQuantity = 7 'h' "hours"
 
 Instance: example-questionnaire

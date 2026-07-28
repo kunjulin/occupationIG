@@ -36,6 +36,8 @@ Description: "一般健康檢查結果 Document Bundle 打包範例。"
 * entry[10].resource = obs-lab-glucose
 * entry[11].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression"
 * entry[11].resource = example-clinical-impression
+* entry[12].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-nurse"
+* entry[12].resource = example-nurse
 
 Instance: UC-002
 InstanceOf: TWHABundleDocumentProfile
@@ -73,6 +75,8 @@ Description: "勞工一般健康檢查結果 Document Bundle 打包範例。"
 * entry[12].resource = obs-lab-glucose
 * entry[13].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression"
 * entry[13].resource = example-clinical-impression
+* entry[14].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-nurse"
+* entry[14].resource = example-nurse
 
 Instance: UC-003
 InstanceOf: TWHABundleDocumentProfile
@@ -172,3 +176,65 @@ Description: "國健署成人預防保健自填問卷與理學生化檢查 Docum
 * entry[13].resource = example-clinical-impression
 * entry[14].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-counseling"
 * entry[14].resource = example-procedure-counseling
+* entry[15].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-nurse"
+* entry[15].resource = example-nurse
+
+Instance: UC-007
+InstanceOf: TWHABundleDocumentProfile
+Title: "UC-007 職業健康急診友善摘要封包"
+Description: "急診友善摘要 Composition（含鉛作業暴露史、生命徵象、關鍵檢驗值與缺值示範）之 Document Bundle 範例。"
+* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/sid/report-id"
+* identifier.value = "bundle-uc-007"
+* type = #document
+* timestamp = "2026-06-12T12:00:00+08:00"
+* entry[0].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Composition/composition-emergency-summary"
+* entry[0].resource = composition-emergency-summary
+* entry[1].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker"
+* entry[1].resource = example-worker
+* entry[2].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor"
+* entry[2].resource = example-doctor
+* entry[3].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital"
+* entry[3].resource = example-hospital
+* entry[4].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-exposure-lead"
+* entry[4].resource = obs-exposure-lead
+* entry[5].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-height"
+* entry[5].resource = obs-height
+* entry[6].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-weight"
+* entry[6].resource = obs-weight
+* entry[7].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-bloodpressure"
+* entry[7].resource = obs-bloodpressure
+* entry[8].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-lab-glucose"
+* entry[8].resource = obs-lab-glucose
+* entry[9].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-lab-egfr-absent"
+* entry[9].resource = obs-lab-egfr-absent
+* entry[10].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression"
+* entry[10].resource = example-clinical-impression
+* entry[11].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-nurse"
+* entry[11].resource = example-nurse
+
+Instance: UC-006
+InstanceOf: TWHABundleDocumentProfile
+Title: "UC-006 勞工健康服務臨場服務紀錄封包"
+Description: "臨場服務紀錄 Composition（附表八）與關聯活動資料 Document Bundle 範例。"
+* identifier.system = "https://twcore.mohw.gov.tw/ig/twha/sid/report-id"
+* identifier.value = "bundle-uc-006"
+* type = #document
+* timestamp = "2026-06-10T14:00:00+08:00"
+* entry[0].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Composition/example-composition-service"
+* entry[0].resource = example-composition-service
+* entry[1].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer"
+* entry[1].resource = example-employer
+* entry[2].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor"
+* entry[2].resource = example-doctor
+* entry[3].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital"
+* entry[3].resource = example-hospital
+* entry[4].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-service"
+* entry[4].resource = example-encounter-service
+* entry[5].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Group/example-group-workers"
+* entry[5].resource = example-group-workers
+* entry[6].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-activity"
+* entry[6].resource = example-procedure-activity
+* entry[7].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/example-service-finding"
+* entry[7].resource = example-service-finding
+* entry[8].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Task/example-service-task"
+* entry[8].resource = example-service-task

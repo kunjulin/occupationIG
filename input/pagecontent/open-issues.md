@@ -300,7 +300,7 @@ IG Publisher 只檢查「代碼是否存在於該 CodeSystem」，**不檢查 `d
 
 **所需輸入**　衛生福利部（發放機關）或 TW Core 之定義。
 
-**影響範圍**　`input/fsh/examples/01-actors-and-encounter.fsh` 之 `example-doctor`；未來之 `Practitioner` slicing。
+**影響範圍**　`input/fsh/examples/01-actors-and-encounter.fsh` 之 `example-doctor` 與 `example-nurse`；未來之 `Practitioner` slicing。
 
 **若決策不同**　目前之佔位值不具跨機構唯一性。**第 19 條之稽核追溯若需跨機構識別
 執行者，此項必須先解決**——它不是可以無限期擱置的項目。
