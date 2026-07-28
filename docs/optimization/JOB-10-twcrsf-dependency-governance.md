@@ -216,11 +216,29 @@ input/fsh/codesystems/TWCRSF-mocks.fsh、sushi-config.yaml（dependencies 與 pa
 設 0 而非填估計值，是為了避免估高時閘門靜默通過、把猜測固化成基準線。
 
 實測顯示 `Reference to experimental` 共 23 筆，且**並非全部為本次新增**——
-其中一部分指向本 IG 自有的 `twcore.mohw.gov.tw/.../CS-*`（JOB-09 已標 experimental），
+一部分指向本 IG 自有的 `twcore.mohw.gov.tw/.../CS-*`（JOB-09 已標 experimental），
 只有指向 `hapi.fhir.tw/.../sf-*` 者才是本次帶進來的。已拆為兩個具名類別分別追蹤，
-後者於 TWCR_SF 正式套件可用後（G-5）應歸零。組成與拆分理由見
-[`qa-baseline.json`](../../qa-baseline.json) 之 `_job10Note`。
+後者於 TWCR_SF 正式套件可用後（G-5）應整批歸零。
 
-`warn` 的 −15 只有 −13 可歸因，其中 −5 係由算術推得而非直接量測，
-故 `warn` 基準線**不下調**（理由見 `_warnNote`）。閘門只對上升失敗，
-留著較寬的上限不會放過退步；宣稱一個未經直接證實的改善才是風險。
+拆分時刻意讓兩者之和被實測總數 23 釘住：任一項填錯，另一項必定低於實際而使閘門失敗。
+**這道機制當場發揮了作用**——第一次拆分依算術推得 10／13，run 30373147487 打成
+**15／8**。若當初只填總數 23、不做拆分，這個錯誤的歸因會原封不動寫進基準線且無從發現。
+
+修正後之 `+19` 組成，與實測完全相符：
+
+| 來源 | 筆數 | 說明 |
+|:--|--:|:--|
+| hapi stub 之 experimental 參照 | **15** | 降級前該批 CodeSystem 為 `active` 且非 experimental，此類訊息變更前為 0 |
+| 值集指向 `status = draft` 之 CodeSystem | **4** | 同理，變更前為 0 |
+| | **19** | |
+
+`stated value for the caseSensitive element` 那 5 筆**不屬於增量**：5 個 CodeSystem
+在變更前即已存在且同樣未宣告 `caseSensitive`，訊息本來就是 INFORMATION 級。
+列為具名類別純粹是納入追蹤。
+
+`warn` 的 −15 僅 −8 可歸因（ShareableValueSet 4 ＋ vsd-0 4），故 `warn` 基準線
+**不下調**。曾推測其餘 −5 為 caseSensitive 由 WARNING 轉 INFORMATION，但拆分量測顯示
+`+19` 已由 15+4 足額解釋，該推測已被推翻。閘門只對上升失敗，留著較寬的上限不會放過退步；
+把一個解釋不了的改善寫死成基準線，等於宣稱理解了實際上並不理解的東西。
+釐清方式與本次相同（具名類別設 0，由 CI 印出筆數與嚴重度），但與 TWCR_SF 治理無關，
+不列入本 JOB 範圍。
