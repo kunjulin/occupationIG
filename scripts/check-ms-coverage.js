@@ -32,12 +32,24 @@ function arg(name, fallback = null) {
   return i !== -1 && process.argv[i + 1] ? process.argv[i + 1] : fallback;
 }
 
-const dir = arg('--dir', 'fsh-generated/resources');
+// 掃描目錄之選擇很關鍵：SUSHI 之 fsh-generated **只有 differential、沒有 snapshot**，
+// 繼承自上游（TW Core）的 MS 宣告完全看不到。IG Publisher 的 output/ 才有完整
+// snapshot。故未指定 --dir 時：優先取 output/（建置後執行），否則退回 fsh-generated
+// 並明講其侷限。第一版未處理此事，在 CI 掃出「0 個 MS 欄位」卻回報 OK——假綠。
+function autoDir() {
+  const hasSD = (d) =>
+    fs.existsSync(d) && fs.readdirSync(d).some((f) => f.startsWith('StructureDefinition-') && f.endsWith('.json'));
+  if (hasSD('output')) return 'output';
+  if (hasSD('fsh-generated/resources')) return 'fsh-generated/resources';
+  return null;
+}
+
+const dir = arg('--dir', null) ?? autoDir();
 const jsonOut = arg('--json');
 const strict = process.argv.includes('--strict');
 
-if (!fs.existsSync(dir)) {
-  console.error(`✖ 找不到 ${dir}——請先執行 npm run sushi。`);
+if (!dir || !fs.existsSync(dir)) {
+  console.error(`✖ 找不到可掃描之目錄（output/ 或 fsh-generated/resources）——請先執行建置。`);
   console.error('  （本機若無法連上 packages.fhir.org，SUSHI 會在載入核心套件時中止，此檢查只能在 CI 執行。）');
   process.exit(1);
 }
@@ -101,11 +113,17 @@ function hasValue(node, rest) {
 // ---------------------------------------------------------------- 主判定
 const rows = [];
 const extensionProfiles = [];
+let differentialOnly = 0;
 
 for (const sd of profiles) {
-  const msIds = (sd.snapshot?.element ?? [])
-    .filter((e) => e.mustSupport === true)
-    .map((e) => e.id);
+  // snapshot 才含繼承自上游之 MS；SUSHI 產物只有 differential，此時僅能檢查
+  // 本 IG 自行宣告的 MS，須向使用者明講（見結尾之提示與 0 筆防呆）。
+  let elements = sd.snapshot?.element;
+  if (!elements || elements.length === 0) {
+    elements = sd.differential?.element ?? [];
+    differentialOnly++;
+  }
+  const msIds = elements.filter((e) => e.mustSupport === true).map((e) => e.id);
   if (msIds.length === 0) continue;
 
   if (sd.type === 'Extension') {
@@ -133,8 +151,23 @@ const gaps = rows.filter((r) => r.covered === 0);
 const noExample = [...new Set(rows.filter((r) => r.examples === 0).map((r) => r.profile))];
 
 console.log('Must Support 覆蓋檢核');
+console.log(`  掃描目錄：${dir}`);
 console.log(`  掃描 ${profiles.length} 個 profile、${instances.length} 個範例實例`);
+if (differentialOnly > 0) {
+  console.log(
+    `  ⚠️ ${differentialOnly} 個 profile 無 snapshot，僅以 differential 判定——` +
+      '繼承自上游（TW Core 等）的 MS 宣告**不在檢查範圍**。完整檢查需以建置後之 output/ 為掃描目錄。'
+  );
+}
 console.log(`  MS 欄位共 ${rows.length} 個，已被範例覆蓋 ${rows.length - gaps.length} 個，未覆蓋 ${gaps.length} 個\n`);
+
+// 0 筆 MS 不可能是本 IG 的真實狀態（多個 profile 明確宣告 performer MS 等）。
+// 出現 0 代表掃描基礎錯了（例如拿到無 snapshot 又無 MS differential 的目錄），
+// 此時回報 OK 是假綠——第一版就這樣騙過了 CI。一律視為失敗。
+if (rows.length === 0 && extensionProfiles.length === 0) {
+  console.error('✖ 掃出 0 個 MS 欄位——掃描基礎有誤（snapshot 缺失？目錄錯誤？），不得視為通過。');
+  process.exit(1);
+}
 
 if (noExample.length) {
   console.log(`⚠️ 下列 profile 有 MS 宣告但**沒有任何範例**（其 MS 欄位必然全部未覆蓋）：`);

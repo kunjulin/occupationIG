@@ -156,12 +156,26 @@ Description: "醫師針對第四級健康管理之勞工王大同開立之追蹤
 
 // ------------------------------------------------------------------
 // 工作經歷與職業別
+// Observation-occupation-twcore 實測（run 30378189454）：
+//   value[x] 為 1..1 CodeableConcept；其下 LiaRocOccupation／MolOccupation 兩個
+//   coding 切片各綁 required 值集（occupation-lia-roc-tw／occupation-mol-tw）。
+//   切片本身非必填——此處僅填 value.text，不引用未經查證之職業分類碼。
+//   effective[x] 不接受 dateTime（第一版用 effectiveDateTime 遭 SUSHI 拒絕），
+//   職業經歷本質上是期間，改用 effectivePeriod（起日對齊 ext-employment-date）。
+//   code 固定 LOINC 11341-5、category 之 twcore 切片固定 social-history。
 // ------------------------------------------------------------------
 Instance: obs-occupation
 InstanceOf: TWHAOccupationProfile
 Title: "工作經歷與職業別範例"
-Description: "受檢勞工王大同之現任職業別與工作經歷。"
+Description: "受檢勞工王大同之現任職業與行業別：電子零組件製造業之化學處理課作業員，2020 年 3 月到職迄今。"
 * status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#social-history
+* code = LNC#11341-5
+* code.text = "職業史"
 * subject = Reference(example-worker)
-* effectiveDateTime = "2026-06-12T08:00:00+08:00"
+* effectivePeriod.start = "2020-03-01"
 * performer = Reference(example-doctor)
+* valueCodeableConcept.text = "化學處理課作業員（職業分類碼待引用經查證之 occupation-mol-tw 代碼）"
+* component[0].code = LNC#86188-0
+* component[0].code.text = "行業別"
+* component[0].valueCodeableConcept.text = "電子零組件製造業"
