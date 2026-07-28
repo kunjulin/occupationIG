@@ -42,8 +42,22 @@ InstanceOf: TWHAPractitionerProfile
 Title: "執業醫護人員範例 - 林職醫"
 Description: "實施勞工體格及健康檢查評估並判定分級之林職醫師。"
 * identifier[0].use = #official
-* identifier[0].system = "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw"
-* identifier[0].value = "MD-88888" // 醫師證書代碼
+// ⚠️ 刻意不給 identifier.system：醫事人員證書字號**在上游沒有命名空間可用**。
+//
+// 原值為 .../ig/twcore/CodeSystem/practitioner-license-tw，但 2026-07-27 以
+// scripts/inspect-package.js 盤點 tw.gov.mohw.twcore#1.0.0 實測：
+//   - 該 CodeSystem **不存在**（TW Core 只有 30 個 CodeSystem，無此項）；
+//   - TWCorePractitioner 固定的 identifier.system 只有 http://www.moi.gov.tw、
+//     http://www.immigration.gov.tw、http://hl7.org/fhir/sid/passport-TWN 三者，
+//     皆為「人別」識別碼，不是專業證書字號。
+//
+// 自行另定命名空間會製造同一識別碼兩個 canonical（JOB-06 §3.1 明列之最大風險），
+// 且醫事人員證書字號之發放機關為衛福部，命名空間應由主管機關或 TW Core 決定，
+// 不是本 IG 能片面認定的。故**暫時留空**並登記為未決事項（JOB-06 §7.6）。
+//
+// 留空的代價：此 identifier 不具跨機構唯一性，僅在機構內可辨識。
+// 第 19 條之稽核追溯若需跨機構識別執行者，此項必須先解決。
+* identifier[0].value = "MD-88888" // 醫師證書字號（命名空間未定）
 * name[0].use = #official
 * name[0].text = "林職醫"
 

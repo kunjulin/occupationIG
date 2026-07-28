@@ -243,3 +243,78 @@ input/fsh/profiles/TWHA-Patient.fsh、TWHA-Practitioner.fsh、TWHA-Organization.
 5. 列出改動 identifier slicing 後會失效的範例，以及與 JOB-05 的協調順序。
 6. 驗收：qa.txt 之 "No definition could be found for URL value" 歸零。
 ```
+
+---
+
+## 8. TW Core 盤點結果（2026-07-27，run 30280799257）
+
+`tw.gov.mohw.twcore#1.0.0`，以 `scripts/inspect-package.js` 實測。**25 秒完成。**
+
+### 8.1 最重要的一項：TW Core 沒有用 NamingSystem
+
+```
+NamingSystem：0 個
+```
+
+它把 `identifier.system` **直接固定在 profile 的 element 上**（34 處）：
+
+| system URI | 固定於 | 對應本 JOB §2 之待決項目 |
+|:--|:--|:--|
+| `http://www.moi.gov.tw` | `Patient-twcore`／`Practitioner-twcore` `.identifier.system` | **國民身分證統一編號** |
+| `http://www.immigration.gov.tw` | 同上 | **居留證／統一證號** |
+| `http://hl7.org/fhir/sid/passport-TWN` | 同上 | 護照號碼（§2 未列） |
+| `https://gcis.nat.gov.tw` | `Organization-co-twcore` | **事業單位統一編號** |
+| `https://oid.nat.gov.tw/` | `Organization-govt-twcore` | 政府機關（§2 未列） |
+| `…/CodeSystem/organization-identifier-tw` | `Organization-hosp-twcore` | **醫事機構代號** |
+
+另有 `http://terminology.hl7.org/CodeSystem/v2-0203` 固定於
+`Patient/Practitioner.identifier.type.coding.system`——TW Core 以 v2-0203
+標示識別碼**類別**，與 `identifier.system`（命名空間）分屬兩軸。
+
+**結論：§2 表格 8 項中，身分證號、居留證號、統一編號、醫事機構代號四項
+全部由 TW Core 定義，一律沿用，本 IG 不得另定。**
+§3.2「定義本 IG 專屬的 NamingSystem」之範圍因此收斂為僅報告封包識別碼一項（已完成）。
+
+### 8.2 §4(a) 之疑慮：撤回
+
+先前質疑「以 CodeSystem canonical 充當 `identifier.system` 是模型錯誤」。
+盤點證實 **`organization-identifier-tw` 正是 TW Core 自己用作
+`Organization-hosp-twcore.identifier.system` 的值**。
+
+本 IG 的用法與上游一致，**不改**。單方面偏離上游會造成同一識別碼在
+TW Core 與本 IG 有兩種表達方式，比現況更糟。
+
+該疑慮於 FHIR 模型層面仍成立（`Identifier.system` 應為命名空間而非代碼系統），
+但那是**應向 TW Core 反映的上游議題**，不是本 IG 可片面處置者。
+登記為未決事項。
+
+### 8.3 `practitioner-license-tw` 不存在於 TW Core 1.0.0
+
+範例原以 `…/ig/twcore/CodeSystem/practitioner-license-tw` 作為醫師證書字號之
+`identifier.system`。盤點實測：
+
+- TW Core 的 **30 個 CodeSystem 中沒有這一項**；
+- `Practitioner-twcore` 固定的 `identifier.system` 只有 moi／immigration／passport
+  三者，皆為「人別」識別碼，非專業證書字號。
+
+即**上游沒有提供醫事人員證書字號的命名空間**。
+
+**處置（使用者決定）：暫時留空。** 已移除該 `identifier.system`，保留 value
+並於範例中註明理由。自行另定會製造同一識別碼兩個 canonical（§5 之最大風險），
+且證書字號之發放機關為衛福部，命名空間應由主管機關或 TW Core 決定。
+
+**留空的代價須明載**：此 identifier 不具跨機構唯一性，僅機構內可辨識。
+第 19 條之稽核追溯若需跨機構識別執行者，此項必須先解決。
+
+---
+
+## 9. 尚待處理
+
+| # | 項目 | 卡在哪 |
+|--:|:--|:--|
+| 1 | `Patient`／`Practitioner`／`Organization` 之 identifier slicing 收緊 | 可做——依 §8.1 之 TW Core 固定值對齊 |
+| 2 | 範例改用 TW Core 之 system（受檢者身分證號等） | 可做，須與 JOB-05 協調 |
+| 3 | 醫事人員證書字號之命名空間 | **未決**——上游未提供，待主管機關／TW Core |
+| 4 | 去識別化雜湊 Token | **未決**——使用方式未定案（§3.4） |
+| 5 | 全國性 IG 範例使用單一醫院病歷號命名空間 | 待決：改用範例命名空間或保留 |
+| 6 | 向 TW Core 反映 CodeSystem-as-identifier.system | 上游議題 |
