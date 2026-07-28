@@ -7,7 +7,7 @@
   ],
   "measuredAt": "2026-07-27",
   "igPublisherVersion": "2.2.11",
-  "source": "CI run 30269800561／30270757878（commit 84ca8f7b／8a6f9680，tx 建置）— JOB-06 第一階段",
+  "source": "CI run 30349014123（commit 891092e5，tx 建置）— JOB-06 第二階段",
   "_runVarianceNote": [
     "⚠️ 同一份建置輸入之連續三次 tx 建置實測到 ±2 的差異：",
     "  d2571cb5 → info 397 / warn 160",
@@ -17,7 +17,16 @@
     "故總數並非完全可重現，推測為 tx 回應波動導致少數代碼之驗證結果不同。",
     "基準線取觀測到的**上界**（info 397 / warn 160），以免波動造成假性失敗；",
     "真正的把關靠下方具名類別——那些數字在三次建置中完全一致。",
-    "若日後總數持續低於上界，再行下調。"
+    "若日後總數持續低於上界，再行下調。",
+    "",
+    "2026-07-28（JOB-06 第二階段）之下調依據：",
+    "  本次實測 info 395 / warn 150。",
+    "  warn 取 **152** 而非實測的 150：變更前之波動帶為 158–160（寬度 2），",
+    "    本次變更確定移除 8 筆 No definition（warn 級），故新帶應為 150–152，",
+    "    實測到的 150 是帶的下緣。取 150 會讓下一次落在上緣的建置假性失敗。",
+    "  info 維持 **397** 不下調：本次變更不影響 info，實測 395 正是既有波動帶",
+    "    395–397 的下緣，並非真實改善。",
+    "  No definition 取實測值 9：該類別在三次建置中數字完全一致，屬穩定類別。"
   ],
   "_infoNote": [
     "info 394 → 397（+3）之組成：",
@@ -33,7 +42,7 @@
   ],
   "totals": {
     "err": 0,
-    "warn": 160,
+    "warn": 152,
     "info": 397
   },
   "_categoriesNote": [
@@ -42,8 +51,9 @@
     "  There are multiple different matches   29 → 0   （JOB-09 pin-canonicals）",
     "  is experimental, but not labeled       11 → 1   （JOB-09；殘留 1 筆來源為 TW Core 上游）",
     "  Wrong Display Name                    133 → 23  （JOB-01 兩批：第一批 -10、第二批 -100）",
-    "  No definition could be found for URL   24 → 17  （JOB-06：NamingSystem 使 Bundle.identifier",
-    "                                                   之 7 處被視為已定義；餘 17 待 TW Core 盤點）",
+    "  No definition could be found for URL   24 → 9   （JOB-06：NamingSystem 使 Bundle.identifier",
+    "                                                   之 7 處被視為已定義；example.org 佔位命名空間",
+    "                                                   再消去 8 處——IG Publisher 對範例網址略過此檢查）",
     "",
     "非待修項目（外部條件所致，列為具名上限）：",
     "  There are no valid display names ...  218  外部代碼系統無繁中 designation",
@@ -68,7 +78,7 @@
     "could usefully have an OID assigned": 55,
     "should have a performer": 47,
     "There are multiple different potential matches": 0,
-    "No definition could be found for URL value": 17,
+    "No definition could be found for URL value": 9,
     "contains no examples for this profile": 9,
     "contains no examples for this extension": 5,
     "is experimental, but this structure is not labeled as experimental": 1,
