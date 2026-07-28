@@ -64,3 +64,41 @@ Description: "受檢勞工王大同的自覺症狀問卷填寫結果。"
 * item[0].answer[0].valueBoolean = false
 * item[1].linkId = "q2"
 * item[1].answer[0].valueBoolean = false
+
+// ------------------------------------------------------------------
+// 已戒菸者（JOB-05）
+// 既有之 obs-smoking 為「從未吸菸」，其上填 ext-smoking-quantity（吸菸量）
+// 與 ext-cessation-duration（戒除月數）在語意上是錯的，故另立本範例——
+// 這兩個 extension 之「範例」即指有宿主資源實際用到它（JOB-05 §3.3）。
+Instance: obs-smoking-former
+InstanceOf: TWHASocialHistorySmokingProfile
+Title: "吸菸狀態與菸量範例 - 已戒菸"
+Description: "受檢勞工之吸菸史：曾每日吸菸 20 支、菸齡 15 年，已戒菸 24 個月。用於示範 ext-smoking-quantity 與 ext-cessation-duration 之填法。"
+* status = #final
+* category[0] = http://terminology.hl7.org/CodeSystem/observation-category#social-history
+* code = LNC#72166-2 "Tobacco smoking status"
+* subject = Reference(example-worker)
+* effectiveDateTime = "2026-06-12T08:05:00+08:00"
+* performer = Reference(example-nurse)
+* valueCodeableConcept.coding[0] = http://snomed.info/sct#8517006 "Ex-smoker"
+* valueCodeableConcept.coding[localSmokingStatus] = CS_SmokingStatus#3-quit "已戒菸"
+* extension[smokingQuantity].extension[dailyAmount].valueInteger = 20
+* extension[smokingQuantity].extension[durationYears].valueInteger = 15
+* extension[cessationDuration].valueInteger = 24
+
+// ------------------------------------------------------------------
+// 飲酒歷史（JOB-05：TWHA-SocialHistory-Alcohol 原無任何範例）
+// Profile 固定 code = LNC#11331-6 且限定 value[x] 為 CodeableConcept，
+// 但未綁定值集——本 IG 目前沒有飲酒狀態的本地代碼系統。
+// 此處採 SNOMED CT，與既有 obs-smoking 之作法一致。
+Instance: obs-alcohol
+InstanceOf: TWHASocialHistoryAlcoholProfile
+Title: "飲酒歷史與狀態範例"
+Description: "受檢勞工王大同之飲酒習慣：目前有飲酒習慣。"
+* status = #final
+* category = http://terminology.hl7.org/CodeSystem/observation-category#social-history
+* code = LNC#11331-6 "History of Alcohol use"
+* subject = Reference(example-worker)
+* effectiveDateTime = "2026-06-12T08:05:00+08:00"
+* performer = Reference(example-nurse)
+* valueCodeableConcept = http://snomed.info/sct#219006 "Current drinker of alcohol"

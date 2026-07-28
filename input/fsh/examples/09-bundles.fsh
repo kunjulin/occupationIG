@@ -102,6 +102,28 @@ Description: "噪音/鉛/粉塵等特殊危害健康作業檢查報告封包。"
 * entry[6].resource = obs-pulmonary
 * entry[7].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression"
 * entry[7].resource = example-clinical-impression
+* entry[8].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-special"
+* entry[8].resource = example-encounter-special
+* entry[9].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-occupation"
+* entry[9].resource = obs-occupation
+* entry[10].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-ecg"
+* entry[10].resource = obs-ecg
+* entry[11].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ImagingStudy/example-imaging-chest-xray"
+* entry[11].resource = example-imaging-chest-xray
+* entry[12].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/DiagnosticReport/example-diagnostic-report"
+* entry[12].resource = example-diagnostic-report
+* entry[13].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-health-mgmt-level"
+* entry[13].resource = obs-health-mgmt-level
+* entry[14].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/CarePlan/example-careplan-fitness"
+* entry[14].resource = example-careplan-fitness
+* entry[15].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ServiceRequest/example-servicerequest-followup"
+* entry[15].resource = example-servicerequest-followup
+* entry[16].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-nurse"
+* entry[16].resource = example-nurse
+* entry[17].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-alcohol"
+* entry[17].resource = obs-alcohol
+* entry[18].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-smoking-former"
+* entry[18].resource = obs-smoking-former
 
 Instance: UC-004
 InstanceOf: TWHABundleDocumentProfile
