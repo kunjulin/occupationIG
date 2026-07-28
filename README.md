@@ -146,6 +146,11 @@ set NODE_OPTIONS=--use-system-ca
   - `Observation.performer` 於 [TWHA-LabResult-General](input/fsh/profiles/TWHA-LabResult-General.fsh)、[TWHA-LabResult-Special](input/fsh/profiles/TWHA-LabResult-Special.fsh)、[TWHA-VitalSigns](input/fsh/profiles/TWHA-VitalSigns.fsh) 標 **Must Support**，支援第 19 條紀錄保存與稽核之執行者追溯。
   - 新增 **dataAbsentReason 缺值範例** `obs-lab-egfr-absent`（[examples.fsh](input/fsh/examples/examples.fsh) §9），示範治理原則「缺值以 dataAbsentReason 標明而非省略」之實際填法。
   - 新增 **職業健康急診友善摘要** Profile [TWHA-Composition-EmergencySummary](input/fsh/profiles/TWHA-Composition-EmergencySummary.fsh) 及範例（暴露史 `obs-exposure-lead`＋摘要 Composition `composition-emergency-summary`＋封包 UC-007），將原候選欄位清單落實為可驗證之 FHIR 文件。
+- **未決事項**：所有需外部機關或臨床單位決定之事項，集中列於網站之
+  [未決事項與已知限制](https://kunjulin.github.io/occupationIG/open-issues.html)頁
+  （原始碼：`input/pagecontent/open-issues.md`）。該頁載明每項之現況、決定者、
+  所需輸入與「若決策不同的影響」。**本 README 之警語不因該頁存在而簡化**——
+  README 讀者未必會看網站。
 - **文件狀態**：本 IG 為工研院委託研擬中之草案，尚未定稿，後續得依共識會議、委員意見及主管機關規範調整。
 
 ### 2026-07-09 更新 (同步勞工體檢項目)

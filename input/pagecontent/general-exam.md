@@ -78,5 +78,5 @@
 | 7 | 胸部 X 光 | Extended | `TWHA-ImagingStudy`／`TWHA-DiagnosticReport` | `24648-8`（單張 PA） |
 
 > ⚠️ **本表為 implementation note，非情境值集**。本期尚未以 ValueSet 形式定義「附表九完整法定需求集」
-> （backlog：`VS-Appendix9-RequiredSet`）；在此之前，實作端應以本表作為附表九涵蓋度之對照依據，
+> （backlog：`VS-Appendix9-RequiredSet`，見[未決事項 M-8](open-issues.html#m-8)）；在此之前，實作端應以本表作為附表九涵蓋度之對照依據，
 > **不得**逕以 `VS-CoreDataset` 或 `VS-CoreUploadSet` 作為附表九之完整需求。
