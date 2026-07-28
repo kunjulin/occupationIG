@@ -55,7 +55,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 | [JOB-02](JOB-02-publication-language-and-versioning.md) | 發佈語言（zh-TW）、網址結構與版本歷程正式化 | **P0** | 發佈 | S（1–2 天） | — | ✅ **已執行**（待建置驗證） |
 | [JOB-03](JOB-03-ip-and-required-fragments.md) | LOINC/SNOMED 授權聲明與四個必要 HTML fragment 補納 | **P0** | 合規 | S（1 天） | — | ✅ **已執行**（待建置驗證） |
 | [JOB-04](JOB-04-upload-path-conformance.md) | 上傳路徑（Transaction Bundle ＋ `$submit`）契約與端到端範例 | **P1** | 可實作性 | M（3–5 天） | — | 待辦 |
-| [JOB-05](JOB-05-example-coverage.md) | 範例覆蓋率：9 profile／5 extension 補範例、performer 補齊 | **P1** | 可實作性 | M（3–5 天） | JOB-04 | 待辦 |
+| [JOB-05](JOB-05-example-coverage.md) | 範例覆蓋率：9 profile／5 extension 補範例、performer 補齊 | **P1** | 可實作性 | M（3–5 天） | JOB-04 | ✅ **已執行**（餘 Bundle-Transaction 範例屬 JOB-04；T-10 為新發現之建模議題） |
 | [JOB-06](JOB-06-identifier-namingsystem.md) | 識別碼命名系統（NamingSystem）定義與範例對齊 | **P1** | 術語／治理 | S（1–2 天） | — | 🔶 **第一階段**（本 IG 自有者已定義；其餘待 TW Core 盤點） |
 | [JOB-07](JOB-07-scenario-required-valuesets.md) | 情境資料集值集（附表九／附表十 RequiredSet）落地 | **P1** | 內容 | L（1–2 週） | JOB-01 | 待辦 |
 | [JOB-08](JOB-08-ci-cd-reproducible-build.md) | CI/CD：可重現 tx 建置、QA 閘門與自動發佈 | **P1** | 工程 | M（2–4 天） | — | ✅ **已執行**（建置＋閘門＋發佈；發佈預設為手動觸發） |
@@ -90,15 +90,18 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 
 ### 現行基準線（每個 JOB 完成後應下調）
 
-`qa-baseline.json`：`err 0` / `warn 152` / `info 416` ＋ 20 個具名類別。
-`is not included anywhere ...` 與 `There are multiple different potential matches`
-已降至 0 並鎖定；`Wrong Display Name` 由 133 降至 23（餘數即待臨床決定者）。
-`There are no valid display names found for the code`（218）為宣告中文預設語言之
+`qa-baseline.json`：`err 0` / `warn 152` / `info 449` ＋ 22 個具名類別。
+已鎖定歸零者：`is not included anywhere`、`multiple different potential matches`、
+`should have a performer`（47 → 0，JOB-05）、`contains no examples for this extension`、
+`ShareableValueSet`／`vsd-0`（JOB-10）。`Wrong Display Name` 由 133 降至 23
+（餘數即待臨床決定者）；`contains no examples for this profile` 餘 1
+（TWHA-Bundle-Transaction，JOB-04 範圍）。
+`There are no valid display names found for the code`（232）為宣告中文預設語言之
 必然結果，非待修項目。
 
-`info` 之所以高於初始的 394，是 JOB-10 把 TWCR_SF mock 明確降級為本地 stub
-所帶進的 19 筆（draft／experimental 參照）——其組成逐筆具名於 `qa-baseline.json`
-之 `_job10Note`。**總數上調必須具名說明多出來的是什麼**，這是基準線的既定規則。
+`info` 之所以高於初始的 394：JOB-10 之 stub 降級帶進 19 筆（`_job10Note`）、
+JOB-05 新增 11 個範例 artifact 帶進約 31 筆（`_job05Note`）——
+**總數上調必須具名說明多出來的是什麼**，這是基準線的既定規則。
 
 ---
 
