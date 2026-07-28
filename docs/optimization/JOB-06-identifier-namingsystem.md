@@ -299,12 +299,34 @@ TW Core 與本 IG 有兩種表達方式，比現況更糟。
 
 即**上游沒有提供醫事人員證書字號的命名空間**。
 
-**處置（使用者決定）：暫時留空。** 已移除該 `identifier.system`，保留 value
-並於範例中註明理由。自行另定會製造同一識別碼兩個 canonical（§5 之最大風險），
-且證書字號之發放機關為衛福部，命名空間應由主管機關或 TW Core 決定。
+#### 「暫時留空」經實測不可行
 
-**留空的代價須明載**：此 identifier 不具跨機構唯一性，僅機構內可辨識。
-第 19 條之稽核追溯若需跨機構識別執行者，此項必須先解決。
+使用者原決定為「暫時留空」。實作後 CI 之 SUSHI 直接報錯
+（run 30338001695）：
+
+```
+error Element Practitioner.identifier.system has minimum cardinality 1 but occurs 0 time(s).
+  File: input/fsh/examples/examples.fsh
+  Line: 40 - 62
+```
+
+**`TWCorePractitioner` 要求 `identifier.system` 必填（min 1）**，
+只要有 `identifier`，就必須給 `system`。留空這條路被上游 profile 堵死。
+
+已還原為原值並在範例中就地載明缺陷，**維持現狀待決**。
+
+#### 三個可行選項（待使用者決定）
+
+| # | 做法 | 優點 | 代價 |
+|--:|:--|:--|:--|
+| A | **整個 `identifier` 拿掉**（不宣告執業人員識別碼） | 不宣稱任何不存在的東西；若 `Practitioner.identifier` 為 `0..*` 即可行 | 範例失去執業人員識別碼；`identifier` 之下限須先以 CI 實測確認 |
+| B | **改用 `http://example.org/...` 佔位命名空間** | 明確標示為範例值，不佔用政府命名空間；IG Publisher 對 example URL 會略過「無定義」檢查 | 讀者可能誤抄佔位值；仍未解決真實命名空間 |
+| C | **維持現狀**（指向不存在的 CodeSystem），僅以註解與本節載明 | 與先前版本一致，變更最小 | 網站上仍是一個解析不到的 URL；`No definition` 維持 17 |
+
+目前為 **C**（僅因為它是變更最小的待決狀態，不代表已擇定）。
+
+**共通的代價須明載**：無論 A／B／C，此 identifier 都不具跨機構唯一性。
+第 19 條之稽核追溯若需跨機構識別執行者，此項必須先解決——它不是可以無限期擱置的項目。
 
 ---
 
