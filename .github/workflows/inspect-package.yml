@@ -36,6 +36,32 @@ jobs:
         with:
           node-version: '20'
 
+      # 先探測套件是否存在、有哪些版本。JOB-10 的問題是「這個套件到底存不存在」，
+      # 直接下載指定版本無法區分「套件不存在」與「版本號給錯」——兩者都是 404。
+      # 本步驟不使 job 失敗（|| true），僅提供判讀資訊。
+      - name: Probe registry
+        env:
+          PKG: ${{ inputs.package }}
+        run: |
+          set -u
+          for base in "https://packages.fhir.org/$PKG" \
+                      "https://packages2.fhir.org/packages/$PKG" \
+                      "https://packages.simplifier.net/$PKG"; do
+            code=$(curl -sS -o probe.json -w '%{http_code}' --max-time 60 "$base" || echo 000)
+            echo "── $base → HTTP $code"
+            if [ "$code" = 200 ]; then
+              node -e '
+                const d=JSON.parse(require("fs").readFileSync("probe.json","utf8"));
+                console.log("   name:", d.name ?? "(無)");
+                console.log("   description:", (d.description ?? "(無)").slice(0,120));
+                const vs = Object.keys(d.versions ?? {});
+                console.log("   versions:", vs.length ? vs.join(", ") : "(無)");
+                if (d["dist-tags"]) console.log("   dist-tags:", JSON.stringify(d["dist-tags"]));
+              ' || echo "   （回應非預期之 JSON）"
+            fi
+          done
+          rm -f probe.json
+
       # 兩個 registry 都試：packages.fhir.org 偶有不穩，packages2 為官方鏡像。
       - name: Download package
         env:
