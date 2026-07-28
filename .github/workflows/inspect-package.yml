@@ -24,6 +24,10 @@ on:
         description: 'canonical 清單檔（每行一個 URL），例：docs/optimization/evidence/twcrsf-canonicals.txt'
         required: false
         default: ''
+      profiles:
+        description: 'profile id/url，以空白分隔（例：TWCoreServiceRequest TWCoreCarePlan）；摘出必填欄位、固定值與 required 綁定'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -92,6 +96,25 @@ jobs:
           tar xzf pkg.tgz -C pkg
           echo "解壓後檔案數：$(find pkg -type f | wc -l)"
 
+      # JOB-05：為繼承自 TW Core 的 profile 補範例前，必須先知道上游的必填欄位、
+      # 固定值與 required 綁定。開發環境封鎖 packages.fhir.org，本機看不到，
+      # 盲寫只會換來好幾輪「CI 報錯→猜→再報錯」。
+      - name: Describe profiles
+        if: inputs.profiles != ''
+        run: |
+          set -euo pipefail
+          args=""
+          for p in ${{ inputs.profiles }}; do args="$args --profile $p"; done
+          # shellcheck disable=SC2086
+          node scripts/describe-profile.js --dir pkg $args | tee profiles.txt
+          {
+            echo '### profile 摘要'
+            echo ''
+            echo '```'
+            cat profiles.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Inspect
         if: inputs.package != ''
         run: |
@@ -135,4 +158,5 @@ jobs:
             inventory.json
             canonicals.txt
             canonicals.json
+            profiles.txt
           retention-days: 30
