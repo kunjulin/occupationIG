@@ -129,6 +129,8 @@
 *   **適用對象**：從事粉塵危害預防標準所定義之粉塵作業勞工。
 *   **核心生理與實驗室檢查項目**：
     *   **胸部 X 光檢查 (Chest X-ray)**：採用 `TWHA-ImagingStudy` 記錄影像，並以 `TWHA-DiagnosticReport` 記錄 X 光大片攝影診斷報告（LOINC `36643-5`），評估塵肺症（Pneumoconiosis）之分期。
+
+        > 範例：[胸部 X 光 example-imaging-chest-xray](ImagingStudy-example-imaging-chest-xray.html)（含 DICOM series／instance 之完整填法）、[診斷報告 example-diagnostic-report](DiagnosticReport-example-diagnostic-report.html)。特殊健檢事件本身（含危害類別與通報代碼 extension）見 [example-encounter-special](Encounter-example-encounter-special.html)，健檢後之分級與配工閉環見[健康管理分級](health-management.html)。
     *   **肺功能檢查 (Spirometry)**：採用 `TWHA-PulmonaryFunction`。記錄 FVC (LOINC `19868-9`)、FEV1 (LOINC `20150-9`) 及 FEV1/FVC 比值 (LOINC `19926-5`)。
 
 ---

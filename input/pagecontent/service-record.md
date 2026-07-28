@@ -48,4 +48,6 @@
     - 改善任務內容記錄於 `description`。
 3.  **前次改善事項追蹤**：
     - 使用另一個 `TWHA-Task-ServiceTask` 實例，其 `status` 標註追蹤結果（如已完成 `completed`、未完成 `failed`），並於 `description` 描述追蹤情形。
+
+> 範例：[現場發現問題 example-service-finding](Observation-example-service-finding.html)、[改善建議任務 example-service-task](Task-example-service-task.html)；完整封包見 [UC-006](Bundle-UC-006.html)。
     - 透過 Composition 封裝，達成「本次改善建議」與「前次建議追蹤」的歷史關聯性。
