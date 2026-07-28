@@ -29,14 +29,20 @@ Description: "受檢勞工王大同於115年6月12日進行之噪音作業特殊
 * period.end = "2026-06-12T11:00:00+08:00"
 * participant[0].individual = Reference(example-doctor)
 * serviceProvider = Reference(example-hospital)
-* extension[examType].valueCodeableConcept = CS_ExamType#special-health "特殊健康檢查"
-* extension[hazardType].valueCodeableConcept = CS_HazardType#noise "噪音作業"
-* extension[department].valueString = "化學處理課"
-// ext-labor-report-code 之 context 含 Encounter，但未被任何 profile 以
-// `extension contains` 具名宣告（JOB-05 §4：僅補範例，不擴充模型），
-// 故此處以 URL 直接引用。
-* extension[+].url = "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-labor-report-code"
-* extension[=].valueCodeableConcept = CS_LaborReportCode#30902X "噪音作業特殊健檢通報"
+// 四個 extension 一律用數字索引：第一版把前三個用具名 slice、第四個用
+// extension[+]，但 SUSHI 的數字 soft index 與具名 slice 是**兩套計數器**，
+// [+] 從 0 起算而把 examType 蓋掉，產生「examType minimum required = 1,
+// but only found 0」（run 30406136544）。切片歸屬交由驗證器以 url 判別。
+// ext-labor-report-code 未被任何 profile 具名宣告（JOB-05 §4：不擴充模型），
+// 本來就只能以 URL 引用。
+* extension[0].url = "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-type"
+* extension[0].valueCodeableConcept = CS_ExamType#special-health "特殊健康檢查"
+* extension[1].url = "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-hazard-type"
+* extension[1].valueCodeableConcept = CS_HazardType#noise "噪音作業"
+* extension[2].url = "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department"
+* extension[2].valueString = "化學處理課"
+* extension[3].url = "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-labor-report-code"
+* extension[3].valueCodeableConcept = CS_LaborReportCode#30902X "噪音作業特殊健檢通報"
 
 // ------------------------------------------------------------------
 // 心電圖（TWCoreECG 固定 code 為 LOINC 11524-6；category 為必填 1..*）
@@ -95,9 +101,13 @@ Description: "彙整噪音作業特殊健康檢查各項結果之診斷報告，
 * effectiveDateTime = "2026-06-12T11:00:00+08:00"
 * issued = "2026-06-15T10:00:00+08:00"
 * performer = Reference(example-doctor)
-* result[0] = Reference(obs-hearing)
-* result[1] = Reference(obs-pulmonary)
-* result[2] = Reference(obs-ecg)
+// ⚠️ 刻意不填 result：TWCoreDiagnosticReport 把 result 限定為
+// Reference(Observation-laboratoryResult-twcore)，聽力／肺功能／心電圖等
+// 非檢驗類 Observation 一律不符（run 30406136544 實測 3 筆
+// "Unable to find a profile match"）。健檢報告如何彙整非檢驗結果
+// 屬未決之建模議題，見未決事項 T-10；本範例以 Composition 之 section
+// 承載該連結（見 composition-uc003），DiagnosticReport 僅示範
+// 容器欄位與影像參照。
 * imagingStudy[0] = Reference(example-imaging-chest-xray)
 * conclusion = "雙耳高頻聽力閾值輕度上升，與噪音暴露相關；肺功能、心電圖與胸部X光未見異常。建議列第四級健康管理並實施適性配工。"
 

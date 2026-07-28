@@ -51,6 +51,7 @@
 | [T-7](#t-7) | 去識別化 Token 之使用方式 | 主管機關／平台端 | 待決 |
 | [T-8](#t-8) | 事業單位識別碼之選擇 | 主管機關 | 待決 |
 | [T-9](#t-9) | 特殊健檢部分項目未結構化 | 本專案 | 待決 |
+| [T-10](#t-10) | DiagnosticReport 無法彙整非檢驗類結果 | TW Core／本專案 | 待決 |
 | [P-1](#p-1) | canonical 命名空間為 provisional | 主管機關 | 待決 |
 | [P-2](#p-2) | 授權條款未宣告 | 委託契約雙方 | 待決 |
 
@@ -433,6 +434,35 @@ SNOMED International Browser **人工填載，未經術語伺服器逐碼驗證*
 **影響範圍**　`special-exam.md`；相關值集。
 
 **出處**　`special-exam.md` §臨床適當性註記
+
+---
+
+## T-10　DiagnosticReport 無法彙整非檢驗類結果 <a id="t-10"></a>
+
+**現況**　`TWCoreDiagnosticReport`（本 IG `TWHA-DiagnosticReport` 之上游）將
+`result` 限定為 `Reference(Observation-laboratoryResult-twcore)`。健檢報告中的
+聽力、肺功能、心電圖、理學檢查等**非檢驗類** Observation 一律不符
+（CI run 30406136544 實測 3 筆 `Unable to find a profile match`）。
+現行範例（`example-diagnostic-report`）因此**刻意不填 `result`**，
+非檢驗結果之彙整改由 `Composition` 之 section 承載。
+
+**待決**　健檢報告之彙整資源選擇：(a) 維持現狀——`DiagnosticReport.result`
+僅收檢驗項目，其餘一律走 Composition；(b) 本 IG 對 `result` 放寬型別——
+但 FHIR profile **不得放寬**上游約束，此路徑需改為不繼承 TWCoreDiagnosticReport；
+(c) 向 TW Core 提案放寬。
+
+**所需輸入**　TW Core 維護團隊對 `result` 約束意圖之說明；平台端對
+「報告容器」之實際需求（僅檢驗？或含全部健檢項目？）。
+
+**影響範圍**　`TWHA-DiagnosticReport`；`example-diagnostic-report`；
+`general-exam.md` 之報告章節；上傳封包之組成建議。
+
+**若決策不同**　若採 (b) 脫離 TW Core 繼承，將失去 TW Core 對
+DiagnosticReport 之全部約束與互通性主張，代價大於效益，除非 TW Core
+明確表示 `result` 之限縮並非有意。在此之前，實作端**不應**把非檢驗
+Observation 塞進 `result`——那會在上游驗證失敗。
+
+**出處**　JOB-05 補範例時之 CI 實測（run 30406136544）
 
 ---
 
