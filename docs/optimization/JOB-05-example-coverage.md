@@ -147,3 +147,55 @@ docs/optimization/evidence/qa-summary-2026-07-26.md §2，並檢視 input/fsh/ex
    node scripts/check-pagecontent-refs.js 的驗收步驟。
 6. 分批提交，每批可獨立以 _genonce_tx.bat 驗收。
 ```
+
+---
+
+## 7. 執行紀錄（2026-07-28）
+
+### 7.1 已執行
+
+1. **拆檔**（§5）：`examples.fsh`（49KB／53 Instance）拆為 `01-actors-and-encounter` …
+   `11-special-exam-followup` 共 11 檔，依資源種類／情境而非 UC——基礎 Instance 被多個
+   UC 封包共用，按 UC 拆會造成重複定義。拆分以腳本核對：忽略註解與空行後 855 行
+   有效 FSH 逐字相同。
+2. **performer**（§3.2）：18 個 Observation 範例補齊，區分機構（example-hospital，
+   檢驗與影像）與人員（example-nurse 生理量測與問診／example-doctor 暴露史與臨場服務）。
+   `should have a performer` **47 → 0**。新增 `example-nurse`，其 identifier 命名空間
+   問題併入 T-2。
+3. **13 個 artifact 補範例**（§3.3）：新增 `11-special-exam-followup.fsh`，延續 UC-003
+   敘事（特殊健檢 → 影像／心電圖 → 報告 → 四級判定 → 配工 → 複檢）。5 個 extension
+   全部由宿主資源涵蓋。`contains no examples`：profile **9 → 1**（餘
+   `TWHA-Bundle-Transaction`，§4 交 JOB-04）、extension **5 → 0**。
+4. **MS 覆蓋檢核**（§3.1）：`scripts/check-ms-coverage.js`＋CI 步驟（非 strict）。
+5. **敘述 → 範例連結**（§3.4）：`health-management.md`／`special-exam.md`／
+   `service-record.md`。§2.5 之 UC-007 已於先前批次存在，無需變更。
+6. **順帶**：`fsh-source.zip` 改為建置時產生（原為 2026-07-10 手工快照，內容已落後
+   數週），CI 以 `--check` 擋過期封包。
+
+### 7.2 過程中被 CI 打掉的東西（保留為方法論記錄）
+
+- **MS 檢核第一版是假綠**：掃 SUSHI 產物（無 snapshot）得 0 個 MS 欄位卻回報 OK。
+  修正後：0 筆一律視為掃描基礎錯誤而失敗；優先掃 `output/`；differential 退回時明講。
+- **SUSHI soft index**：數字索引與具名 slice 是兩套計數器，`extension[+]` 從 0 起算
+  把 examType 蓋掉。混用是錯的，四個 extension 改全數字索引。
+- **上游要求先量測再寫**：6 個 TW Core 母 profile 之必填／固定值／required 綁定以
+  `scripts/describe-profile.js` 在 runner 上實測（CarePlan 之 text 必填、
+  ServiceRequest.code 1..1、ECG 固定 code 等均非 FHIR 基礎資源可推知）。
+
+### 7.3 發現之建模議題
+
+`TWCoreDiagnosticReport.result` 限定 `Reference(Observation-laboratoryResult-twcore)`，
+非檢驗類 Observation（聽力／肺功能／心電圖）一律不符，而 profile 不得放寬上游約束。
+範例刻意不填 `result`，議題登記為**未決事項 T-10**（含三條路徑與代價分析）。
+
+### 7.4 驗收狀態
+
+| §2 條件 | 狀態 |
+|:--|:--|
+| 1. `contains no examples` = 0 | 🔶 profile 餘 1（TWHA-Bundle-Transaction，JOB-04）；extension = 0 |
+| 2. `should have a performer` = 0 | ✅ |
+| 3. MS × 範例檢核表 | ✅ 腳本＋CI（暫非 strict；首份完整缺口清單待 output/ 掃描輪） |
+| 4. 敘述 → 範例連結 | ✅ 三頁 |
+| 5. downloads.md 含 UC-007 | ✅（先前批次已完成） |
+
+基準線變動之逐筆歸因見 `qa-baseline.json` 之 `_job05Note`。

@@ -9,13 +9,17 @@
   },
   "scripts": {
     "sushi": "sushi .",
+    "build:assets": "node scripts/build-fsh-source-zip.js",
+    "check:assets": "node scripts/build-fsh-source-zip.js --check",
     "build": "npm run sushi && node scripts/run-publisher.js --tx https://tx.fhir.org/r4",
     "build:offline": "npm run sushi && node scripts/run-publisher.js --tx n/a",
     "qa": "node scripts/qa-gate.js",
     "qa:tx": "node scripts/qa-gate.js --log input-cache/publisher-run.log --expect-tx",
     "check:refs": "node scripts/check-pagecontent-refs.js",
     "check:refs:strict": "node scripts/check-pagecontent-refs.js --strict",
-    "verify": "npm run check:refs && npm run qa"
+    "check:ms": "node scripts/check-ms-coverage.js",
+    "check:ms:strict": "node scripts/check-ms-coverage.js --strict",
+    "verify": "npm run check:refs && npm run check:assets && npm run qa"
   },
   "devDependencies": {
     "fsh-sushi": "3.20.0"

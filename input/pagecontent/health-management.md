@@ -16,6 +16,9 @@
 - 在 ClinicalImpression 中，以 **`ext-health-mgmt-level`** 擴充欄位記錄 `level-1` 至 `level-4` 的代碼。
 - 亦可在打包的 Bundle 中，以獨立的 `TWHA-HealthManagementLevel` Observation 資源記錄此判定分級。
 
+> 範例：[第四級管理判定 obs-health-mgmt-level](Observation-obs-health-mgmt-level.html)（噪音作業特殊健檢後之判定，
+> 完整情境見 [UC-003 封包](Bundle-UC-003.html)）。
+
 ---
 
 ## 2. 適性配工流程 (Fitness for Work Flow)
@@ -33,6 +36,9 @@
     - `clinical-treatment` (醫療限制)
   - 計畫的具體執行目標可利用 `Goal` 資源記錄，執行進度可使用 `Task` 資源追蹤。
 
+> 範例：[適性配工計畫 example-careplan-fitness](CarePlan-example-careplan-fitness.html)——變更工作場所＋縮短工時，
+> 對應前述第四級管理判定。
+
 ---
 
 ## 3. 追蹤檢查要求 (ServiceRequest for Follow-up)
@@ -44,3 +50,5 @@
 - `requester` 為判定醫師或健檢醫院。
 - `occurrenceDateTime` 標註預定進行追蹤重檢之日期。
 - `reasonReference` 關聯至導致第三級管理判定之異常檢查項目（例如：聽力異常 `TWHA-HearingTest` 實例）。
+
+> 範例：[追蹤檢查要求 example-servicerequest-followup](ServiceRequest-example-servicerequest-followup.html)——三個月後純音聽力複檢。

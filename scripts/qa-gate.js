@@ -142,7 +142,23 @@ for (const r of regressedCategories) {
 }
 
 for (const level of regressedLevels) {
-  const lines = qa.split(/\r?\n/).filter((l) => l.startsWith(`${level}:`));
+  let lines = qa.split(/\r?\n/).filter((l) => l.startsWith(`${level}:`));
+
+  // ERROR 等級的特殊處理：qa.txt 的斷鏈也以 ERROR: 開頭，動輒兩千筆，
+  // 會把真正的驗證錯誤徹底淹沒（實測：err +6 時前 15 名形態全是連結樣式，
+  // 一筆真錯誤都看不到）。斷鏈已是具名類別（cannot be resolved）有自己的
+  // 抽樣，此處排除之，剩下的才是「err = N」計數的驗證錯誤——通常筆數少，
+  // 直接逐筆列出而非歸形態。
+  if (level === 'ERROR') {
+    const excluded = lines.filter((l) => l.includes('cannot be resolved')).length;
+    lines = lines.filter((l) => !l.includes('cannot be resolved'));
+    console.log(`\nERROR 退步明細（已排除 ${excluded} 筆斷鏈——該類另由「cannot be resolved」具名追蹤）：`);
+    for (const l of lines.slice(0, 20)) console.log(`  ${l.trim().slice(0, 250)}`);
+    if (lines.length > 20) console.log(`  …另有 ${lines.length - 20} 筆`);
+    if (lines.length === 0) console.log('  （無——err 之增加全數來自斷鏈以外之計數差異，請直接查 qa.txt）');
+    continue;
+  }
+
   const groups = new Map();
   for (const l of lines) {
     const s = signature(l);
