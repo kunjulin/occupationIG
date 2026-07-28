@@ -107,7 +107,7 @@
 
 本節提供健康檢查資料集中各主要項目的跨術語對照，整合 LOINC（preferred 優先碼／acceptable 可接受碼）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照——三者為**平行之 code system**。
 
-> **⚠️ SNOMED CT 欄位之效力限制**：本表 SNOMED CT 欄位（§4.1 所列 4 碼除外）係先前以 SNOMED International Browser 人工填載，**未經術語伺服器逐碼驗證**，屬 **draft／informative** 性質，**僅供參考，不得作為正式建議 mapping 或交換要求使用**。實務上曾發現此類未驗證之人工對照有相當比例語意不符（本 IG 於 2026-07-26 之術語稽核即更正 4 個職業健康相關 SNOMED／LOINC 錯碼）。正式採用前應逐碼完成驗證（列為 backlog）。
+> **⚠️ SNOMED CT 欄位之效力限制**：本表 SNOMED CT 欄位（§4.1 所列 4 碼除外）係先前以 SNOMED International Browser 人工填載，**未經術語伺服器逐碼驗證**，屬 **draft／informative** 性質，**僅供參考，不得作為正式建議 mapping 或交換要求使用**。實務上曾發現此類未驗證之人工對照有相當比例語意不符（本 IG 於 2026-07-26 之術語稽核即更正 4 個職業健康相關 SNOMED／LOINC 錯碼）。正式採用前應逐碼完成驗證（列為 backlog，見[未決事項 T-3](open-issues.html#t-3)）。
 
 > **標示慣例**：`—` 表示該欄位不適用或無需列出。`(-)` 系列表示**經術語伺服器查證後之缺碼狀態**（非尚未填寫），依成因區分為三態：
 >
