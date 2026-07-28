@@ -323,7 +323,16 @@ error Element Practitioner.identifier.system has minimum cardinality 1 but occur
 | B | **改用 `http://example.org/...` 佔位命名空間** | 明確標示為範例值，不佔用政府命名空間；IG Publisher 對 example URL 會略過「無定義」檢查 | 讀者可能誤抄佔位值；仍未解決真實命名空間 |
 | C | **維持現狀**（指向不存在的 CodeSystem），僅以註解與本節載明 | 與先前版本一致，變更最小 | 網站上仍是一個解析不到的 URL；`No definition` 維持 17 |
 
-目前為 **C**（僅因為它是變更最小的待決狀態，不代表已擇定）。
+**使用者已擇定 B**（2026-07-28）。範例改用
+`http://example.org/fhir/sid/tw-practitioner-license`，並於範例內就地標明
+「佔位命名空間，不是可實作的值，實作端不得沿用」。
+
+選 B 而非 C 的理由：C 讓網站上留著一個指向不存在 CodeSystem 的 URL，
+讀者無從得知那是壞的；B 用 FHIR 慣例的範例命名空間，一眼即知是佔位。
+選 B 而非 A 的理由：執業人員識別碼是第 19 條稽核追溯的關鍵欄位，
+整個拿掉會讓範例失去示範價值。
+
+⚠️ **這不是解決方案，是誠實的佔位。** 真正的命名空間仍待主管機關或 TW Core 決定。
 
 **共通的代價須明載**：無論 A／B／C，此 identifier 都不具跨機構唯一性。
 第 19 條之稽核追溯若需跨機構識別執行者，此項必須先解決——它不是可以無限期擱置的項目。

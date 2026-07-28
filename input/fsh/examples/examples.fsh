@@ -42,24 +42,27 @@ InstanceOf: TWHAPractitionerProfile
 Title: "執業醫護人員範例 - 林職醫"
 Description: "實施勞工體格及健康檢查評估並判定分級之林職醫師。"
 * identifier[0].use = #official
-// ⚠️ 已知缺陷，維持現狀待決（JOB-06 §8.3）：下列 system **在上游不存在**。
+// ⚠️ 佔位命名空間，**不是可實作的值**——醫事人員證書字號之命名空間尚未定案。
+//    詳見 JOB-06 §8.3。實作端不得沿用此值。
 //
 // 2026-07-27 以 scripts/inspect-package.js 盤點 tw.gov.mohw.twcore#1.0.0 實測：
-//   - CodeSystem `practitioner-license-tw` **不存在**（TW Core 僅 30 個 CodeSystem，無此項）；
+//   - 原用之 CodeSystem `practitioner-license-tw` **不存在**
+//     （TW Core 僅 30 個 CodeSystem，無此項）；
 //   - TWCorePractitioner 固定之 identifier.system 只有 http://www.moi.gov.tw、
 //     http://www.immigration.gov.tw、http://hl7.org/fhir/sid/passport-TWN 三者，
 //     皆為「人別」識別碼，並非專業證書字號。
 //   即**上游未提供醫事人員證書字號之命名空間**。
 //
-// 曾試「暫時留空」，但 SUSHI 直接報錯：
+// 曾試「暫時留空」，SUSHI 直接報錯：
 //   Element Practitioner.identifier.system has minimum cardinality 1 but occurs 0 time(s)
-// TWCorePractitioner 要求 identifier.system 必填，故留空不可行。
+// TWCorePractitioner 要求 identifier.system 必填，留空不可行。
 //
-// 自行另定命名空間會製造同一識別碼兩個 canonical（JOB-06 §5 之最大風險），
-// 且證書字號之發放機關為衛福部，命名空間應由主管機關或 TW Core 決定。
-// 在決定之前維持原值——它至少與先前版本一致，且缺陷已於此處與 JOB-06 §8.3 載明。
-* identifier[0].system = "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/practitioner-license-tw"
-* identifier[0].value = "MD-88888" // 醫師證書字號
+// 故改用 example.org 佔位（FHIR 慣例之範例命名空間）。理由：
+//   - 不佔用政府命名空間——證書字號之發放機關為衛福部，命名空間應由主管機關
+//     或 TW Core 決定，本 IG 片面另定會造成同一識別碼兩個 canonical；
+//   - 不指向一個解析不到的 CodeSystem，讀者不會誤以為那是真實可用的值。
+* identifier[0].system = "http://example.org/fhir/sid/tw-practitioner-license"
+* identifier[0].value = "MD-88888" // 醫師證書字號（命名空間待主管機關核定）
 * name[0].use = #official
 * name[0].text = "林職醫"
 
