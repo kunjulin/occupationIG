@@ -64,6 +64,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 | [JOB-11](JOB-11-security-privacy-depth.md) | 安全與隱私章節深化（可驗證化，非僅原則宣示） | **P2** | 內容 | M（3–5 天） | — | ✅ **已執行**（雇主版 Composition 落實欄位級隔離；Consent／AuditEvent／salt 政策屬 M-10） |
 | [JOB-12](JOB-12-navigation-and-repo-hygiene.md) | 資訊架構與 repo 整理（孤兒頁、下載區、文件歸檔、CLAUDE.md） | **P2** | 文件 | S（1 天） | — | ✅ **已執行** |
 | [JOB-13](JOB-13-open-issues-register.md) | 未決事項登記簿（M-5／M-6／G-2／provisional canonical 集中揭露） | **P2** | 治理 | S（1 天） | — | ✅ **已執行** |
+| [JOB-14](JOB-14-preferred-acceptable-recovery.md) | 尿沉渣面積碼回收為 Acceptable（preferred／acceptable 雙軌之範圍修正） | **P0** | 術語／可實作性 | S（1 人日） | JOB-01 | ⬜ 未執行 |
 
 各已執行之 JOB 於其檔案 **§7 執行紀錄**載明實際變更、刻意未做的部分，
 以及**尚待在可建置環境驗證的項目**。
@@ -72,8 +73,12 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 
 ### 剩餘未來工作（2026-07-29 更新）
 
-P0（送審阻斷級）已全數完成：JOB-01 術語稽核 ✅（Wrong Display Name 133→0）、JOB-02／03 ✅。
-截至此日，尚未收尾者為下列 🔶 部分完成、且**受外部輸入所限**之 JOB——後續應優先推進：
+P0 原已全數完成（JOB-01／02／03），惟 **2026-07-29 新增 JOB-14**：
+JOB-01 批 3 對尿沉渣 9 碼採整組換碼，將單一機構之報告習慣（每 µL）
+寫成全國唯一選項，刪除了 9 個 ACTIVE 的每面積碼，且 ConceptMap 未同步補對應。
+此為送審阻斷級之可實作性缺口，應優先於其餘 🔶 項目處理。
+
+其餘 🔶 部分完成、且**受外部輸入所限**之 JOB：
 
 - **JOB-06（識別碼命名系統 NamingSystem，第二階段）**：本 IG 自有識別碼已定義；其餘識別碼之
   NamingSystem 待 **TW Core 上游盤點**後對齊。
