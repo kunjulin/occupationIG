@@ -335,7 +335,7 @@ jobs:
           set -euo pipefail
 
           echo "--- 發佈前 gh-pages 內容 ---"
-          find gh-pages -mindepth 1 -maxdepth 1 -not -name .git -printf '%f\n' | sort | head -20
+          find gh-pages -mindepth 1 -maxdepth 1 -not -name .git -printf '%f\n' | sort | head -20 || true
           echo "檔案總數：$(find gh-pages -type f -not -path '*/.git/*' | wc -l)"
 
           # 保留 .git，其餘全部清除
@@ -349,7 +349,7 @@ jobs:
           touch gh-pages/.nojekyll
 
           echo "--- 發佈後內容 ---"
-          find gh-pages -mindepth 1 -maxdepth 1 -not -name .git -printf '%f\n' | sort | head -20
+          find gh-pages -mindepth 1 -maxdepth 1 -not -name .git -printf '%f\n' | sort | head -20 || true
           echo "檔案總數：$(find gh-pages -type f -not -path '*/.git/*' | wc -l)"
 
       # 讓線上網站能自證來源：出問題時可直接對回某個 commit 與某次 CI 執行，
