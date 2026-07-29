@@ -237,7 +237,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#30466-7 "Promonocytes/Leukocytes in Blood"
 * LNC#34921-7 "Lymphocytes Plasmacytoid/Leukocytes in Blood"
 * LNC#5905-5 "Monocytes/Leukocytes in Blood by Automated count"
-* LNC#19252-6 "Megakaryocytes/100 leukocytes in Blood"  // 2026-07-29 JOB-01 批3 Q7：完整巨核細胞/100 白血球碼（本即 IG 原欲表達者）；批2 之 70028-6=Megakaryocytic nuclei（細胞核）、62858-6=Micromegakaryocytes（微小巨核細胞）均非完整巨核細胞，故換用 19252-6；WebSearch 取自 loinc.org，經 CI $lookup 覆核
+* LNC#19252-6 "Megakaryocytes/Leukocytes in Blood"  // 2026-07-29 JOB-01 批3 Q7：完整巨核細胞碼（本即 IG 原欲表達者）；批2 之 70028-6=Megakaryocytic nuclei（細胞核）、62858-6=Micromegakaryocytes（微小巨核細胞）均非完整巨核細胞，故換用 19252-6；顯示名依 CI 回報之官方字串（原寫 /100 leukocytes，官方為 /Leukocytes）
 * LNC#706-2 "Basophils/Leukocytes in Blood by Automated count"
 * LNC#713-8 "Eosinophils/Leukocytes in Blood by Automated count"
 * LNC#731-0 "Lymphocytes [#/volume] in Blood by Automated count"
