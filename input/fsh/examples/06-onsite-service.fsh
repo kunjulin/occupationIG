@@ -64,3 +64,26 @@ Description: "林職醫師針對現場發現問題提出之改善建議，交由
 * focus = Reference(example-service-finding)
 * description = "大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。"
 * extension[employerInfo].valueReference = Reference(example-employer)
+
+// ------------------------------------------------------------------
+// 雇主端健康管理摘要範例（JOB-11）
+// 示範欄位級隔離：本摘要僅含分級／配工／服務發現，結構上不含任何檢驗值。
+// 對照 composition-emergency-summary（醫護端，含 keyLabs section）即見差異。
+// ------------------------------------------------------------------
+Instance: example-composition-employer-summary
+InstanceOf: TWHACompositionEmployerSummaryProfile
+Title: "雇主端健康管理摘要範例"
+Description: "提供予事業單位／職安人員之健康管理摘要：僅含王大同之健康管理分級、適性配工建議與臨場服務發現，**不含任何檢驗數值**。與醫護端之急診摘要（composition-emergency-summary，含關鍵檢驗值 section）對照，即見雇主端封包之欄位級隔離。"
+* status = #final
+* type = http://loinc.org#60591-5 "Patient summary Document"
+* subject = Reference(example-worker)
+* author = Reference(example-doctor)
+* date = "2026-06-15T10:30:00+08:00"
+* title = "雇主端健康管理摘要"
+* section[healthManagement].code = http://loinc.org#51848-0
+* section[healthManagement].title = "健康管理分級與適性配工建議"
+* section[healthManagement].entry[0] = Reference(obs-health-mgmt-level)
+* section[healthManagement].entry[1] = Reference(example-careplan-fitness)
+* section[serviceFindings].code = http://loinc.org#29554-3
+* section[serviceFindings].title = "臨場服務發現問題"
+* section[serviceFindings].entry[0] = Reference(example-service-finding)

@@ -61,7 +61,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 | [JOB-08](JOB-08-ci-cd-reproducible-build.md) | CI/CD：可重現 tx 建置、QA 閘門與自動發佈 | **P1** | 工程 | M（2–4 天） | — | ✅ **已執行**（建置＋閘門＋發佈；發佈預設為手動觸發） |
 | [JOB-09](JOB-09-build-config-hardening.md) | 建置組態固化：釘版、`pin-canonicals`、`no-validate` 正當性 | **P2** | 工程 | S（1–2 天） | JOB-08 | 🔶 **部分完成**（釘版與 OID 待外部條件） |
 | [JOB-10](JOB-10-twcrsf-dependency-governance.md) | TWCR_SF mock 依賴治理（勿在他方命名空間下發佈代碼） | **P2** | 治理 | S（1–2 天） | — | ✅ **已執行**（路徑 B：明確降級為本地 stub；正式套件待 G-5） |
-| [JOB-11](JOB-11-security-privacy-depth.md) | 安全與隱私章節深化（可驗證化，非僅原則宣示） | **P2** | 內容 | M（3–5 天） | — | 待辦 |
+| [JOB-11](JOB-11-security-privacy-depth.md) | 安全與隱私章節深化（可驗證化，非僅原則宣示） | **P2** | 內容 | M（3–5 天） | — | ✅ **已執行**（雇主版 Composition 落實欄位級隔離；Consent／AuditEvent／salt 政策屬 M-10） |
 | [JOB-12](JOB-12-navigation-and-repo-hygiene.md) | 資訊架構與 repo 整理（孤兒頁、下載區、文件歸檔、CLAUDE.md） | **P2** | 文件 | S（1 天） | — | ✅ **已執行** |
 | [JOB-13](JOB-13-open-issues-register.md) | 未決事項登記簿（M-5／M-6／G-2／provisional canonical 集中揭露） | **P2** | 治理 | S（1 天） | — | ✅ **已執行** |
 
@@ -90,13 +90,13 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 
 ### 現行基準線（每個 JOB 完成後應下調）
 
-`qa-baseline.json`：`err 0` / `warn 152` / `info 455` ＋ 22 個具名類別。
+`qa-baseline.json`：`err 0` / `warn 152` / `info 459` ＋ 22 個具名類別。
 已鎖定歸零者：`is not included anywhere`、`multiple different potential matches`、
 `should have a performer`（47 → 0，JOB-05）、`contains no examples for this extension`、
 `ShareableValueSet`／`vsd-0`（JOB-10）。`Wrong Display Name` 由 133 降至 23
 （餘數即待臨床決定者）；`contains no examples` 已全數歸零
 （最後一個 TWHA-Bundle-Transaction 由 JOB-04 之 UC-008／UC-009 補上）。
-`There are no valid display names found for the code`（232）為宣告中文預設語言之
+`There are no valid display names found for the code`（237）為宣告中文預設語言之
 必然結果，非待修項目。
 
 `info` 之所以高於初始的 394：JOB-10 之 stub 降級帶進 19 筆（`_job10Note`）、

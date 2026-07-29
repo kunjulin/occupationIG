@@ -7,7 +7,7 @@
   ],
   "measuredAt": "2026-07-29",
   "igPublisherVersion": "2.2.11",
-  "source": "CI run 30414513349（commit 496a1212，tx 建置）— JOB-07 情境值集",
+  "source": "CI run 30424292775（commit 669ebdea，tx 建置）— JOB-11 安全深化",
   "_runVarianceNote": [
     "⚠️ 同一份建置輸入之連續三次 tx 建置實測到 ±2 的差異：",
     "  d2571cb5 → info 397 / warn 160",
@@ -163,6 +163,28 @@
     "「法定應執行」之範疇口徑（附表十本文 vs 職安署細項生物偵測）與 repo PDF 為修正前版本",
     "二事登記於 M-11。"
   ],
+  "_job11Note": [
+    "JOB-11（安全深化）之基準線變動。量測來源 run 30424292775（commit 669ebdea，err = 0）。",
+    "",
+    "新增 1 個 profile（TWHA-Composition-EmployerSummary，雇主端欄位級隔離之可驗證機制）",
+    "＋ 1 個範例（example-composition-employer-summary）。closed section slicing 通過驗證",
+    "（err 0），證明 TWCoreComposition 未因封閉切片而衝突。",
+    "",
+    "上調（皆出自閘門抽樣）：",
+    "  could usefully have an OID assigned   56 → 57  +1：新 Composition profile（待 T-5）",
+    "  There are no valid display names     236 → 237  +1：範例 type code（60591-5）之 zh-TW 顯示名提示",
+    "  Pinned the version of                 29 → 30  +1：新 profile snapshot 釘 v3-ActCode 版本",
+    "  cannot be resolved                  2282 → 2311  +29：新 profile ＋ Composition 範例。",
+    "                                                    Composition 範例之頁數高於一般範例——IG Publisher",
+    "                                                    另產生「組合後文件」渲染視圖，故非 +10 而更多；",
+    "                                                    抽樣全為 history.html（P-1）之 publish-box 連結，無新種斷鏈。",
+    "",
+    "TOTAL info 455 → 459：+3 具名（OID／display／Pinned 皆 info 級）＋1 波動，取實測 459。",
+    "TOTAL warn 維持 152：實測 97。err 維持 0。",
+    "",
+    "涉及主管機關／平台端決定者（scope 語法、Consent／AuditEvent、salt 政策、簽章法律效力）",
+    "未片面認定，指向 M-10／T-2。"
+  ],
   "_warnNote": [
     "warn 實測 137，低於基準線 152（-15），本次**不下調**。",
     "",
@@ -196,7 +218,7 @@
   "totals": {
     "err": 0,
     "warn": 152,
-    "info": 455
+    "info": 459
   },
   "_categoriesNote": [
     "已鎖定之改善（不得回升）：",
@@ -236,7 +258,7 @@
     "Wrong Display Name": 23,
     "has a status of DISCOURAGED": 6,
     "should have an OID assigned": 46,
-    "could usefully have an OID assigned": 56,
+    "could usefully have an OID assigned": 57,
     "should have a performer": 0,
     "There are multiple different potential matches": 0,
     "No definition could be found for URL value": 11,
@@ -251,9 +273,9 @@
     "Reference to experimental CodeSystem https://twcore": 15,
     "The value set references CodeSystem": 4,
     "stated value for the caseSensitive element": 5,
-    "There are no valid display names found for the code": 236,
-    "Pinned the version of": 29,
-    "cannot be resolved": 2282,
+    "There are no valid display names found for the code": 237,
+    "Pinned the version of": 30,
+    "cannot be resolved": 2311,
     "does not match any known slice": 23
   }
 }
