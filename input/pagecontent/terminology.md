@@ -161,6 +161,21 @@
 
 ## 5. 術語資源下載與補充說明
 
+### 5.0 情境值集（③）與「第一期草案子集」之區別
+
+本指引有兩組**看似相近但語意不同**的必驗相關值集，切勿混用（此為 index.md「三層資料集」
+之延伸，不是第四層）：
+
+| 值集 | 回答的問題 | 內容 |
+|:--|:--|:--|
+| [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.html)／[VS-Appendix10-RequiredSet](ValueSet-VS-Appendix10-RequiredSet.html) | **法規本身**要求什麼（③ 情境資料集） | 依附表九／十逐項核對之法定應執行**檢驗與量測**項目，與本 IG 實作進度無關 |
+| [VS-OccHealthCheck-Required](ValueSet-VS-OccHealthCheck-Required.html) | **本 IG 這一期**優先結構化了哪些 | 第一期實作範圍之草案子集（一般項目＋噪音／鉛／粉塵三模組） |
+
+兩者**並存、不互相取代**：前者是「法規要求」，後者是「本期實作到哪」。
+`VS-OccHealthCheck-Required` 之成員為 `VS-Appendix9-RequiredSet` ∪ 附表十四家族值集之
+子集——即「法規要求」中，本期已完成結構化者。附表十未審家族（M-8）補齊後，
+兩者之差距即為「法規要求但本 IG 尚未結構化」之項目，可據以規劃後續期別。
+
 ### 5.1 術語對照表下載
 完整的 LOINC–SNOMED CT–UCUM 跨術語對照表（CSV 格式）可從以下連結下載：
 - [snomed-loinc-mappings.csv](snomed-loinc-mappings.csv)

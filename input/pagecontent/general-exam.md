@@ -77,6 +77,26 @@
 | 6 | 尿蛋白、尿潛血 | **Core**（尿蛋白）＋ Extended（尿潛血） | `VS-CoreDataset`／`VS-ExtendedDataset` | `5804-0`／`5794-3` |
 | 7 | 胸部 X 光 | Extended | `TWHA-ImagingStudy`／`TWHA-DiagnosticReport` | `24648-8`（單張 PA） |
 
-> ⚠️ **本表為 implementation note，非情境值集**。本期尚未以 ValueSet 形式定義「附表九完整法定需求集」
-> （backlog：`VS-Appendix9-RequiredSet`，見[未決事項 M-8](open-issues.html#m-8)）；在此之前，實作端應以本表作為附表九涵蓋度之對照依據，
-> **不得**逕以 `VS-CoreDataset` 或 `VS-CoreUploadSet` 作為附表九之完整需求。
+> ⚠️ **本表為 implementation note（承載對照）**，說明各法定項目由哪個 profile／值集承載。
+> 附表九之**檢驗與量測**項目另以機器可讀之情境值集 [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.html) 定義，
+> 供法定完整性稽核（見下方 §4.2）。非檢驗項目（作業經歷、既往病史、生活習慣、自覺症狀、身體各系統理學檢查）
+> 不列為該值集成員，仍以本表所列 profile 承載。**不得**逕以 `VS-CoreDataset` 或 `VS-CoreUploadSet` 作為附表九之完整需求。
+
+### 4.2 法定完整性稽核示範（附表九）
+
+「這次一般健檢是否做齊附表九法定檢驗項目？」可用 [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.html) 以程式判定。
+以一份健檢報告 Bundle 為輸入，逐一比對其 `Observation.code` 是否涵蓋該值集之每一成員：
+
+```
+// 缺漏項 ＝ 法定值集成員中，未出現於本次健檢任一 Observation.code 者
+missing =
+  VS-Appendix9-RequiredSet.members.where(
+    %bundle.entry.resource.ofType(Observation).code.coding.code
+      .contains($this.code).not()
+  )
+// missing 為空 ⇒ 檢驗與量測項目齊備；否則 missing 即為缺漏之法定項目清單
+```
+
+非檢驗項目（病史、理學檢查等）之完整性須另檢對應 profile 是否存在（例如
+`Bundle.entry.resource.ofType(Observation).where(meta.profile.contains('.../TWHA-PhysicalExam'))`），
+因其不以 `Observation.code` 之值集成員表達。此區隔即 §4.1 之承載對照所載。

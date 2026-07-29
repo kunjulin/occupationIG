@@ -141,3 +141,45 @@ input/fsh/codesystems/CS-Appendix10Operation.fsh 與 ConceptMap-Appendix10ToHaza
 6. 提醒：本 JOB 必須在 JOB-01（術語稽核）之後執行，並在計畫中說明如何確認引用的代碼已通過稽核。
 7. 一併規劃 scripts/check-pagecontent-refs.js 的假警報修正。
 ```
+
+---
+
+## 7. 執行紀錄（2026-07-29）
+
+### 7.1 已執行（對照 §2 驗收條件）
+
+| §2 條件 | 狀態 |
+|:--|:--|
+| 1. `VS-Appendix9-RequiredSet` | ✅ 完整落地；非檢驗項目以承載對照處理，不入值集 |
+| 2. `VS-Appendix10-RequiredSet` grouping ＋ 家族子集 | 🔶 grouping ＋ **四家族**子集（噪音／鉛／粉塵／有機溶劑）；其餘八家族待 JOB-01 |
+| 3. `special-exam.md` 涵蓋表連結值集 | ✅ 表上方新增值集落地狀態說明 |
+| 4. `index.md` ③ 欄改為實際連結 | ✅ |
+| 5. `check-pagecontent-refs.js` 不再報未解析 | ✅ 三個引用（VS-Appendix9/10）全部解析 |
+| 6. 完整性稽核示範 | ✅ `general-exam.md` §4.2（FHIRPath：法定值集成員 − 本次 Observation.code） |
+
+### 7.2 關鍵決策
+
+- **顆粒度**：附表十以 12 危害家族為值集主體（非 35 個具名作業），
+  35 號 → 家族之導引沿用既有 ConceptMap，不重複定義（§5）。
+- **分期落地（§5 硬性約束）**：JOB-07 §5 明訂「務必在 JOB-01 之後做」。
+  JOB-01 尚有 23 碼待臨床確認（T-1），涵蓋表逐家族標註審查狀態；
+  本 JOB **只落地「已審／已驗」之四家族**，未審八家族之專屬代碼刻意不納入——
+  在代碼確認前賦予其「法定必驗」權威性，撤回成本更高。分期本身登記於 M-8。
+  逐一比對確認：本 JOB 所用代碼**無一屬 needs-clinical 之 23 碼**。
+- **非檢驗項目**（作業經歷／病史／理學檢查／自覺症狀）**不入值集**（§3.2），
+  以承載對照（general-exam.md §4.1）＋ profile 存在性檢查處理；稽核示範明分兩路。
+- **與 `VS-OccHealthCheck-Required` 之關係（§3.3）**：並存、不取代。
+  前者＝「本期實作範圍」，新值集＝「法規要求」（③）。terminology.md §5.0 以對照表
+  界清，避免在三層框架上再加歧義。
+
+### 7.3 代碼來源
+
+全部取自已通過 JOB-01 稽核之既有內容（general-exam §4.1、special-exam 涵蓋表
+「已審／已驗」列、VS-OccHealthCheck-Required），未引入任何新代碼；display 逐一
+對齊 in-tree 之驗證字串。
+
+### 7.4 不在本 JOB（維持未決）
+
+附表十未審八家族之值集（高溫、游離輻射、異常氣壓、四烷基鉛、特定化學物質、
+黃磷、聯吡啶）——待 T-1 完成後於 `VS-Appendix10-RequiredSet.fsh` 增列（M-8）。
+成人預防保健之情境值集（§4，另立）。
