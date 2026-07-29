@@ -1,6 +1,6 @@
 # 使用情境 (Use Cases)
 
-本實作指引支援多元化健康檢查情境之資料交換，特別定義以下 **6 大核心使用情境 (UC-001 ~ UC-006)**。這些情境透過對應之 Exchange Package 打包傳輸，以符合臨床端、企業雇主、個人及政府平台的介接需求。
+本實作指引支援多元化健康檢查情境之資料交換，定義以下 **9 個使用情境**：UC-001 ~ UC-007 為**報告封包**（`type = document`），UC-008 ~ UC-009 為**上傳封包**（`type = transaction`）。這些情境透過對應之 Exchange Package 打包傳輸，以符合臨床端、企業雇主、個人及政府平台的介接需求。
 
 ---
 
@@ -84,3 +84,42 @@
     *   **環境危害發現**：`TWHA-Observation-ServiceFinding` 記錄在作業現場發現之職業危害因子（如噪音暴露、局部排氣裝置異常）。
     *   **改善建議與追蹤任務**：`TWHA-Task-ServiceTask` 定義指派給雇主公司之改善措施及後續追蹤項目。
 *   **對應範例**：[UC-006 勞工健康服務臨場服務紀錄封包範例](Bundle-UC-006.html)。
+
+---
+
+## UC-007: 職業健康急診友善摘要 (Emergency-Friendly Occupational Health Summary)
+
+*   **情境**：勞工於急診就醫時，急診醫師需要快速取得其職業暴露史與最近健檢重點，
+    以判斷症狀是否與職業暴露相關。
+*   **要點**：
+    *   以 `TWHA-Composition-EmergencySummary` 封裝暴露史（`TWHA-WorkExposure`）與重點檢查結果；
+    *   所引用之每筆數值均須可辨識其日期與來源機構，未標示者不得呈現；
+    *   缺值以 `dataAbsentReason` 標明（見 `obs-lab-egfr-absent`）。
+*   **對應範例**：[UC-007 職業健康急診友善摘要封包範例](Bundle-UC-007.html)。
+
+---
+
+## UC-008: 一般健檢結果上傳 (General Exam Result Upload)
+
+*   **情境**：健檢機構完成一般健檢後，向主管機關平台**上傳**結果（首次上傳）。
+*   **要點**：
+    *   `TWHA-Bundle-Transaction`：每個 entry 具 `request.method`／`request.url`，
+        內部參照以 `urn:uuid` 表達；
+    *   `Patient`／`Organization` 以識別碼**條件式建立**（`ifNoneExist`）達成去重；
+    *   `DiagnosticReport` 以[報告識別碼](NamingSystem-NS-ReportIdentifier.html)條件式建立。
+*   **對應範例**：[UC-008 一般健檢結果上傳封包範例](Bundle-UC-008.html)。
+*   **契約**：見[上傳介接契約](conformance.html)；整包處理語意為
+    [未決事項 M-9](open-issues.html#m-9)。
+
+---
+
+## UC-009: 特殊健檢結果上傳（缺值與冪等重傳）(Special Exam Upload with Idempotent Retry)
+
+*   **情境**：健檢機構上傳特殊危害健康作業（鉛作業）檢查結果；因網路逾時重送同一份報告。
+*   **要點**：
+    *   `DiagnosticReport` 以報告識別碼做**條件式更新**（`PUT` ＋ 查詢式 URL）——
+        重傳為覆寫而非新增（冪等）；
+    *   檢驗缺值以 `dataAbsentReason = not-performed` 標明；
+    *   暴露史屬 social-history，因 `result` 之上游限縮
+        （[T-10](open-issues.html#t-10)）不置於 `DiagnosticReport.result`。
+*   **對應範例**：[UC-009 特殊健檢結果上傳封包範例](Bundle-UC-009.html)。

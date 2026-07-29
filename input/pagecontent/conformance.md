@@ -48,3 +48,58 @@
 供未來升版評估參考。
 
 {% include cross-version-analysis-inline.xhtml %}
+
+---
+
+## 6. 上傳介接契約 (Upload Interface Contract)
+
+本節定義健檢機構向主管機關平台上傳資料之介接契約（JOB-04）。
+**平台端 API 之實際實作不在本 IG 範圍**；本節為雙方之最低共同約定。
+
+### 6.1 端點與方法
+
+| 項目 | 約定 |
+|:--|:--|
+| 端點 | `POST [base]/Bundle/$submit`（見 [Bundle-submit](OperationDefinition-Bundle-submit.html)），或逕以 `POST [base]` 送出交易封包 |
+| 輸入 | [TWHA-Bundle-Transaction](StructureDefinition-TWHA-Bundle-Transaction.html)：每個 entry 具 `request.method` 與 `request.url`，內部參照以 `urn:uuid` 表達 |
+| 成功 | HTTP 200 ＋ `type = transaction-response` 之 Bundle，逐 entry 回報 `response.status` 與伺服器指派位址 |
+| 驗證失敗 | HTTP 422 ＋ `OperationOutcome`，`issue.expression` 指向出錯之 entry 路徑 |
+
+### 6.2 去重與冪等重傳
+
+上傳必須可安全重試（網路逾時後重送不得產生重複資料）。判重鍵如下：
+
+| 資源 | 判重鍵 | 機制 | 範例 |
+|:--|:--|:--|:--|
+| `Patient` | 病歷號（機構內識別碼） | `request.ifNoneExist`（條件式建立） | [UC-008](Bundle-UC-008.html) entry[0] |
+| `Organization` | 醫事機構代碼 | `request.ifNoneExist` | [UC-008](Bundle-UC-008.html) entry[1] |
+| `DiagnosticReport` | 報告識別碼（[sid/report-id](NamingSystem-NS-ReportIdentifier.html)） | 首次上傳 `ifNoneExist`；重傳 `PUT` ＋ 查詢式 URL（條件式更新＝覆寫） | [UC-008](Bundle-UC-008.html) entry[3]、[UC-009](Bundle-UC-009.html) entry[5] |
+| `Practitioner` | **暫無**——證書字號命名空間未定（[T-2](open-issues.html#t-2)） | 一般 `POST`；T-2 定案後改條件式建立 | [UC-009](Bundle-UC-009.html) entry[2] |
+
+「同一次健檢」之判定以**報告識別碼**為準：`sid/report-id` 之值在發行機構內須唯一且不得回收
+（見 [NS-ReportIdentifier](NamingSystem-NS-ReportIdentifier.html) 之描述）。
+
+### 6.3 整包處理語意——未決（M-9）
+
+FHIR 對上傳封包有兩種處理語意，**對實作端的錯誤處理設計完全不同**：
+
+| | `transaction` | `batch` |
+|:--|:--|:--|
+| 語意 | **全有全無**：任一 entry 失敗，整包回滾 | 逐 entry 獨立處理，**允許部分成功** |
+| 機構端重試 | 整包重送即可（配合 §6.2 之冪等機制安全） | 須解析 response 逐筆判斷哪些要重送 |
+| 平台端負擔 | 需交易性儲存 | 無交易性要求，但對帳複雜 |
+| entry 結構 | 相同（本 IG 範例之 entry 寫法**兩者通用**） | 相同 |
+
+現行 profile（`TWHA-Bundle-Transaction`）固定 `type = #transaction`，
+**此為暫行預設，非最終決策**——定案屬平台端，登記於
+[未決事項 M-9](open-issues.html#m-9)。若定案採 `batch`，需調整者僅：
+profile 之 `type` 固定值、本節之錯誤處理敘述、`$submit` 之回應定義；
+範例之 entry 結構不變。**定案前，平台端不得依任一語意實作錯誤處理**。
+
+### 6.4 平台端能力宣告
+
+本 IG 之 [CapabilityStatement](CapabilityStatement-TWHA-CapabilityStatement.html) 為
+`kind = requirements`（規範要求）：宣告平台**應**支援之互動與查詢參數
+（`Patient.identifier`、`Observation.patient/code/date`、`DiagnosticReport.patient/date/identifier`）。
+平台實際上線後，應另行發佈 `kind = capability` 之實例宣告供機構端探測；
+該實例由平台端維護，不在本 IG 內。
