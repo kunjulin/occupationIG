@@ -70,6 +70,19 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 
 預估規模：S ≈ 1–2 人日、M ≈ 3–5 人日、L ≈ 1–2 人週。
 
+### 剩餘未來工作（2026-07-29 更新）
+
+P0（送審阻斷級）已全數完成：JOB-01 術語稽核 ✅（Wrong Display Name 133→0）、JOB-02／03 ✅。
+截至此日，尚未收尾者為下列 🔶 部分完成、且**受外部輸入所限**之 JOB——後續應優先推進：
+
+- **JOB-06（識別碼命名系統 NamingSystem，第二階段）**：本 IG 自有識別碼已定義；其餘識別碼之
+  NamingSystem 待 **TW Core 上游盤點**後對齊。
+- **JOB-09（建置組態固化）**：`template` 釘版、`auto-oid-root`、`no-validate` 正當性等，
+  待 **主管機關核配之 OID 根節點**（[T-5](../../input/pagecontent/open-issues.md#t-5)）與可釘定之模板版本。
+
+（另 JOB-07 附表十其餘八家族之未審代碼待 T-1／M-8；其餘 JOB 04／05／08／10／11／12／13 均已執行。）
+未決事項集中於 [open-issues](../../input/pagecontent/open-issues.md)。
+
 ### 建議執行順序
 
 ```
