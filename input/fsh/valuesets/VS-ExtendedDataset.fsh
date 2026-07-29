@@ -110,8 +110,10 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#10909-0 "Benzidine [Mass/volume] in Urine"
 * LNC#5681-2 "Manganese [Mass/volume] in Blood"
 * LNC#5683-8 "Manganese [Mass/volume] in Serum or Plasma"
-* LNC#42221-2 "Manganese [Mass/volume] in Urine"  // ⚠️ Q2-1 檢驗醫學部回覆院內以 µg/L（質量）報告，惟 42221-2 官方為 [Moles/volume]（莫耳）——本 IG 顯示名雖標質量卻用了莫耳碼，須改用真正的質量碼；屬批3（自尋質量碼並經 $lookup 覆核）backlog
-* LNC#34304-6 "Fluoride [Moles/volume] in Urine"  // 2026-07-29 JOB-01 批2：官方為莫耳濃度（Q2-2）。⚠️ 臨床建議之質量碼 5605-7 經 CI 查證為 LOINC 未知碼（不存在於 2.82，會產生 ERROR），已剔除；質量濃度碼（mg/L）待批3 以 $lookup 另尋
+* LNC#42221-2 "Manganese [Moles/volume] in Urine"  // 2026-07-29 JOB-01 批3 Q2-1：官方為莫耳（舊標質量有誤，碼本身為莫耳）；院方以 µg/L 質量報告，質量碼見下 5684-6
+* LNC#5684-6 "Manganese [Mass/volume] in Urine"    // 院方所用之質量碼（µg/L, Q2-1）；WebSearch 取自 loinc.org，經 CI $lookup 覆核
+* LNC#34304-6 "Fluoride [Moles/volume] in Urine"  // 2026-07-29 JOB-01 批2：官方為莫耳濃度（Q2-2）；質量碼見下 5650-7
+* LNC#5650-7 "Fluoride [Mass/volume] in Urine"    // 2026-07-29 JOB-01 批3：批2 誤薦之 5605-7 不存在於 LOINC，正確質量碼為 5650-7（mg/L, Q2-2）；WebSearch 取自 loinc.org，經 CI $lookup 覆核
 
 // 1.10 黃磷作業 (yellow-phosphorus)
 * LNC#2777-1 "Phosphate [Mass/volume] in Serum or Plasma"
@@ -161,7 +163,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#1834-1 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
 * LNC#9679-2 "Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma"
 * LNC#19113-0 "IgE [Units/volume] in Serum or Plasma"
-* LNC#9633-9 "Epstein Barr virus VCA IgA Ab [Presence] in Serum"
+* LNC#9633-9 "Epstein Barr virus capsid IgA Ab [Titer] in Serum by Immunofluorescence"  // 2026-07-29 JOB-01 批3 Q4-2：顯示名改官方（原標 [Presence] 有誤）。⚠️ 院方實以 EIA 報 U/mL 定量，惟 LOINC 無 capsid IgA [Units/volume] by Immunoassay 碼（僅 IgG 5157-3／IgM 5159-9 有），本碼為 IFA 效價；方法/量表落差為 LOINC 缺口，待裁示（open-issues T-1）
 
 // 1.16 進階心血管與自體免疫 (Advanced Cardiac/Autoimmune) — v1.1 自 VS-CoreDataset 移入（develop.md §3.2）
 * LNC#10835-7 "Lipoprotein A [Mass/volume] in Serum or Plasma"
@@ -235,7 +237,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#30466-7 "Promonocytes/Leukocytes in Blood"
 * LNC#34921-7 "Lymphocytes Plasmacytoid/Leukocytes in Blood"
 * LNC#5905-5 "Monocytes/Leukocytes in Blood by Automated count"
-* LNC#70028-6 "Megakaryocytic nuclei/Leukocytes in Blood by Manual count"  // 2026-07-29 JOB-01 批2：Q7 院方數完整巨核細胞（非細胞核、人工鏡檢）。臨床建議之 62858-6 經 CI 查證實為 Micromegakaryocytes（微小巨核細胞，亦非完整巨核細胞），已剔除；本碼（細胞核）顯示名依官方更正、暫留為最接近之有效碼，真正「完整巨核細胞/100 白血球（人工）」碼待批3 以 $lookup 另尋
+* LNC#19252-6 "Megakaryocytes/100 leukocytes in Blood"  // 2026-07-29 JOB-01 批3 Q7：完整巨核細胞/100 白血球碼（本即 IG 原欲表達者）；批2 之 70028-6=Megakaryocytic nuclei（細胞核）、62858-6=Micromegakaryocytes（微小巨核細胞）均非完整巨核細胞，故換用 19252-6；WebSearch 取自 loinc.org，經 CI $lookup 覆核
 * LNC#706-2 "Basophils/Leukocytes in Blood by Automated count"
 * LNC#713-8 "Eosinophils/Leukocytes in Blood by Automated count"
 * LNC#731-0 "Lymphocytes [#/volume] in Blood by Automated count"
@@ -325,20 +327,24 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#25145-4 "Bacteria [Presence] in Urine sediment by Light microscopy"
 * LNC#30004-6 "Creatinine [Mass/volume] in Urine by Test strip"
 * LNC#32356-8 "Yeast [Presence] in Urine sediment by Light microscopy"
-* LNC#33218-9 "Bacteria [#/volume] in Urine sediment by Automated count"
-* LNC#33219-7 "Epithelial cells.squamous [#/volume] in Urine sediment by Automated count"
-* LNC#33223-9 "Hyaline casts [#/volume] in Urine sediment by Automated count"
-* LNC#33342-7 "Epithelial cells [#/volume] in Urine sediment by Automated count"
-* LNC#43755-8 "Casts [#/volume] in Urine sediment by Automated count"
-* LNC#46419-8 "Erythrocytes [#/volume] in Urine sediment by Automated count"
-* LNC#46702-7 "Leukocytes [#/volume] in Urine sediment by Automated count"
-* LNC#50235-1 "Mucus [#/volume] in Urine sediment by Automated count"
+// 尿沉渣自動計數 — 2026-07-29 JOB-01 批3 Q1：院方 Sysmex UF-5000/UD-10 報「每 µL」（體積）。
+//   原列 [#/area] in Urine sediment（每面積、鏡檢沉渣）碼全數用錯（display 標體積、code 卻是面積），
+//   整批換為 [#/volume] in Urine by Automated count（每體積、全尿自動計數）碼。
+//   候選碼由 WebSearch 取自 loinc.org，經 CI $lookup 覆核；同屬 LOINC 50554-5 全尿鏡檢定量套組。
+* LNC#51480-2 "Bacteria [#/volume] in Urine by Automated count"                       // ← 33218-9
+* LNC#51486-9 "Epithelial cells.squamous [#/volume] in Urine by Automated count"      // ← 33219-7
+* LNC#51484-4 "Hyaline casts [#/volume] in Urine by Automated count"                  // ← 33223-9
+* LNC#87926-2 "Epithelial cells [#/volume] in Urine by Automated"                     // ← 33342-7（通用上皮細胞）
+* LNC#51483-6 "Casts [#/volume] in Urine by Automated count"                          // ← 43755-8
+* LNC#798-9 "Erythrocytes [#/volume] in Urine by Automated count"                     // ← 46419-8
+* LNC#51487-7 "Leukocytes [#/volume] in Urine by Automated count"                     // ← 46702-7
+* LNC#51478-6 "Mucus [#/volume] in Urine by Automated count"                          // ← 50235-1
 * LNC#50551-1 "Bilirubin.total [Presence] in Urine by Automated test strip"
 * LNC#50555-2 "Glucose [Presence] in Urine by Automated test strip"
 * LNC#50558-6 "Nitrite [Presence] in Urine by Automated test strip"
 * LNC#50560-2 "pH of Urine by Automated test strip"
 * LNC#50562-8 "Specific gravity of Urine by Refractometry automated"
-* LNC#53324-0 "Spermatozoa [#/volume] in Urine sediment by Automated count"
+* LNC#53324-0 "Spermatozoa [#/area] in Urine sediment by Automated count"  // JOB-01 批3 Q1：LOINC 無「[#/volume] in Urine by Automated count」之精子碼（僅 [Presence] 或鏡檢），無法比照其餘 8 項換體積碼；保留本碼、顯示名改回官方每面積，體積量化為 LOINC 缺口，待裁示（open-issues T-1）
 * LNC#53975-9 "Drug crystals [Presence] in Urine sediment by Light microscopy"
 * LNC#5766-1 "Ammonium urate crystals [Presence] in Urine sediment by Light microscopy"
 * LNC#5770-3 "Bilirubin.total [Presence] in Urine by Test strip"
