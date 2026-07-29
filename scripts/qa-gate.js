@@ -169,6 +169,31 @@ for (const level of regressedLevels) {
   for (const [sig, n] of top) console.log(`  ${String(n).padStart(5)} × ${sig}`);
 }
 
+// ---------------------------------------------------------------- 具名類別逐筆明細（術語稽核）
+// 某些類別（預設「Wrong Display Name」）即使正在改善、未退步，其殘筆之「官方 display」
+// 仍須可見於 CI 日誌——否則逐碼修正顯示名時看不到 tx 回報的正確字串，只能靠猜。
+// 這正是 JOB-01 逐碼稽核所需之回饋（qa.txt 之逐筆訊息不會自動印到 console）。
+// 以 qa-baseline.json 之 `_detailCategories`（陣列）設定；未設則預設列 Wrong Display Name。
+const detailCategories = Array.isArray(baseline._detailCategories)
+  ? baseline._detailCategories
+  : ['Wrong Display Name'];
+for (const cat of detailCategories) {
+  const seen = new Set();
+  const uniq = [];
+  for (const l of qa.split(/\r?\n/)) {
+    if (!l.includes(cat)) continue;
+    const t = l.trim();
+    if (seen.has(t)) continue;
+    seen.add(t);
+    uniq.push(t);
+  }
+  if (uniq.length) {
+    console.log(`\n類別「${cat}」逐筆（去重後 ${uniq.length} 筆，供逐碼術語稽核；含 tx 回報之官方 display）：`);
+    for (const l of uniq.slice(0, 60)) console.log(`  ${l.slice(0, 500)}`);
+    if (uniq.length > 60) console.log(`  …另有 ${uniq.length - 60} 筆，詳見 qa.txt`);
+  }
+}
+
 // ---------------------------------------------------------------- CI 摘要
 // 把同一張表寫進 GitHub Step Summary，省去為了看幾個數字而撈數百行日誌。
 if (process.env.GITHUB_STEP_SUMMARY) {
