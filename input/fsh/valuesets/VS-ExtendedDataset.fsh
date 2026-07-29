@@ -110,8 +110,9 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#10909-0 "Benzidine [Mass/volume] in Urine"
 * LNC#5681-2 "Manganese [Mass/volume] in Blood"
 * LNC#5683-8 "Manganese [Mass/volume] in Serum or Plasma"
-* LNC#42221-2 "Manganese [Mass/volume] in Urine"
-* LNC#34304-6 "Fluoride [Mass/volume] in Urine"
+* LNC#42221-2 "Manganese [Mass/volume] in Urine"  // ⚠️ Q2-1 檢驗醫學部回覆院內以 µg/L（質量）報告，惟 42221-2 官方為 [Moles/volume]（莫耳）——本 IG 顯示名雖標質量卻用了莫耳碼，須改用真正的質量碼；屬批3（自尋質量碼並經 $lookup 覆核）backlog
+* LNC#34304-6 "Fluoride [Moles/volume] in Urine"  // 2026-07-29 JOB-01 批2：官方為莫耳濃度（Q2-2 檢驗醫學部確認 34304-6 nmol/L 與 5605-7 mg/L 均有人核發，應同時保留）
+* LNC#5605-7 "Fluoride [Mass/volume] in Urine"     // 臨床建議之質量濃度碼（mg/L, Q2-2）；待 CI $lookup 覆核六軸
 
 // 1.10 黃磷作業 (yellow-phosphorus)
 * LNC#2777-1 "Phosphate [Mass/volume] in Serum or Plasma"
@@ -131,7 +132,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#2098-2 "Cholinesterase [Enzymatic activity/volume] in Serum or Plasma"
 
 // 1.13 微生物培養 (Microbiological Culture) [NEW]
-* LNC#43371-4 "Salmonella sp and Shigella sp identified in Stool by Organism specific culture"
+* LNC#43371-4 "Salmonella and Shigella sp identified in Stool by Organism specific culture"  // 2026-07-29 JOB-01 批2：批1 顯示名多轉抄一個「sp」，依 display-verification-report.csv 官方字串更正
 
 // 1.14 尿液毒品篩檢 (Urine Drug Screening)
 // v20260726：原列 19266-6/19299-7/19283-1/19501-6/19571-9 經 tx $lookup 查證，均為
@@ -144,7 +145,8 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#14267-9 "Methylenedioxymethamphetamine [Presence] in Urine"
 
 // 1.15 癌症篩檢與 PHI (Cancer Markers/PHI) — v1.1 自 VS-CoreDataset 移入（develop.md §3.2）
-* LNC#19177-5 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
+* LNC#19177-5 "Alpha-1-Fetoprotein [Moles/volume] in Serum or Plasma"  // 2026-07-29 JOB-01 批2：官方為莫耳濃度（Q2-3）；院內以 ng/mL 質量報告，質量碼見 1834-1（通用）與 53962-7（免疫分析法）
+* LNC#53962-7 "Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma by Immunoassay"  // 檢驗醫學部所用之質量碼（ng/mL, Q2-3）；待 CI $lookup 覆核六軸
 * LNC#2039-6 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
 * LNC#2857-1 "Prostate specific Ag [Mass/volume] in Serum or Plasma"
 * LNC#10886-0 "Prostate Specific Ag Free [Mass/volume] in Serum or Plasma"
@@ -234,7 +236,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#30466-7 "Promonocytes/Leukocytes in Blood"
 * LNC#34921-7 "Lymphocytes Plasmacytoid/Leukocytes in Blood"
 * LNC#5905-5 "Monocytes/Leukocytes in Blood by Automated count"
-* LNC#70028-6 "Megakaryocytes/100 leukocytes in Blood"
+* LNC#62858-6 "Megakaryocytes/100 leukocytes in Blood by Manual count"  // 2026-07-29 JOB-01 批2：Q7 檢驗醫學部確認計數對象為完整巨核細胞（非細胞核）、人工鏡檢；70028-6 官方為 Megakaryocytic nuclei（細胞核），改用臨床建議之 62858-6；待 CI $lookup 覆核六軸
 * LNC#706-2 "Basophils/Leukocytes in Blood by Automated count"
 * LNC#713-8 "Eosinophils/Leukocytes in Blood by Automated count"
 * LNC#731-0 "Lymphocytes [#/volume] in Blood by Automated count"
@@ -248,13 +250,14 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // 3-x 生化、腎功能與心血管風險
 * LNC#17861-6 "Calcium [Mass/volume] in Serum or Plasma"
 * LNC#20448-7 "Insulin [Units/volume] in Serum or Plasma"
-* LNC#2428-1 "Homocysteine [Moles/volume] in Serum or Plasma"
+* LNC#2428-1 "Homocysteine [Mass/volume] in Serum or Plasma"  // 2026-07-29 JOB-01 批2：官方為質量濃度（Q2-4）；院內以 µmol/L 莫耳報告，莫耳碼 13965-9 為檢驗醫學部建議優先
+* LNC#13965-9 "Homocysteine [Moles/volume] in Serum or Plasma"  // 檢驗醫學部建議優先之莫耳碼（µmol/L, Q2-4）；待 CI $lookup 覆核六軸
 * LNC#30522-7 "C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"
 * LNC#3084-1 "Urate [Mass/volume] in Serum or Plasma"
 // (-確定無合適碼) 尿酸 acceptable：原列 49154-8 經 tx 查證實為 Rickettsia conorii IgG Ab [Titer]（地中海斑疹熱抗體），
 //   非尿酸全血法，已於 v20260726 移除；如確有全血法需求，須經 $lookup 查證後再新增。
 * LNC#33863-2 "Cystatin C [Mass/volume] in Serum or Plasma"
-* LNC#33914-3 "Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (MDRD)"
+* LNC#33914-3 "Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M"  // 2026-07-29 JOB-01 批2：批1 誤用舊式長名，依 display-verification-report.csv 官方字串更正（注意檢體軸為 Serum or Plasma，與 98979-8 之 Serum, Plasma or Blood 不同）
 * LNC#4548-4 "Hemoglobin A1c/Hemoglobin.total in Blood"
 * LNC#47214-2 "Homeostasis model assessment"
 * LNC#59261-8 "Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood" // Acceptable: HbA1c IFCC
@@ -298,13 +301,14 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#17780-8 "Helicobacter pylori Ag [Presence] in Stool by Immunoassay"
 * LNC#20507-0 "Reagin Ab [Presence] in Serum by RPR"
 * LNC#21440-3 "Human papilloma virus 16+18+31+33+35+45+51+52+56 DNA [Presence] in Cervix by Probe"
-* LNC#22322-2 "Hepatitis B virus surface Ab [Units/volume] in Serum"
+* LNC#22322-2 "Hepatitis B virus surface Ab [Presence] in Serum"  // 2026-07-29 JOB-01 批2：官方為定性（Q3 回覆定量+定性併報，須將對調之標示改回正確位置）
 * LNC#24110-9 "Treponema pallidum Ab [Presence] in Serum by Immunoassay"
 * LNC#29771-3 "Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay"  // 糞便免疫化學法潛血(FIT)
 * LNC#31147-2 "Reagin Ab [Titer] in Serum by RPR"
 * LNC#5176-3 "Helicobacter pylori IgG Ab [Presence] in Serum"
 * LNC#51913-2 "Hepatitis A virus IgG+IgM Ab [Presence] in Serum"
-* LNC#5193-8 "Hepatitis B virus surface Ab [Presence] in Serum or Plasma"
+* LNC#5193-8 "Hepatitis B virus surface Ab [Units/volume] in Serum or Plasma by Immunoassay"  // 2026-07-29 JOB-01 批2：官方為定量（Q3，標示對調回正確位置）
+* LNC#65633-0 "Hepatitis B virus surface Ab [Units/volume] in Serum or Plasma by Immunoassay"  // 檢驗醫學部建議之定量碼（Q3）；待 CI $lookup 覆核六軸——若其官方字串與 5193-8 相同（重複）則擇一保留
 * LNC#5334-8 "Rubella virus IgG Ab [Units/volume] in Serum or Plasma by Immunoassay"
 * LNC#5403-1 "Varicella zoster virus IgG Ab [Units/volume] in Serum by Immunoassay"
 * LNC#56888-1 "HIV 1+2 Ab+HIV1 p24 Ag [Presence] in Serum or Plasma by Immunoassay"
