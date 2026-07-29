@@ -5,9 +5,9 @@
     "例外：新增 artifact 會帶進該 artifact 自身的訊息，此時得上調，但**必須具名說明多出來的是什麼**（見 _infoNote）。",
     "基準線來源見 docs/optimization/evidence/qa-summary-2026-07-26.md。"
   ],
-  "measuredAt": "2026-07-28",
+  "measuredAt": "2026-07-29",
   "igPublisherVersion": "2.2.11",
-  "source": "CI run 30406762138（commit ecd5d518，tx 建置）— JOB-05 範例覆蓋",
+  "source": "CI run 30409940302（commit 8f013861，tx 建置）— JOB-04 上傳路徑",
   "_runVarianceNote": [
     "⚠️ 同一份建置輸入之連續三次 tx 建置實測到 ±2 的差異：",
     "  d2571cb5 → info 397 / warn 160",
@@ -111,6 +111,32 @@
     "err 曾在本 JOB 過程中 0 → 6 → 0：6 筆為範例錯誤（soft index 蓋掉 examType；",
     "DiagnosticReport.result 之上游限縮，後者登記為未決事項 T-10），均已修復，非鬆綁。"
   ],
+  "_job04Note": [
+    "JOB-04（上傳路徑）之基準線變動。量測來源 run 30409940302（commit 8f013861，err = 0）。",
+    "",
+    "鎖定：contains no examples for this profile 1 → 0——UC-008／UC-009 補上",
+    "TWHA-Bundle-Transaction 之範例，全部 profile／extension 之範例覆蓋就此完成",
+    "（JOB-04 §2 驗收條件 6；JOB-05 §2 條件 1 之殘項亦同時結案）。",
+    "",
+    "新增 2 個 Bundle artifact（UC-008／UC-009）與 CapabilityStatement 之 Usage 修正",
+    "帶進之增量（每筆皆出自閘門抽樣）：",
+    "  could usefully have an OID assigned     55 → 56   +1：CapabilityStatement 原未宣告 Usage，",
+    "                                                     SUSHI 依預設當 example；補 #definition 後",
+    "                                                     成為定義性資源而收到 OID 建議。",
+    "                                                     併入 OID 家族，待 T-5／auto-oid-root。",
+    "  No definition could be found for URL     9 → 11   +2：tx-patient／tx9-patient 之病歷號命名空間",
+    "                                                     （cgmh patient-id，與既有 7 筆同源）在兩個",
+    "                                                     新封包中各出現一次。",
+    "  There are no valid display names       232 → 236   +4：新封包代碼之 zh-TW 顯示名提示。",
+    "  cannot be resolved                    2190 → 2210  +20 ＝ 2 artifact × 10，與實測規律一致。",
+    "  does not match any known slice          22 → 23    +1：tx9-practitioner 之 identifier（T-2）。",
+    "",
+    "TOTAL info 449 → 455：info 級具名增量 +6（OID 1 ＋ slice 1 ＋ display 4），",
+    "帶上移 6 至 453–455，實測 453 為下緣，取上界 455。",
+    "",
+    "transaction 內之資源為 Usage #inline，不產生獨立頁面，故 cannot be resolved",
+    "僅計 2 個 Bundle 本身——這是刻意的設計（見 12-upload-transactions.fsh 檔頭）。"
+  ],
   "_warnNote": [
     "warn 實測 137，低於基準線 152（-15），本次**不下調**。",
     "",
@@ -144,7 +170,7 @@
   "totals": {
     "err": 0,
     "warn": 152,
-    "info": 449
+    "info": 455
   },
   "_categoriesNote": [
     "已鎖定之改善（不得回升）：",
@@ -184,11 +210,11 @@
     "Wrong Display Name": 23,
     "has a status of DISCOURAGED": 6,
     "should have an OID assigned": 40,
-    "could usefully have an OID assigned": 55,
+    "could usefully have an OID assigned": 56,
     "should have a performer": 0,
     "There are multiple different potential matches": 0,
-    "No definition could be found for URL value": 9,
-    "contains no examples for this profile": 1,
+    "No definition could be found for URL value": 11,
+    "contains no examples for this profile": 0,
     "contains no examples for this extension": 0,
     "is experimental, but this structure is not labeled as experimental": 1,
     "is not included anywhere in the produced implementation guide": 0,
@@ -199,9 +225,9 @@
     "Reference to experimental CodeSystem https://twcore": 15,
     "The value set references CodeSystem": 4,
     "stated value for the caseSensitive element": 5,
-    "There are no valid display names found for the code": 232,
+    "There are no valid display names found for the code": 236,
     "Pinned the version of": 29,
-    "cannot be resolved": 2190,
-    "does not match any known slice": 22
+    "cannot be resolved": 2210,
+    "does not match any known slice": 23
   }
 }

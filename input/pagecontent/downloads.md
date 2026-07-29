@@ -25,10 +25,12 @@
 | UC-005 | 成人預防保健檢查報告（國健署） | [JSON](Bundle-UC-005.json) |
 | UC-006 | 勞工健康服務臨場服務紀錄（附表八） | [JSON](Bundle-UC-006.json) |
 | UC-007 | 職業健康急診友善摘要（暴露史 ＋ 摘要 Composition） | [JSON](Bundle-UC-007.json) |
+| UC-008 | 一般健檢結果**上傳**（`type=transaction`，條件式建立去重） | [JSON](Bundle-UC-008.json) |
+| UC-009 | 特殊健檢結果**上傳**（`type=transaction`，缺值＋冪等重傳） | [JSON](Bundle-UC-009.json) |
 
-> ⚠️ 目前七個封包**皆為報告用 `type=document` 封包**。
-> 上傳用 `type=transaction` 封包之範例尚未提供，已列為優化項目
-> （[JOB-04](https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-04-upload-path-conformance.md)）。
+> UC-001 ~ UC-007 為報告封包（`document`）、UC-008 ~ UC-009 為上傳封包（`transaction`）。
+> 上傳之去重、冪等與錯誤處理契約見[上傳介接契約](conformance.html)；
+> 整包處理語意（transaction／batch）為[未決事項 M-9](open-issues.html#m-9)。
 
 ---
 

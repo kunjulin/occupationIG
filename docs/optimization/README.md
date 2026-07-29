@@ -54,7 +54,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 | [JOB-01](JOB-01-terminology-code-audit.md) | 術語稽核：133 筆 display 不符之錯碼分流與修正 | **P0** | 術語 | L（1–2 週） | JOB-08 較佳 | 🔶 **133 → 23（−83%）**；剩餘 23 筆待臨床回覆（見[確認單](CLINICAL-QUERY-JOB-01.md)） |
 | [JOB-02](JOB-02-publication-language-and-versioning.md) | 發佈語言（zh-TW）、網址結構與版本歷程正式化 | **P0** | 發佈 | S（1–2 天） | — | ✅ **已執行**（待建置驗證） |
 | [JOB-03](JOB-03-ip-and-required-fragments.md) | LOINC/SNOMED 授權聲明與四個必要 HTML fragment 補納 | **P0** | 合規 | S（1 天） | — | ✅ **已執行**（待建置驗證） |
-| [JOB-04](JOB-04-upload-path-conformance.md) | 上傳路徑（Transaction Bundle ＋ `$submit`）契約與端到端範例 | **P1** | 可實作性 | M（3–5 天） | — | 待辦 |
+| [JOB-04](JOB-04-upload-path-conformance.md) | 上傳路徑（Transaction Bundle ＋ `$submit`）契約與端到端範例 | **P1** | 可實作性 | M（3–5 天） | — | ✅ **已執行**（transaction／batch 語意屬 M-9，待平台端定案） |
 | [JOB-05](JOB-05-example-coverage.md) | 範例覆蓋率：9 profile／5 extension 補範例、performer 補齊 | **P1** | 可實作性 | M（3–5 天） | JOB-04 | ✅ **已執行**（餘 Bundle-Transaction 範例屬 JOB-04；T-10 為新發現之建模議題） |
 | [JOB-06](JOB-06-identifier-namingsystem.md) | 識別碼命名系統（NamingSystem）定義與範例對齊 | **P1** | 術語／治理 | S（1–2 天） | — | 🔶 **第一階段**（本 IG 自有者已定義；其餘待 TW Core 盤點） |
 | [JOB-07](JOB-07-scenario-required-valuesets.md) | 情境資料集值集（附表九／附表十 RequiredSet）落地 | **P1** | 內容 | L（1–2 週） | JOB-01 | 待辦 |
@@ -90,12 +90,12 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 
 ### 現行基準線（每個 JOB 完成後應下調）
 
-`qa-baseline.json`：`err 0` / `warn 152` / `info 449` ＋ 22 個具名類別。
+`qa-baseline.json`：`err 0` / `warn 152` / `info 455` ＋ 22 個具名類別。
 已鎖定歸零者：`is not included anywhere`、`multiple different potential matches`、
 `should have a performer`（47 → 0，JOB-05）、`contains no examples for this extension`、
 `ShareableValueSet`／`vsd-0`（JOB-10）。`Wrong Display Name` 由 133 降至 23
-（餘數即待臨床決定者）；`contains no examples for this profile` 餘 1
-（TWHA-Bundle-Transaction，JOB-04 範圍）。
+（餘數即待臨床決定者）；`contains no examples` 已全數歸零
+（最後一個 TWHA-Bundle-Transaction 由 JOB-04 之 UC-008／UC-009 補上）。
 `There are no valid display names found for the code`（232）為宣告中文預設語言之
 必然結果，非待修項目。
 
