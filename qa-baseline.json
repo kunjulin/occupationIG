@@ -7,7 +7,7 @@
   ],
   "measuredAt": "2026-07-29",
   "igPublisherVersion": "2.2.11",
-  "source": "CI run 30409940302（commit 8f013861，tx 建置）— JOB-04 上傳路徑",
+  "source": "CI run 30414513349（commit 496a1212，tx 建置）— JOB-07 情境值集",
   "_runVarianceNote": [
     "⚠️ 同一份建置輸入之連續三次 tx 建置實測到 ±2 的差異：",
     "  d2571cb5 → info 397 / warn 160",
@@ -137,6 +137,32 @@
     "transaction 內之資源為 Usage #inline，不產生獨立頁面，故 cannot be resolved",
     "僅計 2 個 Bundle 本身——這是刻意的設計（見 12-upload-transactions.fsh 檔頭）。"
   ],
+  "_job07Note": [
+    "JOB-07（情境資料集③以值集落地）之基準線變動。量測來源 run 30414513349（commit 496a1212，err = 0）。",
+    "",
+    "新增 6 個 RequiredSet ValueSet：VS-Appendix9-RequiredSet、VS-Appendix10-{Noise,Lead,Dust,",
+    "OrganicSolvent}-RequiredSet、VS-Appendix10-RequiredSet（grouping）。",
+    "",
+    "上調（皆出自閘門抽樣）：",
+    "  should have an OID assigned    40 → 46   +6 ＝ 6 個新 ValueSet 各需 OID（與既有 40 同家族，",
+    "                                            待 T-5／auto-oid-root 一併處理）。",
+    "  cannot be resolved           2210 → 2282  +72 ＝ 6 ValueSet × **12**。",
+    "",
+    "⚠️ 每 artifact 之 cannot-be-resolved 增量**依 artifact 型別而異**，本次校正了先前的認知：",
+    "  - 範例／Bundle（JOB-04／05 實測）：每個 +10（5 種渲染變體 × 2 語言層）。",
+    "  - 定義型 artifact（ValueSet 等，本次實測）：每個 +12（6 種渲染變體 × 2 層）。",
+    "  _categoriesNote 原寫「每 artifact +12」對定義型正確、對範例偏高；JOB-05 曾據範例改寫為",
+    "  +10——兩者皆對，差別在型別。72÷6=12 與此一致。",
+    "",
+    "TOTAL info 維持 455：實測 453，落在既有波動帶 453–455 之下緣，非真實改善，不下調。",
+    "  新增之 6 個 ValueSet 為乾淨 LOINC 值集，未帶進可歸因之 info 增量。",
+    "TOTAL warn 維持 152：實測 97；+6 之 OID 警告已含於其中，遠低於上限。",
+    "",
+    "落地範疇（與 JOB-01 綁定）：附表九完整、附表十僅四家族（噪音／鉛／粉塵／有機溶劑，",
+    "涵蓋表標為已審／已驗者）。其餘八家族之未審代碼刻意不納入（M-8）。",
+    "「法定應執行」之範疇口徑（附表十本文 vs 職安署細項生物偵測）與 repo PDF 為修正前版本",
+    "二事登記於 M-11。"
+  ],
   "_warnNote": [
     "warn 實測 137，低於基準線 152（-15），本次**不下調**。",
     "",
@@ -209,7 +235,7 @@
   "categories": {
     "Wrong Display Name": 23,
     "has a status of DISCOURAGED": 6,
-    "should have an OID assigned": 40,
+    "should have an OID assigned": 46,
     "could usefully have an OID assigned": 56,
     "should have a performer": 0,
     "There are multiple different potential matches": 0,
@@ -227,7 +253,7 @@
     "stated value for the caseSensitive element": 5,
     "There are no valid display names found for the code": 236,
     "Pinned the version of": 29,
-    "cannot be resolved": 2210,
+    "cannot be resolved": 2282,
     "does not match any known slice": 23
   }
 }
