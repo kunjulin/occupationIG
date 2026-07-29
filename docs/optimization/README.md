@@ -65,6 +65,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 | [JOB-12](JOB-12-navigation-and-repo-hygiene.md) | 資訊架構與 repo 整理（孤兒頁、下載區、文件歸檔、CLAUDE.md） | **P2** | 文件 | S（1 天） | — | ✅ **已執行** |
 | [JOB-13](JOB-13-open-issues-register.md) | 未決事項登記簿（M-5／M-6／G-2／provisional canonical 集中揭露） | **P2** | 治理 | S（1 天） | — | ✅ **已執行** |
 | [JOB-14](JOB-14-preferred-acceptable-recovery.md) | 尿沉渣面積碼回收為 Acceptable（preferred／acceptable 雙軌之範圍修正） | **P0** | 術語／可實作性 | S（1 人日） | JOB-01 | ✅ **已執行**（9 個面積碼回收為 acceptable＋ConceptMap `element[28–36]` #relatedto 歸一；CI 實測 err 0、Wrong Display Name 0 維持、VS-ExtendedDataset 288 碼、ConceptMap 37 element） |
+| [JOB-15](JOB-15-version-bump-0.2.0.md) | 指引進版 0.1.0 → 0.2.0（STU1 草案，補齊版本歷程） | **P0** | 發布／治理 | S（0.5 人日） | JOB-01～14 | ✅ **已執行**（sushi-config `version: 0.2.0`、package-list 新增 0.2.0 條目（0.1.0 保留）、history.md 補 0.2.0 摘要；純版本標記未動任何 FSH，CI 實測 err 0／WDN 0／VS-ExtendedDataset 288 維持） |
 
 各已執行之 JOB 於其檔案 **§7 執行紀錄**載明實際變更、刻意未做的部分，
 以及**尚待在可建置環境驗證的項目**。
