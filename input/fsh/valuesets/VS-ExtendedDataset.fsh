@@ -163,7 +163,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#1834-1 "Alpha-1-fetoprotein [Mass/volume] in Serum or Plasma"
 * LNC#9679-2 "Squamous cell carcinoma Ag [Mass/volume] in Serum or Plasma"
 * LNC#19113-0 "IgE [Units/volume] in Serum or Plasma"
-* LNC#9633-9 "Epstein Barr virus capsid IgA Ab [Titer] in Serum by Immunofluorescence"  // 2026-07-29 JOB-01 批3 Q4-2：顯示名改官方（原標 [Presence] 有誤）。⚠️ 院方實以 EIA 報 U/mL 定量，惟 LOINC 無 capsid IgA [Units/volume] by Immunoassay 碼（僅 IgG 5157-3／IgM 5159-9 有），本碼為 IFA 效價；方法/量表落差為 LOINC 缺口，待裁示（open-issues T-1）
+* LNC#9633-9 "Epstein Barr virus capsid IgA Ab [Titer] in Serum by Immunofluorescence"  // 2026-07-29 JOB-01 批3 Q4-2：顯示名為官方（原標 [Presence] 有誤；LOINC FSN=SemiQn/IF）。院方雖以 EIA 定量報告，惟 LOINC 無 capsid IgA [Units/volume] by Immunoassay 碼；經使用者裁示（2026-07-29）保留本 VCA IgA IFA 效價碼，方法/量表落差為已知並接受之 LOINC 缺口
 
 // 1.16 進階心血管與自體免疫 (Advanced Cardiac/Autoimmune) — v1.1 自 VS-CoreDataset 移入（develop.md §3.2）
 * LNC#10835-7 "Lipoprotein A [Mass/volume] in Serum or Plasma"
@@ -344,7 +344,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#50558-6 "Nitrite [Presence] in Urine by Automated test strip"
 * LNC#50560-2 "pH of Urine by Automated test strip"
 * LNC#50562-8 "Specific gravity of Urine by Refractometry automated"
-* LNC#53324-0 "Spermatozoa [#/area] in Urine sediment by Automated count"  // JOB-01 批3 Q1：LOINC 無「[#/volume] in Urine by Automated count」之精子碼（僅 [Presence] 或鏡檢），無法比照其餘 8 項換體積碼；保留本碼、顯示名改回官方每面積，體積量化為 LOINC 缺口，待裁示（open-issues T-1）
+* LNC#51479-4 "Spermatozoa [#/volume] in Urine by Automated count"  // 2026-07-29 JOB-01 批3 Q1（缺口已解，使用者提供）：51479-4 為精子之全尿自動計數體積碼（同屬套組 50554-5），比照其餘 8 項換體積碼；← 53324-0（原用每面積碼有誤）
 * LNC#53975-9 "Drug crystals [Presence] in Urine sediment by Light microscopy"
 * LNC#5766-1 "Ammonium urate crystals [Presence] in Urine sediment by Light microscopy"
 * LNC#5770-3 "Bilirubin.total [Presence] in Urine by Test strip"
