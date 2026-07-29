@@ -131,3 +131,45 @@ input/fsh/profiles/TWHA-CapabilityStatement.fsh 與 TWHA-Composition-EmergencySu
 7. 保存期限：評估是否實作 background.md 預留的 ext-retention-period。
 8. 遇到法規解釋問題（個資法、第 19 條起算點 M-6）不要臆測，登記為未決事項。
 ```
+
+---
+
+## 7. 執行紀錄（2026-07-29）
+
+### 7.1 已執行（對照 §2 驗收條件）
+
+| §2 條件 | 狀態 |
+|:--|:--|
+| 1. security.md 由原則宣示 → 可實作規範 | ✅ §1 對照表（要求→機制→責任→驗證） |
+| 2. RBAC 三類角色落實（可執行機制） | ✅ **TWHA-Composition-EmployerSummary**：closed slicing 結構性保證雇主端封包不含檢驗 section ＋ 範例 |
+| 3. CapabilityStatement security.service ＋ scope | ✅ SMART-on-FHIR；scope 對照表於 security.md §2.3 |
+| 4. Consent／Provenance／AuditEvent 去留 | ✅ **明確不納入本期**，聲明於 §6 並登記 M-10（非「提到但未定義」） |
+| 5. birthDate 精度 | ✅ 去識別化情境 YYYY-MM（security.md §4.2） |
+| 6. 保存期限（ext-retention-period） | ✅ **不實作**：起算點未定（M-6），對齊 background.md §3.1.1／M-7 |
+
+### 7.2 核心設計決策：欄位級隔離以 Composition 而非 scope
+
+SMART scope 之顆粒度到資源型別為止，無法表達「分級 Observation 可見、檢驗 Observation
+不可見」之欄位級區分（§3.1）。故採**雇主版 Composition**——`TWHA-Composition-EmployerSummary`
+之 section 為 closed slicing，只能含分級／配工與服務發現兩 section，entry 以 profile 限定，
+檢驗類 Observation／DiagnosticReport 無從置入。**雇主端封包若符合此 profile，驗證器即可
+證明其不含檢驗細項**——這是文字承諾做不到、profile 做得到的可驗證隔離。scope 仍作為
+第一道粗粒度控制。closed slicing 通過 tx 建置驗證（err 0），未與 TWCoreComposition 衝突。
+
+### 7.3 電子簽章
+
+定於 `Provenance.signature`（非 `Bundle.signature`）：可獨立描述簽署者、時間、target
+與角色，且利於個別報告之追溯。簽署者身分繫於醫事人員證書字號——該命名空間未定案（T-2），
+故簽署者之機器可比對身分待 T-2 解決後方能完備。智慧醫療憑證之簽章格式與法律效力屬主管機關
+規範，不片面認定。
+
+### 7.4 明白寫出而非迴避之取捨
+
+去識別化雜湊 Token 之**跨機構可比對性**：需比對 → 共用 salt（安全性降低）；不需 → 獨立
+salt（無法跨機構串接）。兩者不可兼得。此取捨屬監理需求與資安風險之權衡（M-10），
+security.md §4.3 明白寫出而非迴避。
+
+### 7.5 量測
+
+run 30424292775：err 0／warn 97／info 459。增量逐筆歸因於 `qa-baseline.json` `_job11Note`
+（新 Composition profile ＋ 範例：OID +1、display +1、Pinned +1、cannot-be-resolved +29）。
