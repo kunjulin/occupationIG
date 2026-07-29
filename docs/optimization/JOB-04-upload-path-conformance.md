@@ -182,3 +182,44 @@ input/fsh/examples/examples.fsh、input/pagecontent/conformance.md 與 usecases.
    請提出收緊約束或修正描述的方案，並列出需同步的文件段落。
 6. 說明每一項如何以 _genonce_tx.bat 的 qa.txt 驗收。
 ```
+
+---
+
+## 7. 執行紀錄（2026-07-29）
+
+### 7.1 已執行（對照 §2 驗收條件）
+
+| §2 條件 | 狀態 |
+|:--|:--|
+| 1. Transaction 範例 ≥ 2 | ✅ UC-008（首次上傳）／UC-009（缺值＋冪等重傳） |
+| 2. `$submit` 補 description／in profile／out 參數 | ✅（`parameter[content].targetProfile`＋`parameter[return]`） |
+| 3. CapabilityStatement searchParam ＋ implementationGuide | ✅（definition 均指 R4 核心 SearchParameter） |
+| 4. Bundle-Document 描述／約束落差 | ✅ 收緊：invariant `twha-bnd-1` |
+| 5. conformance.md 上傳介接契約 | ✅ §6：端點／去重鍵對照表／回應碼／M-9 雙軌 |
+| 6. `contains no examples` 不含 Bundle-Transaction | ✅ **1 → 0**（run 30409940302），全 IG 範例覆蓋就此完成 |
+
+### 7.2 設計決策
+
+- **Transaction 內資源為 `Usage: #inline` 之獨立複本**，以 `urn:uuid` 互相參照。
+  具名範例（`Patient/example-worker` 型參照）放進 transaction 會解析失敗，
+  重用不可行；inline 亦不產生獨立頁面（斷鏈僅 +20 而非 +80）。
+- **去重鍵**：Patient 病歷號、Organization 醫事機構代碼（`ifNoneExist`）、
+  DiagnosticReport 報告識別碼（`sid/report-id`，JOB-06 之 NamingSystem 在此
+  接上實際用途；重傳為條件式 `PUT` 覆寫）。Practitioner 無法判重（T-2）。
+- **`transaction` vs `batch` 不代平台決定**（M-9）：契約以對照表雙軌呈現，
+  明載「定案前平台端不得依任一語意實作錯誤處理」；範例 entry 結構兩者通用。
+- **CapabilityStatement 維持單一 `kind = requirements`**：§3.3 之拆分建議
+  涉及平台實際能力，capability 實例應由平台端於上線後發佈，非本 IG 產物。
+
+### 7.3 順帶修正
+
+- CapabilityStatement 原未宣告 `Usage`，SUSHI 依預設當作 example
+  （建置日誌一直有此警告）；補 `#definition` 後成為定義性資源
+  （代價：+1 OID 建議，見 `_job04Note`）。
+- usecases.md 補上既有缺漏之 UC-007 條目，並改寫「6 大情境」開頭為
+  「9 個使用情境（document ×7 ＋ transaction ×2）」。
+
+### 7.4 量測
+
+run 30409940302：err 0／warn 91／info 453。六項增量之逐筆歸因見
+`qa-baseline.json` 之 `_job04Note`。
