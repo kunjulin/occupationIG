@@ -14,8 +14,8 @@ Usage: #definition
 * description = "本實體用於宣告健康檢查資料交換平台支援的交互作用規範，主要採用 POST [base]/Bundle ($submit) 或直接交易封包 (transaction) 進行健檢資料之上傳與交換。本宣告為 requirements（規範要求）層級；實際部署之平台應發佈對應之 capability 宣告。"
 * implementationGuide = "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"
 * rest[0].mode = #server
-* rest[0].security.description = "採用 OAuth 2.0 與 TLS 1.3 安全傳輸協定。授權範圍（scope）之細部定義見安全與隱私頁；雇主端僅得取得健康管理分級之資料隔離要求為 M-10 未決事項。"
-* rest[0].security.service[0] = http://terminology.hl7.org/CodeSystem/restful-security-service#OAuth "OAuth"
+* rest[0].security.description = "採用 SMART on FHIR（OAuth 2.0／OIDC）與 TLS 1.3 安全傳輸協定。三類角色之建議 scope 與「雇主端欄位級隔離以 TWHA-Composition-EmployerSummary 達成」見安全與隱私頁 §2；scope 之細部語法與授權流程屬平台端決定（M-10）。"
+* rest[0].security.service[0] = http://terminology.hl7.org/CodeSystem/restful-security-service#SMART-on-FHIR "SMART-on-FHIR"
 
 // ---- Bundle：上傳入口 ----
 * rest[0].resource[0].type = #Bundle
