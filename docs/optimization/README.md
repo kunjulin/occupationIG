@@ -51,7 +51,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 
 | JOB | 標題 | 優先序 | 類別 | 預估 | 相依 | 狀態 |
 |:--|:--|:--|:--|:--|:--|:--|
-| [JOB-01](JOB-01-terminology-code-audit.md) | 術語稽核：133 筆 display 不符之錯碼分流與修正 | **P0** | 術語 | L（1–2 週） | JOB-08 較佳 | 🔶 **133 → 23（−83%）**；剩餘 23 筆待臨床回覆（見[確認單](CLINICAL-QUERY-JOB-01.md)） |
+| [JOB-01](JOB-01-terminology-code-audit.md) | 術語稽核：133 筆 display 不符之錯碼分流與修正 | **P0** | 術語 | L（1–2 週） | JOB-08 較佳 | ✅ **已完成：133 → 0**（達 README §3 驗收條件）。臨床回覆（2026-07-27）後分批消化：批1 -3、批2 -8、Q4-1 裁示 -1、批3 -11；2 項 LOINC 缺口（精子→`51479-4`；EBV VCA IgA 保留 `9633-9`）已裁示。見 [T-1](../../input/pagecontent/open-issues.md)、`_job01Batch{1,2,3}Note` |
 | [JOB-02](JOB-02-publication-language-and-versioning.md) | 發佈語言（zh-TW）、網址結構與版本歷程正式化 | **P0** | 發佈 | S（1–2 天） | — | ✅ **已執行**（待建置驗證） |
 | [JOB-03](JOB-03-ip-and-required-fragments.md) | LOINC/SNOMED 授權聲明與四個必要 HTML fragment 補納 | **P0** | 合規 | S（1 天） | — | ✅ **已執行**（待建置驗證） |
 | [JOB-04](JOB-04-upload-path-conformance.md) | 上傳路徑（Transaction Bundle ＋ `$submit`）契約與端到端範例 | **P1** | 可實作性 | M（3–5 天） | — | ✅ **已執行**（transaction／batch 語意屬 M-9，待平台端定案） |
@@ -75,7 +75,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 ```
 第 1 波（讓網站「看起來已發佈」＋合規）：JOB-02 → JOB-03 → JOB-12   ✅ 已完成
 第 2 波（建立驗收基礎設施）：           JOB-08 ✅ → JOB-09 🔶
-第 3 波（正確性，最重）：                JOB-01 🔶 → JOB-06 → JOB-10
+第 3 波（正確性，最重）：                JOB-01 ✅ → JOB-06 🔶 → JOB-10 ✅
 第 4 波（可實作性）：                    JOB-04 → JOB-05 → JOB-07
 第 5 波（治理深化，可與委員意見並行）：   JOB-11 → JOB-13
 ```
@@ -93,8 +93,9 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 `qa-baseline.json`：`err 0` / `warn 152` / `info 459` ＋ 22 個具名類別。
 已鎖定歸零者：`is not included anywhere`、`multiple different potential matches`、
 `should have a performer`（47 → 0，JOB-05）、`contains no examples for this extension`、
-`ShareableValueSet`／`vsd-0`（JOB-10）。`Wrong Display Name` 由 133 降至 23
-（餘數即待臨床決定者）；`contains no examples` 已全數歸零
+`ShareableValueSet`／`vsd-0`（JOB-10）。**`Wrong Display Name` 由 133 降至 0**
+（JOB-01 完成：稽核 133→23，臨床批1–3＋Q4-1 裁示 23→0；達 §3 驗收條件）；
+`contains no examples` 已全數歸零
 （最後一個 TWHA-Bundle-Transaction 由 JOB-04 之 UC-008／UC-009 補上）。
 `There are no valid display names found for the code`（237）為宣告中文預設語言之
 必然結果，非待修項目。
