@@ -13,9 +13,25 @@
 | | | | |
 | :--- | :--- | :--- | :--- |
 | `current` | — | 持續建置 (ci-build) | 研製中之最新建置。內容得隨時變動。 |
+| `0.2.0` | 2026-07-29 | 草案 (draft, STU 1) | 完成 JOB-01～14 之術語稽核、可實作性與治理優化；主要異動見 §1.1。 |
 | `0.1.0` | 2026-07-26 | 草案 (draft, STU 1) | 依《勞工健康保護規則》115.06.26 修正同步，並合併四方委員意見。 |
 
 機器可讀之版本清單見 repo 根目錄之 [`package-list.json`](https://github.com/kunjulin/occupationIG/blob/main/package-list.json)。 逐次變更明細見 [`README.md` 版本與更新記錄](https://github.com/kunjulin/occupationIG#版本與更新記錄-update-history)。
+
+### 1.1 0.2.0 主要異動摘要
+
+相對於 `0.1.0`，`0.2.0` 彙集 JOB-01 至 JOB-14 之優化（原始碼 commit 範圍 `7169521a..bb554ce1`，96 個 commit）。六項主要異動：
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| 顯示名不符 (Wrong Display Name) | 133 | **0** | JOB-01 |
+| `VS-ExtendedDataset`成員 | 277 碼 | **288 碼**（換碼 19、移除 8、回收 9；另 113 碼更正 display） | JOB-01、JOB-14 |
+| ConceptMap 歸一 | 31 組 | **37 組** | JOB-01、JOB-14 |
+| 法定情境值集 | 無（僅 markdown 對照） | **新增**`VS-Appendix9-RequiredSet`及附表十四家族之 RequiredSet（噪音／鉛／粉塵／有機溶劑） | JOB-07 |
+| 發布組態 | 本機建置、`lang=en`、無 history | CI 建置、`zh-TW`、history 與 IP 聲明齊備 | JOB-02／03／08／12／13 |
+| CI 品質閘門 | 無 | 有（`Wrong Display Name > 0`即失敗） | JOB-08 |
+
+> 版本性質不變：仍為 STU1 草案（`releaseLabel: STU1`、`status: draft`），工業技術研究院 委託研擬中、尚未定稿；canonical 為 provisional。`0.1.0` 之既有紀錄保留於上表，未更動。
 
 ## 2. 關於發佈位址（provisional）
 
