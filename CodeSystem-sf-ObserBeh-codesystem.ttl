@@ -10,14 +10,15 @@
   fhir:Resource.id [ fhir:value "sf-ObserBeh-codesystem"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem sf-ObserBeh-codesystem</b></p><a name=\"sf-ObserBeh-codesystem\"> </a><a name=\"hcsf-ObserBeh-codesystem\"> </a><p>This  code system <code>https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">Smoking<a name=\"sf-ObserBeh-codesystem-Smoking\"> </a></td><td>吸菸行為</td></tr><tr><td style=\"white-space:nowrap\">BetelNutChewing<a name=\"sf-ObserBeh-codesystem-BetelNutChewing\"> </a></td><td>嚼檳榔行為</td></tr><tr><td style=\"white-space:nowrap\">Drinking<a name=\"sf-ObserBeh-codesystem-Drinking\"> </a></td><td>喝酒行為</td></tr></table></div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 sf-ObserBeh-codesystem</b></p><a name=\"sf-ObserBeh-codesystem\"> </a><a name=\"hcsf-ObserBeh-codesystem\"> </a><p>This  code system <code>https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem</code> provides <b>a fragment</b> that includes following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">Smoking<a name=\"sf-ObserBeh-codesystem-Smoking\"> </a></td><td>吸菸行為</td></tr><tr><td style=\"white-space:nowrap\">BetelNutChewing<a name=\"sf-ObserBeh-codesystem-BetelNutChewing\"> </a></td><td>嚼檳榔行為</td></tr><tr><td style=\"white-space:nowrap\">Drinking<a name=\"sf-ObserBeh-codesystem-Drinking\"> </a></td><td>喝酒行為</td></tr></table></div>"
   ] ;
   fhir:CodeSystem.url [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem"] ;
   fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
   fhir:CodeSystem.name [ fhir:value "sf-ObserBeh-codesystem"] ;
-  fhir:CodeSystem.title [ fhir:value "相關行為代碼系統"] ;
-  fhir:CodeSystem.status [ fhir:value "active"] ;
-  fhir:CodeSystem.date [ fhir:value "2026-07-26T18:45:10+08:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.title [ fhir:value "【本地 stub】相關行為代碼系統（非權威定義）"] ;
+  fhir:CodeSystem.status [ fhir:value "draft"] ;
+  fhir:CodeSystem.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-07-29T09:46:30+00:00"^^xsd:dateTime] ;
   fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:CodeSystem.contact [
      fhir:index 0 ;
@@ -37,8 +38,8 @@
      ]
   ] ;
   fhir:CodeSystem.description [ fhir:value "Observation Behavior Code System"] ;
-  fhir:CodeSystem.content [ fhir:value "complete"] ;
-  fhir:CodeSystem.count [ fhir:value "3"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.copyright [ fhir:value "權威定義來源為臺灣癌症登記短表 IG（TWCR_SF）。本 IG 僅為建置與驗證所需之局部複本（content = fragment），非權威定義；實作端應以 TWCR_SF 官方定義為準。"] ;
+  fhir:CodeSystem.content [ fhir:value "fragment"] ;
   fhir:CodeSystem.concept [
      fhir:index 0 ;
      fhir:CodeSystem.concept.code [ fhir:value "Smoking" ] ;

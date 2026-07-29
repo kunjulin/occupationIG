@@ -38,28 +38,28 @@
   "type" : "ValueSet",
   "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset",
   "version" : "0.1.0",
-  "name" : "sf-BetNutChewAmount-valueset"
+  "name" : "SFBetNutChewAmountValueSet"
 },
 {
   "id" : "sf-BetNutChewBeh-valueset",
   "type" : "ValueSet",
   "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset",
   "version" : "0.1.0",
-  "name" : "sf-BetNutChewBeh-valueset"
+  "name" : "SFBetNutChewBehValueSet"
 },
 {
   "id" : "sf-BetNutChewQuit-valueset",
   "type" : "ValueSet",
   "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset",
   "version" : "0.1.0",
-  "name" : "sf-BetNutChewQuit-valueset"
+  "name" : "SFBetNutChewQuitValueSet"
 },
 {
   "id" : "sf-BetNutChewYear-valueset",
   "type" : "ValueSet",
   "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset",
   "version" : "0.1.0",
-  "name" : "sf-BetNutChewYear-valueset"
+  "name" : "SFBetNutChewYearValueSet"
 },
 {
   "id" : "TWHA-CapabilityStatement",
@@ -173,6 +173,13 @@
   "name" : "TWHAIG"
 },
 {
+  "id" : "NS-ReportIdentifier",
+  "type" : "NamingSystem",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/NamingSystem/NS-ReportIdentifier",
+  "version" : "0.1.0",
+  "name" : "TWHAReportIdentifier"
+},
+{
   "id" : "Bundle-submit",
   "type" : "OperationDefinition",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/OperationDefinition/Bundle-submit",
@@ -238,6 +245,13 @@
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmergencySummary",
   "version" : "0.1.0",
   "name" : "TWHACompositionEmergencySummaryProfile"
+},
+{
+  "id" : "TWHA-Composition-EmployerSummary",
+  "type" : "StructureDefinition",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmployerSummary",
+  "version" : "0.1.0",
+  "name" : "TWHACompositionEmployerSummaryProfile"
 },
 {
   "id" : "TWHA-Composition-ServiceRecord",
@@ -555,11 +569,53 @@
   "name" : "ExtSmokingQuantity"
 },
 {
+  "id" : "VS-Appendix10-Dust-RequiredSet",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Dust-RequiredSet",
+  "version" : "0.1.0",
+  "name" : "VS_Appendix10DustRequiredSet"
+},
+{
+  "id" : "VS-Appendix10-Lead-RequiredSet",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Lead-RequiredSet",
+  "version" : "0.1.0",
+  "name" : "VS_Appendix10LeadRequiredSet"
+},
+{
+  "id" : "VS-Appendix10-Noise-RequiredSet",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Noise-RequiredSet",
+  "version" : "0.1.0",
+  "name" : "VS_Appendix10NoiseRequiredSet"
+},
+{
   "id" : "VS-Appendix10-Operation",
   "type" : "ValueSet",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation",
   "version" : "0.1.0",
   "name" : "VS_Appendix10Operation"
+},
+{
+  "id" : "VS-Appendix10-OrganicSolvent-RequiredSet",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-OrganicSolvent-RequiredSet",
+  "version" : "0.1.0",
+  "name" : "VS_Appendix10OrganicSolventRequiredSet"
+},
+{
+  "id" : "VS-Appendix10-RequiredSet",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-RequiredSet",
+  "version" : "0.1.0",
+  "name" : "VS_Appendix10RequiredSet"
+},
+{
+  "id" : "VS-Appendix9-RequiredSet",
+  "type" : "ValueSet",
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix9-RequiredSet",
+  "version" : "0.1.0",
+  "name" : "VS_Appendix9RequiredSet"
 },
 {
   "id" : "VS-CoreDataset",

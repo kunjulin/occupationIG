@@ -2,38 +2,65 @@
   "codeSystems" : [{
     "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset",
     "version" : "0.1.0",
-    "status" : "active",
-    "name" : "sf-BetNutChewAmount-valueset",
-    "title" : "每日嚼檳榔量值集",
+    "status" : "draft",
+    "name" : "SFBetNutChewAmountValueSet",
+    "title" : "【本地 stub】每日嚼檳榔量值集（非權威定義）",
     "description" : "Betel Nut Chewing Amount Value Set",
     "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem"]
   },
   {
     "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset",
     "version" : "0.1.0",
-    "status" : "active",
-    "name" : "sf-BetNutChewBeh-valueset",
-    "title" : "嚼檳榔行為值集",
+    "status" : "draft",
+    "name" : "SFBetNutChewBehValueSet",
+    "title" : "【本地 stub】嚼檳榔行為值集（非權威定義）",
     "description" : "Betel Nut Chewing Behavior Value Set",
     "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"]
   },
   {
     "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset",
     "version" : "0.1.0",
-    "status" : "active",
-    "name" : "sf-BetNutChewQuit-valueset",
-    "title" : "戒嚼檳榔年值集",
+    "status" : "draft",
+    "name" : "SFBetNutChewQuitValueSet",
+    "title" : "【本地 stub】戒嚼檳榔年值集（非權威定義）",
     "description" : "Betel Nut Chewing Quit Value Set",
     "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem"]
   },
   {
     "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset",
     "version" : "0.1.0",
-    "status" : "active",
-    "name" : "sf-BetNutChewYear-valueset",
-    "title" : "嚼檳榔年值集",
+    "status" : "draft",
+    "name" : "SFBetNutChewYearValueSet",
+    "title" : "【本地 stub】嚼檳榔年值集（非權威定義）",
     "description" : "Betel Nut Chewing Year Value Set",
     "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Dust-RequiredSet",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "VS_Appendix10DustRequiredSet",
+    "title" : "附表十 粉塵作業 專屬應執行項目值集",
+    "description" : "附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。",
+    "systems" : ["http://loinc.org"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Lead-RequiredSet",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "VS_Appendix10LeadRequiredSet",
+    "title" : "附表十 鉛作業 專屬應執行項目值集",
+    "description" : "附表十第 5 項鉛作業之家族專屬檢查項目。附表十本文僅列血中鉛；尿中鉛／共聚卟啉／δ-ALA 係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。",
+    "systems" : ["http://loinc.org"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Noise-RequiredSet",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "VS_Appendix10NoiseRequiredSet",
+    "title" : "附表十 噪音作業 專屬應執行項目值集",
+    "description" : "附表十第 2 項噪音作業之家族專屬檢查項目（純音聽力）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。",
+    "systems" : ["http://loinc.org"]
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation",
@@ -43,6 +70,33 @@
     "title" : "附表十特別危害健康作業值集（35 項）",
     "description" : "包含《勞工健康保護規則》附表十 35 項法定具名作業之代碼。",
     "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-OrganicSolvent-RequiredSet",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "VS_Appendix10OrganicSolventRequiredSet",
+    "title" : "附表十 有機溶劑作業 專屬應執行項目值集",
+    "description" : "附表十第 7–12、33–35 項有機溶劑類作業之家族專屬檢查項目：各作業之尿中生物偵測代謝物與肝功能。⚠️ 附表十本文對此類作業僅列肝功能（ALT／γ-GT，二硫化碳另含心電圖）；各尿中代謝物係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。附表十號別 → 代謝物之對應見 special-exam.md 涵蓋表。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。",
+    "systems" : ["http://loinc.org"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-RequiredSet",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "VS_Appendix10RequiredSet",
+    "title" : "附表十 特殊健康檢查應執行項目值集（已落地家族）",
+    "description" : "附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待 JOB-01 臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。",
+    "systems" : ["http://loinc.org"]
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix9-RequiredSet",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "VS_Appendix9RequiredSet",
+    "title" : "附表九 一般健康檢查法定應執行項目值集",
+    "description" : "《勞工健康保護規則》附表九所列一般體格／健康檢查之法定應執行**檢驗與量測**項目（以健康檢查欄為準，含 LDL-C）。非檢驗項目（作業經歷、既往病史、生活習慣、自覺症狀、身體各系統理學檢查）以 TWHA-Occupation／TWHA-Condition／SocialHistory／TWHA-PhysicalExam 承載，不列為本值集成員。用於法定完整性稽核，非 profile 之 element binding。所有代碼均取自已通過術語稽核之既有內容。⚠️ 紅血球數（789-8）與 MCV（787-2）係 115.06.26 修正新增；repo 內附表九 PDF 為修正前版本，該二項無 repo 內原文可逐項核對，見未決事項 M-11。",
+    "systems" : ["http://loinc.org"]
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset",

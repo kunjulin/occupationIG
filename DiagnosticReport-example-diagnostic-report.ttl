@@ -1,0 +1,63 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/DiagnosticReport/example-diagnostic-report> a fhir:DiagnosticReport ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "example-diagnostic-report"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-DiagnosticReport" ;
+       fhir:index 0 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-DiagnosticReport>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 诊断报告 example-diagnostic-report</b></p><a name=\"example-diagnostic-report\"> </a><a name=\"hcexample-diagnostic-report\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-DiagnosticReport.html\">健康檢查健檢診斷報告 Profile</a></p></div><h2><span title=\"Codes:\">噪音作業特殊健康檢查報告</span> (<span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 OSL}\">Outside Lab</span>) </h2><table class=\"grid\"><tr><td>Subject</td><td>王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</td></tr><tr><td>Relevant Time</td><td>2026-06-12 11:00:00+0800</td></tr><tr><td>Reported</td><td>2026-06-15 10:00:00+0800</td></tr><tr><td>Performer</td><td> <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></td></tr></table><p><b>Report Details</b></p><p>雙耳高頻聽力閾值輕度上升，與噪音暴露相關；肺功能、心電圖與胸部X光未見異常。建議列第四級健康管理並實施適性配工。</p></div>"
+  ] ;
+  fhir:DiagnosticReport.status [ fhir:value "final"] ;
+  fhir:DiagnosticReport.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0074" ] ;
+       fhir:Coding.code [ fhir:value "OSL" ] ;
+       fhir:Coding.display [ fhir:value "Outside Lab" ]
+     ]
+  ] ;
+  fhir:DiagnosticReport.code [
+     fhir:CodeableConcept.text [ fhir:value "噪音作業特殊健康檢查報告" ]
+  ] ;
+  fhir:DiagnosticReport.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:DiagnosticReport.encounter [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-special> ;
+     fhir:Reference.reference [ fhir:value "Encounter/example-encounter-special" ]
+  ] ;
+  fhir:DiagnosticReport.effectiveDateTime [ fhir:value "2026-06-12T11:00:00+08:00"^^xsd:dateTime] ;
+  fhir:DiagnosticReport.issued [ fhir:value "2026-06-15T10:00:00+08:00"^^xsd:dateTime] ;
+  fhir:DiagnosticReport.performer [
+     fhir:index 0 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/example-doctor" ]
+  ] ;
+  fhir:DiagnosticReport.imagingStudy [
+     fhir:index 0 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/ImagingStudy/example-imaging-chest-xray> ;
+     fhir:Reference.reference [ fhir:value "ImagingStudy/example-imaging-chest-xray" ]
+  ] ;
+  fhir:DiagnosticReport.conclusion [ fhir:value "雙耳高頻聽力閾值輕度上升，與噪音暴露相關；肺功能、心電圖與胸部X光未見異常。建議列第四級健康管理並實施適性配工。"] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/DiagnosticReport/example-diagnostic-report.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

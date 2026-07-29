@@ -1,0 +1,710 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Bundle/UC-004> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "UC-004"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:Bundle.identifier [
+     fhir:Identifier.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/sid/report-id" ] ;
+     fhir:Identifier.value [ fhir:value "bundle-uc-004" ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "document"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-06-12T12:00:00+08:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Composition/composition-uc004" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Composition/composition-uc004>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-mammo" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-mammo>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-brain-mri" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-brain-mri>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-lung-ct" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-lung-ct>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-pet" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-pet>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-cta" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-cta>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-egd" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-egd>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-colon" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-colon>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression>
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Composition/composition-uc004> a fhir:Composition ;
+  fhir:Resource.id [ fhir:value "composition-uc004"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Composition_composition-uc004\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 组合式文书 composition-uc004</b></p><a name=\"composition-uc004\"> </a><a name=\"hccomposition-uc004\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition.html\">健康檢查健檢報告組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 11502-2}\">Laboratory report</span></p><p><b>date</b>: 2026-06-12 11:45:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 自費健康檢查報告</p></div>"
+  ] ;
+  fhir:Composition.status [ fhir:value "final"] ;
+  fhir:Composition.type [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a loinc:11502-2 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "11502-2" ] ;
+       fhir:Coding.display [ fhir:value "Laboratory report" ]
+     ]
+  ] ;
+  fhir:Composition.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Composition.date [ fhir:value "2026-06-12T11:45:00+08:00"^^xsd:dateTime] ;
+  fhir:Composition.author [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/example-doctor" ]
+  ] ;
+  fhir:Composition.title [ fhir:value "自費健康檢查報告"] ;
+  fhir:Composition.section [
+     fhir:index -1 ;
+     fhir:Composition.section.title [ fhir:value "基本資料與行政資訊" ] ;
+     fhir:Composition.section.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         a loinc:51847-2 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "51847-2" ]
+       ]
+     ] ;
+     fhir:Composition.section.entry [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+       fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+     ], [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general> ;
+       fhir:Reference.reference [ fhir:value "Encounter/example-encounter-general" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Composition.section.title [ fhir:value "醫師總評、分級與建議" ] ;
+     fhir:Composition.section.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         a loinc:51848-0 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "51848-0" ]
+       ]
+     ] ;
+     fhir:Composition.section.entry [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression> ;
+       fhir:Reference.reference [ fhir:value "ClinicalImpression/example-clinical-impression" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Composition.section.title [ fhir:value "檢驗與影像檢查" ] ;
+     fhir:Composition.section.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         a loinc:30954-2 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "30954-2" ]
+       ]
+     ] ;
+     fhir:Composition.section.entry [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-mammo> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-imaging-mammo" ]
+     ], [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-brain-mri> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-imaging-brain-mri" ]
+     ], [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-lung-ct> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-imaging-lung-ct" ]
+     ], [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-pet> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-imaging-pet" ]
+     ], [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-cta> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-imaging-cta" ]
+     ], [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-egd> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-endoscopy-egd" ]
+     ], [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-colon> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-endoscopy-colon" ]
+     ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> a fhir:Patient ;
+  fhir:Resource.id [ fhir:value "example-worker"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Patient_example-worker\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 患者 example-worker</b></p><a name=\"example-worker\"> </a><a name=\"hcexample-worker\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Patient.html\">受檢者 Profile</a></p></div><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</p><hr/><table class=\"grid\"><tr><td style=\"background-color: #f3f5da\" title=\"Record is active\">Active:</td><td colspan=\"3\">true</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。\"><a href=\"StructureDefinition-ext-department.html\">部門/課別擴充</a></td><td colspan=\"3\">化學處理課</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"記錄受檢勞工於事業單位之受僱日期。\"><a href=\"StructureDefinition-ext-employment-date.html\">受僱日期擴充</a></td><td colspan=\"3\">2020-03-01</td></tr><tr><td style=\"background-color: #f3f5da\" title=\"關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。\"><a href=\"StructureDefinition-ext-employer-info.html\">雇主事業單位資訊擴充</a></td><td colspan=\"3\"><a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></td></tr></table></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+       fhir:Reference.reference [ fhir:value "Organization/example-employer" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employment-date" ] ;
+     fhir:Extension.valueDate [ fhir:value "2020-03-01"^^xsd:date ]
+  ], [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department" ] ;
+     fhir:Extension.valueString [ fhir:value "化學處理課" ]
+  ] ;
+  fhir:Patient.identifier [
+     fhir:index -1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "MR" ] ;
+         fhir:Coding.display [ fhir:value "Medical record number" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://www.cgmh.org.tw/tw/patient-id" ] ;
+     fhir:Identifier.value [ fhir:value "MR-98765" ]
+  ] ;
+  fhir:Patient.active [ fhir:value "true"^^xsd:boolean] ;
+  fhir:Patient.name [
+     fhir:index -1 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.text [ fhir:value "王大同" ]
+  ] ;
+  fhir:Patient.gender [ fhir:value "male"] ;
+  fhir:Patient.birthDate [ fhir:value "1985-05-15"^^xsd:date] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> a fhir:Practitioner ;
+  fhir:Resource.id [ fhir:value "example-doctor"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_example-doctor\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 执业人员 example-doctor</b></p><a name=\"example-doctor\"> </a><a name=\"hcexample-doctor\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Practitioner.html\">執業/健檢醫護與服務人員 Profile</a></p></div><p><b>identifier</b>: <code>http://example.org/fhir/sid/tw-practitioner-license</code>/MD-88888 (use: official, )</p><p><b>name</b>: 林職醫(Official)</p></div>"
+  ] ;
+  fhir:Practitioner.identifier [
+     fhir:index -1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.system [ fhir:value "http://example.org/fhir/sid/tw-practitioner-license" ] ;
+     fhir:Identifier.value [ fhir:value "MD-88888" ]
+  ] ;
+  fhir:Practitioner.name [
+     fhir:index -1 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.text [ fhir:value "林職醫" ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> a fhir:Organization ;
+  fhir:Resource.id [ fhir:value "example-hospital"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_example-hospital\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 组织机构 example-hospital</b></p><a name=\"example-hospital\"> </a><a name=\"hcexample-hospital\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Organization-Facility.html\">實施健康檢查之醫療機構 Profile</a></p></div><p><b>identifier</b>: Provider number/2701010024 (use: official, )</p><p><b>name</b>: 交通部民用航空局航空醫務中心</p></div>"
+  ] ;
+  fhir:Organization.identifier [
+     fhir:index -1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PRN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/organization-identifier-tw" ] ;
+     fhir:Identifier.value [ fhir:value "2701010024" ]
+  ] ;
+  fhir:Organization.name [ fhir:value "交通部民用航空局航空醫務中心"] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general> a fhir:Encounter ;
+  fhir:Resource.id [ fhir:value "example-encounter-general"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_example-encounter-general\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 就医过程 example-encounter-general</b></p><a name=\"example-encounter-general\"> </a><a name=\"hcexample-encounter-general\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Encounter.html\">健康檢查健檢就醫事件 Profile</a></p></div><p><b>檢查類型擴充</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType general-health}\">一般健康檢查</span></p><p><b>健康檢查實施週期擴充</b>: 3 years<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codea = 'a')</span></p><p><b>部門/課別擴充</b>: 化學處理課</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v3-ActCode.html#v3-ActCode-AMB\">ActCode: AMB</a> (ambulatory)</p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></td></tr></table><p><b>period</b>: 2026-06-12 08:00:00+0800 --&gt; 2026-06-12 11:30:00+0800</p><p><b>serviceProvider</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-type" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType" ] ;
+         fhir:Coding.code [ fhir:value "general-health" ] ;
+         fhir:Coding.display [ fhir:value "一般健康檢查" ]
+       ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval" ] ;
+     fhir:Extension.valueQuantity [
+       fhir:Quantity.value [ fhir:value "3"^^xsd:decimal ] ;
+       fhir:Quantity.unit [ fhir:value "years" ] ;
+       fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ] ;
+       fhir:Quantity.code [ fhir:value "a" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department" ] ;
+     fhir:Extension.valueString [ fhir:value "化學處理課" ]
+  ] ;
+  fhir:Encounter.status [ fhir:value "finished"] ;
+  fhir:Encounter.class [
+     fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+     fhir:Coding.code [ fhir:value "AMB" ] ;
+     fhir:Coding.display [ fhir:value "ambulatory" ]
+  ] ;
+  fhir:Encounter.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Encounter.participant [
+     fhir:index -1 ;
+     fhir:Encounter.participant.individual [
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+       fhir:Reference.reference [ fhir:value "Practitioner/example-doctor" ]
+     ]
+  ] ;
+  fhir:Encounter.period [
+     fhir:Period.start [ fhir:value "2026-06-12T08:00:00+08:00"^^xsd:dateTime ] ;
+     fhir:Period.end [ fhir:value "2026-06-12T11:30:00+08:00"^^xsd:dateTime ]
+  ] ;
+  fhir:Encounter.serviceProvider [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-hospital" ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-mammo> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "obs-imaging-mammo"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-imaging-mammo\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-imaging-mammo</b></p><a name=\"obs-imaging-mammo\"> </a><a name=\"hcobs-imaging-mammo\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category imaging}\">Imaging</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 24606-6}\">MG Breast Screening</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 10:00:00+0800</p><p><b>performer</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "imaging" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a loinc:24606-6 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "24606-6" ] ;
+       fhir:Coding.display [ fhir:value "MG Breast Screening" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T10:00:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ObservationValue" ] ;
+       fhir:Coding.code [ fhir:value "N" ]
+     ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-brain-mri> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "obs-imaging-brain-mri"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-imaging-brain-mri\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-imaging-brain-mri</b></p><a name=\"obs-imaging-brain-mri\"> </a><a name=\"hcobs-imaging-brain-mri\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category imaging}\">Imaging</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 24590-2}\">MR Brain</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 10:15:00+0800</p><p><b>performer</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "imaging" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a loinc:24590-2 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "24590-2" ] ;
+       fhir:Coding.display [ fhir:value "MR Brain" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T10:15:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ObservationValue" ] ;
+       fhir:Coding.code [ fhir:value "N" ]
+     ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-lung-ct> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "obs-imaging-lung-ct"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-imaging-lung-ct\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-imaging-lung-ct</b></p><a name=\"obs-imaging-lung-ct\"> </a><a name=\"hcobs-imaging-lung-ct\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category imaging}\">Imaging</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 79086-5}\">CT Chest Screening WO contr</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 10:30:00+0800</p><p><b>performer</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "imaging" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a loinc:79086-5 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "79086-5" ] ;
+       fhir:Coding.display [ fhir:value "CT Chest Screening WO contr" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T10:30:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ObservationValue" ] ;
+       fhir:Coding.code [ fhir:value "N" ]
+     ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-pet> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "obs-imaging-pet"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-imaging-pet\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-imaging-pet</b></p><a name=\"obs-imaging-pet\"> </a><a name=\"hcobs-imaging-pet\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category imaging}\">Imaging</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 81555-5}\">PT+CT Whole body Tum loc W 18F-FDG IV</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 10:45:00+0800</p><p><b>performer</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "imaging" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a loinc:81555-5 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "81555-5" ] ;
+       fhir:Coding.display [ fhir:value "PT+CT Whole body Tum loc W 18F-FDG IV" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T10:45:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ObservationValue" ] ;
+       fhir:Coding.code [ fhir:value "N" ]
+     ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-imaging-cta> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "obs-imaging-cta"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-imaging-cta\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-imaging-cta</b></p><a name=\"obs-imaging-cta\"> </a><a name=\"hcobs-imaging-cta\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category imaging}\">Imaging</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 79073-3}\">CTA Hrt+CA W contr IV</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 11:00:00+0800</p><p><b>performer</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "imaging" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a loinc:79073-3 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "79073-3" ] ;
+       fhir:Coding.display [ fhir:value "CTA Hrt+CA W contr IV" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T11:00:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ObservationValue" ] ;
+       fhir:Coding.code [ fhir:value "N" ]
+     ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-egd> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "obs-endoscopy-egd"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-endoscopy-egd\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-endoscopy-egd</b></p><a name=\"obs-endoscopy-egd\"> </a><a name=\"hcobs-endoscopy-egd\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}\">Exam</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 28014-9}\">EGD Study</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 11:15:00+0800</p><p><b>performer</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "exam" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a loinc:28014-9 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "28014-9" ] ;
+       fhir:Coding.display [ fhir:value "EGD Study" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T11:15:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ObservationValue" ] ;
+       fhir:Coding.code [ fhir:value "N" ]
+     ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-endoscopy-colon> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "obs-endoscopy-colon"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_obs-endoscopy-colon\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-endoscopy-colon</b></p><a name=\"obs-endoscopy-colon\"> </a><a name=\"hcobs-endoscopy-colon\"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}\">Exam</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 28023-0}\">Colonoscopy Study</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 11:30:00+0800</p><p><b>performer</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p><p><b>value</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}\">None</span></p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "exam" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a loinc:28023-0 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "28023-0" ] ;
+       fhir:Coding.display [ fhir:value "Colonoscopy Study" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T11:30:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-hospital" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ObservationValue" ] ;
+       fhir:Coding.code [ fhir:value "N" ]
+     ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression> a fhir:ClinicalImpression ;
+  fhir:Resource.id [ fhir:value "example-clinical-impression"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ClinicalImpression" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ClinicalImpression>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"ClinicalImpression_example-clinical-impression\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 临床印象 example-clinical-impression</b></p><a name=\"example-clinical-impression\"> </a><a name=\"hcexample-clinical-impression\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-ClinicalImpression.html\">健康檢查健檢醫師總評與分級 Profile</a></p></div><p><b>健康管理分級擴充</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel level-1}\">第一級管理</span></p><p><b>status</b>: Completed</p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>assessor</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>summary</b>: 本次定期健康檢查結果大致正常，既往高血壓控制良好。建議持續維持健康生活習慣，定期監測血壓。</p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-health-mgmt-level" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel" ] ;
+         fhir:Coding.code [ fhir:value "level-1" ] ;
+         fhir:Coding.display [ fhir:value "第一級管理" ]
+       ]
+     ]
+  ] ;
+  fhir:ClinicalImpression.status [ fhir:value "completed"] ;
+  fhir:ClinicalImpression.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:ClinicalImpression.assessor [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/example-doctor" ]
+  ] ;
+  fhir:ClinicalImpression.summary [ fhir:value "本次定期健康檢查結果大致正常，既往高血壓控制良好。建議持續維持健康生活習慣，定期監測血壓。"] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Bundle/UC-004.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

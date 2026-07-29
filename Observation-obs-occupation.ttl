@@ -1,0 +1,78 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-occupation> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "obs-occupation"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Occupation" ;
+       fhir:index 0 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Occupation>
+     ]
+  ] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-occupation</b></p><a name=\"obs-occupation\"> </a><a name=\"hcobs-occupation\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Occupation.html\">健康檢查工作經歷與職業別 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 11341-5}\">職業史</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2020-03-01 --&gt; (ongoing)</p><p><b>performer</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>value</b>: <span title=\"Codes:\">化學處理課作業員（職業分類碼待引用經查證之 occupation-mol-tw 代碼）</span></p><h3>Components</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Code</b></td><td><b>Value[x]</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://loinc.org 86188-0}\">行業別</span></td><td><span title=\"Codes:\">電子零組件製造業</span></td></tr></table></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index 0 ;
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "social-history" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index 0 ;
+       a loinc:11341-5 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "11341-5" ]
+     ] ;
+     fhir:CodeableConcept.text [ fhir:value "職業史" ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectivePeriod [
+     fhir:Period.start [ fhir:value "2020-03-01"^^xsd:date ]
+  ] ;
+  fhir:Observation.performer [
+     fhir:index 0 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/example-doctor" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.text [ fhir:value "化學處理課作業員（職業分類碼待引用經查證之 occupation-mol-tw 代碼）" ]
+  ] ;
+  fhir:Observation.component [
+     fhir:index 0 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         a loinc:86188-0 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "86188-0" ]
+       ] ;
+       fhir:CodeableConcept.text [ fhir:value "行業別" ]
+     ] ;
+     fhir:Observation.component.valueCodeableConcept [
+       fhir:CodeableConcept.text [ fhir:value "電子零組件製造業" ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-occupation.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

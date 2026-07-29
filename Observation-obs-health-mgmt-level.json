@@ -1,0 +1,33 @@
+{
+  "resourceType" : "Observation",
+  "id" : "obs-health-mgmt-level",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-health-mgmt-level</b></p><a name=\"obs-health-mgmt-level\"> </a><a name=\"hcobs-health-mgmt-level\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-HealthManagementLevel.html\">健康檢查健康管理分級 Observation Profile</a></p></div><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 406221003}\">Health status</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2026-06-15 10:00:00+0800</p><p><b>performer</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel level-4}\">第四級管理</span></p></div>"
+  },
+  "status" : "final",
+  "code" : {
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "406221003",
+      "display" : "Health status"
+    }]
+  },
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "effectiveDateTime" : "2026-06-15T10:00:00+08:00",
+  "performer" : [{
+    "reference" : "Practitioner/example-doctor"
+  }],
+  "valueCodeableConcept" : {
+    "coding" : [{
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel",
+      "code" : "level-4",
+      "display" : "第四級管理"
+    }]
+  }
+}

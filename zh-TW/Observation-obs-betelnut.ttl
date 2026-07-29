@@ -1,0 +1,104 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-betelnut> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "obs-betelnut"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-betelnut</b></p><a name=\"obs-betelnut\"> </a><a name=\"hcobs-betelnut\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-SocialHistory-BetelNut.html\">嚼檳榔歷史與狀態 Profile</a></p></div><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem BetelNutChewing}\">嚼檳榔行為</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:05:00+0800</p><p><b>performer</b>: <a href=\"Practitioner-example-nurse.html\">Practitioner 陳健護(official)</a></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem amount}\">每日嚼檳榔量，以 ”顆” 計算</span></p><p><b>value</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem 05}\">每日5顆</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem year}\">嚼檳榔年</span></p><p><b>value</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem 10}\">嚼10年</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem quit}\">戒嚼檳榔年</span></p><p><b>value</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem 01}\">已戒1年</span></p></blockquote></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem" ] ;
+       fhir:Coding.code [ fhir:value "BetelNutChewing" ] ;
+       fhir:Coding.display [ fhir:value "嚼檳榔行為" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T08:05:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-nurse> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/example-nurse" ]
+  ] ;
+  fhir:Observation.component [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem" ] ;
+         fhir:Coding.code [ fhir:value "amount" ] ;
+         fhir:Coding.display [ fhir:value "每日嚼檳榔量，以 ”顆” 計算" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem" ] ;
+         fhir:Coding.code [ fhir:value "05" ] ;
+         fhir:Coding.display [ fhir:value "每日5顆" ]
+       ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem" ] ;
+         fhir:Coding.code [ fhir:value "year" ] ;
+         fhir:Coding.display [ fhir:value "嚼檳榔年" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem" ] ;
+         fhir:Coding.code [ fhir:value "10" ] ;
+         fhir:Coding.display [ fhir:value "嚼10年" ]
+       ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem" ] ;
+         fhir:Coding.code [ fhir:value "quit" ] ;
+         fhir:Coding.display [ fhir:value "戒嚼檳榔年" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem" ] ;
+         fhir:Coding.code [ fhir:value "01" ] ;
+         fhir:Coding.display [ fhir:value "已戒1年" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-betelnut.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

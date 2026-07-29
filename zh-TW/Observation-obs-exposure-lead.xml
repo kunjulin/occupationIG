@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="obs-exposure-lead"/>
+  <meta>
+    <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-WorkExposure"/>
+  </meta>
+  <language value="zh-TW"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: 观察 obs-exposure-lead</b></p><a name="obs-exposure-lead"> </a><a name="hcobs-exposure-lead"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-WorkExposure.html">特別危害健康作業危害因子暴露史 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}">Social History</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 87729-0}">History of Occupational hazard</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:00:00+0800</p><p><b>performer</b>: <a href="Practitioner-example-doctor.html">Practitioner 林職醫(official)</a></p><p><b>value</b>: <span title="Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType lead}">鉛作業</span></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 104905-5}">Duration of exposure</span></p><p><b>value</b>: 8 years<span style="background: LightGoldenRodYellow"> (Details: UCUM  codea = 'a')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title="Codes:{http://loinc.org 21847-9}">Usual occupation Narrative</span></p><p><b>value</b>: 電池極板熔鉛作業</p></blockquote></div>
+  </text>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="social-history"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="87729-0"/>
+      <display value="History of Occupational hazard"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example-worker"/>
+  </subject>
+  <effectiveDateTime value="2026-06-12T08:00:00+08:00"/>
+  <performer>
+    <reference value="Practitioner/example-doctor"/>
+  </performer>
+  <valueCodeableConcept>
+    <coding>
+      <system value="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType"/>
+      <code value="lead"/>
+      <display value="鉛作業"/>
+    </coding>
+  </valueCodeableConcept>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="104905-5"/>
+        <display value="Duration of exposure"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="8"/>
+      <unit value="years"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="a"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="21847-9"/>
+        <display value="Usual occupation Narrative"/>
+      </coding>
+    </code>
+    <valueString value="電池極板熔鉛作業"/>
+  </component>
+</Observation>

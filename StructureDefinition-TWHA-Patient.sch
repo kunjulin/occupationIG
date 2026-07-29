@@ -13,7 +13,7 @@
     <sch:title>f:Patient</sch:title>
     <sch:rule context="f:Patient">
       <sch:assert test="count(f:extension[@url = 'https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/person-age']) &lt;= 1">extension with URL = 'https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/person-age': maximum cardinality of 'extension' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality']) &lt;= 1">extension with URL = 'http://hl7.org/fhir/StructureDefinition/patient-nationality': maximum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'http://hl7.org/fhir/StructureDefinition/patient-nationality|5.3.0']) &lt;= 1">extension with URL = 'http://hl7.org/fhir/StructureDefinition/patient-nationality|5.3.0': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:extension[@url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info']) &lt;= 1">extension with URL = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:extension[@url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employment-date']) &lt;= 1">extension with URL = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employment-date': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:extension[@url = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department']) &lt;= 1">extension with URL = 'https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department': maximum cardinality of 'extension' is 1</sch:assert>

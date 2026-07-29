@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Composition xmlns="http://hl7.org/fhir">
+  <id value="example-composition-employer-summary"/>
+  <meta>
+    <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmployerSummary"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: 组合式文书 example-composition-employer-summary</b></p><a name="example-composition-employer-summary"> </a><a name="hcexample-composition-employer-summary"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-Composition-EmployerSummary.html">雇主端健康管理摘要 Composition Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title="Codes:{http://loinc.org 60591-5}">Patient summary Document</span></p><p><b>date</b>: 2026-06-15 10:30:00+0800</p><p><b>author</b>: <a href="Practitioner-example-doctor.html">Practitioner 林職醫(official)</a></p><p><b>title</b>: 雇主端健康管理摘要</p></div>
+  </text>
+  <status value="final"/>
+  <type>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="60591-5"/>
+      <display value="Patient summary Document"/>
+    </coding>
+  </type>
+  <subject>
+    <reference value="Patient/example-worker"/>
+  </subject>
+  <date value="2026-06-15T10:30:00+08:00"/>
+  <author>
+    <reference value="Practitioner/example-doctor"/>
+  </author>
+  <title value="雇主端健康管理摘要"/>
+  <section>
+    <title value="健康管理分級與適性配工建議"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="51848-0"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Observation/obs-health-mgmt-level"/>
+    </entry>
+    <entry>
+      <reference value="CarePlan/example-careplan-fitness"/>
+    </entry>
+  </section>
+  <section>
+    <title value="臨場服務發現問題"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="29554-3"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Observation/example-service-finding"/>
+    </entry>
+  </section>
+</Composition>

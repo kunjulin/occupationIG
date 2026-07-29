@@ -6,7 +6,7 @@
     <profile value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns"/>
   </meta>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation obs-waist</b></p><a name="obs-waist"> </a><a name="hcobs-waist"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-VitalSigns.html">職業健檢生命徵象 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category vital-signs}">Vital Signs</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 8280-0}">Waist Circumference at umbilicus by Tape measure</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:15:00+0800</p><p><b>value</b>: 82 cm<span style="background: LightGoldenRodYellow"> (Details: UCUM  codecm = 'cm')</span></p></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: 观察 obs-waist</b></p><a name="obs-waist"> </a><a name="hcobs-waist"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-VitalSigns.html">職業健檢生命徵象 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category vital-signs}">Vital Signs</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 8280-0}">Waist Circumference at umbilicus by Tape measure</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:15:00+0800</p><p><b>performer</b>: <a href="Practitioner-example-nurse.html">Practitioner 陳健護(official)</a></p><p><b>value</b>: 82 cm<span style="background: LightGoldenRodYellow"> (Details: UCUM  codecm = 'cm')</span></p></div>
   </text>
   <status value="final"/>
   <category>
@@ -26,6 +26,9 @@
     <reference value="Patient/example-worker"/>
   </subject>
   <effectiveDateTime value="2026-06-12T08:15:00+08:00"/>
+  <performer>
+    <reference value="Practitioner/example-nurse"/>
+  </performer>
   <valueQuantity>
     <value value="82"/>
     <unit value="cm"/>

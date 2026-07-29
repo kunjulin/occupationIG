@@ -1,0 +1,37 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "VS-SpecificChemicalType",
+  "language" : "zh-TW",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 取值集合 VS-SpecificChemicalType</b></p><a name=\"VS-SpecificChemicalType\"> </a><a name=\"hcVS-SpecificChemicalType\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-CS-SpecificChemicalType.html\"><code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version &#x1F4E6;0.1.0</span></li></ul></div>"
+  },
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SpecificChemicalType",
+  "version" : "0.1.0",
+  "name" : "VS_SpecificChemicalType",
+  "title" : "特定化學物質種類值集",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2026-07-29T09:46:30+00:00",
+  "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+  "contact" : [{
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  },
+  {
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  }],
+  "description" : "包含特別危害健康作業中之常見特定化學物質代碼。",
+  "compose" : {
+    "include" : [{
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType"
+    }]
+  }
+}

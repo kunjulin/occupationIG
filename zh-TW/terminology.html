@@ -1,0 +1,1348 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Terminology - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+    <link rel="stylesheet" href="assets/css/project.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+    <script src="assets/js/direction-management.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="fhir-logo" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="fhir-logo" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="fhir-logo" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-fhirpath.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-cql.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"15"}
+    h3,h4,h5,h6{--heading-prefix:"15"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - STU1
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <!-- menu.xml -->
+
+<ul class="nav navbar-nav">
+  <li>
+    <a href="index.html">首頁 (Home)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">背景與案例 (Background &amp; Use Cases)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="background.html">背景 (Background)</a>
+      </li>
+      <li>
+        <a href="usecases.html">應用案例 (Use Cases)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="datamodel.html">資料模型 (Data Model)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄定義 (Examinations)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="general-exam.html">一般健康檢查 (General Exam)</a>
+      </li>
+      <li>
+        <a href="special-exam.html">特殊危害健康作業 (Special Exam)</a>
+      </li>
+      <li>
+        <a href="adult-preventive-care.html">成人預防保健 (Adult Preventive Care)</a>
+      </li>
+      <li>
+        <a href="service-record.html">勞工健康服務執行紀錄 (Service Record)</a>
+      </li>
+      <li>
+        <a href="health-management.html">健康管理分級 (Health Management)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR 資源 (FHIR Artifacts)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html">資源總覽 (Artifacts Summary)</a>
+      </li>
+      <li>
+        <a href="artifacts.html#1">Profiles</a>
+      </li>
+      <li>
+        <a href="artifacts.html#2">Extensions</a>
+      </li>
+      <li>
+        <a href="artifacts.html#3">Value Sets</a>
+      </li>
+      <li>
+        <a href="artifacts.html#4">Code Systems</a>
+      </li>
+      <li>
+        <a href="conformance.html">遵從性與依賴 (Conformance &amp; Dependencies)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">術語與安全 (Terminology &amp; Security)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="terminology.html">術語定義 (Terminology)</a>
+      </li>
+      <li>
+        <a href="security.html">安全性考量 (Security)</a>
+      </li>
+      <li>
+        <a href="ip-statements.html">智慧財產權聲明 (IP Statements)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="open-issues.html">未決事項 (Open Issues)</a>
+  </li>
+  <li>
+    <a href="downloads.html">下載區 (Downloads)</a>
+  </li>
+</ul>
+            </div>    <!-- /.nav-collapse -->
+
+              
+
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Terminology</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.1.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>Terminology</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#術語與代碼系統-terminology--codesystems" id="markdown-toc-術語與代碼系統-terminology--codesystems">術語與代碼系統 (Terminology &amp; CodeSystems)</a>    <ul>
+      <li><a href="#1-國際臨床術語遵循" id="markdown-toc-1-國際臨床術語遵循">1. 國際臨床術語遵循</a></li>
+      <li><a href="#2-本地化行政代碼系統-codesystems-defined-in-this-ig" id="markdown-toc-2-本地化行政代碼系統-codesystems-defined-in-this-ig">2. 本地化行政代碼系統 (CodeSystems Defined in this IG)</a></li>
+      <li><a href="#3-loinc-術語治理機制-loinc-terminology-governance" id="markdown-toc-3-loinc-術語治理機制-loinc-terminology-governance">3. LOINC 術語治理機制 (LOINC Terminology Governance)</a>        <ul>
+          <li><a href="#31-治理機制定義" id="markdown-toc-31-治理機制定義">3.1 治理機制定義</a></li>
+          <li><a href="#32-代碼映射-conceptmap" id="markdown-toc-32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</a></li>
+        </ul>
+      </li>
+      <li><a href="#4-跨術語對照表" id="markdown-toc-4-跨術語對照表">4. 跨術語對照表</a>        <ul>
+          <li><a href="#41-已驗證之綁定-snomed-ct-代碼verified" id="markdown-toc-41-已驗證之綁定-snomed-ct-代碼verified">4.1 已驗證之綁定 SNOMED CT 代碼（verified）</a></li>
+          <li><a href="#42-跨術語對照draftinformative" id="markdown-toc-42-跨術語對照draftinformative">4.2 跨術語對照（draft／informative）</a></li>
+        </ul>
+      </li>
+      <li><a href="#5-術語資源下載與補充說明" id="markdown-toc-5-術語資源下載與補充說明">5. 術語資源下載與補充說明</a>        <ul>
+          <li><a href="#50-情境值集與第一期草案子集之區別" id="markdown-toc-50-情境值集與第一期草案子集之區別">5.0 情境值集（③）與「第一期草案子集」之區別</a></li>
+          <li><a href="#51-術語對照表下載" id="markdown-toc-51-術語對照表下載">5.1 術語對照表下載</a></li>
+          <li><a href="#52-肺功能代碼雙-valueset-說明" id="markdown-toc-52-肺功能代碼雙-valueset-說明">5.2 肺功能代碼雙 ValueSet 說明</a></li>
+          <li><a href="#53-聽力頻率代碼設計說明" id="markdown-toc-53-聽力頻率代碼設計說明">5.3 聽力頻率代碼設計說明</a></li>
+        </ul>
+      </li>
+      <li><a href="#6-extended-量值項目建議單位對照ucum" id="markdown-toc-6-extended-量值項目建議單位對照ucum">6. Extended 量值項目建議單位對照（UCUM）</a>        <ul>
+          <li><a href="#61-盤點結果" id="markdown-toc-61-盤點結果">6.1 盤點結果</a></li>
+          <li><a href="#62-重點項目與單位陷阱覆核時優先檢視" id="markdown-toc-62-重點項目與單位陷阱覆核時優先檢視">6.2 重點項目與單位陷阱（覆核時優先檢視）</a></li>
+          <li><a href="#62b-嚼檳榔相關代碼之權威來源twcr_sf" id="markdown-toc-62b-嚼檳榔相關代碼之權威來源twcr_sf">6.2b 嚼檳榔相關代碼之權威來源（TWCR_SF）</a></li>
+          <li><a href="#63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性" id="markdown-toc-63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性">6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="術語與代碼系統-terminology--codesystems">術語與代碼系統 (Terminology &amp; CodeSystems)</h1>
+
+<p>本指引在國際術語標準（LOINC, SNOMED CT, ICD-10-CM）與臺灣本地化行政代碼之間建立映射，以實現數據的高級互操作性。</p>
+
+<blockquote>
+  <p><strong>命名說明</strong>：本指引之正式名稱為「臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG)」；<code class="language-plaintext highlighter-rouge">twha</code> 為本指引 Canonical URL 與 Profile/ValueSet/CodeSystem 前綴所使用之技術命名空間 token（沿用初版 draft 命名），非對外正式英文名稱之縮寫。</p>
+</blockquote>
+
+<h2 id="1-國際臨床術語遵循">1. 國際臨床術語遵循</h2>
+
+<ul>
+  <li><strong>LOINC (Logical Observation Identifiers Names and Codes)</strong>：
+    <ul>
+      <li>用於所有一般檢驗、生理功能檢查（肺功能、心電圖、聽力測試）及生理測量（身高、體重、血壓）的 Observation.code 定義。</li>
+      <li>本指引所使用的 LOINC 代碼集已彙整至 <a href="ValueSet-VS-CoreDataset.html">VS-CoreDataset</a> 與 <a href="ValueSet-VS-ExtendedDataset.html">VS-ExtendedDataset</a>。</li>
+    </ul>
+  </li>
+  <li><strong>SNOMED CT (Systematized Nomenclature of Medicine - Clinical Terms)</strong>：
+    <ul>
+      <li>用於生活習慣（如嚼檳榔狀態 <code class="language-plaintext highlighter-rouge">698188003</code>）、臨場服務現場發現之職業危害（<code class="language-plaintext highlighter-rouge">17458004</code>）等臨床發現與程序代碼。改善建議諮詢之 procedure 代碼 SNOMED 現無對應項，標示為 <strong><code class="language-plaintext highlighter-rouge">(-本地碼待治理)</code></strong>（原 <code class="language-plaintext highlighter-rouge">315640000</code> 經術語伺服器驗證實為「Influenza vaccination declined」，語意不符已移除；建議以 <code class="language-plaintext highlighter-rouge">CS-ServiceActivityType</code> 本地碼承載，惟該本地碼尚待治理）。</li>
+    </ul>
+  </li>
+  <li><strong>ICD-10-CM (Clinical Modification)</strong>：
+    <ul>
+      <li>用於記錄勞工既往病史（<code class="language-plaintext highlighter-rouge">TWHA-Condition</code>）以及附表十二所列之不適合從事特定危害作業疾病。</li>
+    </ul>
+  </li>
+</ul>
+
+<hr/>
+
+<h2 id="2-本地化行政代碼系統-codesystems-defined-in-this-ig">2. 本地化行政代碼系統 (CodeSystems Defined in this IG)</h2>
+
+<p>為滿足臺灣職業安全衛生與健康服務之行政申報需求，本指引定義了以下代碼系統：</p>
+
+<ul>
+  <li><strong><a href="CodeSystem-CS-ExamType.html">CS-ExamType</a> (檢查類型代碼系統)</strong>：
+    <ul>
+      <li>定義 <code class="language-plaintext highlighter-rouge">general-physical</code> (一般體格)、<code class="language-plaintext highlighter-rouge">general-health</code> (一般健康)、<code class="language-plaintext highlighter-rouge">special-physical</code> (特殊體格) 與 <code class="language-plaintext highlighter-rouge">special-health</code> (特殊健康)。</li>
+    </ul>
+  </li>
+  <li><strong><a href="CodeSystem-CS-HazardType.html">CS-HazardType</a> (危害作業類別代碼系統)</strong>：
+    <ul>
+      <li>定義高溫、噪音、輻射、異常氣壓、鉛、粉塵、有機溶劑、特定化學物質等 12 大類危害作業之代碼。（家族層）附表十（115.06.26 修正）逐號之 35 項具名作業另見 <a href="CodeSystem-CS-Appendix10Operation.html">CS-Appendix10Operation</a>，家族 ↔ 具名作業對映見 <a href="ConceptMap-Appendix10-to-HazardType.html">ConceptMap Appendix10-to-HazardType</a>。</li>
+    </ul>
+  </li>
+  <li><strong><a href="CodeSystem-CS-SmokingStatus.html">CS-SmokingStatus</a> (吸菸狀態代碼系統)</strong>：
+    <ul>
+      <li>定義從未、偶爾、每日與已戒之狀態。</li>
+    </ul>
+  </li>
+  <li><strong><a href="CodeSystem-CS-HealthMgmtLevel.html">CS-HealthMgmtLevel</a> (健康管理分級代碼系統)</strong>：
+    <ul>
+      <li>定義第一級至第四級健康管理分級。</li>
+    </ul>
+  </li>
+  <li><strong><a href="CodeSystem-CS-FitnessForWork.html">CS-FitnessForWork</a> (適性配工建議代碼系統)</strong>：
+    <ul>
+      <li>定義變更場所、換工作、縮短工時、醫療限制等工作調整項目。</li>
+    </ul>
+  </li>
+  <li><strong><a href="CodeSystem-CS-LaborReportCode.html">CS-LaborReportCode</a> (勞動部通報報告代碼系統)</strong>：
+    <ul>
+      <li>定義通報勞動部系統所需之大類通報報告代碼（如 <code class="language-plaintext highlighter-rouge">30901X</code> ~ <code class="language-plaintext highlighter-rouge">30905X</code>）。</li>
+    </ul>
+  </li>
+  <li><strong><a href="CodeSystem-CS-ServiceActivityType.html">CS-ServiceActivityType</a> (臨場健康服務辦理事項代碼系統)</strong>：
+    <ul>
+      <li>定義附表八申報時所需之 8 大類臨場服務活動類別。</li>
+    </ul>
+  </li>
+  <li><strong><a href="CodeSystem-CS-HealthCounseling.html">CS-HealthCounseling</a> (健康諮詢與衛教指導項目代碼系統)</strong>：
+    <ul>
+      <li>定義成人預防保健服務之 10 項法定衛教指導與諮詢事項。</li>
+    </ul>
+  </li>
+</ul>
+
+<hr/>
+
+<h2 id="3-loinc-術語治理機制-loinc-terminology-governance">3. LOINC 術語治理機制 (LOINC Terminology Governance)</h2>
+
+<p>由於各醫療院所檢驗資訊系統 (LIS) 的歷史代碼與檢驗方法存在差異（例如白血球計數可能使用自動計數或手動計數），本指引針對健康檢查檢驗項目採用 <strong>FHIR 國際標準之術語治理模式</strong>——<code class="language-plaintext highlighter-rouge">extensible binding</code> ＋ <code class="language-plaintext highlighter-rouge">preferred (primary) code</code> ＋ <code class="language-plaintext highlighter-rouge">acceptable codes via ConceptMap</code>，以提升互操作性並降低院所端系統對接成本。</p>
+
+<h3 id="31-治理機制定義">3.1 治理機制定義</h3>
+<ul>
+  <li><strong>Extensible binding（值集綁定強度）</strong>：
+    <ul>
+      <li>檢驗項目代碼綁定至值集，綁定強度為 <strong><code class="language-plaintext highlighter-rouge">extensible</code></strong>：優先使用值集內代碼；值集外之代碼亦可接受，但建議回報以利術語治理。</li>
+    </ul>
+  </li>
+  <li><strong>Preferred (primary) code（優先代碼）</strong>：
+    <ul>
+      <li>每個檢驗項目指定一個最優先推薦使用的標準 LOINC 代碼。例如 WBC 優先使用 <code class="language-plaintext highlighter-rouge">6690-2</code>、腰圍優先使用 <code class="language-plaintext highlighter-rouge">8280-0</code>。</li>
+    </ul>
+  </li>
+  <li><strong>Acceptable codes via ConceptMap（可接受代碼與歸一）</strong>：
+    <ul>
+      <li>同義或情境相近之 LOINC 代碼（例如 WBC 之 <code class="language-plaintext highlighter-rouge">804-5</code>、<code class="language-plaintext highlighter-rouge">26464-8</code>）列為 acceptable，收錄於對應值集，並透過 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 歸一至 preferred code，供接收端進行標準化資料清洗。</li>
+    </ul>
+  </li>
+  <li><strong>平行跨術語對映（SNOMED CT／UCUM）</strong>：
+    <ul>
+      <li><strong>SNOMED CT 與 UCUM 為與 LOINC 平行之 code system</strong>（非 LOINC 之下層）：LOINC 表達「檢驗項目」、SNOMED CT 表達臨床概念、UCUM 表達計量單位，三者於 &sect;4 對照表並列呈現。</li>
+    </ul>
+  </li>
+  <li><strong>Exclusion（治理註記）</strong>：
+    <ul>
+      <li>屬<strong>治理註記</strong>（非綁定層級）：明確排除不適用之過時或語意不符代碼。例如體液白血球代碼 <code class="language-plaintext highlighter-rouge">12227-5</code> 語意上不屬一般健檢血常規，於治理上標示排除。</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p><strong>用語澄清（重要，避免誤解）</strong>：</p>
+
+  <ol>
+    <li><strong><code class="language-plaintext highlighter-rouge">preferred</code> 與 <code class="language-plaintext highlighter-rouge">acceptable</code> 均為本專案之治理術語，非 FHIR 規範用語。</strong>
+      <ul>
+        <li>本 IG 之 <strong><code class="language-plaintext highlighter-rouge">acceptable</code></strong> 指「本專案允許並可經 ConceptMap 歸一之變異碼」，<strong>與 FHIR 之 binding strength 無關</strong>（FHIR binding strength 僅有 <code class="language-plaintext highlighter-rouge">required</code>／<code class="language-plaintext highlighter-rouge">extensible</code>／<code class="language-plaintext highlighter-rouge">preferred</code>／<code class="language-plaintext highlighter-rouge">example</code> 四值）。</li>
+        <li>本 IG 之 <strong><code class="language-plaintext highlighter-rouge">preferred (primary) code</code></strong> 指「<strong>本 IG 建議之標準交換碼</strong>」，<strong>並非該項目之唯一臨床正確碼</strong>；臨床上其他碼可能同樣正確，惟為利跨機構交換一致性而指定優先碼。</li>
+      </ul>
+    </li>
+    <li><strong>本 IG 之值集綁定強度一律為 <code class="language-plaintext highlighter-rouge">extensible</code></strong>（與文件一 &sect;6.3、實際建置一致），與上述治理層級之 <code class="language-plaintext highlighter-rouge">preferred</code> 為不同概念，請勿混用。</li>
+  </ol>
+</blockquote>
+
+<blockquote>
+  <p>⚠️ <strong>代碼驗證之三項要件（治理要求）</strong>：</p>
+
+  <p><strong><code class="language-plaintext highlighter-rouge">$validate-code</code> 通過僅代表「代碼存在」，不代表「語意正確」。</strong> 新增或引用任何代碼前，須完成下列三項：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left">要件</th>
+        <th style="text-align: left">方法</th>
+        <th style="text-align: left">單獨檢查為何不足</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left">(a) <strong>代碼存在性</strong></td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">$validate-code</code> 或 IG Publisher 建置</td>
+        <td style="text-align: left">代碼存在但語意不同者仍會通過</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">(b) <strong>代碼狀態</strong></td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">$lookup</code> 之 <code class="language-plaintext highlighter-rouge">STATUS</code> 屬性</td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">DEPRECATED</code>／<code class="language-plaintext highlighter-rouge">DISCOURAGED</code> 之代碼同樣存在且通過驗證</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">(c) <strong>顯示名語意相符性</strong></td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">$lookup</code> 取得官方 display，與本 IG 標示之意義<strong>人工確認</strong></td>
+        <td style="text-align: left"><strong>唯有此項能攔截「用錯碼」</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>IG Publisher 不執行 (c)</strong>：其驗證 ValueSet 之 <code class="language-plaintext highlighter-rouge">concept.code</code> 是否存在於 CodeSystem，
+但<strong>不檢查 <code class="language-plaintext highlighter-rouge">concept.display</code> 是否與該代碼真實語意相符</strong>。故一個值集可收錄 15 個過敏原檢測代碼、
+標示為「純音聽力各頻率」，仍以 0 Error 通過建置——此情形已實際發生於本 IG（見 &sect;6.3）。</p>
+
+  <p>凡代碼來源為人工建議清單者，<strong>均須執行全面 display 語意比對</strong>，比對報告見
+<a href="display-verification-report.csv">display-verification-report.csv</a>。</p>
+</blockquote>
+
+<h3 id="32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</h3>
+<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>29 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred <code class="language-plaintext highlighter-rouge">2089-1</code> 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）與腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）。<strong>v20260726（Wave 9）移除 3 組語意錯誤之對應</strong>：聽力 <code class="language-plaintext highlighter-rouge">21104-5</code>（實為 Deprecated 大豆粉塵 IgE）、尿酸 <code class="language-plaintext highlighter-rouge">49154-8</code>（實為 Rickettsia conorii IgG Ab）、HDL <code class="language-plaintext highlighter-rouge">3048-6</code>（實為 Triglyceride –fasting），該三項之 acceptable 均改標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
+
+<hr/>
+
+<h2 id="4-跨術語對照表">4. 跨術語對照表</h2>
+
+<blockquote>
+  <p><strong>⚠️ 本節分為兩區，效力不同，請勿混用：</strong></p>
+  <ul>
+    <li><strong>&sect;4.1 已驗證之綁定代碼（verified）</strong>：實際供 profile／ValueSet 綁定或正式 mapping 使用，且已通過術語伺服器 <code class="language-plaintext highlighter-rouge">$validate-code</code> 驗證。</li>
+    <li><strong>&sect;4.2 跨術語對照（draft／informative）</strong>：僅供參考之對照資訊。其中 <strong>SNOMED CT 欄位除 &sect;4.1 所列者外，均未經術語伺服器驗證，不得作為正式建議 mapping 使用</strong>。</li>
+  </ul>
+</blockquote>
+
+<h3 id="41-已驗證之綁定-snomed-ct-代碼verified">4.1 已驗證之綁定 SNOMED CT 代碼（verified）</h3>
+
+<p>下列 SNOMED CT 代碼為本 IG <strong>實際綁定使用</strong>者，已於 <strong>2026-07-26</strong> 透過 <code class="language-plaintext highlighter-rouge">tx.fhir.org</code>（SNOMED International Edition）逐一完成 <code class="language-plaintext highlighter-rouge">$validate-code</code> 代碼有效性驗證：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">SNOMED CT</th>
+      <th style="text-align: left">顯示名</th>
+      <th style="text-align: left">使用位置</th>
+      <th style="text-align: left">驗證狀態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">698188003</code></td>
+      <td style="text-align: left">Chews betel quid</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TWHA-SocialHistory-BetelNut</code>／<code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code></td>
+      <td style="text-align: left">✅ 已驗證 2026-07-26</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">266919005</code></td>
+      <td style="text-align: left">Never smoked</td>
+      <td style="text-align: left">吸菸狀態範例（<code class="language-plaintext highlighter-rouge">obs-smoking</code>）</td>
+      <td style="text-align: left">✅ 已驗證 2026-07-26</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">17458004</code></td>
+      <td style="text-align: left">Occupational hazard</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TWHA-Observation-ServiceFinding.code</code></td>
+      <td style="text-align: left">✅ 已驗證 2026-07-26</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">406221003</code></td>
+      <td style="text-align: left">Health status</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TWHA-HealthManagementLevel.code</code></td>
+      <td style="text-align: left">✅ 已驗證 2026-07-26</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>註：LOINC 代碼部分，凡被 profile／ValueSet 引用者，均已於同日以 <code class="language-plaintext highlighter-rouge">_genonce_tx.bat</code>（連線 <code class="language-plaintext highlighter-rouge">tx.fhir.org</code>，LOINC 2.82）完成代碼有效性與顯示名驗證。<strong>惟此驗證不含臨床適切性與法規符合性</strong>。</p>
+</blockquote>
+
+<h3 id="42-跨術語對照draftinformative">4.2 跨術語對照（draft／informative）</h3>
+
+<p>本節提供健康檢查資料集中各主要項目的跨術語對照，整合 LOINC（preferred 優先碼／acceptable 可接受碼）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照——三者為<strong>平行之 code system</strong>。</p>
+
+<blockquote>
+  <p><strong>⚠️ SNOMED CT 欄位之效力限制</strong>：本表 SNOMED CT 欄位（&sect;4.1 所列 4 碼除外）係先前以 SNOMED International Browser 人工填載，<strong>未經術語伺服器逐碼驗證</strong>，屬 <strong>draft／informative</strong> 性質，<strong>僅供參考，不得作為正式建議 mapping 或交換要求使用</strong>。實務上曾發現此類未驗證之人工對照有相當比例語意不符（本 IG 於 2026-07-26 之術語稽核即更正 4 個職業健康相關 SNOMED／LOINC 錯碼）。正式採用前應逐碼完成驗證（列為 backlog，見<a href="open-issues.html#t-3">未決事項 T-3</a>）。</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>標示慣例</strong>：<code class="language-plaintext highlighter-rouge">—</code> 表示該欄位不適用或無需列出。<code class="language-plaintext highlighter-rouge">(-)</code> 系列表示<strong>經術語伺服器查證後之缺碼狀態</strong>（非尚未填寫），依成因區分為三態：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left">標示</th>
+        <th style="text-align: left">意義</th>
+        <th style="text-align: left">後續處置</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">(-未找到)</code></td>
+        <td style="text-align: left">已查詢但<strong>未能檢索到</strong>合適代碼，不排除存在但檢索策略未涵蓋</td>
+        <td style="text-align: left">擴大檢索或請術語專家協助</td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code></td>
+        <td style="text-align: left">已確認國際術語系統<strong>確無</strong>語意相符之代碼</td>
+        <td style="text-align: left">提報 LOINC／SNOMED 新增申請，或俟版本更新</td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">(-本地碼待治理)</code></td>
+        <td style="text-align: left">概念存在但<strong>應以本地代碼承載</strong>，惟本地碼尚未完成治理</td>
+        <td style="text-align: left">納入本地 CodeSystem 治理流程</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>凡標示 <code class="language-plaintext highlighter-rouge">(-)</code> 系列者，均已移除原先語意不符之代碼，以免實作端誤用。</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">類別</th>
+      <th style="text-align: left">中文名</th>
+      <th style="text-align: left">LOINC Preferred</th>
+      <th style="text-align: left">LOINC Acceptable</th>
+      <th style="text-align: left">SNOMED CT<br/>(informative・未驗證)</th>
+      <th style="text-align: left">UCUM</th>
+      <th style="text-align: left">法規</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">血液學</td>
+      <td style="text-align: left">白血球計數</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">6690-2</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{804-5, 26464-8}</code></td>
+      <td style="text-align: left">767002</td>
+      <td style="text-align: left">10*3/uL</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">血液學</td>
+      <td style="text-align: left">紅血球計數 RBC</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">789-8</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">41653003</td>
+      <td style="text-align: left">10*6/uL</td>
+      <td style="text-align: left">附表九（115.06.26 新增）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">血液學</td>
+      <td style="text-align: left">血紅素</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">718-7</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">38082009</td>
+      <td style="text-align: left">g/dL</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">血液學</td>
+      <td style="text-align: left">血小板</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">777-3</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{26515-7}</code></td>
+      <td style="text-align: left">61928009</td>
+      <td style="text-align: left">10*3/uL</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">血液學</td>
+      <td style="text-align: left">MCV</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">787-2</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{30428-7}</code></td>
+      <td style="text-align: left">104133003</td>
+      <td style="text-align: left">fL</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">血液學</td>
+      <td style="text-align: left">MCH</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">785-6</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{28539-5}</code></td>
+      <td style="text-align: left">85505000</td>
+      <td style="text-align: left">pg</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">血液學</td>
+      <td style="text-align: left">MCHC</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">786-4</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">37254006</td>
+      <td style="text-align: left">g/dL</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">血液學</td>
+      <td style="text-align: left">嗜中性球%</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">770-8</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">271036002</td>
+      <td style="text-align: left">%</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生化/腎</td>
+      <td style="text-align: left">空腹血糖</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1558-6</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{2339-0}</code></td>
+      <td style="text-align: left">33747003</td>
+      <td style="text-align: left">mg/dL</td>
+      <td style="text-align: left">附表九/成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生化/腎</td>
+      <td style="text-align: left">肌酸酐</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2160-0</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{38483-4}</code></td>
+      <td style="text-align: left">15373003</td>
+      <td style="text-align: left">mg/dL</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生化/腎</td>
+      <td style="text-align: left">eGFR</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">98979-8</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{33914-3}</code></td>
+      <td style="text-align: left">80274001</td>
+      <td style="text-align: left">mL/min/{1.73_m2}</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生化/腎</td>
+      <td style="text-align: left">尿酸</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">3084-1</code></td>
+      <td style="text-align: left">(-確定無合適碼)</td>
+      <td style="text-align: left">86228006</td>
+      <td style="text-align: left">mg/dL</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">肝功能</td>
+      <td style="text-align: left">AST (GOT)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1920-8</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{30239-8}</code></td>
+      <td style="text-align: left">45896001</td>
+      <td style="text-align: left">U/L</td>
+      <td style="text-align: left">附表九/成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">肝功能</td>
+      <td style="text-align: left">ALT (GPT)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1742-6</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{1743-4}</code></td>
+      <td style="text-align: left">34608000</td>
+      <td style="text-align: left">U/L</td>
+      <td style="text-align: left">附表九/成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">肝功能</td>
+      <td style="text-align: left">ALP</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">6768-6</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">88810008</td>
+      <td style="text-align: left">U/L</td>
+      <td style="text-align: left">附表九</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">脂質</td>
+      <td style="text-align: left">總膽固醇</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2093-3</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{35200-5}</code></td>
+      <td style="text-align: left">77068002</td>
+      <td style="text-align: left">mg/dL</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">脂質</td>
+      <td style="text-align: left">三酸甘油酯</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2571-8</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{3043-7}</code></td>
+      <td style="text-align: left">14740000</td>
+      <td style="text-align: left">mg/dL</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">脂質</td>
+      <td style="text-align: left">HDL-C</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2085-9</code></td>
+      <td style="text-align: left">(-確定無合適碼)</td>
+      <td style="text-align: left">17888004</td>
+      <td style="text-align: left">mg/dL</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">脂質</td>
+      <td style="text-align: left">LDL-C (方法通用)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2089-1</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{13457-7, 18262-6}</code></td>
+      <td style="text-align: left">113079009</td>
+      <td style="text-align: left">mg/dL</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">內分泌</td>
+      <td style="text-align: left">HbA1c (NGSP)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">4548-4</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{59261-8}</code></td>
+      <td style="text-align: left">43396009</td>
+      <td style="text-align: left">%</td>
+      <td style="text-align: left">成健/進階</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">內分泌</td>
+      <td style="text-align: left">TSH</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">11580-8</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{3016-3}</code></td>
+      <td style="text-align: left">61167004</td>
+      <td style="text-align: left">mIU/L</td>
+      <td style="text-align: left">進階</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">癌標</td>
+      <td style="text-align: left">PSA</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2857-1</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">63476009</td>
+      <td style="text-align: left">ng/mL</td>
+      <td style="text-align: left">進階</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">癌標</td>
+      <td style="text-align: left">CA-125</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">10334-1</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{83082-8}</code></td>
+      <td style="text-align: left">50610001</td>
+      <td style="text-align: left">U/mL</td>
+      <td style="text-align: left">進階</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">癌標</td>
+      <td style="text-align: left">CEA</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2039-6</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{83085-1}</code></td>
+      <td style="text-align: left">60267001</td>
+      <td style="text-align: left">ng/mL</td>
+      <td style="text-align: left">進階</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">肝炎</td>
+      <td style="text-align: left">HBsAg</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5196-1</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{5195-3}</code></td>
+      <td style="text-align: left">39082004</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">肝炎</td>
+      <td style="text-align: left">anti-HCV</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">13955-0</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{16128-1}</code></td>
+      <td style="text-align: left">32218006</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">尿液</td>
+      <td style="text-align: left">尿蛋白 (試紙)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5804-0</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{2888-6}</code></td>
+      <td style="text-align: left">167273002</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">附表九/成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生理</td>
+      <td style="text-align: left">BMI</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">39156-5</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">60621009</td>
+      <td style="text-align: left">kg/m2</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生理</td>
+      <td style="text-align: left">腰臀比 WHR</td>
+      <td style="text-align: left">(-確定無合適碼)</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">248362002</td>
+      <td style="text-align: left">{ratio}</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生理</td>
+      <td style="text-align: left">血壓 Panel</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">55284-4</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">75367002</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">生理</td>
+      <td style="text-align: left">腰圍</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">8280-0</code></td>
+      <td style="text-align: left">(-確定無合適碼)</td>
+      <td style="text-align: left">276361009</td>
+      <td style="text-align: left">cm</td>
+      <td style="text-align: left">附表九/成健</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">肺功能</td>
+      <td style="text-align: left">FVC</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19868-9</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{19876-2, 19870-5}</code></td>
+      <td style="text-align: left">50834005</td>
+      <td style="text-align: left">L</td>
+      <td style="text-align: left">職業</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">肺功能</td>
+      <td style="text-align: left">FEV1</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">20150-9</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">59328004</td>
+      <td style="text-align: left">L</td>
+      <td style="text-align: left">職業</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">視力</td>
+      <td style="text-align: left">視力 Panel</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">98497-1</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">363983007</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">職業</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">聽力</td>
+      <td style="text-align: left">純音聽力 Panel</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">89015-2</code></td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">406081008</td>
+      <td style="text-align: left">dB</td>
+      <td style="text-align: left">職業</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h2 id="5-術語資源下載與補充說明">5. 術語資源下載與補充說明</h2>
+
+<h3 id="50-情境值集與第一期草案子集之區別">5.0 情境值集（③）與「第一期草案子集」之區別</h3>
+
+<p>本指引有兩組<strong>看似相近但語意不同</strong>的必驗相關值集，切勿混用（此為 index.md「三層資料集」
+之延伸，不是第四層）：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">值集</th>
+      <th style="text-align: left">回答的問題</th>
+      <th style="text-align: left">內容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="ValueSet-VS-Appendix9-RequiredSet.html">VS-Appendix9-RequiredSet</a>／<a href="ValueSet-VS-Appendix10-RequiredSet.html">VS-Appendix10-RequiredSet</a></td>
+      <td style="text-align: left"><strong>法規本身</strong>要求什麼（③ 情境資料集）</td>
+      <td style="text-align: left">依附表九／十逐項核對之法定應執行<strong>檢驗與量測</strong>項目，與本 IG 實作進度無關</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="ValueSet-VS-OccHealthCheck-Required.html">VS-OccHealthCheck-Required</a></td>
+      <td style="text-align: left"><strong>本 IG 這一期</strong>優先結構化了哪些</td>
+      <td style="text-align: left">第一期實作範圍之草案子集（一般項目＋噪音／鉛／粉塵三模組）</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>兩者<strong>並存、不互相取代</strong>：前者是「法規要求」，後者是「本期實作到哪」。
+<code class="language-plaintext highlighter-rouge">VS-OccHealthCheck-Required</code> 之成員為 <code class="language-plaintext highlighter-rouge">VS-Appendix9-RequiredSet</code> ∪ 附表十四家族值集之
+子集——即「法規要求」中，本期已完成結構化者。附表十未審家族（M-8）補齊後，
+兩者之差距即為「法規要求但本 IG 尚未結構化」之項目，可據以規劃後續期別。</p>
+
+<h3 id="51-術語對照表下載">5.1 術語對照表下載</h3>
+<p>完整的 LOINC–SNOMED CT–UCUM 跨術語對照表（CSV 格式）可從以下連結下載：</p>
+<ul>
+  <li><a href="snomed-loinc-mappings.csv">snomed-loinc-mappings.csv</a></li>
+</ul>
+
+<p>CSV 欄位說明：<code class="language-plaintext highlighter-rouge">category</code>（類別）、<code class="language-plaintext highlighter-rouge">item_name_zh</code>（中文名）、<code class="language-plaintext highlighter-rouge">item_name_en</code>（英文名）、<code class="language-plaintext highlighter-rouge">loinc_preferred</code>（優先碼）、<code class="language-plaintext highlighter-rouge">loinc_acceptable</code>（可接受碼集合）、<code class="language-plaintext highlighter-rouge">snomed_ct</code>（代碼）、<code class="language-plaintext highlighter-rouge">snomed_display</code>（顯示名稱）、<code class="language-plaintext highlighter-rouge">snomed_status</code>（驗證狀態）、<code class="language-plaintext highlighter-rouge">ucum_unit</code>（UCUM 單位）、<code class="language-plaintext highlighter-rouge">regulatory_ref</code>（法規欄位）。</p>
+
+<h3 id="52-肺功能代碼雙-valueset-說明">5.2 肺功能代碼雙 ValueSet 說明</h3>
+<p>本指引中，肺功能代碼（<code class="language-plaintext highlighter-rouge">19868-9</code> FVC、<code class="language-plaintext highlighter-rouge">20150-9</code> FEV1、<code class="language-plaintext highlighter-rouge">19926-5</code> FEV1/FVC 比值）同時收錄於兩個不同的 ValueSet，用途各異：</p>
+
+<ul>
+  <li><strong><a href="ValueSet-VS-PulmonaryFunction.html">VS-PulmonaryFunction</a></strong>：供 <code class="language-plaintext highlighter-rouge">TWHAPulmonaryFunctionProfile</code> 完整代碼集查詢使用，包含所有肺功能相關代碼（含 TLC、RV、DLCO 等）。</li>
+  <li><strong><a href="ValueSet-VS-CoreDataset.html">VS-CoreDataset</a></strong>：供術語查詢與跨資料集完整性核對使用，僅收錄最核心的三個代碼。</li>
+</ul>
+
+<p>兩者並非重複，而是服務不同的查詢情境。<code class="language-plaintext highlighter-rouge">TWHAPulmonaryFunctionProfile</code> 的 <code class="language-plaintext highlighter-rouge">Observation.code</code> 為固定值（<code class="language-plaintext highlighter-rouge">= LNC#19868-9</code>），不受 VS 繫結直接限制，但兩個 VS 均供文件與術語服務查詢使用。</p>
+
+<h3 id="53-聽力頻率代碼設計說明">5.3 聽力頻率代碼設計說明</h3>
+<p>聽力測試之代碼結構層次如下（此為 panel／component 之<strong>資源結構</strong>設計，與 &sect;3 之術語治理機制為不同概念）：</p>
+<ol>
+  <li><strong>Panel（<code class="language-plaintext highlighter-rouge">89015-2</code>）</strong>：記錄整場聽力測試，進入 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 作為 Observation.code</li>
+  <li><strong>個別頻率/耳別代碼（<code class="language-plaintext highlighter-rouge">89024-4</code> 等 8 個）</strong>：作為 <code class="language-plaintext highlighter-rouge">component.code</code> 由 <code class="language-plaintext highlighter-rouge">TWHAHearingTestProfile</code> 的 8 個 component 切片處理，收錄於 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code></li>
+  <li><strong>結果解釋</strong>：臨床人員依 ISO 1999 標準判定各頻率閾值是否超過 25 dB HL</li>
+  <li><strong>⚠️ 關於 <code class="language-plaintext highlighter-rouge">21104-5</code> 系列（更正）</strong>：先前依「院所 LIS／職業病醫師另採純音聽力研究系列」之敘述，將 <code class="language-plaintext highlighter-rouge">21104-5</code> 等 15 碼列為 Acceptable 變異碼。經 <code class="language-plaintext highlighter-rouge">tx.fhir.org</code> 逐碼查證，<strong>該等代碼之真實語意為過敏原 RAST 檢測、酵素及重金屬等項目，與聽力無關</strong>，多數並為 LOINC <code class="language-plaintext highlighter-rouge">DEPRECATED</code> 狀態。<strong>該系列不得作為聽力代碼使用</strong>，已於 v20260726 自 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code> 與 ConceptMap 全數移除（見 &sect;6.3）；聽力 acceptable 變異碼標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。本 IG 之聽力代碼以 <code class="language-plaintext highlighter-rouge">89015-2</code> panel 及其 0.5–8 kHz 雙耳 14 個成員碼為準。</li>
+</ol>
+
+<hr/>
+
+<h2 id="6-extended-量值項目建議單位對照ucum">6. Extended 量值項目建議單位對照（UCUM）</h2>
+
+<blockquote>
+  <p>本表所列為 <strong>LOINC 官方建議單位</strong>（<code class="language-plaintext highlighter-rouge">EXAMPLE_UCUM_UNITS</code> 欄位，經 <code class="language-plaintext highlighter-rouge">tx.fhir.org</code> <code class="language-plaintext highlighter-rouge">$lookup</code> 查詢，LOINC 2.82），供實作參照；
+<strong>實際單位以各機構 LIS 報告為準，跨機構比較前應確認單位一致或完成換算。</strong></p>
+
+  <p>⚠️ <strong>全部項目之驗證狀態均為「需覆核」</strong>，須經檢驗醫學專業確認後方可改為「已覆核」。
+本節<strong>未修改任何 ValueSet 綁定</strong>——UCUM 於 FHIR 中係存在於 Observation 實例之
+<code class="language-plaintext highlighter-rouge">valueQuantity.system = "http://unitsofmeasure.org"</code> 與 <code class="language-plaintext highlighter-rouge">.code</code>，ValueSet 本身不承載單位。</p>
+</blockquote>
+
+<h3 id="61-盤點結果">6.1 盤點結果</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">項目</th>
+      <th style="text-align: right">筆數</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">VS-ExtendedDataset 代碼總數</td>
+      <td style="text-align: right">292</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>LOINC 有提供建議單位</strong></td>
+      <td style="text-align: right"><strong>209</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LOINC 未提供建議單位（多為定性／影像／鏡檢項目）</td>
+      <td style="text-align: right">83</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>完整對照表（292 筆，含 LOINC 官方顯示名與來源標註）：
+<strong><a href="extended-ucum-reference.csv">extended-ucum-reference.csv</a></strong></p>
+
+<p>CSV 欄位：<code class="language-plaintext highlighter-rouge">loinc</code>、<code class="language-plaintext highlighter-rouge">ig_display</code>（本 IG 標示）、<code class="language-plaintext highlighter-rouge">loinc_display</code>（LOINC 官方顯示名）、
+<code class="language-plaintext highlighter-rouge">ucum_suggested</code>（建議單位）、<code class="language-plaintext highlighter-rouge">source</code>（來源）、<code class="language-plaintext highlighter-rouge">verification</code>（驗證狀態）、<code class="language-plaintext highlighter-rouge">note</code>（註記）。</p>
+
+<h3 id="62-重點項目與單位陷阱覆核時優先檢視">6.2 重點項目與單位陷阱（覆核時優先檢視）</h3>
+
+<p>下列項目之單位<strong>易生誤用且誤差可達 10 倍以上，屬病人安全風險</strong>，覆核時應優先確認：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">LOINC</th>
+      <th style="text-align: left">項目</th>
+      <th style="text-align: left">LOINC 建議單位</th>
+      <th style="text-align: left">來源</th>
+      <th style="text-align: left">驗證狀態</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5671-3</code></td>
+      <td style="text-align: left">血中鉛（LOINC 狀態：DISCOURAGED）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/dL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5676-2</code></td>
+      <td style="text-align: left">尿中鉛</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5685-3</code></td>
+      <td style="text-align: left">血中汞</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5689-5</code></td>
+      <td style="text-align: left">尿中汞</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5609-3</code></td>
+      <td style="text-align: left">血中鎘</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5611-9</code></td>
+      <td style="text-align: left">尿中鎘</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5622-6</code></td>
+      <td style="text-align: left">血清鉻</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5623-4</code></td>
+      <td style="text-align: left">尿中鉻</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">14099-6</code></td>
+      <td style="text-align: left">尿中鎳</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5586-3</code></td>
+      <td style="text-align: left">尿中砷</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5681-2</code></td>
+      <td style="text-align: left">血中錳</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ng/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">42221-2</code></td>
+      <td style="text-align: left">尿中錳（莫耳）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">nmol/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">批3 確認官方為莫耳；院方以質量報告，質量碼見 <code class="language-plaintext highlighter-rouge">5684-6</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5684-6</code></td>
+      <td style="text-align: left">尿中錳（質量，院方所用）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">批3 新增（Q2-1），經 CI $lookup 覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">6709-0</code></td>
+      <td style="text-align: left">尿中馬尿酸（甲苯）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">g/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2725-0</code></td>
+      <td style="text-align: left">尿中甲基馬尿酸（二甲苯）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mg/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">13000-5</code></td>
+      <td style="text-align: left">尿中扁桃酸（苯乙烯）</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left"><strong>LOINC 未提供</strong></td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">3041-1</code></td>
+      <td style="text-align: left">尿中三氯乙酸</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">ug/mL</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">31170-4</code></td>
+      <td style="text-align: left">尿中2,5-己二酮（正己烷）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mg/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2758-1</code></td>
+      <td style="text-align: left">尿中酚（苯）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mg/L</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">12533-6</code></td>
+      <td style="text-align: left">尿中TTCA（二硫化碳）</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left"><strong>LOINC 未提供</strong></td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">4548-4</code></td>
+      <td style="text-align: left">HbA1c (NGSP)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">%</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">59261-8</code></td>
+      <td style="text-align: left">HbA1c (IFCC)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">%</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">98979-8</code></td>
+      <td style="text-align: left">eGFR (CKD-EPI 2021)</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mL/min/{1.73_m2}</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">需覆核</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">33914-3</code></td>
+      <td style="text-align: left">eGFR (MDRD)（LOINC 狀態：DISCOURAGED）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mL/min/{1.73_m2}</code></td>
+      <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
+      <td style="text-align: left">職醫科已確認保留（2026-07-27，JOB-01 Q8）；多公式並存見 T-11</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>特別提醒：</strong></p>
+<ul>
+  <li><strong>重金屬單位不一致</strong>：血中鉛為 <code class="language-plaintext highlighter-rouge">ug/dL</code>、尿中鉛為 <code class="language-plaintext highlighter-rouge">ug/L</code>、血中汞與鎘為 <code class="language-plaintext highlighter-rouge">ng/mL</code>——<strong>量級不同，不可互換</strong>。</li>
+  <li><strong>肌酸酐校正</strong>：尿中代謝物實務上常以 <code class="language-plaintext highlighter-rouge">mg/g{creatinine}</code> 報告（經肌酸酐校正），與 LOINC 建議之 <code class="language-plaintext highlighter-rouge">g/L</code>／<code class="language-plaintext highlighter-rouge">mg/mL</code> <strong>非同一量測基礎</strong>，交換時須明確標示是否已校正。</li>
+  <li><strong>HbA1c</strong>：NGSP（<code class="language-plaintext highlighter-rouge">%</code>）與 IFCC（<code class="language-plaintext highlighter-rouge">mmol/mol</code>）需換算，換算式見 ConceptMap 之 comment。</li>
+  <li><strong>eGFR</strong>：<code class="language-plaintext highlighter-rouge">mL/min/{1.73_m2}</code>；另注意 MDRD 與 CKD-EPI 2021 為不同公式，數值不可直接互換。</li>
+  <li><strong>聽閾</strong>：<code class="language-plaintext highlighter-rouge">dB</code>（已於 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> 規範，見該 Profile 說明）。</li>
+</ul>
+
+<h3 id="62b-嚼檳榔相關代碼之權威來源twcr_sf">6.2b 嚼檳榔相關代碼之權威來源（TWCR_SF）</h3>
+
+<p><code class="language-plaintext highlighter-rouge">TWHA-SocialHistory-BetelNut</code> 所用之嚼檳榔量／年／戒檳榔年代碼，
+權威來源為<strong>臺灣癌症登記短表實作指引（TWCR_SF）</strong>，命名空間 <code class="language-plaintext highlighter-rouge">https://hapi.fhir.tw</code>。</p>
+
+<p>本指引以<strong>【本地 stub】</strong>承載這些定義（<code class="language-plaintext highlighter-rouge">content = fragment</code>、<code class="language-plaintext highlighter-rouge">status = draft</code>、
+<code class="language-plaintext highlighter-rouge">experimental = true</code>），<strong>非權威定義</strong>。原因：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">探測（2026-07-28，CI 實測）</th>
+      <th style="text-align: left">結果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">fhir.twcrsf</code> 套件（3 個 registry 之根路徑）</td>
+      <td style="text-align: left">全部 404——套件 ID 不存在</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">10 個 canonical 於 <code class="language-plaintext highlighter-rouge">hapi.fhir.tw</code></td>
+      <td style="text-align: left">全部 404——伺服器有回應，不服務這些資源</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>實作端應以 TWCR_SF 官方定義為準。</strong> 本 stub 之代碼清單未經上游核對——
+無從核對，因為上游不可達。若 TWCR_SF 日後於同一 canonical 發佈不同內容，
+同時載入兩者的系統會遇到衝突。</p>
+
+<p>上游套件一旦可用，本指引應改為正式套件依賴並刪除 stub。
+見<a href="open-issues.html#g-5">未決事項 G-5</a>。</p>
+
+<h3 id="63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性">6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）</h3>
+
+<p>盤點時以 <code class="language-plaintext highlighter-rouge">$lookup</code> 一併取得 LOINC 代碼狀態，發現下列情形，一併列出供後續處置：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">LOINC</th>
+      <th style="text-align: left">本 IG 標示</th>
+      <th style="text-align: left">LOINC 官方語意／狀態</th>
+      <th style="text-align: left">說明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">21104-5</code> 等 <strong>15 碼</strong></td>
+      <td style="text-align: left">純音聽力 panel 與各頻率</td>
+      <td style="text-align: left">大豆粉塵 IgE、牛肉 IgG、藍莓 IgG（<strong>Deprecated</strong> 過敏原檢測）、Borrelia 抗體、β-N-乙醯己醣胺酶、24 小時尿中鉍、鎘等</td>
+      <td style="text-align: left">✅ <strong>已於 v20260726 全數移除</strong>（ValueSet 與 ConceptMap）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">49154-8</code></td>
+      <td style="text-align: left">尿酸全血法（acceptable）</td>
+      <td style="text-align: left"><strong>Rickettsia conorii IgG Ab [Titer]</strong>（地中海斑疹熱抗體效價）</td>
+      <td style="text-align: left">✅ <strong>已於 v20260726 移除</strong>；尿酸 acceptable 標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5671-3</code></td>
+      <td style="text-align: left">血中鉛（原 Preferred）</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">✅ <strong>已處置</strong>：Preferred 改為 <code class="language-plaintext highlighter-rouge">77307-7</code>（Venous blood, ACTIVE），本碼降為 acceptable 並經 ConceptMap 歸一</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">33914-3</code></td>
+      <td style="text-align: left">eGFR MDRD（Acceptable）</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">同上</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2532-0</code></td>
+      <td style="text-align: left">LDH</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">同上</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1709-5</code></td>
+      <td style="text-align: left">RBC 乙醯膽鹼酯酶</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">同上</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">35200-5</code></td>
+      <td style="text-align: left">總膽固醇（acceptable）</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">v20260726 全面比對新發現</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">55284-4</code></td>
+      <td style="text-align: left">血壓 panel</td>
+      <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
+      <td style="text-align: left">v20260726 全面比對新發現</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19571-9</code> 等 <strong>5 碼</strong></td>
+      <td style="text-align: left">尿液毒品篩檢（安非他命／鴉片／苯二氮平／K他命／MDMA）</td>
+      <td style="text-align: left">均為 <strong>cutoff（閾值濃度）概念碼</strong>（<code class="language-plaintext highlighter-rouge">[Mass/volume] ... for Screen method</code>，單位 ng/mL），非篩檢結果碼</td>
+      <td style="text-align: left">✅ <strong>已處置</strong>：改列對應之 <code class="language-plaintext highlighter-rouge">[Presence]</code> 結果碼（<code class="language-plaintext highlighter-rouge">3349-8</code>／<code class="language-plaintext highlighter-rouge">3879-4</code>／<code class="language-plaintext highlighter-rouge">3390-2</code>／<code class="language-plaintext highlighter-rouge">12327-3</code>／<code class="language-plaintext highlighter-rouge">14267-9</code>）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">29771-3</code></td>
+      <td style="text-align: left">糞便潛血（免疫法 FIT）</td>
+      <td style="text-align: left">Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay</td>
+      <td style="text-align: left">✅ <strong>已覆核</strong>：概念相符（下消化道人類血紅蛋白免疫分析），顯示名已校正</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>⚠️ <strong>關於 <code class="language-plaintext highlighter-rouge">21104-5</code> 系列（重要）</strong>：該 15 碼係先前依「職業病醫師／院內 LIS 另採純音聽力研究系列」之敘述加入，
+惟經 <code class="language-plaintext highlighter-rouge">tx.fhir.org</code> <code class="language-plaintext highlighter-rouge">$lookup</code> 逐碼查證，其<strong>真實語意為過敏原 RAST 檢測、酵素與重金屬等項目，與聽力無關</strong>，
+且多數已為 LOINC <code class="language-plaintext highlighter-rouge">DEPRECATED</code> 狀態。</p>
+
+  <p><strong>此類錯誤不會被 IG Publisher 攔截</strong>——建置驗證僅確認「代碼於 LOINC 中存在」，
+<strong>不檢查 ValueSet 內之顯示名是否與代碼語意相符</strong>；故該 15 碼雖語意全錯，仍可通過驗證。
+此為術語治理之已知盲區，處置方式應比照 <code class="language-plaintext highlighter-rouge">(-)</code> 標註原則。</p>
+
+  <p><strong>血中鉛 Preferred 更換（Wave 9-3，已拍板）</strong>：<code class="language-plaintext highlighter-rouge">5671-3</code> 之 LOINC 狀態為 DISCOURAGED；經檢索並確認，
+現行 ACTIVE 之 <strong><code class="language-plaintext highlighter-rouge">77307-7</code> Lead [Mass/volume] in Venous blood</strong> 符合職業血鉛監測慣用之靜脈血檢體，
+已於 v20260726 改列為 <strong>Preferred</strong>；<code class="language-plaintext highlighter-rouge">5671-3</code> 降為 acceptable 並於 ConceptMap 建立歸一對應（equivalence = relatedto）。
+院內 LIS 之 <code class="language-plaintext highlighter-rouge">23749-5</code>（Lead in Specimen）之歸一 target 同步改為 <code class="language-plaintext highlighter-rouge">77307-7</code>。</p>
+
+  <p><strong>處置結果（v20260726 / Wave 9）</strong>：上述 <code class="language-plaintext highlighter-rouge">21104-5</code> 系列 15 碼與 <code class="language-plaintext highlighter-rouge">49154-8</code> 共 <strong>16 碼已全數移除</strong>（ValueSet 與 ConceptMap），
+相關 acceptable 欄位改標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。錯誤紀錄保留於本節供追溯。</p>
+</blockquote>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+  <script src="assets/js/flags.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <script src="assets/js/togglechanges.js" type="text/javascript"> </script>
+  <script src="assets/js/requirements-table.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container" data-fhir="generated">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+           <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
+          
+          
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      : <a style="color: var(--footer-hyperlink-text-color)" href="toc.html"></a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html"></a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

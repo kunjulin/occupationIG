@@ -12,13 +12,13 @@
   <sch:pattern>
     <sch:title>f:QuestionnaireResponse</sch:title>
     <sch:rule context="f:QuestionnaireResponse">
-      <sch:assert test="count(f:extension[@url = 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode']) &lt;= 1">extension with URL = 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode': maximum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode|5.3.0']) &lt;= 1">extension with URL = 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode|5.3.0': maximum cardinality of 'extension' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:title>f:QuestionnaireResponse/f:questionnaire</sch:title>
     <sch:rule context="f:QuestionnaireResponse/f:questionnaire">
-      <sch:assert test="count(f:extension[@url = 'http://hl7.org/fhir/StructureDefinition/display']) &lt;= 1">extension with URL = 'http://hl7.org/fhir/StructureDefinition/display': maximum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'http://hl7.org/fhir/StructureDefinition/display|5.3.0']) &lt;= 1">extension with URL = 'http://hl7.org/fhir/StructureDefinition/display|5.3.0': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:extension[@url = 'https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/questionnaire-url']) &lt;= 1">extension with URL = 'https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/questionnaire-url': maximum cardinality of 'extension' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>
@@ -32,7 +32,7 @@
     <sch:title>f:QuestionnaireResponse/f:item/f:answer</sch:title>
     <sch:rule context="f:QuestionnaireResponse/f:item/f:answer">
       <sch:assert test="count(f:extension[@url = 'http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemAnswerMedia']) &lt;= 1">extension with URL = 'http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-itemAnswerMedia': maximum cardinality of 'extension' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'http://hl7.org/fhir/StructureDefinition/ordinalValue']) &lt;= 1">extension with URL = 'http://hl7.org/fhir/StructureDefinition/ordinalValue': maximum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'http://hl7.org/fhir/StructureDefinition/ordinalValue|5.3.0']) &lt;= 1">extension with URL = 'http://hl7.org/fhir/StructureDefinition/ordinalValue|5.3.0': maximum cardinality of 'extension' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

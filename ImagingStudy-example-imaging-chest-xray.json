@@ -1,0 +1,41 @@
+{
+  "resourceType" : "ImagingStudy",
+  "id" : "example-imaging-chest-xray",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ImagingStudy"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 成像检查 example-imaging-chest-xray</b></p><a name=\"example-imaging-chest-xray\"> </a><a name=\"hcexample-imaging-chest-xray\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-ImagingStudy.html\">健康檢查健檢影像檢查 Profile</a></p></div><p><b>status</b>: Available</p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>started</b>: 2026-06-12 09:45:00+0800</p><p><b>numberOfSeries</b>: 1</p><p><b>numberOfInstances</b>: 1</p><p><b>procedureCode</b>: <span title=\"Codes:\">胸部X光攝影（後前位）</span></p><p><b>reasonCode</b>: <span title=\"Codes:\">粉塵作業特殊健康檢查</span></p><blockquote><p><b>series</b></p><p><b>uid</b>: 1.2.826.0.1.3680043.8.498.10001</p><p><b>number</b>: 1</p><p><b>modality</b>: <a href=\"http://hl7.org/fhir/R4/codesystem-dicom-dcim.html#dicom-dcim-DX\">DICOM: DX</a> (Digital Radiography)</p><p><b>description</b>: Chest PA</p><h3>Instances</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Uid</b></td><td><b>SopClass</b></td><td><b>Number</b></td></tr><tr><td style=\"display: none\">*</td><td>1.2.826.0.1.3680043.8.498.20001</td><td>unknown: urn:oid:1.2.840.10008.5.1.4.1.1.1.1 (urn:oid:1.2.840.10008.5.1.4.1.1.1.1)</td><td>1</td></tr></table></blockquote></div>"
+  },
+  "status" : "available",
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "started" : "2026-06-12T09:45:00+08:00",
+  "numberOfSeries" : 1,
+  "numberOfInstances" : 1,
+  "procedureCode" : [{
+    "text" : "胸部X光攝影（後前位）"
+  }],
+  "reasonCode" : [{
+    "text" : "粉塵作業特殊健康檢查"
+  }],
+  "series" : [{
+    "uid" : "1.2.826.0.1.3680043.8.498.10001",
+    "number" : 1,
+    "modality" : {
+      "system" : "http://dicom.nema.org/resources/ontology/DCM",
+      "code" : "DX"
+    },
+    "description" : "Chest PA",
+    "instance" : [{
+      "uid" : "1.2.826.0.1.3680043.8.498.20001",
+      "sopClass" : {
+        "system" : "urn:ietf:rfc:3986",
+        "code" : "urn:oid:1.2.840.10008.5.1.4.1.1.1.1"
+      },
+      "number" : 1
+    }]
+  }]
+}

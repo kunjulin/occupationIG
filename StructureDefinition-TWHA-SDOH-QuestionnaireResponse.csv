@@ -25,10 +25,10 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"QuestionnaireResponse.extension:signature","QuestionnaireResponse.extension","signature","","",0,*,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature]]} {[]}
+"QuestionnaireResponse.extension:signature","QuestionnaireResponse.extension","signature","","",0,*,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.3.0]]} {[]}
 ","A signature attesting to the content","Represents a wet or electronic signature for either the form overall or for the question or item it's associated with.","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"QuestionnaireResponse.extension:completionMode","QuestionnaireResponse.extension","completionMode","","",0,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode]]} {[]}
+"QuestionnaireResponse.extension:completionMode","QuestionnaireResponse.extension","completionMode","","",0,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode|5.3.0]]} {[]}
 ","E.g. Verbal, written, electronic","Indicates how the individual completing the QuestionnaireResponse provided their responses.","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "QuestionnaireResponse.modifierExtension","QuestionnaireResponse.modifierExtension","","extensions
@@ -57,7 +57,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
 ","",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"QuestionnaireResponse.questionnaire.extension:questionnaireDisplay","QuestionnaireResponse.questionnaire.extension","questionnaireDisplay","","",0,1,"Y","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/display]]} {[]}
+"QuestionnaireResponse.questionnaire.extension:questionnaireDisplay","QuestionnaireResponse.questionnaire.extension","questionnaireDisplay","","",0,1,"Y","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/display|5.3.0]]} {[]}
 ","Display name for canonical reference","The title or other name to display when referencing a resource by canonical URL.","This SHALL be the title of the Questionnaire at the time the QuestionnaireResponse was originally authored.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "QuestionnaireResponse.questionnaire.extension:url","QuestionnaireResponse.questionnaire.extension","url","","",0,1,"Y","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twcore/StructureDefinition/questionnaire-url]]} {[]}
@@ -102,7 +102,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Media to display","Media to render/make available as an accompaniment to the question being asked","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"QuestionnaireResponse.item.extension:ItemSignature","QuestionnaireResponse.item.extension","ItemSignature","","",0,*,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature]]} {[]}
+"QuestionnaireResponse.item.extension:ItemSignature","QuestionnaireResponse.item.extension","ItemSignature","","",0,*,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.3.0]]} {[]}
 ","A signature attesting to the content","Represents a wet or electronic signature for either the form overall or for the question or item it's associated with.","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "QuestionnaireResponse.item.modifierExtension","QuestionnaireResponse.item.modifierExtension","","extensions
@@ -135,7 +135,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Answer Media to display","Media to render/make available as an accompaniment to a specific answer option","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"QuestionnaireResponse.item.answer.extension:ordinalValue","QuestionnaireResponse.item.answer.extension","ordinalValue","","",0,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/ordinalValue]]} {[]}
+"QuestionnaireResponse.item.answer.extension:ordinalValue","QuestionnaireResponse.item.answer.extension","ordinalValue","","",0,1,"","","","Extension {[CanonicalType[http://hl7.org/fhir/StructureDefinition/ordinalValue|5.3.0]]} {[]}
 ","Assigned Ordinal Value","A numeric value that allows the comparison (less than, greater than) or other numerical 
 manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores.","Scores are commonly encountered in various clinical assessment scales. Assigning a value to a concept should generally be done in a formal code system that defines the value, or in an applicable value set for the concept, but some concepts do not have a formal definition (or are not even represented as a concept formally, especially in [Questionnaires](http://hl7.org/fhir/R4/questionnaire.html), 
 so this extension is allowed to appear ouside those preferred contexts.  Scores may even be assigned arbitrarily during use (hence, on Coding). The value may be constrained to an integer in some contexts of use. Todo: Scoring algorithms may also be defined directly, but how this is done is not yet defined.","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}

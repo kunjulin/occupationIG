@@ -1,0 +1,71 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CarePlan/example-careplan-fitness> a fhir:CarePlan ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "example-careplan-fitness"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-CarePlan" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-CarePlan>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "additional" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>依115年6月12日噪音作業特殊健康檢查結果，勞工王大同經判定為第四級健康管理。經職業醫學科醫師與事業單位協商，自115年7月1日起調整如下：</p><ul><li>變更工作場所：自化學處理課調整至噪音暴露低於85分貝之區域。</li><li>縮短工作時間：每日噪音作業時間不超過4小時。</li></ul><p>三個月後複檢並重新評估分級。</p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork" ] ;
+         fhir:Coding.code [ fhir:value "change-workplace" ] ;
+         fhir:Coding.display [ fhir:value "變更工作場所" ]
+       ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work" ] ;
+     fhir:Extension.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork" ] ;
+         fhir:Coding.code [ fhir:value "reduce-hours" ] ;
+         fhir:Coding.display [ fhir:value "縮短工作時間" ]
+       ]
+     ]
+  ] ;
+  fhir:CarePlan.status [ fhir:value "active"] ;
+  fhir:CarePlan.intent [ fhir:value "plan"] ;
+  fhir:CarePlan.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/careplan-category-tw" ] ;
+       fhir:Coding.code [ fhir:value "assess-plan" ]
+     ]
+  ] ;
+  fhir:CarePlan.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:CarePlan.period [
+     fhir:Period.start [ fhir:value "2026-07-01"^^xsd:date ] ;
+     fhir:Period.end [ fhir:value "2026-10-01"^^xsd:date ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CarePlan/example-careplan-fitness.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

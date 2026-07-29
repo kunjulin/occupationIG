@@ -1,0 +1,144 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "VS-OccHealthCheck-Required"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 取值集合 VS-OccHealthCheck-Required</b></p><a name=\"VS-OccHealthCheck-Required\"> </a><a name=\"hcVS-OccHealthCheck-Required\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/8302-2/\">8302-2</a></td><td>Body height</td></tr><tr><td><a href=\"https://loinc.org/29463-7/\">29463-7</a></td><td>Body weight</td></tr><tr><td><a href=\"https://loinc.org/55284-4/\">55284-4</a></td><td>Blood pressure systolic and diastolic</td></tr><tr><td><a href=\"https://loinc.org/1558-6/\">1558-6</a></td><td>Fasting glucose [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2093-3/\">2093-3</a></td><td>Cholesterol [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2571-8/\">2571-8</a></td><td>Triglyceride [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2085-9/\">2085-9</a></td><td>Cholesterol in HDL [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2089-1/\">2089-1</a></td><td>Cholesterol in LDL [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/1742-6/\">1742-6</a></td><td>Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/2160-0/\">2160-0</a></td><td>Creatinine [Mass/volume] in Serum or Plasma</td></tr><tr><td><a href=\"https://loinc.org/5804-0/\">5804-0</a></td><td>Protein [Mass/volume] in Urine by Test strip</td></tr><tr><td><a href=\"https://loinc.org/718-7/\">718-7</a></td><td>Hemoglobin [Mass/volume] in Blood</td></tr><tr><td><a href=\"https://loinc.org/6690-2/\">6690-2</a></td><td>Leukocytes [#/volume] in Blood by Automated count</td></tr><tr><td><a href=\"https://loinc.org/789-8/\">789-8</a></td><td>Erythrocytes [#/volume] in Blood by Automated count</td></tr><tr><td><a href=\"https://loinc.org/787-2/\">787-2</a></td><td>MCV [Entitic mean volume] in Red Blood Cells by Automated count</td></tr><tr><td><a href=\"https://loinc.org/89015-2/\">89015-2</a></td><td>Pure tone air conduction threshold audiometry panel</td></tr><tr><td><a href=\"https://loinc.org/77307-7/\">77307-7</a></td><td>Lead [Mass/volume] in Venous blood</td></tr><tr><td><a href=\"https://loinc.org/23749-5/\">23749-5</a></td><td>Lead [Mass/volume] in Specimen</td></tr><tr><td><a href=\"https://loinc.org/19868-9/\">19868-9</a></td><td>Forced vital capacity [Volume] Respiratory system by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/20150-9/\">20150-9</a></td><td>FEV1</td></tr><tr><td><a href=\"https://loinc.org/19926-5/\">19926-5</a></td><td>FEV1/FVC</td></tr><tr><td><a href=\"https://loinc.org/36643-5/\">36643-5</a></td><td>XR Chest 2 Views</td></tr></table></li></ul></div>"
+  ] ;
+  fhir:ValueSet.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required"] ;
+  fhir:ValueSet.version [ fhir:value "0.1.0"] ;
+  fhir:ValueSet.name [ fhir:value "VS_OccHealthCheckRequired"] ;
+  fhir:ValueSet.title [ fhir:value "勞工健康檢查法定必驗項目值集（第一期草案）"] ;
+  fhir:ValueSet.status [ fhir:value "active"] ;
+  fhir:ValueSet.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:ValueSet.date [ fhir:value "2026-07-29T09:46:30+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:ValueSet.contact [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:ValueSet.description [ fhir:value "第一期法定必驗之勞工健康檢查項目草案子集，涵蓋附表九一般必驗生理量測與實驗室項目，以及噪音／鉛／粉塵三模組之核心必驗代碼。此為初版草案，範疇待附表九/十逐項法規盤點確認後修訂。"] ;
+  fhir:ValueSet.compose [
+     fhir:ValueSet.compose.include [
+       fhir:index -1 ;
+       fhir:ValueSet.compose.include.system [ fhir:value "http://loinc.org" ] ;
+       fhir:ValueSet.compose.include.concept [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "8302-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Body height" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "29463-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Body weight" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "55284-4" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Blood pressure systolic and diastolic" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "1558-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Fasting glucose [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2093-3" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cholesterol [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2571-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Triglyceride [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2085-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cholesterol in HDL [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2089-1" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Cholesterol in LDL [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "1742-6" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "2160-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Creatinine [Mass/volume] in Serum or Plasma" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "5804-0" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Protein [Mass/volume] in Urine by Test strip" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "718-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Hemoglobin [Mass/volume] in Blood" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "6690-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Leukocytes [#/volume] in Blood by Automated count" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "789-8" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Erythrocytes [#/volume] in Blood by Automated count" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "787-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "MCV [Entitic mean volume] in Red Blood Cells by Automated count" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "89015-2" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Pure tone air conduction threshold audiometry panel" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "77307-7" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lead [Mass/volume] in Venous blood" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "23749-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Lead [Mass/volume] in Specimen" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19868-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "Forced vital capacity [Volume] Respiratory system by Spirometry" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "20150-9" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FEV1" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "19926-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "FEV1/FVC" ]
+       ], [
+         fhir:index -1 ;
+         fhir:ValueSet.compose.include.concept.code [ fhir:value "36643-5" ] ;
+         fhir:ValueSet.compose.include.concept.display [ fhir:value "XR Chest 2 Views" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

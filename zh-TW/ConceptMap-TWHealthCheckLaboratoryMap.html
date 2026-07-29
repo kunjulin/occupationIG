@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+    <link rel="stylesheet" href="assets/css/project.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+    <script src="assets/js/direction-management.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="fhir-logo" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="fhir-logo" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="fhir-logo" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-fhirpath.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-cql.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"17.114"}
+    h3,h4,h5,h6{--heading-prefix:"17.114"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - STU1
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <!-- menu.xml -->
+
+<ul class="nav navbar-nav">
+  <li>
+    <a href="index.html">首頁 (Home)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">背景與案例 (Background &amp; Use Cases)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="background.html">背景 (Background)</a>
+      </li>
+      <li>
+        <a href="usecases.html">應用案例 (Use Cases)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="datamodel.html">資料模型 (Data Model)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄定義 (Examinations)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="general-exam.html">一般健康檢查 (General Exam)</a>
+      </li>
+      <li>
+        <a href="special-exam.html">特殊危害健康作業 (Special Exam)</a>
+      </li>
+      <li>
+        <a href="adult-preventive-care.html">成人預防保健 (Adult Preventive Care)</a>
+      </li>
+      <li>
+        <a href="service-record.html">勞工健康服務執行紀錄 (Service Record)</a>
+      </li>
+      <li>
+        <a href="health-management.html">健康管理分級 (Health Management)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR 資源 (FHIR Artifacts)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html">資源總覽 (Artifacts Summary)</a>
+      </li>
+      <li>
+        <a href="artifacts.html#1">Profiles</a>
+      </li>
+      <li>
+        <a href="artifacts.html#2">Extensions</a>
+      </li>
+      <li>
+        <a href="artifacts.html#3">Value Sets</a>
+      </li>
+      <li>
+        <a href="artifacts.html#4">Code Systems</a>
+      </li>
+      <li>
+        <a href="conformance.html">遵從性與依賴 (Conformance &amp; Dependencies)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">術語與安全 (Terminology &amp; Security)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="terminology.html">術語定義 (Terminology)</a>
+      </li>
+      <li>
+        <a href="security.html">安全性考量 (Security)</a>
+      </li>
+      <li>
+        <a href="ip-statements.html">智慧財產權聲明 (IP Statements)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="open-issues.html">未決事項 (Open Issues)</a>
+  </li>
+  <li>
+    <a href="downloads.html">下載區 (Downloads)</a>
+  </li>
+</ul>
+            </div>    <!-- /.nav-collapse -->
+
+              
+
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><a href="artifacts.html"><b>Artifacts Summary</b></a></li><li><b>健康檢查檢驗項目代碼對應 ConceptMap</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+  <!-- layouts\layout-canonical -->
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l377">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.1.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  
+
+
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li class="active">
+    <a href="#"></a>
+  </li>
+
+
+
+  
+    <li>
+      <a href="ConceptMap-TWHealthCheckLaboratoryMap.xml.html"></a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="ConceptMap-TWHealthCheckLaboratoryMap.json.html"></a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="ConceptMap-TWHealthCheckLaboratoryMap.ttl.html"></a>
+    </li>
+  
+
+
+
+</ul>
+
+  <a name="root"> </a>
+
+
+  <h2 id="root">ConceptMap: 健康檢查檢驗項目代碼對應 ConceptMap
+
+  </h2>
+
+  <table class="colsi" data-fhir="generated">
+
+    <tr>
+      <td colspan="4"><i></i>: <span class="copy-text">https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap<button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap" title="null" class="btn-copy"></button></span>
+      </td>
+      <td><i></i>:
+      <span class="copy-text">0.1.0<button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap|0.1.0" title="null" class="btn-copy"></button></span>
+      </td>
+      <td style="text-align: right;border-left-style: hidden" title="null">
+        <span id="toggle-change-display"><label for="showChanges" style="margin:0;font-weight:normal"></label>
+  
+        <input onchange="toggleChanges()" style="margin:0" id="showChanges" type="checkbox"/>
+  
+      </span>
+      </td>
+    </tr>
+
+    <tr>
+
+
+
+
+
+
+
+      <td colspan="5">
+        
+          Active
+          
+
+            
+          
+        
+      </td>
+
+
+
+      <td><i></i>: <span style="font-family: monospace;">TWHealthCheckLaboratoryMap</span></td>
+    </tr>
+
+
+
+
+  </table>
+
+
+
+    <!-- insert intro if present -->
+  
+
+
+
+  <!-- <p>
+  Formats: <a href="ConceptMap-TWHealthCheckLaboratoryMap.xml.html">XML</a>, <a href="ConceptMap-TWHealthCheckLaboratoryMap.json.html">JSON</a>, <a href="ConceptMap-TWHealthCheckLaboratoryMap.ttl.html">Turtle</a>
+  </p> -->
+
+  
+
+
+  <div data-fhir="generated"><p class="res-header-id"></p><a name="TWHealthCheckLaboratoryMap"> </a><a name="hcTWHealthCheckLaboratoryMap"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Language: zh-TW</p></div><p>Mapping from <a href="ValueSet-VS-CoreDataset.html">健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）</a> to <a href="ValueSet-VS-CoreDataset.html">健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）</a></p><br/><p>Mapping from <a href="http://terminology.hl7.org/5.0.0/CodeSystem-v3-loinc.html">Logical Observation Identifiers, Names and Codes (LOINC)</a> to <a href="http://terminology.hl7.org/5.0.0/CodeSystem-v3-loinc.html">Logical Observation Identifiers, Names and Codes (LOINC)</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>804-5 (Leukocytes [#/volume] in Blood by Manual count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>6690-2 (Leukocytes [#/volume] in Blood by Automated count)</td><td>source 指定 Manual count，target 方法未指定，source 為其特化</td></tr><tr><td>26464-8 (Leukocytes [#/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>6690-2 (Leukocytes [#/volume] in Blood by Automated count)</td><td>同概念、同檢體、方法均未指定</td></tr><tr><td>2888-6 (Protein [Mass/volume] in Urine)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>5804-0 (Protein [Mass/volume] in Urine by Test strip)</td><td>定量(Mass/volume)與試紙法屬不同量測方式，非包含關係</td></tr><tr><td>2339-0 (Glucose [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>1558-6 (Fasting glucose [Mass/volume] in Serum or Plasma)</td><td>source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣；另檢體不同</td></tr><tr><td>38483-4 (Creatinine [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>2160-0 (Creatinine [Mass/volume] in Serum or Plasma)</td><td>檢體不同(Blood vs Serum/Plasma)，非包含關係</td></tr><tr><td>35200-5 (Cholesterol [Mass or Moles/volume] in Serum or Plasma)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>2093-3 (Cholesterol [Mass/volume] in Serum or Plasma)</td><td>source 允許質量或莫耳濃度兩種尺度，語意較 target 廣</td></tr><tr><td>3043-7 (Triglyceride [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>2571-8 (Triglyceride [Mass/volume] in Serum or Plasma)</td><td>檢體不同(Blood vs Serum/Plasma)</td></tr><tr><td>13457-7 (Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>2089-1 (Cholesterol in LDL [Mass/volume] in Serum or Plasma)</td><td>source 指定計算法，target 方法未指定</td></tr><tr><td>33914-3 (Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>98979-8 (Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M)</td><td>MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換</td></tr><tr><td>5195-3 (Hepatitis B virus surface Ag [Presence] in Serum)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>5196-1 (Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay)</td><td>source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄</td></tr><tr><td>16128-1 (Hepatitis C virus Ab [Presence] in Serum)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>13955-0 (Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay)</td><td>source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄</td></tr><tr><td>26515-7 (Platelets [#/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>777-3 (Platelets [#/volume] in Blood by Automated count)</td><td>source 指定 Automated count，target 方法未指定</td></tr><tr><td>30428-7 (MCV [Entitic mean volume] in Red Blood Cells)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>787-2 (MCV [Entitic mean volume] in Red Blood Cells by Automated count)</td><td>calculation 與 Automated count 為不同具體方法，無包含關係</td></tr><tr><td>28539-5 (MCH [Entitic mass])</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>785-6 (MCH [Entitic mass] by Automated count)</td><td>同概念、同方法(Automated count)，僅顯示名長短不同</td></tr><tr><td>26508-2 (Neutrophils/100 leukocytes in Blood by Manual count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>770-8 (Neutrophils/Leukocytes in Blood by Automated count)</td><td>Manual 與 Automated 為不同具體方法，無包含關係</td></tr><tr><td>30239-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>1920-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 UV with P5P，target 方法未指定</td></tr><tr><td>1743-4 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>1742-6 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 UV with P5P，target 方法未指定</td></tr><tr><td>59261-8 (Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>4548-4 (Hemoglobin A1c/Hemoglobin.total in Blood)</td><td>Unit conversion required: NGSP(%) = IFCC(mmol/mol) * 0.9148 + 2.152</td></tr><tr><td>3016-3 (Thyrotropin [Units/volume] in Serum or Plasma)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>11580-8 (Thyrotropin [Units/volume] in Serum or Plasma by Detection limit &lt;= 0.005 mIU/L)</td><td>source 指定 3rd IS 標準品，target 未指定</td></tr><tr><td>83082-8 (Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>10334-1 (Cancer Ag 125 [Units/volume] in Serum or Plasma)</td><td>source 指定 Immunoassay，target 方法未指定</td></tr><tr><td>83085-1 (Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>2039-6 (Carcinoembryonic Ag [Mass/volume] in Serum or Plasma)</td><td>source 指定 Immunoassay，target 方法未指定</td></tr><tr><td>88112-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>1920-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 No addition of P-5'-P，target 方法未指定</td></tr><tr><td>1744-2 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>1742-6 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 No addition of P-5'-P，target 方法未指定</td></tr><tr><td>2345-7 (Glucose [Mass/volume] in Serum or Plasma)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>1558-6 (Fasting Glucose [Mass/volume] in Serum or Plasma)</td><td>source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣</td></tr><tr><td>18262-6 (Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>2089-1 (Cholesterol in LDL [Mass/volume] in Serum or Plasma)</td><td>source 指定 Direct assay，target 方法未指定</td></tr><tr><td>23749-5 (Lead [Mass/volume] in Specimen)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>77307-7 (Lead [Mass/volume] in Venous blood)</td><td>source 檢體為泛稱 Specimen、target 限 Blood，非單純包含</td></tr><tr><td>56086-2 (Waist Circumference)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>8280-0 (Waist Circumference at umbilicus by Tape measure)</td><td>source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同</td></tr><tr><td>5671-3 (Lead [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>77307-7 (Lead [Mass/volume] in Venous blood)</td><td>source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。</td></tr></table></div>
+
+    <!-- insert notes if present -->
+  
+
+
+
+  
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+  <script src="assets/js/flags.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <script src="assets/js/togglechanges.js" type="text/javascript"> </script>
+  <script src="assets/js/requirements-table.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container" data-fhir="generated">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+           <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
+          
+          
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      : <a style="color: var(--footer-hyperlink-text-color)" href="toc.html"></a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html"></a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

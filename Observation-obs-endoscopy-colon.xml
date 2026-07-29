@@ -3,7 +3,7 @@
 <Observation xmlns="http://hl7.org/fhir">
   <id value="obs-endoscopy-colon"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation obs-endoscopy-colon</b></p><a name="obs-endoscopy-colon"> </a><a name="hcobs-endoscopy-colon"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}">Exam</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 28023-0}">Colonoscopy Study</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 11:30:00+0800</p><p><b>value</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}">None</span></p></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: 观察 obs-endoscopy-colon</b></p><a name="obs-endoscopy-colon"> </a><a name="hcobs-endoscopy-colon"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category exam}">Exam</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 28023-0}">Colonoscopy Study</span></p><p><b>subject</b>: <a href="Patient-example-worker.html">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 11:30:00+0800</p><p><b>performer</b>: <a href="Organization-example-hospital.html">Organization 交通部民用航空局航空醫務中心</a></p><p><b>value</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationValue N}">None</span></p></div>
   </text>
   <status value="final"/>
   <category>
@@ -23,6 +23,9 @@
     <reference value="Patient/example-worker"/>
   </subject>
   <effectiveDateTime value="2026-06-12T11:30:00+08:00"/>
+  <performer>
+    <reference value="Organization/example-hospital"/>
+  </performer>
   <valueCodeableConcept>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>

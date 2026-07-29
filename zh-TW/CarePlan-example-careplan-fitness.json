@@ -1,0 +1,47 @@
+{
+  "resourceType" : "CarePlan",
+  "id" : "example-careplan-fitness",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-CarePlan"]
+  },
+  "language" : "zh-TW",
+  "text" : {
+    "status" : "additional",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>依115年6月12日噪音作業特殊健康檢查結果，勞工王大同經判定為第四級健康管理。經職業醫學科醫師與事業單位協商，自115年7月1日起調整如下：</p><ul><li>變更工作場所：自化學處理課調整至噪音暴露低於85分貝之區域。</li><li>縮短工作時間：每日噪音作業時間不超過4小時。</li></ul><p>三個月後複檢並重新評估分級。</p></div>"
+  },
+  "extension" : [{
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork",
+        "code" : "change-workplace",
+        "display" : "變更工作場所"
+      }]
+    }
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work",
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork",
+        "code" : "reduce-hours",
+        "display" : "縮短工作時間"
+      }]
+    }
+  }],
+  "status" : "active",
+  "intent" : "plan",
+  "category" : [{
+    "coding" : [{
+      "system" : "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/careplan-category-tw",
+      "code" : "assess-plan"
+    }]
+  }],
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "period" : {
+    "start" : "2026-07-01",
+    "end" : "2026-10-01"
+  }
+}

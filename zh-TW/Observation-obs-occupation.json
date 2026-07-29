@@ -1,0 +1,50 @@
+{
+  "resourceType" : "Observation",
+  "id" : "obs-occupation",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Occupation"]
+  },
+  "language" : "zh-TW",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-occupation</b></p><a name=\"obs-occupation\"> </a><a name=\"hcobs-occupation\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Occupation.html\">健康檢查工作經歷與職業別 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 11341-5}\">職業史</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2020-03-01 --&gt; (ongoing)</p><p><b>performer</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>value</b>: <span title=\"Codes:\">化學處理課作業員（職業分類碼待引用經查證之 occupation-mol-tw 代碼）</span></p><h3>Components</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Code</b></td><td><b>Value[x]</b></td></tr><tr><td style=\"display: none\">*</td><td><span title=\"Codes:{http://loinc.org 86188-0}\">行業別</span></td><td><span title=\"Codes:\">電子零組件製造業</span></td></tr></table></div>"
+  },
+  "status" : "final",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+      "code" : "social-history"
+    }]
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "11341-5"
+    }],
+    "text" : "職業史"
+  },
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "effectivePeriod" : {
+    "start" : "2020-03-01"
+  },
+  "performer" : [{
+    "reference" : "Practitioner/example-doctor"
+  }],
+  "valueCodeableConcept" : {
+    "text" : "化學處理課作業員（職業分類碼待引用經查證之 occupation-mol-tw 代碼）"
+  },
+  "component" : [{
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "86188-0"
+      }],
+      "text" : "行業別"
+    },
+    "valueCodeableConcept" : {
+      "text" : "電子零組件製造業"
+    }
+  }]
+}

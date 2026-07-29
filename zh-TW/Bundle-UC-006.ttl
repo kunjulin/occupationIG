@@ -1,0 +1,433 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Bundle/UC-006> a fhir:Bundle ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "UC-006"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Document>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:Bundle.identifier [
+     fhir:Identifier.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/sid/report-id" ] ;
+     fhir:Identifier.value [ fhir:value "bundle-uc-006" ]
+  ] ;
+  fhir:Bundle.type [ fhir:value "document"] ;
+  fhir:Bundle.timestamp [ fhir:value "2026-06-10T14:00:00+08:00"^^xsd:dateTime] ;
+  fhir:Bundle.entry [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Composition/example-composition-service" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Composition/example-composition-service>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-service" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-service>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Group/example-group-workers" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Group/example-group-workers>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-activity" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-activity>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Observation/example-service-finding" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Observation/example-service-finding>
+  ], [
+     fhir:index -1 ;
+     fhir:Bundle.entry.fullUrl [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/Task/example-service-task" ] ;
+     fhir:Bundle.entry.resource <https://twcore.mohw.gov.tw/ig/twha/Task/example-service-task>
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Composition/example-composition-service> a fhir:Composition ;
+  fhir:Resource.id [ fhir:value "example-composition-service"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-ServiceRecord" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-ServiceRecord>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Composition_example-composition-service\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 组合式文书 example-composition-service</b></p><a name=\"example-composition-service\"> </a><a name=\"hcexample-composition-service\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Composition-ServiceRecord.html\">健康檢查健康服務執行紀錄組成結構 Profile</a></p></div><p><b>status</b>: Final</p><p><b>type</b>: <span title=\"Codes:{http://loinc.org 34133-9}\">Summary of episode note</span></p><p><b>date</b>: 2026-06-10 14:00:00+0800</p><p><b>author</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>title</b>: 勞工健康服務執行紀錄表</p></div>"
+  ] ;
+  fhir:Composition.status [ fhir:value "final"] ;
+  fhir:Composition.type [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a loinc:34133-9 ;
+       fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+       fhir:Coding.code [ fhir:value "34133-9" ] ;
+       fhir:Coding.display [ fhir:value "Summary of episode note" ]
+     ]
+  ] ;
+  fhir:Composition.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-employer" ]
+  ] ;
+  fhir:Composition.date [ fhir:value "2026-06-10T14:00:00+08:00"^^xsd:dateTime] ;
+  fhir:Composition.author [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/example-doctor" ]
+  ] ;
+  fhir:Composition.title [ fhir:value "勞工健康服務執行紀錄表"] ;
+  fhir:Composition.section [
+     fhir:index -1 ;
+     fhir:Composition.section.title [ fhir:value "作業場所概況" ] ;
+     fhir:Composition.section.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         a loinc:51847-2 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "51847-2" ]
+       ]
+     ] ;
+     fhir:Composition.section.entry [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-service> ;
+       fhir:Reference.reference [ fhir:value "Encounter/example-encounter-service" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Composition.section.title [ fhir:value "臨場服務執行情形" ] ;
+     fhir:Composition.section.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         a loinc:97726-4 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "97726-4" ]
+       ]
+     ] ;
+     fhir:Composition.section.entry [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-activity> ;
+       fhir:Reference.reference [ fhir:value "Procedure/example-procedure-activity" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Composition.section.title [ fhir:value "現場發現問題" ] ;
+     fhir:Composition.section.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         a loinc:29554-3 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "29554-3" ]
+       ]
+     ] ;
+     fhir:Composition.section.entry [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/example-service-finding> ;
+       fhir:Reference.reference [ fhir:value "Observation/example-service-finding" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Composition.section.title [ fhir:value "改善建議與追蹤" ] ;
+     fhir:Composition.section.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         a loinc:51898-5 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "51898-5" ]
+       ]
+     ] ;
+     fhir:Composition.section.entry [
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Task/example-service-task> ;
+       fhir:Reference.reference [ fhir:value "Task/example-service-task" ]
+     ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> a fhir:Organization ;
+  fhir:Resource.id [ fhir:value "example-employer"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Employer" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Employer>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_example-employer\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 组织机构 example-employer</b></p><a name=\"example-employer\"> </a><a name=\"hcexample-employer\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Organization-Employer.html\">健康檢查所屬事業單位（雇主公司） Profile</a></p></div><p><b>identifier</b>: 公司或企業統一編號/12345678 (use: official, )</p><p><b>type</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/organization-type bus}\">Non-Healthcare Business or Corporation</span></p><p><b>name</b>: 大同電子股份有限公司</p></div>"
+  ] ;
+  fhir:Organization.identifier [
+     fhir:index -1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "UBN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://gcis.nat.gov.tw" ] ;
+     fhir:Identifier.value [ fhir:value "12345678" ]
+  ] ;
+  fhir:Organization.type [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/organization-type" ] ;
+       fhir:Coding.code [ fhir:value "bus" ]
+     ]
+  ] ;
+  fhir:Organization.name [ fhir:value "大同電子股份有限公司"] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> a fhir:Practitioner ;
+  fhir:Resource.id [ fhir:value "example-doctor"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_example-doctor\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 执业人员 example-doctor</b></p><a name=\"example-doctor\"> </a><a name=\"hcexample-doctor\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Practitioner.html\">執業/健檢醫護與服務人員 Profile</a></p></div><p><b>identifier</b>: <code>http://example.org/fhir/sid/tw-practitioner-license</code>/MD-88888 (use: official, )</p><p><b>name</b>: 林職醫(Official)</p></div>"
+  ] ;
+  fhir:Practitioner.identifier [
+     fhir:index -1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.system [ fhir:value "http://example.org/fhir/sid/tw-practitioner-license" ] ;
+     fhir:Identifier.value [ fhir:value "MD-88888" ]
+  ] ;
+  fhir:Practitioner.name [
+     fhir:index -1 ;
+     fhir:HumanName.use [ fhir:value "official" ] ;
+     fhir:HumanName.text [ fhir:value "林職醫" ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> a fhir:Organization ;
+  fhir:Resource.id [ fhir:value "example-hospital"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_example-hospital\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 组织机构 example-hospital</b></p><a name=\"example-hospital\"> </a><a name=\"hcexample-hospital\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Organization-Facility.html\">實施健康檢查之醫療機構 Profile</a></p></div><p><b>identifier</b>: Provider number/2701010024 (use: official, )</p><p><b>name</b>: 交通部民用航空局航空醫務中心</p></div>"
+  ] ;
+  fhir:Organization.identifier [
+     fhir:index -1 ;
+     fhir:Identifier.use [ fhir:value "official" ] ;
+     fhir:Identifier.type [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v2-0203" ] ;
+         fhir:Coding.code [ fhir:value "PRN" ]
+       ]
+     ] ;
+     fhir:Identifier.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/organization-identifier-tw" ] ;
+     fhir:Identifier.value [ fhir:value "2701010024" ]
+  ] ;
+  fhir:Organization.name [ fhir:value "交通部民用航空局航空醫務中心"] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-service> a fhir:Encounter ;
+  fhir:Resource.id [ fhir:value "example-encounter-service"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter-Service" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter-Service>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_example-encounter-service\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 就医过程 example-encounter-service</b></p><a name=\"example-encounter-service\"> </a><a name=\"hcexample-encounter-service\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Encounter-Service.html\">臨場健康服務事件 Profile</a></p></div><p><b>雇主事業單位資訊擴充</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>部門/課別擴充</b>: 化學製造現場</p><p><b>status</b>: Finished</p><p><b>class</b>: <a href=\"http://terminology.hl7.org/7.3.0/CodeSystem-v3-ActCode.html#v3-ActCode-FLD\">ActCode: FLD</a> (field)</p><h3>Participants</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Individual</b></td></tr><tr><td style=\"display: none\">*</td><td><a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></td></tr></table><p><b>period</b>: 2026-06-10 09:00:00+0800 --&gt; 2026-06-10 12:00:00+0800</p><p><b>serviceProvider</b>: <a href=\"Organization-example-hospital.html\">Organization 交通部民用航空局航空醫務中心</a></p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+       fhir:Reference.reference [ fhir:value "Organization/example-employer" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department" ] ;
+     fhir:Extension.valueString [ fhir:value "化學製造現場" ]
+  ] ;
+  fhir:Encounter.status [ fhir:value "finished"] ;
+  fhir:Encounter.class [
+     fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/v3-ActCode" ] ;
+     fhir:Coding.code [ fhir:value "FLD" ] ;
+     fhir:Coding.display [ fhir:value "field" ]
+  ] ;
+  fhir:Encounter.participant [
+     fhir:index -1 ;
+     fhir:Encounter.participant.individual [
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+       fhir:Reference.reference [ fhir:value "Practitioner/example-doctor" ]
+     ]
+  ] ;
+  fhir:Encounter.period [
+     fhir:Period.start [ fhir:value "2026-06-10T09:00:00+08:00"^^xsd:dateTime ] ;
+     fhir:Period.end [ fhir:value "2026-06-10T12:00:00+08:00"^^xsd:dateTime ]
+  ] ;
+  fhir:Encounter.serviceProvider [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-hospital" ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Group/example-group-workers> a fhir:Group ;
+  fhir:Resource.id [ fhir:value "example-group-workers"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Group_example-group-workers\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 群组 example-group-workers</b></p><a name=\"example-group-workers\"> </a><a name=\"hcexample-group-workers\"> </a><p><b>type</b>: Person</p><p><b>actual</b>: true</p><p><b>name</b>: 大同電子化學製造課全體勞工</p></div>"
+  ] ;
+  fhir:Group.type [ fhir:value "person"] ;
+  fhir:Group.actual [ fhir:value "true"^^xsd:boolean] ;
+  fhir:Group.name [ fhir:value "大同電子化學製造課全體勞工"] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Procedure/example-procedure-activity> a fhir:Procedure ;
+  fhir:Resource.id [ fhir:value "example-procedure-activity"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-ServiceActivity" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-ServiceActivity>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Procedure_example-procedure-activity\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 操作项目 example-procedure-activity</b></p><a name=\"example-procedure-activity\"> </a><a name=\"hcexample-procedure-activity\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Procedure-ServiceActivity.html\">臨場服務執行活動項目 Profile</a></p></div><p><b>雇主事業單位資訊擴充</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>status</b>: Completed</p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType exam-analysis}\">健康檢查結果分析</span></p><p><b>subject</b>: <a href=\"Group-example-group-workers.html\">Group 大同電子化學製造課全體勞工</a></p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+       fhir:Reference.reference [ fhir:value "Organization/example-employer" ]
+     ]
+  ] ;
+  fhir:Procedure.status [ fhir:value "completed"] ;
+  fhir:Procedure.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType" ] ;
+       fhir:Coding.code [ fhir:value "exam-analysis" ] ;
+       fhir:Coding.display [ fhir:value "健康檢查結果分析" ]
+     ]
+  ] ;
+  fhir:Procedure.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Group/example-group-workers> ;
+     fhir:Reference.reference [ fhir:value "Group/example-group-workers" ]
+  ] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/example-service-finding> a fhir:Observation ;
+  fhir:Resource.id [ fhir:value "example-service-finding"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Observation-ServiceFinding" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Observation-ServiceFinding>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Observation_example-service-finding\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 观察 example-service-finding</b></p><a name=\"example-service-finding\"> </a><a name=\"hcexample-service-finding\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Observation-ServiceFinding.html\">臨場健康服務發現問題/風險 Profile</a></p></div><p><b>status</b>: Final</p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 17458004}\">Occupational hazard</span></p><p><b>focus</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>performer</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>value</b>: 發現部分現場勞動條件局部排氣裝置風速異常降低，且現場作業人員於正己烷暴露區域未確實配戴防護面罩。</p></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a sct:17458004 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "17458004" ] ;
+       fhir:Coding.display [ fhir:value "Occupational hazard" ]
+     ]
+  ] ;
+  fhir:Observation.focus [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-employer" ]
+  ] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/example-doctor" ]
+  ] ;
+  fhir:Observation.valueString [ fhir:value "發現部分現場勞動條件局部排氣裝置風速異常降低，且現場作業人員於正己烷暴露區域未確實配戴防護面罩。"] .
+
+<https://twcore.mohw.gov.tw/ig/twha/Task/example-service-task> a fhir:Task ;
+  fhir:Resource.id [ fhir:value "example-service-task"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Task-ServiceTask" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Task-ServiceTask>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "extensions" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Task_example-service-task\"> </a><p class=\"res-header-id\"><b>Generated Narrative: 任务 example-service-task</b></p><a name=\"example-service-task\"> </a><a name=\"hcexample-service-task\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-Task-ServiceTask.html\">臨場健康服務建議與改善任務 Profile</a></p></div><p><b>雇主事業單位資訊擴充</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p><p><b>status</b>: Requested</p><p><b>intent</b>: plan</p><p><b>description</b>: 大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。</p><p><b>focus</b>: <a href=\"Observation-example-service-finding.html\">Observation Occupational hazard</a></p><p><b>requester</b>: <a href=\"Practitioner-example-doctor.html\">Practitioner 林職醫(official)</a></p><p><b>owner</b>: <a href=\"Organization-example-employer.html\">Organization 大同電子股份有限公司</a></p></div>"
+  ] ;
+  fhir:DomainResource.extension [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info" ] ;
+     fhir:Extension.valueReference [
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+       fhir:Reference.reference [ fhir:value "Organization/example-employer" ]
+     ]
+  ] ;
+  fhir:Task.status [ fhir:value "requested"] ;
+  fhir:Task.intent [ fhir:value "plan"] ;
+  fhir:Task.description [ fhir:value "大同電子應於兩週內委託專業廠商維修化學製造現場之局部排氣系統，並落實每日作業前防護具配戴檢查機制。"] ;
+  fhir:Task.focus [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/example-service-finding> ;
+     fhir:Reference.reference [ fhir:value "Observation/example-service-finding" ]
+  ] ;
+  fhir:Task.requester [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-doctor> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/example-doctor" ]
+  ] ;
+  fhir:Task.owner [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Organization/example-employer> ;
+     fhir:Reference.reference [ fhir:value "Organization/example-employer" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Bundle/UC-006.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

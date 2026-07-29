@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Health Management - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+    <link rel="stylesheet" href="assets/css/project.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+    <script src="assets/js/direction-management.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="fhir-logo" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="fhir-logo" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="fhir-logo" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-fhirpath.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-cql.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - STU1
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <!-- menu.xml -->
+
+<ul class="nav navbar-nav">
+  <li>
+    <a href="index.html">首頁 (Home)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">背景與案例 (Background &amp; Use Cases)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="background.html">背景 (Background)</a>
+      </li>
+      <li>
+        <a href="usecases.html">應用案例 (Use Cases)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="datamodel.html">資料模型 (Data Model)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄定義 (Examinations)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="general-exam.html">一般健康檢查 (General Exam)</a>
+      </li>
+      <li>
+        <a href="special-exam.html">特殊危害健康作業 (Special Exam)</a>
+      </li>
+      <li>
+        <a href="adult-preventive-care.html">成人預防保健 (Adult Preventive Care)</a>
+      </li>
+      <li>
+        <a href="service-record.html">勞工健康服務執行紀錄 (Service Record)</a>
+      </li>
+      <li>
+        <a href="health-management.html">健康管理分級 (Health Management)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR 資源 (FHIR Artifacts)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html">資源總覽 (Artifacts Summary)</a>
+      </li>
+      <li>
+        <a href="artifacts.html#1">Profiles</a>
+      </li>
+      <li>
+        <a href="artifacts.html#2">Extensions</a>
+      </li>
+      <li>
+        <a href="artifacts.html#3">Value Sets</a>
+      </li>
+      <li>
+        <a href="artifacts.html#4">Code Systems</a>
+      </li>
+      <li>
+        <a href="conformance.html">遵從性與依賴 (Conformance &amp; Dependencies)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">術語與安全 (Terminology &amp; Security)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="terminology.html">術語定義 (Terminology)</a>
+      </li>
+      <li>
+        <a href="security.html">安全性考量 (Security)</a>
+      </li>
+      <li>
+        <a href="ip-statements.html">智慧財產權聲明 (IP Statements)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="open-issues.html">未決事項 (Open Issues)</a>
+  </li>
+  <li>
+    <a href="downloads.html">下載區 (Downloads)</a>
+  </li>
+</ul>
+            </div>    <!-- /.nav-collapse -->
+
+              
+
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Health Management</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.1.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>Health Management</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#健康管理分級與適性配工-health-management--fitness-for-work" id="markdown-toc-健康管理分級與適性配工-health-management--fitness-for-work">健康管理分級與適性配工 (Health Management &amp; Fitness for Work)</a>    <ul>
+      <li><a href="#1-健康管理分級-health-management-classification" id="markdown-toc-1-健康管理分級-health-management-classification">1. 健康管理分級 (Health Management Classification)</a>        <ul>
+          <li><a href="#fhir-建模表達" id="markdown-toc-fhir-建模表達">FHIR 建模表達：</a></li>
+        </ul>
+      </li>
+      <li><a href="#2-適性配工流程-fitness-for-work-flow" id="markdown-toc-2-適性配工流程-fitness-for-work-flow">2. 適性配工流程 (Fitness for Work Flow)</a>        <ul>
+          <li><a href="#fhir-建模表達-1" id="markdown-toc-fhir-建模表達-1">FHIR 建模表達：</a></li>
+        </ul>
+      </li>
+      <li><a href="#3-追蹤檢查要求-servicerequest-for-follow-up" id="markdown-toc-3-追蹤檢查要求-servicerequest-for-follow-up">3. 追蹤檢查要求 (ServiceRequest for Follow-up)</a>        <ul>
+          <li><a href="#fhir-建模表達-2" id="markdown-toc-fhir-建模表達-2">FHIR 建模表達：</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="健康管理分級與適性配工-health-management--fitness-for-work">健康管理分級與適性配工 (Health Management &amp; Fitness for Work)</h1>
+
+<p>依據《勞工健康保護規則》第 21 條及第 23 條，健康管理分級與適性配工是健檢後續最關鍵的業務閉環。</p>
+
+<h2 id="1-健康管理分級-health-management-classification">1. 健康管理分級 (Health Management Classification)</h2>
+
+<p>醫師綜合分析勞工檢查結果後，應判定其健康管理分級：</p>
+
+<ul>
+  <li><strong>第一級管理 (Level 1)</strong>: 健檢項目全部正常，或有異常但經評估與工作無關。</li>
+  <li><strong>第二級管理 (Level 2)</strong>: 健檢有異常，但經評估與工作無關，需進行個人健康指導者。</li>
+  <li><strong>第三級管理 (Level 3)</strong>: 健檢有異常，且無法確定與工作之相關性，需進行追蹤重檢或作業現場暴露評估。</li>
+  <li><strong>第四級管理 (Level 4)</strong>: 健檢有異常，且經評估與工作相關，屬健康危害顯著，需立即醫療處置與工作調整。</li>
+</ul>
+
+<h3 id="fhir-建模表達">FHIR 建模表達：</h3>
+<ul>
+  <li>使用 <strong><code class="language-plaintext highlighter-rouge">TWHA-ClinicalImpression</code></strong> Profile 記錄醫師總評。</li>
+  <li>在 ClinicalImpression 中，以 <strong><code class="language-plaintext highlighter-rouge">ext-health-mgmt-level</code></strong> 擴充欄位記錄 <code class="language-plaintext highlighter-rouge">level-1</code> 至 <code class="language-plaintext highlighter-rouge">level-4</code> 的代碼。</li>
+  <li>亦可在打包的 Bundle 中，以獨立的 <code class="language-plaintext highlighter-rouge">TWHA-HealthManagementLevel</code> Observation 資源記錄此判定分級。</li>
+</ul>
+
+<blockquote>
+  <p>範例：<a href="Observation-obs-health-mgmt-level.html">第四級管理判定 obs-health-mgmt-level</a>（噪音作業特殊健檢後之判定，
+完整情境見 <a href="Bundle-UC-003.html">UC-003 封包</a>）。</p>
+</blockquote>
+
+<hr/>
+
+<h2 id="2-適性配工流程-fitness-for-work-flow">2. 適性配工流程 (Fitness for Work Flow)</h2>
+
+<p>對於判定為 <strong>第四級管理</strong> 之勞工，雇主依法必須採取適性配工與職務調整措施。</p>
+
+<h3 id="fhir-建模表達-1">FHIR 建模表達：</h3>
+<ul>
+  <li><strong>適性配工計畫 (<code class="language-plaintext highlighter-rouge">TWHA-CarePlan</code>)</strong>：
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">subject</code> 指向受影響之勞工。</li>
+      <li><code class="language-plaintext highlighter-rouge">intent</code> 設為 <code class="language-plaintext highlighter-rouge">plan</code>。</li>
+      <li>使用 <strong><code class="language-plaintext highlighter-rouge">ext-fitness-for-work</code></strong> 擴充欄位標註具體建議項目：
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">change-workplace</code> (變更工作場所)</li>
+          <li><code class="language-plaintext highlighter-rouge">change-job</code> (更換工作/調職)</li>
+          <li><code class="language-plaintext highlighter-rouge">reduce-hours</code> (縮短工時)</li>
+          <li><code class="language-plaintext highlighter-rouge">clinical-treatment</code> (醫療限制)</li>
+        </ul>
+      </li>
+      <li>計畫的具體執行目標可利用 <code class="language-plaintext highlighter-rouge">Goal</code> 資源記錄，執行進度可使用 <code class="language-plaintext highlighter-rouge">Task</code> 資源追蹤。</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>範例：<a href="CarePlan-example-careplan-fitness.html">適性配工計畫 example-careplan-fitness</a>——變更工作場所＋縮短工時，
+對應前述第四級管理判定。</p>
+</blockquote>
+
+<hr/>
+
+<h2 id="3-追蹤檢查要求-servicerequest-for-follow-up">3. 追蹤檢查要求 (ServiceRequest for Follow-up)</h2>
+
+<p>對於判定為 <strong>第三級管理</strong> 之勞工，通常需要開立追蹤重檢或排程現場暴露危害調查。</p>
+
+<h3 id="fhir-建模表達-2">FHIR 建模表達：</h3>
+<ul>
+  <li>使用 <strong><code class="language-plaintext highlighter-rouge">TWHA-ServiceRequest</code></strong> Profile（繼承自 <code class="language-plaintext highlighter-rouge">TWCoreServiceRequest</code>）開立追蹤要求。</li>
+  <li><code class="language-plaintext highlighter-rouge">requester</code> 為判定醫師或健檢醫院。</li>
+  <li><code class="language-plaintext highlighter-rouge">occurrenceDateTime</code> 標註預定進行追蹤重檢之日期。</li>
+  <li><code class="language-plaintext highlighter-rouge">reasonReference</code> 關聯至導致第三級管理判定之異常檢查項目（例如：聽力異常 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> 實例）。</li>
+</ul>
+
+<blockquote>
+  <p>範例：<a href="ServiceRequest-example-servicerequest-followup.html">追蹤檢查要求 example-servicerequest-followup</a>——三個月後純音聽力複檢。</p>
+</blockquote>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+  <script src="assets/js/flags.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <script src="assets/js/togglechanges.js" type="text/javascript"> </script>
+  <script src="assets/js/requirements-table.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container" data-fhir="generated">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+           <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
+          
+          
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      : <a style="color: var(--footer-hyperlink-text-color)" href="toc.html"></a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html"></a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

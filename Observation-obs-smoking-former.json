@@ -1,0 +1,54 @@
+{
+  "resourceType" : "Observation",
+  "id" : "obs-smoking-former",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Smoking"]
+  },
+  "text" : {
+    "status" : "extensions",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-smoking-former</b></p><a name=\"obs-smoking-former\"> </a><a name=\"hcobs-smoking-former\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-SocialHistory-Smoking.html\">吸菸歷史與狀態 Profile</a></p></div><blockquote><p><b>吸菸量及菸齡擴充</b></p><ul><li>dailyAmount: 20</li><li>durationYears: 15</li></ul></blockquote><p><b>戒除時間（戒菸/戒檳榔月數）擴充</b>: 24</p><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 72166-2}\">Tobacco smoking status</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2026-06-12 08:05:00+0800</p><p><b>performer</b>: <a href=\"Practitioner-example-nurse.html\">Practitioner 陳健護(official)</a></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus 3-quit}\">已戒菸</span></p></div>"
+  },
+  "extension" : [{
+    "extension" : [{
+      "url" : "dailyAmount",
+      "valueInteger" : 20
+    },
+    {
+      "url" : "durationYears",
+      "valueInteger" : 15
+    }],
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity"
+  },
+  {
+    "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-cessation-duration",
+    "valueInteger" : 24
+  }],
+  "status" : "final",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+      "code" : "social-history"
+    }]
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://loinc.org",
+      "code" : "72166-2",
+      "display" : "Tobacco smoking status"
+    }]
+  },
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "effectiveDateTime" : "2026-06-12T08:05:00+08:00",
+  "performer" : [{
+    "reference" : "Practitioner/example-nurse"
+  }],
+  "valueCodeableConcept" : {
+    "coding" : [{
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus",
+      "code" : "3-quit",
+      "display" : "已戒菸"
+    }]
+  }
+}

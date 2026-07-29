@@ -1,0 +1,88 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "CS-PhysicalExamSystems"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-PhysicalExamSystems</b></p><a name=\"CS-PhysicalExamSystems\"> </a><a name=\"hcCS-PhysicalExamSystems\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">head-neck<a name=\"CS-PhysicalExamSystems-head-neck\"> </a></td><td>頭頸部</td><td>包含眼、耳、鼻、喉、口腔及頸部之檢查。</td></tr><tr><td style=\"white-space:nowrap\">respiratory<a name=\"CS-PhysicalExamSystems-respiratory\"> </a></td><td>呼吸系統</td><td>包含胸腔、肺部及呼吸音之聽診檢查。</td></tr><tr><td style=\"white-space:nowrap\">cardiovascular<a name=\"CS-PhysicalExamSystems-cardiovascular\"> </a></td><td>心臟血管系統</td><td>包含心臟聽診、心音、心率及周邊血管之檢查。</td></tr><tr><td style=\"white-space:nowrap\">digestive<a name=\"CS-PhysicalExamSystems-digestive\"> </a></td><td>消化系統</td><td>包含腹部觸診、肝脾腫大及腸胃道系統之檢查。</td></tr><tr><td style=\"white-space:nowrap\">neurological<a name=\"CS-PhysicalExamSystems-neurological\"> </a></td><td>神經系統</td><td>包含意識狀態、肌腱反射及感覺運動系統之檢查。</td></tr><tr><td style=\"white-space:nowrap\">musculoskeletal<a name=\"CS-PhysicalExamSystems-musculoskeletal\"> </a></td><td>肌肉骨骼系統</td><td>包含脊椎、四肢關節活動度及肌肉力量之檢查。</td></tr><tr><td style=\"white-space:nowrap\">skin<a name=\"CS-PhysicalExamSystems-skin\"> </a></td><td>皮膚</td><td>包含皮膚疹、黃疸、疤痕或潰瘍之檢查。</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems"] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CS_PhysicalExamSystems"] ;
+  fhir:CodeSystem.title [ fhir:value "身體檢查系統部位代碼系統"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-07-29T09:46:30+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "附表十一理學檢查中所涉及之身體系統部位分類。"] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "7"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "head-neck" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "頭頸部" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "包含眼、耳、鼻、喉、口腔及頸部之檢查。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "respiratory" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "呼吸系統" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "包含胸腔、肺部及呼吸音之聽診檢查。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "cardiovascular" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "心臟血管系統" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "包含心臟聽診、心音、心率及周邊血管之檢查。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "digestive" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "消化系統" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "包含腹部觸診、肝脾腫大及腸胃道系統之檢查。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "neurological" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "神經系統" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "包含意識狀態、肌腱反射及感覺運動系統之檢查。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "musculoskeletal" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "肌肉骨骼系統" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "包含脊椎、四肢關節活動度及肌肉力量之檢查。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "skin" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "皮膚" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "包含皮膚疹、黃疸、疤痕或潰瘍之檢查。" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Security - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+    <link rel="stylesheet" href="assets/css/project.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+    <script src="assets/js/direction-management.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="fhir-logo" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="fhir-logo" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="fhir-logo" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-fhirpath.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-cql.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"12"}
+    h3,h4,h5,h6{--heading-prefix:"12"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - STU1
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <!-- menu.xml -->
+
+<ul class="nav navbar-nav">
+  <li>
+    <a href="index.html">首頁 (Home)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">背景與案例 (Background &amp; Use Cases)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="background.html">背景 (Background)</a>
+      </li>
+      <li>
+        <a href="usecases.html">應用案例 (Use Cases)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="datamodel.html">資料模型 (Data Model)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄定義 (Examinations)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="general-exam.html">一般健康檢查 (General Exam)</a>
+      </li>
+      <li>
+        <a href="special-exam.html">特殊危害健康作業 (Special Exam)</a>
+      </li>
+      <li>
+        <a href="adult-preventive-care.html">成人預防保健 (Adult Preventive Care)</a>
+      </li>
+      <li>
+        <a href="service-record.html">勞工健康服務執行紀錄 (Service Record)</a>
+      </li>
+      <li>
+        <a href="health-management.html">健康管理分級 (Health Management)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR 資源 (FHIR Artifacts)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html">資源總覽 (Artifacts Summary)</a>
+      </li>
+      <li>
+        <a href="artifacts.html#1">Profiles</a>
+      </li>
+      <li>
+        <a href="artifacts.html#2">Extensions</a>
+      </li>
+      <li>
+        <a href="artifacts.html#3">Value Sets</a>
+      </li>
+      <li>
+        <a href="artifacts.html#4">Code Systems</a>
+      </li>
+      <li>
+        <a href="conformance.html">遵從性與依賴 (Conformance &amp; Dependencies)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">術語與安全 (Terminology &amp; Security)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="terminology.html">術語定義 (Terminology)</a>
+      </li>
+      <li>
+        <a href="security.html">安全性考量 (Security)</a>
+      </li>
+      <li>
+        <a href="ip-statements.html">智慧財產權聲明 (IP Statements)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="open-issues.html">未決事項 (Open Issues)</a>
+  </li>
+  <li>
+    <a href="downloads.html">下載區 (Downloads)</a>
+  </li>
+</ul>
+            </div>    <!-- /.nav-collapse -->
+
+              
+
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Security</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.1.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>Security</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#安全性與個資保護-security--privacy" id="markdown-toc-安全性與個資保護-security--privacy">安全性與個資保護 (Security &amp; Privacy)</a>    <ul>
+      <li><a href="#1-安全要求--fhir-機制對照" id="markdown-toc-1-安全要求--fhir-機制對照">1. 安全要求 → FHIR 機制對照</a></li>
+      <li><a href="#2-角色存取控制與欄位級隔離-rbac--field-level-isolation" id="markdown-toc-2-角色存取控制與欄位級隔離-rbac--field-level-isolation">2. 角色存取控制與欄位級隔離 (RBAC &amp; Field-Level Isolation)</a>        <ul>
+          <li><a href="#21-三類角色" id="markdown-toc-21-三類角色">2.1 三類角色</a></li>
+          <li><a href="#22-為何以雇主版封包而非僅以-scope-達成隔離" id="markdown-toc-22-為何以雇主版封包而非僅以-scope-達成隔離">2.2 為何以「雇主版封包」而非僅以 scope 達成隔離</a></li>
+          <li><a href="#23-smart-scope-對照示意平台端確認" id="markdown-toc-23-smart-scope-對照示意平台端確認">2.3 SMART scope 對照（示意，平台端確認）</a></li>
+        </ul>
+      </li>
+      <li><a href="#3-電子簽章-electronic-signature" id="markdown-toc-3-電子簽章-electronic-signature">3. 電子簽章 (Electronic Signature)</a></li>
+      <li><a href="#4-去識別化與資料最小化-de-identification--minimization" id="markdown-toc-4-去識別化與資料最小化-de-identification--minimization">4. 去識別化與資料最小化 (De-identification &amp; Minimization)</a>        <ul>
+          <li><a href="#41-最小化原則" id="markdown-toc-41-最小化原則">4.1 最小化原則</a></li>
+          <li><a href="#42-去識別化欄位處理" id="markdown-toc-42-去識別化欄位處理">4.2 去識別化欄位處理</a></li>
+          <li><a href="#43-雜湊-token-之跨機構可比對性必須明白的取捨" id="markdown-toc-43-雜湊-token-之跨機構可比對性必須明白的取捨">4.3 雜湊 Token 之跨機構可比對性——必須明白的取捨</a></li>
+        </ul>
+      </li>
+      <li><a href="#5-緊急存取-break-the-glass" id="markdown-toc-5-緊急存取-break-the-glass">5. 緊急存取 (Break-the-Glass)</a></li>
+      <li><a href="#6-本期不建模者明確聲明非遺漏" id="markdown-toc-6-本期不建模者明確聲明非遺漏">6. 本期不建模者（明確聲明，非遺漏）</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="安全性與個資保護-security--privacy">安全性與個資保護 (Security &amp; Privacy)</h1>
+
+<p>勞工健康檢查紀錄與臨場服務資料屬高度敏感之個人醫療健康個資，其存取、傳輸與儲存必須符合
+《個人資料保護法》與衛福部資訊安全相關規範。</p>
+
+<p>本頁不僅陳述原則，並將每一項安全要求對應至<strong>可實作、可驗證</strong>之 FHIR 機制。
+凡涉及主管機關或平台端架構決定者，一律指向<a href="open-issues.html">未決事項</a>，不於本 IG 片面認定。</p>
+
+<blockquote>
+  <p><strong>本節之定位</strong>：本 IG 定義「資料如何表達以支持安全控制」；<strong>存取控制之實際執行</strong>
+（IdP、授權伺服器、金鑰管理）屬平台端，不在本 IG 範圍。下表「驗證方式」欄指的是
+「本 IG 之產物如何被機器檢查」，非平台端之滲透測試。</p>
+</blockquote>
+
+<hr/>
+
+<h2 id="1-安全要求--fhir-機制對照">1. 安全要求 → FHIR 機制對照</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">安全要求</th>
+      <th style="text-align: left">FHIR／標準機制</th>
+      <th style="text-align: left">實作端責任</th>
+      <th style="text-align: left">於本 IG 之驗證方式</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">傳輸通道加密</td>
+      <td style="text-align: left">HTTPS / <strong>TLS 1.3</strong></td>
+      <td style="text-align: left">平台與機構端</td>
+      <td style="text-align: left">不由 IG 驗證（傳輸層）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">身分驗證與授權</td>
+      <td style="text-align: left"><strong>SMART on FHIR</strong>（OAuth 2.0 / OIDC）</td>
+      <td style="text-align: left">平台端發 token</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CapabilityStatement.rest.security.service</code> 宣告；scope 見 &sect;2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">角色存取控制（欄位級隔離）</td>
+      <td style="text-align: left"><strong>雇主版 Composition</strong>（<a href="StructureDefinition-TWHA-Composition-EmployerSummary.html">TWHA-Composition-EmployerSummary</a>）＋ scope</td>
+      <td style="text-align: left">機構端產出對應封包</td>
+      <td style="text-align: left">Profile 之 closed slicing 結構性保證不含檢驗 section（&sect;2）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">醫師電子簽章</td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">Provenance.signature</code></strong></td>
+      <td style="text-align: left">簽署端</td>
+      <td style="text-align: left">&sect;3；簽署者身分繫於醫事人員證書字號（<a href="open-issues.html#t-2">T-2</a>）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">去識別化</td>
+      <td style="text-align: left">雜湊 identifier ＋ 欄位降精度</td>
+      <td style="text-align: left">通報端</td>
+      <td style="text-align: left">&sect;4；<code class="language-plaintext highlighter-rouge">Patient.birthDate</code> 精度</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">緊急存取（break-the-glass）</td>
+      <td style="text-align: left"><a href="StructureDefinition-TWHA-Composition-EmergencySummary.html">TWHA-Composition-EmergencySummary</a> ＋ 稽核</td>
+      <td style="text-align: left">平台端</td>
+      <td style="text-align: left">&sect;5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">稽核軌跡</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">AuditEvent</code>（本期不建模，見 &sect;6）</td>
+      <td style="text-align: left">平台端</td>
+      <td style="text-align: left">本期不驗證，見 M-10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">同意管理</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Consent</code>（本期不建模，見 &sect;6）</td>
+      <td style="text-align: left">平台端</td>
+      <td style="text-align: left">本期不驗證，見 M-10</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h2 id="2-角色存取控制與欄位級隔離-rbac--field-level-isolation">2. 角色存取控制與欄位級隔離 (RBAC &amp; Field-Level Isolation)</h2>
+
+<p>本 IG 之核心隱私結構是：<strong>雇主是資料使用者，但不應看到檢驗細項</strong>。這是勞工健檢領域
+特有的張力，也是本節之重點。</p>
+
+<h3 id="21-三類角色">2.1 三類角色</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">角色</th>
+      <th style="text-align: left">可存取內容</th>
+      <th style="text-align: left">不可存取</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">特約醫護人員</td>
+      <td style="text-align: left">完整健檢紀錄（病史、理學、檢驗數值、影像、總評）</td>
+      <td style="text-align: left">—</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">職安人員／雇主主管</td>
+      <td style="text-align: left">健康管理分級、適性配工建議、臨場服務發現問題</td>
+      <td style="text-align: left"><strong>檢驗數值明細</strong>（血糖、肝功能等）、詳細病史、影像</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">政府監理機關</td>
+      <td style="text-align: left">去識別化統計；或基於職業病調查之特定法定個案</td>
+      <td style="text-align: left">非必要之個人識別資料（見 &sect;4）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="22-為何以雇主版封包而非僅以-scope-達成隔離">2.2 為何以「雇主版封包」而非僅以 scope 達成隔離</h3>
+
+<p>SMART on FHIR scope 之顆粒度到<strong>資源型別</strong>為止（如 <code class="language-plaintext highlighter-rouge">patient/Observation.rs</code>）。
+但「雇主可看分級、不可看檢驗值」是<strong>同一資源型別內的欄位級</strong>區分——分級與檢驗值
+都是 <code class="language-plaintext highlighter-rouge">Observation</code>。單以 scope 無法乾淨表達「可讀分級 Observation、不可讀檢驗 Observation」。</p>
+
+<p>故本 IG 之欄位級隔離改由<strong>產出不同的 Composition</strong> 達成：</p>
+
+<ul>
+  <li>醫護端：完整封包（含 <code class="language-plaintext highlighter-rouge">keyLabs</code> 等 section），或 <a href="StructureDefinition-TWHA-Composition-EmergencySummary.html">TWHA-Composition-EmergencySummary</a>。</li>
+  <li>雇主端：<a href="StructureDefinition-TWHA-Composition-EmployerSummary.html"><strong>TWHA-Composition-EmployerSummary</strong></a>——其 <code class="language-plaintext highlighter-rouge">section</code> 為
+<strong>closed slicing</strong>，結構上<strong>只能</strong>含「健康管理分級／適性配工」與「臨場服務發現」兩個
+section，且各 section 之 <code class="language-plaintext highlighter-rouge">entry</code> 以 profile 限定，<strong>檢驗類 Observation 與 DiagnosticReport
+無從置入</strong>。</li>
+</ul>
+
+<blockquote>
+  <p><strong>這是可驗證的</strong>：雇主端封包若宣告符合 <code class="language-plaintext highlighter-rouge">TWHA-Composition-EmployerSummary</code>，
+FHIR 驗證器即可證明其不含檢驗細項——這是「文字承諾」做不到、而 profile 能做到的。
+範例見 <a href="Composition-example-composition-employer-summary.html">example-composition-employer-summary</a>，
+對照醫護端之 <a href="Composition-composition-emergency-summary.html">composition-emergency-summary</a>（含 <code class="language-plaintext highlighter-rouge">keyLabs</code>）即見差異。</p>
+</blockquote>
+
+<p>scope 仍作為<strong>第一道</strong>粗粒度控制（限制資源型別），欄位級隔離則由封包型別達成——兩者互補。</p>
+
+<h3 id="23-smart-scope-對照示意平台端確認">2.3 SMART scope 對照（示意，平台端確認）</h3>
+
+<p>下表為建議之最小 scope 集合；<strong>實際 scope 由平台端授權伺服器定義</strong>，本表供對齊。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">角色</th>
+      <th style="text-align: left">建議 scope（示意）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">特約醫護人員</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">patient/Observation.rs patient/DiagnosticReport.rs patient/Condition.rs patient/CarePlan.rs patient/Composition.rs</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">職安人員／雇主</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">patient/Composition.rs</code>（限 EmployerSummary 型別）；<strong>不授</strong> <code class="language-plaintext highlighter-rouge">DiagnosticReport</code>／檢驗 <code class="language-plaintext highlighter-rouge">Observation</code> 之讀取</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">政府監理</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">system/Bundle.c</code>（去識別化上傳端點）；統計查詢另循專用端點</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">CapabilityStatement.rest.security.service</code> 宣告 SMART-on-FHIR；scope 之細部語法與
+授權流程屬平台端（M-10）。</p>
+
+<hr/>
+
+<h2 id="3-電子簽章-electronic-signature">3. 電子簽章 (Electronic Signature)</h2>
+
+<p>醫師對健檢報告之簽章以 <strong><code class="language-plaintext highlighter-rouge">Provenance.signature</code></strong> 表達（而非 <code class="language-plaintext highlighter-rouge">Bundle.signature</code>），
+理由：<code class="language-plaintext highlighter-rouge">Provenance</code> 可獨立描述「誰、何時、對哪個 target、以何角色」簽署，且可於資源
+更新時保留簽署歷程；<code class="language-plaintext highlighter-rouge">Bundle.signature</code> 僅簽整包、不利於個別報告之追溯。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Provenance.target</code>：指向被簽署之 <code class="language-plaintext highlighter-rouge">DiagnosticReport</code>／<code class="language-plaintext highlighter-rouge">Composition</code>。</li>
+  <li><code class="language-plaintext highlighter-rouge">Provenance.signature.type</code>：採 <code class="language-plaintext highlighter-rouge">urn:iso-astm:E1762-95:2013</code> 之簽章目的碼
+（如 <code class="language-plaintext highlighter-rouge">1.2.840.10065.1.12.1.1</code> Author's Signature）。</li>
+  <li><code class="language-plaintext highlighter-rouge">Provenance.signature.who</code>：簽署醫師，繫至其醫事人員證書字號——<strong>該識別碼之命名空間
+尚未定案（<a href="open-issues.html#t-2">T-2</a>）</strong>，故簽署者之機器可比對身分待 T-2 解決後方能完備。</li>
+  <li><strong>智慧醫療憑證</strong>之簽章格式與法律效力屬主管機關規範，本 IG 不認定，登記關聯於 T-2。</li>
+</ul>
+
+<blockquote>
+  <p>本期<strong>不強制</strong> <code class="language-plaintext highlighter-rouge">Provenance</code>（屬建議機制）；平台端若採用，應依上述結構。</p>
+</blockquote>
+
+<hr/>
+
+<h2 id="4-去識別化與資料最小化-de-identification--minimization">4. 去識別化與資料最小化 (De-identification &amp; Minimization)</h2>
+
+<h3 id="41-最小化原則">4.1 最小化原則</h3>
+
+<p>事業單位系統若僅為健康分級管理之目的儲存資料，應僅保留分級標籤與配工內容
+（即 &sect;2.2 之雇主版封包），不儲存檢驗明細。</p>
+
+<h3 id="42-去識別化欄位處理">4.2 去識別化欄位處理</h3>
+
+<p>當上傳至非醫療之行政監理系統或進行群體流行病學統計時：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">欄位</th>
+      <th style="text-align: left">處理</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">姓名</td>
+      <td style="text-align: left">移除</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">身分證字號</td>
+      <td style="text-align: left">以<strong>不可逆雜湊 Token</strong> 取代（見 &sect;4.3）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Patient.birthDate</code></td>
+      <td style="text-align: left">降精度為 <strong><code class="language-plaintext highlighter-rouge">YYYY-MM</code></strong>（FHIR <code class="language-plaintext highlighter-rouge">date</code> 原生支援部分日期，profile 不禁止此精度）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">地址</td>
+      <td style="text-align: left">降精度至郵遞區號層級或移除</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Organization</code>（事業單位）</td>
+      <td style="text-align: left">依監理需求保留或雜湊</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="43-雜湊-token-之跨機構可比對性必須明白的取捨">4.3 雜湊 Token 之跨機構可比對性——必須明白的取捨</h3>
+
+<p>去識別化後<strong>是否仍需跨機構比對同一人</strong>（如同一勞工在不同機構之健檢串接），
+決定了雜湊策略，且兩者不可兼得：</p>
+
+<ul>
+  <li><strong>需跨機構比對</strong> → 各機構須以<strong>共用 salt</strong> 雜湊，同一身分證字號才會產生相同 Token。
+代價：共用 salt 一旦外洩，全體 Token 可被離線碰撞還原，<strong>安全性顯著降低</strong>。</li>
+  <li><strong>不需跨機構比對</strong> → 各機構用<strong>獨立 salt</strong>，安全性高，但無法串接同一人跨機構之紀錄。</li>
+</ul>
+
+<p><strong>本 IG 不替此取捨定案</strong>——它涉及監理需求與資安風險之權衡，屬主管機關／平台端決定
+（見 <a href="open-issues.html#m-10">M-10</a>）。本節之責任是把取捨寫明，不是迴避。</p>
+
+<hr/>
+
+<h2 id="5-緊急存取-break-the-glass">5. 緊急存取 (Break-the-Glass)</h2>
+
+<p>急診情境為 RBAC 之法定例外：急診醫師於緊急時得存取勞工之職業暴露史與關鍵檢驗，
+以判斷症狀是否與職業暴露相關。此存取以 <a href="StructureDefinition-TWHA-Composition-EmergencySummary.html">TWHA-Composition-EmergencySummary</a>
+承載（該 profile 已定義負向表列使用限制）。</p>
+
+<p>緊急存取之控制要求：</p>
+
+<ul>
+  <li><strong>事由記錄</strong>：每次 break-the-glass 存取須記錄事由與存取者身分（平台端 <code class="language-plaintext highlighter-rouge">AuditEvent</code>，&sect;6）。</li>
+  <li><strong>事後可稽核</strong>：緊急存取應可於事後被審視，非常規授權。</li>
+  <li><strong>範圍最小</strong>：僅取急診判斷所需之暴露史與關鍵檢驗，非完整病歷。</li>
+</ul>
+
+<blockquote>
+  <p>緊急存取之授權流程與稽核為平台端機制（M-10）；本 IG 之責任是提供對應之資料封包
+（EmergencySummary）與使用限制。</p>
+</blockquote>
+
+<hr/>
+
+<h2 id="6-本期不建模者明確聲明非遺漏">6. 本期不建模者（明確聲明，非遺漏）</h2>
+
+<p>下列機制<strong>本期不以 profile 建模</strong>，因其執行細節屬平台端架構決定，於本 IG 建模會
+過早固化未定之選擇。<strong>明確聲明優於「提到但未定義」的中間狀態</strong>：</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">Consent</code>（同意管理）</strong>：勞工書面個資授權同意之表達、查核與撤回。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">AuditEvent</code>（稽核軌跡）</strong>：查詢／新增／修改／刪除之不可竄改日誌與應記錄欄位。</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">Provenance</code>（完整溯源）</strong>：&sect;3 之簽章為建議用法，非完整 Provenance 建模。</li>
+</ul>
+
+<p>以上三者之落地屬「雇主端資料隔離之實作機制」範疇，統一登記於
+<a href="open-issues.html#m-10">未決事項 M-10</a>。實作端在該項定案前，應依《個資法》與衛福部規範
+自行處理，並保留可日後對接之欄位。</p>
+
+<p><strong>保存期限</strong>（第 19 條）之結構化亦未於本期實作——其起算點之法定解釋尚未確定
+（<a href="open-issues.html#m-6">M-6</a>），在解釋確定前結構化等於把未定之法律解釋寫死；
+詳見<a href="background.html">背景與法規</a> &sect;3.1.1 與 <a href="open-issues.html#m-7">M-7</a>。</p>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+  <script src="assets/js/flags.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <script src="assets/js/togglechanges.js" type="text/javascript"> </script>
+  <script src="assets/js/requirements-table.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container" data-fhir="generated">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+           <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
+          
+          
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      : <a style="color: var(--footer-hyperlink-text-color)" href="toc.html"></a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html"></a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>

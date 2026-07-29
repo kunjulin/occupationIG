@@ -1,0 +1,78 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "CS-LaborReportCode"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-LaborReportCode</b></p><a name=\"CS-LaborReportCode\"> </a><a name=\"hcCS-LaborReportCode\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">30901X<a name=\"CS-LaborReportCode-30901X\"> </a></td><td>一般檢查通報</td><td>一般體格及健康檢查結果通報。</td></tr><tr><td style=\"white-space:nowrap\">30902X<a name=\"CS-LaborReportCode-30902X\"> </a></td><td>噪音作業特殊健檢通報</td><td>從事噪音作業勞工之特殊健檢結果通報。</td></tr><tr><td style=\"white-space:nowrap\">30903X<a name=\"CS-LaborReportCode-30903X\"> </a></td><td>粉塵作業特殊健檢通報</td><td>從事粉塵作業勞工之特殊健檢結果通報。</td></tr><tr><td style=\"white-space:nowrap\">30904X<a name=\"CS-LaborReportCode-30904X\"> </a></td><td>鉛作業特殊健檢通報</td><td>從事鉛作業勞工之特殊健檢結果通報。</td></tr><tr><td style=\"white-space:nowrap\">30905X<a name=\"CS-LaborReportCode-30905X\"> </a></td><td>其他特殊危害健康作業通報</td><td>其他特別危害作業勞工之特殊健檢結果通報。</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode"] ;
+  fhir:CodeSystem.version [ fhir:value "0.1.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CS_LaborReportCode"] ;
+  fhir:CodeSystem.title [ fhir:value "勞動部通報報告代碼系統"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-07-29T09:46:30+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "5"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "30901X" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "一般檢查通報" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "一般體格及健康檢查結果通報。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "30902X" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "噪音作業特殊健檢通報" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "從事噪音作業勞工之特殊健檢結果通報。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "30903X" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "粉塵作業特殊健檢通報" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "從事粉塵作業勞工之特殊健檢結果通報。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "30904X" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "鉛作業特殊健檢通報" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "從事鉛作業勞工之特殊健檢結果通報。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "30905X" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "其他特殊危害健康作業通報" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "其他特別危害作業勞工之特殊健檢結果通報。" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

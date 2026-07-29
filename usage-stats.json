@@ -165,6 +165,10 @@
         "title": "職業健康急診友善摘要 Composition Profile"
       },
       {
+        "url": "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmployerSummary",
+        "title": "雇主端健康管理摘要 Composition Profile"
+      },
+      {
         "url": "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-ServiceRecord",
         "title": "健康檢查健康服務執行紀錄組成結構 Profile"
       }
@@ -277,7 +281,13 @@
     ]
   },
   "usage": {
-    "http://hl7.org/fhir/StructureDefinition/display": [
+    "http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url": [
+      "NamingSystem"
+    ],
+    "http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.version": [
+      "NamingSystem"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/display|5.3.0": [
       "QuestionnaireResponse.questionnaire"
     ],
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice": [
@@ -302,16 +312,16 @@
       "StructureDefinition.differential.element.type",
       "StructureDefinition.snapshot.element.type"
     ],
-    "http://hl7.org/fhir/StructureDefinition/ordinalValue": [
+    "http://hl7.org/fhir/StructureDefinition/ordinalValue|5.3.0": [
       "QuestionnaireResponse.item.answer"
     ],
-    "http://hl7.org/fhir/StructureDefinition/patient-nationality": [
+    "http://hl7.org/fhir/StructureDefinition/patient-nationality|5.3.0": [
       "Patient"
     ],
-    "http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode": [
+    "http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode|5.3.0": [
       "QuestionnaireResponse"
     ],
-    "http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature": [
+    "http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.3.0": [
       "QuestionnaireResponse",
       "QuestionnaireResponse.item"
     ],
@@ -363,6 +373,7 @@
       "QuestionnaireResponse.questionnaire"
     ],
     "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-cessation-duration": [
+      "Bundle.entry.resource",
       "Observation"
     ],
     "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department": [
@@ -390,16 +401,23 @@
       "Encounter"
     ],
     "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work": [
+      "Bundle.entry.resource",
       "CarePlan"
     ],
     "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-hazard-type": [
+      "Bundle.entry.resource",
       "Encounter"
     ],
     "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-health-mgmt-level": [
       "Bundle.entry.resource",
       "ClinicalImpression"
     ],
+    "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-labor-report-code": [
+      "Bundle.entry.resource",
+      "Encounter"
+    ],
     "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity": [
+      "Bundle.entry.resource",
       "Observation"
     ]
   }

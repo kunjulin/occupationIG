@@ -1,0 +1,73 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "VS-PulmonaryFunction",
+  "language" : "zh-TW",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 取值集合 VS-PulmonaryFunction</b></p><a name=\"VS-PulmonaryFunction\"> </a><a name=\"hcVS-PulmonaryFunction\"> </a><ul><li>Include these codes as defined in <a href=\"http://loinc.org\"><code>http://loinc.org</code></a><span title=\"Version is not explicitly stated. No matching Code System found\"> version Not Stated (use latest from terminology server)</span><table class=\"none\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td><a href=\"https://loinc.org/19868-9/\">19868-9</a></td><td>Forced vital capacity [Volume] Respiratory system by Spirometry</td></tr><tr><td><a href=\"https://loinc.org/19870-5/\">19870-5</a></td><td>Forced vital capacity [Volume] Respiratory system</td></tr><tr><td><a href=\"https://loinc.org/19876-2/\">19876-2</a></td><td>Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation</td></tr><tr><td><a href=\"https://loinc.org/20150-9/\">20150-9</a></td><td>FEV1</td></tr><tr><td><a href=\"https://loinc.org/19926-5/\">19926-5</a></td><td>FEV1/FVC</td></tr><tr><td><a href=\"https://loinc.org/19935-6/\">19935-6</a></td><td>Maximum expiratory gas flow Respiratory system airway by Peak flow meter</td></tr><tr><td><a href=\"https://loinc.org/19911-7/\">19911-7</a></td><td>Diffusion capacity.carbon monoxide</td></tr><tr><td><a href=\"https://loinc.org/19862-2/\">19862-2</a></td><td>Total lung capacity</td></tr><tr><td><a href=\"https://loinc.org/20146-7/\">20146-7</a></td><td>Residual volume</td></tr></table></li></ul></div>"
+  },
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction",
+  "version" : "0.1.0",
+  "name" : "VS_PulmonaryFunction",
+  "title" : "肺功能檢查項目值集",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2026-07-29T09:46:30+00:00",
+  "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+  "contact" : [{
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  },
+  {
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  }],
+  "description" : "包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的 LOINC 代碼，以供肺功能檢查 Profile 使用。",
+  "compose" : {
+    "include" : [{
+      "system" : "http://loinc.org",
+      "concept" : [{
+        "code" : "19868-9",
+        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry"
+      },
+      {
+        "code" : "19870-5",
+        "display" : "Forced vital capacity [Volume] Respiratory system"
+      },
+      {
+        "code" : "19876-2",
+        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
+      },
+      {
+        "code" : "20150-9",
+        "display" : "FEV1"
+      },
+      {
+        "code" : "19926-5",
+        "display" : "FEV1/FVC"
+      },
+      {
+        "code" : "19935-6",
+        "display" : "Maximum expiratory gas flow Respiratory system airway by Peak flow meter"
+      },
+      {
+        "code" : "19911-7",
+        "display" : "Diffusion capacity.carbon monoxide"
+      },
+      {
+        "code" : "19862-2",
+        "display" : "Total lung capacity"
+      },
+      {
+        "code" : "20146-7",
+        "display" : "Residual volume"
+      }]
+    }]
+  }
+}
