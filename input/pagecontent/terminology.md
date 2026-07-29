@@ -250,7 +250,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 | `4548-4` | HbA1c (NGSP) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `59261-8` | HbA1c (IFCC) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `98979-8` | eGFR (CKD-EPI 2021) | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
-| `33914-3` | eGFR (MDRD)（LOINC 狀態：DISCOURAGED） | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `33914-3` | eGFR (MDRD)（LOINC 狀態：DISCOURAGED） | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 職醫科已確認保留（2026-07-27，JOB-01 Q8）；多公式並存見 T-11 |
 
 **特別提醒：**
 - **重金屬單位不一致**：血中鉛為 `ug/dL`、尿中鉛為 `ug/L`、血中汞與鎘為 `ng/mL`——**量級不同，不可互換**。

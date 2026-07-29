@@ -131,7 +131,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#2098-2 "Cholinesterase [Enzymatic activity/volume] in Serum or Plasma"
 
 // 1.13 微生物培養 (Microbiological Culture) [NEW]
-* LNC#43371-4 "Salmonella and Shigella [Presence] in Stool by Culture"
+* LNC#43371-4 "Salmonella sp and Shigella sp identified in Stool by Organism specific culture"
 
 // 1.14 尿液毒品篩檢 (Urine Drug Screening)
 // v20260726：原列 19266-6/19299-7/19283-1/19501-6/19571-9 經 tx $lookup 查證，均為
@@ -254,7 +254,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // (-確定無合適碼) 尿酸 acceptable：原列 49154-8 經 tx 查證實為 Rickettsia conorii IgG Ab [Titer]（地中海斑疹熱抗體），
 //   非尿酸全血法，已於 v20260726 移除；如確有全血法需求，須經 $lookup 查證後再新增。
 * LNC#33863-2 "Cystatin C [Mass/volume] in Serum or Plasma"
-* LNC#33914-3 "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation"
+* LNC#33914-3 "Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (MDRD)"
 * LNC#4548-4 "Hemoglobin A1c/Hemoglobin.total in Blood"
 * LNC#47214-2 "Homeostasis model assessment"
 * LNC#59261-8 "Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood" // Acceptable: HbA1c IFCC
@@ -289,7 +289,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#3026-2 "Thyroxine (T4) [Mass/volume] in Serum or Plasma"
 * LNC#3051-0 "Triiodothyronine (T3) free [Mass/volume] in Serum or Plasma"
 * LNC#3053-6 "Triiodothyronine (T3) [Mass/volume] in Serum or Plasma"
-* LNC#62292-8 "25-hydroxyvitamin D3 [Mass/volume] in Serum or Plasma"
+* LNC#62292-8 "25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma"
 * LNC#8099-4 "Thyroperoxidase Ab [Units/volume] in Serum or Plasma"
 
 // 3-x 傳染病、HPV與胃部篩檢
@@ -350,10 +350,10 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#5784-4 "Cystine crystals [Presence] in Urine sediment by Light microscopy"
 * LNC#5787-7 "Epithelial cells [#/area] in Urine sediment by Microscopy high power field"
 * LNC#5788-5 "Oval fat bodies (globules) [#/area] in Urine sediment by Microscopy high power field"
-* LNC#5792-7 "Glucose [Presence] in Urine by Test strip"
+* LNC#5792-7 "Glucose [Mass/volume] in Urine by Test strip"
 * LNC#5794-3 "Hemoglobin [Presence] in Urine by Test strip"
 * LNC#5796-8 "Hyaline casts [#/area] in Urine sediment by Microscopy low power field"
-* LNC#5797-6 "Ketones [Presence] in Urine by Test strip"
+* LNC#5797-6 "Ketones [Mass/volume] in Urine by Test strip"
 * LNC#5799-2 "Leukocyte esterase [Presence] in Urine by Test strip"
 * LNC#5802-4 "Nitrite [Presence] in Urine by Test strip"
 * LNC#5803-2 "pH of Urine by Test strip"
