@@ -330,6 +330,10 @@ IG Publisher 只檢查「代碼是否存在於該 CodeSystem」，**不檢查 `d
     - 第 1 題 8 個尿沉渣碼換為 `[#/volume] in Urine by Automated count`（全尿自動計數，Sysmex UF 之報告型態）：
       Bacteria `51480-2`、Squamous EC `51486-9`、Hyaline casts `51484-4`、Epithelial cells `87926-2`、
       Casts `51483-6`、Erythrocytes `798-9`、Leukocytes `51487-7`、Mucus `51478-6`（同屬套組 LOINC `50554-5`）。
+      **JOB-14（2026-07-29）修正**：批3 把單一機構之 /µL 報告習慣當成全國唯一選項、將 9 個 ACTIVE 之 `[#/area]`
+      面積碼整組刪除，致以 /HPF 報告之機構無碼可用。JOB-14 已將該 9 個面積碼回收為 **acceptable**（display 逐字採
+      LOINC 官方）並補 ConceptMap `element[28]–[36]` 之 `#relatedto` 歸一，改為 preferred（體積）／acceptable（面積）
+      雙軌收錄（見 [JOB-14](https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-14-preferred-acceptable-recovery.md)）。
     - 第 2-1 題尿錳：`42221-2` 顯示名改回莫耳（官方）＋加院方所用之質量碼 `5684-6`。
     - 第 7 題巨核細胞：換為 `19252-6`「Megakaryocytes/100 leukocytes in Blood」（完整巨核細胞，IG 原欲表達者），
       填補批2 剔除 `62858-6` 之缺口。

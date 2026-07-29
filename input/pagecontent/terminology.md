@@ -80,7 +80,7 @@
 > [display-verification-report.csv](display-verification-report.csv)。
 
 ### 3.2 代碼映射 ConceptMap
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **29 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **38 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729（JOB-14）新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 ---
 
@@ -148,6 +148,15 @@
 | 肝炎 | HBsAg | `5196-1` | `{5195-3}` | 39082004 | — | 成健 |
 | 肝炎 | anti-HCV | `13955-0` | `{16128-1}` | 32218006 | — | 成健 |
 | 尿液 | 尿蛋白 (試紙) | `5804-0` | `{2888-6}` | 167273002 | — | 附表九/成健 |
+| 尿沉渣 | 細菌 Bacteria | `51480-2` | `{33218-9}` | — | /uL | — |
+| 尿沉渣 | 鱗狀上皮細胞 | `51486-9` | `{33219-7}` | — | /uL | — |
+| 尿沉渣 | 透明圓柱 | `51484-4` | `{33223-9}` | — | /uL | — |
+| 尿沉渣 | 上皮細胞 | `87926-2` | `{33342-7}` | — | /uL | — |
+| 尿沉渣 | 圓柱 Casts | `51483-6` | `{43755-8}` | — | /uL | — |
+| 尿沉渣 | 紅血球 RBC | `798-9` | `{46419-8}` | — | /uL | — |
+| 尿沉渣 | 白血球 WBC | `51487-7` | `{46702-7}` | — | /uL | — |
+| 尿沉渣 | 黏液 Mucus | `51478-6` | `{50235-1}` | — | /uL | — |
+| 尿沉渣 | 精子 Spermatozoa | `51479-4` | `{53324-0}` | — | /uL | — |
 | 生理 | BMI | `39156-5` | — | 60621009 | kg/m2 | 成健 |
 | 生理 | 腰臀比 WHR | (-確定無合適碼) | — | 248362002 | {ratio} | 成健 |
 | 生理 | 血壓 Panel | `55284-4` | — | 75367002 | — | 成健 |
@@ -156,6 +165,12 @@
 | 肺功能 | FEV1 | `20150-9` | — | 59328004 | L | 職業 |
 | 視力 | 視力 Panel | `98497-1` | — | 363983007 | — | 職業 |
 | 聽力 | 純音聽力 Panel | `89015-2` | — | 406081008 | dB | 職業 |
+
+> **尿沉渣自動計數之雙軌收錄（JOB-14）**：本 IG 對尿沉渣採「**體積碼（/µL 全尿自動計數）為 preferred、
+> 面積碼（/HPF 鏡檢沉渣）為 acceptable**」。理由為國內各機構尿液分析儀報告單位不一致——本院 Sysmex
+> UF-5000/UD-10 報每 µL，他院則以每高倍視野（/HPF）報告；兩量綱需依儀器係數換算、不可直接比較數值，
+> 故以 `#relatedto` 歸一而非 `equivalent`。此為 JOB-01 批3「整組換為體積碼」之範圍修正：面積碼為 ACTIVE
+> 之合法 LOINC，回收為 acceptable 使以 /HPF 報告之機構亦可實作（見 ConceptMap `element[28]–[36]`）。
 
 ---
 

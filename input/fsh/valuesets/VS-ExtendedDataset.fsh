@@ -327,24 +327,34 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#25145-4 "Bacteria [Presence] in Urine sediment by Light microscopy"
 * LNC#30004-6 "Creatinine [Mass/volume] in Urine by Test strip"
 * LNC#32356-8 "Yeast [Presence] in Urine sediment by Light microscopy"
-// 尿沉渣自動計數 — 2026-07-29 JOB-01 批3 Q1：院方 Sysmex UF-5000/UD-10 報「每 µL」（體積）。
-//   原列 [#/area] in Urine sediment（每面積、鏡檢沉渣）碼全數用錯（display 標體積、code 卻是面積），
-//   整批換為 [#/volume] in Urine by Automated count（每體積、全尿自動計數）碼。
-//   候選碼由 WebSearch 取自 loinc.org，經 CI $lookup 覆核；同屬 LOINC 50554-5 全尿鏡檢定量套組。
+// 尿沉渣自動計數 — preferred（體積碼）＋ acceptable（面積碼）雙軌收錄（JOB-14）。
+//   國內尿液分析儀報告單位不一致：本院 Sysmex UF-5000/UD-10 報「每 µL」（[#/volume] 全尿自動計數）；
+//   他院以鏡檢報「每高倍視野 /HPF」（[#/area] 鏡檢沉渣）。兩者皆為 ACTIVE 之合法 LOINC 碼、量綱不同、
+//   需依儀器係數換算。故 preferred 取體積碼、acceptable 取面積碼，並於 ConceptMap 以 #relatedto 歸一，
+//   使以 /HPF 報告之機構亦可實作（修正 JOB-01 批3 之整組刪除）。體積碼同屬套組 50554-5。
 * LNC#51480-2 "Bacteria [#/volume] in Urine by Automated count"                       // ← 33218-9
+* LNC#33218-9 "Bacteria [#/area] in Urine sediment by Automated count"  // Acceptable：每高倍視野（/HPF）鏡檢沉渣計數；以 /HPF 報告之機構適用，經 ConceptMap 歸一至 51480-2
 * LNC#51486-9 "Epithelial cells.squamous [#/volume] in Urine by Automated count"      // ← 33219-7
+* LNC#33219-7 "Epithelial cells.squamous [#/area] in Urine sediment by Automated count"  // Acceptable：每高倍視野（/HPF）鏡檢沉渣計數；以 /HPF 報告之機構適用，經 ConceptMap 歸一至 51486-9
 * LNC#51484-4 "Hyaline casts [#/volume] in Urine by Automated count"                  // ← 33223-9
+* LNC#33223-9 "Hyaline casts [#/area] in Urine sediment by Automated count"  // Acceptable：每高倍視野（/HPF）鏡檢沉渣計數；以 /HPF 報告之機構適用，經 ConceptMap 歸一至 51484-4
 * LNC#87926-2 "Epithelial cells [#/volume] in Urine by Automated"                     // ← 33342-7（通用上皮細胞）
+* LNC#33342-7 "Epithelial cells [#/area] in Urine sediment by Automated count"  // Acceptable：每高倍視野（/HPF）鏡檢沉渣計數；以 /HPF 報告之機構適用，經 ConceptMap 歸一至 87926-2
 * LNC#51483-6 "Casts [#/volume] in Urine by Automated count"                          // ← 43755-8
+* LNC#43755-8 "Casts [#/area] in Urine sediment by Automated count"  // Acceptable：每高倍視野（/HPF）鏡檢沉渣計數；以 /HPF 報告之機構適用，經 ConceptMap 歸一至 51483-6
 * LNC#798-9 "Erythrocytes [#/volume] in Urine by Automated count"                     // ← 46419-8
+* LNC#46419-8 "Erythrocytes [#/area] in Urine sediment by Automated count"  // Acceptable：每高倍視野（/HPF）鏡檢沉渣計數；以 /HPF 報告之機構適用，經 ConceptMap 歸一至 798-9
 * LNC#51487-7 "Leukocytes [#/volume] in Urine by Automated count"                     // ← 46702-7
+* LNC#46702-7 "Leukocytes [#/area] in Urine sediment by Automated count"  // Acceptable：每高倍視野（/HPF）鏡檢沉渣計數；以 /HPF 報告之機構適用，經 ConceptMap 歸一至 51487-7
 * LNC#51478-6 "Mucus [#/volume] in Urine by Automated count"                          // ← 50235-1
+* LNC#50235-1 "Mucus [#/area] in Urine sediment by Automated count"  // Acceptable：每高倍視野（/HPF）鏡檢沉渣計數；以 /HPF 報告之機構適用，經 ConceptMap 歸一至 51478-6
 * LNC#50551-1 "Bilirubin.total [Presence] in Urine by Automated test strip"
 * LNC#50555-2 "Glucose [Presence] in Urine by Automated test strip"
 * LNC#50558-6 "Nitrite [Presence] in Urine by Automated test strip"
 * LNC#50560-2 "pH of Urine by Automated test strip"
 * LNC#50562-8 "Specific gravity of Urine by Refractometry automated"
 * LNC#51479-4 "Spermatozoa [#/volume] in Urine by Automated count"  // 2026-07-29 JOB-01 批3 Q1（缺口已解，使用者提供）：51479-4 為精子之全尿自動計數體積碼（同屬套組 50554-5），比照其餘 8 項換體積碼；← 53324-0（原用每面積碼有誤）
+* LNC#53324-0 "Spermatozoa [#/area] in Urine sediment by Automated count"  // Acceptable：每高倍視野（/HPF）鏡檢沉渣計數；以 /HPF 報告之機構適用，經 ConceptMap 歸一至 51479-4
 * LNC#53975-9 "Drug crystals [Presence] in Urine sediment by Light microscopy"
 * LNC#5766-1 "Ammonium urate crystals [Presence] in Urine sediment by Light microscopy"
 * LNC#5770-3 "Bilirubin.total [Presence] in Urine by Test strip"

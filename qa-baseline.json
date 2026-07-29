@@ -39,6 +39,21 @@
     "移除 9 個 [#/area] 碼、新增 11 碼，淨 +2；info 實測降 22 屬波動與碼組成變化，非具名類別變動",
     "（There-are-no-valid-display 持平 237、cannot-be-resolved 持平 2311）。"
   ],
+  "_job14Note": [
+    "JOB-14（尿沉渣面積碼回收為 Acceptable）之基準線影響。量測來源 run 30454543305（commit adca454f，PR #14，err = 0）。",
+    "",
+    "新增：VS-ExtendedDataset +9 個 acceptable 面積碼（279 → 288）、ConceptMap +9 個 element（28 → 37，element[28]–[36]）。",
+    "",
+    "⚠️ CI 實測『無任何具名類別變動、無總數上調』——與 JOB-14 §5『新增 9 碼會使 info 上升』之預期相反：",
+    "  Wrong Display Name                 0 → 0     9 個面積碼 display 逐字採 CSV loinc_display，全數與 tx 官方相符。",
+    "  There are no valid display names 237 → 237   值集內嵌 display 之碼不觸發此訊息（再次實證，同批2/批3）。",
+    "  cannot be resolved              2311 → 2311   VS 之新增碼與 ConceptMap 之新增 element 不產生新頁面，無新斷鏈。",
+    "  TOTAL info  實測 436（基準 459；JOB-01 完成時 437）——落在既有波動帶內，非上升，不動基準線。",
+    "  TOTAL warn  實測 97（基準 152）。TOTAL err 0。",
+    "",
+    "故本 JOB 不上調任何基準線；本註記即『總數變動之具名歸因』——此處歸因為『實測無變動』。",
+    "驗收全數達標：err 0、Wrong Display Name 0（維持）、VS-ExtendedDataset 288 碼、ConceptMap 37 個 element。"
+  ],
   "_job01Batch2Note": [
     "JOB-01 批 2（換碼/加碼：Q2-2/2-3/2-4、Q3、Q7）之基準線變動。",
     "量測來源 run 30432410720（commit 1663d359，err = 0）。歷經三輪 CI：",
