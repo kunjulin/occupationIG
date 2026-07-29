@@ -304,7 +304,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#24110-9 "Treponema pallidum Ab [Presence] in Serum by Immunoassay"
 * LNC#29771-3 "Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay"  // 糞便免疫化學法潛血(FIT)
 * LNC#31147-2 "Reagin Ab [Titer] in Serum by RPR"
-* LNC#5176-3 "Helicobacter pylori IgG Ab [Presence] in Serum"
+* LNC#5176-3 "Helicobacter pylori IgG Ab [Units/volume] in Serum by Immunoassay"  // 2026-07-29 JOB-01 Q4-1 裁示（使用者提供 LOINC 官方查詢）：本碼官方為定量（Scale Qn、Method IA），舊標 [Presence] 有誤；本院未執行此項故無臨床背書，惟採 LOINC 官方定量顯示名保留（open-issues T-1 選項 b）
 * LNC#51913-2 "Hepatitis A virus IgG+IgM Ab [Presence] in Serum"
 * LNC#5193-8 "Hepatitis B virus surface Ab [Units/volume] in Serum or Plasma by Immunoassay"  // 2026-07-29 JOB-01 批2：官方為定量（Q3，標示對調回正確位置）——本碼即定量 Anti-HBs；臨床建議之 65633-0 經 CI 查證實為 HBsAg（表面「抗原」）確認法、非 Anti-HBs（抗體），已剔除
 * LNC#5334-8 "Rubella virus IgG Ab [Units/volume] in Serum or Plasma by Immunoassay"
