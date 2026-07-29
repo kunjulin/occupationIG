@@ -315,6 +315,96 @@
         "equivalence" : "relatedto",
         "comment" : "source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。"
       }]
+    },
+    {
+      "code" : "33218-9",
+      "display" : "Bacteria [#/area] in Urine sediment by Automated count",
+      "target" : [{
+        "code" : "51480-2",
+        "display" : "Bacteria [#/volume] in Urine by Automated count",
+        "equivalence" : "relatedto",
+        "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
+    },
+    {
+      "code" : "33219-7",
+      "display" : "Epithelial cells.squamous [#/area] in Urine sediment by Automated count",
+      "target" : [{
+        "code" : "51486-9",
+        "display" : "Epithelial cells.squamous [#/volume] in Urine by Automated count",
+        "equivalence" : "relatedto",
+        "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
+    },
+    {
+      "code" : "33223-9",
+      "display" : "Hyaline casts [#/area] in Urine sediment by Automated count",
+      "target" : [{
+        "code" : "51484-4",
+        "display" : "Hyaline casts [#/volume] in Urine by Automated count",
+        "equivalence" : "relatedto",
+        "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
+    },
+    {
+      "code" : "33342-7",
+      "display" : "Epithelial cells [#/area] in Urine sediment by Automated count",
+      "target" : [{
+        "code" : "87926-2",
+        "display" : "Epithelial cells [#/volume] in Urine by Automated",
+        "equivalence" : "relatedto",
+        "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
+    },
+    {
+      "code" : "43755-8",
+      "display" : "Casts [#/area] in Urine sediment by Automated count",
+      "target" : [{
+        "code" : "51483-6",
+        "display" : "Casts [#/volume] in Urine by Automated count",
+        "equivalence" : "relatedto",
+        "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
+    },
+    {
+      "code" : "46419-8",
+      "display" : "Erythrocytes [#/area] in Urine sediment by Automated count",
+      "target" : [{
+        "code" : "798-9",
+        "display" : "Erythrocytes [#/volume] in Urine by Automated count",
+        "equivalence" : "relatedto",
+        "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
+    },
+    {
+      "code" : "46702-7",
+      "display" : "Leukocytes [#/area] in Urine sediment by Automated count",
+      "target" : [{
+        "code" : "51487-7",
+        "display" : "Leukocytes [#/volume] in Urine by Automated count",
+        "equivalence" : "relatedto",
+        "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
+    },
+    {
+      "code" : "50235-1",
+      "display" : "Mucus [#/area] in Urine sediment by Automated count",
+      "target" : [{
+        "code" : "51478-6",
+        "display" : "Mucus [#/volume] in Urine by Automated count",
+        "equivalence" : "relatedto",
+        "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
+    },
+    {
+      "code" : "53324-0",
+      "display" : "Spermatozoa [#/area] in Urine sediment by Automated count",
+      "target" : [{
+        "code" : "51479-4",
+        "display" : "Spermatozoa [#/volume] in Urine by Automated count",
+        "equivalence" : "relatedto",
+        "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
     }]
   }]
 }

@@ -33,7 +33,7 @@
   "title" : "健康檢查進階與領域擴充項目值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-29T09:46:30+00:00",
+  "date" : "2026-07-29T14:03:51+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -958,32 +958,64 @@
         "display" : "Bacteria [#/volume] in Urine by Automated count"
       },
       {
+        "code" : "33218-9",
+        "display" : "Bacteria [#/area] in Urine sediment by Automated count"
+      },
+      {
         "code" : "51486-9",
         "display" : "Epithelial cells.squamous [#/volume] in Urine by Automated count"
+      },
+      {
+        "code" : "33219-7",
+        "display" : "Epithelial cells.squamous [#/area] in Urine sediment by Automated count"
       },
       {
         "code" : "51484-4",
         "display" : "Hyaline casts [#/volume] in Urine by Automated count"
       },
       {
+        "code" : "33223-9",
+        "display" : "Hyaline casts [#/area] in Urine sediment by Automated count"
+      },
+      {
         "code" : "87926-2",
         "display" : "Epithelial cells [#/volume] in Urine by Automated"
+      },
+      {
+        "code" : "33342-7",
+        "display" : "Epithelial cells [#/area] in Urine sediment by Automated count"
       },
       {
         "code" : "51483-6",
         "display" : "Casts [#/volume] in Urine by Automated count"
       },
       {
+        "code" : "43755-8",
+        "display" : "Casts [#/area] in Urine sediment by Automated count"
+      },
+      {
         "code" : "798-9",
         "display" : "Erythrocytes [#/volume] in Urine by Automated count"
+      },
+      {
+        "code" : "46419-8",
+        "display" : "Erythrocytes [#/area] in Urine sediment by Automated count"
       },
       {
         "code" : "51487-7",
         "display" : "Leukocytes [#/volume] in Urine by Automated count"
       },
       {
+        "code" : "46702-7",
+        "display" : "Leukocytes [#/area] in Urine sediment by Automated count"
+      },
+      {
         "code" : "51478-6",
         "display" : "Mucus [#/volume] in Urine by Automated count"
+      },
+      {
+        "code" : "50235-1",
+        "display" : "Mucus [#/area] in Urine sediment by Automated count"
       },
       {
         "code" : "50551-1",
@@ -1008,6 +1040,10 @@
       {
         "code" : "51479-4",
         "display" : "Spermatozoa [#/volume] in Urine by Automated count"
+      },
+      {
+        "code" : "53324-0",
+        "display" : "Spermatozoa [#/area] in Urine sediment by Automated count"
       },
       {
         "code" : "53975-9",

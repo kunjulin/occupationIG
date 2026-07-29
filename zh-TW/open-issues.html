@@ -739,7 +739,11 @@ LOINC 官方用語。附錄 A 之 <code class="language-plaintext highlighter-ro
     <ul>
       <li>第 1 題 8 個尿沉渣碼換為 <code class="language-plaintext highlighter-rouge">[#/volume] in Urine by Automated count</code>（全尿自動計數，Sysmex UF 之報告型態）：
 Bacteria <code class="language-plaintext highlighter-rouge">51480-2</code>、Squamous EC <code class="language-plaintext highlighter-rouge">51486-9</code>、Hyaline casts <code class="language-plaintext highlighter-rouge">51484-4</code>、Epithelial cells <code class="language-plaintext highlighter-rouge">87926-2</code>、
-Casts <code class="language-plaintext highlighter-rouge">51483-6</code>、Erythrocytes <code class="language-plaintext highlighter-rouge">798-9</code>、Leukocytes <code class="language-plaintext highlighter-rouge">51487-7</code>、Mucus <code class="language-plaintext highlighter-rouge">51478-6</code>（同屬套組 LOINC <code class="language-plaintext highlighter-rouge">50554-5</code>）。</li>
+Casts <code class="language-plaintext highlighter-rouge">51483-6</code>、Erythrocytes <code class="language-plaintext highlighter-rouge">798-9</code>、Leukocytes <code class="language-plaintext highlighter-rouge">51487-7</code>、Mucus <code class="language-plaintext highlighter-rouge">51478-6</code>（同屬套組 LOINC <code class="language-plaintext highlighter-rouge">50554-5</code>）。
+<strong>JOB-14（2026-07-29）修正</strong>：批3 把單一機構之 /µL 報告習慣當成全國唯一選項、將 9 個 ACTIVE 之 <code class="language-plaintext highlighter-rouge">[#/area]</code>
+面積碼整組刪除，致以 /HPF 報告之機構無碼可用。JOB-14 已將該 9 個面積碼回收為 <strong>acceptable</strong>（display 逐字採
+LOINC 官方）並補 ConceptMap <code class="language-plaintext highlighter-rouge">element[28]–[36]</code> 之 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一，改為 preferred（體積）／acceptable（面積）
+雙軌收錄（見 <a href="https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-14-preferred-acceptable-recovery.md">JOB-14</a>）。</li>
       <li>第 2-1 題尿錳：<code class="language-plaintext highlighter-rouge">42221-2</code> 顯示名改回莫耳（官方）＋加院方所用之質量碼 <code class="language-plaintext highlighter-rouge">5684-6</code>。</li>
       <li>第 7 題巨核細胞：換為 <code class="language-plaintext highlighter-rouge">19252-6</code>「Megakaryocytes/100 leukocytes in Blood」（完整巨核細胞，IG 原欲表達者），
 填補批2 剔除 <code class="language-plaintext highlighter-rouge">62858-6</code> 之缺口。</li>

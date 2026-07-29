@@ -45,18 +45,18 @@
     "oids" : ["2.16.840.1.113883.6.1"],
     "uses" : {
     },
-    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap",
-    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
-    "ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.html" : "附表十 有機溶劑作業 專屬應執行項目值集",
-    "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集",
-    "ValueSet-VS-Appendix9-RequiredSet.html" : "附表九 一般健康檢查法定應執行項目值集",
+    "ValueSet-VS-TWHAVitalSigns.html" : "職業健檢生命徵象項目值集",
     "ValueSet-VS-Appendix10-Dust-RequiredSet.html" : "附表十 粉塵作業 專屬應執行項目值集",
     "ValueSet-VS-Appendix10-Noise-RequiredSet.html" : "附表十 噪音作業 專屬應執行項目值集",
-    "ValueSet-VS-Appendix10-Lead-RequiredSet.html" : "附表十 鉛作業 專屬應執行項目值集",
-    "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集",
+    "ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.html" : "附表十 有機溶劑作業 專屬應執行項目值集",
     "ValueSet-VS-OccHealthCheck-Required.html" : "勞工健康檢查法定必驗項目值集（第一期草案）",
+    "ValueSet-VS-Appendix10-Lead-RequiredSet.html" : "附表十 鉛作業 專屬應執行項目值集",
+    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap",
     "ValueSet-VS-CoreDataset.html" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
-    "ValueSet-VS-TWHAVitalSigns.html" : "職業健檢生命徵象項目值集"
+    "ValueSet-VS-Appendix9-RequiredSet.html" : "附表九 一般健康檢查法定應執行項目值集",
+    "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集",
+    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
+    "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集"
   },
   {
     "url" : "http://snomed.info/sct",
@@ -123,8 +123,8 @@
     "description" : "《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。",
     "uses" : {
     },
-    "ValueSet-VS-Appendix10-Operation.html" : "附表十特別危害健康作業值集（35 項）",
-    "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照"
+    "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照",
+    "ValueSet-VS-Appendix10-Operation.html" : "附表十特別危害健康作業值集（35 項）"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",

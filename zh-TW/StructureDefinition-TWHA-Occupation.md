@@ -67,7 +67,7 @@ This structure refers to these other structures:
   "name" : "TWHAOccupationProfile",
   "title" : "健康檢查工作經歷與職業別 Profile",
   "status" : "active",
-  "date" : "2026-07-29T09:46:30+00:00",
+  "date" : "2026-07-29T14:03:51+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
