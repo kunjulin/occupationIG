@@ -239,7 +239,8 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 | `14099-6` | 尿中鎳 | `ng/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `5586-3` | 尿中砷 | `ug/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `5681-2` | 血中錳 | `ng/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
-| `42221-2` | 尿中錳 | `nmol/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `42221-2` | 尿中錳（莫耳） | `nmol/L` | LOINC EXAMPLE_UCUM_UNITS | 批3 確認官方為莫耳；院方以質量報告，質量碼見 `5684-6` |
+| `5684-6` | 尿中錳（質量，院方所用） | `ug/L` | LOINC EXAMPLE_UCUM_UNITS | 批3 新增（Q2-1），經 CI $lookup 覆核 |
 | `6709-0` | 尿中馬尿酸（甲苯） | `g/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `2725-0` | 尿中甲基馬尿酸（二甲苯） | `mg/mL` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `13000-5` | 尿中扁桃酸（苯乙烯） | — | **LOINC 未提供** | 需覆核 |
@@ -250,7 +251,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 | `4548-4` | HbA1c (NGSP) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `59261-8` | HbA1c (IFCC) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `98979-8` | eGFR (CKD-EPI 2021) | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
-| `33914-3` | eGFR (MDRD)（LOINC 狀態：DISCOURAGED） | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `33914-3` | eGFR (MDRD)（LOINC 狀態：DISCOURAGED） | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 職醫科已確認保留（2026-07-27，JOB-01 Q8）；多公式並存見 T-11 |
 
 **特別提醒：**
 - **重金屬單位不一致**：血中鉛為 `ug/dL`、尿中鉛為 `ug/L`、血中汞與鎘為 `ng/mL`——**量級不同，不可互換**。

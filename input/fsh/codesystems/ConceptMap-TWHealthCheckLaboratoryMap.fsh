@@ -90,7 +90,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 
 // eGFR
 * group[0].element[8].code = #33914-3
-* group[0].element[8].display = "Glomerular filtration rate/1.73 sq M.predicted by MDRD equation"
+* group[0].element[8].display = "Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M"
 * group[0].element[8].target[0].code = #98979-8
 * group[0].element[8].target[0].display = "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
 * group[0].element[8].target[0].equivalence = #relatedto
