@@ -114,11 +114,16 @@ function parseCsv(text) {
 }
 
 function classify(csvUnit, officialUnits) {
-  const csv = (csvUnit || '').trim();
-  if (!officialUnits.length) return csv ? '待人工判定' : 'LOINC 未提供'; // 官方無建議單位
-  if (!csv) return '待人工判定';                                        // 官方有、CSV 空白
-  if (officialUnits.includes(csv)) return officialUnits.length > 1 ? '待人工判定' : '相符';
-  return '不符';
+  // CSV 之 ucum_suggested 本身可能含多個單位（如 "[arb'U];[arb'U]/mL"，與官方多值格式一致），
+  // 故 CSV 側亦須切成集合再逐一比對，不可拿整串去比對官方清單（否則多值列會誤判為不符）。
+  const csv = unitSet(csvUnit);
+  const off = new Set(officialUnits);
+  if (!officialUnits.length) return csv.length ? '待人工判定' : 'LOINC 未提供'; // 官方無建議單位
+  if (!csv.length) return '待人工判定';                                        // 官方有、CSV 空白
+  const allIn = csv.every((u) => off.has(u));
+  if (!allIn) return '不符';                                                   // CSV 有官方清單外之單位
+  // CSV 之單位皆為官方所列：完全涵蓋即相符；官方多值而 CSV 只擇部分則進人工判定（§3.1）。
+  return csv.length === officialUnits.length ? '相符' : (officialUnits.length > 1 ? '待人工判定' : '相符');
 }
 
 (async () => {
