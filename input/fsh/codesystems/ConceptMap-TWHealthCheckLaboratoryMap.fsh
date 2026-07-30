@@ -25,7 +25,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[0].target[0].code = #6690-2
 * group[0].element[0].target[0].display = "Leukocytes [#/volume] in Blood by Automated count"
 * group[0].element[0].target[0].equivalence = #relatedto
-* group[0].element[0].target[0].comment = "Manual 與 Automated 為不同具體方法，無包含關係；數值不可直接比較（比照 element[6] 之處理）"
+* group[0].element[0].target[0].comment = "Manual 與 Automated 為不同具體方法，無包含關係；數值不可直接比較（比照 element[5] 之處理）"
 
 * group[0].element[1].code = #26464-8
 * group[0].element[1].display = "Leukocytes [#/volume] in Blood"
@@ -34,83 +34,82 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[1].target[0].equivalence = #narrower
 * group[0].element[1].target[0].comment = "source 方法未指定，target 指定 Automated count；target 語意較窄"
 
-// Urine Protein
-* group[0].element[2].code = #2888-6
-* group[0].element[2].display = "Protein [Mass/volume] in Urine"
-* group[0].element[2].target[0].code = #5804-0
-* group[0].element[2].target[0].display = "Protein [Mass/volume] in Urine by Test strip"
-* group[0].element[2].target[0].equivalence = #relatedto
-* group[0].element[2].target[0].comment = "定量(Mass/volume)與試紙法屬不同量測方式，非包含關係"
+// Urine Protein：(-) 無 acceptable 變異碼。原 element[2] 之 2888-6 → 5804-0 已於 v20260730（JOB-21）移除——
+//      2888-6（尿蛋白定量，醫令 06003C-1）與 5804-0（尿蛋白定性，醫令 06003C-2）各為獨立醫令項目之
+//      Preferred，於主管機關最小上傳集為兩個獨立列。歸一之語意為「送 A 時視為 B」，而定量與定性係不同
+//      檢驗、不同醫令代碼、不同 Property（Mass/volume vs Presence），不可互相取代（原 comment 自身即載明
+//      「非包含關係」，與歸一之用途相牴觸）。二者之臨床關聯見 terminology.md，不放回本 ConceptMap。
+//      （其後 element 已重新編號為連續索引。）
 
 // Glucose
-* group[0].element[3].code = #2339-0
-* group[0].element[3].display = "Glucose [Mass/volume] in Blood"
-* group[0].element[3].target[0].code = #1558-6
-* group[0].element[3].target[0].display = "Fasting glucose [Mass/volume] in Serum or Plasma"
-* group[0].element[3].target[0].equivalence = #relatedto
-* group[0].element[3].target[0].comment = "空腹狀態與檢體均不同（source 為未指定空腹之全血、target 為空腹血漿），無包含關係；全血與血漿葡萄糖數值不可直接比較（比照 element[6] 之處理）"
+* group[0].element[2].code = #2339-0
+* group[0].element[2].display = "Glucose [Mass/volume] in Blood"
+* group[0].element[2].target[0].code = #1558-6
+* group[0].element[2].target[0].display = "Fasting glucose [Mass/volume] in Serum or Plasma"
+* group[0].element[2].target[0].equivalence = #relatedto
+* group[0].element[2].target[0].comment = "空腹狀態與檢體均不同（source 為未指定空腹之全血、target 為空腹血漿），無包含關係；全血與血漿葡萄糖數值不可直接比較（比照 element[5] 之處理）"
 
 // Creatinine
-* group[0].element[4].code = #38483-4
-* group[0].element[4].display = "Creatinine [Mass/volume] in Blood"
-* group[0].element[4].target[0].code = #2160-0
-* group[0].element[4].target[0].display = "Creatinine [Mass/volume] in Serum or Plasma"
-* group[0].element[4].target[0].equivalence = #relatedto
-* group[0].element[4].target[0].comment = "檢體不同(Blood vs Serum/Plasma)，非包含關係"
+* group[0].element[3].code = #38483-4
+* group[0].element[3].display = "Creatinine [Mass/volume] in Blood"
+* group[0].element[3].target[0].code = #2160-0
+* group[0].element[3].target[0].display = "Creatinine [Mass/volume] in Serum or Plasma"
+* group[0].element[3].target[0].equivalence = #relatedto
+* group[0].element[3].target[0].comment = "檢體不同(Blood vs Serum/Plasma)，非包含關係"
 
 // Uric Acid：(-確定無合適碼)。原 source 49154-8 經 tx 驗證實為 Rickettsia conorii IgG Ab [Titer]，
 //   非尿酸之可接受碼，已移除該組對應。
 
 // Total Cholesterol
-* group[0].element[5].code = #35200-5
-* group[0].element[5].display = "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
-* group[0].element[5].target[0].code = #2093-3
-* group[0].element[5].target[0].display = "Cholesterol [Mass/volume] in Serum or Plasma"
-* group[0].element[5].target[0].equivalence = #narrower
-* group[0].element[5].target[0].comment = "source 允許質量或莫耳濃度兩種尺度，語意較 target 廣"
+* group[0].element[4].code = #35200-5
+* group[0].element[4].display = "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
+* group[0].element[4].target[0].code = #2093-3
+* group[0].element[4].target[0].display = "Cholesterol [Mass/volume] in Serum or Plasma"
+* group[0].element[4].target[0].equivalence = #narrower
+* group[0].element[4].target[0].comment = "source 允許質量或莫耳濃度兩種尺度，語意較 target 廣"
 
 // Triglycerides
-* group[0].element[6].code = #3043-7
-* group[0].element[6].display = "Triglyceride [Mass/volume] in Blood"
-* group[0].element[6].target[0].code = #2571-8
-* group[0].element[6].target[0].display = "Triglyceride [Mass/volume] in Serum or Plasma"
-* group[0].element[6].target[0].equivalence = #relatedto
-* group[0].element[6].target[0].comment = "檢體不同(Blood vs Serum/Plasma)"
+* group[0].element[5].code = #3043-7
+* group[0].element[5].display = "Triglyceride [Mass/volume] in Blood"
+* group[0].element[5].target[0].code = #2571-8
+* group[0].element[5].target[0].display = "Triglyceride [Mass/volume] in Serum or Plasma"
+* group[0].element[5].target[0].equivalence = #relatedto
+* group[0].element[5].target[0].comment = "檢體不同(Blood vs Serum/Plasma)"
 
-// HDL：(-) 無 acceptable 變異碼。原 element[8] 之 source 3048-6 經 tx 驗證實為 Triglyceride --fasting，
+// HDL：(-) 無 acceptable 變異碼。原 element[7] 之 source 3048-6 經 tx 驗證實為 Triglyceride --fasting，
 //      非 HDL 之可接受碼，已移除該組對應（其後 element 已重新編號為連續索引）。
 
 // LDL (Preferred 2089-1 為方法通用碼；計算法 13457-7 與直接測定法 18262-6 為方法具名之 Acceptable)
-* group[0].element[7].code = #13457-7
-* group[0].element[7].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
-* group[0].element[7].target[0].code = #2089-1
-* group[0].element[7].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
-* group[0].element[7].target[0].equivalence = #wider
-* group[0].element[7].target[0].comment = "source 指定計算法，target 方法未指定"
+* group[0].element[6].code = #13457-7
+* group[0].element[6].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+* group[0].element[6].target[0].code = #2089-1
+* group[0].element[6].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
+* group[0].element[6].target[0].equivalence = #wider
+* group[0].element[6].target[0].comment = "source 指定計算法，target 方法未指定"
 
 // eGFR
-* group[0].element[8].code = #33914-3
-* group[0].element[8].display = "Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M"
-* group[0].element[8].target[0].code = #98979-8
-* group[0].element[8].target[0].display = "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
-* group[0].element[8].target[0].equivalence = #relatedto
-* group[0].element[8].target[0].comment = "MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換。114 年成健採雙軌併行（MDRD 必填、CKD-EPI 非必填），同一份報告可能同時含兩碼，屬正常情形而非重複上傳；115.01.01 起僅採 CKD-EPI 2021。依國健署 115.01.15 國健慢病字第1150660003號函。"
+* group[0].element[7].code = #33914-3
+* group[0].element[7].display = "Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M"
+* group[0].element[7].target[0].code = #98979-8
+* group[0].element[7].target[0].display = "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
+* group[0].element[7].target[0].equivalence = #relatedto
+* group[0].element[7].target[0].comment = "MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換。114 年成健採雙軌併行（MDRD 必填、CKD-EPI 非必填），同一份報告可能同時含兩碼，屬正常情形而非重複上傳；115.01.01 起僅採 CKD-EPI 2021。依國健署 115.01.15 國健慢病字第1150660003號函。"
 
 // HBsAg
-* group[0].element[9].code = #5195-3
-* group[0].element[9].display = "Hepatitis B virus surface Ag [Presence] in Serum"
-* group[0].element[9].target[0].code = #5196-1
-* group[0].element[9].target[0].display = "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"
-* group[0].element[9].target[0].equivalence = #relatedto
-* group[0].element[9].target[0].comment = "source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄"
+* group[0].element[8].code = #5195-3
+* group[0].element[8].display = "Hepatitis B virus surface Ag [Presence] in Serum"
+* group[0].element[8].target[0].code = #5196-1
+* group[0].element[8].target[0].display = "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"
+* group[0].element[8].target[0].equivalence = #relatedto
+* group[0].element[8].target[0].comment = "source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄"
 
 // anti-HCV
-* group[0].element[10].code = #16128-1
-* group[0].element[10].display = "Hepatitis C virus Ab [Presence] in Serum"
-* group[0].element[10].target[0].code = #13955-0
-* group[0].element[10].target[0].display = "Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay"
-* group[0].element[10].target[0].equivalence = #relatedto
-* group[0].element[10].target[0].comment = "source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄"
+* group[0].element[9].code = #16128-1
+* group[0].element[9].display = "Hepatitis C virus Ab [Presence] in Serum"
+* group[0].element[9].target[0].code = #13955-0
+* group[0].element[9].target[0].display = "Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay"
+* group[0].element[9].target[0].equivalence = #relatedto
+* group[0].element[9].target[0].comment = "source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄"
 
 // =============================================================
 // 血液學群組 (Hematology) — 新增 4 組
@@ -118,56 +117,56 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 // =============================================================
 
 // Platelet (Acceptable: 26515-7 Automated count → Preferred: 777-3)
-* group[0].element[11].code = #26515-7
-* group[0].element[11].display = "Platelets [#/volume] in Blood"
-* group[0].element[11].target[0].code = #777-3
-* group[0].element[11].target[0].display = "Platelets [#/volume] in Blood by Automated count"
-* group[0].element[11].target[0].equivalence = #narrower
-* group[0].element[11].target[0].comment = "source 方法未指定，target 指定 Automated count；target 語意較窄"
+* group[0].element[10].code = #26515-7
+* group[0].element[10].display = "Platelets [#/volume] in Blood"
+* group[0].element[10].target[0].code = #777-3
+* group[0].element[10].target[0].display = "Platelets [#/volume] in Blood by Automated count"
+* group[0].element[10].target[0].equivalence = #narrower
+* group[0].element[10].target[0].comment = "source 方法未指定，target 指定 Automated count；target 語意較窄"
 
 // MCV (Acceptable: 30428-7 by calculation → Preferred: 787-2 by Automated count)
-* group[0].element[12].code = #30428-7
-* group[0].element[12].display = "MCV [Entitic mean volume] in Red Blood Cells"
-* group[0].element[12].target[0].code = #787-2
-* group[0].element[12].target[0].display = "MCV [Entitic mean volume] in Red Blood Cells by Automated count"
-* group[0].element[12].target[0].equivalence = #relatedto
-* group[0].element[12].target[0].comment = "calculation 與 Automated count 為不同具體方法，無包含關係"
+* group[0].element[11].code = #30428-7
+* group[0].element[11].display = "MCV [Entitic mean volume] in Red Blood Cells"
+* group[0].element[11].target[0].code = #787-2
+* group[0].element[11].target[0].display = "MCV [Entitic mean volume] in Red Blood Cells by Automated count"
+* group[0].element[11].target[0].equivalence = #relatedto
+* group[0].element[11].target[0].comment = "calculation 與 Automated count 為不同具體方法，無包含關係"
 
 // MCH (Acceptable: 28539-5 by Automated count → Preferred: 785-6 by Automated count)
-* group[0].element[13].code = #28539-5
-* group[0].element[13].display = "MCH [Entitic mass]"
-* group[0].element[13].target[0].code = #785-6
-* group[0].element[13].target[0].display = "MCH [Entitic mass] by Automated count"
-* group[0].element[13].target[0].equivalence = #narrower
-* group[0].element[13].target[0].comment = "source 方法未指定（MCH [Entitic mass]），target 指定 Automated count；target 語意較窄"
+* group[0].element[12].code = #28539-5
+* group[0].element[12].display = "MCH [Entitic mass]"
+* group[0].element[12].target[0].code = #785-6
+* group[0].element[12].target[0].display = "MCH [Entitic mass] by Automated count"
+* group[0].element[12].target[0].equivalence = #narrower
+* group[0].element[12].target[0].comment = "source 方法未指定（MCH [Entitic mass]），target 指定 Automated count；target 語意較窄"
 
 // Neutrophil % (Acceptable: 26508-2 Manual count → Preferred: 770-8 Automated count)
-* group[0].element[14].code = #26508-2
-* group[0].element[14].display = "Neutrophils/100 leukocytes in Blood by Manual count"
-* group[0].element[14].target[0].code = #770-8
-* group[0].element[14].target[0].display = "Neutrophils/Leukocytes in Blood by Automated count"
-* group[0].element[14].target[0].equivalence = #relatedto
-* group[0].element[14].target[0].comment = "Manual 與 Automated 為不同具體方法，無包含關係"
+* group[0].element[13].code = #26508-2
+* group[0].element[13].display = "Neutrophils/100 leukocytes in Blood by Manual count"
+* group[0].element[13].target[0].code = #770-8
+* group[0].element[13].target[0].display = "Neutrophils/Leukocytes in Blood by Automated count"
+* group[0].element[13].target[0].equivalence = #relatedto
+* group[0].element[13].target[0].comment = "Manual 與 Automated 為不同具體方法，無包含關係"
 
 // =============================================================
 // 肝功能群組 (Liver Function) — 新增 3 組
 // =============================================================
 
 // AST / GOT (Acceptable: 30239-8 with P-5'-P → Preferred: 1920-8)
-* group[0].element[15].code = #30239-8
-* group[0].element[15].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"
-* group[0].element[15].target[0].code = #1920-8
-* group[0].element[15].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[15].target[0].equivalence = #wider
-* group[0].element[15].target[0].comment = "source 指定 UV with P5P，target 方法未指定"
+* group[0].element[14].code = #30239-8
+* group[0].element[14].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"
+* group[0].element[14].target[0].code = #1920-8
+* group[0].element[14].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+* group[0].element[14].target[0].equivalence = #wider
+* group[0].element[14].target[0].comment = "source 指定 UV with P5P，target 方法未指定"
 
 // ALT / GPT (Acceptable: 1743-4 with P-5'-P → Preferred: 1742-6)
-* group[0].element[16].code = #1743-4
-* group[0].element[16].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"
-* group[0].element[16].target[0].code = #1742-6
-* group[0].element[16].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[16].target[0].equivalence = #wider
-* group[0].element[16].target[0].comment = "source 指定 UV with P5P，target 方法未指定"
+* group[0].element[15].code = #1743-4
+* group[0].element[15].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"
+* group[0].element[15].target[0].code = #1742-6
+* group[0].element[15].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+* group[0].element[15].target[0].equivalence = #wider
+* group[0].element[15].target[0].comment = "source 指定 UV with P5P，target 方法未指定"
 
 
 // =============================================================
@@ -176,169 +175,195 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 
 // HbA1c (Acceptable: 59261-8 IFCC mmol/mol → Preferred: 4548-4 NGSP %)
 // 單位換算說明：IFCC (mmol/mol) = (NGSP(%) - 2.152) / 0.9148
-* group[0].element[17].code = #59261-8
-* group[0].element[17].display = "Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood"
-* group[0].element[17].target[0].code = #4548-4
-* group[0].element[17].target[0].display = "Hemoglobin A1c/Hemoglobin.total in Blood"
-* group[0].element[17].target[0].equivalence = #relatedto
-* group[0].element[17].target[0].comment = "Unit conversion required: NGSP(%) = IFCC(mmol/mol) * 0.9148 + 2.152"
+* group[0].element[16].code = #59261-8
+* group[0].element[16].display = "Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood"
+* group[0].element[16].target[0].code = #4548-4
+* group[0].element[16].target[0].display = "Hemoglobin A1c/Hemoglobin.total in Blood"
+* group[0].element[16].target[0].equivalence = #relatedto
+* group[0].element[16].target[0].comment = "Unit conversion required: NGSP(%) = IFCC(mmol/mol) * 0.9148 + 2.152"
 
 // TSH (Acceptable: 3016-3 3rd generation IS → Preferred: 11580-8)
-* group[0].element[18].code = #3016-3
-* group[0].element[18].display = "Thyrotropin [Units/volume] in Serum or Plasma"
-* group[0].element[18].target[0].code = #11580-8
-* group[0].element[18].target[0].display = "Thyrotropin [Units/volume] in Serum or Plasma by Detection limit <= 0.005 mIU/L"
-* group[0].element[18].target[0].equivalence = #narrower
-* group[0].element[18].target[0].comment = "source 為一般 TSH（未指定偵測極限），target 指定高敏感度（Detection limit <= 0.005 mIU/L）；target 語意較窄"
+* group[0].element[17].code = #3016-3
+* group[0].element[17].display = "Thyrotropin [Units/volume] in Serum or Plasma"
+* group[0].element[17].target[0].code = #11580-8
+* group[0].element[17].target[0].display = "Thyrotropin [Units/volume] in Serum or Plasma by Detection limit <= 0.005 mIU/L"
+* group[0].element[17].target[0].equivalence = #narrower
+* group[0].element[17].target[0].comment = "source 為一般 TSH（未指定偵測極限），target 指定高敏感度（Detection limit <= 0.005 mIU/L）；target 語意較窄"
 
 
 // CA-125 (Acceptable: 83082-8 by IA → Preferred: 10334-1)
-* group[0].element[19].code = #83082-8
-* group[0].element[19].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
-* group[0].element[19].target[0].code = #10334-1
-* group[0].element[19].target[0].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma"
+* group[0].element[18].code = #83082-8
+* group[0].element[18].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
+* group[0].element[18].target[0].code = #10334-1
+* group[0].element[18].target[0].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma"
+* group[0].element[18].target[0].equivalence = #wider
+* group[0].element[18].target[0].comment = "source 指定 Immunoassay，target 方法未指定"
+
+// CEA (Acceptable: 83085-1 by IA → Preferred: 2039-6)
+* group[0].element[19].code = #83085-1
+* group[0].element[19].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
+* group[0].element[19].target[0].code = #2039-6
+* group[0].element[19].target[0].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
 * group[0].element[19].target[0].equivalence = #wider
 * group[0].element[19].target[0].comment = "source 指定 Immunoassay，target 方法未指定"
 
-// CEA (Acceptable: 83085-1 by IA → Preferred: 2039-6)
-* group[0].element[20].code = #83085-1
-* group[0].element[20].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
-* group[0].element[20].target[0].code = #2039-6
-* group[0].element[20].target[0].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
-* group[0].element[20].target[0].equivalence = #wider
-* group[0].element[20].target[0].comment = "source 指定 Immunoassay，target 方法未指定"
-
 // AST (Acceptable: 88112-8 w/o P-5'-P → Preferred: 1920-8)
-* group[0].element[21].code = #88112-8
-* group[0].element[21].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
-* group[0].element[21].target[0].code = #1920-8
-* group[0].element[21].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+* group[0].element[20].code = #88112-8
+* group[0].element[20].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+* group[0].element[20].target[0].code = #1920-8
+* group[0].element[20].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
+* group[0].element[20].target[0].equivalence = #wider
+* group[0].element[20].target[0].comment = "source 指定 No addition of P-5'-P，target 方法未指定"
+
+// ALT (Acceptable: 1744-2 w/o P-5'-P → Preferred: 1742-6)
+* group[0].element[21].code = #1744-2
+* group[0].element[21].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+* group[0].element[21].target[0].code = #1742-6
+* group[0].element[21].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
 * group[0].element[21].target[0].equivalence = #wider
 * group[0].element[21].target[0].comment = "source 指定 No addition of P-5'-P，target 方法未指定"
 
-// ALT (Acceptable: 1744-2 w/o P-5'-P → Preferred: 1742-6)
-* group[0].element[22].code = #1744-2
-* group[0].element[22].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
-* group[0].element[22].target[0].code = #1742-6
-* group[0].element[22].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[22].target[0].equivalence = #wider
-* group[0].element[22].target[0].comment = "source 指定 No addition of P-5'-P，target 方法未指定"
-
 // Glucose AC (Acceptable: 2345-7 post fasting → Preferred: 1558-6 fasting)
-* group[0].element[23].code = #2345-7
-* group[0].element[23].display = "Glucose [Mass/volume] in Serum or Plasma"
-* group[0].element[23].target[0].code = #1558-6
-* group[0].element[23].target[0].display = "Fasting Glucose [Mass/volume] in Serum or Plasma"
-* group[0].element[23].target[0].equivalence = #narrower
-* group[0].element[23].target[0].comment = "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣"
+* group[0].element[22].code = #2345-7
+* group[0].element[22].display = "Glucose [Mass/volume] in Serum or Plasma"
+* group[0].element[22].target[0].code = #1558-6
+* group[0].element[22].target[0].display = "Fasting Glucose [Mass/volume] in Serum or Plasma"
+* group[0].element[22].target[0].equivalence = #narrower
+* group[0].element[22].target[0].comment = "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣"
 
 // LDL (舊版直接測定法代碼 → Preferred 2089-1)
-* group[0].element[24].code = #18262-6
-* group[0].element[24].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
-* group[0].element[24].target[0].code = #2089-1
-* group[0].element[24].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
-* group[0].element[24].target[0].equivalence = #wider
-* group[0].element[24].target[0].comment = "source 指定 Direct assay，target 方法未指定"
+* group[0].element[23].code = #18262-6
+* group[0].element[23].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
+* group[0].element[23].target[0].code = #2089-1
+* group[0].element[23].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
+* group[0].element[23].target[0].equivalence = #wider
+* group[0].element[23].target[0].comment = "source 指定 Direct assay，target 方法未指定"
 
 // =============================================================
 // v20260724（文件一/二 v3.0 對齊，P4：補齊已宣告為 Acceptable 但缺 ConceptMap 之對應）
 // =============================================================
 
 // 血中鉛：院內 LIS Specimen 碼 → Preferred Blood
-* group[0].element[25].code = #23749-5
-* group[0].element[25].display = "Lead [Mass/volume] in Specimen"
-* group[0].element[25].target[0].code = #77307-7
-* group[0].element[25].target[0].display = "Lead [Mass/volume] in Venous blood"
-* group[0].element[25].target[0].equivalence = #relatedto
-* group[0].element[25].target[0].comment = "source 檢體為泛稱 Specimen、target 限 Blood，非單純包含"
+* group[0].element[24].code = #23749-5
+* group[0].element[24].display = "Lead [Mass/volume] in Specimen"
+* group[0].element[24].target[0].code = #77307-7
+* group[0].element[24].target[0].display = "Lead [Mass/volume] in Venous blood"
+* group[0].element[24].target[0].equivalence = #relatedto
+* group[0].element[24].target[0].comment = "source 檢體為泛稱 Specimen、target 限 Blood，非單純包含"
 
 // 腰圍：一般腰圍碼（語意較廣） → Preferred 臍位皮尺法
-* group[0].element[26].code = #56086-2
-* group[0].element[26].display = "Waist Circumference"
-* group[0].element[26].target[0].code = #8280-0
-* group[0].element[26].target[0].display = "Waist Circumference at umbilicus by Tape measure"
-* group[0].element[26].target[0].equivalence = #relatedto
-* group[0].element[26].target[0].comment = "source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同"
+* group[0].element[25].code = #56086-2
+* group[0].element[25].display = "Waist Circumference"
+* group[0].element[25].target[0].code = #8280-0
+* group[0].element[25].target[0].display = "Waist Circumference at umbilicus by Tape measure"
+* group[0].element[25].target[0].equivalence = #relatedto
+* group[0].element[25].target[0].comment = "source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同"
 
 // 聽力：(-確定無合適碼)。原 source 21104-5 經 tx 驗證實為 Deprecated 大豆粉塵 IgE 過敏原，
 //   非聽力之可接受碼，已移除該組對應；聽力代碼以 89015-2 panel 及其成員碼為準。
 
 // 血中鉛：檢體未指定舊碼（DISCOURAGED）→ Preferred 靜脈血
-* group[0].element[27].code = #5671-3
-* group[0].element[27].display = "Lead [Mass/volume] in Blood"
-* group[0].element[27].target[0].code = #77307-7
-* group[0].element[27].target[0].display = "Lead [Mass/volume] in Venous blood"
-* group[0].element[27].target[0].equivalence = #relatedto
-* group[0].element[27].target[0].comment = "source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。"
+* group[0].element[26].code = #5671-3
+* group[0].element[26].display = "Lead [Mass/volume] in Blood"
+* group[0].element[26].target[0].code = #77307-7
+* group[0].element[26].target[0].display = "Lead [Mass/volume] in Venous blood"
+* group[0].element[26].target[0].equivalence = #relatedto
+* group[0].element[26].target[0].comment = "source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。"
 
 
 // 尿沉渣面積碼（/HPF 鏡檢）→ Preferred 體積碼（/µL 全尿自動）——JOB-14 回收
-* group[0].element[28].code = #33218-9
-* group[0].element[28].display = "Bacteria [#/area] in Urine sediment by Automated count"
-* group[0].element[28].target[0].code = #51480-2
-* group[0].element[28].target[0].display = "Bacteria [#/volume] in Urine by Automated count"
+* group[0].element[27].code = #33218-9
+* group[0].element[27].display = "Bacteria [#/area] in Urine sediment by Automated count"
+* group[0].element[27].target[0].code = #51480-2
+* group[0].element[27].target[0].display = "Bacteria [#/volume] in Urine by Automated count"
+* group[0].element[27].target[0].equivalence = #relatedto
+* group[0].element[27].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+* group[0].element[28].code = #33219-7
+* group[0].element[28].display = "Epithelial cells.squamous [#/area] in Urine sediment by Automated count"
+* group[0].element[28].target[0].code = #51486-9
+* group[0].element[28].target[0].display = "Epithelial cells.squamous [#/volume] in Urine by Automated count"
 * group[0].element[28].target[0].equivalence = #relatedto
 * group[0].element[28].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
-* group[0].element[29].code = #33219-7
-* group[0].element[29].display = "Epithelial cells.squamous [#/area] in Urine sediment by Automated count"
-* group[0].element[29].target[0].code = #51486-9
-* group[0].element[29].target[0].display = "Epithelial cells.squamous [#/volume] in Urine by Automated count"
+* group[0].element[29].code = #33223-9
+* group[0].element[29].display = "Hyaline casts [#/area] in Urine sediment by Automated count"
+* group[0].element[29].target[0].code = #51484-4
+* group[0].element[29].target[0].display = "Hyaline casts [#/volume] in Urine by Automated count"
 * group[0].element[29].target[0].equivalence = #relatedto
 * group[0].element[29].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
-* group[0].element[30].code = #33223-9
-* group[0].element[30].display = "Hyaline casts [#/area] in Urine sediment by Automated count"
-* group[0].element[30].target[0].code = #51484-4
-* group[0].element[30].target[0].display = "Hyaline casts [#/volume] in Urine by Automated count"
+* group[0].element[30].code = #33342-7
+* group[0].element[30].display = "Epithelial cells [#/area] in Urine sediment by Automated count"
+* group[0].element[30].target[0].code = #87926-2
+* group[0].element[30].target[0].display = "Epithelial cells [#/volume] in Urine by Automated"
 * group[0].element[30].target[0].equivalence = #relatedto
 * group[0].element[30].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
-* group[0].element[31].code = #33342-7
-* group[0].element[31].display = "Epithelial cells [#/area] in Urine sediment by Automated count"
-* group[0].element[31].target[0].code = #87926-2
-* group[0].element[31].target[0].display = "Epithelial cells [#/volume] in Urine by Automated"
+* group[0].element[31].code = #43755-8
+* group[0].element[31].display = "Casts [#/area] in Urine sediment by Automated count"
+* group[0].element[31].target[0].code = #51483-6
+* group[0].element[31].target[0].display = "Casts [#/volume] in Urine by Automated count"
 * group[0].element[31].target[0].equivalence = #relatedto
 * group[0].element[31].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
-* group[0].element[32].code = #43755-8
-* group[0].element[32].display = "Casts [#/area] in Urine sediment by Automated count"
-* group[0].element[32].target[0].code = #51483-6
-* group[0].element[32].target[0].display = "Casts [#/volume] in Urine by Automated count"
+* group[0].element[32].code = #46419-8
+* group[0].element[32].display = "Erythrocytes [#/area] in Urine sediment by Automated count"
+* group[0].element[32].target[0].code = #798-9
+* group[0].element[32].target[0].display = "Erythrocytes [#/volume] in Urine by Automated count"
 * group[0].element[32].target[0].equivalence = #relatedto
 * group[0].element[32].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
-* group[0].element[33].code = #46419-8
-* group[0].element[33].display = "Erythrocytes [#/area] in Urine sediment by Automated count"
-* group[0].element[33].target[0].code = #798-9
-* group[0].element[33].target[0].display = "Erythrocytes [#/volume] in Urine by Automated count"
+* group[0].element[33].code = #46702-7
+* group[0].element[33].display = "Leukocytes [#/area] in Urine sediment by Automated count"
+* group[0].element[33].target[0].code = #51487-7
+* group[0].element[33].target[0].display = "Leukocytes [#/volume] in Urine by Automated count"
 * group[0].element[33].target[0].equivalence = #relatedto
 * group[0].element[33].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
-* group[0].element[34].code = #46702-7
-* group[0].element[34].display = "Leukocytes [#/area] in Urine sediment by Automated count"
-* group[0].element[34].target[0].code = #51487-7
-* group[0].element[34].target[0].display = "Leukocytes [#/volume] in Urine by Automated count"
+* group[0].element[34].code = #50235-1
+* group[0].element[34].display = "Mucus [#/area] in Urine sediment by Automated count"
+* group[0].element[34].target[0].code = #51478-6
+* group[0].element[34].target[0].display = "Mucus [#/volume] in Urine by Automated count"
 * group[0].element[34].target[0].equivalence = #relatedto
 * group[0].element[34].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
-* group[0].element[35].code = #50235-1
-* group[0].element[35].display = "Mucus [#/area] in Urine sediment by Automated count"
-* group[0].element[35].target[0].code = #51478-6
-* group[0].element[35].target[0].display = "Mucus [#/volume] in Urine by Automated count"
+* group[0].element[35].code = #53324-0
+* group[0].element[35].display = "Spermatozoa [#/area] in Urine sediment by Automated count"
+* group[0].element[35].target[0].code = #51479-4
+* group[0].element[35].target[0].display = "Spermatozoa [#/volume] in Urine by Automated count"
 * group[0].element[35].target[0].equivalence = #relatedto
 * group[0].element[35].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
-* group[0].element[36].code = #53324-0
-* group[0].element[36].display = "Spermatozoa [#/area] in Urine sediment by Automated count"
-* group[0].element[36].target[0].code = #51479-4
-* group[0].element[36].target[0].display = "Spermatozoa [#/volume] in Urine by Automated count"
-* group[0].element[36].target[0].equivalence = #relatedto
-* group[0].element[36].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
 
 // 身高（方法特化）：JOB-18。與尿沉渣（relatedto）不同——此處為方法特化與方法通用之包含關係，數值可直接比較，故 #narrower。
-* group[0].element[37].code = #3137-7
-* group[0].element[37].display = "Body height Measured"
-* group[0].element[37].target[0].code = #8302-2
-* group[0].element[37].target[0].display = "Body height"
-* group[0].element[37].target[0].equivalence = #wider
-* group[0].element[37].target[0].comment = "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一身高量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
+* group[0].element[36].code = #3137-7
+* group[0].element[36].display = "Body height Measured"
+* group[0].element[36].target[0].code = #8302-2
+* group[0].element[36].target[0].display = "Body height"
+* group[0].element[36].target[0].equivalence = #wider
+* group[0].element[36].target[0].comment = "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一身高量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
 // 體重（方法特化）：JOB-18，同上。
-* group[0].element[38].code = #3141-9
-* group[0].element[38].display = "Body weight Measured"
-* group[0].element[38].target[0].code = #29463-7
-* group[0].element[38].target[0].display = "Body weight"
+* group[0].element[37].code = #3141-9
+* group[0].element[37].display = "Body weight Measured"
+* group[0].element[37].target[0].code = #29463-7
+* group[0].element[37].target[0].display = "Body weight"
+* group[0].element[37].target[0].equivalence = #wider
+* group[0].element[37].target[0].comment = "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
+
+// =============================================================
+// JOB-21 §1.3 A 類：FSH 標 // Acceptable 但原無歸一路徑之 3 組（實作端送出時無法歸一）。
+// equivalence 依 FHIR R4 target-relative 判準（見 JOB-22）。均使用既有代碼，未新增 LOINC。
+// =============================================================
+// 尿蛋白試紙（自動化）→ 試紙法通用碼
+* group[0].element[38].code = #57735-3
+* group[0].element[38].display = "Protein [Presence] in Urine by Automated test strip"
+* group[0].element[38].target[0].code = #5804-0
+* group[0].element[38].target[0].display = "Protein [Mass/volume] in Urine by Test strip"
 * group[0].element[38].target[0].equivalence = #wider
-* group[0].element[38].target[0].comment = "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
+* group[0].element[38].target[0].comment = "source 指定自動化試紙判讀，target 方法未指定自動化；target 語意較廣"
+// HBsAg 定量（免疫法）→ 定性 Preferred
+* group[0].element[39].code = #63557-3
+* group[0].element[39].display = "Hepatitis B virus surface Ag [Units/volume] in Serum or Plasma by Immunoassay"
+* group[0].element[39].target[0].code = #5196-1
+* group[0].element[39].target[0].display = "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"
+* group[0].element[39].target[0].equivalence = #relatedto
+* group[0].element[39].target[0].comment = "source 為定量（Units/volume）、target 為定性（Presence），Property 不同而無包含關係；定量值不可直接當作定性結果比較，須依判讀閾值轉換"
+// FVC 支氣管擴張劑前 → FVC Preferred
+* group[0].element[40].code = #19876-2
+* group[0].element[40].display = "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation"
+* group[0].element[40].target[0].code = #19868-9
+* group[0].element[40].target[0].display = "Forced vital capacity [Volume] Respiratory system by Spirometry"
+* group[0].element[40].target[0].equivalence = #wider
+* group[0].element[40].target[0].comment = "source 指定支氣管擴張劑給藥前之特定條件，target 未指定給藥前後；target 語意較廣"

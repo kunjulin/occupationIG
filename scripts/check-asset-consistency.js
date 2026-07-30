@@ -60,6 +60,60 @@ function parseCsv(text) {
 
 const SENTINEL = /^\(-/; // 「(-確定無合適碼)」等有意之無碼標記
 
+// ---- 層級標示一致性（JOB-21 §3.3）----------------------------------------
+// A = 值集內以**標籤形式**標註 acceptable 之碼；B = ConceptMap source ∩ 值集內之碼。
+// A △ B（對稱差）必須為空集合。
+//
+// ⚠️ 判定 A 必須用標籤形式 `Acceptable:`／`（Acceptable：`，**不可**用「comment 含 Acceptable」：
+//    77307-7（血鉛 Preferred）之註解寫「5671-3／23749-5 為 Acceptable，經 ConceptMap 歸一」——
+//    它在描述**其他碼**是 acceptable。以子字串比對會把它誤判為 acceptable，使 A 虛增。
+//    （本檢查開發時即實測到此誤判：A 34→33、A 類 4→3。）
+//
+// 56086-2 等「刻意保留於 ConceptMap 但已移出值集」者，因 B 已 ∩ 值集內之碼而自然排除，
+// 無須允許清單；日後若出現值集內之例外，須以具名允許清單處理並附理由。
+const ACCEPTABLE_LABEL = /(?:^|[（(\s])Acceptable[:：]/;
+
+function collectAcceptableAnnotated() {
+  const set = new Set();
+  for (const name of fs.readdirSync(vsDir)) {
+    if (!name.endsWith('.fsh')) continue;
+    for (const line of fs.readFileSync(path.join(vsDir, name), 'utf8').split(/\r?\n/)) {
+      const m = line.match(/^\*\s+LNC#(\S+)/);
+      if (!m) continue;
+      const i = line.indexOf('//');
+      if (i === -1) continue;
+      if (ACCEPTABLE_LABEL.test(line.slice(i))) set.add(m[1]);
+    }
+  }
+  return set;
+}
+
+function conceptMapSources() {
+  const f = path.join(repoRoot, 'input', 'fsh', 'codesystems', 'ConceptMap-TWHealthCheckLaboratoryMap.fsh');
+  const set = new Set();
+  for (const m of fs.readFileSync(f, 'utf8').matchAll(/element\[\d+\]\.code = #(\S+)/g)) set.add(m[1]);
+  return set;
+}
+
+function checkTierConsistency(vsCodes) {
+  const A = collectAcceptableAnnotated();
+  const srcAll = conceptMapSources();
+  const B = new Set([...srcAll].filter((c) => vsCodes.has(c)));
+  const onlyA = [...A].filter((c) => !B.has(c)).sort();
+  const onlyB = [...B].filter((c) => !A.has(c)).sort();
+  const outOfVs = [...srcAll].filter((c) => !vsCodes.has(c)).sort();
+  console.log(`層級標示一致性：FSH 標註 ${A.size} 碼、ConceptMap source ∩ 值集 ${B.size} 碼`
+    + `（另 ${outOfVs.length} 碼在 ConceptMap 但已移出值集，依設計排除：${outOfVs.join(', ') || '無'}）`);
+  if (onlyA.length || onlyB.length) {
+    console.error(`✖ 層級標示不一致：${onlyA.length + onlyB.length} 筆`);
+    if (onlyA.length) console.error(`  FSH 標 Acceptable 但 ConceptMap 無歸一（實作端送出時無法歸一）：${onlyA.join(', ')}`);
+    if (onlyB.length) console.error(`  ConceptMap 有歸一但 FSH 未標 Acceptable（註解漏註）：${onlyB.join(', ')}`);
+    return false;
+  }
+  console.log(`OK: 層級標示一致（對稱差 0）。`);
+  return true;
+}
+
 const vsCodes = collectValueSetLoincCodes();
 const rows = parseCsv(fs.readFileSync(csvPath, 'utf8'));
 
@@ -80,3 +134,5 @@ if (offenders.length) {
   process.exit(1);
 }
 console.log(`OK: ${rel} 之 ${rows.length} 筆 loinc_preferred 均存在於 IG 值集（含 ${sentinels} 筆無碼哨符）。`);
+
+if (!checkTierConsistency(vsCodes)) process.exit(1);
