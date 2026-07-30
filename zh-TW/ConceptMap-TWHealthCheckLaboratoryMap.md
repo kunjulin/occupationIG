@@ -43,7 +43,7 @@
         "code" : "6690-2",
         "display" : "Leukocytes [#/volume] in Blood by Automated count",
         "equivalence" : "relatedto",
-        "comment" : "Manual 與 Automated 為不同具體方法，無包含關係；數值不可直接比較（比照 element[6] 之處理）"
+        "comment" : "Manual 與 Automated 為不同具體方法，無包含關係；數值不可直接比較（比照 element[5] 之處理）"
       }]
     },
     {
@@ -57,23 +57,13 @@
       }]
     },
     {
-      "code" : "2888-6",
-      "display" : "Protein [Mass/volume] in Urine",
-      "target" : [{
-        "code" : "5804-0",
-        "display" : "Protein [Mass/volume] in Urine by Test strip",
-        "equivalence" : "relatedto",
-        "comment" : "定量(Mass/volume)與試紙法屬不同量測方式，非包含關係"
-      }]
-    },
-    {
       "code" : "2339-0",
       "display" : "Glucose [Mass/volume] in Blood",
       "target" : [{
         "code" : "1558-6",
         "display" : "Fasting glucose [Mass/volume] in Serum or Plasma",
         "equivalence" : "relatedto",
-        "comment" : "空腹狀態與檢體均不同（source 為未指定空腹之全血、target 為空腹血漿），無包含關係；全血與血漿葡萄糖數值不可直接比較（比照 element[6] 之處理）"
+        "comment" : "空腹狀態與檢體均不同（source 為未指定空腹之全血、target 為空腹血漿），無包含關係；全血與血漿葡萄糖數值不可直接比較（比照 element[5] 之處理）"
       }]
     },
     {
@@ -424,6 +414,36 @@
         "display" : "Body weight",
         "equivalence" : "wider",
         "comment" : "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
+      }]
+    },
+    {
+      "code" : "57735-3",
+      "display" : "Protein [Presence] in Urine by Automated test strip",
+      "target" : [{
+        "code" : "5804-0",
+        "display" : "Protein [Mass/volume] in Urine by Test strip",
+        "equivalence" : "wider",
+        "comment" : "source 指定自動化試紙判讀，target 方法未指定自動化；target 語意較廣"
+      }]
+    },
+    {
+      "code" : "63557-3",
+      "display" : "Hepatitis B virus surface Ag [Units/volume] in Serum or Plasma by Immunoassay",
+      "target" : [{
+        "code" : "5196-1",
+        "display" : "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay",
+        "equivalence" : "relatedto",
+        "comment" : "source 為定量（Units/volume）、target 為定性（Presence），Property 不同而無包含關係；定量值不可直接當作定性結果比較，須依判讀閾值轉換"
+      }]
+    },
+    {
+      "code" : "19876-2",
+      "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry --pre bronchodilation",
+      "target" : [{
+        "code" : "19868-9",
+        "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry",
+        "equivalence" : "wider",
+        "comment" : "source 指定支氣管擴張劑給藥前之特定條件，target 未指定給藥前後；target 語意較廣"
       }]
     }]
   }]

@@ -445,7 +445,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </blockquote>
 
 <h3 id="32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</h3>
-<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>39 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred <code class="language-plaintext highlighter-rouge">2089-1</code> 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）與腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）。<strong>v20260726（Wave 9）移除 3 組語意錯誤之對應</strong>：聽力 <code class="language-plaintext highlighter-rouge">21104-5</code>（實為 Deprecated 大豆粉塵 IgE）、尿酸 <code class="language-plaintext highlighter-rouge">49154-8</code>（實為 Rickettsia conorii IgG Ab）、HDL <code class="language-plaintext highlighter-rouge">3048-6</code>（實為 Triglyceride –fasting），該三項之 acceptable 均改標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。<strong>v20260729（JOB-14）新增尿沉渣自動計數 9 組</strong>（/HPF 面積碼 → /µL 體積碼，以 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
+<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>41 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred <code class="language-plaintext highlighter-rouge">2089-1</code> 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）與腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）。<strong>v20260726（Wave 9）移除 3 組語意錯誤之對應</strong>：聽力 <code class="language-plaintext highlighter-rouge">21104-5</code>（實為 Deprecated 大豆粉塵 IgE）、尿酸 <code class="language-plaintext highlighter-rouge">49154-8</code>（實為 Rickettsia conorii IgG Ab）、HDL <code class="language-plaintext highlighter-rouge">3048-6</code>（實為 Triglyceride –fasting），該三項之 acceptable 均改標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。<strong>v20260729（JOB-14）新增尿沉渣自動計數 9 組</strong>（/HPF 面積碼 → /µL 體積碼，以 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
 
 <h4 id="321-equivalence-判準與-r4r5-對照v20260730-更正">3.2.1 <code class="language-plaintext highlighter-rouge">equivalence</code> 判準與 R4／R5 對照（v20260730 更正）</h4>
 
@@ -508,10 +508,65 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <p><strong>v20260730 之更正（JOB-22）</strong>：本 IG 原依內部文件之 <strong>source-relative</strong> 定義填寫
 <code class="language-plaintext highlighter-rouge">equivalence</code>，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment
 與 display 相互矛盾（JOB-01 僅修 display 未同步修 comment 之殘留）。已全數更正，
-現行分佈為 <code class="language-plaintext highlighter-rouge">wider</code> 10／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0（共 39 組）。
+更正後（JOB-22 完成時，39 組）之分佈為 <code class="language-plaintext highlighter-rouge">wider</code> 10／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0；
+其後 JOB-21 移除 <code class="language-plaintext highlighter-rouge">2888-6</code>（見 &sect;3.2.2）並補列 3 組原無歸一路徑者，<strong>現行分佈為
+<code class="language-plaintext highlighter-rouge">wider</code> 12／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0（共 41 組）</strong>。
 <strong>v20260729 及更早之下載檔或網站快照，其 <code class="language-plaintext highlighter-rouge">narrower</code>／<code class="language-plaintext highlighter-rouge">wider</code> 方向為錯誤值</strong>，請以本版為準。
 為防再度脫節，comment 之方向敘述與 <code class="language-plaintext highlighter-rouge">equivalence</code> 值之一致性已納入 CI 閘門
 （<code class="language-plaintext highlighter-rouge">scripts/fix-conceptmap-equivalence.js --check</code>）。</p>
+</blockquote>
+
+<blockquote>
+  <p><strong><code class="language-plaintext highlighter-rouge">equivalent</code> 為 0 係刻意結果，非遺漏</strong>：R4 之 <code class="language-plaintext highlighter-rouge">equivalent</code> 僅適用於「概念定義完全等義」。
+經 41 組逐組覆核，本 IG 無任何一組符合——原標 <code class="language-plaintext highlighter-rouge">equivalent</code> 之 2 組（<code class="language-plaintext highlighter-rouge">26464-8</code>→<code class="language-plaintext highlighter-rouge">6690-2</code>、
+<code class="language-plaintext highlighter-rouge">28539-5</code>→<code class="language-plaintext highlighter-rouge">785-6</code>）實為「source 方法未指定、target 指定 Automated count」，屬包含關係而非等義，
+已於 v20260730 改為 <code class="language-plaintext highlighter-rouge">narrower</code>。凡本 IG 收為 acceptable 者，皆與其 preferred 至少差一軸
+（方法、檢體、量綱或條件），故不存在完全等義之配對。</p>
+</blockquote>
+
+<h4 id="322-2888-65804-0-之關係v20260730-移除誤設之歸一">3.2.2 <code class="language-plaintext highlighter-rouge">2888-6</code>／<code class="language-plaintext highlighter-rouge">5804-0</code> 之關係（v20260730 移除誤設之歸一）</h4>
+
+<p><code class="language-plaintext highlighter-rouge">2888-6</code>（尿蛋白<strong>定量</strong>，Protein [Mass/volume] in Urine，醫令 06003C-1）與
+<code class="language-plaintext highlighter-rouge">5804-0</code>（尿蛋白<strong>定性</strong>，Protein [Presence] in Urine by Test strip，醫令 06003C-2）
+<strong>各為獨立醫令項目之 Preferred</strong>，於主管機關（國健署）最小上傳集為兩個獨立列。</p>
+
+<p>原 ConceptMap 曾將 <code class="language-plaintext highlighter-rouge">2888-6 → 5804-0</code> 列為歸一（<code class="language-plaintext highlighter-rouge">relatedto</code>），已於 v20260730（JOB-21）<strong>移除</strong>。
+理由：歸一之語意為「送 A 時視為 B」，而定量與定性係<strong>不同檢驗、不同醫令代碼、不同 Property</strong>
+（<code class="language-plaintext highlighter-rouge">Mass/volume</code> vs <code class="language-plaintext highlighter-rouge">Presence</code>），不可互相取代——該 element 自身之 comment 即載明「非包含關係」，
+與歸一之用途相牴觸。</p>
+
+<blockquote>
+  <p>本 IG 之 acceptable 實含三種性質不同之情形，僅前二者可歸一：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left">實際關係</th>
+        <th style="text-align: left">可否歸一</th>
+        <th style="text-align: left">例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left">方法特化／通用</td>
+        <td style="text-align: left">可，數值可比較</td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">13457-7</code> → <code class="language-plaintext highlighter-rouge">2089-1</code>（<code class="language-plaintext highlighter-rouge">wider</code>）</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">不同量綱，需換算</td>
+        <td style="text-align: left">可交換但<strong>須換算</strong></td>
+        <td style="text-align: left">尿沉渣 <code class="language-plaintext highlighter-rouge">33218-9</code> → <code class="language-plaintext highlighter-rouge">51480-2</code>（<code class="language-plaintext highlighter-rouge">relatedto</code>）</td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><strong>不同檢驗項目</strong></td>
+        <td style="text-align: left"><strong>不可，非 acceptable</strong></td>
+        <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">2888-6</code> vs <code class="language-plaintext highlighter-rouge">5804-0</code></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>二者之臨床關聯僅在於同屬醫令 06003C 之定量與定性兩子項；該關聯以本段敘述記載，
+<strong>不以 ConceptMap 承載</strong>。</p>
 </blockquote>
 
 <hr/>

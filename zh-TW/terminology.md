@@ -97,7 +97,7 @@
 
 ### 3.2 代碼映射 ConceptMap
 
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.md) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **39 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride –fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729（JOB-14）新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.md)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.md) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **41 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride –fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729（JOB-14）新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.md)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 #### 3.2.1 equivalence 判準與 R4／R5 對照（v20260730 更正）
 
@@ -115,7 +115,25 @@
 1. **R5 已改名為 `source-is-…-than-target`**，把主詞寫進代碼名稱本身，消除 R4 裸用`narrower`／`wider`之歧義。**本表即為升 R5 之遷移對照。**
 1. **R4 之 `relatedto` 為階層頂點（Level 1），官方定義為「概念間有關聯、語意有部分重疊， 惟確切關係未知」。**本 IG 以之承載「需換算／不同量測方式／不同檢體」，係因 R4 無 「需單位換算」之專用代碼；**實作端不得據以自動換算數值**，此一用法限制特此揭露。
 
-> **v20260730 之更正（JOB-22）**：本 IG 原依內部文件之 **source-relative** 定義填寫 `equivalence`，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment 與 display 相互矛盾（JOB-01 僅修 display 未同步修 comment 之殘留）。已全數更正， 現行分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0（共 39 組）。 **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門 （`scripts/fix-conceptmap-equivalence.js --check`）。
+> **v20260730 之更正（JOB-22）**：本 IG 原依內部文件之 **source-relative** 定義填寫 `equivalence`，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment 與 display 相互矛盾（JOB-01 僅修 display 未同步修 comment 之殘留）。已全數更正， 更正後（JOB-22 完成時，39 組）之分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0； 其後 JOB-21 移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**現行分佈為 `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組）**。 **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門 （`scripts/fix-conceptmap-equivalence.js --check`）。
+
+> **`equivalent` 為 0 係刻意結果，非遺漏**：R4 之 `equivalent` 僅適用於「概念定義完全等義」。 經 41 組逐組覆核，本 IG 無任何一組符合——原標 `equivalent` 之 2 組（`26464-8`→`6690-2`、 `28539-5`→`785-6`）實為「source 方法未指定、target 指定 Automated count」，屬包含關係而非等義， 已於 v20260730 改為 `narrower`。凡本 IG 收為 acceptable 者，皆與其 preferred 至少差一軸 （方法、檢體、量綱或條件），故不存在完全等義之配對。
+
+#### 3.2.2 2888-6／5804-0 之關係（v20260730 移除誤設之歸一）
+
+`2888-6`（尿蛋白**定量**，Protein [Mass/volume] in Urine，醫令 06003C-1）與 `5804-0`（尿蛋白**定性**，Protein [Presence] in Urine by Test strip，醫令 06003C-2） **各為獨立醫令項目之 Preferred**，於主管機關（國健署）最小上傳集為兩個獨立列。
+
+原 ConceptMap 曾將 `2888-6 → 5804-0` 列為歸一（`relatedto`），已於 v20260730（JOB-21）**移除**。 理由：歸一之語意為「送 A 時視為 B」，而定量與定性係**不同檢驗、不同醫令代碼、不同 Property** （`Mass/volume` vs `Presence`），不可互相取代——該 element 自身之 comment 即載明「非包含關係」， 與歸一之用途相牴觸。
+
+> 本 IG 之 acceptable 實含三種性質不同之情形，僅前二者可歸一：
+
+| | | |
+| :--- | :--- | :--- |
+| 方法特化／通用 | 可，數值可比較 | `13457-7`→`2089-1`（`wider`） |
+| 不同量綱，需換算 | 可交換但**須換算** | 尿沉渣`33218-9`→`51480-2`（`relatedto`） |
+| **不同檢驗項目** | **不可，非 acceptable** | **`2888-6` vs `5804-0`** |
+
+二者之臨床關聯僅在於同屬醫令 06003C 之定量與定性兩子項；該關聯以本段敘述記載， **不以 ConceptMap 承載**。
 
 -------
 

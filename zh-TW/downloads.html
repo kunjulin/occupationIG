@@ -326,7 +326,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <tbody>
     <tr>
       <td style="text-align: left">LOINC 映射值集</td>
-      <td style="text-align: left">本指引各值集之 LOINC 代碼清單與分層（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 21 碼／<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code> 288 碼）</td>
+      <td style="text-align: left">本指引各值集之 LOINC 代碼清單與分層（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 21 碼／<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code> 288 碼），含<strong>層級</strong>、<strong>歸一至</strong>、<strong>equivalence</strong> 欄，另附 <code class="language-plaintext highlighter-rouge">ConceptMap 歸一</code> 分頁（41 組）</td>
       <td style="text-align: left"><a href="loinc-valuesets.xlsx">XLSX</a></td>
     </tr>
     <tr>
@@ -353,6 +353,50 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </table>
 
 <blockquote>
+  <p><strong><code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 之欄位說明（v20260730 新增，JOB-21）</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left">欄位</th>
+        <th style="text-align: left">意義</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">層級 Tier</code></td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Preferred</code>＝本指引建議之標準交換碼；<code class="language-plaintext highlighter-rouge">Acceptable</code>＝可接受之變異碼，可經 ConceptMap 歸一；<code class="language-plaintext highlighter-rouge">（單一碼）</code>＝該項目無 acceptable 變異碼</td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">歸一至 Normalizes To</code></td>
+        <td style="text-align: left">該 acceptable 碼經 ConceptMap 歸一之目標 preferred 碼</td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">equivalence</code></td>
+        <td style="text-align: left">二碼之語意關係（FHIR R4 值，<strong>以 target 為主詞</strong>，見<a href="terminology.html">術語頁 &sect;3.2.1</a>）</td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">備註 Note</code></td>
+        <td style="text-align: left">該碼於 FSH 之行內註解，載明其何以為 acceptable</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>層級判定以 <code class="language-plaintext highlighter-rouge">ConceptMap</code> 為準</strong>（結構化資源），非以 FSH 之註解為準；註解與 ConceptMap
+之一致性已納入 CI 閘門（對稱差須為 0）。僅「於 ConceptMap 完全未出現之單一項目」才由
+Core 區塊註解補判其為 <code class="language-plaintext highlighter-rouge">Preferred</code>。</p>
+
+  <p>⚠️ <strong><code class="language-plaintext highlighter-rouge">equivalence</code> 之判讀（關乎資料正確性）</strong>：</p>
+
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">wider</code>／<code class="language-plaintext highlighter-rouge">narrower</code>＝二碼為方法特化與通用之包含關係，<strong>數值可直接比較</strong>（<code class="language-plaintext highlighter-rouge">narrower</code> 者須注意條件差異）。</li>
+    <li><strong><code class="language-plaintext highlighter-rouge">relatedto</code>＝二者關聯但屬不同量測方式或需換算，「數值不可直接比較」</strong>。表中已以
+<code class="language-plaintext highlighter-rouge">⚠ relatedto（需換算，數值不可直接比較）</code> 標示。尿沉渣 9 組（/HPF ↔ /µL）、eGFR
+（MDRD ↔ CKD-EPI 2021）、血中鉛等均屬此類——<strong>逕行比較會導致臨床誤判</strong>。</li>
+  </ul>
+</blockquote>
+
+<blockquote>
   <p>ℹ️ <code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 與 <code class="language-plaintext highlighter-rouge">snomed-mappings.xlsx</code> <strong>由建置流程自值集（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code>／<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>）與 <code class="language-plaintext highlighter-rouge">snomed-loinc-mappings.csv</code> 自動產生</strong>，內容恆與本頁指引版本（0.2.0）一致；不再手工維護，故無版本落後之虞。</p>
 
   <p><code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 之 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 分頁自 v3.0 重構為「主管機關（國健署）最小上傳集之檢驗子集」（21 碼），其餘檢驗項目改列 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>（288 碼）。若與舊版下載檔比對，將見 Core 由 193 碼大幅縮減，屬正常之分層調整而非刪碼。</p>
@@ -372,7 +416,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <ul>
   <li><a href="ConceptMap-Appendix10-to-HazardType.html">ConceptMap：附表十 → 危害類別</a> — 線上檢視，頁內提供 JSON／XML／TTL 下載。</li>
-  <li><a name="l771">​</a><a href="Appendix10-to-HazardType.xlsx">附表十 → 危害類別對照表 (XLSX)</a> — 同一份對映之試算表格式，由建置工具自 ConceptMap 產生。</li>
+  <li><a name="l913">​</a><a href="Appendix10-to-HazardType.xlsx">附表十 → 危害類別對照表 (XLSX)</a> — 同一份對映之試算表格式，由建置工具自 ConceptMap 產生。</li>
   <li><a href="special-exam.html">特殊危害健康作業</a> — 以附表十 35 項為列主鍵之涵蓋度對照表。</li>
 </ul>
 
