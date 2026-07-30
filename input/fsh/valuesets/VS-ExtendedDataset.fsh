@@ -259,10 +259,16 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 //   非尿酸全血法，已於 v20260726 移除；如確有全血法需求，須經 $lookup 查證後再新增。
 * LNC#33863-2 "Cystatin C [Mass/volume] in Serum or Plasma"
 * LNC#33914-3 "Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M"  // 2026-07-29 JOB-01 批2：批1 誤用舊式長名，依 display-verification-report.csv 官方字串更正（注意檢體軸為 Serum or Plasma，與 98979-8 之 Serum, Plasma or Blood 不同）
+//   JOB-16：Acceptable。LOINC 狀態 DISCOURAGED，惟依國健署 115.01.15 國健慢病字第1150660003號函，
+//   成健結果檔於 114 年（2025，含）及以前以 MDRD 4-variable 為 VPN 必填欄位（由機構自行填入）；
+//   115.01.01（2026）起改採 CKD-EPI 2021（98979-8）。本碼保留係為表達 114 年及以前之歷史資料，
+//   非建議新案採用；與 98979-8 數值不可互換（見 ConceptMap element[8]）。
 * LNC#4548-4 "Hemoglobin A1c/Hemoglobin.total in Blood"
 * LNC#47214-2 "Homeostasis model assessment"
 * LNC#59261-8 "Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood" // Acceptable: HbA1c IFCC
 * LNC#98979-8 "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
+//   JOB-16：Preferred。依前揭國健慢病字第1150660003號函，115.01.01（2026）起為成健採用之公式；
+//   健保署同時取消 VPN 之自動計算功能（該自動計算原為 114 年 CKD-EPI 非必填欄位之功能），改由機構自行填入。
 
 // 3-x 肝膽、胰臟與心肌功能
 * LNC#10834-0 "Globulin [Mass/volume] in Serum by calculation"

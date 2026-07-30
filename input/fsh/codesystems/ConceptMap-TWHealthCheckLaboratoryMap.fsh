@@ -94,7 +94,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[8].target[0].code = #98979-8
 * group[0].element[8].target[0].display = "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M"
 * group[0].element[8].target[0].equivalence = #relatedto
-* group[0].element[8].target[0].comment = "MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換"
+* group[0].element[8].target[0].comment = "MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換。114 年成健採雙軌併行（MDRD 必填、CKD-EPI 非必填），同一份報告可能同時含兩碼，屬正常情形而非重複上傳；115.01.01 起僅採 CKD-EPI 2021。依國健署 115.01.15 國健慢病字第1150660003號函。"
 
 // HBsAg
 * group[0].element[9].code = #5195-3
