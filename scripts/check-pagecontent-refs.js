@@ -10,6 +10,18 @@
 // so they are reported separately and do NOT fail the run. Previously they were reported
 // as errors, which meant this script always exited 1 and could not be used as a gate.
 //
+// Markdown link targets
+// ---------------------
+// Also rejects two link forms that break the build or silently 404 in the published site:
+//   ](../...)   escapes the output root. IG Publisher's HTMLInspector throws a hard
+//               RuntimeException ("Computed path does not start with first element") and
+//               aborts the whole build — it is not downgraded to a broken-link warning.
+//               Cost of learning this the hard way: a full ~5 minute CI round (run 30540241236).
+//   ](*.md)     repo-relative markdown target. Only *.md under input/pagecontent/ is rendered
+//               (as .html); anything else (e.g. docs/optimization/JOB-nn.md) is never published.
+// Link to unpublished repo files with an absolute GitHub blob URL instead — the convention
+// already used for JOB-01/08/10/14 references.
+//
 // Usage:
 //   node scripts/check-pagecontent-refs.js            # fail only on genuine drift (CI default)
 //   node scripts/check-pagecontent-refs.js --strict    # also fail on backlog-annotated refs
@@ -91,6 +103,27 @@ for (const file of mdFiles) {
   }
 }
 
+// ---- markdown link-target check（見檔頭「Markdown link targets」）--------------
+const badLinks = [];
+for (const file of mdFiles) {
+  const rel = path.relative(repoRoot, file).split(path.sep).join('/');
+  const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
+  lines.forEach((line, i) => {
+    for (const m of line.matchAll(/\]\(([^)\s]+)/g)) {
+      const target = m[1];
+      if (/^(https?:|mailto:|#)/.test(target)) continue;           // 絕對網址／頁內錨點：放行
+      if (target.startsWith('../')) badLinks.push({ rel, n: i + 1, target, why: '相對路徑逸出輸出根目錄（IG Publisher 會擲例外中止建置）' });
+      else if (/\.md([#?]|$)/.test(target)) badLinks.push({ rel, n: i + 1, target, why: '指向 .md（僅 pagecontent 之 .md 會渲染為 .html，其餘不隨網站發佈）' });
+    }
+  });
+}
+if (badLinks.length) {
+  console.error('Invalid markdown link targets in pagecontent:');
+  for (const b of badLinks) console.error(`  ${b.rel}:${b.n}: ](${b.target}  ← ${b.why}`);
+  console.error('  改用絕對 GitHub blob URL（如 https://github.com/kunjulin/occupationIG/blob/main/docs/...），或改為純文字。');
+  process.exit(1);
+}
+
 if (backlog.length) {
   const label = strict ? 'FAIL (--strict)' : 'NOTE';
   console.log(`${label}: backlog-annotated references (artifact not defined yet, annotated inline):`);
@@ -109,7 +142,7 @@ if (drift.length) {
 }
 
 console.log(
-  `OK: all tokens in ${mdFiles.length} pagecontent file(s) resolve to FSH definitions` +
+  `OK: all tokens in ${mdFiles.length} pagecontent file(s) resolve to FSH definitions，且連結目標合法` +
     (backlog.length ? ` (${backlog.length} backlog-annotated reference(s) tolerated).` : '.')
 );
 

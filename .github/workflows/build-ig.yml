@@ -262,13 +262,18 @@ jobs:
       # 三道基準（CI run 30534387613 實測後回填對照檔並恢復硬閘門）：
       #   --max 0          不符：CSV 之單位有官方 EXAMPLE_UCUM_UNITS 清單外者
       #   --max-missing 0  未列於對照檔：值集有量值碼而 CSV 無（換碼後之涵蓋缺口）
-      #   --max-unknown 29 Scale 未知：tx 回傳未對映之答案清單碼（LP32888-7×17／
-      #                    LP436123-6×10／LP7747-1×2）。**不得**當作「不適用」默默排除
-      #                    （其中部分確有官方單位，如 5804-0 之 mg/dL），故列為具名狀態
-      #                    並以實測值為上限追蹤：新增之未對映碼即失敗。判定見 open-issues T-12。
+      #   --max-unknown 0  Scale 未知：三個未對映之答案清單碼已於 JOB-20 經 loinc.org 查證
+      #                    （LP32888-7=Doc／LP436123-6=SemiQn／LP7747-1=-）並補入
+      #                    SCALE_BY_LP，基準歸零（T-12 已結案）。新增未對映碼即失敗。
+      #   --min-inscope-ratio 0.5
+      #                    分類失效自我檢查（JOB-20 §5）：首輪曾因 Scale 判準錯誤而
+      #                    「320 碼全判不適用」，三道零基準全為 0 而閘門空過（綠燈但一碼未驗）。
+      #                    故對「納入比對之量值碼／全集」設 50% 下限：實測 241/320 = 75.3%，
+      #                    留約 25 個百分點餘裕以容納值集組成之正常變動（新增定性碼會合理拉低
+      #                    比率），而任何判準塌陷都會直接掉到接近 0 而被擋下。
       - name: UCUM 稽核閘門 (UCUM mismatch / 未列於對照檔 / Scale 未知)
         if: env.TX_SERVER != 'n/a'
-        run: node scripts/audit-ucum.js --tx "$TX_SERVER" --gate --max 0 --max-missing 0 --max-unknown 29
+        run: node scripts/audit-ucum.js --tx "$TX_SERVER" --gate --max 0 --max-missing 0 --max-unknown 0 --min-inscope-ratio 0.5
 
       # JOB-02 驗收條件 #2：publish box 不得再顯示 Local Development build。
       # 刻意排在 QA 閘門**之後**——閘門的數字是比較有診斷價值的訊號，
