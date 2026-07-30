@@ -72,6 +72,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 | [JOB-19](JOB-19-ucum-snomed-asset-audit.md) | 術語資產稽核與閘門化（UCUM 單位、SNOMED 對映） | **P0** | 術語正確性／工程 | M（3–5 人日） | JOB-17／18 | ✅ **已執行**（**線 A**：`snomed-loinc-mappings.csv` 逐筆覆核，視力 `79880-1`→`98497-1`、WHR `73708-3`→無碼哨符，33 列 `snomed_status` 全改 `待覆核`；新增 `scripts/check-asset-consistency.js`（PR #19）。**線 B**：新增 `scripts/audit-ucum.js`，以 CI 為 `$lookup` oracle 對 271 列取官方 `EXAMPLE_UCUM_UNITS` 四態比對——相符 197／不符 0／LOINC 未提供 74／待人工判定 0，`verification` 欄去「需覆核」；CI 閘門 `--gate --max 0`；`terminology.md` 更新為代碼驗證五要件。均不動值集，`VS-ExtendedDataset` 維持 288） |
 | [JOB-20](JOB-20-t12-scale-parts-resolution.md) | T-12 結案：Scale 未對映之三個 part 代碼查證與稽核範圍調整（`LP32888-7`=Doc／`LP436123-6`=SemiQn／`LP7747-1`=-） | **P1** | 術語正確性／工程 | S（0.5 人日） | JOB-19 及其補充 | ✅ **已執行**（三碼依 loinc.org 查證補入 `SCALE_BY_LP`；納入判準擴為 `{Qn, OrdQn, SemiQn}`，10 筆 SemiQn 官方單位經 tx 取回並全數相符；`--max-unknown` 29→**0**，T-12 結案；新增分類失效自我檢查 `--min-inscope-ratio 0.5`（實測 241/320＝75.3%），使「全判不適用卻閘門全綠」之空過自動現形。CI 實測 err 0／WDN 0／VS-ExtendedDataset 288／Scale 未知 0／未列於對照檔 0／不符 0） |
 | [JOB-21](JOB-21-download-xlsx-tier-and-normalization.md) | 下載用值集試算表補列層級與歸一資訊，並修正 12 筆層級標示不一致（含 `2888-6` 語意矛盾待裁示） | **P1** | 可實作性／術語正確性 | S–M（1–2 人日） | JOB-17／19／20 | ⬜ 未執行（`2888-6` 處置須主持人裁示，見該檔 §3.4） |
+| [JOB-22](JOB-22-conceptmap-equivalence-direction.md) | ConceptMap equivalence 方向修正（16 組與 R4 target-relative 定義相反）、5 組 comment 覆核與 R4／R5 對照表 | **P0** | 術語正確性／規範符合性 | S（1 人日） | 無（JOB-21 §3.2 相依於本 JOB） | ⬜ 未執行 |
 
 各已執行之 JOB 於其檔案 **§7 執行紀錄**載明實際變更、刻意未做的部分，
 以及**尚待在可建置環境驗證的項目**。
