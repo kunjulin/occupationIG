@@ -42,8 +42,8 @@
       "target" : [{
         "code" : "6690-2",
         "display" : "Leukocytes [#/volume] in Blood by Automated count",
-        "equivalence" : "narrower",
-        "comment" : "source 指定 Manual count，target 方法未指定，source 為其特化"
+        "equivalence" : "relatedto",
+        "comment" : "Manual 與 Automated 為不同具體方法，無包含關係；數值不可直接比較（比照 element[6] 之處理）"
       }]
     },
     {
@@ -52,8 +52,8 @@
       "target" : [{
         "code" : "6690-2",
         "display" : "Leukocytes [#/volume] in Blood by Automated count",
-        "equivalence" : "equivalent",
-        "comment" : "同概念、同檢體、方法均未指定"
+        "equivalence" : "narrower",
+        "comment" : "source 方法未指定，target 指定 Automated count；target 語意較窄"
       }]
     },
     {
@@ -72,8 +72,8 @@
       "target" : [{
         "code" : "1558-6",
         "display" : "Fasting glucose [Mass/volume] in Serum or Plasma",
-        "equivalence" : "wider",
-        "comment" : "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣；另檢體不同"
+        "equivalence" : "relatedto",
+        "comment" : "空腹狀態與檢體均不同（source 為未指定空腹之全血、target 為空腹血漿），無包含關係；全血與血漿葡萄糖數值不可直接比較（比照 element[6] 之處理）"
       }]
     },
     {
@@ -92,7 +92,7 @@
       "target" : [{
         "code" : "2093-3",
         "display" : "Cholesterol [Mass/volume] in Serum or Plasma",
-        "equivalence" : "wider",
+        "equivalence" : "narrower",
         "comment" : "source 允許質量或莫耳濃度兩種尺度，語意較 target 廣"
       }]
     },
@@ -112,7 +112,7 @@
       "target" : [{
         "code" : "2089-1",
         "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定計算法，target 方法未指定"
       }]
     },
@@ -153,7 +153,7 @@
         "code" : "777-3",
         "display" : "Platelets [#/volume] in Blood by Automated count",
         "equivalence" : "narrower",
-        "comment" : "source 指定 Automated count，target 方法未指定"
+        "comment" : "source 方法未指定，target 指定 Automated count；target 語意較窄"
       }]
     },
     {
@@ -172,8 +172,8 @@
       "target" : [{
         "code" : "785-6",
         "display" : "MCH [Entitic mass] by Automated count",
-        "equivalence" : "equivalent",
-        "comment" : "同概念、同方法(Automated count)，僅顯示名長短不同"
+        "equivalence" : "narrower",
+        "comment" : "source 方法未指定（MCH [Entitic mass]），target 指定 Automated count；target 語意較窄"
       }]
     },
     {
@@ -192,7 +192,7 @@
       "target" : [{
         "code" : "1920-8",
         "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定 UV with P5P，target 方法未指定"
       }]
     },
@@ -202,7 +202,7 @@
       "target" : [{
         "code" : "1742-6",
         "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定 UV with P5P，target 方法未指定"
       }]
     },
@@ -223,7 +223,7 @@
         "code" : "11580-8",
         "display" : "Thyrotropin [Units/volume] in Serum or Plasma by Detection limit <= 0.005 mIU/L",
         "equivalence" : "narrower",
-        "comment" : "source 指定 3rd IS 標準品，target 未指定"
+        "comment" : "source 為一般 TSH（未指定偵測極限），target 指定高敏感度（Detection limit <= 0.005 mIU/L）；target 語意較窄"
       }]
     },
     {
@@ -232,7 +232,7 @@
       "target" : [{
         "code" : "10334-1",
         "display" : "Cancer Ag 125 [Units/volume] in Serum or Plasma",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定 Immunoassay，target 方法未指定"
       }]
     },
@@ -242,7 +242,7 @@
       "target" : [{
         "code" : "2039-6",
         "display" : "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定 Immunoassay，target 方法未指定"
       }]
     },
@@ -252,7 +252,7 @@
       "target" : [{
         "code" : "1920-8",
         "display" : "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定 No addition of P-5'-P，target 方法未指定"
       }]
     },
@@ -262,7 +262,7 @@
       "target" : [{
         "code" : "1742-6",
         "display" : "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定 No addition of P-5'-P，target 方法未指定"
       }]
     },
@@ -272,7 +272,7 @@
       "target" : [{
         "code" : "1558-6",
         "display" : "Fasting Glucose [Mass/volume] in Serum or Plasma",
-        "equivalence" : "wider",
+        "equivalence" : "narrower",
         "comment" : "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣"
       }]
     },
@@ -282,7 +282,7 @@
       "target" : [{
         "code" : "2089-1",
         "display" : "Cholesterol in LDL [Mass/volume] in Serum or Plasma",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定 Direct assay，target 方法未指定"
       }]
     },
@@ -412,7 +412,7 @@
       "target" : [{
         "code" : "8302-2",
         "display" : "Body height",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一身高量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
       }]
     },
@@ -422,7 +422,7 @@
       "target" : [{
         "code" : "29463-7",
         "display" : "Body weight",
-        "equivalence" : "narrower",
+        "equivalence" : "wider",
         "comment" : "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
       }]
     }]

@@ -25,7 +25,7 @@ Betel Nut Chewing Amount Code System
   "title" : "【本地 stub】每日嚼檳榔量代碼系統（非權威定義）",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-07-30T12:17:12+00:00",
+  "date" : "2026-07-30T14:17:56+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

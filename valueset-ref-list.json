@@ -160,9 +160,9 @@
     "systems" : ["http://loinc.org"],
     "uses" : {
     },
-    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
     "StructureDefinition-TWHA-LabResult-General.html" : "一般健檢實驗室檢驗 Profile",
-    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap"
+    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap",
+    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreUploadSet",
@@ -219,8 +219,8 @@
     "systems" : ["https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType"],
     "uses" : {
     },
-    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
     "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照",
+    "StructureDefinition-TWHA-WorkExposure.html" : "特別危害健康作業危害因子暴露史 Profile",
     "StructureDefinition-ext-hazard-type.html" : "特別危害健康作業類別擴充"
   },
   {

@@ -47,7 +47,7 @@
 </head>
 <body style="margin: 20px; background-color: #ffffff">
  <h1>Validation Results for TWHAIG</h1>
- <p>Generated Thu Jul 30 12:21:14 UTC 2026, FHIR version 4.0.1 for mohw.tw.twha#0.2.0 (canonical = <a href="https://twcore.mohw.gov.tw/ig/twha">https://twcore.mohw.gov.tw/ig/twha</a> (<a href="https://twcore.mohw.gov.tw/ig/twha/history.html">history</a>)). See <a href="qa.html">Full QA Report</a> &amp; <a href="qa-ipreview.html">IP</a></p>
+ <p>Generated Thu Jul 30 14:22:06 UTC 2026, FHIR version 4.0.1 for mohw.tw.twha#0.2.0 (canonical = <a href="https://twcore.mohw.gov.tw/ig/twha">https://twcore.mohw.gov.tw/ig/twha</a> (<a href="https://twcore.mohw.gov.tw/ig/twha/history.html">history</a>)). See <a href="qa.html">Full QA Report</a> &amp; <a href="qa-ipreview.html">IP</a></p>
 <table class="grid"> <tr><td colspan=2><b>Quality Checks</b></td></tr>
  <tr><td>Publisher Version:</td><td><span>IG Publisher Version: v2.2.11</span></td></tr>
  <tr><td>Publication Code:</td><td>n/a<span style="color: maroon; font-weight: bold"> </span>. PackageId = mohw.tw.twha, Canonical = https://twcore.mohw.gov.tw/ig/twha</td></tr>
@@ -7401,12 +7401,12 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Analysing http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1 for validation purposes
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Parameters: disp-lang=zh-TW, generate-narrative, default-to-latest
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Prepare include[0]: "(http://loinc.org)(SCALE_TYP=Doc)"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
 2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Check "http://loinc.org#11502-2"
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
-48ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
+46ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
    </tr>
    <tr style="background-color: #ffebcc">
      <td><b>Bundle&#8203;.entry[1]&#8203;.resource&#8203;/*Patient&#8203;/example-worker*&#8203;/&#8203;.identifier[0]&#8203;.system (l167&#8203;/c62)</b></td><td><b>warning</b></td><td><b>No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Type_Specific_Checks_DT_URL_Resolve</span></td><td><a href="http://hl7.org/fhir/R4/patient.html">Patient</a></td>
@@ -7427,10 +7427,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8302-2 ("Body height")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8302-2"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8302-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyheight.html">Observation Body Height Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8302-2"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8302-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyheight.html">Observation Body Height Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[6]&#8203;.resource&#8203;/*Observation&#8203;/obs-weight*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l365&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#29463-7 for language(s) 'zh-TW'. The display is 'Body weight' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l128">log</a>, or see <a href="#vmi5165" onClick="document.getElementById('vmi5165').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5165" style="display:none"><br/><pre>0ms tx-op
@@ -7439,18 +7439,18 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#29463-7 ("Body weight")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#29463-7"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "29463-7" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyweight.html">Observation Body Weight Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#29463-7"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "29463-7" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyweight.html">Observation Body Weight Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[7]&#8203;.resource&#8203;/*Observation&#8203;/obs-waist*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l412&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#8280-0 for language(s) 'zh-TW'. The display is 'Waist Circumference at umbilicus by Tape measure' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l113">log</a>, or see <a href="#vmi5166" onClick="document.getElementById('vmi5166').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5166" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#8280-0 ("Waist Circumference at umbilicus by Tape measure")]"
-2ms http://loinc.org/vs|2.82: Check "http://loinc.org#8280-0"
+1ms http://loinc.org/vs|2.82: Check "http://loinc.org#8280-0"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "8280-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+2ms http://loinc.org/vs|2.82: Code "8280-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[8]&#8203;.resource&#8203;/*Observation&#8203;/obs-bloodpressure*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l458&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#85354-9 for language(s) 'zh-TW'. The display is 'Blood pressure panel with all children optional' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l118">log</a>, or see <a href="#vmi5167" onClick="document.getElementById('vmi5167').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5167" style="display:none"><br/><pre>0ms tx-op
@@ -7459,10 +7459,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#85354-9 ("Blood pressure panel with all children optional")]"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#85354-9"
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "85354-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bp.html">Observation Blood Pressure Profile</a></td>
+1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#85354-9"
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "85354-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bp.html">Observation Blood Pressure Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[8]&#8203;.resource&#8203;/*Observation&#8203;/obs-bloodpressure*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l469&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#8480-6 for language(s) 'zh-TW'. The display is 'Systolic blood pressure' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l119">log</a>, or see <a href="#vmi5168" onClick="document.getElementById('vmi5168').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5168" style="display:none"><br/><pre>0ms tx-op
@@ -7471,7 +7471,7 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8480-6 ("Systolic blood pressure")]"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8480-6"
+1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8480-6"
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8480-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
@@ -7483,10 +7483,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8462-4 ("Diastolic blood pressure")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8462-4"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8462-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8462-4"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8462-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[9]&#8203;.resource&#8203;/*Observation&#8203;/obs-physical*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l526&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#29545-1 for language(s) 'zh-TW'. The display is 'Physical findings note' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l86">log</a>, or see <a href="#vmi5170" onClick="document.getElementById('vmi5170').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5170" style="display:none"><br/><pre>0ms tx-op
@@ -7499,10 +7499,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-lab-glucose*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l617&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#1558-6 for language(s) 'zh-TW'. The display is 'Fasting glucose [Mass/volume] in Serum or Plasma' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l124">log</a>, or see <a href="#vmi5171" onClick="document.getElementById('vmi5171').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5171" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#1558-6 ("Fasting glucose [Mass/volume] in Serum or Plasma")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[11]&#8203;.resource&#8203;/*ClinicalImpression&#8203;/example-clinical-impression*&#8203;/&#8203;.extension[0]&#8203;.value&#8203;.ofType(CodeableConcept) (l673&#8203;/c14)</b></td><td><b>information</b></td><td><b>Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.2.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_EXPERIMENTAL</span></td><td><a href="http://hl7.org/fhir/R4/clinicalimpression.html">ClinicalImpression</a></td>
@@ -7528,12 +7528,12 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Analysing http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1 for validation purposes
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Parameters: disp-lang=zh-TW, generate-narrative, default-to-latest
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Prepare include[0]: "(http://loinc.org)(SCALE_TYP=Doc)"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
 2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Check "http://loinc.org#11502-2"
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
-48ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
+46ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
    </tr>
    <tr style="background-color: #ffebcc">
      <td><b>Bundle&#8203;.entry[1]&#8203;.resource&#8203;/*Patient&#8203;/example-worker*&#8203;/&#8203;.identifier[0]&#8203;.system (l173&#8203;/c62)</b></td><td><b>warning</b></td><td><b>No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Type_Specific_Checks_DT_URL_Resolve</span></td><td><a href="http://hl7.org/fhir/R4/patient.html">Patient</a></td>
@@ -7554,10 +7554,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8302-2 ("Body height")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8302-2"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8302-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyheight.html">Observation Body Height Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8302-2"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8302-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyheight.html">Observation Body Height Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[6]&#8203;.resource&#8203;/*Observation&#8203;/obs-weight*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l371&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#29463-7 for language(s) 'zh-TW'. The display is 'Body weight' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l128">log</a>, or see <a href="#vmi5181" onClick="document.getElementById('vmi5181').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5181" style="display:none"><br/><pre>0ms tx-op
@@ -7566,18 +7566,18 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#29463-7 ("Body weight")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#29463-7"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "29463-7" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyweight.html">Observation Body Weight Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#29463-7"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "29463-7" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyweight.html">Observation Body Weight Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[7]&#8203;.resource&#8203;/*Observation&#8203;/obs-waist*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l418&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#8280-0 for language(s) 'zh-TW'. The display is 'Waist Circumference at umbilicus by Tape measure' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l113">log</a>, or see <a href="#vmi5182" onClick="document.getElementById('vmi5182').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5182" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#8280-0 ("Waist Circumference at umbilicus by Tape measure")]"
-2ms http://loinc.org/vs|2.82: Check "http://loinc.org#8280-0"
+1ms http://loinc.org/vs|2.82: Check "http://loinc.org#8280-0"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "8280-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+2ms http://loinc.org/vs|2.82: Code "8280-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[8]&#8203;.resource&#8203;/*Observation&#8203;/obs-bloodpressure*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l464&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#85354-9 for language(s) 'zh-TW'. The display is 'Blood pressure panel with all children optional' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l118">log</a>, or see <a href="#vmi5183" onClick="document.getElementById('vmi5183').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5183" style="display:none"><br/><pre>0ms tx-op
@@ -7586,10 +7586,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#85354-9 ("Blood pressure panel with all children optional")]"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#85354-9"
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "85354-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bp.html">Observation Blood Pressure Profile</a></td>
+1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#85354-9"
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "85354-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bp.html">Observation Blood Pressure Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[8]&#8203;.resource&#8203;/*Observation&#8203;/obs-bloodpressure*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l475&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#8480-6 for language(s) 'zh-TW'. The display is 'Systolic blood pressure' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l119">log</a>, or see <a href="#vmi5184" onClick="document.getElementById('vmi5184').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5184" style="display:none"><br/><pre>0ms tx-op
@@ -7598,7 +7598,7 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8480-6 ("Systolic blood pressure")]"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8480-6"
+1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8480-6"
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8480-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
@@ -7610,34 +7610,34 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8462-4 ("Diastolic blood pressure")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8462-4"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8462-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8462-4"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8462-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[9]&#8203;.resource&#8203;/*Observation&#8203;/obs-vision*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l532&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#98497-1 for language(s) 'zh-TW'. The display is 'Visual acuity panel' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l92">log</a>, or see <a href="#vmi5186" onClick="document.getElementById('vmi5186').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5186" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#98497-1 ("Visual acuity panel")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#98497-1"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "98497-1" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#98497-1 ("Visual acuity panel")]"
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#98497-1"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "98497-1" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[9]&#8203;.resource&#8203;/*Observation&#8203;/obs-vision*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l543&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#98498-9 for language(s) 'zh-TW'. The display is 'Visual acuity uncorrected Left eye' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l93">log</a>, or see <a href="#vmi5187" onClick="document.getElementById('vmi5187').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5187" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#98498-9 ("Visual acuity uncorrected Left eye")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#98498-9"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "98498-9" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "98498-9" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[9]&#8203;.resource&#8203;/*Observation&#8203;/obs-vision*&#8203;/&#8203;.component[1]&#8203;.code&#8203;.coding[0]&#8203;.display (l559&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#98499-7 for language(s) 'zh-TW'. The display is 'Visual acuity uncorrected Right eye' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l94">log</a>, or see <a href="#vmi5188" onClick="document.getElementById('vmi5188').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5188" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#98499-7 ("Visual acuity uncorrected Right eye")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#98499-7"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "98499-7" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#98499-7 ("Visual acuity uncorrected Right eye")]"
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#98499-7"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "98499-7" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[9]&#8203;.resource&#8203;/*Observation&#8203;/obs-vision*&#8203;/&#8203;.component[2]&#8203;.code&#8203;.coding[0]&#8203;.display (l575&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#46673-0 for language(s) 'zh-TW'. The display is 'Color vision [RFC]' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l95">log</a>, or see <a href="#vmi5189" onClick="document.getElementById('vmi5189').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5189" style="display:none"><br/><pre>0ms tx-op
@@ -7650,23 +7650,23 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l626&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89015-2 for language(s) 'zh-TW'. The display is 'Pure tone air conduction threshold audiometry panel' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l65">log</a>, or see <a href="#vmi5190" onClick="document.getElementById('vmi5190').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5190" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89015-2 ("Pure tone air conduction threshold audiometry panel")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89015-2"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89015-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89015-2"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89015-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l637&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89024-4 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --500 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l66">log</a>, or see <a href="#vmi5191" onClick="document.getElementById('vmi5191').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5191" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89024-4 ("Hearing threshold Ear - left --500 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89024-4"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89024-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89024-4"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89024-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[1]&#8203;.code&#8203;.coding[0]&#8203;.display (l654&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89016-0 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --1000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l67">log</a>, or see <a href="#vmi5192" onClick="document.getElementById('vmi5192').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5192" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89016-0 ("Hearing threshold Ear - left --1000 Hz")]"
-2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89016-0"
+1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89016-0"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
 2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
 2ms http://loinc.org/vs|2.82: Code "89016-0" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
@@ -7675,9 +7675,9 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[2]&#8203;.code&#8203;.coding[0]&#8203;.display (l671&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89018-6 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --2000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l68">log</a>, or see <a href="#vmi5193" onClick="document.getElementById('vmi5193').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5193" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89018-6 ("Hearing threshold Ear - left --2000 Hz")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89018-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89018-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89018-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[3]&#8203;.code&#8203;.coding[0]&#8203;.display (l688&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89020-2 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --3000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l69">log</a>, or see <a href="#vmi5194" onClick="document.getElementById('vmi5194').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5194" style="display:none"><br/><pre>0ms tx-op
@@ -7691,9 +7691,9 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[4]&#8203;.code&#8203;.coding[0]&#8203;.display (l705&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89022-8 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --4000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l70">log</a>, or see <a href="#vmi5195" onClick="document.getElementById('vmi5195').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5195" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89022-8 ("Hearing threshold Ear - left --4000 Hz")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89022-8"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89022-8" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89022-8" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[5]&#8203;.code&#8203;.coding[0]&#8203;.display (l722&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89026-9 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --6000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l71">log</a>, or see <a href="#vmi5196" onClick="document.getElementById('vmi5196').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5196" style="display:none"><br/><pre>0ms tx-op
@@ -7714,58 +7714,58 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[7]&#8203;.code&#8203;.coding[0]&#8203;.display (l756&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89025-1 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --500 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l73">log</a>, or see <a href="#vmi5198" onClick="document.getElementById('vmi5198').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5198" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89025-1 ("Hearing threshold Ear - right --500 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89025-1"
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89025-1"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
 2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
 2ms http://loinc.org/vs|2.82: Code "89025-1" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[8]&#8203;.code&#8203;.coding[0]&#8203;.display (l773&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89017-8 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --1000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l74">log</a>, or see <a href="#vmi5199" onClick="document.getElementById('vmi5199').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5199" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89017-8 ("Hearing threshold Ear - right --1000 Hz")]"
-2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89017-8"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89017-8" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+7ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89017-8 ("Hearing threshold Ear - right --1000 Hz")]"
+7ms http://loinc.org/vs|2.82: Check "http://loinc.org#89017-8"
+8ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+8ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+8ms http://loinc.org/vs|2.82: Code "89017-8" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[9]&#8203;.code&#8203;.coding[0]&#8203;.display (l790&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89019-4 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --2000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l75">log</a>, or see <a href="#vmi5200" onClick="document.getElementById('vmi5200').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5200" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89019-4 ("Hearing threshold Ear - right --2000 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89019-4"
-3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "89019-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+4ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89019-4 ("Hearing threshold Ear - right --2000 Hz")]"
+5ms http://loinc.org/vs|2.82: Check "http://loinc.org#89019-4"
+5ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+5ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+5ms http://loinc.org/vs|2.82: Code "89019-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[10]&#8203;.code&#8203;.coding[0]&#8203;.display (l807&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89021-0 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --3000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l76">log</a>, or see <a href="#vmi5201" onClick="document.getElementById('vmi5201').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5201" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89021-0 ("Hearing threshold Ear - right --3000 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89021-0"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89021-0" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+12ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89021-0 ("Hearing threshold Ear - right --3000 Hz")]"
+13ms http://loinc.org/vs|2.82: Check "http://loinc.org#89021-0"
+14ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+14ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+14ms http://loinc.org/vs|2.82: Code "89021-0" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[11]&#8203;.code&#8203;.coding[0]&#8203;.display (l824&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89023-6 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --4000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l77">log</a>, or see <a href="#vmi5202" onClick="document.getElementById('vmi5202').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5202" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89023-6 ("Hearing threshold Ear - right --4000 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89023-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89023-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89023-6"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89023-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[12]&#8203;.code&#8203;.coding[0]&#8203;.display (l841&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89027-7 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --6000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l78">log</a>, or see <a href="#vmi5203" onClick="document.getElementById('vmi5203').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5203" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89027-7 ("Hearing threshold Ear - right --6000 Hz")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89027-7"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "89027-7" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+2ms http://loinc.org/vs|2.82: Code "89027-7" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[13]&#8203;.code&#8203;.coding[0]&#8203;.display (l858&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89029-3 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --8000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l79">log</a>, or see <a href="#vmi5204" onClick="document.getElementById('vmi5204').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5204" style="display:none"><br/><pre>0ms tx-op
-2ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89029-3 ("Hearing threshold Ear - right --8000 Hz")]"
+1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89029-3 ("Hearing threshold Ear - right --8000 Hz")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89029-3"
-3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "89029-3" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+2ms http://loinc.org/vs|2.82: Code "89029-3" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[11]&#8203;.resource&#8203;/*Observation&#8203;/obs-physical*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l907&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#29545-1 for language(s) 'zh-TW'. The display is 'Physical findings note' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l86">log</a>, or see <a href="#vmi5205" onClick="document.getElementById('vmi5205').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5205" style="display:none"><br/><pre>0ms tx-op
@@ -7778,10 +7778,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[12]&#8203;.resource&#8203;/*Observation&#8203;/obs-lab-glucose*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l998&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#1558-6 for language(s) 'zh-TW'. The display is 'Fasting glucose [Mass/volume] in Serum or Plasma' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l124">log</a>, or see <a href="#vmi5206" onClick="document.getElementById('vmi5206').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5206" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#1558-6 ("Fasting glucose [Mass/volume] in Serum or Plasma")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[13]&#8203;.resource&#8203;/*ClinicalImpression&#8203;/example-clinical-impression*&#8203;/&#8203;.extension[0]&#8203;.value&#8203;.ofType(CodeableConcept) (l1054&#8203;/c14)</b></td><td><b>information</b></td><td><b>Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.2.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_EXPERIMENTAL</span></td><td><a href="http://hl7.org/fhir/R4/clinicalimpression.html">ClinicalImpression</a></td>
@@ -7807,12 +7807,12 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Analysing http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1 for validation purposes
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Parameters: disp-lang=zh-TW, generate-narrative, default-to-latest
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Prepare include[0]: "(http://loinc.org)(SCALE_TYP=Doc)"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
 2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Check "http://loinc.org#11502-2"
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
-48ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
+46ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
    </tr>
    <tr style="background-color: #ffebcc">
      <td><b>Bundle&#8203;.entry[1]&#8203;.resource&#8203;/*Patient&#8203;/example-worker*&#8203;/&#8203;.identifier[0]&#8203;.system (l155&#8203;/c62)</b></td><td><b>warning</b></td><td><b>No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Type_Specific_Checks_DT_URL_Resolve</span></td><td><a href="http://hl7.org/fhir/R4/patient.html">Patient</a></td>
@@ -7829,23 +7829,23 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l296&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89015-2 for language(s) 'zh-TW'. The display is 'Pure tone air conduction threshold audiometry panel' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l65">log</a>, or see <a href="#vmi5215" onClick="document.getElementById('vmi5215').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5215" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89015-2 ("Pure tone air conduction threshold audiometry panel")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89015-2"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89015-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89015-2"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89015-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l307&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89024-4 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --500 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l66">log</a>, or see <a href="#vmi5216" onClick="document.getElementById('vmi5216').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5216" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89024-4 ("Hearing threshold Ear - left --500 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89024-4"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89024-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89024-4"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89024-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[1]&#8203;.code&#8203;.coding[0]&#8203;.display (l324&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89016-0 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --1000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l67">log</a>, or see <a href="#vmi5217" onClick="document.getElementById('vmi5217').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5217" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89016-0 ("Hearing threshold Ear - left --1000 Hz")]"
-2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89016-0"
+1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89016-0"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
 2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
 2ms http://loinc.org/vs|2.82: Code "89016-0" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
@@ -7854,9 +7854,9 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[2]&#8203;.code&#8203;.coding[0]&#8203;.display (l341&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89018-6 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --2000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l68">log</a>, or see <a href="#vmi5218" onClick="document.getElementById('vmi5218').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5218" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89018-6 ("Hearing threshold Ear - left --2000 Hz")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89018-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89018-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89018-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[3]&#8203;.code&#8203;.coding[0]&#8203;.display (l358&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89020-2 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --3000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l69">log</a>, or see <a href="#vmi5219" onClick="document.getElementById('vmi5219').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5219" style="display:none"><br/><pre>0ms tx-op
@@ -7870,9 +7870,9 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[4]&#8203;.code&#8203;.coding[0]&#8203;.display (l375&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89022-8 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --4000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l70">log</a>, or see <a href="#vmi5220" onClick="document.getElementById('vmi5220').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5220" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89022-8 ("Hearing threshold Ear - left --4000 Hz")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89022-8"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89022-8" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89022-8" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[5]&#8203;.code&#8203;.coding[0]&#8203;.display (l392&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89026-9 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - left --6000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l71">log</a>, or see <a href="#vmi5221" onClick="document.getElementById('vmi5221').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5221" style="display:none"><br/><pre>0ms tx-op
@@ -7893,58 +7893,58 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[7]&#8203;.code&#8203;.coding[0]&#8203;.display (l426&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89025-1 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --500 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l73">log</a>, or see <a href="#vmi5223" onClick="document.getElementById('vmi5223').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5223" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89025-1 ("Hearing threshold Ear - right --500 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89025-1"
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89025-1"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
 2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
 2ms http://loinc.org/vs|2.82: Code "89025-1" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[8]&#8203;.code&#8203;.coding[0]&#8203;.display (l443&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89017-8 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --1000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l74">log</a>, or see <a href="#vmi5224" onClick="document.getElementById('vmi5224').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5224" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89017-8 ("Hearing threshold Ear - right --1000 Hz")]"
-2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89017-8"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89017-8" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+7ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89017-8 ("Hearing threshold Ear - right --1000 Hz")]"
+7ms http://loinc.org/vs|2.82: Check "http://loinc.org#89017-8"
+8ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+8ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+8ms http://loinc.org/vs|2.82: Code "89017-8" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[9]&#8203;.code&#8203;.coding[0]&#8203;.display (l460&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89019-4 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --2000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l75">log</a>, or see <a href="#vmi5225" onClick="document.getElementById('vmi5225').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5225" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89019-4 ("Hearing threshold Ear - right --2000 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89019-4"
-3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "89019-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+4ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89019-4 ("Hearing threshold Ear - right --2000 Hz")]"
+5ms http://loinc.org/vs|2.82: Check "http://loinc.org#89019-4"
+5ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+5ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+5ms http://loinc.org/vs|2.82: Code "89019-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[10]&#8203;.code&#8203;.coding[0]&#8203;.display (l477&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89021-0 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --3000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l76">log</a>, or see <a href="#vmi5226" onClick="document.getElementById('vmi5226').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5226" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89021-0 ("Hearing threshold Ear - right --3000 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89021-0"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89021-0" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+12ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89021-0 ("Hearing threshold Ear - right --3000 Hz")]"
+13ms http://loinc.org/vs|2.82: Check "http://loinc.org#89021-0"
+14ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+14ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+14ms http://loinc.org/vs|2.82: Code "89021-0" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[11]&#8203;.code&#8203;.coding[0]&#8203;.display (l494&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89023-6 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --4000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l77">log</a>, or see <a href="#vmi5227" onClick="document.getElementById('vmi5227').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5227" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89023-6 ("Hearing threshold Ear - right --4000 Hz")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#89023-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "89023-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89023-6"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "89023-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[12]&#8203;.code&#8203;.coding[0]&#8203;.display (l511&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89027-7 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --6000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l78">log</a>, or see <a href="#vmi5228" onClick="document.getElementById('vmi5228').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5228" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89027-7 ("Hearing threshold Ear - right --6000 Hz")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89027-7"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "89027-7" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+2ms http://loinc.org/vs|2.82: Code "89027-7" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-hearing*&#8203;/&#8203;.component[13]&#8203;.code&#8203;.coding[0]&#8203;.display (l528&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#89029-3 for language(s) 'zh-TW'. The display is 'Hearing threshold Ear - right --8000 Hz' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l79">log</a>, or see <a href="#vmi5229" onClick="document.getElementById('vmi5229').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5229" style="display:none"><br/><pre>0ms tx-op
-2ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89029-3 ("Hearing threshold Ear - right --8000 Hz")]"
+1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#89029-3 ("Hearing threshold Ear - right --8000 Hz")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#89029-3"
-3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "89029-3" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+2ms http://loinc.org/vs|2.82: Code "89029-3" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[6]&#8203;.resource&#8203;/*Observation&#8203;/obs-pulmonary*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l577&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#19868-9 for language(s) 'zh-TW'. The display is 'Forced vital capacity [Volume] Respiratory system by Spirometry' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l87">log</a>, or see <a href="#vmi5230" onClick="document.getElementById('vmi5230').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5230" style="display:none"><br/><pre>0ms tx-op
@@ -7957,18 +7957,18 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[6]&#8203;.resource&#8203;/*Observation&#8203;/obs-pulmonary*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l588&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#20150-9 for language(s) 'zh-TW'. The display is 'FEV1' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l88">log</a>, or see <a href="#vmi5231" onClick="document.getElementById('vmi5231').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5231" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#20150-9 ("FEV1")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#20150-9"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "20150-9" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#20150-9"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "20150-9" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[6]&#8203;.resource&#8203;/*Observation&#8203;/obs-pulmonary*&#8203;/&#8203;.component[1]&#8203;.code&#8203;.coding[0]&#8203;.display (l605&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#19926-5 for language(s) 'zh-TW'. The display is 'FEV1/FVC' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l89">log</a>, or see <a href="#vmi5232" onClick="document.getElementById('vmi5232').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5232" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#19926-5 ("FEV1/FVC")]"
-2ms http://loinc.org/vs|2.82: Check "http://loinc.org#19926-5"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "19926-5" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+3ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#19926-5 ("FEV1/FVC")]"
+5ms http://loinc.org/vs|2.82: Check "http://loinc.org#19926-5"
+10ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+10ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+10ms http://loinc.org/vs|2.82: Code "19926-5" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[7]&#8203;.resource&#8203;/*ClinicalImpression&#8203;/example-clinical-impression*&#8203;/&#8203;.extension[0]&#8203;.value&#8203;.ofType(CodeableConcept) (l663&#8203;/c14)</b></td><td><b>information</b></td><td><b>Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.2.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_EXPERIMENTAL</span></td><td><a href="http://hl7.org/fhir/R4/clinicalimpression.html">ClinicalImpression</a></td>
@@ -8002,10 +8002,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[13]&#8203;.resource&#8203;/*Observation&#8203;/obs-health-mgmt-level*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l978&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://snomed.info/sct#406221003 for language(s) 'zh-TW'. The display is 'Health status' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l64">log</a>, or see <a href="#vmi5241" onClick="document.getElementById('vmi5241').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5241" style="display:none"><br/><pre>0ms tx-op
 0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate "[http://snomed.info/sct#406221003 ("Health status")]"
-0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check "http://snomed.info/sct#406221003"
-0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201
-0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at CodeableConcept.coding[0]
-0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code "406221003" found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check "http://snomed.info/sct#406221003"
+1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201
+1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at CodeableConcept.coding[0]
+1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code "406221003" found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[13]&#8203;.resource&#8203;/*Observation&#8203;/obs-health-mgmt-level*&#8203;/&#8203;.value&#8203;.ofType(CodeableConcept) (l996&#8203;/c10)</b></td><td><b>information</b></td><td><b>Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.2.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_EXPERIMENTAL</span></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
@@ -8032,19 +8032,19 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[17]&#8203;.resource&#8203;/*Observation&#8203;/obs-alcohol*&#8203;/&#8203;.value&#8203;.ofType(CodeableConcept)&#8203;.coding[0]&#8203;.display (l1157&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://snomed.info/sct#219006 for language(s) 'zh-TW'. The display is 'Current drinker of alcohol' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l137">log</a>, or see <a href="#vmi5248" onClick="document.getElementById('vmi5248').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5248" style="display:none"><br/><pre>0ms tx-op
-0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate "[http://snomed.info/sct#219006 ("Current drinker of alcohol")]"
-0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check "http://snomed.info/sct#219006"
-0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201
-0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at CodeableConcept.coding[0]
-0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code "219006" found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate "[http://snomed.info/sct#219006 ("Current drinker of alcohol")]"
+1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check "http://snomed.info/sct#219006"
+1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201
+1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at CodeableConcept.coding[0]
+1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code "219006" found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[18]&#8203;.resource&#8203;/*Observation&#8203;/obs-smoking-former*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l1217&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#72166-2 for language(s) 'zh-TW'. The display is 'Tobacco smoking status' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l138">log</a>, or see <a href="#vmi5249" onClick="document.getElementById('vmi5249').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5249" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#72166-2 ("Tobacco smoking status")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#72166-2"
-3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "72166-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+2ms http://loinc.org/vs|2.82: Code "72166-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle (l1/c2)</b></td><td><b>information</b></td><td><b>Can't find 'Organization/example-employer' in the bundle (Bundle.entry[1].resource.extension[0].value[x])</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Bundle_BUNDLE_Entry_NotFound</span></td><td>--</td>
@@ -8094,12 +8094,12 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Analysing http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1 for validation purposes
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Parameters: disp-lang=zh-TW, generate-narrative, default-to-latest
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Prepare include[0]: "(http://loinc.org)(SCALE_TYP=Doc)"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
 2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Check "http://loinc.org#11502-2"
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
-48ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
+46ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
    </tr>
    <tr style="background-color: #ffebcc">
      <td><b>Bundle&#8203;.entry[1]&#8203;.resource&#8203;/*Patient&#8203;/example-worker*&#8203;/&#8203;.identifier[0]&#8203;.system (l157&#8203;/c62)</b></td><td><b>warning</b></td><td><b>No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Type_Specific_Checks_DT_URL_Resolve</span></td><td><a href="http://hl7.org/fhir/R4/patient.html">Patient</a></td>
@@ -8117,9 +8117,9 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-imaging-mammo*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l303&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#24606-6 for language(s) 'zh-TW'. The display is 'MG Breast Screening' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l141">log</a>, or see <a href="#vmi5266" onClick="document.getElementById('vmi5266').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5266" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#24606-6 ("MG Breast Screening")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#24606-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "24606-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "24606-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[6]&#8203;.resource&#8203;/*Observation&#8203;/obs-imaging-brain-mri*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l347&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#24590-2 for language(s) 'zh-TW'. The display is 'MR Brain' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l142">log</a>, or see <a href="#vmi5267" onClick="document.getElementById('vmi5267').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5267" style="display:none"><br/><pre>0ms tx-op
@@ -8132,15 +8132,15 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[7]&#8203;.resource&#8203;/*Observation&#8203;/obs-imaging-lung-ct*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l391&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#79086-5 for language(s) 'zh-TW'. The display is 'CT Chest Screening WO contr' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l143">log</a>, or see <a href="#vmi5268" onClick="document.getElementById('vmi5268').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5268" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#79086-5 ("CT Chest Screening WO contr")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#79086-5"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "79086-5" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#79086-5"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "79086-5" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[8]&#8203;.resource&#8203;/*Observation&#8203;/obs-imaging-pet*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l435&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#81555-5 for language(s) 'zh-TW'. The display is 'PT+CT Whole body Tum loc W 18F-FDG IV' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l144">log</a>, or see <a href="#vmi5269" onClick="document.getElementById('vmi5269').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5269" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#81555-5 ("PT+CT Whole body Tum loc W 18F-FDG IV")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#81555-5"
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#81555-5"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
 2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
 2ms http://loinc.org/vs|2.82: Code "81555-5" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
@@ -8148,18 +8148,18 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[9]&#8203;.resource&#8203;/*Observation&#8203;/obs-imaging-cta*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l479&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#79073-3 for language(s) 'zh-TW'. The display is 'CTA Hrt+CA W contr IV' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l145">log</a>, or see <a href="#vmi5270" onClick="document.getElementById('vmi5270').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5270" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#79073-3 ("CTA Hrt+CA W contr IV")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#79073-3"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "79073-3" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#79073-3"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "79073-3" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-endoscopy-egd*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l523&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#28014-9 for language(s) 'zh-TW'. The display is 'EGD Study' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l146">log</a>, or see <a href="#vmi5271" onClick="document.getElementById('vmi5271').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5271" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#28014-9 ("EGD Study")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#28014-9"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "28014-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#28014-9"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "28014-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[11]&#8203;.resource&#8203;/*Observation&#8203;/obs-endoscopy-colon*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l567&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#28023-0 for language(s) 'zh-TW'. The display is 'Colonoscopy Study' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l147">log</a>, or see <a href="#vmi5272" onClick="document.getElementById('vmi5272').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5272" style="display:none"><br/><pre>0ms tx-op
@@ -8190,12 +8190,12 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Analysing http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1 for validation purposes
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Parameters: disp-lang=zh-TW, generate-narrative, default-to-latest
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Prepare include[0]: "(http://loinc.org)(SCALE_TYP=Doc)"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
-2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
+1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#11502-2 ("Laboratory report")]"
 2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Check "http://loinc.org#11502-2"
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-4ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
-48ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
+46ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "11502-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
    </tr>
    <tr style="background-color: #ffebcc">
      <td><b>Bundle&#8203;.entry[1]&#8203;.resource&#8203;/*Patient&#8203;/example-worker*&#8203;/&#8203;.identifier[0]&#8203;.system (l189&#8203;/c62)</b></td><td><b>warning</b></td><td><b>No definition could be found for URL value 'https://www.cgmh.org.tw/tw/patient-id'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Type_Specific_Checks_DT_URL_Resolve</span></td><td><a href="http://hl7.org/fhir/R4/patient.html">Patient</a></td>
@@ -8216,10 +8216,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8302-2 ("Body height")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8302-2"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8302-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyheight.html">Observation Body Height Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8302-2"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8302-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyheight.html">Observation Body Height Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[8]&#8203;.resource&#8203;/*Observation&#8203;/obs-weight*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l551&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#29463-7 for language(s) 'zh-TW'. The display is 'Body weight' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l128">log</a>, or see <a href="#vmi5281" onClick="document.getElementById('vmi5281').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5281" style="display:none"><br/><pre>0ms tx-op
@@ -8228,10 +8228,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#29463-7 ("Body weight")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#29463-7"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "29463-7" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyweight.html">Observation Body Weight Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#29463-7"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "29463-7" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyweight.html">Observation Body Weight Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[9]&#8203;.resource&#8203;/*Observation&#8203;/obs-bmi*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l598&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#39156-5 for language(s) 'zh-TW'. The display is 'Body mass index (BMI) [Ratio]' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l152">log</a>, or see <a href="#vmi5282" onClick="document.getElementById('vmi5282').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5282" style="display:none"><br/><pre>0ms tx-op
@@ -8241,17 +8241,17 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#39156-5 ("Body mass index (BMI) [Ratio]")]"
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#39156-5"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "39156-5" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bmi.html">Observation Body Mass Index Profile</a></td>
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "39156-5" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bmi.html">Observation Body Mass Index Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*Observation&#8203;/obs-waist*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l645&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#8280-0 for language(s) 'zh-TW'. The display is 'Waist Circumference at umbilicus by Tape measure' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l113">log</a>, or see <a href="#vmi5283" onClick="document.getElementById('vmi5283').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5283" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#8280-0 ("Waist Circumference at umbilicus by Tape measure")]"
-2ms http://loinc.org/vs|2.82: Check "http://loinc.org#8280-0"
+1ms http://loinc.org/vs|2.82: Check "http://loinc.org#8280-0"
 2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-3ms http://loinc.org/vs|2.82: Code "8280-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+2ms http://loinc.org/vs|2.82: Code "8280-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[11]&#8203;.resource&#8203;/*Observation&#8203;/obs-bloodpressure*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l691&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#85354-9 for language(s) 'zh-TW'. The display is 'Blood pressure panel with all children optional' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l118">log</a>, or see <a href="#vmi5284" onClick="document.getElementById('vmi5284').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5284" style="display:none"><br/><pre>0ms tx-op
@@ -8260,10 +8260,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#85354-9 ("Blood pressure panel with all children optional")]"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#85354-9"
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "85354-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bp.html">Observation Blood Pressure Profile</a></td>
+1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#85354-9"
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "85354-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bp.html">Observation Blood Pressure Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[11]&#8203;.resource&#8203;/*Observation&#8203;/obs-bloodpressure*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l702&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#8480-6 for language(s) 'zh-TW'. The display is 'Systolic blood pressure' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l119">log</a>, or see <a href="#vmi5285" onClick="document.getElementById('vmi5285').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5285" style="display:none"><br/><pre>0ms tx-op
@@ -8272,7 +8272,7 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8480-6 ("Systolic blood pressure")]"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8480-6"
+1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8480-6"
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8480-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
@@ -8284,18 +8284,18 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8462-4 ("Diastolic blood pressure")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8462-4"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8462-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8462-4"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8462-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[12]&#8203;.resource&#8203;/*Observation&#8203;/obs-lab-glucose*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l769&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#1558-6 for language(s) 'zh-TW'. The display is 'Fasting glucose [Mass/volume] in Serum or Plasma' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l124">log</a>, or see <a href="#vmi5287" onClick="document.getElementById('vmi5287').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5287" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#1558-6 ("Fasting glucose [Mass/volume] in Serum or Plasma")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[13]&#8203;.resource&#8203;/*ClinicalImpression&#8203;/example-clinical-impression*&#8203;/&#8203;.extension[0]&#8203;.value&#8203;.ofType(CodeableConcept) (l825&#8203;/c14)</b></td><td><b>information</b></td><td><b>Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.2.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_EXPERIMENTAL</span></td><td><a href="http://hl7.org/fhir/R4/clinicalimpression.html">ClinicalImpression</a></td>
@@ -8329,10 +8329,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Prepare include[0]: "(http://loinc.org)(SCALE_TYP=Doc)"
 1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#34133-9 ("Summary of episode note")]"
-1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Check "http://loinc.org#34133-9"
+2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Check "http://loinc.org#34133-9"
 2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
 2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
-45ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "34133-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
+46ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "34133-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
    </tr>
    <tr style="background-color: #ffebcc">
      <td><b>Bundle&#8203;.entry[1]&#8203;.resource&#8203;/*Organization&#8203;/example-employer*&#8203;/&#8203;.identifier[0]&#8203;.system (l144&#8203;/c48)</b></td><td><b>warning</b></td><td><b>No definition could be found for URL value 'https://gcis.nat.gov.tw'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Type_Specific_Checks_DT_URL_Resolve</span></td><td><a href="http://hl7.org/fhir/R4/organization.html">Organization</a></td>
@@ -8380,7 +8380,7 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Prepare include[0]: "(http://loinc.org)(SCALE_TYP=Doc)"
 1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Validate "[http://loinc.org#60591-5 ("Patient summary Document")]"
-1ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Check "http://loinc.org#60591-5"
+2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Check "http://loinc.org#60591-5"
 2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
 2ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: check code in (http://loinc.org)(SCALE_TYP=Doc) at CodeableConcept.coding[0]
 45ms http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1: Filter SCALE_TYP = Doc: Code "60591-5" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/composition.html">Composition</a></td>
@@ -8395,25 +8395,25 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
      <td><b>Bundle&#8203;.entry[4]&#8203;.resource&#8203;/*Observation&#8203;/obs-exposure-lead*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l240&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#87729-0 for language(s) 'zh-TW'. The display is 'History of Occupational hazard' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l96">log</a>, or see <a href="#vmi5305" onClick="document.getElementById('vmi5305').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5305" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#87729-0 ("History of Occupational hazard")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#87729-0"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "87729-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "87729-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[4]&#8203;.resource&#8203;/*Observation&#8203;/obs-exposure-lead*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l261&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#104905-5 for language(s) 'zh-TW'. The display is 'Duration of exposure' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l97">log</a>, or see <a href="#vmi5306" onClick="document.getElementById('vmi5306').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5306" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#104905-5 ("Duration of exposure")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#104905-5"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "104905-5" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#104905-5"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "104905-5" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[4]&#8203;.resource&#8203;/*Observation&#8203;/obs-exposure-lead*&#8203;/&#8203;.component[1]&#8203;.code&#8203;.coding[0]&#8203;.display (l278&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#21847-9 for language(s) 'zh-TW'. The display is 'Usual occupation Narrative' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l98">log</a>, or see <a href="#vmi5307" onClick="document.getElementById('vmi5307').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5307" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#21847-9 ("Usual occupation Narrative")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#21847-9"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "21847-9" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#21847-9"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "21847-9" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[5]&#8203;.resource&#8203;/*Observation&#8203;/obs-height*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l331&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#8302-2 for language(s) 'zh-TW'. The display is 'Body height' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l126">log</a>, or see <a href="#vmi5308" onClick="document.getElementById('vmi5308').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5308" style="display:none"><br/><pre>0ms tx-op
@@ -8422,10 +8422,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8302-2 ("Body height")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8302-2"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8302-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyheight.html">Observation Body Height Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8302-2"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8302-2" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyheight.html">Observation Body Height Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[6]&#8203;.resource&#8203;/*Observation&#8203;/obs-weight*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l378&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#29463-7 for language(s) 'zh-TW'. The display is 'Body weight' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l128">log</a>, or see <a href="#vmi5309" onClick="document.getElementById('vmi5309').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5309" style="display:none"><br/><pre>0ms tx-op
@@ -8434,10 +8434,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#29463-7 ("Body weight")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#29463-7"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "29463-7" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyweight.html">Observation Body Weight Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#29463-7"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "29463-7" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bodyweight.html">Observation Body Weight Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[7]&#8203;.resource&#8203;/*Observation&#8203;/obs-bloodpressure*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l424&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#85354-9 for language(s) 'zh-TW'. The display is 'Blood pressure panel with all children optional' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l118">log</a>, or see <a href="#vmi5310" onClick="document.getElementById('vmi5310').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5310" style="display:none"><br/><pre>0ms tx-op
@@ -8446,10 +8446,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#85354-9 ("Blood pressure panel with all children optional")]"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#85354-9"
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "85354-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bp.html">Observation Blood Pressure Profile</a></td>
+1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#85354-9"
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "85354-9" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/bp.html">Observation Blood Pressure Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[7]&#8203;.resource&#8203;/*Observation&#8203;/obs-bloodpressure*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l435&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#8480-6 for language(s) 'zh-TW'. The display is 'Systolic blood pressure' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l119">log</a>, or see <a href="#vmi5311" onClick="document.getElementById('vmi5311').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5311" style="display:none"><br/><pre>0ms tx-op
@@ -8458,7 +8458,7 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8480-6 ("Systolic blood pressure")]"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8480-6"
+1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8480-6"
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
 2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8480-6" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
@@ -8470,26 +8470,26 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
 0ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Prepare include[0]: "(http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0)"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: "http://loinc.org|2.82"
 1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Validate "[http://loinc.org#8462-4 ("Diastolic blood pressure")]"
-1ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8462-4"
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
-2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8462-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Check "http://loinc.org#8462-4"
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: CodeSystem found: http://loinc.org|2.82 for http://loinc.org
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: check code in (http://loinc.org)(85353-1,9279-1,8867-4,2708-6,8310-5,8302-2,9843-4,29463-7,39156-5,85354-9,8480-6,8462-4,8478-0) at CodeableConcept.coding[0]
+3ms http://hl7.org/fhir/ValueSet/observation-vitalsignresult|4.0.1: Code "8462-4" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[8]&#8203;.resource&#8203;/*Observation&#8203;/obs-lab-glucose*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l502&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#1558-6 for language(s) 'zh-TW'. The display is 'Fasting glucose [Mass/volume] in Serum or Plasma' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l124">log</a>, or see <a href="#vmi5313" onClick="document.getElementById('vmi5313').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5313" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#1558-6 ("Fasting glucose [Mass/volume] in Serum or Plasma")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[9]&#8203;.resource&#8203;/*Observation&#8203;/obs-lab-egfr-absent*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l565&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#98979-8 for language(s) 'zh-TW'. The display is 'Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l158">log</a>, or see <a href="#vmi5314" onClick="document.getElementById('vmi5314').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5314" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#98979-8 ("Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M")]"
+2ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#98979-8 ("Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#98979-8"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "98979-8" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+4ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+4ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+4ms http://loinc.org/vs|2.82: Code "98979-8" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[10]&#8203;.resource&#8203;/*ClinicalImpression&#8203;/example-clinical-impression*&#8203;/&#8203;.extension[0]&#8203;.value&#8203;.ofType(CodeableConcept) (l608&#8203;/c14)</b></td><td><b>information</b></td><td><b>Reference to experimental CodeSystem https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel|0.2.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_EXPERIMENTAL</span></td><td><a href="http://hl7.org/fhir/R4/clinicalimpression.html">ClinicalImpression</a></td>
@@ -8516,10 +8516,10 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[2]&#8203;.resource&#8203;/*Observation&#8203;/tx-obs-glucose*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l107&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#1558-6 for language(s) 'zh-TW'. The display is 'Fasting glucose [Mass/volume] in Serum or Plasma' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l124">log</a>, or see <a href="#vmi5319" onClick="document.getElementById('vmi5319').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5319" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#1558-6 ("Fasting glucose [Mass/volume] in Serum or Plasma")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#1558-6"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "1558-6" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
 </table>
 <hr/>
@@ -8541,25 +8541,25 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
      <td><b>Bundle&#8203;.entry[3]&#8203;.resource&#8203;/*Observation&#8203;/tx9-obs-exposure*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l126&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#87729-0 for language(s) 'zh-TW'. The display is 'History of Occupational hazard' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l96">log</a>, or see <a href="#vmi5322" onClick="document.getElementById('vmi5322').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5322" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#87729-0 ("History of Occupational hazard")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#87729-0"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "87729-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "87729-0" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[3]&#8203;.resource&#8203;/*Observation&#8203;/tx9-obs-exposure*&#8203;/&#8203;.component[0]&#8203;.code&#8203;.coding[0]&#8203;.display (l147&#8203;/c14)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#104905-5 for language(s) 'zh-TW'. The display is 'Duration of exposure' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l97">log</a>, or see <a href="#vmi5323" onClick="document.getElementById('vmi5323').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5323" style="display:none"><br/><pre>0ms tx-op
 1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#104905-5 ("Duration of exposure")]"
-1ms http://loinc.org/vs|2.82: Check "http://loinc.org#104905-5"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "104905-5" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
+2ms http://loinc.org/vs|2.82: Check "http://loinc.org#104905-5"
+3ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+3ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+3ms http://loinc.org/vs|2.82: Code "104905-5" found in http://loinc.org|2.82</pre></div></td><td><a href="StructureDefinition-TWHA-Practitioner.html">執業/健檢醫護與服務人員 Profile</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Bundle&#8203;.entry[4]&#8203;.resource&#8203;/*Observation&#8203;/tx9-obs-egfr-absent*&#8203;/&#8203;.code&#8203;.coding[0]&#8203;.display (l209&#8203;/c10)</b></td><td><b>information</b></td><td><b>There are no valid display names found for the code http://loinc.org#98979-8 for language(s) 'zh-TW'. The display is 'Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M' which is a valid display for the default language</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l158">log</a>, or see <a href="#vmi5324" onClick="document.getElementById('vmi5324').style.display='block'">the servers logic</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">NO_VALID_DISPLAY_FOUND_NONE_FOR_LANG_OK</span><div id="vmi5324" style="display:none"><br/><pre>0ms tx-op
-1ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#98979-8 ("Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M")]"
+2ms http://loinc.org/vs|2.82: Validate "[http://loinc.org#98979-8 ("Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M")]"
 2ms http://loinc.org/vs|2.82: Check "http://loinc.org#98979-8"
-2ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
-2ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
-2ms http://loinc.org/vs|2.82: Code "98979-8" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
+4ms http://loinc.org/vs|2.82: CodeSystem found: http://loinc.org|2.82 for http://loinc.org|2.82
+4ms http://loinc.org/vs|2.82: check code in (http://loinc.org) at CodeableConcept.coding[0]
+4ms http://loinc.org/vs|2.82: Code "98979-8" found in http://loinc.org|2.82</pre></div></td><td><a href="http://hl7.org/fhir/R4/observation.html">Observation</a></td>
    </tr>
 </table>
 <hr/>
@@ -8838,16 +8838,16 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td><td><b>Validating</b></td>
    </tr>
    <tr style="background-color: #ffffe6">
-     <td><b>ConceptMap.group[0].source (l1/c25763)</b></td><td><b>information</b></td><td><b>Source Code System http://loinc.org is only supported on the terminology server, so the source codes are not validated for performance reasons</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_GROUP_SOURCE_SERVER_SIDE</span></td><td>--</td>
+     <td><b>ConceptMap.group[0].source (l1/c26160)</b></td><td><b>information</b></td><td><b>Source Code System http://loinc.org is only supported on the terminology server, so the source codes are not validated for performance reasons</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_GROUP_SOURCE_SERVER_SIDE</span></td><td>--</td>
    </tr>
    <tr style="background-color: #ffffe6">
-     <td><b>ConceptMap.group[0].target (l1/c25763)</b></td><td><b>information</b></td><td><b>Target Code System http://loinc.org is only supported on the terminology server, so the target codes are not validated for performance reasons</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_GROUP_TARGET_SERVER_SIDE</span></td><td>--</td>
+     <td><b>ConceptMap.group[0].target (l1/c26160)</b></td><td><b>information</b></td><td><b>Target Code System http://loinc.org is only supported on the terminology server, so the target codes are not validated for performance reasons</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_GROUP_TARGET_SERVER_SIDE</span></td><td>--</td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>ConceptMap (l1/c25765)</b></td><td><b>warning</b></td><td><b>Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.title is mandatory, but it is not present</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_SHAREABLE_MISSING</span></td><td>--</td>
+     <td><b>ConceptMap (l1/c26162)</b></td><td><b>warning</b></td><td><b>Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.title is mandatory, but it is not present</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_SHAREABLE_MISSING</span></td><td>--</td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>ConceptMap (l1/c25765)</b></td><td><b>warning</b></td><td><b>Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.description is mandatory, but it is not present</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_SHAREABLE_MISSING</span></td><td>--</td>
+     <td><b>ConceptMap (l1/c26162)</b></td><td><b>warning</b></td><td><b>Published concept maps SHOULD conform to the ShareableConceptMap profile, which says that the element ConceptMap.description is mandatory, but it is not present</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CONCEPTMAP_SHAREABLE_MISSING</span></td><td>--</td>
    </tr>
 </table>
 <hr/>
@@ -9045,7 +9045,7 @@ hl7.fhir.uv.sdc#3.0.0:     <a href="http://hl7.org/fhir/uv/sdc/STU3/StructureDef
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td><td><b>Validating</b></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>ValueSet&#8203;.compose&#8203;.include[0]&#8203;.concept[1] (l1&#8203;/c5955)</b></td><td><b>warning</b></td><td><b>The concept '35200-5' has a status of DISCOURAGED and its use should be reviewed</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l39">log</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">INACTIVE_CONCEPT_FOUND</span></td><td>--</td>
+     <td><b>ValueSet&#8203;.compose&#8203;.include[0]&#8203;.concept[1] (l1&#8203;/c5976)</b></td><td><b>warning</b></td><td><b>The concept '35200-5' has a status of DISCOURAGED and its use should be reviewed</b> (from <a href="qa-txservers.html#https://tx.fhir.org/r4">https://tx.fhir.org/r4</a>, see <a href="qa-tx.html#l39">log</a>) <span class="code-value code-hidden" style="font-size: 8px; color: navy">INACTIVE_CONCEPT_FOUND</span></td><td>--</td>
    </tr>
    <tr style="background-color: #ffebcc">
      <td><b>Resource</b></td><td><b>warning</b></td><td><b>The resource ValueSet/VS-CoreDataset should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>

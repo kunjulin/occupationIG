@@ -4,7 +4,7 @@
   <id value="TWHealthCheckLaboratoryMap"/>
   <language value="zh-TW"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: 概念映射 TWHealthCheckLaboratoryMap</b></p><a name="TWHealthCheckLaboratoryMap"> </a><a name="hcTWHealthCheckLaboratoryMap"> </a><p>Mapping from <a href="ValueSet-VS-CoreDataset.html">健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）</a> to <a href="ValueSet-VS-CoreDataset.html">健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）</a></p><br/><p>Mapping from <a href="http://terminology.hl7.org/5.0.0/CodeSystem-v3-loinc.html">Logical Observation Identifiers, Names and Codes (LOINC)</a> to <a href="http://terminology.hl7.org/5.0.0/CodeSystem-v3-loinc.html">Logical Observation Identifiers, Names and Codes (LOINC)</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>804-5 (Leukocytes [#/volume] in Blood by Manual count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>6690-2 (Leukocytes [#/volume] in Blood by Automated count)</td><td>source 指定 Manual count，target 方法未指定，source 為其特化</td></tr><tr><td>26464-8 (Leukocytes [#/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>6690-2 (Leukocytes [#/volume] in Blood by Automated count)</td><td>同概念、同檢體、方法均未指定</td></tr><tr><td>2888-6 (Protein [Mass/volume] in Urine)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>5804-0 (Protein [Mass/volume] in Urine by Test strip)</td><td>定量(Mass/volume)與試紙法屬不同量測方式，非包含關係</td></tr><tr><td>2339-0 (Glucose [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>1558-6 (Fasting glucose [Mass/volume] in Serum or Plasma)</td><td>source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣；另檢體不同</td></tr><tr><td>38483-4 (Creatinine [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>2160-0 (Creatinine [Mass/volume] in Serum or Plasma)</td><td>檢體不同(Blood vs Serum/Plasma)，非包含關係</td></tr><tr><td>35200-5 (Cholesterol [Mass or Moles/volume] in Serum or Plasma)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>2093-3 (Cholesterol [Mass/volume] in Serum or Plasma)</td><td>source 允許質量或莫耳濃度兩種尺度，語意較 target 廣</td></tr><tr><td>3043-7 (Triglyceride [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>2571-8 (Triglyceride [Mass/volume] in Serum or Plasma)</td><td>檢體不同(Blood vs Serum/Plasma)</td></tr><tr><td>13457-7 (Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>2089-1 (Cholesterol in LDL [Mass/volume] in Serum or Plasma)</td><td>source 指定計算法，target 方法未指定</td></tr><tr><td>33914-3 (Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>98979-8 (Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M)</td><td>MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換。114 年成健採雙軌併行（MDRD 必填、CKD-EPI 非必填），同一份報告可能同時含兩碼，屬正常情形而非重複上傳；115.01.01 起僅採 CKD-EPI 2021。依國健署 115.01.15 國健慢病字第1150660003號函。</td></tr><tr><td>5195-3 (Hepatitis B virus surface Ag [Presence] in Serum)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>5196-1 (Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay)</td><td>source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄</td></tr><tr><td>16128-1 (Hepatitis C virus Ab [Presence] in Serum)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>13955-0 (Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay)</td><td>source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄</td></tr><tr><td>26515-7 (Platelets [#/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>777-3 (Platelets [#/volume] in Blood by Automated count)</td><td>source 指定 Automated count，target 方法未指定</td></tr><tr><td>30428-7 (MCV [Entitic mean volume] in Red Blood Cells)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>787-2 (MCV [Entitic mean volume] in Red Blood Cells by Automated count)</td><td>calculation 與 Automated count 為不同具體方法，無包含關係</td></tr><tr><td>28539-5 (MCH [Entitic mass])</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td>785-6 (MCH [Entitic mass] by Automated count)</td><td>同概念、同方法(Automated count)，僅顯示名長短不同</td></tr><tr><td>26508-2 (Neutrophils/100 leukocytes in Blood by Manual count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>770-8 (Neutrophils/Leukocytes in Blood by Automated count)</td><td>Manual 與 Automated 為不同具體方法，無包含關係</td></tr><tr><td>30239-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>1920-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 UV with P5P，target 方法未指定</td></tr><tr><td>1743-4 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>1742-6 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 UV with P5P，target 方法未指定</td></tr><tr><td>59261-8 (Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>4548-4 (Hemoglobin A1c/Hemoglobin.total in Blood)</td><td>Unit conversion required: NGSP(%) = IFCC(mmol/mol) * 0.9148 + 2.152</td></tr><tr><td>3016-3 (Thyrotropin [Units/volume] in Serum or Plasma)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>11580-8 (Thyrotropin [Units/volume] in Serum or Plasma by Detection limit &lt;= 0.005 mIU/L)</td><td>source 指定 3rd IS 標準品，target 未指定</td></tr><tr><td>83082-8 (Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>10334-1 (Cancer Ag 125 [Units/volume] in Serum or Plasma)</td><td>source 指定 Immunoassay，target 方法未指定</td></tr><tr><td>83085-1 (Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>2039-6 (Carcinoembryonic Ag [Mass/volume] in Serum or Plasma)</td><td>source 指定 Immunoassay，target 方法未指定</td></tr><tr><td>88112-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>1920-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 No addition of P-5'-P，target 方法未指定</td></tr><tr><td>1744-2 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>1742-6 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 No addition of P-5'-P，target 方法未指定</td></tr><tr><td>2345-7 (Glucose [Mass/volume] in Serum or Plasma)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>1558-6 (Fasting Glucose [Mass/volume] in Serum or Plasma)</td><td>source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣</td></tr><tr><td>18262-6 (Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>2089-1 (Cholesterol in LDL [Mass/volume] in Serum or Plasma)</td><td>source 指定 Direct assay，target 方法未指定</td></tr><tr><td>23749-5 (Lead [Mass/volume] in Specimen)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>77307-7 (Lead [Mass/volume] in Venous blood)</td><td>source 檢體為泛稱 Specimen、target 限 Blood，非單純包含</td></tr><tr><td>56086-2 (Waist Circumference)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>8280-0 (Waist Circumference at umbilicus by Tape measure)</td><td>source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同</td></tr><tr><td>5671-3 (Lead [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>77307-7 (Lead [Mass/volume] in Venous blood)</td><td>source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。</td></tr><tr><td>33218-9 (Bacteria [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51480-2 (Bacteria [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>33219-7 (Epithelial cells.squamous [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51486-9 (Epithelial cells.squamous [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>33223-9 (Hyaline casts [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51484-4 (Hyaline casts [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>33342-7 (Epithelial cells [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>87926-2 (Epithelial cells [#/volume] in Urine by Automated)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>43755-8 (Casts [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51483-6 (Casts [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>46419-8 (Erythrocytes [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>798-9 (Erythrocytes [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>46702-7 (Leukocytes [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51487-7 (Leukocytes [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>50235-1 (Mucus [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51478-6 (Mucus [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>53324-0 (Spermatozoa [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51479-4 (Spermatozoa [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>3137-7 (Body height Measured)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>8302-2 (Body height)</td><td>source 指定量測方法（Method = Measured），target 方法未指定；二者為同一身高量測概念之方法特化與通用，屬包含關係，數值可直接比較。</td></tr><tr><td>3141-9 (Body weight Measured)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>29463-7 (Body weight)</td><td>source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。</td></tr></table></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: 概念映射 TWHealthCheckLaboratoryMap</b></p><a name="TWHealthCheckLaboratoryMap"> </a><a name="hcTWHealthCheckLaboratoryMap"> </a><p>Mapping from <a href="ValueSet-VS-CoreDataset.html">健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）</a> to <a href="ValueSet-VS-CoreDataset.html">健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）</a></p><br/><p>Mapping from <a href="http://terminology.hl7.org/5.0.0/CodeSystem-v3-loinc.html">Logical Observation Identifiers, Names and Codes (LOINC)</a> to <a href="http://terminology.hl7.org/5.0.0/CodeSystem-v3-loinc.html">Logical Observation Identifiers, Names and Codes (LOINC)</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td><td><b>Comment</b></td></tr><tr><td>804-5 (Leukocytes [#/volume] in Blood by Manual count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>6690-2 (Leukocytes [#/volume] in Blood by Automated count)</td><td>Manual 與 Automated 為不同具體方法，無包含關係；數值不可直接比較（比照 element[6] 之處理）</td></tr><tr><td>26464-8 (Leukocytes [#/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>6690-2 (Leukocytes [#/volume] in Blood by Automated count)</td><td>source 方法未指定，target 指定 Automated count；target 語意較窄</td></tr><tr><td>2888-6 (Protein [Mass/volume] in Urine)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>5804-0 (Protein [Mass/volume] in Urine by Test strip)</td><td>定量(Mass/volume)與試紙法屬不同量測方式，非包含關係</td></tr><tr><td>2339-0 (Glucose [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>1558-6 (Fasting glucose [Mass/volume] in Serum or Plasma)</td><td>空腹狀態與檢體均不同（source 為未指定空腹之全血、target 為空腹血漿），無包含關係；全血與血漿葡萄糖數值不可直接比較（比照 element[6] 之處理）</td></tr><tr><td>38483-4 (Creatinine [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>2160-0 (Creatinine [Mass/volume] in Serum or Plasma)</td><td>檢體不同(Blood vs Serum/Plasma)，非包含關係</td></tr><tr><td>35200-5 (Cholesterol [Mass or Moles/volume] in Serum or Plasma)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>2093-3 (Cholesterol [Mass/volume] in Serum or Plasma)</td><td>source 允許質量或莫耳濃度兩種尺度，語意較 target 廣</td></tr><tr><td>3043-7 (Triglyceride [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>2571-8 (Triglyceride [Mass/volume] in Serum or Plasma)</td><td>檢體不同(Blood vs Serum/Plasma)</td></tr><tr><td>13457-7 (Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>2089-1 (Cholesterol in LDL [Mass/volume] in Serum or Plasma)</td><td>source 指定計算法，target 方法未指定</td></tr><tr><td>33914-3 (Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>98979-8 (Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M)</td><td>MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換。114 年成健採雙軌併行（MDRD 必填、CKD-EPI 非必填），同一份報告可能同時含兩碼，屬正常情形而非重複上傳；115.01.01 起僅採 CKD-EPI 2021。依國健署 115.01.15 國健慢病字第1150660003號函。</td></tr><tr><td>5195-3 (Hepatitis B virus surface Ag [Presence] in Serum)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>5196-1 (Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay)</td><td>source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄</td></tr><tr><td>16128-1 (Hepatitis C virus Ab [Presence] in Serum)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>13955-0 (Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay)</td><td>source 限 Serum、target 為 Serum or Plasma 且指定 Immunoassay，兩者互有寬窄</td></tr><tr><td>26515-7 (Platelets [#/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>777-3 (Platelets [#/volume] in Blood by Automated count)</td><td>source 方法未指定，target 指定 Automated count；target 語意較窄</td></tr><tr><td>30428-7 (MCV [Entitic mean volume] in Red Blood Cells)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>787-2 (MCV [Entitic mean volume] in Red Blood Cells by Automated count)</td><td>calculation 與 Automated count 為不同具體方法，無包含關係</td></tr><tr><td>28539-5 (MCH [Entitic mass])</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>785-6 (MCH [Entitic mass] by Automated count)</td><td>source 方法未指定（MCH [Entitic mass]），target 指定 Automated count；target 語意較窄</td></tr><tr><td>26508-2 (Neutrophils/100 leukocytes in Blood by Manual count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>770-8 (Neutrophils/Leukocytes in Blood by Automated count)</td><td>Manual 與 Automated 為不同具體方法，無包含關係</td></tr><tr><td>30239-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>1920-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 UV with P5P，target 方法未指定</td></tr><tr><td>1743-4 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>1742-6 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 UV with P5P，target 方法未指定</td></tr><tr><td>59261-8 (Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>4548-4 (Hemoglobin A1c/Hemoglobin.total in Blood)</td><td>Unit conversion required: NGSP(%) = IFCC(mmol/mol) * 0.9148 + 2.152</td></tr><tr><td>3016-3 (Thyrotropin [Units/volume] in Serum or Plasma)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>11580-8 (Thyrotropin [Units/volume] in Serum or Plasma by Detection limit &lt;= 0.005 mIU/L)</td><td>source 為一般 TSH（未指定偵測極限），target 指定高敏感度（Detection limit &lt;= 0.005 mIU/L）；target 語意較窄</td></tr><tr><td>83082-8 (Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>10334-1 (Cancer Ag 125 [Units/volume] in Serum or Plasma)</td><td>source 指定 Immunoassay，target 方法未指定</td></tr><tr><td>83085-1 (Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>2039-6 (Carcinoembryonic Ag [Mass/volume] in Serum or Plasma)</td><td>source 指定 Immunoassay，target 方法未指定</td></tr><tr><td>88112-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>1920-8 (Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 No addition of P-5'-P，target 方法未指定</td></tr><tr><td>1744-2 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>1742-6 (Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma)</td><td>source 指定 No addition of P-5'-P，target 方法未指定</td></tr><tr><td>2345-7 (Glucose [Mass/volume] in Serum or Plasma)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#narrower" title="narrower">narrower</a></td><td>1558-6 (Fasting Glucose [Mass/volume] in Serum or Plasma)</td><td>source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣</td></tr><tr><td>18262-6 (Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>2089-1 (Cholesterol in LDL [Mass/volume] in Serum or Plasma)</td><td>source 指定 Direct assay，target 方法未指定</td></tr><tr><td>23749-5 (Lead [Mass/volume] in Specimen)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>77307-7 (Lead [Mass/volume] in Venous blood)</td><td>source 檢體為泛稱 Specimen、target 限 Blood，非單純包含</td></tr><tr><td>56086-2 (Waist Circumference)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>8280-0 (Waist Circumference at umbilicus by Tape measure)</td><td>source 為 PhenX 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同</td></tr><tr><td>5671-3 (Lead [Mass/volume] in Blood)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>77307-7 (Lead [Mass/volume] in Venous blood)</td><td>source 之檢體為未指定之 Blood、target 限 Venous blood；職業血鉛監測慣用靜脈血。source 之 LOINC 狀態為 DISCOURAGED。</td></tr><tr><td>33218-9 (Bacteria [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51480-2 (Bacteria [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>33219-7 (Epithelial cells.squamous [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51486-9 (Epithelial cells.squamous [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>33223-9 (Hyaline casts [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51484-4 (Hyaline casts [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>33342-7 (Epithelial cells [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>87926-2 (Epithelial cells [#/volume] in Urine by Automated)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>43755-8 (Casts [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51483-6 (Casts [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>46419-8 (Erythrocytes [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>798-9 (Erythrocytes [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>46702-7 (Leukocytes [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51487-7 (Leukocytes [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>50235-1 (Mucus [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51478-6 (Mucus [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>53324-0 (Spermatozoa [#/area] in Urine sediment by Automated count)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#relatedto" title="relatedto">is related to</a></td><td>51479-4 (Spermatozoa [#/volume] in Urine by Automated count)</td><td>source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。</td></tr><tr><td>3137-7 (Body height Measured)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>8302-2 (Body height)</td><td>source 指定量測方法（Method = Measured），target 方法未指定；二者為同一身高量測概念之方法特化與通用，屬包含關係，數值可直接比較。</td></tr><tr><td>3141-9 (Body weight Measured)</td><td><a href="http://hl7.org/fhir/R5/codesystem-concept-map-relationship.html#wider" title="wider">maps to wider concept</a></td><td>29463-7 (Body weight)</td><td>source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。</td></tr></table></div>
   </text>
   <url value="https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap"/>
   <version value="0.2.0"/>
@@ -38,8 +38,8 @@
       <target>
         <code value="6690-2"/>
         <display value="Leukocytes [#/volume] in Blood by Automated count"/>
-        <equivalence value="narrower"/>
-        <comment value="source 指定 Manual count，target 方法未指定，source 為其特化"/>
+        <equivalence value="relatedto"/>
+        <comment value="Manual 與 Automated 為不同具體方法，無包含關係；數值不可直接比較（比照 element[6] 之處理）"/>
       </target>
     </element>
     <element>
@@ -48,8 +48,8 @@
       <target>
         <code value="6690-2"/>
         <display value="Leukocytes [#/volume] in Blood by Automated count"/>
-        <equivalence value="equivalent"/>
-        <comment value="同概念、同檢體、方法均未指定"/>
+        <equivalence value="narrower"/>
+        <comment value="source 方法未指定，target 指定 Automated count；target 語意較窄"/>
       </target>
     </element>
     <element>
@@ -68,8 +68,8 @@
       <target>
         <code value="1558-6"/>
         <display value="Fasting glucose [Mass/volume] in Serum or Plasma"/>
-        <equivalence value="wider"/>
-        <comment value="source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣；另檢體不同"/>
+        <equivalence value="relatedto"/>
+        <comment value="空腹狀態與檢體均不同（source 為未指定空腹之全血、target 為空腹血漿），無包含關係；全血與血漿葡萄糖數值不可直接比較（比照 element[6] 之處理）"/>
       </target>
     </element>
     <element>
@@ -88,7 +88,7 @@
       <target>
         <code value="2093-3"/>
         <display value="Cholesterol [Mass/volume] in Serum or Plasma"/>
-        <equivalence value="wider"/>
+        <equivalence value="narrower"/>
         <comment value="source 允許質量或莫耳濃度兩種尺度，語意較 target 廣"/>
       </target>
     </element>
@@ -108,7 +108,7 @@
       <target>
         <code value="2089-1"/>
         <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定計算法，target 方法未指定"/>
       </target>
     </element>
@@ -149,7 +149,7 @@
         <code value="777-3"/>
         <display value="Platelets [#/volume] in Blood by Automated count"/>
         <equivalence value="narrower"/>
-        <comment value="source 指定 Automated count，target 方法未指定"/>
+        <comment value="source 方法未指定，target 指定 Automated count；target 語意較窄"/>
       </target>
     </element>
     <element>
@@ -168,8 +168,8 @@
       <target>
         <code value="785-6"/>
         <display value="MCH [Entitic mass] by Automated count"/>
-        <equivalence value="equivalent"/>
-        <comment value="同概念、同方法(Automated count)，僅顯示名長短不同"/>
+        <equivalence value="narrower"/>
+        <comment value="source 方法未指定（MCH [Entitic mass]），target 指定 Automated count；target 語意較窄"/>
       </target>
     </element>
     <element>
@@ -188,7 +188,7 @@
       <target>
         <code value="1920-8"/>
         <display value="Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定 UV with P5P，target 方法未指定"/>
       </target>
     </element>
@@ -198,7 +198,7 @@
       <target>
         <code value="1742-6"/>
         <display value="Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定 UV with P5P，target 方法未指定"/>
       </target>
     </element>
@@ -219,7 +219,7 @@
         <code value="11580-8"/>
         <display value="Thyrotropin [Units/volume] in Serum or Plasma by Detection limit &lt;= 0.005 mIU/L"/>
         <equivalence value="narrower"/>
-        <comment value="source 指定 3rd IS 標準品，target 未指定"/>
+        <comment value="source 為一般 TSH（未指定偵測極限），target 指定高敏感度（Detection limit &lt;= 0.005 mIU/L）；target 語意較窄"/>
       </target>
     </element>
     <element>
@@ -228,7 +228,7 @@
       <target>
         <code value="10334-1"/>
         <display value="Cancer Ag 125 [Units/volume] in Serum or Plasma"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定 Immunoassay，target 方法未指定"/>
       </target>
     </element>
@@ -238,7 +238,7 @@
       <target>
         <code value="2039-6"/>
         <display value="Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定 Immunoassay，target 方法未指定"/>
       </target>
     </element>
@@ -248,7 +248,7 @@
       <target>
         <code value="1920-8"/>
         <display value="Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定 No addition of P-5'-P，target 方法未指定"/>
       </target>
     </element>
@@ -258,7 +258,7 @@
       <target>
         <code value="1742-6"/>
         <display value="Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定 No addition of P-5'-P，target 方法未指定"/>
       </target>
     </element>
@@ -268,7 +268,7 @@
       <target>
         <code value="1558-6"/>
         <display value="Fasting Glucose [Mass/volume] in Serum or Plasma"/>
-        <equivalence value="wider"/>
+        <equivalence value="narrower"/>
         <comment value="source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣"/>
       </target>
     </element>
@@ -278,7 +278,7 @@
       <target>
         <code value="2089-1"/>
         <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定 Direct assay，target 方法未指定"/>
       </target>
     </element>
@@ -408,7 +408,7 @@
       <target>
         <code value="8302-2"/>
         <display value="Body height"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定量測方法（Method = Measured），target 方法未指定；二者為同一身高量測概念之方法特化與通用，屬包含關係，數值可直接比較。"/>
       </target>
     </element>
@@ -418,7 +418,7 @@
       <target>
         <code value="29463-7"/>
         <display value="Body weight"/>
-        <equivalence value="narrower"/>
+        <equivalence value="wider"/>
         <comment value="source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。"/>
       </target>
     </element>
