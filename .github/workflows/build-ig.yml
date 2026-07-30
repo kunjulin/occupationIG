@@ -116,6 +116,9 @@ jobs:
       # 三者均改為建置時由值集/對照表產生（固定時間戳，位元組可重現）：
       #   scripts/build-fsh-source-zip.js（JOB-05）、scripts/build-download-xlsx.js（JOB-17）。
       # 此處只驗證提交進版控的那份與當前原始碼一致，改了值集卻忘了重建就擋下來。
+      # 另含 ConceptMap equivalence 一致性檢查（JOB-22 §3.4）：comment 之方向敘述須與
+      # equivalence 值相符。16 組方向顛倒之成因即「文件定義為 source-relative、R4 為
+      # target-relative」；5 組 comment 矛盾則為 JOB-01 只修 display 未修 comment 之殘留。
       - name: Check downloadable assets are current
         run: npm run check:assets
 
