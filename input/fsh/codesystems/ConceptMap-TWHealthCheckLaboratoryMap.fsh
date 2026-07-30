@@ -4,9 +4,9 @@ InstanceOf: ConceptMap
 Title: "健康檢查檢驗項目代碼對應 ConceptMap"
 Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。
 
-**來源版本**：LOINC 2.82（經 tx.fhir.org 驗證）。**驗證狀態**：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。**審查狀態**：equivalence 已於 2026-07-26 依 FHIR 語意逐筆覆核並補列理由（comment），工作小組建議方案，提請確認可否作為下一階段試作基礎。
+**來源版本**：LOINC 2.82（經 tx.fhir.org 驗證）。**驗證狀態**：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。**審查狀態**：equivalence 已於 2026-07-26 逐筆覆核並補列理由（comment），並於 2026-07-30 依 FHIR R4 target-relative 定義更正方向（JOB-22），工作小組建議方案，提請確認可否作為下一階段試作基礎。
 
-**equivalence 使用原則**：`equivalent` 僅用於完全等義（同概念、同檢體、方法同為未指定或同一方法）；source 為 target 之方法特化者用 `narrower`；source 語意較廣者用 `wider`；不同具體方法、不同檢體、或需數值換算而無包含關係者用 `relatedto`（R4 之 ConceptMapEquivalence 代碼，語意為「有關聯但確切關係未知」）。
+**equivalence 使用原則（v20260730 依 FHIR R4 更正，JOB-22）**：R4 之 `narrower`／`wider` **以 target 為主詞**（`narrower` = target 較 source 窄；`wider` = target 較 source 廣），與直覺相反——R5 已改名為 `source-is-narrower-than-target` 以消除歧義。故本 ConceptMap 之判準為：source 為方法特化而 target 為方法通用碼者用 **`wider`**（target 較廣）；source 語意較廣而 target 較窄（指定空腹／方法／偵測極限）者用 **`narrower`**（target 較窄）；不同具體方法、不同檢體、或需數值換算而無包含關係者用 `relatedto`（Level 1，官方語意為「有關聯但確切關係未知」，**不得據以自動換算數值**）。`equivalent` 僅用於完全等義，現行無任何一組適用。\n\n⚠️ **v20260729 及更早版本之 `narrower`／`wider` 方向為錯誤值**（原依內部文件之 source-relative 定義填寫），已於 v20260730 全數更正；comment 方向敘述與 equivalence 值之一致性現已納入 CI 閘門。
 
 ⚠️ **歸一之臨床限制**：本對照供資料標準化之用，**不表示歸一後之數值可直接互換比較**（例如 MDRD 與 CKD-EPI eGFR、IFCC 與 NGSP HbA1c 均需換算或不可互換）。交換時應保留原始代碼。"
 * name = "TWHealthCheckLaboratoryMap"
@@ -24,15 +24,15 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[0].display = "Leukocytes [#/volume] in Blood by Manual count"
 * group[0].element[0].target[0].code = #6690-2
 * group[0].element[0].target[0].display = "Leukocytes [#/volume] in Blood by Automated count"
-* group[0].element[0].target[0].equivalence = #narrower
-* group[0].element[0].target[0].comment = "source 指定 Manual count，target 方法未指定，source 為其特化"
+* group[0].element[0].target[0].equivalence = #relatedto
+* group[0].element[0].target[0].comment = "Manual 與 Automated 為不同具體方法，無包含關係；數值不可直接比較（比照 element[6] 之處理）"
 
 * group[0].element[1].code = #26464-8
 * group[0].element[1].display = "Leukocytes [#/volume] in Blood"
 * group[0].element[1].target[0].code = #6690-2
 * group[0].element[1].target[0].display = "Leukocytes [#/volume] in Blood by Automated count"
-* group[0].element[1].target[0].equivalence = #equivalent
-* group[0].element[1].target[0].comment = "同概念、同檢體、方法均未指定"
+* group[0].element[1].target[0].equivalence = #narrower
+* group[0].element[1].target[0].comment = "source 方法未指定，target 指定 Automated count；target 語意較窄"
 
 // Urine Protein
 * group[0].element[2].code = #2888-6
@@ -47,8 +47,8 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[3].display = "Glucose [Mass/volume] in Blood"
 * group[0].element[3].target[0].code = #1558-6
 * group[0].element[3].target[0].display = "Fasting glucose [Mass/volume] in Serum or Plasma"
-* group[0].element[3].target[0].equivalence = #wider
-* group[0].element[3].target[0].comment = "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣；另檢體不同"
+* group[0].element[3].target[0].equivalence = #relatedto
+* group[0].element[3].target[0].comment = "空腹狀態與檢體均不同（source 為未指定空腹之全血、target 為空腹血漿），無包含關係；全血與血漿葡萄糖數值不可直接比較（比照 element[6] 之處理）"
 
 // Creatinine
 * group[0].element[4].code = #38483-4
@@ -66,7 +66,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[5].display = "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
 * group[0].element[5].target[0].code = #2093-3
 * group[0].element[5].target[0].display = "Cholesterol [Mass/volume] in Serum or Plasma"
-* group[0].element[5].target[0].equivalence = #wider
+* group[0].element[5].target[0].equivalence = #narrower
 * group[0].element[5].target[0].comment = "source 允許質量或莫耳濃度兩種尺度，語意較 target 廣"
 
 // Triglycerides
@@ -85,7 +85,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[7].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
 * group[0].element[7].target[0].code = #2089-1
 * group[0].element[7].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
-* group[0].element[7].target[0].equivalence = #narrower
+* group[0].element[7].target[0].equivalence = #wider
 * group[0].element[7].target[0].comment = "source 指定計算法，target 方法未指定"
 
 // eGFR
@@ -123,7 +123,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[11].target[0].code = #777-3
 * group[0].element[11].target[0].display = "Platelets [#/volume] in Blood by Automated count"
 * group[0].element[11].target[0].equivalence = #narrower
-* group[0].element[11].target[0].comment = "source 指定 Automated count，target 方法未指定"
+* group[0].element[11].target[0].comment = "source 方法未指定，target 指定 Automated count；target 語意較窄"
 
 // MCV (Acceptable: 30428-7 by calculation → Preferred: 787-2 by Automated count)
 * group[0].element[12].code = #30428-7
@@ -138,8 +138,8 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[13].display = "MCH [Entitic mass]"
 * group[0].element[13].target[0].code = #785-6
 * group[0].element[13].target[0].display = "MCH [Entitic mass] by Automated count"
-* group[0].element[13].target[0].equivalence = #equivalent
-* group[0].element[13].target[0].comment = "同概念、同方法(Automated count)，僅顯示名長短不同"
+* group[0].element[13].target[0].equivalence = #narrower
+* group[0].element[13].target[0].comment = "source 方法未指定（MCH [Entitic mass]），target 指定 Automated count；target 語意較窄"
 
 // Neutrophil % (Acceptable: 26508-2 Manual count → Preferred: 770-8 Automated count)
 * group[0].element[14].code = #26508-2
@@ -158,7 +158,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[15].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"
 * group[0].element[15].target[0].code = #1920-8
 * group[0].element[15].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[15].target[0].equivalence = #narrower
+* group[0].element[15].target[0].equivalence = #wider
 * group[0].element[15].target[0].comment = "source 指定 UV with P5P，target 方法未指定"
 
 // ALT / GPT (Acceptable: 1743-4 with P-5'-P → Preferred: 1742-6)
@@ -166,7 +166,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[16].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"
 * group[0].element[16].target[0].code = #1742-6
 * group[0].element[16].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[16].target[0].equivalence = #narrower
+* group[0].element[16].target[0].equivalence = #wider
 * group[0].element[16].target[0].comment = "source 指定 UV with P5P，target 方法未指定"
 
 
@@ -189,7 +189,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[18].target[0].code = #11580-8
 * group[0].element[18].target[0].display = "Thyrotropin [Units/volume] in Serum or Plasma by Detection limit <= 0.005 mIU/L"
 * group[0].element[18].target[0].equivalence = #narrower
-* group[0].element[18].target[0].comment = "source 指定 3rd IS 標準品，target 未指定"
+* group[0].element[18].target[0].comment = "source 為一般 TSH（未指定偵測極限），target 指定高敏感度（Detection limit <= 0.005 mIU/L）；target 語意較窄"
 
 
 // CA-125 (Acceptable: 83082-8 by IA → Preferred: 10334-1)
@@ -197,7 +197,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[19].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
 * group[0].element[19].target[0].code = #10334-1
 * group[0].element[19].target[0].display = "Cancer Ag 125 [Units/volume] in Serum or Plasma"
-* group[0].element[19].target[0].equivalence = #narrower
+* group[0].element[19].target[0].equivalence = #wider
 * group[0].element[19].target[0].comment = "source 指定 Immunoassay，target 方法未指定"
 
 // CEA (Acceptable: 83085-1 by IA → Preferred: 2039-6)
@@ -205,7 +205,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[20].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
 * group[0].element[20].target[0].code = #2039-6
 * group[0].element[20].target[0].display = "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma"
-* group[0].element[20].target[0].equivalence = #narrower
+* group[0].element[20].target[0].equivalence = #wider
 * group[0].element[20].target[0].comment = "source 指定 Immunoassay，target 方法未指定"
 
 // AST (Acceptable: 88112-8 w/o P-5'-P → Preferred: 1920-8)
@@ -213,7 +213,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[21].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
 * group[0].element[21].target[0].code = #1920-8
 * group[0].element[21].target[0].display = "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[21].target[0].equivalence = #narrower
+* group[0].element[21].target[0].equivalence = #wider
 * group[0].element[21].target[0].comment = "source 指定 No addition of P-5'-P，target 方法未指定"
 
 // ALT (Acceptable: 1744-2 w/o P-5'-P → Preferred: 1742-6)
@@ -221,7 +221,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[22].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
 * group[0].element[22].target[0].code = #1742-6
 * group[0].element[22].target[0].display = "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* group[0].element[22].target[0].equivalence = #narrower
+* group[0].element[22].target[0].equivalence = #wider
 * group[0].element[22].target[0].comment = "source 指定 No addition of P-5'-P，target 方法未指定"
 
 // Glucose AC (Acceptable: 2345-7 post fasting → Preferred: 1558-6 fasting)
@@ -229,7 +229,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[23].display = "Glucose [Mass/volume] in Serum or Plasma"
 * group[0].element[23].target[0].code = #1558-6
 * group[0].element[23].target[0].display = "Fasting Glucose [Mass/volume] in Serum or Plasma"
-* group[0].element[23].target[0].equivalence = #wider
+* group[0].element[23].target[0].equivalence = #narrower
 * group[0].element[23].target[0].comment = "source 為未指定空腹狀態之一般血糖，語意較 target(空腹)廣"
 
 // LDL (舊版直接測定法代碼 → Preferred 2089-1)
@@ -237,7 +237,7 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[24].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay"
 * group[0].element[24].target[0].code = #2089-1
 * group[0].element[24].target[0].display = "Cholesterol in LDL [Mass/volume] in Serum or Plasma"
-* group[0].element[24].target[0].equivalence = #narrower
+* group[0].element[24].target[0].equivalence = #wider
 * group[0].element[24].target[0].comment = "source 指定 Direct assay，target 方法未指定"
 
 // =============================================================
@@ -333,12 +333,12 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[37].display = "Body height Measured"
 * group[0].element[37].target[0].code = #8302-2
 * group[0].element[37].target[0].display = "Body height"
-* group[0].element[37].target[0].equivalence = #narrower
+* group[0].element[37].target[0].equivalence = #wider
 * group[0].element[37].target[0].comment = "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一身高量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
 // 體重（方法特化）：JOB-18，同上。
 * group[0].element[38].code = #3141-9
 * group[0].element[38].display = "Body weight Measured"
 * group[0].element[38].target[0].code = #29463-7
 * group[0].element[38].target[0].display = "Body weight"
-* group[0].element[38].target[0].equivalence = #narrower
+* group[0].element[38].target[0].equivalence = #wider
 * group[0].element[38].target[0].comment = "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。"

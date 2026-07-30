@@ -10,7 +10,7 @@
   "scripts": {
     "sushi": "sushi .",
     "build:assets": "node scripts/build-fsh-source-zip.js && node scripts/build-download-xlsx.js",
-    "check:assets": "node scripts/build-fsh-source-zip.js --check && node scripts/build-download-xlsx.js --check && node scripts/check-asset-consistency.js",
+    "check:assets": "node scripts/build-fsh-source-zip.js --check && node scripts/build-download-xlsx.js --check && node scripts/check-asset-consistency.js && node scripts/fix-conceptmap-equivalence.js --check",
     "build": "npm run sushi && node scripts/run-publisher.js --tx https://tx.fhir.org/r4",
     "build:offline": "npm run sushi && node scripts/run-publisher.js --tx n/a",
     "qa": "node scripts/qa-gate.js",

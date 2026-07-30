@@ -85,7 +85,36 @@
 > [extended-ucum-reference.csv](extended-ucum-reference.csv) 之 `verification` 欄。
 
 ### 3.2 代碼映射 ConceptMap
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **38 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729（JOB-14）新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **39 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729（JOB-14）新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
+
+#### 3.2.1 `equivalence` 判準與 R4／R5 對照（v20260730 更正）
+
+> ⚠️ **FHIR R4 之 `narrower`／`wider` 以 target 為主詞**，與直覺相反。R4 官方定義
+> （[ConceptMapEquivalence](https://hl7.org/fhir/R4/codesystem-concept-map-equivalence.html)，v4.0.1）：
+>
+> * `narrower` — The **target** mapping is narrower in meaning than the source concept.
+> * `wider` — The **target** mapping is wider in meaning than the source concept.
+
+| 本 IG 之語意意圖 | R4（現行，`equivalence`） | R5（未來，`relationship`） | 數值可否直接比較 |
+|:--|:--|:--|:--|
+| source 為方法特化、target 為通用碼 | **`wider`** | `source-is-narrower-than-target` | 可 |
+| source 較廣、target 較窄（如指定空腹、指定方法、指定偵測極限） | **`narrower`** | `source-is-broader-than-target` | 須注意條件差異 |
+| 不同量綱／不同具體方法／不同檢體，需換算 | `relatedto` | `related-to` | **不可** |
+| 完全等義 | `equivalent` | `equivalent` | 可 |
+
+1. **R5 已改名為 `source-is-…-than-target`**，把主詞寫進代碼名稱本身，消除 R4 裸用
+   `narrower`／`wider` 之歧義。**本表即為升 R5 之遷移對照。**
+2. **R4 之 `relatedto` 為階層頂點（Level 1），官方定義為「概念間有關聯、語意有部分重疊，
+   惟確切關係未知」。** 本 IG 以之承載「需換算／不同量測方式／不同檢體」，係因 R4 無
+   「需單位換算」之專用代碼；**實作端不得據以自動換算數值**，此一用法限制特此揭露。
+
+> **v20260730 之更正（JOB-22）**：本 IG 原依內部文件之 **source-relative** 定義填寫
+> `equivalence`，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment
+> 與 display 相互矛盾（JOB-01 僅修 display 未同步修 comment 之殘留）。已全數更正，
+> 現行分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0（共 39 組）。
+> **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。
+> 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門
+> （`scripts/fix-conceptmap-equivalence.js --check`）。
 
 ---
 
