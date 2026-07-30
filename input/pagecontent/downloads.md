@@ -38,11 +38,31 @@
 
 | 檔案 | 內容 | 下載 |
 |:--|:--|:--|
-| LOINC 映射值集 | 本指引各值集之 LOINC 代碼清單與分層（`VS-CoreDataset` 21 碼／`VS-ExtendedDataset` 288 碼） | [XLSX](loinc-valuesets.xlsx) |
+| LOINC 映射值集 | 本指引各值集之 LOINC 代碼清單與分層（`VS-CoreDataset` 21 碼／`VS-ExtendedDataset` 288 碼），含**層級**、**歸一至**、**equivalence** 欄，另附 `ConceptMap 歸一` 分頁（41 組） | [XLSX](loinc-valuesets.xlsx) |
 | SNOMED CT 對照表 | 生活習慣與危害類別之 SNOMED CT 代碼對照，及核心資料集之 LOINC–SNOMED 對照 | [XLSX](snomed-mappings.xlsx) |
 | SNOMED–LOINC 對照 | SNOMED CT 與 LOINC 之交叉對照（CSV，便於程式處理） | [CSV](snomed-loinc-mappings.csv) |
 | **顯示名驗證報告** | 以術語伺服器逐碼比對之 `display` 語意查核結果，為代碼稽核之主要依據 | [CSV](display-verification-report.csv) |
 | **UCUM 建議單位對照** | Extended 量值項之 LOINC 官方建議單位對照 | [CSV](extended-ucum-reference.csv) |
+
+> **`loinc-valuesets.xlsx` 之欄位說明（v20260730 新增，JOB-21）**
+>
+> | 欄位 | 意義 |
+> |:--|:--|
+> | `層級 Tier` | `Preferred`＝本指引建議之標準交換碼；`Acceptable`＝可接受之變異碼，可經 ConceptMap 歸一；`（單一碼）`＝該項目無 acceptable 變異碼 |
+> | `歸一至 Normalizes To` | 該 acceptable 碼經 ConceptMap 歸一之目標 preferred 碼 |
+> | `equivalence` | 二碼之語意關係（FHIR R4 值，**以 target 為主詞**，見[術語頁 §3.2.1](terminology.html)） |
+> | `備註 Note` | 該碼於 FSH 之行內註解，載明其何以為 acceptable |
+>
+> **層級判定以 `ConceptMap` 為準**（結構化資源），非以 FSH 之註解為準；註解與 ConceptMap
+> 之一致性已納入 CI 閘門（對稱差須為 0）。僅「於 ConceptMap 完全未出現之單一項目」才由
+> Core 區塊註解補判其為 `Preferred`。
+>
+> ⚠️ **`equivalence` 之判讀（關乎資料正確性）**：
+>
+> * `wider`／`narrower`＝二碼為方法特化與通用之包含關係，**數值可直接比較**（`narrower` 者須注意條件差異）。
+> * **`relatedto`＝二者關聯但屬不同量測方式或需換算，「數值不可直接比較」**。表中已以
+>   `⚠ relatedto（需換算，數值不可直接比較）` 標示。尿沉渣 9 組（/HPF ↔ /µL）、eGFR
+>   （MDRD ↔ CKD-EPI 2021）、血中鉛等均屬此類——**逕行比較會導致臨床誤判**。
 
 > ℹ️ `loinc-valuesets.xlsx` 與 `snomed-mappings.xlsx` **由建置流程自值集（`VS-CoreDataset`／`VS-ExtendedDataset`）與 `snomed-loinc-mappings.csv` 自動產生**，內容恆與本頁指引版本（0.2.0）一致；不再手工維護，故無版本落後之虞。
 >

@@ -55,9 +55,46 @@ function parseValueSetFsh(file) {
     }
     // * LNC#<code> "<display>"  [// 行內註解]
     const m = ln.match(/^\*\s+LNC#(\S+)\s+"([^"]*)"/);
-    if (m) rows.push([section, m[1], m[2]]);
+    if (m) {
+      const i = ln.indexOf('//');
+      const note = i === -1 ? '' : ln.slice(i + 2).trim();
+      rows.push([section, m[1], m[2], note]);
+    }
   }
   return rows;
+}
+
+// ---- ConceptMap 解析（JOB-21 §3.1／§3.2）------------------------------------
+// 層級判定**以 ConceptMap 為準**，非以 FSH 之 // Acceptable 註解為準：
+// 註解不受任何檢查、易漏（JOB-21 規劃時即查出 8 筆漏註），而 ConceptMap 是結構化資源
+// 且已受 check-asset-consistency.js 之對稱差檢查。註解跟上與否由該閘門反向確保。
+function parseConceptMap() {
+  const f = path.join(repoRoot, 'input', 'fsh', 'codesystems', 'ConceptMap-TWHealthCheckLaboratoryMap.fsh');
+  const el = {};
+  for (const line of fs.readFileSync(f, 'utf8').split(/\r?\n/)) {
+    const m = line.match(/^\*\s*group\[0\]\.element\[(\d+)\](\.target\[0\])?\.(code|display|equivalence|comment)\s*=\s*(.+)$/);
+    if (!m) continue;
+    const i = Number(m[1]);
+    el[i] = el[i] || {};
+    el[i][(m[2] ? 't_' : 's_') + m[3]] = m[4].trim().replace(/^"|"$/g, '').replace(/^#/, '');
+  }
+  const rows = Object.keys(el).map(Number).sort((a, b) => a - b).map((i) => el[i]);
+  const bySource = new Map();
+  const targets = new Set();
+  for (const r of rows) {
+    bySource.set(r.s_code, r);
+    targets.add(r.t_code);
+  }
+  return { rows, bySource, targets };
+}
+
+// `relatedto` 之視覺區別（JOB-21 §3.5）：該值意為「需換算、數值不可直接比較」。
+// 尿沉渣 9 組、eGFR（MDRD↔CKD-EPI）、血鉛皆為 relatedto——實作端若誤以為可直接比較數值，
+// 會把 /HPF 當 /µL、把 MDRD 值當 CKD-EPI 值，屬可致臨床誤判之風險，故加警示字樣。
+function equivalenceLabel(eq) {
+  if (!eq) return '';
+  if (eq === 'relatedto') return '⚠ relatedto（需換算，數值不可直接比較）';
+  return eq;
 }
 
 // 最小之 CSV 解析（處理雙引號欄位內之逗號，如 "{804-5, 26464-8}"）。
@@ -92,17 +129,55 @@ function parseCsv(text) {
 }
 
 function loincValuesetsSheets() {
-  const header = ['Section', 'LOINC Code', 'Display Name'];
+  const header = ['Section', 'LOINC Code', 'Display Name', '層級 Tier', '歸一至 Normalizes To', 'equivalence', '備註 Note'];
+  const cols = [{ width: 55 }, { width: 14 }, { width: 65 }, { width: 12 }, { width: 34 }, { width: 40 }, { width: 60 }];
+  const cm = parseConceptMap();
+
+  // 層級以 ConceptMap 為準：為 source 者 Acceptable、為 target 者 Preferred。
+  // 僅當該碼於 ConceptMap 完全未出現（無 acceptable 變異碼之單一項目）時，才退而由
+  // Core 之區塊註解判定——Core 之 Section 標頭本身即載明「— Preferred <code>」
+  //（如「// 06003C 尿蛋白定量 — Preferred 2888-6」）。此不動搖「ConceptMap 為準」之原則：
+  // ConceptMap 仍是 Acceptable／Preferred **配對**之唯一權威，區塊註解只補「無配對之 Preferred」。
+  // 需要此一補充之案例：2888-6（尿蛋白定量，醫令 06003C-1）於 JOB-21 §3.4 移除其誤設之歸一後
+  // 已不在 ConceptMap 中，但它確為該醫令項目之 Preferred，標為「（單一碼）」會與 Core 主表不一致。
+  const SECTION_PREFERRED = /Preferred\s+(\S+)/;
+  const enrich = (r) => {
+    const [section, code, display, note] = r;
+    const src = cm.bySource.get(code);
+    let tier = '（單一碼）';
+    if (src) tier = 'Acceptable';
+    else if (cm.targets.has(code)) tier = 'Preferred';
+    else {
+      const sm = SECTION_PREFERRED.exec(section || '');
+      if (sm && sm[1].replace(/[（(].*$/, '') === code) tier = 'Preferred';
+    }
+    return [
+      section, code, display, tier,
+      src ? `${src.t_code}　${src.t_display || ''}`.trim() : '',
+      src ? equivalenceLabel(src.t_equivalence) : '',
+      note,
+    ];
+  };
+
+  const sheet = (name, file) => ({
+    name,
+    cols,
+    rows: [header, ...parseValueSetFsh(path.join(repoRoot, 'input', 'fsh', 'valuesets', file)).map(enrich)],
+  });
+
+  const cmHeader = ['source', 'source display', 'target', 'target display', 'equivalence', 'comment'];
+  const cmRows = cm.rows.map((r) => [
+    r.s_code, r.s_display || '', r.t_code || '', r.t_display || '',
+    equivalenceLabel(r.t_equivalence), r.t_comment || '',
+  ]);
+
   return [
+    sheet('VS-CoreDataset', 'VS-CoreDataset.fsh'),
+    sheet('VS-ExtendedDataset', 'VS-ExtendedDataset.fsh'),
     {
-      name: 'VS-CoreDataset',
-      cols: [{ width: 55 }, { width: 14 }, { width: 65 }],
-      rows: [header, ...parseValueSetFsh(path.join(repoRoot, 'input', 'fsh', 'valuesets', 'VS-CoreDataset.fsh'))],
-    },
-    {
-      name: 'VS-ExtendedDataset',
-      cols: [{ width: 55 }, { width: 14 }, { width: 65 }],
-      rows: [header, ...parseValueSetFsh(path.join(repoRoot, 'input', 'fsh', 'valuesets', 'VS-ExtendedDataset.fsh'))],
+      name: 'ConceptMap 歸一',
+      cols: [{ width: 14 }, { width: 58 }, { width: 14 }, { width: 58 }, { width: 40 }, { width: 80 }],
+      rows: [cmHeader, ...cmRows],
     },
   ];
 }

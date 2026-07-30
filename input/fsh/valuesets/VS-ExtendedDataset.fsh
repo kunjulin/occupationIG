@@ -68,7 +68,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#77307-7 "Lead [Mass/volume] in Venous blood"                // 血中鉛 Preferred（v20260726 由 5671-3 改列；5671-3 之 LOINC 狀態為 DISCOURAGED）
 * LNC#5671-3 "Lead [Mass/volume] in Blood"                        // Acceptable：檢體未指定之舊碼（LOINC DISCOURAGED），經 ConceptMap 歸一至 77307-7
 * LNC#5676-2 "Lead [Mass/volume] in Urine"
-* LNC#23749-5 "Lead [Mass/volume] in Specimen"
+* LNC#23749-5 "Lead [Mass/volume] in Specimen"  // Acceptable: 血鉛檢體泛稱碼（院內 LIS 實際報告碼）；經 ConceptMap 歸一至 77307-7（#relatedto，檢體不同）
 * LNC#11212-8 "Coproporphyrin [Mass/volume] in Urine"
 * LNC#11215-1 "Delta aminolevulinate [Mass/volume] in Urine"
 
@@ -154,8 +154,8 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#97149-9 "proPSA isoform 2 [Mass/volume] in Serum or Plasma by Immunoassay"
 * LNC#97150-7 "Prostate health index in Serum or Plasma by calculation"
 * LNC#10334-1 "Cancer Ag 125 [Units/volume] in Serum or Plasma"
-* LNC#83082-8 "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"
-* LNC#83085-1 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"
+* LNC#83082-8 "Cancer Ag 125 [Units/volume] in Serum or Plasma by Immunoassay"  // Acceptable: CA-125 免疫法具名碼；經 ConceptMap 歸一至 10334-1
+* LNC#83085-1 "Carcinoembryonic Ag [Mass/volume] in Serum or Plasma by Immunoassay"  // Acceptable: CEA 免疫法具名碼；經 ConceptMap 歸一至 2039-6
 * LNC#24108-3 "Cancer Ag 19-9 [Units/volume] in Serum or Plasma"
 * LNC#83084-4 "Cancer Ag 19-9 [Units/volume] in Serum or Plasma by Immunoassay"
 * LNC#83083-6 "Cancer Ag 15-3 [Units/volume] in Serum or Plasma by Immunoassay"
@@ -224,7 +224,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#26485-3 "Monocytes/Leukocytes in Blood"
 * LNC#26498-6 "Myelocytes/Leukocytes in Blood"
 * LNC#26505-8 "Segmented neutrophils/Leukocytes in Blood"  // 2026-07-26 更正 display（原誤標 Hypersegmented）；⚠️ 待確認：如確需「過度分葉核」項目應另加 30450-1
-* LNC#26508-2 "Band form neutrophils/Leukocytes in Blood"  // 2026-07-26 更正 display（原誤標為總嗜中性球手工計數）
+* LNC#26508-2 "Band form neutrophils/Leukocytes in Blood"  // Acceptable: 嗜中性球帶狀核手工計數；經 ConceptMap 歸一至 770-8（#relatedto，不同具體方法）。2026-07-26 更正 display（原誤標為總嗜中性球手工計數）
 * LNC#26511-6 "Neutrophils/Leukocytes in Blood"  // 2026-07-26 更正 display（原誤標 segmented）；⚠️ 待確認：如確需「手工計數」版本應另加 23761-0
 * LNC#26515-7 "Platelets [#/volume] in Blood" // Acceptable: Plt Automated
 * LNC#26524-9 "Promyelocytes/Leukocytes in Blood"
@@ -258,7 +258,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 // (-確定無合適碼) 尿酸 acceptable：原列 49154-8 經 tx 查證實為 Rickettsia conorii IgG Ab [Titer]（地中海斑疹熱抗體），
 //   非尿酸全血法，已於 v20260726 移除；如確有全血法需求，須經 $lookup 查證後再新增。
 * LNC#33863-2 "Cystatin C [Mass/volume] in Serum or Plasma"
-* LNC#33914-3 "Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M"  // 2026-07-29 JOB-01 批2：批1 誤用舊式長名，依 display-verification-report.csv 官方字串更正（注意檢體軸為 Serum or Plasma，與 98979-8 之 Serum, Plasma or Blood 不同）
+* LNC#33914-3 "Glomerular filtration rate [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)/1.73 sq M"  // Acceptable: MDRD eGFR；經 ConceptMap 歸一至 98979-8（#relatedto，不同估算公式）。2026-07-29 JOB-01 批2：批1 誤用舊式長名，依 display-verification-report.csv 官方字串更正（注意檢體軸為 Serum or Plasma，與 98979-8 之 Serum, Plasma or Blood 不同）
 //   JOB-16：Acceptable。LOINC 狀態 DISCOURAGED，惟依國健署 115.01.15 國健慢病字第1150660003號函，
 //   成健結果檔於 114 年（2025，含）及以前以 MDRD 4-variable 為 VPN 必填欄位（由機構自行填入）；
 //   115.01.01（2026）起改採 CKD-EPI 2021（98979-8）。本碼保留係為表達 114 年及以前之歷史資料，
@@ -275,7 +275,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#1743-4 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P"  // Acceptable: ALT with P-5'-P（2026-07-26 換碼，原 14390-9 實為透析液澱粉酶）
 * LNC#30239-8 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P" // Acceptable: AST with P-5'-P（2026-07-26 換碼，原 14409-7 檢體為胸膜液）
 * LNC#1742-6 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
-* LNC#1744-2 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+* LNC#1744-2 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"  // Acceptable: ALT 無 P-5'-P 添加法；經 ConceptMap 歸一至 1742-6
 * LNC#1751-7 "Albumin [Mass/volume] in Serum or Plasma"
 * LNC#1759-0 "Albumin/Globulin [Mass Ratio] in Serum or Plasma"
 * LNC#1798-8 "Amylase [Enzymatic activity/volume] in Serum or Plasma"
@@ -286,7 +286,7 @@ Description: "包含特殊健康檢查與體格檢查之實驗室與生理功能
 * LNC#2885-2 "Protein [Mass/volume] in Serum or Plasma"
 * LNC#3040-3 "Lipase [Enzymatic activity/volume] in Serum or Plasma"
 * LNC#6768-6 "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
-* LNC#88112-8 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"
+* LNC#88112-8 "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P"  // Acceptable: AST 無 P-5'-P 添加法；經 ConceptMap 歸一至 1920-8
 
 // 3-x 脂質分析
 * LNC#13458-5 "Cholesterol in VLDL [Mass/volume] in Serum or Plasma by calculation"  // 2026-07-26 換碼，原 46986-6 實為 VLDL 3 次分群
