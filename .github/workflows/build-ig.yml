@@ -109,12 +109,14 @@ jobs:
           key: ig-publisher-${{ env.IG_PUBLISHER_VERSION }}
 
       # ---------------------------------------------------------------- 建置
-      # downloads.md 對外提供 fsh-source.zip，宣稱「可直接以 SUSHI 重新編譯」。
-      # 該檔原為手工快照，實測落後數週（仍含舊版 examples.fsh，無 NamingSystem、
-      # 無 TWCR_SF stub 治理）——亦即重編出來的不是網站上這份 IG。
-      # 改為由 scripts/build-fsh-source-zip.js 產生（固定時間戳，位元組可重現），
-      # 此處只驗證提交進版控的那份與當前原始碼一致，忘了重建就擋下來。
-      - name: Check fsh-source.zip is current
+      # downloads.md 對外提供之三個下載封包/試算表原為手工快照，實測落後數週：
+      #   fsh-source.zip           宣稱「可直接以 SUSHI 重新編譯」，卻仍含舊版 examples.fsh
+      #   loinc-valuesets.xlsx     停在重構前 Core/Extended 193/123 碼，含已移除之語意錯碼
+      #   snomed-mappings.xlsx     eGFR 一列仍為舊碼 88293-6
+      # 三者均改為建置時由值集/對照表產生（固定時間戳，位元組可重現）：
+      #   scripts/build-fsh-source-zip.js（JOB-05）、scripts/build-download-xlsx.js（JOB-17）。
+      # 此處只驗證提交進版控的那份與當前原始碼一致，改了值集卻忘了重建就擋下來。
+      - name: Check downloadable assets are current
         run: npm run check:assets
 
       - name: Run SUSHI
