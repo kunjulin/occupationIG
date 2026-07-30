@@ -108,11 +108,23 @@ function pickProps(res) {
       const parts = Object.fromEntries((p.part || []).map((x) => [x.name, x]));
       const code = parts.code?.valueCode || parts.code?.valueString;
       const v = parts.value;
-      const val = v ? (v.valueString ?? v.valueCode ?? v.valueCoding?.code ?? v.valueCoding?.display ?? '') : '';
+      // ⚠️ SCALE_TYP／PROPERTY 由 tx 以 valueCoding 回傳時，其 code 為 LOINC 答案清單碼
+      // （如 Qn = LP7753-9），**非**字面 "Qn"。故一律優先取 display，code 僅作備援
+      //（首版誤以 code 比對 'Qn'，導致 320 碼全判為「不適用」而閘門空過）。
+      const val = v ? (v.valueString ?? v.valueCode ?? v.valueCoding?.display ?? v.valueCoding?.code ?? '') : '';
       if (code && WANT[code]) out[WANT[code]] = String(val);
+      if (code === 'SCALE_TYP') out.scale_code = String(v?.valueCoding?.code ?? '');
     }
   }
   return out;
+}
+
+// Scale 正規化：display 若已為字面值（Qn／OrdQn…）直接用；否則以答案清單碼回推。
+const SCALE_BY_LP = { 'LP7753-9': 'Qn', 'LP7752-1': 'OrdQn', 'LP7751-3': 'Ord', 'LP7750-5': 'Nom', 'LP7749-7': 'Nar' };
+function normScale(scale, scaleCode) {
+  const s = (scale || '').trim();
+  if (s && !/^LP\d/.test(s)) return s;              // 已是字面值
+  return SCALE_BY_LP[s] || SCALE_BY_LP[scaleCode || ''] || s || '';
 }
 
 function unitSet(s) {
@@ -184,19 +196,20 @@ function parseCsv(text) {
     try { props = pickProps(await getJson(`${tx}/CodeSystem/$lookup?system=${encodeURIComponent('http://loinc.org')}&code=${encodeURIComponent(code)}&property=*`)); }
     catch (e) { props = { error: e.message, example_ucum: '', scale: '', property: '' }; }
 
+    const scale = normScale(props.scale, props.scale_code);
     let state;
     if (props.error) state = '查詢失敗';
-    else if (!inScope(props.scale, props.property)) state = '不適用';
+    else if (!inScope(scale, props.property)) state = '不適用';
     else if (!csvByCode.has(code)) state = '未列於對照檔';
     else state = classify4(csvByCode.get(code).ucum_suggested, unitSet(props.example_ucum));
     tally[state] = (tally[state] || 0) + 1;
 
-    const rec = { code, scale: props.scale, property: props.property, official_ucum: props.example_ucum || '',
+    const rec = { code, scale, scale_raw: props.scale, property: props.property, official_ucum: props.example_ucum || '',
       csv_ucum: csvByCode.get(code)?.ucum_suggested || '', state, note: props.error || '' };
     results.push(rec);
     if (state === '不符') mismatches.push(rec);
     if (state === '未列於對照檔') missing.push(rec);
-    console.log(`[${String(i + 1).padStart(3)}/${universe.length}] ${code.padEnd(9)} ${state.padEnd(6)} scale=${(props.scale || '∅').padEnd(5)} csv=${(rec.csv_ucum || '∅').padEnd(14)} official=${props.official_ucum || '∅'}`);
+    console.log(`[${String(i + 1).padStart(3)}/${universe.length}] ${code.padEnd(9)} ${state.padEnd(6)} scale=${(scale || '∅').padEnd(6)} prop=${(props.property || '∅').padEnd(6)} csv=${(rec.csv_ucum || '∅').padEnd(14)} official=${rec.official_ucum || '∅'}`);
     if (i < universe.length - 1) await new Promise((r) => setTimeout(r, delayMs));
   }
 
