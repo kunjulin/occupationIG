@@ -420,7 +420,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left"><a href="#t-11">T-11</a></td>
       <td style="text-align: left">eGFR 多估算公式並存</td>
       <td style="text-align: left">職醫科／平台端</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">待決（MDRD 保留已具公文依據、T-5 結案；餘 Cystatin C 公式範圍待定）</td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#p-1">P-1</a></td>
@@ -1028,8 +1028,38 @@ Observation 塞進 <code class="language-plaintext highlighter-rouge">result</co
 LOINC 狀態 DISCOURAGED）為 Acceptable，並以 ConceptMap 註明「不同公式數值不可直接互換」。
 職醫科並指出<strong>部分院所採用合併 Creatinine／Cystatin C 之公式</strong>，該類尚未於本 IG 收碼。</p>
 
-<p><strong>待決</strong>　是否新增 Cystatin C 相關 eGFR 公式之 LOINC 代碼；各公式之 Preferred／Acceptable
-分層。</p>
+<p><strong>T-5 結案（2026-07-30）</strong>　共同主持人曹又中主任（職業醫學）答覆第三次書面確認單第 5 題並檢附
+主管機關公文——<strong>衛生福利部國民健康署 115.01.15 國健慢病字第 1150660003 號函</strong>。據此，MDRD
+（<code class="language-plaintext highlighter-rouge">33914-3</code>）之保留具一級權威依據，且各公式分層已確定：<strong>CKD-EPI 2021（<code class="language-plaintext highlighter-rouge">98979-8</code>）為 Preferred、
+MDRD 為 Acceptable</strong>。公式沿革（民國 114＝2025、115＝2026）：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">時期</th>
+      <th style="text-align: left">MDRD 4-variable</th>
+      <th style="text-align: left">CKD-EPI 2021</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">114 年（含）及以前</td>
+      <td style="text-align: left">成健 VPN <strong>必填欄位、機構自行填入</strong></td>
+      <td style="text-align: left">114 年為<strong>非必填</strong>欄位、系統<strong>自動計算</strong>（帶入年齡／性別／肌酸酐）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">115.01.01 起</td>
+      <td style="text-align: left">停止採用</td>
+      <td style="text-align: left">取代 MDRD；健保署<strong>取消自動計算</strong>、改由機構自行填入</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>範圍事實：eGFR <strong>僅用於成健</strong>、不屬附表九／十；國健署原案 21 列收 <code class="language-plaintext highlighter-rouge">09015C</code> 肌酸酐而<strong>未收 eGFR</strong>
+（eGFR 為成健申報端之衍生欄位，非院端上傳欄位）。詳見<a href="terminology.html">術語頁 &sect;6.2a</a>。</p>
+
+<p><strong>待決</strong>　是否新增 Cystatin C 相關 eGFR 公式之 LOINC 代碼（<strong>各公式之 Preferred／Acceptable 分層已於
+2026-07-30 依公文確定</strong>：CKD-EPI 2021 為 Preferred、MDRD 為 Acceptable——此項已非待決）。</p>
 
 <p><strong>所需輸入</strong>　平台端／職醫科對「本 IG 應涵蓋哪些 eGFR 公式」之範圍認定；新增碼須經
 術語伺服器 $lookup 逐碼驗證六軸。</p>

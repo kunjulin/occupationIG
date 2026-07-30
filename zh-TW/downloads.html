@@ -326,12 +326,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <tbody>
     <tr>
       <td style="text-align: left">LOINC 映射值集</td>
-      <td style="text-align: left">本指引各值集之 LOINC 代碼清單與分層（Core／Extended）</td>
+      <td style="text-align: left">本指引各值集之 LOINC 代碼清單與分層（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 21 碼／<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code> 288 碼）</td>
       <td style="text-align: left"><a href="loinc-valuesets.xlsx">XLSX</a></td>
     </tr>
     <tr>
       <td style="text-align: left">SNOMED CT 對照表</td>
-      <td style="text-align: left">生活習慣與危害類別之 SNOMED CT 代碼對照</td>
+      <td style="text-align: left">生活習慣與危害類別之 SNOMED CT 代碼對照，及核心資料集之 LOINC–SNOMED 對照</td>
       <td style="text-align: left"><a href="snomed-mappings.xlsx">XLSX</a></td>
     </tr>
     <tr>
@@ -353,6 +353,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </table>
 
 <blockquote>
+  <p>ℹ️ <code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 與 <code class="language-plaintext highlighter-rouge">snomed-mappings.xlsx</code> <strong>由建置流程自值集（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code>／<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>）與 <code class="language-plaintext highlighter-rouge">snomed-loinc-mappings.csv</code> 自動產生</strong>，內容恆與本頁指引版本（0.2.0）一致；不再手工維護，故無版本落後之虞。</p>
+
+  <p><code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 之 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 分頁自 v3.0 重構為「主管機關（國健署）最小上傳集之檢驗子集」（21 碼），其餘檢驗項目改列 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>（288 碼）。若與舊版下載檔比對，將見 Core 由 193 碼大幅縮減，屬正常之分層調整而非刪碼。</p>
+</blockquote>
+
+<blockquote>
   <p>⚠️ <strong>顯示名驗證報告與 UCUM 對照表均為研製中之工作產物，尚有代碼待覆核。</strong>
 使用前請先確認對應代碼之稽核狀態，勿逕行作為實作依據；
 稽核進度見 <a href="https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-01-terminology-code-audit.md">JOB-01</a>。</p>
@@ -366,7 +372,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <ul>
   <li><a href="ConceptMap-Appendix10-to-HazardType.html">ConceptMap：附表十 → 危害類別</a> — 線上檢視，頁內提供 JSON／XML／TTL 下載。</li>
-  <li><a name="l730">​</a><a href="Appendix10-to-HazardType.xlsx">附表十 → 危害類別對照表 (XLSX)</a> — 同一份對映之試算表格式，由建置工具自 ConceptMap 產生。</li>
+  <li><a name="l771">​</a><a href="Appendix10-to-HazardType.xlsx">附表十 → 危害類別對照表 (XLSX)</a> — 同一份對映之試算表格式，由建置工具自 ConceptMap 產生。</li>
   <li><a href="special-exam.html">特殊危害健康作業</a> — 以附表十 35 項為列主鍵之涵蓋度對照表。</li>
 </ul>
 

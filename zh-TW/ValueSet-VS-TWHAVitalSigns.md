@@ -34,7 +34,7 @@
   "title" : "職業健檢生命徵象項目值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-29T16:54:28+00:00",
+  "date" : "2026-07-30T07:25:13+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -59,8 +59,16 @@
         "display" : "Body height"
       },
       {
+        "code" : "3137-7",
+        "display" : "Body height Measured"
+      },
+      {
         "code" : "29463-7",
         "display" : "Body weight"
+      },
+      {
+        "code" : "3141-9",
+        "display" : "Body weight Measured"
       },
       {
         "code" : "8280-0",

@@ -1,9 +1,9 @@
 TWHAIG : Validation Results
 =========================================
 
-err = 0, warn = 97, info = 436
+err = 0, warn = 96, info = 436
 IG Publisher Version: 2.2.11
-Generated Wed Jul 29 16:58:46 UTC 2026. FHIR version 4.0.1 for mohw.tw.twha#0.2.0 (canonical = https://twcore.mohw.gov.tw/ig/twha)
+Generated Thu Jul 30 07:34:59 UTC 2026. FHIR version 4.0.1 for mohw.tw.twha#0.2.0 (canonical = https://twcore.mohw.gov.tw/ig/twha)
  Build Errors : 2311 / 0 / 4
  /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/Bundle-UC-001 : 0 / 1 / 48
  /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/Bundle-UC-002 : 0 / 1 / 71
@@ -165,7 +165,7 @@ Generated Wed Jul 29 16:58:46 UTC 2026. FHIR version 4.0.1 for mohw.tw.twha#0.2.
  /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/ValueSet-VS-HealthCounseling : 0 / 1 / 1
  /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/ValueSet-VS-HealthMgmtLevel : 0 / 1 / 1
  /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/ValueSet-VS-LaborReportCode : 0 / 1 / 1
- /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/ValueSet-VS-OccHealthCheck-Required : 0 / 2 / 1
+ /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/ValueSet-VS-OccHealthCheck-Required : 0 / 1 / 1
  /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/ValueSet-VS-OrganicSolventType : 0 / 1 / 1
  /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/ValueSet-VS-PhysicalExamSystems : 0 / 1 / 1
  /home/runner/work/occupationIG/occupationIG/fsh-generated/resources/ValueSet-VS-PulmonaryFunction : 0 / 1 / 1
@@ -2478,7 +2478,7 @@ ERROR: zh-TW/background.html#/html/body/div/div/div/div/div/p/a at Line 212, col
 ERROR: zh-TW/conformance.html#/html/body/div/div/div/div/div/p/a at Line 212, column 500: The link 'https://twcore.mohw.gov.tw/ig/twha/history.html' for "Directory of published versions" cannot be resolved
 ERROR: zh-TW/datamodel.html#/html/body/div/div/div/div/div/p/a at Line 212, column 500: The link 'https://twcore.mohw.gov.tw/ig/twha/history.html' for "Directory of published versions" cannot be resolved
 ERROR: zh-TW/downloads.html#/html/body/div/div/div/div/div/p/a at Line 212, column 500: The link 'https://twcore.mohw.gov.tw/ig/twha/history.html' for "Directory of published versions" cannot be resolved
-ERROR: zh-TW/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 372, column 8: The link 'Appendix10-to-HazardType.xlsx' for "附表十 → 危害類別對照表 (XLSX)" cannot be resolved
+ERROR: zh-TW/downloads.html#/html/body/div/div/div/div/div/ul/li/a at Line 378, column 8: The link 'Appendix10-to-HazardType.xlsx' for "附表十 → 危害類別對照表 (XLSX)" cannot be resolved
 ERROR: zh-TW/general-exam.html#/html/body/div/div/div/div/div/p/a at Line 212, column 500: The link 'https://twcore.mohw.gov.tw/ig/twha/history.html' for "Directory of published versions" cannot be resolved
 ERROR: zh-TW/health-management.html#/html/body/div/div/div/div/div/p/a at Line 212, column 500: The link 'https://twcore.mohw.gov.tw/ig/twha/history.html' for "Directory of published versions" cannot be resolved
 ERROR: zh-TW/history.html#/html/body/div/div/div/div/div/p/a at Line 212, column 500: The link 'https://twcore.mohw.gov.tw/ig/twha/history.html' for "Directory of published versions" cannot be resolved
@@ -3167,7 +3167,6 @@ WARNING: Resource: The resource ValueSet/VS-HealthMgmtLevel should have an OID a
 == fsh-generated/resources/ValueSet-VS-LaborReportCode.json ==
 WARNING: Resource: The resource ValueSet/VS-LaborReportCode should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated/resources/ValueSet-VS-OccHealthCheck-Required.json ==
-WARNING: ValueSet/VS-OccHealthCheck-Required: ValueSet.compose.include[0].concept[2]: The concept '55284-4' has a status of DISCOURAGED and its use should be reviewed
 WARNING: Resource: The resource ValueSet/VS-OccHealthCheck-Required should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated/resources/ValueSet-VS-OrganicSolventType.json ==
 WARNING: Resource: The resource ValueSet/VS-OrganicSolventType should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)

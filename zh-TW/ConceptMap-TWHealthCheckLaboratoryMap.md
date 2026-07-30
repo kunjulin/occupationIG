@@ -123,7 +123,7 @@
         "code" : "98979-8",
         "display" : "Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M",
         "equivalence" : "relatedto",
-        "comment" : "MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換"
+        "comment" : "MDRD 與 CKD-EPI 2021 為不同估算公式，數值不可直接互換。114 年成健採雙軌併行（MDRD 必填、CKD-EPI 非必填），同一份報告可能同時含兩碼，屬正常情形而非重複上傳；115.01.01 起僅採 CKD-EPI 2021。依國健署 115.01.15 國健慢病字第1150660003號函。"
       }]
     },
     {
@@ -404,6 +404,26 @@
         "display" : "Spermatozoa [#/volume] in Urine by Automated count",
         "equivalence" : "relatedto",
         "comment" : "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+      }]
+    },
+    {
+      "code" : "3137-7",
+      "display" : "Body height Measured",
+      "target" : [{
+        "code" : "8302-2",
+        "display" : "Body height",
+        "equivalence" : "narrower",
+        "comment" : "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一身高量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
+      }]
+    },
+    {
+      "code" : "3141-9",
+      "display" : "Body weight Measured",
+      "target" : [{
+        "code" : "29463-7",
+        "display" : "Body weight",
+        "equivalence" : "narrower",
+        "comment" : "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
       }]
     }]
   }]

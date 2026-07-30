@@ -248,6 +248,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li><a href="#6-extended-量值項目建議單位對照ucum" id="markdown-toc-6-extended-量值項目建議單位對照ucum">6. Extended 量值項目建議單位對照（UCUM）</a>        <ul>
           <li><a href="#61-盤點結果" id="markdown-toc-61-盤點結果">6.1 盤點結果</a></li>
           <li><a href="#62-重點項目與單位陷阱覆核時優先檢視" id="markdown-toc-62-重點項目與單位陷阱覆核時優先檢視">6.2 重點項目與單位陷阱（覆核時優先檢視）</a></li>
+          <li><a href="#62a-egfr-估算公式之沿革國健署-1150115-公文" id="markdown-toc-62a-egfr-估算公式之沿革國健署-1150115-公文">6.2a eGFR 估算公式之沿革（國健署 115.01.15 公文）</a></li>
           <li><a href="#62b-嚼檳榔相關代碼之權威來源twcr_sf" id="markdown-toc-62b-嚼檳榔相關代碼之權威來源twcr_sf">6.2b 嚼檳榔相關代碼之權威來源（TWCR_SF）</a></li>
           <li><a href="#63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性" id="markdown-toc-63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性">6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）</a></li>
         </ul>
@@ -635,7 +636,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{33914-3}</code></td>
       <td style="text-align: left">80274001</td>
       <td style="text-align: left">mL/min/{1.73_m2}</td>
-      <td style="text-align: left">成健</td>
+      <td style="text-align: left">成健（<code class="language-plaintext highlighter-rouge">98979-8</code> 適用 115.01.01 起；<code class="language-plaintext highlighter-rouge">33914-3</code> 適用 114 年及以前，見 &sect;6.2a）</td>
     </tr>
     <tr>
       <td style="text-align: left">生化/腎</td>
@@ -883,11 +884,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td style="text-align: left">生理</td>
       <td style="text-align: left">血壓 Panel</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">55284-4</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">85354-9</code></td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">75367002</td>
       <td style="text-align: left">—</td>
-      <td style="text-align: left">成健</td>
+      <td style="text-align: left">成健（v20260730 由 <code class="language-plaintext highlighter-rouge">55284-4</code>（DISCOURAGED）汰換）</td>
     </tr>
     <tr>
       <td style="text-align: left">生理</td>
@@ -943,6 +944,17 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 UF-5000/UD-10 報每 µL，他院則以每高倍視野（/HPF）報告；兩量綱需依儀器係數換算、不可直接比較數值，
 故以 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一而非 <code class="language-plaintext highlighter-rouge">equivalent</code>。此為 JOB-01 批3「整組換為體積碼」之範圍修正：面積碼為 ACTIVE
 之合法 LOINC，回收為 acceptable 使以 /HPF 報告之機構亦可實作（見 ConceptMap <code class="language-plaintext highlighter-rouge">element[28]–[36]</code>）。</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>社會史量化碼之單位與性質（JOB-18）</strong>：</p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">64218-1</code>（吸菸量，<em>How many cigarettes do you smoke per day now</em> [PhenX]）之官方 Property 為 <strong>NRat（Count/Time）</strong>，
+例示單位為 <strong><code class="language-plaintext highlighter-rouge">/d</code>（支/日）</strong>，<strong>非「包/日」</strong>（<code class="language-plaintext highlighter-rouge">{pack}/d</code>）。以本碼承載「包/日」之值，將使實作端把 20 支誤讀為 20 包（量綱不符）。
+若須交換 pack-year 或 packs/day，應另尋對應代碼並經 <code class="language-plaintext highlighter-rouge">$lookup</code> 查證，<strong>不得沿用本碼</strong>。</li>
+    <li><code class="language-plaintext highlighter-rouge">63632-4</code>（戒菸月數，<em>About how long has it been since you completely quit smoking cigarettes</em> [TUS-CPS]）之 Class 為 <strong>PHENX</strong>、
+Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方對齊並揭露」原則保留，交換時應知其為調查量表脈絡之代碼。</li>
+  </ul>
 </blockquote>
 
 <hr/>
@@ -1233,7 +1245,7 @@ UF-5000/UD-10 報每 µL，他院則以每高倍視野（/HPF）報告；兩量�
       <td style="text-align: left">eGFR (MDRD)（LOINC 狀態：DISCOURAGED）</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mL/min/{1.73_m2}</code></td>
       <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
-      <td style="text-align: left">職醫科已確認保留（2026-07-27，JOB-01 Q8）；多公式並存見 T-11</td>
+      <td style="text-align: left">職醫科已確認保留（2026-07-27，JOB-01 Q8）；依國健署 115.01.15 國健慢病字第1150660003號函，適用 114 年（2025）及以前之成健 eGFR（MDRD 為 VPN 必填、機構自行填入），115.01.01 起改採 CKD-EPI 2021（<code class="language-plaintext highlighter-rouge">98979-8</code>）；沿革見 &sect;6.2a、多公式並存見 T-11</td>
     </tr>
   </tbody>
 </table>
@@ -1246,6 +1258,44 @@ UF-5000/UD-10 報每 µL，他院則以每高倍視野（/HPF）報告；兩量�
   <li><strong>eGFR</strong>：<code class="language-plaintext highlighter-rouge">mL/min/{1.73_m2}</code>；另注意 MDRD 與 CKD-EPI 2021 為不同公式，數值不可直接互換。</li>
   <li><strong>聽閾</strong>：<code class="language-plaintext highlighter-rouge">dB</code>（已於 <code class="language-plaintext highlighter-rouge">TWHA-HearingTest</code> 規範，見該 Profile 說明）。</li>
 </ul>
+
+<h3 id="62a-egfr-估算公式之沿革國健署-1150115-公文">6.2a eGFR 估算公式之沿革（國健署 115.01.15 公文）</h3>
+
+<p>依 <strong>衛生福利部國民健康署 115 年 1 月 15 日國健慢病字第 1150660003 號函</strong>（配合中央健康保險署
+公告腎絲球過濾率 eGFR 計算公式調整為 CKD-EPI），成人預防保健（成健）之 eGFR 估算公式沿革如下
+（民國紀年：114 年 ＝ 2025、115 年 ＝ 2026）：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">時期</th>
+      <th style="text-align: left">MDRD 4-variable（<code class="language-plaintext highlighter-rouge">33914-3</code>）</th>
+      <th style="text-align: left">CKD-EPI（<code class="language-plaintext highlighter-rouge">98979-8</code>，2021 版）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>114 年（2025）雙軌併行</strong></td>
+      <td style="text-align: left"><strong>必填欄位，由成健機構自行填入</strong></td>
+      <td style="text-align: left">「腎絲球過濾率(新)(eGFR-CKD-EPI)」<strong>非必填欄位</strong>，由系統帶入年齡、性別、肌酸酐等數值<strong>自動計算</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>115 年（2026）1 月 1 日起</strong></td>
+      <td style="text-align: left">停止採用</td>
+      <td style="text-align: left">採 <strong>2021 年版 CKD-EPI</strong> 取代 MDRD；健保署<strong>取消原自動計算功能</strong>，改由機構自行填入</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>健保署於 <strong>115.01.16</strong> 完成成健結果檔上傳 VPN 系統介面調整；衛生福利部「醫事服務機構辦理
+預防保健服務注意事項」修正作業刻正辦理。</p>
+
+<blockquote>
+  <p><strong>資料來源語意</strong>：依公文，兩個時期之 eGFR <strong>均為機構自行填入</strong>（114 年之 CKD-EPI 自動計算功能
+已於 115 年取消，MDRD 則一貫為必填、機構填入），其產生者為<strong>申報機構而非檢驗儀器</strong>；交換時
+<code class="language-plaintext highlighter-rouge">Observation.performer</code> 之語意宜予區辨（填報機構 vs 檢驗執行者）。eGFR <strong>僅用於成健</strong>，
+不屬《勞工健康保護規則》附表九／附表十之法定項目（國健署原案 21 列收 <code class="language-plaintext highlighter-rouge">09015C</code> 肌酸酐、未收 eGFR）。</p>
+</blockquote>
 
 <h3 id="62b-嚼檳榔相關代碼之權威來源twcr_sf">6.2b 嚼檳榔相關代碼之權威來源（TWCR_SF）</h3>
 
@@ -1341,7 +1391,7 @@ UF-5000/UD-10 報每 µL，他院則以每高倍視野（/HPF）報告；兩量�
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">55284-4</code></td>
       <td style="text-align: left">血壓 panel</td>
       <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
-      <td style="text-align: left">v20260726 全面比對新發現</td>
+      <td style="text-align: left">✅ <strong>已處置</strong>（JOB-18）：改為 <code class="language-plaintext highlighter-rouge">85354-9</code>（Blood pressure panel with all children optional, ACTIVE），全指引統一；<code class="language-plaintext highlighter-rouge">55284-4</code> 已不再出現於任何值集</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19571-9</code> 等 <strong>5 碼</strong></td>
