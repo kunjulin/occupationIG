@@ -238,13 +238,21 @@ CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`ite
 
 ### 6.1 盤點結果
 
+**統計基準**：`scripts/audit-ucum.js` 於送審用 tx 建置逐碼 `$lookup` 之實測結果 （2026-07-30，CI run 30534387613）。稽核全集**由值集展開**（`VS-ExtendedDataset` 288 碼 ∪ `VS-CoreDataset` ∪ `VS-TWHAVitalSigns` ∪ `VS-CoreUploadSet` 社會史碼， 去重共 320 碼），非以對照檔之列為全集——後者曾因凍結於 Extended 尚為 292 碼時期而 漏稽核 44 個量值碼（JOB-19 補充事項 §2）。
+
 | | |
 | :--- | :--- |
-| VS-ExtendedDataset 代碼總數 | 292 |
-| **LOINC 有提供建議單位** | **209** |
-| LOINC 未提供建議單位（多為定性／影像／鏡檢項目） | 83 |
+| 稽核全集（由上開值集展開，去重） | 320 |
+| ─ 其中 Scale = Qn（UCUM 適用，納入比對） | 231 |
+| ─ 非量值型（panel／定性／影像／鏡檢，主動排除並記錄 Scale） | 89 |
+| **建議單位與 LOINC 官方 `EXAMPLE_UCUM_UNITS` 相符** | **233** |
+| LOINC 未提供建議單位 | 74 |
+| **不符（量綱或代碼錯誤）** | **0** |
+| Scale 為未對映之答案清單碼（待判定，見[T-12](open-issues.md)） | 29 |
 
-完整對照表（292 筆，含 LOINC 官方顯示名與來源標註）： **[extended-ucum-reference.csv](extended-ucum-reference.csv)**
+> 上表之「相符 233 ／未提供 74」為對照檔之 **307 列**；與稽核全集 320 之差為 非量值型碼（本表不列單位）與待判定之 Scale 未知碼。前述三項數值均為 CI 閘門 之具名基準（`--max 0 --max-missing 0 --max-unknown 29`）：值集新增量值碼而未 回寫對照檔（「未列於對照檔」）即建置失敗。
+
+完整對照表（307 筆，含 LOINC 官方顯示名與來源標註）： **[extended-ucum-reference.csv](extended-ucum-reference.csv)**
 
 CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC 官方顯示名）、 `ucum_suggested`（建議單位）、`source`（來源）、`verification`（驗證狀態）、`note`（註記）。
 

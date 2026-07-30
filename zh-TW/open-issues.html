@@ -423,6 +423,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">待決（MDRD 保留已具公文依據、T-5 結案；餘 Cystatin C 公式範圍待定）</td>
     </tr>
     <tr>
+      <td style="text-align: left"><a href="#t-12">T-12</a></td>
+      <td style="text-align: left">UCUM 稽核之 Scale 未對映碼（29 筆）</td>
+      <td style="text-align: left">執行團隊／術語</td>
+      <td style="text-align: left">待決（已閘門追蹤，上限 29；判定後可望轉為納入或明確排除）</td>
+    </tr>
+    <tr>
       <td style="text-align: left"><a href="#p-1">P-1</a></td>
       <td style="text-align: left">canonical 命名空間為 provisional</td>
       <td style="text-align: left">主管機關</td>
@@ -1072,6 +1078,36 @@ MDRD 為 Acceptable</strong>。公式沿革（民國 114＝2025、115＝2026）�
 <p><strong>出處</strong>　JOB-01 第 8 題臨床回覆（2026-07-27）</p>
 
 <hr/>
+
+<h2 id="t-12ucum-稽核之-scale-未對映碼29-筆-">T-12　UCUM 稽核之 Scale 未對映碼（29 筆） <a id="t-12"></a></h2>
+
+<p><strong>現況</strong>　<code class="language-plaintext highlighter-rouge">scripts/audit-ucum.js</code> 以 <code class="language-plaintext highlighter-rouge">$lookup</code> 之 <code class="language-plaintext highlighter-rouge">SCALE_TYP</code> 判定代碼是否為量值型（UCUM 適用）。
+tx.fhir.org 於部分代碼以 <strong>LOINC 答案清單碼</strong>回傳且未附 display，現有對映表僅涵蓋
+<code class="language-plaintext highlighter-rouge">LP7753-9</code>（Qn）／<code class="language-plaintext highlighter-rouge">LP7752-1</code>（OrdQn）／<code class="language-plaintext highlighter-rouge">LP7751-3</code>（Ord）／<code class="language-plaintext highlighter-rouge">LP7750-5</code>（Nom）／<code class="language-plaintext highlighter-rouge">LP7749-7</code>（Nar）。
+尚有 <strong>29 碼</strong>之 Scale 為未對映之答案清單碼：<code class="language-plaintext highlighter-rouge">LP32888-7</code>（17 筆）、<code class="language-plaintext highlighter-rouge">LP436123-6</code>（10 筆）、
+<code class="language-plaintext highlighter-rouge">LP7747-1</code>（2 筆，<code class="language-plaintext highlighter-rouge">89015-2</code>／<code class="language-plaintext highlighter-rouge">98497-1</code> panel）。該 29 碼現列為具名狀態「Scale 未知」
+並以實測值 29 為閘門上限（<code class="language-plaintext highlighter-rouge">--max-unknown 29</code>），<strong>新增即失敗</strong>。</p>
+
+<p><strong>待決</strong>　上開三個答案清單碼各對應何種 LOINC Scale，以及其代碼是否應納入 UCUM 稽核範圍。
+初步線索：<code class="language-plaintext highlighter-rouge">LP436123-6</code> 之 10 筆多為試紙／效價項目（<code class="language-plaintext highlighter-rouge">5804-0</code> 尿蛋白試紙、<code class="language-plaintext highlighter-rouge">9633-9</code> EBV 效價），
+且其中部分<strong>確有官方 <code class="language-plaintext highlighter-rouge">EXAMPLE_UCUM_UNITS</code></strong>（如 <code class="language-plaintext highlighter-rouge">5804-0</code> 為 <code class="language-plaintext highlighter-rouge">mg/dL</code>），研判可能為 SemiQn；
+惟此係由項目性質推得，<strong>未經權威查證，故不逕行納入</strong>。</p>
+
+<p><strong>所需輸入</strong>　對 <code class="language-plaintext highlighter-rouge">LP32888-7</code>／<code class="language-plaintext highlighter-rouge">LP436123-6</code>／<code class="language-plaintext highlighter-rouge">LP7747-1</code> 三個 LOINC part 代碼執行
+<code class="language-plaintext highlighter-rouge">$lookup</code>（或查 loinc.org 之 part 頁面）取得其正式 Scale 名稱。本容器之 proxy 封鎖
+tx.fhir.org 與 loinc.org（403），無法於開發環境完成；須於可連外環境或由 CI 增設查詢步驟。</p>
+
+<p><strong>影響範圍</strong>　<code class="language-plaintext highlighter-rouge">scripts/audit-ucum.js</code> 之 <code class="language-plaintext highlighter-rouge">SCALE_BY_LP</code> 對映與 <code class="language-plaintext highlighter-rouge">--max-unknown</code> 基準、
+<code class="language-plaintext highlighter-rouge">extended-ucum-reference.csv</code> 之列數（若判定納入，該等碼須補列官方單位）、
+<code class="language-plaintext highlighter-rouge">terminology.md</code> &sect;6.1 之統計。</p>
+
+<p><strong>若決策不同</strong>　若判定為量值型（如 SemiQn）而應納入，則現行稽核仍有最多 29 碼之涵蓋缺口，
+其建議單位未經比對——與 JOB-19 補充事項 &sect;2 所指之缺陷同型，須補列並將
+<code class="language-plaintext highlighter-rouge">--max-unknown</code> 降為 0；若判定為非量值型（如 Doc／Multi），則現況正確，
+僅需將該三碼補入 <code class="language-plaintext highlighter-rouge">SCALE_BY_LP</code> 使其歸為「不適用」，<code class="language-plaintext highlighter-rouge">--max-unknown</code> 亦可降為 0。
+兩種結果都應使該基準歸零——<strong>保留 29 不是結論，是待辦</strong>。</p>
+
+<p><strong>出處</strong>　JOB-19 補充事項施作（2026-07-30）；CI run 30534387613 實測</p>
 
 <h2 id="p-1canonical-命名空間為-provisional-">P-1　canonical 命名空間為 provisional <a id="p-1"></a></h2>
 

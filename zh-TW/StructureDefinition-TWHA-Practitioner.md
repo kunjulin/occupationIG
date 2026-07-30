@@ -52,7 +52,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
   "name" : "TWHAPractitionerProfile",
   "title" : "執業/健檢醫護與服務人員 Profile",
   "status" : "active",
-  "date" : "2026-07-30T09:28:37+00:00",
+  "date" : "2026-07-30T10:44:37+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
