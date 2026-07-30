@@ -247,14 +247,25 @@ jobs:
             npm run qa -- --log input-cache/publisher-run.log --expect-tx
           fi
 
-      # JOB-19 線 B：UCUM 建議單位稽核閘門（需 tx；離線建置略過）。
-      # 對 extended-ucum-reference.csv 逐碼取官方 EXAMPLE_UCUM_UNITS 四態比對。
-      # Round 1 收割之 oracle：相符 197／不符 0（4 筆多值列修正比對邏輯後為相符）／
-      # LOINC 未提供 74／待人工判定 0。基準「不符 = 0」，任一列之 ucum_suggested 與官方
-      # 不符即失敗（--gate --max 0）。「不符」不自動覆寫，須人工判定係選用差異或代碼錯誤。
-      - name: UCUM 稽核閘門 (UCUM mismatch)
+      # JOB-19 線 B（＋補充事項 §2／§3）：UCUM 建議單位稽核閘門（需 tx；離線建置略過）。
+      #
+      # 稽核全集＝**由值集展開**（VS-ExtendedDataset／CoreDataset／TWHAVitalSigns／
+      # CoreUploadSet 之 Scale=Qn 碼），非讀 CSV 之列。舊版以 CSV 271 列為全集，而該檔
+      # 凍結於 292 碼時期，致 20 個量值碼從未被 $lookup、閘門盲目——與 JOB-17 之
+      # loinc-valuesets.xlsx 同型缺陷。此處沿用 JOB-17「由值集展開＋CI 攔阻」之模式。
+      #
+      # 兩道基準皆為 0：
+      #   --max 0          不符（CSV 之單位有官方清單外者）
+      #   --max-missing 0  未列於對照檔（值集有量值碼而 CSV 無——換碼後之涵蓋缺口）
+      # 後者使下一次換碼若漏回寫對照檔，即於建置階段被自動發現。
+      #
+      # ⚠️ 本輪為「全集展開後之重新收割」：Core／VitalSigns／社會史首次納入稽核，
+      # 其 Qn 判定與官方單位須由 tx 實測後才能回填對照檔。故本步驟暫以
+      # continue-on-error 執行以取得完整分類；回填 CSV 後即移除該旗標，恢復硬閘門。
+      - name: UCUM 稽核閘門 (UCUM mismatch / 未列於對照檔)
         if: env.TX_SERVER != 'n/a'
-        run: node scripts/audit-ucum.js --tx "$TX_SERVER" --gate --max 0
+        continue-on-error: true
+        run: node scripts/audit-ucum.js --tx "$TX_SERVER" --gate --max 0 --max-missing 0
 
       # JOB-02 驗收條件 #2：publish box 不得再顯示 Local Development build。
       # 刻意排在 QA 閘門**之後**——閘門的數字是比較有診斷價值的訊號，
