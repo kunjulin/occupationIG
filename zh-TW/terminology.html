@@ -386,9 +386,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </blockquote>
 
 <blockquote>
-  <p>⚠️ <strong>代碼驗證之三項要件（治理要求）</strong>：</p>
+  <p>⚠️ <strong>代碼驗證之五項要件（治理要求）</strong>：</p>
 
-  <p><strong><code class="language-plaintext highlighter-rouge">$validate-code</code> 通過僅代表「代碼存在」，不代表「語意正確」。</strong> 新增或引用任何代碼前，須完成下列三項：</p>
+  <p><strong><code class="language-plaintext highlighter-rouge">$validate-code</code> 通過僅代表「代碼存在」，不代表「語意正確」。</strong> 新增或引用任何代碼前，須完成下列五項；
+前三項已閘門化（JOB-01），後二項由 JOB-19 閘門化，均於送審用 tx 建置階段自動攔阻：</p>
 
   <table>
     <thead>
@@ -396,6 +397,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
         <th style="text-align: left">要件</th>
         <th style="text-align: left">方法</th>
         <th style="text-align: left">單獨檢查為何不足</th>
+        <th style="text-align: left">CI 閘門</th>
       </tr>
     </thead>
     <tbody>
@@ -403,26 +405,43 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
         <td style="text-align: left">(a) <strong>代碼存在性</strong></td>
         <td style="text-align: left"><code class="language-plaintext highlighter-rouge">$validate-code</code> 或 IG Publisher 建置</td>
         <td style="text-align: left">代碼存在但語意不同者仍會通過</td>
+        <td style="text-align: left">✅ tx 建置</td>
       </tr>
       <tr>
         <td style="text-align: left">(b) <strong>代碼狀態</strong></td>
         <td style="text-align: left"><code class="language-plaintext highlighter-rouge">$lookup</code> 之 <code class="language-plaintext highlighter-rouge">STATUS</code> 屬性</td>
         <td style="text-align: left"><code class="language-plaintext highlighter-rouge">DEPRECATED</code>／<code class="language-plaintext highlighter-rouge">DISCOURAGED</code> 之代碼同樣存在且通過驗證</td>
+        <td style="text-align: left">✅ 具名類別 <code class="language-plaintext highlighter-rouge">has a status of DISCOURAGED</code></td>
       </tr>
       <tr>
         <td style="text-align: left">(c) <strong>顯示名語意相符性</strong></td>
         <td style="text-align: left"><code class="language-plaintext highlighter-rouge">$lookup</code> 取得官方 display，與本 IG 標示之意義<strong>人工確認</strong></td>
         <td style="text-align: left"><strong>唯有此項能攔截「用錯碼」</strong></td>
+        <td style="text-align: left">✅ <code class="language-plaintext highlighter-rouge">Wrong Display Name = 0</code></td>
+      </tr>
+      <tr>
+        <td style="text-align: left">(d) <strong>建議單位（UCUM）</strong></td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">$lookup</code> 取 <code class="language-plaintext highlighter-rouge">EXAMPLE_UCUM_UNITS</code>，與 <code class="language-plaintext highlighter-rouge">extended-ucum-reference.csv</code> 逐碼四態比對</td>
+        <td style="text-align: left">display 對而單位錯仍量綱不符（如吸菸量以「支/日」碼承載「包/日」值）</td>
+        <td style="text-align: left">✅ <code class="language-plaintext highlighter-rouge">scripts/audit-ucum.js --gate</code>（不符 = 0）</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">(e) <strong>跨術語對映一致性</strong></td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">snomed-loinc-mappings.csv</code> 之 <code class="language-plaintext highlighter-rouge">loinc_preferred</code> 須存在於某 IG 值集</td>
+        <td style="text-align: left">CSV 之 LOINC 側曾四度與 IG 本體脫節而 <code class="language-plaintext highlighter-rouge">VERIFIED</code> 未被質疑</td>
+        <td style="text-align: left">✅ <code class="language-plaintext highlighter-rouge">scripts/check-asset-consistency.js</code></td>
       </tr>
     </tbody>
   </table>
 
-  <p><strong>IG Publisher 不執行 (c)</strong>：其驗證 ValueSet 之 <code class="language-plaintext highlighter-rouge">concept.code</code> 是否存在於 CodeSystem，
-但<strong>不檢查 <code class="language-plaintext highlighter-rouge">concept.display</code> 是否與該代碼真實語意相符</strong>。故一個值集可收錄 15 個過敏原檢測代碼、
-標示為「純音聽力各頻率」，仍以 0 Error 通過建置——此情形已實際發生於本 IG（見 &sect;6.3）。</p>
+  <p><strong>IG Publisher 不執行 (c)–(e)</strong>：其驗證 ValueSet 之 <code class="language-plaintext highlighter-rouge">concept.code</code> 是否存在於 CodeSystem，
+但<strong>不檢查 <code class="language-plaintext highlighter-rouge">concept.display</code> 是否與該代碼真實語意相符</strong>，亦不檢查建議單位與跨術語對映。
+故一個值集可收錄 15 個過敏原檢測代碼、標示為「純音聽力各頻率」，仍以 0 Error 通過建置——
+此情形已實際發生於本 IG（見 &sect;6.3）。</p>
 
   <p>凡代碼來源為人工建議清單者，<strong>均須執行全面 display 語意比對</strong>，比對報告見
-<a href="display-verification-report.csv">display-verification-report.csv</a>。</p>
+<a href="display-verification-report.csv">display-verification-report.csv</a>；UCUM 四態稽核結果見
+<a href="extended-ucum-reference.csv">extended-ucum-reference.csv</a> 之 <code class="language-plaintext highlighter-rouge">verification</code> 欄。</p>
 </blockquote>
 
 <h3 id="32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</h3>

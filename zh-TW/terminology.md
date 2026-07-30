@@ -83,15 +83,17 @@
 
 1. **本 IG 之值集綁定強度一律為 `extensible`**（與文件一 §6.3、實際建置一致），與上述治理層級之`preferred`為不同概念，請勿混用。
 
-> ⚠️ **代碼驗證之三項要件（治理要求）**：**`$validate-code` 通過僅代表「代碼存在」，不代表「語意正確」。** 新增或引用任何代碼前，須完成下列三項：
+> ⚠️ **代碼驗證之五項要件（治理要求）**：**`$validate-code` 通過僅代表「代碼存在」，不代表「語意正確」。** 新增或引用任何代碼前，須完成下列五項； 前三項已閘門化（JOB-01），後二項由 JOB-19 閘門化，均於送審用 tx 建置階段自動攔阻：
 
-| | | |
-| :--- | :--- | :--- |
-| (a)**代碼存在性** | `$validate-code`或 IG Publisher 建置 | 代碼存在但語意不同者仍會通過 |
-| (b)**代碼狀態** | `$lookup`之`STATUS`屬性 | `DEPRECATED`／`DISCOURAGED`之代碼同樣存在且通過驗證 |
-| (c)**顯示名語意相符性** | `$lookup`取得官方 display，與本 IG 標示之意義**人工確認** | **唯有此項能攔截「用錯碼」** |
+| | | | |
+| :--- | :--- | :--- | :--- |
+| (a)**代碼存在性** | `$validate-code`或 IG Publisher 建置 | 代碼存在但語意不同者仍會通過 | ✅ tx 建置 |
+| (b)**代碼狀態** | `$lookup`之`STATUS`屬性 | `DEPRECATED`／`DISCOURAGED`之代碼同樣存在且通過驗證 | ✅ 具名類別`has a status of DISCOURAGED` |
+| (c)**顯示名語意相符性** | `$lookup`取得官方 display，與本 IG 標示之意義**人工確認** | **唯有此項能攔截「用錯碼」** | ✅`Wrong Display Name = 0` |
+| (d)**建議單位（UCUM）** | `$lookup`取`EXAMPLE_UCUM_UNITS`，與`extended-ucum-reference.csv`逐碼四態比對 | display 對而單位錯仍量綱不符（如吸菸量以「支/日」碼承載「包/日」值） | ✅`scripts/audit-ucum.js --gate`（不符 = 0） |
+| (e)**跨術語對映一致性** | `snomed-loinc-mappings.csv`之`loinc_preferred`須存在於某 IG 值集 | CSV 之 LOINC 側曾四度與 IG 本體脫節而`VERIFIED`未被質疑 | ✅`scripts/check-asset-consistency.js` |
 
-**IG Publisher 不執行 (c)**：其驗證 ValueSet 之 `concept.code` 是否存在於 CodeSystem， 但**不檢查 `concept.display` 是否與該代碼真實語意相符**。故一個值集可收錄 15 個過敏原檢測代碼、 標示為「純音聽力各頻率」，仍以 0 Error 通過建置——此情形已實際發生於本 IG（見 §6.3）。凡代碼來源為人工建議清單者，**均須執行全面 display 語意比對**，比對報告見 [display-verification-report.csv](display-verification-report.csv)。
+**IG Publisher 不執行 (c)–(e)**：其驗證 ValueSet 之 `concept.code` 是否存在於 CodeSystem， 但**不檢查 `concept.display` 是否與該代碼真實語意相符**，亦不檢查建議單位與跨術語對映。 故一個值集可收錄 15 個過敏原檢測代碼、標示為「純音聽力各頻率」，仍以 0 Error 通過建置—— 此情形已實際發生於本 IG（見 §6.3）。凡代碼來源為人工建議清單者，**均須執行全面 display 語意比對**，比對報告見 [display-verification-report.csv](display-verification-report.csv)；UCUM 四態稽核結果見 [extended-ucum-reference.csv](extended-ucum-reference.csv) 之 `verification` 欄。
 
 ### 3.2 代碼映射 ConceptMap
 
