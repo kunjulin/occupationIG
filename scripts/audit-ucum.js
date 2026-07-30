@@ -20,7 +20,7 @@
 //    吸菸量案例顯示「不符」有時是「代碼選錯」而非「單位填錯」；自動改單位會固化錯誤。
 //
 // 稽核範圍判準（補充事項 §3——主動排除並註明，而非「不在 CSV 就跳過」）：
-//   納入：$lookup 之 SCALE_TYP ∈ {Qn, OrdQn}（承載數值，UCUM 適用）
+//   納入：$lookup 之 SCALE_TYP ∈ {Qn, OrdQn, SemiQn}（承載數值，UCUM 適用；SemiQn 見 JOB-20）
 //   排除：其餘 Scale（Nom/Ord/Nar/Doc/Multi…，如 panel、定性、影像、鏡檢定性）
 //        或 PROPERTY ∈ 明確不承載單位者（Type/Prid/ID/Imp/Find/Anat/-）
 //   排除者標為「不適用」並記錄其 Scale／Property，非被動略過。
@@ -31,7 +31,7 @@
 //   LOINC 未提供 在 CSV，官方無 EXAMPLE_UCUM_UNITS
 //   待人工判定   在 CSV，官方多值而 CSV 空白／擇一——需確認院內實際用者
 //   未列於對照檔 值集中之量值碼**不在** CSV（涵蓋缺口，補充事項 §2 之核心）
-//   不適用      非 Qn/OrdQn 或 Property 不承載單位（主動排除，記錄理由）
+//   不適用      非 Qn/OrdQn/SemiQn 或 Property 不承載單位（主動排除，記錄理由）
 //   查詢失敗    $lookup 失敗
 //
 // Usage:
@@ -54,6 +54,8 @@ const gateMode = argv.includes('--gate');
 const maxMismatch = parseInt(arg('--max', '0'), 10);
 const maxMissing = parseInt(arg('--max-missing', '0'), 10);
 const maxUnknown = parseInt(arg('--max-unknown', '0'), 10);
+// 分類失效自我檢查（JOB-20 §5）：見檔末 gate 段之說明。
+const minInScopeRatio = parseFloat(arg('--min-inscope-ratio', '0.5'));
 const csvPath = path.join(repoRoot, 'input', 'assets', 'extended-ucum-reference.csv');
 const vsDir = path.join(repoRoot, 'input', 'fsh', 'valuesets');
 const outJson = arg('--out', 'docs/optimization/evidence/ucum-audit.json');
@@ -121,7 +123,14 @@ function pickProps(res) {
 }
 
 // Scale 正規化：display 若已為字面值（Qn／OrdQn…）直接用；否則以答案清單碼回推。
-const SCALE_BY_LP = { 'LP7753-9': 'Qn', 'LP7752-1': 'OrdQn', 'LP7751-3': 'Ord', 'LP7750-5': 'Nom', 'LP7749-7': 'Nar' };
+// LOINC Scale part 代碼 → 正式 Part Name。後三筆經 loinc.org 查證（JOB-20，2026-07-30）：
+//   LP32888-7  = Doc     文件型（觀測值為文件內容，無單位）→ 非量值型
+//   LP436123-6 = SemiQn  半定量型（建立於 2023-07-05，故舊對映表未涵蓋）→ **量值型，納入稽核**
+//   LP7747-1   = -       多重（官方描述：用於 panel，其成員以不同方式報告）→ 非量值型
+const SCALE_BY_LP = {
+  'LP7753-9': 'Qn', 'LP7752-1': 'OrdQn', 'LP7751-3': 'Ord', 'LP7750-5': 'Nom', 'LP7749-7': 'Nar',
+  'LP32888-7': 'Doc', 'LP436123-6': 'SemiQn', 'LP7747-1': '-',
+};
 function normScale(scale, scaleCode) {
   const s = (scale || '').trim();
   if (s && !/^LP\d/.test(s)) return s;              // 已是字面值
@@ -143,8 +152,11 @@ function classify4(csvUnit, officialUnits) {
   return csv.length === officialUnits.length ? '相符' : (officialUnits.length > 1 ? '待人工判定' : '相符');
 }
 
+// 納入判準（JOB-20 §3.2）：SemiQn 之半定量結果仍具單位（如試紙尿蛋白之 mg/dL 分級），
+// 故與 Qn／OrdQn 同列納入。Doc／-／Nom／Nar／Ord 為主動排除並記錄其 Scale。
+const IN_SCOPE_SCALES = new Set(['Qn', 'OrdQn', 'SemiQn']);
 function inScope(scale, property) {
-  return (scale === 'Qn' || scale === 'OrdQn') && !EXCLUDE_PROPERTY.has(property);
+  return IN_SCOPE_SCALES.has(scale) && !EXCLUDE_PROPERTY.has(property);
 }
 
 // ---- 讀取來源 --------------------------------------------------------------
@@ -243,7 +255,24 @@ function parseCsv(text) {
     if (missing.length > maxMissing) { console.error(`\n✖ 未列於對照檔：${missing.length} 筆 > 基準 ${maxMissing}。值集之量值碼須全數納入對照檔。`); fail = true; }
     if (mismatches.length > maxMismatch) { console.error(`\n✖ UCUM mismatch：不符 ${mismatches.length} 筆 > 基準 ${maxMismatch}。請人工判定後更正。`); fail = true; }
     if (unknownScale.length > maxUnknown) { console.error(`\n✖ Scale 未知：${unknownScale.length} 筆 > 基準 ${maxUnknown}。新增之未對映 Scale 碼須先判定是否納入稽核範圍。`); fail = true; }
+
+    // ── 分類失效自我檢查（JOB-20 §5）─────────────────────────────────────────
+    // 為什麼需要：首輪（run 30533847567）因 Scale 判準錯誤而「320 碼全判不適用」，
+    // 三道零基準（不符/未列於對照檔/Scale 未知）全部為 0 而**閘門空過**——綠燈但一碼未驗。
+    // 該類錯誤之共同特徵是「納入比對之量值碼數塌陷」，故直接對該數字設下限，
+    // 使同型錯誤自己現形，不必靠人核對分類筆數。
+    const inScopeCount = tally['相符'] + tally['不符'] + tally['LOINC 未提供'] + tally['待人工判定'] + tally['未列於對照檔'];
+    const ratio = universe.length ? inScopeCount / universe.length : 0;
+    console.log(`\n分類健全度：納入比對之量值碼 ${inScopeCount}／全集 ${universe.length} = ${(ratio * 100).toFixed(1)}%（下限 ${(minInScopeRatio * 100).toFixed(0)}%）`);
+    if (inScopeCount === 0) {
+      console.error('\n✖ 分類失效：納入比對之量值碼為 0。Scale 判定必然有誤（如 tx 回傳格式變更），非「全部不適用」。');
+      fail = true;
+    } else if (ratio < minInScopeRatio) {
+      console.error(`\n✖ 分類失效：納入比對之量值碼僅占全集 ${(ratio * 100).toFixed(1)}% < ${(minInScopeRatio * 100).toFixed(0)}%。`);
+      console.error('  研判 Scale 分類失效（對映表未涵蓋新增之 Scale part、或 tx 回傳格式變更），請先修正判準再談基準。');
+      fail = true;
+    }
     if (fail) process.exit(1);
-    console.log(`\n✔ UCUM 閘門通過：不符 ${mismatches.length} ≤ ${maxMismatch}、未列於對照檔 ${missing.length} ≤ ${maxMissing}、Scale 未知 ${unknownScale.length} ≤ ${maxUnknown}。`);
+    console.log(`\n✔ UCUM 閘門通過：不符 ${mismatches.length} ≤ ${maxMismatch}、未列於對照檔 ${missing.length} ≤ ${maxMissing}、Scale 未知 ${unknownScale.length} ≤ ${maxUnknown}、分類健全度 ${(ratio * 100).toFixed(1)}% ≥ ${(minInScopeRatio * 100).toFixed(0)}%。`);
   }
 })();
