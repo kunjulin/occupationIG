@@ -247,6 +247,15 @@ jobs:
             npm run qa -- --log input-cache/publisher-run.log --expect-tx
           fi
 
+      # JOB-19 線 B：UCUM 建議單位稽核（需 tx；離線建置略過）。
+      # 目前為 informational——對 extended-ucum-reference.csv 逐碼取官方 EXAMPLE_UCUM_UNITS
+      # 並印出四態分類（相符／不符／LOINC 未提供／待人工判定）供收割。尚未閘門化：
+      # 待「不符」列經人工判定（選用差異或代碼錯誤）並回填 CSV verification 後，
+      # 改為 `--gate --max <基準>`，屆時不符數超過基準即失敗。
+      - name: UCUM 稽核 (informational)
+        if: env.TX_SERVER != 'n/a'
+        run: node scripts/audit-ucum.js --tx "$TX_SERVER"
+
       # JOB-02 驗收條件 #2：publish box 不得再顯示 Local Development build。
       # 刻意排在 QA 閘門**之後**——閘門的數字是比較有診斷價值的訊號，
       # 就算本步驟失敗也要先把它記錄下來。本步驟失敗會使 job 失敗，
