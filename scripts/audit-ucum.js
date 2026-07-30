@@ -37,7 +37,7 @@
 // Usage:
 //   node scripts/audit-ucum.js [--tx <url>] [--delay <ms>] [--out <json>]
 //   node scripts/audit-ucum.js --gate [--max <n>] [--max-missing <n>]
-//       閘門模式：不符 > max（預設 0）或 未列於對照檔 > max-missing（預設 0）即 exit 1
+//       閘門模式：不符 > max、未列於對照檔 > max-missing、Scale 未知 > max-unknown 即 exit 1
 'use strict';
 
 const fs = require('fs');
@@ -53,6 +53,7 @@ const delayMs = parseInt(arg('--delay', '120'), 10);
 const gateMode = argv.includes('--gate');
 const maxMismatch = parseInt(arg('--max', '0'), 10);
 const maxMissing = parseInt(arg('--max-missing', '0'), 10);
+const maxUnknown = parseInt(arg('--max-unknown', '0'), 10);
 const csvPath = path.join(repoRoot, 'input', 'assets', 'extended-ucum-reference.csv');
 const vsDir = path.join(repoRoot, 'input', 'fsh', 'valuesets');
 const outJson = arg('--out', 'docs/optimization/evidence/ucum-audit.json');
@@ -186,9 +187,10 @@ function parseCsv(text) {
   console.log(`對照檔：${path.basename(csvPath)} 現有 ${csvRows.length} 列\n`);
 
   const results = [];
-  const tally = { 相符: 0, 不符: 0, 'LOINC 未提供': 0, 待人工判定: 0, 未列於對照檔: 0, 不適用: 0, 查詢失敗: 0 };
+  const tally = { 相符: 0, 不符: 0, 'LOINC 未提供': 0, 待人工判定: 0, 未列於對照檔: 0, 不適用: 0, 'Scale 未知': 0, 查詢失敗: 0 };
   const mismatches = [];
   const missing = [];
+  const unknownScale = [];
 
   for (let i = 0; i < universe.length; i++) {
     const code = universe[i];
@@ -199,6 +201,9 @@ function parseCsv(text) {
     const scale = normScale(props.scale, props.scale_code);
     let state;
     if (props.error) state = '查詢失敗';
+    // Scale 仍為未對映之答案清單碼：**不可**當作「不適用」默默排除——那正是補充事項 §3
+    // 所禁止之被動排除（其中部分碼確有官方單位，如 5804-0 之 mg/dL）。列為獨立狀態並閘門追蹤。
+    else if (/^LP\d/.test(scale)) state = 'Scale 未知';
     else if (!inScope(scale, props.property)) state = '不適用';
     else if (!csvByCode.has(code)) state = '未列於對照檔';
     else state = classify4(csvByCode.get(code).ucum_suggested, unitSet(props.example_ucum));
@@ -209,6 +214,7 @@ function parseCsv(text) {
     results.push(rec);
     if (state === '不符') mismatches.push(rec);
     if (state === '未列於對照檔') missing.push(rec);
+    if (state === 'Scale 未知') unknownScale.push(rec);
     console.log(`[${String(i + 1).padStart(3)}/${universe.length}] ${code.padEnd(9)} ${state.padEnd(6)} scale=${(scale || '∅').padEnd(6)} prop=${(props.property || '∅').padEnd(6)} csv=${(rec.csv_ucum || '∅').padEnd(14)} official=${rec.official_ucum || '∅'}`);
     if (i < universe.length - 1) await new Promise((r) => setTimeout(r, delayMs));
   }
@@ -222,6 +228,8 @@ function parseCsv(text) {
   for (const m of missing) console.log(`  ✖ ${m.code}  scale=${m.scale}  官方單位=${m.official_ucum || '(LOINC 未提供)'}`);
   console.log(`\n不符（須人工判定，不自動覆寫）：${mismatches.length} 筆`);
   for (const m of mismatches) console.log(`  ✖ ${m.code}  csv=${m.csv_ucum}  官方=${m.official_ucum}`);
+  console.log(`\nScale 未知（tx 回傳未對映之答案清單碼，須人工判定是否納入）：${unknownScale.length} 筆`);
+  for (const u of unknownScale) console.log(`  ? ${u.code}  scale_raw=${u.scale_raw}  csv=${u.csv_ucum || '∅'}  官方=${u.official_ucum || '(未提供)'}`);
   console.log(`\n對照檔冗列（CSV 有、值集無，換碼後之殘留）：${stale.length} 筆${stale.length ? '：' + stale.join(', ') : ''}`);
 
   const absJson = path.resolve(repoRoot, outJson);
@@ -234,7 +242,8 @@ function parseCsv(text) {
     let fail = false;
     if (missing.length > maxMissing) { console.error(`\n✖ 未列於對照檔：${missing.length} 筆 > 基準 ${maxMissing}。值集之量值碼須全數納入對照檔。`); fail = true; }
     if (mismatches.length > maxMismatch) { console.error(`\n✖ UCUM mismatch：不符 ${mismatches.length} 筆 > 基準 ${maxMismatch}。請人工判定後更正。`); fail = true; }
+    if (unknownScale.length > maxUnknown) { console.error(`\n✖ Scale 未知：${unknownScale.length} 筆 > 基準 ${maxUnknown}。新增之未對映 Scale 碼須先判定是否納入稽核範圍。`); fail = true; }
     if (fail) process.exit(1);
-    console.log(`\n✔ UCUM 閘門通過：不符 ${mismatches.length} ≤ ${maxMismatch}、未列於對照檔 ${missing.length} ≤ ${maxMissing}。`);
+    console.log(`\n✔ UCUM 閘門通過：不符 ${mismatches.length} ≤ ${maxMismatch}、未列於對照檔 ${missing.length} ≤ ${maxMissing}、Scale 未知 ${unknownScale.length} ≤ ${maxUnknown}。`);
   }
 })();
