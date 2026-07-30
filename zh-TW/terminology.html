@@ -1073,19 +1073,23 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
       <td style="text-align: right">320</td>
     </tr>
     <tr>
-      <td style="text-align: left">─ 其中 Scale = Qn（UCUM 適用，納入比對）</td>
-      <td style="text-align: right">231</td>
+      <td style="text-align: left">─ 納入比對之量值碼（Scale ∈ <code class="language-plaintext highlighter-rouge">Qn</code> 231／<code class="language-plaintext highlighter-rouge">SemiQn</code> 10）</td>
+      <td style="text-align: right"><strong>241</strong></td>
     </tr>
     <tr>
-      <td style="text-align: left">─ 非量值型（panel／定性／影像／鏡檢，主動排除並記錄 Scale）</td>
-      <td style="text-align: right">89</td>
+      <td style="text-align: left">─ 非量值型（<code class="language-plaintext highlighter-rouge">Ord</code> 53／<code class="language-plaintext highlighter-rouge">Doc</code> 17／<code class="language-plaintext highlighter-rouge">Nom</code> 7／<code class="language-plaintext highlighter-rouge">-</code> 2；主動排除並記錄 Scale）</td>
+      <td style="text-align: right">79</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">─ Scale 未對映之答案清單碼</td>
+      <td style="text-align: right"><strong>0</strong>（<a href="open-issues.html#t-12">T-12</a> 已結案）</td>
     </tr>
     <tr>
       <td style="text-align: left"><strong>建議單位與 LOINC 官方 <code class="language-plaintext highlighter-rouge">EXAMPLE_UCUM_UNITS</code> 相符</strong></td>
-      <td style="text-align: right"><strong>233</strong></td>
+      <td style="text-align: right"><strong>234</strong></td>
     </tr>
     <tr>
-      <td style="text-align: left">LOINC 未提供建議單位</td>
+      <td style="text-align: left">LOINC 未提供建議單位（其中量值碼 7 筆）</td>
       <td style="text-align: right">74</td>
     </tr>
     <tr>
@@ -1093,20 +1097,26 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
       <td style="text-align: right"><strong>0</strong></td>
     </tr>
     <tr>
-      <td style="text-align: left">Scale 為未對映之答案清單碼（待判定，見 <a href="open-issues.html">T-12</a>）</td>
-      <td style="text-align: right">29</td>
+      <td style="text-align: left"><strong>未列於對照檔（值集有量值碼而對照檔無）</strong></td>
+      <td style="text-align: right"><strong>0</strong></td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p>上表之「相符 233 ／未提供 74」為對照檔之 <strong>307 列</strong>；與稽核全集 320 之差為
-非量值型碼（本表不列單位）與待判定之 Scale 未知碼。前述三項數值均為 CI 閘門
-之具名基準（<code class="language-plaintext highlighter-rouge">--max 0 --max-missing 0 --max-unknown 29</code>）：值集新增量值碼而未
-回寫對照檔（「未列於對照檔」）即建置失敗。</p>
+  <p>「相符 234 ／未提供 74」為對照檔之 <strong>308 列</strong>（234 ＋ 74）；其中 241 列為納入比對之
+量值碼（相符 234 ＋ 官方未提供 7），餘 67 列為對照檔亦收錄之非量值型碼（不列單位）。
+<code class="language-plaintext highlighter-rouge">SemiQn</code>（<code class="language-plaintext highlighter-rouge">LP436123-6</code>，2023-07-05 新增之 Scale）於 JOB-20 經 loinc.org 查證後納入比對，
+10 筆之官方單位皆經 tx <code class="language-plaintext highlighter-rouge">$lookup</code> 取回（9 筆有值、<code class="language-plaintext highlighter-rouge">20621-9</code> 官方未提供）。</p>
+
+  <p>上開數值均為 CI 閘門之具名基準
+（<code class="language-plaintext highlighter-rouge">--max 0 --max-missing 0 --max-unknown 0 --min-inscope-ratio 0.5</code>）：值集新增量值碼而未
+回寫對照檔（「未列於對照檔」）、或出現新的未對映 Scale 碼，即建置失敗。
+另設<strong>分類失效自我檢查</strong>——納入比對之量值碼占全集之比率若低於 50%（實測 75.3%），
+即視為 Scale 判定失效而失敗，避免「全部判為不適用卻閘門全綠」之空過（見 JOB-20 &sect;5）。</p>
 </blockquote>
 
-<p>完整對照表（307 筆，含 LOINC 官方顯示名與來源標註）：
+<p>完整對照表（308 筆，含 LOINC 官方顯示名與來源標註）：
 <strong><a href="extended-ucum-reference.csv">extended-ucum-reference.csv</a></strong></p>
 
 <p>CSV 欄位：<code class="language-plaintext highlighter-rouge">loinc</code>、<code class="language-plaintext highlighter-rouge">ig_display</code>（本 IG 標示）、<code class="language-plaintext highlighter-rouge">loinc_display</code>（LOINC 官方顯示名）、

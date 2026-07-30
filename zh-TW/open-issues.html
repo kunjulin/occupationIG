@@ -426,7 +426,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left"><a href="#t-12">T-12</a></td>
       <td style="text-align: left">UCUM 稽核之 Scale 未對映碼（29 筆）</td>
       <td style="text-align: left">執行團隊／術語</td>
-      <td style="text-align: left">待決（已閘門追蹤，上限 29；判定後可望轉為納入或明確排除）</td>
+      <td style="text-align: left">✅ <strong>已解決（2026-07-30）</strong>：三碼經 loinc.org 查證（Doc／SemiQn／-），SemiQn 納入稽核、餘明確排除，<code class="language-plaintext highlighter-rouge">--max-unknown</code> 已歸零</td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#p-1">P-1</a></td>
@@ -1079,35 +1079,68 @@ MDRD 為 Acceptable</strong>。公式沿革（民國 114＝2025、115＝2026）�
 
 <hr/>
 
-<h2 id="t-12ucum-稽核之-scale-未對映碼29-筆-">T-12　UCUM 稽核之 Scale 未對映碼（29 筆） <a id="t-12"></a></h2>
+<h2 id="t-12ucum-稽核之-scale-未對映碼29-筆-已解決-">T-12　UCUM 稽核之 Scale 未對映碼（29 筆）　✅ 已解決 <a id="t-12"></a></h2>
 
-<p><strong>現況</strong>　<code class="language-plaintext highlighter-rouge">scripts/audit-ucum.js</code> 以 <code class="language-plaintext highlighter-rouge">$lookup</code> 之 <code class="language-plaintext highlighter-rouge">SCALE_TYP</code> 判定代碼是否為量值型（UCUM 適用）。
-tx.fhir.org 於部分代碼以 <strong>LOINC 答案清單碼</strong>回傳且未附 display，現有對映表僅涵蓋
-<code class="language-plaintext highlighter-rouge">LP7753-9</code>（Qn）／<code class="language-plaintext highlighter-rouge">LP7752-1</code>（OrdQn）／<code class="language-plaintext highlighter-rouge">LP7751-3</code>（Ord）／<code class="language-plaintext highlighter-rouge">LP7750-5</code>（Nom）／<code class="language-plaintext highlighter-rouge">LP7749-7</code>（Nar）。
-尚有 <strong>29 碼</strong>之 Scale 為未對映之答案清單碼：<code class="language-plaintext highlighter-rouge">LP32888-7</code>（17 筆）、<code class="language-plaintext highlighter-rouge">LP436123-6</code>（10 筆）、
-<code class="language-plaintext highlighter-rouge">LP7747-1</code>（2 筆，<code class="language-plaintext highlighter-rouge">89015-2</code>／<code class="language-plaintext highlighter-rouge">98497-1</code> panel）。該 29 碼現列為具名狀態「Scale 未知」
-並以實測值 29 為閘門上限（<code class="language-plaintext highlighter-rouge">--max-unknown 29</code>），<strong>新增即失敗</strong>。</p>
+<p><strong>狀態</strong>　<strong>已解決（2026-07-30，JOB-20）</strong>。編號保留，不刪除、不重用。</p>
 
-<p><strong>待決</strong>　上開三個答案清單碼各對應何種 LOINC Scale，以及其代碼是否應納入 UCUM 稽核範圍。
-初步線索：<code class="language-plaintext highlighter-rouge">LP436123-6</code> 之 10 筆多為試紙／效價項目（<code class="language-plaintext highlighter-rouge">5804-0</code> 尿蛋白試紙、<code class="language-plaintext highlighter-rouge">9633-9</code> EBV 效價），
-且其中部分<strong>確有官方 <code class="language-plaintext highlighter-rouge">EXAMPLE_UCUM_UNITS</code></strong>（如 <code class="language-plaintext highlighter-rouge">5804-0</code> 為 <code class="language-plaintext highlighter-rouge">mg/dL</code>），研判可能為 SemiQn；
-惟此係由項目性質推得，<strong>未經權威查證，故不逕行納入</strong>。</p>
+<p><strong>原現況</strong>　<code class="language-plaintext highlighter-rouge">scripts/audit-ucum.js</code> 以 <code class="language-plaintext highlighter-rouge">$lookup</code> 之 <code class="language-plaintext highlighter-rouge">SCALE_TYP</code> 判定代碼是否為量值型。
+tx.fhir.org 於部分代碼以 LOINC 答案清單碼回傳且未附 display，原對映表未涵蓋三碼，
+致 29 碼落入具名狀態「Scale 未知」，並以實測值 29 為閘門上限暫時追蹤。</p>
 
-<p><strong>所需輸入</strong>　對 <code class="language-plaintext highlighter-rouge">LP32888-7</code>／<code class="language-plaintext highlighter-rouge">LP436123-6</code>／<code class="language-plaintext highlighter-rouge">LP7747-1</code> 三個 LOINC part 代碼執行
-<code class="language-plaintext highlighter-rouge">$lookup</code>（或查 loinc.org 之 part 頁面）取得其正式 Scale 名稱。本容器之 proxy 封鎖
-tx.fhir.org 與 loinc.org（403），無法於開發環境完成；須於可連外環境或由 CI 增設查詢步驟。</p>
+<p><strong>解決結果</strong>　三個 part 代碼經 <strong>loinc.org 查證</strong>（2026-07-30，於可連外環境執行）：</p>
 
-<p><strong>影響範圍</strong>　<code class="language-plaintext highlighter-rouge">scripts/audit-ucum.js</code> 之 <code class="language-plaintext highlighter-rouge">SCALE_BY_LP</code> 對映與 <code class="language-plaintext highlighter-rouge">--max-unknown</code> 基準、
-<code class="language-plaintext highlighter-rouge">extended-ucum-reference.csv</code> 之列數（若判定納入，該等碼須補列官方單位）、
-<code class="language-plaintext highlighter-rouge">terminology.md</code> &sect;6.1 之統計。</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Part 代碼</th>
+      <th style="text-align: left">官方 Part Name</th>
+      <th style="text-align: right">筆數</th>
+      <th style="text-align: left">判定</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">LP32888-7</code></td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">Doc</code></strong>（文件型）</td>
+      <td style="text-align: right">17</td>
+      <td style="text-align: left">非量值型——觀測值為文件內容，無測量單位 → <strong>明確排除</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">LP436123-6</code></td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">SemiQn</code></strong>（半定量型，2023-07-05 建立）</td>
+      <td style="text-align: right">10</td>
+      <td style="text-align: left">量值型——半定量結果仍具單位 → <strong>納入稽核</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">LP7747-1</code></td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">-</code></strong>（多重）</td>
+      <td style="text-align: right">2</td>
+      <td style="text-align: left">非量值型——官方描述「用於 panel，其成員以不同方式報告」 → <strong>明確排除</strong></td>
+    </tr>
+  </tbody>
+</table>
 
-<p><strong>若決策不同</strong>　若判定為量值型（如 SemiQn）而應納入，則現行稽核仍有最多 29 碼之涵蓋缺口，
-其建議單位未經比對——與 JOB-19 補充事項 &sect;2 所指之缺陷同型，須補列並將
-<code class="language-plaintext highlighter-rouge">--max-unknown</code> 降為 0；若判定為非量值型（如 Doc／Multi），則現況正確，
-僅需將該三碼補入 <code class="language-plaintext highlighter-rouge">SCALE_BY_LP</code> 使其歸為「不適用」，<code class="language-plaintext highlighter-rouge">--max-unknown</code> 亦可降為 0。
-兩種結果都應使該基準歸零——<strong>保留 29 不是結論，是待辦</strong>。</p>
+<p><code class="language-plaintext highlighter-rouge">LP436123-6</code> 建立於 2023-07-05，屬較新之 Scale 值，此即原對映表未涵蓋之原因。
+本登記簿原記「研判可能為 SemiQn，惟係由項目性質推得、未經查證，故不逕行納入」——
+官方確認即為 <code class="language-plaintext highlighter-rouge">SemiQn</code>，<strong>該推定正確，而未經查證即不納入之處置亦正確</strong>。</p>
 
-<p><strong>出處</strong>　JOB-19 補充事項施作（2026-07-30）；CI run 30534387613 實測</p>
+<p><strong>已完成之處置</strong>（JOB-20）</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">SCALE_BY_LP</code> 補入三筆對映；納入判準由 <code class="language-plaintext highlighter-rouge">{Qn, OrdQn}</code> 擴為 <strong><code class="language-plaintext highlighter-rouge">{Qn, OrdQn, SemiQn}</code></strong>。</li>
+  <li>10 筆 SemiQn 之官方 <code class="language-plaintext highlighter-rouge">EXAMPLE_UCUM_UNITS</code> 經 CI 之 tx <code class="language-plaintext highlighter-rouge">$lookup</code> 逐碼取回並比對，
+全數相符；其中 <code class="language-plaintext highlighter-rouge">20621-9</code> 官方未提供單位，標「LOINC 未提供」（<strong>已知情形，非未決</strong>）。</li>
+  <li>CI 閘門 <code class="language-plaintext highlighter-rouge">--max-unknown</code> <strong>29 → 0</strong>（本題原即載明兩種判定結果都應使該基準歸零；
+本次為混合結果——10 納入、19 排除——仍歸零）。</li>
+  <li>新增分類失效自我檢查 <code class="language-plaintext highlighter-rouge">--min-inscope-ratio 0.5</code>（見 JOB-20 &sect;5）。</li>
+</ul>
+
+<p><strong>驗收（CI run 30539459829）</strong>　<code class="language-plaintext highlighter-rouge">Scale 未知 = 0</code>、<code class="language-plaintext highlighter-rouge">未列於對照檔 = 0</code>、<code class="language-plaintext highlighter-rouge">不符 = 0</code>、
+分類健全度 241／320 ＝ 75.3%、<code class="language-plaintext highlighter-rouge">err = 0</code>、<code class="language-plaintext highlighter-rouge">Wrong Display Name = 0</code>、<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset = 288</code>。</p>
+
+<p><strong>出處</strong>　JOB-19 補充事項施作（2026-07-30）提出；<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-20-t12-scale-parts-resolution.md">JOB-20</a> 結案</p>
+
+<hr/>
 
 <h2 id="p-1canonical-命名空間為-provisional-">P-1　canonical 命名空間為 provisional <a id="p-1"></a></h2>
 
