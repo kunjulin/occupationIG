@@ -62,22 +62,27 @@
 >    - 本 IG 之 **`preferred (primary) code`** 指「**本 IG 建議之標準交換碼**」，**並非該項目之唯一臨床正確碼**；臨床上其他碼可能同樣正確，惟為利跨機構交換一致性而指定優先碼。
 > 2. **本 IG 之值集綁定強度一律為 `extensible`**（與文件一 §6.3、實際建置一致），與上述治理層級之 `preferred` 為不同概念，請勿混用。
 
-> ⚠️ **代碼驗證之三項要件（治理要求）**：
+> ⚠️ **代碼驗證之五項要件（治理要求）**：
 >
-> **`$validate-code` 通過僅代表「代碼存在」，不代表「語意正確」。** 新增或引用任何代碼前，須完成下列三項：
+> **`$validate-code` 通過僅代表「代碼存在」，不代表「語意正確」。** 新增或引用任何代碼前，須完成下列五項；
+> 前三項已閘門化（JOB-01），後二項由 JOB-19 閘門化，均於送審用 tx 建置階段自動攔阻：
 >
-> | 要件 | 方法 | 單獨檢查為何不足 |
-> |:--|:--|:--|
-> | (a) **代碼存在性** | `$validate-code` 或 IG Publisher 建置 | 代碼存在但語意不同者仍會通過 |
-> | (b) **代碼狀態** | `$lookup` 之 `STATUS` 屬性 | `DEPRECATED`／`DISCOURAGED` 之代碼同樣存在且通過驗證 |
-> | (c) **顯示名語意相符性** | `$lookup` 取得官方 display，與本 IG 標示之意義**人工確認** | **唯有此項能攔截「用錯碼」** |
+> | 要件 | 方法 | 單獨檢查為何不足 | CI 閘門 |
+> |:--|:--|:--|:--|
+> | (a) **代碼存在性** | `$validate-code` 或 IG Publisher 建置 | 代碼存在但語意不同者仍會通過 | ✅ tx 建置 |
+> | (b) **代碼狀態** | `$lookup` 之 `STATUS` 屬性 | `DEPRECATED`／`DISCOURAGED` 之代碼同樣存在且通過驗證 | ✅ 具名類別 `has a status of DISCOURAGED` |
+> | (c) **顯示名語意相符性** | `$lookup` 取得官方 display，與本 IG 標示之意義**人工確認** | **唯有此項能攔截「用錯碼」** | ✅ `Wrong Display Name = 0` |
+> | (d) **建議單位（UCUM）** | `$lookup` 取 `EXAMPLE_UCUM_UNITS`，與 `extended-ucum-reference.csv` 逐碼四態比對 | display 對而單位錯仍量綱不符（如吸菸量以「支/日」碼承載「包/日」值） | ✅ `scripts/audit-ucum.js --gate`（不符 = 0） |
+> | (e) **跨術語對映一致性** | `snomed-loinc-mappings.csv` 之 `loinc_preferred` 須存在於某 IG 值集 | CSV 之 LOINC 側曾四度與 IG 本體脫節而 `VERIFIED` 未被質疑 | ✅ `scripts/check-asset-consistency.js` |
 >
-> **IG Publisher 不執行 (c)**：其驗證 ValueSet 之 `concept.code` 是否存在於 CodeSystem，
-> 但**不檢查 `concept.display` 是否與該代碼真實語意相符**。故一個值集可收錄 15 個過敏原檢測代碼、
-> 標示為「純音聽力各頻率」，仍以 0 Error 通過建置——此情形已實際發生於本 IG（見 §6.3）。
+> **IG Publisher 不執行 (c)–(e)**：其驗證 ValueSet 之 `concept.code` 是否存在於 CodeSystem，
+> 但**不檢查 `concept.display` 是否與該代碼真實語意相符**，亦不檢查建議單位與跨術語對映。
+> 故一個值集可收錄 15 個過敏原檢測代碼、標示為「純音聽力各頻率」，仍以 0 Error 通過建置——
+> 此情形已實際發生於本 IG（見 §6.3）。
 >
 > 凡代碼來源為人工建議清單者，**均須執行全面 display 語意比對**，比對報告見
-> [display-verification-report.csv](display-verification-report.csv)。
+> [display-verification-report.csv](display-verification-report.csv)；UCUM 四態稽核結果見
+> [extended-ucum-reference.csv](extended-ucum-reference.csv) 之 `verification` 欄。
 
 ### 3.2 代碼映射 ConceptMap
 本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **38 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729（JOB-14）新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
