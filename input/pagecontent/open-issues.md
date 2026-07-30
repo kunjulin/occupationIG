@@ -628,7 +628,7 @@ tx.fhir.org 於部分代碼以 LOINC 答案清單碼回傳且未附 display，�
 **驗收（CI run 30539459829）**　`Scale 未知 = 0`、`未列於對照檔 = 0`、`不符 = 0`、
 分類健全度 241／320 ＝ 75.3%、`err = 0`、`Wrong Display Name = 0`、`VS-ExtendedDataset = 288`。
 
-**出處**　JOB-19 補充事項施作（2026-07-30）提出；[JOB-20](../../docs/optimization/JOB-20-t12-scale-parts-resolution.md) 結案
+**出處**　JOB-19 補充事項施作（2026-07-30）提出；[JOB-20](https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-20-t12-scale-parts-resolution.md) 結案
 
 ---
 
