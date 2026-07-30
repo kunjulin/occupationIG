@@ -13,7 +13,7 @@ Description: "第一期法定必驗之勞工健康檢查項目草案子集，涵
 // 一般健檢必驗項目 (附表九)
 * LNC#8302-2 "Body height" // 身高
 * LNC#29463-7 "Body weight" // 體重
-* LNC#55284-4 "Blood pressure systolic and diastolic" // 血壓
+* LNC#85354-9 "Blood pressure panel with all children optional" // 血壓（v20260730 由 55284-4 汰換：55284-4 狀態為 DISCOURAGED，且指引其餘處已採 85354-9，本次統一；JOB-18）
 * LNC#1558-6 "Fasting glucose [Mass/volume] in Serum or Plasma" // 空腹血糖
 * LNC#2093-3 "Cholesterol [Mass/volume] in Serum or Plasma" // 總膽固醇
 * LNC#2571-8 "Triglyceride [Mass/volume] in Serum or Plasma" // 三酸甘油酯

@@ -9,6 +9,6 @@ Description: "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、�
 * include codes from valueset VS_TWHAVitalSigns
 // 社會史（吸菸狀態/吸菸量/戒菸月數/嚼檳狀態）
 * LNC#72166-2  // 吸菸狀態 Tobacco smoking status
-* LNC#64218-1  // 吸菸量 Cigarettes smoked current (pack per day)
+* LNC#64218-1  // 吸菸量 How many cigarettes do you smoke per day now [PhenX]（官方 Property NRat＝Count/Time，單位為「支/日」`/d`，非「包/日」；pack-year／packs/day 須另尋代碼並經查證，勿沿用本碼）
 * LNC#63632-4  // 戒菸月數 Have quit smoking (duration)
 * SCT#698188003 // 嚼檳狀態 Chews betel quid

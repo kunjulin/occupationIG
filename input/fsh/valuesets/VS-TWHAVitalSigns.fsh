@@ -4,7 +4,9 @@ Title: "職業健檢生命徵象項目值集"
 Description: "包含身高、體重、腰圍及血壓等生理測量項目之 LOINC 代碼。"
 * ^experimental = false
 * LNC#8302-2 "Body height"
+* LNC#3137-7 "Body height Measured"      // Acceptable：方法特化碼（Method = Measured）；經 ConceptMap 歸一至 8302-2（#narrower）
 * LNC#29463-7 "Body weight"
+* LNC#3141-9 "Body weight Measured"      // Acceptable：方法特化碼（Method = Measured）；經 ConceptMap 歸一至 29463-7（#narrower）
 * LNC#8280-0 "Waist Circumference at umbilicus by Tape measure"  // 腰圍 Preferred（委員建議，臍位皮尺法；送件前以 loinc.org 覆核顯示名）
 // (-) 腰圍無第二個「量測」對應碼：原列 56086-2 經 tx 驗證為 PhenX「Adult Waist Circumference Protocol」
 //     （屬protocol/方法碼，非量測碼），已移出本值集；院所若以 56086-2 上傳，

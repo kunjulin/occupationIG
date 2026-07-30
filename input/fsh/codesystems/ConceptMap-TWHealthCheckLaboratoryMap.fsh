@@ -327,3 +327,18 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 * group[0].element[36].target[0].display = "Spermatozoa [#/volume] in Urine by Automated count"
 * group[0].element[36].target[0].equivalence = #relatedto
 * group[0].element[36].target[0].comment = "source 為每高倍視野（/HPF）鏡檢沉渣計數、target 為每體積（/µL）全尿自動計數；兩者需依儀器換算係數（離心速度、沉渣濃縮倍率、視野面積）轉換，不可直接比較數值。"
+
+// 身高（方法特化）：JOB-18。與尿沉渣（relatedto）不同——此處為方法特化與方法通用之包含關係，數值可直接比較，故 #narrower。
+* group[0].element[37].code = #3137-7
+* group[0].element[37].display = "Body height Measured"
+* group[0].element[37].target[0].code = #8302-2
+* group[0].element[37].target[0].display = "Body height"
+* group[0].element[37].target[0].equivalence = #narrower
+* group[0].element[37].target[0].comment = "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一身高量測概念之方法特化與通用，屬包含關係，數值可直接比較。"
+// 體重（方法特化）：JOB-18，同上。
+* group[0].element[38].code = #3141-9
+* group[0].element[38].display = "Body weight Measured"
+* group[0].element[38].target[0].code = #29463-7
+* group[0].element[38].target[0].display = "Body weight"
+* group[0].element[38].target[0].equivalence = #narrower
+* group[0].element[38].target[0].comment = "source 指定量測方法（Method = Measured），target 方法未指定；二者為同一體重量測概念之方法特化與通用，屬包含關係，數值可直接比較。"

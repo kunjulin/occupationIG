@@ -159,7 +159,7 @@
 | 尿沉渣 | 精子 Spermatozoa | `51479-4` | `{53324-0}` | — | /uL | — |
 | 生理 | BMI | `39156-5` | — | 60621009 | kg/m2 | 成健 |
 | 生理 | 腰臀比 WHR | (-確定無合適碼) | — | 248362002 | {ratio} | 成健 |
-| 生理 | 血壓 Panel | `55284-4` | — | 75367002 | — | 成健 |
+| 生理 | 血壓 Panel | `85354-9` | — | 75367002 | — | 成健（v20260730 由 `55284-4`（DISCOURAGED）汰換） |
 | 生理 | 腰圍 | `8280-0` | (-確定無合適碼) | 276361009 | cm | 附表九/成健 |
 | 肺功能 | FVC | `19868-9` | `{19876-2, 19870-5}` | 50834005 | L | 職業 |
 | 肺功能 | FEV1 | `20150-9` | — | 59328004 | L | 職業 |
@@ -171,6 +171,13 @@
 > UF-5000/UD-10 報每 µL，他院則以每高倍視野（/HPF）報告；兩量綱需依儀器係數換算、不可直接比較數值，
 > 故以 `#relatedto` 歸一而非 `equivalent`。此為 JOB-01 批3「整組換為體積碼」之範圍修正：面積碼為 ACTIVE
 > 之合法 LOINC，回收為 acceptable 使以 /HPF 報告之機構亦可實作（見 ConceptMap `element[28]–[36]`）。
+
+> **社會史量化碼之單位與性質（JOB-18）**：
+> - `64218-1`（吸菸量，*How many cigarettes do you smoke per day now* [PhenX]）之官方 Property 為 **NRat（Count/Time）**，
+>   例示單位為 **`/d`（支/日）**，**非「包/日」**（`{pack}/d`）。以本碼承載「包/日」之值，將使實作端把 20 支誤讀為 20 包（量綱不符）。
+>   若須交換 pack-year 或 packs/day，應另尋對應代碼並經 `$lookup` 查證，**不得沿用本碼**。
+> - `63632-4`（戒菸月數，*About how long has it been since you completely quit smoking cigarettes* [TUS-CPS]）之 Class 為 **PHENX**、
+>   Method 為 **TUS-CPS**（調查工具情境碼）。依「與官方對齊並揭露」原則保留，交換時應知其為調查量表脈絡之代碼。
 
 ---
 
@@ -327,7 +334,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 | `2532-0` | LDH | 狀態 **DISCOURAGED** | 同上 |
 | `1709-5` | RBC 乙醯膽鹼酯酶 | 狀態 **DISCOURAGED** | 同上 |
 | `35200-5` | 總膽固醇（acceptable） | 狀態 **DISCOURAGED** | v20260726 全面比對新發現 |
-| `55284-4` | 血壓 panel | 狀態 **DISCOURAGED** | v20260726 全面比對新發現 |
+| `55284-4` | 血壓 panel | 狀態 **DISCOURAGED** | ✅ **已處置**（JOB-18）：改為 `85354-9`（Blood pressure panel with all children optional, ACTIVE），全指引統一；`55284-4` 已不再出現於任何值集 |
 | `19571-9` 等 **5 碼** | 尿液毒品篩檢（安非他命／鴉片／苯二氮平／K他命／MDMA） | 均為 **cutoff（閾值濃度）概念碼**（`[Mass/volume] ... for Screen method`，單位 ng/mL），非篩檢結果碼 | ✅ **已處置**：改列對應之 `[Presence]` 結果碼（`3349-8`／`3879-4`／`3390-2`／`12327-3`／`14267-9`） |
 | `29771-3` | 糞便潛血（免疫法 FIT） | Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay | ✅ **已覆核**：概念相符（下消化道人類血紅蛋白免疫分析），顯示名已校正 |
 
