@@ -2,10 +2,14 @@
 
 臺灣勞工健康檢查與臨場健康服務執行紀錄之 FHIR 實作指引。本指引依據中華民國《勞工健康保護規則》設計，並繼承「臺灣核心實作指引」(Taiwan Core IG / TW Core IG)，以勞工健康檢查為核心，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。
 
+> 📖 **第一次接觸 FHIR／IG？請先看 [快速入門 (Quick Start)](quickstart.md)**（約 6 分鐘，不需資訊背景）。
+> 該頁亦發佈於 IG 網站：<https://kunjulin.github.io/occupationIG/quickstart.html>
+
 ## 專案簡介
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
+* **版本**: `0.2.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -13,6 +17,7 @@
 ## 專案結構與目錄說明
 
 * `CLAUDE.md`：作業前提索引（五條鐵則、常犯錯誤、檢查指令）。新接手者請先看這份。
+* `quickstart.md`：**非技術讀者導覽頁**（給長官、業務單位、審查人員）。與 `input/pagecontent/quickstart.md` 為同一份內容之兩個版本（前者連結指向已發佈網站，後者為站內相對連結），**修改時須兩處同步**。
 * `input/`：包含 IG 的原始輸入內容，如頁面內容（`pagecontent/`）、FHIR 資源定義（`fsh/`）、下載資產（`assets/`）等。
 * `sushi-config.yaml`：SUSHI 編譯器的設定檔，包含專案中繼資料、依賴項、建置參數以及導覽選單配置。
 * `ig.ini`：HL7 IG Publisher 的設定檔。
@@ -142,6 +147,22 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.2.1（2026-08-05）新增快速入門導覽頁
+> 說明：本次為**導覽性（non-normative）內容新增**，未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例，不影響既有實作。
+> （QA 基準線仍會因新增一頁而變動——新頁面自身之連結訊息會計入 `cannot be resolved`，見下方 `qa-baseline.json` 一條。）
+- **新增 [`input/pagecontent/quickstart.md`](input/pagecontent/quickstart.md)〈快速入門 (Quick Start)〉**：以第一次接觸 FHIR／IG 的主管、業務單位與審查人員為對象，內容包含
+  - FHIR／IG／Profile／ValueSet／LOINC／Must Support 之白話說明與比喻；
+  - 本指引範疇（Core ＋ 特殊職類擴充 ＋ 一般健檢／預防保健擴充）與四張法規附表之對應；
+  - **三種資料集之區辨**（① IG scope ≠ ② Core 最小上傳集 21 列 ≠ ③ 法定情境資料集），呼應 [index.md](input/pagecontent/index.md) §3 與[未決事項 M-5](input/pagecontent/open-issues.md)；
+  - **「0 Error」之意義界定**（呼應[未決事項 G-2、G-3](input/pagecontent/open-issues.md)）：以**頁尾附註**形式呈現，載明技術驗證通過為必要非充分條件，不代表臨床適切性或法規符合性；
+  - 外部待決事項摘要（M-5／M-6／M-7／M-10／T-1／T-3／P-1／P-2）與各角色閱讀路徑，並敘明該等事項為**外部依賴，非團隊未完成之工作項目**。
+- **[`CLAUDE.md`](CLAUDE.md) §2.4 更正**：③ 情境資料集原記為「尚未以值集定義（backlog；見 JOB-07）」，惟 `VS-Appendix9-RequiredSet` 與 `VS-Appendix10-RequiredSet` 已於 0.2.0 落地且 [index.md](input/pagecontent/index.md) §3 已引用，故更正為實際產物並保留附表十未審家族之提醒（M-8）。
+- **同步新增 repo 根目錄 [`quickstart.md`](quickstart.md)**：內容同上，站內連結改為已發佈網站絕對位址，供 GitHub 讀者直接閱讀。**兩檔須同步維護。**
+- **`sushi-config.yaml`**：`menu` 於「首頁」下新增「快速入門 (Quick Start)」；`version` 由 `0.2.0` 調整為 `0.2.1`。
+- **`package-list.json`**：新增 0.2.1 版次條目。
+- **`qa-baseline.json`**：新增一頁 pagecontent 會帶進該頁自身之連結訊息，`cannot be resolved` 依 CI 實測值上調並具名說明（`_quickstartNote`）。**上調量以 CI 實測為準，未預先猜測**；程序見 [`docs/RELEASE.md`](docs/RELEASE.md) §2.2。
+- ⚠️ 對外發佈前一律以 tx 建置重建並檢視 `output/qa.html`。現行基準線為 2026-07-29 之 `err 0 / warn 152 / info 459`（以 `qa-baseline.json` 為準；`warn 208 / info 257` 為 2026-07-26 之最初基準線，已不適用）。
 
 ### 2026-07-23 更新（法規 115.06.26 同步 ＋ 四方委員意見合併）
 > 說明：本 IG 為工業技術研究院委託研擬中之草案，尚未定稿；本次更新反映法規修正與委員意見。

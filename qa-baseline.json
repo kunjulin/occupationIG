@@ -78,6 +78,29 @@
     "element[38] 3141-9→29463-7，equivalence 皆 #narrower）、VS-ExtendedDataset 288（未動）、",
     "DISCOURAGED 6 → 5（55284-4 不再出現）。"
   ],
+  "_quickstartNote": [
+    "v0.2.1（新增〈快速入門 (Quick Start)〉導覽頁）之基準線變動。",
+    "量測來源 CI run 31025756689（commit 5715f087，PR #26，tx 建置，err = 0）。",
+    "",
+    "  cannot be resolved   2311 → 2313   (+2)   新增 input/pagecontent/quickstart.md 一頁。",
+    "",
+    "publish box 之「Directory of published versions」連結指向 provisional canonical 下不存在的",
+    "history.html，網站每一頁都斷（見 _categoriesNote）。故每新增一個 pagecontent 頁面即 +2",
+    "（根層轉址殼頁與 zh-TW 語言層各一）——此為既有已量測之行為，前例為 2026-07-28 新增",
+    "open-issues.md 一頁時之 2078 → 2080。本次實測增量恰為 +2，與該規則相符。",
+    "**非新問題，亦非本次變更引入之缺陷**；P-1（canonical 核定）解決後此類將整批歸零。",
+    "",
+    "增量以 CI 實測為準，未預先猜測後寫入（程序見 docs/RELEASE.md §2.2）：",
+    "先推送取得一次實測、讀閘門印出之差異、再具名回填。",
+    "",
+    "其餘類別 CI 實測全數無變動（22 個具名類別差異皆為 0），包含",
+    "Wrong Display Name 0、has a status of DISCOURAGED 5、",
+    "There are no valid display names found for the code 237。",
+    "本次為導覽性內容新增，未變更任何 Profile／ValueSet／CodeSystem／Extension／範例。",
+    "",
+    "TOTAL info 實測 436（基準 459）、TOTAL warn 實測 96（基準 152）：與 _job18Note 之實測值",
+    "完全相同，屬既有波動帶內之未歸因改善，依既定政策（_warnNote／_runVarianceNote）不下調天花板。"
+  ],
   "_job01Batch2Note": [
     "JOB-01 批 2（換碼/加碼：Q2-2/2-3/2-4、Q3、Q7）之基準線變動。",
     "量測來源 run 30432410720（commit 1663d359，err = 0）。歷經三輪 CI：",
@@ -399,7 +422,7 @@
     "stated value for the caseSensitive element": 5,
     "There are no valid display names found for the code": 237,
     "Pinned the version of": 30,
-    "cannot be resolved": 2311,
+    "cannot be resolved": 2313,
     "does not match any known slice": 23
   }
 }

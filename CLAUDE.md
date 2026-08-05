@@ -55,9 +55,13 @@ IG Publisher 驗證通過僅證明**語法正確**且**已被引用之術語**�
 |:--|:--|:--|
 | **① IG scope** | 本指引能表達什麼＝Core ∪ Extended | `VS-CoreDataset` ∪ `VS-ExtendedDataset` |
 | **② Core upload set** | 主管機關（國健署）最小共通上傳集，21 列 | `VS-CoreUploadSet` |
-| **③ 情境資料集** | 某法定情境依法應做什麼 | **尚未以值集定義**（backlog；見 JOB-07） |
+| **③ 情境資料集** | 某法定情境依法應做什麼 | `VS-Appendix9-RequiredSet`（附表九，完整）／`VS-Appendix10-RequiredSet`（附表十，已落地噪音／鉛／粉塵／有機溶劑四家族，餘待 JOB-01） |
 
 **① ≠ ② ≠ ③。** 不得以「某項目不在 Core（②）」推論該項目不重要或非 Must Support。
+
+> 更新（v0.2.1）：③ 原記為「尚未以值集定義（backlog；見 JOB-07）」，惟該值集已於 0.2.0 落地
+> （`input/fsh/valuesets/VS-Appendix9-RequiredSet.fsh`、`VS-Appendix10-RequiredSet.fsh`，
+> [index.md](input/pagecontent/index.md) §3 已引用），故更正。**附表十尚有未審家族待補，見未決事項 M-8。**
 
 ### 2.5 Preferred（代碼層級）≠ 綁定強度 preferred
 
