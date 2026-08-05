@@ -67,7 +67,7 @@ This structure refers to these other structures:
   "name" : "TWHAConditionProfile",
   "title" : "健康檢查既往病史與不適作業疾病 Profile",
   "status" : "active",
-  "date" : "2026-07-30T14:46:31+00:00",
+  "date" : "2026-08-05T16:28:11+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

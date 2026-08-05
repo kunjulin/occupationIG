@@ -82,7 +82,7 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
   "title" : "肺功能檢查 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-07-30T14:46:31+00:00",
+  "date" : "2026-08-05T16:28:11+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
