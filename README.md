@@ -70,12 +70,16 @@ npm run qa -- --update # 改善後下調基準線（請一併提交）
 ```
 
 `qa-baseline.json` 記錄各類訊息之允許上限，**任一類別數值高於基準線即失敗**（只能降不能升）。
-現行基準線量測於 2026-07-26（`err = 0, warn = 208, info = 257`），
-明細見 [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)。
+現行基準線量測於 2026-07-29（`err = 0, warn = 152, info = 459`），以該檔內容為準；
+最初之基準線（2026-07-26，`warn = 208, info = 257`）與稽核明細見
+[`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)。
 
 CI（[`.github/workflows/build-ig.yml`](.github/workflows/build-ig.yml)）於 push 與 PR 時
 自動執行上述流程並上傳 `qa.txt`／`qa.html`／建置產出物。
 **目前 CI 不自動發佈** gh-pages，發佈仍為手動。
+
+> 從變更到線上網站更新的完整步驟、各道閘門失敗之判讀，見
+> **[`docs/RELEASE.md`](docs/RELEASE.md)（發佈流程清單）**。
 
 > ⚠️ **離線建置（`-tx n/a`）不得作為送審依據**（文件一 v3.2 §6.6）。
 > 離線模式**不會驗證代碼是否存在、顯示名是否正確**——語法合法但語意錯誤的代碼（例如以「出院指示」的代碼記錄「職業危害暴露」）在離線建置下完全不會報錯。
