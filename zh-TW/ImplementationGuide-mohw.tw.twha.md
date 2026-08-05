@@ -10,11 +10,11 @@
   "id" : "mohw.tw.twha",
   "language" : "zh-TW",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha",
-  "version" : "0.2.0",
+  "version" : "0.2.1",
   "name" : "TWHAIG",
   "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-08-05T16:28:11+00:00",
+  "date" : "2026-08-05T16:48:01+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -3846,6 +3846,15 @@
         }],
         "nameUrl" : "open-issues.html",
         "title" : "Open Issues",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "quickstart.html"
+        }],
+        "nameUrl" : "quickstart.html",
+        "title" : "Quickstart",
         "generation" : "markdown"
       },
       {

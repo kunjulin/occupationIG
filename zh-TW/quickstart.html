@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>Quickstart - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.1</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link rel="stylesheet" href="fhir.css"/>
+
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap-fhir.css"/>
+
+      <!-- Project extras -->
+    <link rel="stylesheet" href="assets/css/pygments-manni.css"/>
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+  	<link rel="stylesheet" href="assets/css/prism.css"/>
+    <link rel="stylesheet" href="assets/css/project.css"/>
+  	<link rel="stylesheet" href="assets/css/cqf.css"/>
+      <!-- Placeholder for child template CSS declarations -->
+
+    <script src="fhir-table-scripts.js" type="text/javascript"> </script>
+    <script src="assets/js/direction-management.js" type="text/javascript"> </script>
+
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- [if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif] -->
+
+      <!-- Favicons -->
+    <link sizes="144x144" rel="fhir-logo" href="assets/ico/icon-fhir-144.png"/>
+    <link sizes="114x114" rel="fhir-logo" href="assets/ico/icon-fhir-114.png"/>
+    <link sizes="72x72" rel="fhir-logo" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-fhirpath.js" type="text/javascript"></script>
+	  <script src="assets/js/prism-cql.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid.js" type="text/javascript"></script>
+    <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
+    <style type="text/css">h2{--heading-prefix:"12"}
+    h3,h4,h5,h6{--heading-prefix:"12"}</style>
+    <div id="segment-header" class="segment">    <!-- segment-header -->
+      <div class="container">    <!-- container -->
+
+          <!-- Placeholder for child template header declarations -->
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
+            <br/>
+            <span style="display:inline-block;">0.2.1 - STU1
+
+
+            </span>
+          </p>
+        </div>
+      </div>   <!-- /container -->
+    </div>    <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">    <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">    <!-- container -->
+          <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+            <!-- status-bar -->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a href="http://hl7.org/fhir/R4/index.html" class="navbar-brand hidden">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+                <!-- menu.xml -->
+
+<ul class="nav navbar-nav">
+  <li>
+    <a href="index.html">首頁 (Home)</a>
+  </li>
+  <li>
+    <a href="quickstart.html">快速入門 (Quick Start)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">背景與案例 (Background &amp; Use Cases)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="background.html">背景 (Background)</a>
+      </li>
+      <li>
+        <a href="usecases.html">應用案例 (Use Cases)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="datamodel.html">資料模型 (Data Model)</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄定義 (Examinations)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="general-exam.html">一般健康檢查 (General Exam)</a>
+      </li>
+      <li>
+        <a href="special-exam.html">特殊危害健康作業 (Special Exam)</a>
+      </li>
+      <li>
+        <a href="adult-preventive-care.html">成人預防保健 (Adult Preventive Care)</a>
+      </li>
+      <li>
+        <a href="service-record.html">勞工健康服務執行紀錄 (Service Record)</a>
+      </li>
+      <li>
+        <a href="health-management.html">健康管理分級 (Health Management)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR 資源 (FHIR Artifacts)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html">資源總覽 (Artifacts Summary)</a>
+      </li>
+      <li>
+        <a href="artifacts.html#1">Profiles</a>
+      </li>
+      <li>
+        <a href="artifacts.html#2">Extensions</a>
+      </li>
+      <li>
+        <a href="artifacts.html#3">Value Sets</a>
+      </li>
+      <li>
+        <a href="artifacts.html#4">Code Systems</a>
+      </li>
+      <li>
+        <a href="conformance.html">遵從性與依賴 (Conformance &amp; Dependencies)</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">術語與安全 (Terminology &amp; Security)
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="terminology.html">術語定義 (Terminology)</a>
+      </li>
+      <li>
+        <a href="security.html">安全性考量 (Security)</a>
+      </li>
+      <li>
+        <a href="ip-statements.html">智慧財產權聲明 (IP Statements)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="open-issues.html">未決事項 (Open Issues)</a>
+  </li>
+  <li>
+    <a href="downloads.html">下載區 (Downloads)</a>
+  </li>
+</ul>
+            </div>    <!-- /.nav-collapse -->
+
+              
+
+          </div>    <!-- /.container -->
+        </nav>    <!-- /.navbar -->
+        <!-- /HEADER CONTENT -->
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-navbar -->
+      <!-- status-bar -->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">    <!-- segment-breadcrumb -->
+      <div class="container">    <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href="toc.html"><b>Table of Contents</b></a></li><li><b>Quickstart</b></li>
+
+        </ul>
+      </div>    <!-- /container -->
+    </div>    <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">    <!-- segment-content -->
+      <div class="container">    <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l380">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.2.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <h2>Quickstart</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>  <!-- white space is critical inside of capture --></p>
+<div>
+  <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown. -->
+</div>
+<h1 id="快速入門-quick-start5-分鐘看懂這份指引">快速入門 (Quick Start)：5 分鐘看懂這份指引</h1>
+
+<blockquote>
+  <p><strong>這一頁寫給誰</strong>：第一次接觸「FHIR」「IG」這些名詞的主管、業務單位、健檢機構管理者與計畫審查人員。
+全文約 6 分鐘可讀完，不需要任何資訊背景。技術人員請直接看<a href="#how-to-start">如何開始實作</a>。</p>
+</blockquote>
+
+<hr/>
+
+<h2 id="一一句話說明">一、一句話說明</h2>
+
+<p><strong>這是一份「臺灣勞工健康檢查資料該長什麼樣子」的國家級規格書草案</strong>，讓不同醫院、健檢機構、事業單位與主管機關之間，能用同一套格式交換勞工健檢資料。</p>
+
+<p>本指引由衛生福利部委託財團法人工業技術研究院、長庚紀念醫院研製，依據《勞工健康保護規則》設計，並繼承國家核心標準「臺灣核心實作指引（TW Core IG v1.0.0）」。</p>
+
+<hr/>
+
+<h2 id="二三個名詞用一個比喻講完">二、三個名詞，用一個比喻講完</h2>
+
+<p>健檢資料交換就像<strong>寄一份公文給另一個機關</strong>。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">名詞</th>
+      <th style="text-align: left">白話說明</th>
+      <th style="text-align: left">對應比喻</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>FHIR</strong></td>
+      <td style="text-align: left">國際通行的醫療資料交換標準（唸作 "fire"），規定醫療資料用什麼結構表達。</td>
+      <td style="text-align: left">公文的<strong>格式規範</strong>：一定要有主旨、說明、正本、副本</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>IG（實作指引）</strong></td>
+      <td style="text-align: left">把國際標準「在地化」成某個特定用途的規格書。FHIR 本身很通用，IG 才是能照著做的版本。</td>
+      <td style="text-align: left">某機關的<strong>公文製作手冊</strong>：這類公文主旨怎麼寫、附件放什麼</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Profile / ValueSet</strong></td>
+      <td style="text-align: left">IG 裡的兩種零件。Profile 規定「某一筆資料要有哪些欄位、哪些必填」；ValueSet 規定「這個欄位只能填清單裡的這幾個代碼」。</td>
+      <td style="text-align: left">Profile＝<strong>表單樣板</strong>；ValueSet＝表單上的<strong>下拉選單選項</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>再補兩個會反覆出現的詞：</p>
+
+<ul>
+  <li><strong>LOINC</strong>：檢驗項目的國際代碼。例如空腹血糖固定是 <code class="language-plaintext highlighter-rouge">1558-6</code>，不論哪家醫院都是同一碼——這樣接收端才知道這個數字是什麼。</li>
+  <li><strong>Must Support（必須支援）</strong>：不是「一定要有值」，而是「系統一定要<strong>做得到</strong>送出與接收這個欄位」。沒做這項檢查時，要能明確標示「未執行」，而不是整欄消失。</li>
+</ul>
+
+<blockquote>
+  <p><strong>關鍵理解</strong>：IG <strong>不是一套系統，也不是一個平台</strong>。它是規格書。有了它，各家廠商各自開發的系統才有辦法對接；沒有它，每次串接都要重談一次格式。</p>
+</blockquote>
+
+<hr/>
+
+<h2 id="三為什麼要做這件事">三、為什麼要做這件事</h2>
+
+<p>目前國內健檢資料有三個結構性問題：</p>
+
+<ol>
+  <li><strong>格式各自為政</strong>：同一項空腹血糖，A 院存在 PDF、B 院存在 Excel、C 院存在院內私有資料庫，欄位名稱與單位都不同。</li>
+  <li><strong>跨院無法交換</strong>：勞工換工作、換醫院，前一次健檢結果拿不過來，也回不到健康存摺。</li>
+  <li><strong>主管機關彙整困難</strong>：勞動部職安署、國民健康署、衛福部要做監測與流行病學分析時，必須逐案清洗資料。</li>
+</ol>
+
+<p>本指引的目的，就是把「該交換什麼、用什麼代碼、怎麼包裝」一次講清楚，<strong>讓資料在產生的當下就是可交換的</strong>，而不是事後再做轉檔。</p>
+
+<hr/>
+
+<h2 id="四這份指引涵蓋什麼-">四、這份指引涵蓋什麼 <a id="scope"></a></h2>
+
+<p>以<strong>勞工健康檢查為核心</strong>，向兩個方向開放擴充：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>臺灣勞工健康檢查交換實作指引 (TWHA IG)
+├── Core：主管機關最小共通上傳集（國健署原案 21 列）
+│      生活習慣（吸菸、嚼檳）／生理量測（身高體重腰圍血壓）／
+│      基本檢驗（血脂、空腹血糖、肌酸酐、尿蛋白、肝炎）
+├── 擴充一：特殊職類健檢
+│      對應附表十危害作業（噪音／鉛／粉塵／有機溶劑／輻射／特定化學物質…）
+└── 擴充二：一般健檢／成人預防保健
+       國健署成人預防保健項目、社會決定因素（SDOH）問卷
+</code></pre></div></div>
+
+<p>同時涵蓋《勞工健康保護規則》的四張附表：附表八（臨場健康服務執行紀錄）、附表九（一般體格及健康檢查）、附表十（特殊體格及健康檢查，35 項具名作業／歸併為 12 個危害家族）、附表十一（健康檢查紀錄）；以及醫師健康管理分級（一～四級）與適性配工。</p>
+
+<h3 id="️-最容易被誤解的一件事三種資料集不能混用">⚠️ 最容易被誤解的一件事：三種「資料集」不能混用</h3>
+
+<p>這是審查與溝通時<strong>最常出錯的地方</strong>，請務必分清楚：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">&nbsp;</th>
+      <th style="text-align: left">意義</th>
+      <th style="text-align: left">白話</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>① IG 涵蓋範圍</strong></td>
+      <td style="text-align: left">本指引定義的全部結構與代碼（Core ∪ 擴充）</td>
+      <td style="text-align: left">「這份規格書<strong>能表達</strong>什麼」</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>② Core 最小上傳集</strong></td>
+      <td style="text-align: left">主管機關制定的最小共通上傳欄位（21 列）</td>
+      <td style="text-align: left">「至少<strong>要交換</strong>什麼」</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>③ 情境資料集</strong></td>
+      <td style="text-align: left">特定法定情境（如附表九、附表十某危害作業）依法應執行的完整項目</td>
+      <td style="text-align: left">「該情境<strong>依法要做</strong>什麼」</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>① ≠ ② ≠ ③。</strong> 特別注意：</p>
+
+<ul>
+  <li><strong>Core（21 列）不等於附表九</strong>，更不等於一份完整的勞工健檢。Core 是「最小上傳集」，不是「法定檢查項目表」。</li>
+  <li><strong>不能因為某項目不在 Core，就推論它不重要或可以不做。</strong></li>
+  <li>Core 目前係依國健署健檢上傳欄位之<strong>工作原案</strong>建立，正式公告版本仍待主管機關確認（<a href="open-issues.html#m-5">未決事項 M-5</a>）。</li>
+</ul>
+
+<hr/>
+
+<h2 id="五誰會用到它各自怎麼用">五、誰會用到它，各自怎麼用</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">角色</th>
+      <th style="text-align: left">拿它來做什麼</th>
+      <th style="text-align: left">建議先看</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>主管機關／政策單位</strong></td>
+      <td style="text-align: left">確認法定項目是否都有對應、上傳欄位是否落地</td>
+      <td style="text-align: left"><a href="background.html">背景</a>、<a href="open-issues.html">未決事項</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>醫院／健檢機構管理者</strong></td>
+      <td style="text-align: left">評估院內 HIS/LIS 要改什麼、報告怎麼產出</td>
+      <td style="text-align: left"><a href="usecases.html">使用情境</a>、<a href="general-exam.html">一般健康檢查</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>資訊廠商／系統整合商</strong></td>
+      <td style="text-align: left">照規格開發與驗證</td>
+      <td style="text-align: left"><a href="datamodel.html">資料模型</a>、<a href="artifacts.html">FHIR 資源總覽</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>職業醫學／檢驗專科醫師</strong></td>
+      <td style="text-align: left">檢核代碼選得對不對、臨床語意是否正確</td>
+      <td style="text-align: left"><a href="special-exam.html">特殊危害健康作業</a>、<a href="terminology.html">術語定義</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>事業單位／勞工健康服務</strong></td>
+      <td style="text-align: left">了解臨場服務紀錄與健康管理分級如何數位化</td>
+      <td style="text-align: left"><a href="service-record.html">勞工健康服務執行紀錄</a>、<a href="health-management.html">健康管理分級</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>指引中定義了 <strong>9 個使用情境（UC-001～UC-009）</strong>，涵蓋一般健檢、勞工一般／特殊健檢、企業健檢、成人預防保健、臨場服務紀錄、職業健康急診友善摘要，以及結果上傳（含缺值處理與重傳）。</p>
+
+<hr/>
+
+<h2 id="六目前進度與狀態">六、目前進度與狀態</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">項目</th>
+      <th style="text-align: left">現況</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>版本</strong></td>
+      <td style="text-align: left">0.2.1（STU1 <strong>草案</strong>）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>FHIR 版本</strong></td>
+      <td style="text-align: left">R4（4.0.1）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>母規範</strong></td>
+      <td style="text-align: left">TW Core IG v1.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>公開草案網站</strong></td>
+      <td style="text-align: left"><a href="https://kunjulin.github.io/occupationIG/">https://kunjulin.github.io/occupationIG/</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>建置品質基準線</strong></td>
+      <td style="text-align: left">現行基準線（2026-07-29 tx 建置）：Error 0 ／ Warning 152 ／ Info 459（意義界定見<a href="#note-zero-error">附註</a>）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>文件狀態</strong></td>
+      <td style="text-align: left">工業技術研究院委託研製中之草案，<strong>尚未定稿、尚未成為正式國家標準</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="七還沒定案的事外部依賴">七、還沒定案的事（外部依賴）</h2>
+
+<p>指引中所有需要外部機關決定的事項，都集中在<a href="open-issues.html">未決事項與已知限制</a>頁，每項載明<strong>現況、決定者、所需輸入、若決策不同的影響</strong>。目前主要待確認者包括：</p>
+
+<ul>
+  <li><strong>Core 資料集的正式版本</strong>：國健署上傳欄位之正式公告版本（M-5）</li>
+  <li><strong>canonical 命名空間</strong>：正式命名與核定機關尚待確認，現行位址為暫定（P-1）</li>
+  <li><strong>法規保存期限的起算點與結構化方式</strong>（M-6、M-7）</li>
+  <li><strong>雇主端資料隔離之實作機制</strong>：哪些健檢資訊雇主可見、如何隔離（M-10）</li>
+  <li><strong>部分檢驗代碼與 SNOMED CT 對照待臨床逐項確認</strong>（T-1、T-3）</li>
+  <li><strong>授權條款尚未宣告</strong>（P-2）</li>
+</ul>
+
+<blockquote>
+  <p>這些是<strong>外部依賴</strong>，不是團隊未完成的工作項目。本期的交付定位是：FHIR IG 草案 ＋ 驗證結果 ＋ 公開 IG 網站 ＋ 國家 IG 報備審查提案資料。</p>
+</blockquote>
+
+<hr/>
+
+<h2 id="八常見問題">八、常見問題</h2>
+
+<p><strong>Q：這是不是一套要買的系統？</strong>
+不是。這是規格書，沒有授權費、沒有伺服器。醫院與廠商各自依規格開發或改造既有系統。</p>
+
+<p><strong>Q：做了這個，醫院要換掉現有的 HIS/LIS 嗎？</strong>
+不用。通常做法是在既有系統外加一層轉換與輸出，把院內既有資料對映到本指引定義的格式。</p>
+
+<p><strong>Q：Core 只有 21 列，是不是把健檢簡化了？</strong>
+不是。21 列是「最小共通上傳集」，不是檢查項目表。法定該做的檢查一項都不會少，只是不見得每一項都在最小上傳集內。詳見上方<a href="#scope">三種資料集</a>的說明。</p>
+
+<p><strong>Q：現在可以照著做了嗎？</strong>
+可以開始<strong>試作與評估</strong>，但不建議作為正式上線依據——版本為草案，內容得依共識會議、委員意見及主管機關規範調整。</p>
+
+<p><strong>Q：跟健康存摺、次世代平台的關係？</strong>
+本指引繼承 TW Core IG，與衛福部次世代數位醫療平臺的技術治理規範對齊，設計上即以能回饋至個人健康資料為前提。</p>
+
+<hr/>
+
+<h2 id="如何開始實作-">如何開始實作 <a id="how-to-start"></a></h2>
+
+<p>技術人員三步驟：</p>
+
+<ol>
+  <li><strong>看懂範圍</strong>：<a href="datamodel.html">資料模型</a> → <a href="artifacts.html">FHIR 資源總覽</a>（Profiles／Extensions／ValueSets／CodeSystems）</li>
+  <li><strong>抓範例</strong>：<a href="downloads.html">下載專區</a> 提供 FSH 原始碼與 JSON 範例打包</li>
+  <li><strong>驗證</strong>：以官方 IG Publisher 對自家產出的 Bundle 進行驗證；送審或對外發佈前務必使用<strong>連線術語伺服器</strong>的建置模式（離線建置不驗證代碼是否存在與顯示名是否正確）</li>
+</ol>
+
+<p>原始碼與建置說明：<a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a></p>
+
+<hr/>
+
+<h2 id="名詞速查">名詞速查</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">縮寫</th>
+      <th style="text-align: left">全名</th>
+      <th style="text-align: left">一句話</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">FHIR</td>
+      <td style="text-align: left">Fast Healthcare Interoperability Resources</td>
+      <td style="text-align: left">國際醫療資料交換標準</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">IG</td>
+      <td style="text-align: left">Implementation Guide</td>
+      <td style="text-align: left">把標準在地化成可實作的規格書</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TW Core IG</td>
+      <td style="text-align: left">Taiwan Core Implementation Guide</td>
+      <td style="text-align: left">臺灣的 FHIR 國家核心規範，本指引的母規範</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Profile</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">規定某類資料的欄位與必填程度</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ValueSet</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">規定某欄位可填的代碼清單</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">LOINC</td>
+      <td style="text-align: left">Logical Observation Identifiers Names and Codes</td>
+      <td style="text-align: left">檢驗與量測項目的國際代碼</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SNOMED CT</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">臨床概念的國際術語系統</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">UCUM</td>
+      <td style="text-align: left">Unified Code for Units of Measure</td>
+      <td style="text-align: left">度量單位的國際標準寫法</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bundle</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">把多筆資料打包成一份可傳送的封包</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">STU</td>
+      <td style="text-align: left">Standard for Trial Use</td>
+      <td style="text-align: left">試用階段標準，尚可修訂</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<h2 id="附註關於0-error的意義界定-">附註：關於「0 Error」的意義界定 <a id="note-zero-error"></a></h2>
+
+<p>供對外說明或引用建置結果時參考。</p>
+
+<p>技術驗證通過<strong>代表</strong>：語法結構正確；已被規格引用的代碼確實存在於官方代碼系統。
+<strong>不代表</strong>：臨床適切性正確、法規符合性完備、或某法定情境的項目已收齊。</p>
+
+<p>建置工具不會檢查代碼顯示名的語意是否正確，語意錯誤的代碼可以通過驗證。本案因此另行執行人工術語稽核，於 2026-07-26 查出並修正 133 筆顯示名不符（現為 0 筆），其中 16 個為實際用錯的代碼。</p>
+
+<p>因此：<strong>技術驗證通過是必要條件，不是充分條件</strong>；臨床與法規正確性仍須由專科與主管機關逐項複核。</p>
+
+<hr/>
+
+<p><em>本頁為導覽性說明，非規範性內容（non-normative）。規範性定義以各 Profile、ValueSet 與 CodeSystem 頁面為準。</em></p>
+
+
+
+
+</div>
+        </div>    <!-- /inner-wrapper -->
+      </div>    <!-- /row -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-content -->
+
+  <script src="assets/js/jquery.js" type="text/javascript"> </script>       <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script src="assets/js/jquery-ui.min.js" type="text/javascript"> </script>
+  <script src="assets/js/flags.js" type="text/javascript"> </script>
+
+  <script src="assets/js/window-hash.js" type="text/javascript"> </script>
+  <script src="assets/js/togglechanges.js" type="text/javascript"> </script>
+  <script src="assets/js/requirements-table.js" type="text/javascript"> </script>
+  <a name="bottom"> </a>
+  <div igtool="footer" id="segment-footer" class="segment">    <!-- segment-footer -->
+    <div class="container" data-fhir="generated">    <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+           <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
+          
+          
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      : <a style="color: var(--footer-hyperlink-text-color)" href="toc.html"></a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html"></a>
+                 
+                
+          </span>
+        </p>
+      </div>    <!-- /inner-wrapper -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">    <!-- segment-post-footer -->
+    <div class="container">    <!-- container -->
+    </div>    <!-- /container -->
+  </div>    <!-- /segment-post-footer -->
+
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+  <script src="assets/js/respond.min.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard.min.js" type="text/javascript"> </script>
+  <script src="assets/js/clipboard-btn.js" type="text/javascript"> </script>
+  <script src="assets/js/anchor-hover.js" type="text/javascript"> </script>
+    <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
