@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.2.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.2.2`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -139,14 +139,31 @@ set NODE_OPTIONS=--use-system-ca
 * [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)：
   tx 建置 QA 統計基準線（err 0 / warn 208 / info 257）與術語稽核明細，供各 JOB 驗收比對。
   **重跑 tx 建置後請一併更新此檔。**
-* `docs/optimization/JOB-01` ~ `JOB-13`：各 JOB 之問題證據、驗收標準、工作項目與風險；
+* `docs/optimization/JOB-01` ~ `JOB-23`：各 JOB 之問題證據、驗收標準、工作項目與風險；
   每份結尾均附「交給 Claude 規劃用提示」，可直接複製使用。
+  （JOB-14 以後為後續審閱／主管指示新增之工作項；最新為
+  [`JOB-23`](docs/optimization/JOB-23-navigation-alignment-twcore.md)——導覽列比照 TW Core IG 之差異分析，
+  **評估完成、待核准後實作**。）
 
 建議節奏：一個 JOB → 一次規劃 → 一個 commit。優先處理 P0（JOB-01～03）。
 
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.2.2（2026-08-16）導覽列比照 TW Core IG 之差異分析（評估，未變更 menu）
+> 說明：本次為**評估文件新增與版次更新**，**未變更 `sushi-config.yaml` 之 `menu`**，亦未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例，不影響既有實作與 QA 基準線。導覽列之實際調整待核准後另以 v0.2.3 發佈。
+- **緣起**：2026-08-16 主管指示，本 IG 之頁籤內容與順序請參考 [TW Core IG](https://twcore.mohw.gov.tw/ig/twcore/) 之樣式調整。
+- **新增 [`docs/optimization/JOB-23-navigation-alignment-twcore.md`](docs/optimization/JOB-23-navigation-alignment-twcore.md)**，內容為：
+  - **並排對照**：TW Core IG v1.0.0（頂層 8 項／下拉 1 組／總入口 13）對 TWHA IG v0.2.1（頂層 9 項／下拉 4 組／總入口 21），比對基準為 2026-08-16 實地檢視之導覽列 DOM 與 `toc.html`。
+  - **五項結構性差異**：D-1 排列邏輯（文件類型導向 vs 業務主題導向）／D-2 缺〈目錄〉頁籤／D-3 缺〈範例〉頂層入口／D-4 安全性位階過低／D-5 中英雙語標籤。
+  - **一項實質缺陷（非樣式問題）**：現行 menu 之 `artifacts.html#1`～`#4` 為 **IG Publisher 依該次建置實際存在之 artifact 類別自動編號**的錨點，一旦新增或移除任一類別即整體位移，四個導覽連結會**靜默指向錯誤區段**，且 `err = 0` 仍成立（IG Publisher 不檢查頁內錨點語意）。TW Core 之解法為建策展頁（`profiles-and-extensions.html`／`terminologies.html`），本案建議比照。
+  - **建議方案三分類**：A 類建議採納 7 項（含 8 項頂層之新 `menu` 草案，**所有既有頁面檔名皆不變更**）；B 類不建議採納 4 項（不刪〈快速入門〉〈未決事項〉、不改檔名、不比照 `TWCDI.html`、不比照 MOHW 視覺識別——後者屬授權與治理議題，且 canonical 仍為 provisional [M-1](input/pagecontent/open-issues.md)）；C 類後續評估 2 項（〈驗證教學〉頁、CapabilityStatement 策展頁）。
+  - **`scripts/check-menu.js` 規格**（R-1～R-5 ＋負向自我測試）：把「導覽列指向不存在頁面」「使用位移型錨點」「孤兒頁」自人工目視改為 CI 阻斷。現行 `npm run check:refs` 只檢查 pagecontent 內文，**不涵蓋 menu**。R-5 承接 [JOB-12](docs/optimization/JOB-12-navigation-and-repo-hygiene.md) §1(1) 之 `conformance.html` 孤兒頁問題，改以機制防止復發。
+- **附帶發現（登記，本次未處理）**：`ig.ini` 之 `template = fhir2.base.template#current` **未釘版**（JOB-09 已登記），上游模板改版時本站導覽外觀會在無程式碼變更之情況下自行改變——與本次「樣式為何不一致」直接相關，建議於 JOB-23 實作時一併釘版。
+- **`sushi-config.yaml`**：`version` 由 `0.2.1` 調整為 `0.2.2`（`menu` 未變更）。
+- **`package-list.json`**：新增 0.2.2 版次條目。
+- ⚠️ 本次未新增 pagecontent 頁面，`qa-baseline.json` 不變動。對外發佈前一律以 `_genonce_tx.bat`（tx 建置）重建並檢視 `output/qa.html`。
 
 ### v0.2.1（2026-08-05）新增快速入門導覽頁
 > 說明：本次為**導覽性（non-normative）內容新增**，未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例，不影響既有實作。

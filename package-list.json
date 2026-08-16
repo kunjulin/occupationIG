@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.2.2",
+      "date": "2026-08-16",
+      "desc": "新增〈JOB-23 導覽列比照 TW Core IG 之差異分析與調整方案〉評估文件：就 TW Core IG v1.0.0 之頁籤內容與順序進行並排比對，指出五項結構性差異（排列邏輯、缺目錄頁籤、缺範例入口、安全性位階、標籤語言）與一項實質缺陷（artifacts.html#1~#4 為 IG Publisher 自動編號錨點，會隨 artifact 類別增減而靜默指錯區段），並提出建議採納／不採納／後續評估三類方案。本次僅為評估文件與版次更新，未變更 menu、任何 Profile、ValueSet、CodeSystem 或範例；導覽列實作待核准後另以 0.2.3 發佈。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.2.1",
       "date": "2026-08-05",
       "desc": "新增〈快速入門 (Quick Start)〉導覽頁：以非技術讀者為對象，說明 FHIR／IG／Profile／ValueSet 之意義、本指引範疇、三種資料集（IG scope／Core 最小上傳集／情境資料集）之區辨、目前狀態與外部待決事項，並界定「0 Error」之意義。本次為導覽性（non-normative）內容新增，未變更任何 Profile、ValueSet、CodeSystem 或範例。工業技術研究院委託研擬中，尚未定稿。",
