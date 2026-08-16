@@ -17,9 +17,12 @@
     "qa:tx": "node scripts/qa-gate.js --log input-cache/publisher-run.log --expect-tx",
     "check:refs": "node scripts/check-pagecontent-refs.js",
     "check:refs:strict": "node scripts/check-pagecontent-refs.js --strict",
+    "check:menu": "node scripts/check-menu.js",
+    "check:menu:strict": "node scripts/check-menu.js --strict",
+    "check:menu:selftest": "node scripts/check-menu.js --self-test",
     "check:ms": "node scripts/check-ms-coverage.js",
     "check:ms:strict": "node scripts/check-ms-coverage.js --strict",
-    "verify": "npm run check:refs && npm run check:assets && npm run qa"
+    "verify": "npm run check:refs && npm run check:menu && npm run check:assets && npm run qa"
   },
   "devDependencies": {
     "fsh-sushi": "3.20.0"

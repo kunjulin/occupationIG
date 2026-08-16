@@ -7,7 +7,7 @@
 | **預估** | S–M（1.5–2 人日；不含新增策展頁之內容撰寫） |
 | **主要影響檔案** | `sushi-config.yaml`（`menu`）、`ig.ini`（template 釘版）、新增 `input/pagecontent/examples.md`、新增 `input/pagecontent/profiles-and-extensions.md`、新增 `scripts/check-menu.js`、`.github/workflows/build-ig.yml`、`README.md`、`package-list.json` |
 | **緣起** | 2026-08-16 主管指示：頁籤內容與順序請參考 [TW Core IG](https://twcore.mohw.gov.tw/ig/twcore/) 之樣式調整 |
-| **狀態** | 📋 **評估完成，待核准後實作**（本檔為 v0.2.2 之評估產物；實作將另以 v0.2.3 發佈） |
+| **狀態** | ✅ **已執行（v0.2.3，2026-08-16）**——§2.4 menu 草案經核准後套用；A-1～A-6 完成，**A-7（模板釘版）移列 JOB-09 續辦**（見 §8）。評估產物為 v0.2.2 |
 
 ---
 
@@ -170,13 +170,13 @@ menu:
 
 | 序 | 項目 | 產出 |
 |:--|:--|:--|
-| 1 | 新增 `input/pagecontent/examples.md`：依使用情境（UC-001～UC-007）分節列出 12 個範例並各附一句用途說明 | 新頁 |
-| 2 | 新增 `input/pagecontent/profiles-and-extensions.md`：依 FHIR resource 分節（Patient／Observation／DiagnosticReport／ClinicalImpression／Composition／Bundle／Procedure／Task）列出 38 個 profile 與 11 個 extension | 新頁 |
-| 3 | 套用 §2.4 之 `menu` | `sushi-config.yaml` |
-| 4 | `ig.ini` template 釘版 | `ig.ini` |
-| 5 | 新增 `scripts/check-menu.js`（規格見 §5）並掛入 `npm run check:menu` 與 CI | 腳本＋workflow |
-| 6 | tx 建置、更新 `qa-baseline.json`（具名說明新增 2 頁之訊息增量） | 基準線 |
-| 7 | 版次 0.2.3、README 更新記錄、`package-list.json` 條目 | 版次三處一致 |
+| 1 | 新增 `input/pagecontent/examples.md`：依使用情境（UC-001～**UC-009**）與檢查類別分節列出 **67 個範例實例**並各附說明 | ✅ 新頁（另說明 10 個 `#inline` 實例不產生獨立頁面） |
+| 2 | 新增 `input/pagecontent/profiles-and-extensions.md`：依 FHIR resource 分節列出 **41 個** profile 與 11 個 extension | ✅ 新頁（17 個 resource 分節；Observation 16 個再細分五組） |
+| 3 | 套用 §2.4 之 `menu` | ✅ `sushi-config.yaml`（頂層 8 項、入口 20 個） |
+| 4 | `ig.ini` template 釘版 | ⏸ **未執行，移列 JOB-09**（見 §8） |
+| 5 | 新增 `scripts/check-menu.js`（規格見 §5）並掛入 `npm run check:menu` 與 CI | ✅ 腳本＋`check:menu{,:strict,:selftest}`＋CI 步驟（先自我測試再實檢） |
+| 6 | tx 建置、更新 `qa-baseline.json`（具名說明新增 2 頁之訊息增量） | ⏳ **待本機／CI 執行**（本容器 proxy 封鎖套件來源，見 §8） |
+| 7 | 版次 0.2.3、README 更新記錄、`package-list.json` 條目 | ✅ 三處一致 |
 
 ---
 
@@ -222,3 +222,42 @@ menu:
 鐵則：不得更動任何既有 pagecontent 檔名；menu 不得出現 artifacts.html#<數字>；
 對外發佈前一律以 _genonce_tx.bat（tx 建置）重建並檢視 output/qa.html。
 ```
+
+---
+
+## 8. 執行結果與偏離事項（2026-08-16，v0.2.3）
+
+### 8.1 已完成之驗證
+
+| 驗證 | 結果 |
+|:--|:--|
+| FSH 剖析（SUSHI import 階段） | 98 definitions／84 instances，無錯誤 |
+| `npm run check:refs` | OK（19 個 pagecontent 檔；2 筆既有 backlog 標註容忍） |
+| `npm run check:menu --self-test` | 三組負向測試全數通過 |
+| `npm run check:menu`（新 menu） | OK：頂層 8 項、入口 20 個、無位移型錨點、無未白名單孤兒頁 |
+| `npm run check:menu`（**舊 0.2.2 menu**，回歸佐證） | 攔下全部 4 條 `artifacts.html#1`～`#4` |
+| 兩張新頁之連結目標靜態解析 | 140 條全數可解析（Profile／Extension／範例實例／站內頁面） |
+| 既有頁面檔名 | `git diff --name-status` 無任何 rename／delete |
+
+### 8.2 偏離 §2 建議之事項
+
+| 項目 | 原建議 | 實際 | 理由 |
+|:--|:--|:--|:--|
+| **A-7 模板釘版** | `ig.ini` 由 `#current` 釘定版本 | **未執行，移列 [JOB-09](JOB-09-build-config-hardening.md) 續辦** | JOB-09 §197 已裁示「本環境無法連線模板來源，**不宜憑猜測寫入版本號**——寫錯會讓建置直接失敗」，並已於 CI 加入 `Report resolved template version`。應待該步驟取得實際解析版本後再釘定。本 JOB 撰寫時未察 JOB-09 已有此裁示，A-7 之原始寫法與之衝突 |
+
+### 8.3 §1、§4 之數量更正
+
+評估階段引用之 artifact 數量取自舊 README，與實際 FSH 不符，已於實作時以 FSH 為準更正：
+
+| 項目 | 評估時記載 | 實際（自 FSH 抽取） |
+|:--|:--|:--|
+| Profile | 38 | **41** |
+| Extension | 11 | 11（相符） |
+| 範例 | 12（實為 **fsh 檔案數**，非實例數） | **67 個獨立實例**＋10 個 `#inline` 實例（共 12 個 fsh 檔） |
+| 使用情境 | UC-001～UC-007 | UC-001～**UC-009**（UC-008／UC-009 為 JOB-04 之上傳封包） |
+
+### 8.4 尚待執行（不在本容器能力範圍）
+
+1. **tx 建置**（`_genonce_tx.bat`）：本容器 proxy 封鎖 `packages.fhir.org`／`packages2.fhir.org`／`tx.fhir.org`，SUSHI 無法下載 `tw.gov.mohw.twcore#1.0.0` 與 `hl7.fhir.r4.core#4.0.1`，故無法產出 `output/`。
+2. **`qa-baseline.json` 上調**：兩張新頁會帶進其自身之連結訊息。依既定例外程序，**以 CI 實測值上調並具名說明**（比照 v0.2.1 之 `_quickstartNote`），不得預先猜測數字。
+3. **外觀複核**：新 menu 於實際建置後之折行、下拉層級與 TW Core 之並排比對。

@@ -76,6 +76,14 @@ jobs:
       - name: Check pagecontent references
         run: npm run check:refs
 
+      # 導覽列閘門（JOB-23 §5）。check:refs 只檢查 pagecontent 內文，不涵蓋 menu。
+      # 先跑負向測試再跑實檢：閘門本身失效時會「全綠但其實沒檢查」，故先證明它
+      # 會攔下該攔的東西（比照 JOB-20／21／22 之作法），實檢結果才有意義。
+      - name: Check navigation menu (self-test first)
+        run: |
+          npm run check:menu:selftest
+          npm run check:menu
+
       # ---------------------------------------------------------------- 建置環境
       - name: Setup Java
         uses: actions/setup-java@v4

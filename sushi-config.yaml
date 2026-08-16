@@ -4,7 +4,7 @@ name: TWHAIG
 title: 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)
 description: 以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】
 status: active
-version: 0.2.2
+version: 0.2.3
 # 本指引之敘述性內容為繁體中文（臺灣）。未宣告時 IG Publisher 會預設為 en，
 # 導致整份中文內容被標記為 lang="en" 並輸出至 en/ 子目錄（JOB-02）。
 language: zh-TW
@@ -76,30 +76,39 @@ parameters:
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-UnfitDiseases
 
+# 導覽列（JOB-23，0.2.3）。頂層 8 項，排列邏輯比照 TW Core IG v1.0.0 之
+# 「文件類型導向」：應用說明 → 目錄 → 規範文件 → 範例 → 下載 → 安全性。
+#
+# 三條不得違反之約束（由 scripts/check-menu.js 於 CI 強制，見 JOB-23 §5）：
+#   1. 不得出現 `artifacts.html#<數字>`。該錨點由 IG Publisher 依「該次建置實際存在的
+#      artifact 類別」自動編號，新增或移除任一類別即整體位移，導覽連結會靜默指向
+#      錯誤區段，且 err = 0 仍成立（Publisher 不檢查頁內錨點語意）。改以策展頁
+#      profiles-and-extensions.html 與 terminology.html 承接。
+#   2. 不得更動既有 pagecontent 檔名。委員意見書、簡報與既發函文已引用現行網址。
+#   3. 頂層標籤為純中文（比照 TW Core）；英文名稱保留於各頁 H1。
 menu:
-  首頁 (Home): index.html
-  快速入門 (Quick Start): quickstart.html
-  背景與案例 (Background & Use Cases):
-    背景 (Background): background.html
-    應用案例 (Use Cases): usecases.html
-  資料模型 (Data Model): datamodel.html
-  檢查與紀錄定義 (Examinations):
-    一般健康檢查 (General Exam): general-exam.html
-    特殊危害健康作業 (Special Exam): special-exam.html
-    成人預防保健 (Adult Preventive Care): adult-preventive-care.html
-    勞工健康服務執行紀錄 (Service Record): service-record.html
-    健康管理分級 (Health Management): health-management.html
-  FHIR 資源 (FHIR Artifacts):
-    資源總覽 (Artifacts Summary): artifacts.html
-    Profiles: artifacts.html#1
-    Extensions: artifacts.html#2
-    Value Sets: artifacts.html#3
-    Code Systems: artifacts.html#4
-    遵從性與依賴 (Conformance & Dependencies): conformance.html
-  術語與安全 (Terminology & Security):
-    術語定義 (Terminology): terminology.html
-    安全性考量 (Security): security.html
-    智慧財產權聲明 (IP Statements): ip-statements.html
-  未決事項 (Open Issues): open-issues.html
-  下載區 (Downloads): downloads.html
+  應用說明:
+    導言與整體架構: index.html
+    快速入門: quickstart.html
+    計畫背景: background.html
+    應用案例: usecases.html
+  目錄: toc.html
+  規範文件:
+    資源總覽: artifacts.html
+    資料模型: datamodel.html
+    Profiles 與 Extensions: profiles-and-extensions.html
+    術語與代碼系統: terminology.html
+    遵從性與依賴: conformance.html
+  檢查與紀錄:
+    一般健康檢查: general-exam.html
+    特殊危害健康作業: special-exam.html
+    成人預防保健: adult-preventive-care.html
+    勞工健康服務執行紀錄: service-record.html
+    健康管理分級與配工: health-management.html
+  範例: examples.html
+  結構定義與範例檔下載: downloads.html
+  安全性:
+    安全與個資保護: security.html
+    智慧財產權聲明: ip-statements.html
+  未決事項: open-issues.html
 

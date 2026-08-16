@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.2.3",
+      "date": "2026-08-16",
+      "desc": "導覽列（頁籤內容與順序）比照 TW Core IG v1.0.0 調整（JOB-23）：頂層由 9 項縮為 8 項，排列邏輯改為文件類型導向（應用說明→目錄→規範文件→檢查與紀錄→範例→下載→安全性→未決事項），標籤改為純中文；新增〈目錄〉與〈範例〉入口，〈安全性〉提升為頂層。新增兩張導覽用策展頁：〈Profiles 與 Extensions〉依 FHIR resource 分類列出 41 個 Profile 與 11 個 Extension，〈範例〉依使用情境與檢查類別列出 67 個範例實例。移除四條 artifacts.html#1~#4 位移型錨點連結（該編號由 IG Publisher 依建置時實際存在之 artifact 類別自動產生，類別增減即整體位移且不報錯），改指向策展頁。新增 scripts/check-menu.js 導覽列閘門並掛入 CI。既有頁面檔名與網址全數未變更；未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例之定義。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.2.2",
       "date": "2026-08-16",
       "desc": "新增〈JOB-23 導覽列比照 TW Core IG 之差異分析與調整方案〉評估文件：就 TW Core IG v1.0.0 之頁籤內容與順序進行並排比對，指出五項結構性差異（排列邏輯、缺目錄頁籤、缺範例入口、安全性位階、標籤語言）與一項實質缺陷（artifacts.html#1~#4 為 IG Publisher 自動編號錨點，會隨 artifact 類別增減而靜默指錯區段），並提出建議採納／不採納／後續評估三類方案。本次僅為評估文件與版次更新，未變更 menu、任何 Profile、ValueSet、CodeSystem 或範例；導覽列實作待核准後另以 0.2.3 發佈。工業技術研究院委託研擬中，尚未定稿。",

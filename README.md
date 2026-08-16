@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.2.2`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.2.3`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -150,6 +150,25 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.2.3（2026-08-16）導覽列比照 TW Core IG 調整（JOB-23 實作）
+> 說明：本次為**導覽與呈現層變更**，未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例之**定義**，不影響既有實作之資料結構。
+> **既有 15 個 pagecontent 頁面之檔名與網址全數未變更**（以 `git diff --name-status` 佐證），既發函文、委員意見書與簡報中之連結不受影響。
+- **`sushi-config.yaml` 之 `menu` 依 [JOB-23](docs/optimization/JOB-23-navigation-alignment-twcore.md) §2.4 核准版套用**：頂層由 9 項縮為 **8 項**（與 TW Core IG v1.0.0 相同），排列邏輯由「業務主題導向」改為 TW Core 之「文件類型導向」——應用說明 → 目錄 → 規範文件 → 檢查與紀錄 → 範例 → 結構定義與範例檔下載 → 安全性 → 未決事項；標籤改為**純中文**（英文名稱保留於各頁 H1）。
+  - 新增〈**目錄**〉入口（`toc.html`，TW Core 置於第 2 位；本 IG 先前有建置產出但未列入 menu）。
+  - 新增〈**範例**〉頂層入口。
+  - 〈**安全性**〉由下拉第 2 層**提升為頂層**。
+- **移除四條位移型錨點連結**：`artifacts.html#1`～`#4`（Profiles／Extensions／Value Sets／Code Systems）。該編號係 **IG Publisher 依「該次建置中實際存在的 artifact 類別」出現順序自動產生**，並非固定語意；新增或移除任一類別即整體位移，導覽連結會**靜默指向錯誤區段而 `err = 0` 仍成立**（Publisher 不檢查頁內錨點語意）。改指向新增之策展頁與既有 `terminology.html`，作法比照 TW Core。
+- **新增 [`input/pagecontent/profiles-and-extensions.md`](input/pagecontent/profiles-and-extensions.md)〈Profiles 與 Extensions〉策展頁**：依 FHIR resource 分類列出本指引之 **41 個 Profile**（Observation 16 個再依生命徵象／生理功能／實驗室檢驗／生活習慣／職業暴露與健康管理五組細分）與 **11 個 Extension**（依事業單位與受僱關係／檢查作業屬性／生活習慣量化／健康管理與適性配工四組），各列繼承來源與用途。頁首載明**權威清單仍為資源總覽（`artifacts.html`）**，本頁不重複技術定義，兩處有出入時以資源總覽及各 StructureDefinition 頁面為準。
+- **新增 [`input/pagecontent/examples.md`](input/pagecontent/examples.md)〈範例〉策展頁**：依使用情境與檢查類別列出 **67 個範例實例**，並說明 UC-008／UC-009 內含之 10 個 `Usage: #inline` 實例不會產生獨立頁面。另設「特殊示範」一節，集中 `dataAbsentReason` 缺值處理、雇主端摘要不含檢驗數值之揭露界線、上傳冪等重傳與 `urn:uuid` 內部參照四項易做錯之作法。
+- **新增 [`scripts/check-menu.js`](scripts/check-menu.js) 導覽列閘門**並掛入 `npm run verify` 與 CI：
+  - **R-1** menu 之 target 必須存在（或屬 IG Publisher 自動產生頁白名單）；**R-2** 禁用 `artifacts.html#<數字>`（失敗）；**R-3** 其他純數字錨點（警告）；**R-4** 頂層項目數上限 9（警告）；**R-5** pagecontent 有產出但未被 menu 引用之**孤兒頁**須具名列入白名單並附理由（警告，`--strict` 時失敗）。R-5 承接 [JOB-12](docs/optimization/JOB-12-navigation-and-repo-hygiene.md) §1(1) 之 `conformance.html` 孤兒頁問題，改以機制防止復發。
+  - 內建 `--self-test` **負向測試三組**（不存在之 target／`artifacts.html#2`／未白名單之孤兒頁），CI 中**先跑負向測試再跑實檢**——閘門本身失效時會「全綠但其實沒檢查」，比照 JOB-20／21／22 之作法。
+  - 對 0.2.2 之舊 menu 實跑可攔下全部 4 條 `artifacts.html#N`（回歸佐證）。
+- **孤兒頁白名單**目前僅 `history.md`（版本歷程頁，由 `package-list.json` 與 `path-history` 驅動，經 publish box 之 Releases 連結進入，不佔導覽列版位）。
+- **`sushi-config.yaml`**：`version` 由 `0.2.2` 調整為 `0.2.3`。**`package-list.json`**：新增 0.2.3 條目。
+- ⚠️ **JOB-23 §2.1 之 A-7（`ig.ini` 模板釘版）本次未執行**。理由：[JOB-09](docs/optimization/JOB-09-build-config-hardening.md) §197 已裁示「本環境無法連線模板來源，**不宜憑猜測寫入版本號**——寫錯會讓建置直接失敗」，並已於 CI 加入 `Report resolved template version` 步驟。應待該步驟自 publisher 日誌取得實際解析到的版本後再行釘定。A-7 移列 JOB-09 續辦。
+- ⚠️ **本次於本機容器無法完成 tx 建置**（proxy 封鎖 `packages.fhir.org`／`packages2.fhir.org`，SUSHI 無法下載 `tw.gov.mohw.twcore#1.0.0` 與 `hl7.fhir.r4.core#4.0.1`）。已完成之驗證為：FSH 剖析（98 definitions／84 instances，無錯誤）、`npm run check:refs`、`npm run check:menu`（含負向測試）、兩張新頁 **140 條連結目標之靜態解析（全數可解析）**。**兩張新頁會使 QA 訊息數上升**（新頁自身之連結訊息計入），須依 `qa-baseline.json` 之既定例外程序、以 CI 實測值上調並具名說明，程序見 [`docs/RELEASE.md`](docs/RELEASE.md) §2.2。**對外發佈前一律以 `_genonce_tx.bat` 重建並檢視 `output/qa.html`。**
 
 ### v0.2.2（2026-08-16）導覽列比照 TW Core IG 之差異分析（評估，未變更 menu）
 > 說明：本次為**評估文件新增與版次更新**，**未變更 `sushi-config.yaml` 之 `menu`**，亦未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例，不影響既有實作與 QA 基準線。導覽列之實際調整待核准後另以 v0.2.3 發佈。
