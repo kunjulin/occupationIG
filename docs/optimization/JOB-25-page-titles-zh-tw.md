@@ -75,14 +75,46 @@ JOB-24 補的是**模板字串**（`stringsBase.json` 之 126 個介面標籤，
 
 ---
 
-## 4. 待建置後複核
+## 4. 建置後複核結果（2026-08-17，已發佈站台 v0.2.5）
 
-| 代號 | 事項 | 說明 |
+| 代號 | 事項 | 結果 |
 |:--|:--|:--|
-| **N-1** | 19 個 pagecontent 頁之 `<title>`／H1／麵包屑轉為中文 | 由本 JOB 之 `pages:` 直接決定，預期必然生效 |
-| **N-2** | **`toc.html` 自身之標題與麵包屑首段** | `toc.html` **非 pagecontent 檔案**，其標題不受 `pages:` 影響。其「Table of Contents」可能來自 IG Publisher 內建字串而非模板字串（因 `stringsBase.json` 之 `TableOfContents` 已譯且於頁尾生效，卻未套用於此處）。**本容器無法建置，不宜憑猜測改動**——須於建置後自 `output/` 實際產出判定來源再處置。若確為 Publisher 內建字串，屬上游限制，於文件中說明即可，不強行 workaround |
+| **N-1** | 19 個 pagecontent 頁之 `<title>`／H1／麵包屑轉為中文 | ✅ **確認生效**。線上實測：`index.html` → `應用說明`、`examples.html` → `範例`、`security.html` → `安全與個資保護`、`open-issues.html` → `未決事項`、`general-exam.html` → `一般健康檢查` |
+| **N-2** | **`toc.html` 自身之標題** | ⏸ **確認為 SUSHI 上游限制，不予 workaround**（來源已查明，見 §4.1） |
 
-> N-2 之處理原則沿用 [JOB-09](JOB-09-build-config-hardening.md) 對模板釘版之裁示：**不可連線驗證者不憑猜測寫入**。
+### 4.1 N-2 來源判定（已結案）
+
+線上 v0.2.5 之 `toc.html` 仍為 `Table of Contents`。依 §6 之程序自實際產出逐層回溯：
+
+| 層次 | 觀察 | 判讀 |
+|:--|:--|:--|
+| 模板字串 | `stringsBase['zh-TW'].TableOfContents` 已譯為「目錄」，且於頁尾正常顯示 | **排除**模板字串為來源 |
+| 模板 Liquid | `template/onGenerate-ig-working.xml`（模板 XSLT 之**輸入**）內已含 `<title value="Table of Contents"/>` | **排除**模板產生 |
+| IG Publisher | 同上——該值在 publisher 交給模板之前即存在 | 需再上溯 |
+| **SUSHI** | `fsh-generated/resources/ImplementationGuide-*.json` 之 `definition.page` 根節點即為 `{nameUrl: toc.html, title: "Table of Contents"}` | **來源在此** |
+
+決定性證據——SUSHI `dist/ig/IGExporter.js`：
+
+```js
+page: {
+  nameUrl: 'toc.html',
+  title: 'Table of Contents',      // 寫死，不讀 config
+  generation: 'html',
+  page: []                          // index.[md|html] is required and added later
+}
+```
+
+`sushi-config.yaml` 之 `pages:` 條目全數被推入 `definition.page.page`（**子節點**），
+根節點之 `title` never 被覆寫。`definition` 區塊中 SUSHI 只讀取 `config.definition.extension`，
+不含 `title`。故**此字串無法自 `sushi-config.yaml` 設定**。
+
+**處置：不 workaround。** 依 §2 之原則與 [JOB-09](JOB-09-build-config-hardening.md) 之裁示，
+為改一個字而去覆寫 SUSHI 產出的 ImplementationGuide 資源，會讓整份 IG 定義脫離工具鏈管理，
+代價遠高於效益。實際影響僅限 `toc.html` 一頁之瀏覽器分頁標題與麵包屑首段；
+該頁之**內容**（19 個章節名稱）已全數為中文。
+若日後 SUSHI 開放設定，再一併處理。
+
+> N-2 之處理原則沿用 [JOB-09](JOB-09-build-config-hardening.md) 對模板釘版之裁示：**不可連線驗證者不憑猜測寫入**。本次已取得實證，故結案而非續掛。
 
 ---
 

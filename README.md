@@ -173,9 +173,10 @@ set NODE_OPTIONS=--use-system-ca
   - 負向測試由 3 組增為 **7 組**（新增 R-6a／R-6b／R-6c／R-6d），CI 中仍先跑負向測試再跑實檢。
 - **`sushi-config.yaml`**：`version` 由 `0.2.4` 調整為 `0.2.5`。**`package-list.json`**：新增 0.2.5 條目。
 
-**（三）待建置後複核**
+**（三）建置後複核結果（2026-08-17，已發佈站台 v0.2.5）**
 
-- **N-2：`toc.html` 自身之標題與麵包屑首段**仍可能為 `Table of Contents`。該頁**非 pagecontent 檔案**，不受 `pages:` 影響；其字串可能來自 IG Publisher 內建值而非模板字串（因 `stringsBase.json` 之 `TableOfContents` 已譯且於頁尾生效）。**本容器無法建置，依 [JOB-09](docs/optimization/JOB-09-build-config-hardening.md) 之既定原則不憑猜測改動**——須於建置後自 `output/` 實際產出判定來源再處置。
+- ✅ **N-1 確認生效**：線上實測 `index.html` → `應用說明`、`examples.html` → `範例`、`security.html` → `安全與個資保護`、`open-issues.html` → `未決事項`、`general-exam.html` → `一般健康檢查`。
+- ⏸ **N-2 結案——`toc.html` 自身標題為 SUSHI 上游限制，不予 workaround**。已自實際產出逐層回溯確定來源：模板字串已譯且於頁尾生效（排除）→ 模板 XSLT 之**輸入**檔即已含該值（排除模板）→ SUSHI 產出之 `ImplementationGuide.definition.page` 根節點即為 `{nameUrl: toc.html, title: "Table of Contents"}`。SUSHI `dist/ig/IGExporter.js` 將此值**寫死**，`pages:` 之條目全數推入子節點 `definition.page.page`，根節點 title 不被覆寫，且 `definition` 區塊僅讀取 `extension`——故**無法自 `sushi-config.yaml` 設定**。為改一個字而覆寫 SUSHI 產出之 IG 資源會使整份定義脫離工具鏈管理，代價高於效益；實際影響僅 `toc.html` 一頁之分頁標題，該頁**內容之 19 個章節名稱已全數中文**。詳見 [JOB-25 §4.1](docs/optimization/JOB-25-page-titles-zh-tw.md)。
 - ⚠️ 本次於本機容器完成之驗證：`npm run check:refs`、`npm run check:menu`（7 組負向測試全過；實檢 OK：頂層 8 項、入口 20 個、`pages:` 19 頁雙向對應且均有中文標題）。**tx 建置仍須於本機或 CI 執行**；`pages:` 之宣告可能使頁面順序變動而影響 QA 訊息數，須依 `qa-baseline.json` 之既定例外程序以 CI 實測值處理。**對外發佈前一律以 `_genonce_tx.bat` 重建並檢視 `output/qa.html`。**
 
 **（四）對標盤點總表**見 [JOB-25 §5](docs/optimization/JOB-25-page-titles-zh-tw.md)。刻意不比照之三項（MOHW header logo／配色、`TWCDI.html`、刪除〈快速入門〉〈未決事項〉）之理由見 [JOB-23 §2.2](docs/optimization/JOB-23-navigation-alignment-twcore.md)。
