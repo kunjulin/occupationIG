@@ -101,6 +101,33 @@
     "TOTAL info 實測 436（基準 459）、TOTAL warn 實測 96（基準 152）：與 _job18Note 之實測值",
     "完全相同，屬既有波動帶內之未歸因改善，依既定政策（_warnNote／_runVarianceNote）不下調天花板。"
   ],
+  "_job23Note": [
+    "v0.2.3（JOB-23 導覽列比照 TW Core IG）之基準線變動。",
+    "量測來源 CI tx 建置（commit c55dfac5，err = 0）。",
+    "",
+    "  cannot be resolved   2313 → 2317   (+4)   新增兩張策展頁：",
+    "                                            input/pagecontent/examples.md 與",
+    "                                            input/pagecontent/profiles-and-extensions.md。",
+    "",
+    "每新增一個 pagecontent 頁面即 +2（根層轉址殼頁與 zh-TW 語言層各一），故兩頁 +4。",
+    "此增量規則與既有實測完全一致——前例為 v0.2.1 新增 quickstart.md 一頁之 +2",
+    "（見 _quickstartNote）與 2026-07-28 新增 open-issues.md 一頁之 2078 → 2080。",
+    "斷鏈標的仍為 publish box 之 history.html（provisional canonical 下不存在之頁面），",
+    "**非新問題，亦非本次變更引入之缺陷**；P-1（canonical 核定）解決後此類將整批歸零。",
+    "",
+    "增量以 CI 實測為準，未預先猜測後寫入（程序見 docs/RELEASE.md §2.2）。",
+    "⚠️ 本次曾於本機（Windows）取得 cannot be resolved 3600、warn 380 之數值，與 CI 實測",
+    "相差極大。該次為本機環境所致（tx TLS 攔截、模板 #current 未釘版之解析差異），",
+    "**未採信、未寫入基準線**——基準線一律以 CI 實測為準。",
+    "",
+    "其餘 22 個具名類別 CI 實測差異皆為 0，包含 Wrong Display Name 0、",
+    "has a status of DISCOURAGED 5、There are no valid display names found for the code 237。",
+    "本次為導覽與呈現層變更，未變更任何 Profile／ValueSet／CodeSystem／Extension／範例之定義。",
+    "",
+    "TOTAL info 實測 439（基準 459）、TOTAL warn 實測 96（基準 152）：",
+    "屬既有波動帶內之未歸因改善，依既定政策（_warnNote／_runVarianceNote）不下調天花板。",
+    "**故本次刻意不執行 `npm run qa -- --update`**——該指令會連同這兩項未歸因改善一併寫死。"
+  ],
   "_job01Batch2Note": [
     "JOB-01 批 2（換碼/加碼：Q2-2/2-3/2-4、Q3、Q7）之基準線變動。",
     "量測來源 run 30432410720（commit 1663d359，err = 0）。歷經三輪 CI：",
@@ -422,7 +449,7 @@
     "stated value for the caseSensitive element": 5,
     "There are no valid display names found for the code": 237,
     "Pinned the version of": 30,
-    "cannot be resolved": 2313,
+    "cannot be resolved": 2317,
     "does not match any known slice": 23
   }
 }

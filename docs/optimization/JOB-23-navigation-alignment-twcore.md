@@ -258,6 +258,16 @@ menu:
 
 ### 8.4 尚待執行（不在本容器能力範圍）
 
-1. **tx 建置**（`_genonce_tx.bat`）：本容器 proxy 封鎖 `packages.fhir.org`／`packages2.fhir.org`／`tx.fhir.org`，SUSHI 無法下載 `tw.gov.mohw.twcore#1.0.0` 與 `hl7.fhir.r4.core#4.0.1`，故無法產出 `output/`。
-2. **`qa-baseline.json` 上調**：兩張新頁會帶進其自身之連結訊息。依既定例外程序，**以 CI 實測值上調並具名說明**（比照 v0.2.1 之 `_quickstartNote`），不得預先猜測數字。
-3. **外觀複核**：新 menu 於實際建置後之折行、下拉層級與 TW Core 之並排比對。
+1. ✅ **tx 建置**：已於 CI 完成（commit `c55dfac5`，tx 建置，**err = 0**）。本容器 proxy 封鎖 `packages.fhir.org`／`packages2.fhir.org`／`tx.fhir.org`，SUSHI 無法下載核心套件，故當時無法產出 `output/`。
+2. ✅ **`qa-baseline.json` 上調**：已依既定例外程序、以 CI 實測值上調並具名說明——`cannot be resolved` 2313 → **2317（+4）**，即兩張新頁各 +2（根層轉址殼頁與 zh-TW 語言層），與 `_quickstartNote` 之 +2／頁規則完全一致。詳見 `qa-baseline.json` 之 `_job23Note`。
+   `TOTAL info` 實測 439（基準 459）、`TOTAL warn` 實測 96（基準 152）為未歸因改善，依 `_warnNote` 之既定政策**不下調**，故未執行 `npm run qa -- --update`。
+3. ⏳ **外觀複核**：新 menu 於實際建置後之折行、下拉層級與 TW Core 之並排比對。
+
+### 8.5 附帶處理之建置環境問題（2026-08-17）
+
+實作套用至本機（Windows）時另修掉兩項與本 JOB 無關、但阻擋驗收的問題：
+
+| 問題 | 處置 |
+|:--|:--|
+| `_genonce_tx.bat` 無法執行 | 檔內中文註解之位元組在作用中的 codepage 下被批次直譯器誤判為 `^`／`|` 等運算子，指令未執行即被切斷。註解全數改為英文。 |
+| CI `check:assets` 失敗 | `sushi-config.yaml` 收錄於 `input/assets/fsh-source.zip`，本 JOB 變更版次與 menu 後該封包即過期。已重建。**注意**：Windows 無 `zip` 執行檔，且 `core.autocrlf=true` 會使 `git archive` 亦輸出 CRLF；須以 WSL 之 Info-ZIP 3.0、`TZ=UTC`、`git -c core.autocrlf=false archive` 取得 LF 內容後打包，否則與 CI 之逐位元組比對必不一致。 |

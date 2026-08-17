@@ -168,7 +168,10 @@ set NODE_OPTIONS=--use-system-ca
 - **孤兒頁白名單**目前僅 `history.md`（版本歷程頁，由 `package-list.json` 與 `path-history` 驅動，經 publish box 之 Releases 連結進入，不佔導覽列版位）。
 - **`sushi-config.yaml`**：`version` 由 `0.2.2` 調整為 `0.2.3`。**`package-list.json`**：新增 0.2.3 條目。
 - ⚠️ **JOB-23 §2.1 之 A-7（`ig.ini` 模板釘版）本次未執行**。理由：[JOB-09](docs/optimization/JOB-09-build-config-hardening.md) §197 已裁示「本環境無法連線模板來源，**不宜憑猜測寫入版本號**——寫錯會讓建置直接失敗」，並已於 CI 加入 `Report resolved template version` 步驟。應待該步驟自 publisher 日誌取得實際解析到的版本後再行釘定。A-7 移列 JOB-09 續辦。
-- ⚠️ **本次於本機容器無法完成 tx 建置**（proxy 封鎖 `packages.fhir.org`／`packages2.fhir.org`，SUSHI 無法下載 `tw.gov.mohw.twcore#1.0.0` 與 `hl7.fhir.r4.core#4.0.1`）。已完成之驗證為：FSH 剖析（98 definitions／84 instances，無錯誤）、`npm run check:refs`、`npm run check:menu`（含負向測試）、兩張新頁 **140 條連結目標之靜態解析（全數可解析）**。**兩張新頁會使 QA 訊息數上升**（新頁自身之連結訊息計入），須依 `qa-baseline.json` 之既定例外程序、以 CI 實測值上調並具名說明，程序見 [`docs/RELEASE.md`](docs/RELEASE.md) §2.2。**對外發佈前一律以 `_genonce_tx.bat` 重建並檢視 `output/qa.html`。**
+- ✅ **CI tx 建置已完成並通過（`err = 0`）**。撰寫實作之容器因 proxy 封鎖 `packages.fhir.org`／`packages2.fhir.org` 而只能做靜態驗證（FSH 剖析 98 definitions／84 instances 無錯誤、`npm run check:refs`、`npm run check:menu` 含負向測試、兩張新頁 **140 條連結目標全數可解析**）；tx 建置與 QA 實測改於 CI 完成。
+  - **`qa-baseline.json` 依既定例外程序上調**：`cannot be resolved` 2313 → **2317（+4）**——兩張新頁各 +2（根層轉址殼頁與 zh-TW 語言層），與 v0.2.1 之 `_quickstartNote` 所載 +2／頁規則完全一致；斷鏈標的仍為 publish box 之 `history.html`，屬 P-1（canonical 核定）之既有問題，非本次引入。具名說明見 `qa-baseline.json` 之 `_job23Note`，程序見 [`docs/RELEASE.md`](docs/RELEASE.md) §2.2。
+  - `TOTAL info` 實測 439（基準 459）、`TOTAL warn` 實測 96（基準 152）為未歸因改善，依 `_warnNote` 之既定政策**不下調天花板**。
+  - ⚠️ 本機（Windows）曾量得 `cannot be resolved` 3600、`warn` 380，與 CI 差距極大，係本機環境所致（tx TLS 攔截、模板 `#current` 未釘版），**未採信亦未寫入基準線**。**基準線一律以 CI 實測為準。**
 
 ### v0.2.2（2026-08-16）導覽列比照 TW Core IG 之差異分析（評估，未變更 menu）
 > 說明：本次為**評估文件新增與版次更新**，**未變更 `sushi-config.yaml` 之 `menu`**，亦未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例，不影響既有實作與 QA 基準線。導覽列之實際調整待核准後另以 v0.2.3 發佈。
