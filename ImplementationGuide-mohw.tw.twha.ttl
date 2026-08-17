@@ -14,11 +14,11 @@
      fhir:Narrative.div "<div xml:lang=\"zh-TW\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\"><p class=\"res-header-id\"><b>Generated Narrative: 实施指南 mohw.tw.twha</b></p><a name=\"mohw.tw.twha\"> </a><a name=\"hcmohw.tw.twha\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: zh-TW</p></div><h2>TWHAIG</h2><p>The official URL for this implementation guide is: </p><pre>https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha</pre><div><p>以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】</p>\n</div></div>"
   ] ;
   fhir:ImplementationGuide.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"] ;
-  fhir:ImplementationGuide.version [ fhir:value "0.2.4"] ;
+  fhir:ImplementationGuide.version [ fhir:value "0.2.5"] ;
   fhir:ImplementationGuide.name [ fhir:value "TWHAIG"] ;
   fhir:ImplementationGuide.title [ fhir:value "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"] ;
   fhir:ImplementationGuide.status [ fhir:value "active"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-08-17T05:27:05+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-08-17T06:57:01+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:ImplementationGuide.contact [
      fhir:index 0 ;
@@ -3702,17 +3702,17 @@
            fhir:Extension.valueUrl [ fhir:value "index.html" ]
          ] ;
          fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "index.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Home" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "應用說明" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 1 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "adult-preventive-care.html" ]
+           fhir:Extension.valueUrl [ fhir:value "quickstart.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "adult-preventive-care.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Adult Preventive Care" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "quickstart.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "快速入門" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 2 ;
@@ -3722,17 +3722,17 @@
            fhir:Extension.valueUrl [ fhir:value "background.html" ]
          ] ;
          fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "background.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Background" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "計畫背景" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 3 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "conformance.html" ]
+           fhir:Extension.valueUrl [ fhir:value "usecases.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "conformance.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Conformance" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "usecases.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "應用案例" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 4 ;
@@ -3742,147 +3742,147 @@
            fhir:Extension.valueUrl [ fhir:value "datamodel.html" ]
          ] ;
          fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "datamodel.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Datamodel" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "資料模型" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 5 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "downloads.html" ]
+           fhir:Extension.valueUrl [ fhir:value "profiles-and-extensions.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "downloads.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Downloads" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "profiles-and-extensions.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Profiles 與 Extensions" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 6 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "examples.html" ]
+           fhir:Extension.valueUrl [ fhir:value "terminology.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "examples.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Examples" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "terminology.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "術語與代碼系統" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 7 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "general-exam.html" ]
+           fhir:Extension.valueUrl [ fhir:value "conformance.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "general-exam.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "General Exam" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "conformance.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "遵從性與依賴" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 8 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "health-management.html" ]
+           fhir:Extension.valueUrl [ fhir:value "general-exam.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "health-management.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Health Management" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "general-exam.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "一般健康檢查" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 9 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "history.html" ]
+           fhir:Extension.valueUrl [ fhir:value "special-exam.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "history.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "History" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "special-exam.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "特殊危害健康作業" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 10 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "ip-statements.html" ]
+           fhir:Extension.valueUrl [ fhir:value "adult-preventive-care.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "ip-statements.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Ip Statements" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "adult-preventive-care.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "成人預防保健" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 11 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "open-issues.html" ]
+           fhir:Extension.valueUrl [ fhir:value "service-record.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "open-issues.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Open Issues" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "service-record.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "勞工健康服務執行紀錄" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 12 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "profiles-and-extensions.html" ]
+           fhir:Extension.valueUrl [ fhir:value "health-management.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "profiles-and-extensions.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Profiles and Extensions" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "health-management.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "健康管理分級與配工" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 13 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "quickstart.html" ]
+           fhir:Extension.valueUrl [ fhir:value "examples.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "quickstart.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Quickstart" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "examples.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "範例" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 14 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "security.html" ]
+           fhir:Extension.valueUrl [ fhir:value "downloads.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "security.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Security" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "downloads.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "結構定義與範例檔下載" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 15 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "service-record.html" ]
+           fhir:Extension.valueUrl [ fhir:value "security.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "service-record.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Service Record" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "security.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "安全與個資保護" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 16 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "special-exam.html" ]
+           fhir:Extension.valueUrl [ fhir:value "ip-statements.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "special-exam.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Special Exam" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "ip-statements.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "智慧財產權聲明" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 17 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "terminology.html" ]
+           fhir:Extension.valueUrl [ fhir:value "open-issues.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "terminology.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Terminology" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "open-issues.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "未決事項" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
          fhir:index 18 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
-           fhir:Extension.valueUrl [ fhir:value "usecases.html" ]
+           fhir:Extension.valueUrl [ fhir:value "history.html" ]
          ] ;
-         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "usecases.html" ] ;
-         fhir:ImplementationGuide.definition.page.title [ fhir:value "Usecases" ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "history.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "版本歷程" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ]
      ] ;

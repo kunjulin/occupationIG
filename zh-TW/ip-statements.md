@@ -1,6 +1,6 @@
-# Ip Statements - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
+# 智慧財產權聲明 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
 
-## Ip Statements
+## 智慧財產權聲明
 
 # 智慧財產權與授權聲明 (Intellectual Property & Licensing)
 

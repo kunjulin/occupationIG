@@ -1,4 +1,4 @@
-# 健康管理分級值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
+# 健康管理分級值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
 
 ## ValueSet: 健康管理分級值集 (實驗性) 
 
@@ -29,12 +29,12 @@
   "resourceType" : "ValueSet",
   "id" : "VS-HealthMgmtLevel",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthMgmtLevel",
-  "version" : "0.2.4",
+  "version" : "0.2.5",
   "name" : "VS_HealthMgmtLevel",
   "title" : "健康管理分級值集",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-17T05:27:05+00:00",
+  "date" : "2026-08-17T06:57:01+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

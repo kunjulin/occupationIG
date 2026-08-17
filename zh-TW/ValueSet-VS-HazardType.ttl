@@ -11,15 +11,15 @@
   fhir:Resource.language [ fhir:value "zh-TW"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 取值集合 VS-HazardType</b></p><a name=\"VS-HazardType\"> </a><a name=\"hcVS-HazardType\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-CS-HazardType.html\"><code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.2.4</span></li></ul></div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 取值集合 VS-HazardType</b></p><a name=\"VS-HazardType\"> </a><a name=\"hcVS-HazardType\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-CS-HazardType.html\"><code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.2.5</span></li></ul></div>"
   ] ;
   fhir:ValueSet.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType"] ;
-  fhir:ValueSet.version [ fhir:value "0.2.4"] ;
+  fhir:ValueSet.version [ fhir:value "0.2.5"] ;
   fhir:ValueSet.name [ fhir:value "VS_HazardType"] ;
   fhir:ValueSet.title [ fhir:value "特別危害健康作業類別值集"] ;
   fhir:ValueSet.status [ fhir:value "active"] ;
   fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
-  fhir:ValueSet.date [ fhir:value "2026-08-17T05:27:05+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.date [ fhir:value "2026-08-17T06:57:01+00:00"^^xsd:dateTime] ;
   fhir:ValueSet.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:ValueSet.contact [
      fhir:index -1 ;

@@ -1,4 +1,4 @@
-# 主管機關最小共通上傳集（國健署原案 21 列，跨值集群組） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
+# 主管機關最小共通上傳集（國健署原案 21 列，跨值集群組） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
 
 ## ValueSet: 主管機關最小共通上傳集（國健署原案 21 列，跨值集群組） 
 
@@ -28,12 +28,12 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
   "resourceType" : "ValueSet",
   "id" : "VS-CoreUploadSet",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreUploadSet",
-  "version" : "0.2.4",
+  "version" : "0.2.5",
   "name" : "VS_CoreUploadSet",
   "title" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T05:27:05+00:00",
+  "date" : "2026-08-17T06:57:01+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

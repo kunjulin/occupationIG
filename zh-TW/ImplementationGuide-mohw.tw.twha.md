@@ -10,11 +10,11 @@
   "id" : "mohw.tw.twha",
   "language" : "zh-TW",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha",
-  "version" : "0.2.4",
+  "version" : "0.2.5",
   "name" : "TWHAIG",
   "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-08-17T05:27:05+00:00",
+  "date" : "2026-08-17T06:57:01+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -3755,115 +3755,7 @@
           "valueUrl" : "index.html"
         }],
         "nameUrl" : "index.html",
-        "title" : "Home",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "adult-preventive-care.html"
-        }],
-        "nameUrl" : "adult-preventive-care.html",
-        "title" : "Adult Preventive Care",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "background.html"
-        }],
-        "nameUrl" : "background.html",
-        "title" : "Background",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "conformance.html"
-        }],
-        "nameUrl" : "conformance.html",
-        "title" : "Conformance",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "datamodel.html"
-        }],
-        "nameUrl" : "datamodel.html",
-        "title" : "Datamodel",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "downloads.html"
-        }],
-        "nameUrl" : "downloads.html",
-        "title" : "Downloads",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "examples.html"
-        }],
-        "nameUrl" : "examples.html",
-        "title" : "Examples",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "general-exam.html"
-        }],
-        "nameUrl" : "general-exam.html",
-        "title" : "General Exam",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "health-management.html"
-        }],
-        "nameUrl" : "health-management.html",
-        "title" : "Health Management",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "history.html"
-        }],
-        "nameUrl" : "history.html",
-        "title" : "History",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "ip-statements.html"
-        }],
-        "nameUrl" : "ip-statements.html",
-        "title" : "Ip Statements",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "open-issues.html"
-        }],
-        "nameUrl" : "open-issues.html",
-        "title" : "Open Issues",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "profiles-and-extensions.html"
-        }],
-        "nameUrl" : "profiles-and-extensions.html",
-        "title" : "Profiles and Extensions",
+        "title" : "應用說明",
         "generation" : "markdown"
       },
       {
@@ -3872,43 +3764,16 @@
           "valueUrl" : "quickstart.html"
         }],
         "nameUrl" : "quickstart.html",
-        "title" : "Quickstart",
+        "title" : "快速入門",
         "generation" : "markdown"
       },
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "security.html"
+          "valueUrl" : "background.html"
         }],
-        "nameUrl" : "security.html",
-        "title" : "Security",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "service-record.html"
-        }],
-        "nameUrl" : "service-record.html",
-        "title" : "Service Record",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "special-exam.html"
-        }],
-        "nameUrl" : "special-exam.html",
-        "title" : "Special Exam",
-        "generation" : "markdown"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "terminology.html"
-        }],
-        "nameUrl" : "terminology.html",
-        "title" : "Terminology",
+        "nameUrl" : "background.html",
+        "title" : "計畫背景",
         "generation" : "markdown"
       },
       {
@@ -3917,7 +3782,142 @@
           "valueUrl" : "usecases.html"
         }],
         "nameUrl" : "usecases.html",
-        "title" : "Usecases",
+        "title" : "應用案例",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "datamodel.html"
+        }],
+        "nameUrl" : "datamodel.html",
+        "title" : "資料模型",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "profiles-and-extensions.html"
+        }],
+        "nameUrl" : "profiles-and-extensions.html",
+        "title" : "Profiles 與 Extensions",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "terminology.html"
+        }],
+        "nameUrl" : "terminology.html",
+        "title" : "術語與代碼系統",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "conformance.html"
+        }],
+        "nameUrl" : "conformance.html",
+        "title" : "遵從性與依賴",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "general-exam.html"
+        }],
+        "nameUrl" : "general-exam.html",
+        "title" : "一般健康檢查",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "special-exam.html"
+        }],
+        "nameUrl" : "special-exam.html",
+        "title" : "特殊危害健康作業",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "adult-preventive-care.html"
+        }],
+        "nameUrl" : "adult-preventive-care.html",
+        "title" : "成人預防保健",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "service-record.html"
+        }],
+        "nameUrl" : "service-record.html",
+        "title" : "勞工健康服務執行紀錄",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "health-management.html"
+        }],
+        "nameUrl" : "health-management.html",
+        "title" : "健康管理分級與配工",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "examples.html"
+        }],
+        "nameUrl" : "examples.html",
+        "title" : "範例",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "downloads.html"
+        }],
+        "nameUrl" : "downloads.html",
+        "title" : "結構定義與範例檔下載",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "security.html"
+        }],
+        "nameUrl" : "security.html",
+        "title" : "安全與個資保護",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "ip-statements.html"
+        }],
+        "nameUrl" : "ip-statements.html",
+        "title" : "智慧財產權聲明",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "open-issues.html"
+        }],
+        "nameUrl" : "open-issues.html",
+        "title" : "未決事項",
+        "generation" : "markdown"
+      },
+      {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "history.html"
+        }],
+        "nameUrl" : "history.html",
+        "title" : "版本歷程",
         "generation" : "markdown"
       }]
     },

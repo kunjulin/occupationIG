@@ -1,6 +1,6 @@
-# Examples - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
+# 範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
 
-## Examples
+## 範例
 
 # 範例 (Examples)
 

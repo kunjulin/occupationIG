@@ -1,6 +1,6 @@
-# Security - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
+# 安全與個資保護 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
 
-## Security
+## 安全與個資保護
 
 # 安全性與個資保護 (Security & Privacy)
 

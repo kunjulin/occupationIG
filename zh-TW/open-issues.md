@@ -1,6 +1,6 @@
-# Open Issues - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
+# 未決事項 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
 
-## Open Issues
+## 未決事項
 
 本頁集中列出本指引**尚未定案的事項**與**已知限制**。
 

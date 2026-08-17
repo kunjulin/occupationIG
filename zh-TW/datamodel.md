@@ -1,6 +1,6 @@
-# Datamodel - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
+# 資料模型 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
 
-## Datamodel
+## 資料模型
 
 # 資料模型與 Resource 映射 (Data Model & Mapping)
 

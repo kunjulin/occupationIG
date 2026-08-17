@@ -8,11 +8,11 @@
 </div></div>
   </text>
   <url value="https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"/>
-  <version value="0.2.4"/>
+  <version value="0.2.5"/>
   <name value="TWHAIG"/>
   <title value="臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"/>
   <status value="active"/>
-  <date value="2026-08-17T05:27:05+00:00"/>
+  <date value="2026-08-17T06:57:01+00:00"/>
   <publisher value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
   <contact>
     <name value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
@@ -2633,103 +2633,7 @@
           <valueUrl value="index.html"/>
         </extension>
         <nameUrl value="index.html"/>
-        <title value="Home"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="adult-preventive-care.html"/>
-        </extension>
-        <nameUrl value="adult-preventive-care.html"/>
-        <title value="Adult Preventive Care"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="background.html"/>
-        </extension>
-        <nameUrl value="background.html"/>
-        <title value="Background"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="conformance.html"/>
-        </extension>
-        <nameUrl value="conformance.html"/>
-        <title value="Conformance"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="datamodel.html"/>
-        </extension>
-        <nameUrl value="datamodel.html"/>
-        <title value="Datamodel"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="downloads.html"/>
-        </extension>
-        <nameUrl value="downloads.html"/>
-        <title value="Downloads"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="examples.html"/>
-        </extension>
-        <nameUrl value="examples.html"/>
-        <title value="Examples"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="general-exam.html"/>
-        </extension>
-        <nameUrl value="general-exam.html"/>
-        <title value="General Exam"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="health-management.html"/>
-        </extension>
-        <nameUrl value="health-management.html"/>
-        <title value="Health Management"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="history.html"/>
-        </extension>
-        <nameUrl value="history.html"/>
-        <title value="History"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="ip-statements.html"/>
-        </extension>
-        <nameUrl value="ip-statements.html"/>
-        <title value="Ip Statements"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="open-issues.html"/>
-        </extension>
-        <nameUrl value="open-issues.html"/>
-        <title value="Open Issues"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="profiles-and-extensions.html"/>
-        </extension>
-        <nameUrl value="profiles-and-extensions.html"/>
-        <title value="Profiles and Extensions"/>
+        <title value="應用說明"/>
         <generation value="markdown"/>
       </page>
       <page>
@@ -2737,39 +2641,15 @@
           <valueUrl value="quickstart.html"/>
         </extension>
         <nameUrl value="quickstart.html"/>
-        <title value="Quickstart"/>
+        <title value="快速入門"/>
         <generation value="markdown"/>
       </page>
       <page>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="security.html"/>
+          <valueUrl value="background.html"/>
         </extension>
-        <nameUrl value="security.html"/>
-        <title value="Security"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="service-record.html"/>
-        </extension>
-        <nameUrl value="service-record.html"/>
-        <title value="Service Record"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="special-exam.html"/>
-        </extension>
-        <nameUrl value="special-exam.html"/>
-        <title value="Special Exam"/>
-        <generation value="markdown"/>
-      </page>
-      <page>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-          <valueUrl value="terminology.html"/>
-        </extension>
-        <nameUrl value="terminology.html"/>
-        <title value="Terminology"/>
+        <nameUrl value="background.html"/>
+        <title value="計畫背景"/>
         <generation value="markdown"/>
       </page>
       <page>
@@ -2777,7 +2657,127 @@
           <valueUrl value="usecases.html"/>
         </extension>
         <nameUrl value="usecases.html"/>
-        <title value="Usecases"/>
+        <title value="應用案例"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="datamodel.html"/>
+        </extension>
+        <nameUrl value="datamodel.html"/>
+        <title value="資料模型"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="profiles-and-extensions.html"/>
+        </extension>
+        <nameUrl value="profiles-and-extensions.html"/>
+        <title value="Profiles 與 Extensions"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="terminology.html"/>
+        </extension>
+        <nameUrl value="terminology.html"/>
+        <title value="術語與代碼系統"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="conformance.html"/>
+        </extension>
+        <nameUrl value="conformance.html"/>
+        <title value="遵從性與依賴"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="general-exam.html"/>
+        </extension>
+        <nameUrl value="general-exam.html"/>
+        <title value="一般健康檢查"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="special-exam.html"/>
+        </extension>
+        <nameUrl value="special-exam.html"/>
+        <title value="特殊危害健康作業"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="adult-preventive-care.html"/>
+        </extension>
+        <nameUrl value="adult-preventive-care.html"/>
+        <title value="成人預防保健"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="service-record.html"/>
+        </extension>
+        <nameUrl value="service-record.html"/>
+        <title value="勞工健康服務執行紀錄"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="health-management.html"/>
+        </extension>
+        <nameUrl value="health-management.html"/>
+        <title value="健康管理分級與配工"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="examples.html"/>
+        </extension>
+        <nameUrl value="examples.html"/>
+        <title value="範例"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="downloads.html"/>
+        </extension>
+        <nameUrl value="downloads.html"/>
+        <title value="結構定義與範例檔下載"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="security.html"/>
+        </extension>
+        <nameUrl value="security.html"/>
+        <title value="安全與個資保護"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="ip-statements.html"/>
+        </extension>
+        <nameUrl value="ip-statements.html"/>
+        <title value="智慧財產權聲明"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="open-issues.html"/>
+        </extension>
+        <nameUrl value="open-issues.html"/>
+        <title value="未決事項"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+          <valueUrl value="history.html"/>
+        </extension>
+        <nameUrl value="history.html"/>
+        <title value="版本歷程"/>
         <generation value="markdown"/>
       </page>
     </page>
