@@ -14,11 +14,11 @@
      fhir:Narrative.div "<div xml:lang=\"zh-TW\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\"><p class=\"res-header-id\"><b>Generated Narrative: 实施指南 mohw.tw.twha</b></p><a name=\"mohw.tw.twha\"> </a><a name=\"hcmohw.tw.twha\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: zh-TW</p></div><h2>TWHAIG</h2><p>The official URL for this implementation guide is: </p><pre>https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha</pre><div><p>以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】</p>\n</div></div>"
   ] ;
   fhir:ImplementationGuide.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"] ;
-  fhir:ImplementationGuide.version [ fhir:value "0.2.1"] ;
+  fhir:ImplementationGuide.version [ fhir:value "0.2.3"] ;
   fhir:ImplementationGuide.name [ fhir:value "TWHAIG"] ;
   fhir:ImplementationGuide.title [ fhir:value "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"] ;
   fhir:ImplementationGuide.status [ fhir:value "active"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-08-05T16:48:01+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-08-17T03:02:16+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:ImplementationGuide.contact [
      fhir:index 0 ;
@@ -340,7 +340,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "path-liquid" ]
+         fhir:Extension.valueString [ fhir:value "path-liquid-template" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -352,7 +352,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "path-liquid" ]
+         fhir:Extension.valueString [ fhir:value "path-liquid-template" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -848,7 +848,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+         fhir:Extension.valueCode [ fhir:value "path-liquid-template" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -860,7 +860,7 @@
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "path-liquid" ]
+         fhir:Extension.valueCode [ fhir:value "path-liquid-template" ]
        ], [
          fhir:index 1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
@@ -3759,13 +3759,23 @@
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "examples.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "examples.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Examples" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 7 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
            fhir:Extension.valueUrl [ fhir:value "general-exam.html" ]
          ] ;
          fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "general-exam.html" ] ;
          fhir:ImplementationGuide.definition.page.title [ fhir:value "General Exam" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 7 ;
+         fhir:index 8 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -3775,7 +3785,7 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "Health Management" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 8 ;
+         fhir:index 9 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -3785,7 +3795,7 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "History" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 9 ;
+         fhir:index 10 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -3795,7 +3805,7 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "Ip Statements" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 10 ;
+         fhir:index 11 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -3805,7 +3815,17 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "Open Issues" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 11 ;
+         fhir:index 12 ;
+         fhir:Element.extension [
+           fhir:index 0 ;
+           fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
+           fhir:Extension.valueUrl [ fhir:value "profiles-and-extensions.html" ]
+         ] ;
+         fhir:ImplementationGuide.definition.page.nameUrl [ fhir:value "profiles-and-extensions.html" ] ;
+         fhir:ImplementationGuide.definition.page.title [ fhir:value "Profiles and Extensions" ] ;
+         fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
+       ], [
+         fhir:index 13 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -3815,7 +3835,7 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "Quickstart" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 12 ;
+         fhir:index 14 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -3825,7 +3845,7 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "Security" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 13 ;
+         fhir:index 15 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -3835,7 +3855,7 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "Service Record" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 14 ;
+         fhir:index 16 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -3845,7 +3865,7 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "Special Exam" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 15 ;
+         fhir:index 17 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;
@@ -3855,7 +3875,7 @@
          fhir:ImplementationGuide.definition.page.title [ fhir:value "Terminology" ] ;
          fhir:ImplementationGuide.definition.page.generation [ fhir:value "markdown" ]
        ], [
-         fhir:index 16 ;
+         fhir:index 18 ;
          fhir:Element.extension [
            fhir:index 0 ;
            fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name" ] ;

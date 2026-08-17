@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>附表十特別危害健康作業具名代碼系統 - JSON Representation - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.1</title>
+    <title>附表十特別危害健康作業具名代碼系統 - JSON Representation - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -44,8 +44,8 @@
 	  <script src="assets/js/prism-cql.js" type="text/javascript"></script>
     <script src="assets/js/mermaid.js" type="text/javascript"></script>
     <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
-    <style type="text/css">h2{--heading-prefix:"18.100"}
-    h3,h4,h5,h6{--heading-prefix:"18.100"}</style>
+    <style type="text/css">h2{--heading-prefix:"20.100"}
+    h3,h4,h5,h6{--heading-prefix:"20.100"}</style>
     <div id="segment-header" class="segment">    <!-- segment-header -->
       <div class="container">    <!-- container -->
 
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.2.1 - STU1
+            <span style="display:inline-block;">0.2.3 - STU1
 
 
             </span>
@@ -83,96 +83,93 @@
                 <!-- menu.xml -->
 
 <ul class="nav navbar-nav">
-  <li>
-    <a href="index.html">首頁 (Home)</a>
-  </li>
-  <li>
-    <a href="quickstart.html">快速入門 (Quick Start)</a>
-  </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">背景與案例 (Background &amp; Use Cases)
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">應用說明
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="background.html">背景 (Background)</a>
+        <a href="index.html">導言與整體架構</a>
       </li>
       <li>
-        <a href="usecases.html">應用案例 (Use Cases)</a>
+        <a href="quickstart.html">快速入門</a>
+      </li>
+      <li>
+        <a href="background.html">計畫背景</a>
+      </li>
+      <li>
+        <a href="usecases.html">應用案例</a>
       </li>
     </ul>
   </li>
   <li>
-    <a href="datamodel.html">資料模型 (Data Model)</a>
+    <a href="toc.html">目錄</a>
   </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄定義 (Examinations)
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">規範文件
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="general-exam.html">一般健康檢查 (General Exam)</a>
+        <a href="artifacts.html">資源總覽</a>
       </li>
       <li>
-        <a href="special-exam.html">特殊危害健康作業 (Special Exam)</a>
+        <a href="datamodel.html">資料模型</a>
       </li>
       <li>
-        <a href="adult-preventive-care.html">成人預防保健 (Adult Preventive Care)</a>
+        <a href="profiles-and-extensions.html">Profiles 與 Extensions</a>
       </li>
       <li>
-        <a href="service-record.html">勞工健康服務執行紀錄 (Service Record)</a>
+        <a href="terminology.html">術語與代碼系統</a>
       </li>
       <li>
-        <a href="health-management.html">健康管理分級 (Health Management)</a>
+        <a href="conformance.html">遵從性與依賴</a>
       </li>
     </ul>
   </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR 資源 (FHIR Artifacts)
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="artifacts.html">資源總覽 (Artifacts Summary)</a>
+        <a href="general-exam.html">一般健康檢查</a>
       </li>
       <li>
-        <a href="artifacts.html#1">Profiles</a>
+        <a href="special-exam.html">特殊危害健康作業</a>
       </li>
       <li>
-        <a href="artifacts.html#2">Extensions</a>
+        <a href="adult-preventive-care.html">成人預防保健</a>
       </li>
       <li>
-        <a href="artifacts.html#3">Value Sets</a>
+        <a href="service-record.html">勞工健康服務執行紀錄</a>
       </li>
       <li>
-        <a href="artifacts.html#4">Code Systems</a>
-      </li>
-      <li>
-        <a href="conformance.html">遵從性與依賴 (Conformance &amp; Dependencies)</a>
-      </li>
-    </ul>
-  </li>
-  <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">術語與安全 (Terminology &amp; Security)
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="terminology.html">術語定義 (Terminology)</a>
-      </li>
-      <li>
-        <a href="security.html">安全性考量 (Security)</a>
-      </li>
-      <li>
-        <a href="ip-statements.html">智慧財產權聲明 (IP Statements)</a>
+        <a href="health-management.html">健康管理分級與配工</a>
       </li>
     </ul>
   </li>
   <li>
-    <a href="open-issues.html">未決事項 (Open Issues)</a>
+    <a href="examples.html">範例</a>
   </li>
   <li>
-    <a href="downloads.html">下載區 (Downloads)</a>
+    <a href="downloads.html">結構定義與範例檔下載</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">安全性
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="security.html">安全與個資保護</a>
+      </li>
+      <li>
+        <a href="ip-statements.html">智慧財產權聲明</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="open-issues.html">未決事項</a>
   </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
@@ -203,7 +200,7 @@
 
   <!-- layouts\layout-instance-format -->
 <div style="counter-reset: section 8" class="col-12">
-  <!-- ReleaseHeader --><p id="publish-box"><a name="l383">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.2.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <!-- ReleaseHeader --><p id="publish-box"><a name="l377">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.2.3  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
 
 
 
@@ -287,12 +284,12 @@
     "<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.div">div</a>" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p class=\"res-header-id\"&gt;&lt;b&gt;Generated Narrative: 代码系统 CS-Appendix10Operation&lt;/b&gt;&lt;/p&gt;&lt;a name=\"CS-Appendix10Operation\"&gt; &lt;/a&gt;&lt;a name=\"hcCS-Appendix10Operation\"&gt; &lt;/a&gt;&lt;p&gt;This case-sensitive code system &lt;code&gt;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation&lt;/code&gt; defines the following codes:&lt;/p&gt;&lt;table class=\"codes\"&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;&lt;b&gt;Code&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Display&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;中文 （台湾） (Chinese (Taiwan), zh)&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-01&lt;a name=\"CS-Appendix10Operation-app-01\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;高溫作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-02&lt;a name=\"CS-Appendix10Operation-app-02\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;噪音作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-03&lt;a name=\"CS-Appendix10Operation-app-03\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;游離輻射作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-04&lt;a name=\"CS-Appendix10Operation-app-04\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;異常氣壓作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-05&lt;a name=\"CS-Appendix10Operation-app-05\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;鉛作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-06&lt;a name=\"CS-Appendix10Operation-app-06\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;四烷基鉛作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-07&lt;a name=\"CS-Appendix10Operation-app-07\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;1,1,2,2-四氯乙烷作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-08&lt;a name=\"CS-Appendix10Operation-app-08\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;四氯化碳作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-09&lt;a name=\"CS-Appendix10Operation-app-09\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;二硫化碳作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-10&lt;a name=\"CS-Appendix10Operation-app-10\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;三氯乙烯作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-11&lt;a name=\"CS-Appendix10Operation-app-11\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;二甲基甲醯胺作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-12&lt;a name=\"CS-Appendix10Operation-app-12\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;正己烷作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-13&lt;a name=\"CS-Appendix10Operation-app-13\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;聯苯胺及其鹽類作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-14&lt;a name=\"CS-Appendix10Operation-app-14\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;鈹及其化合物作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-15&lt;a name=\"CS-Appendix10Operation-app-15\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;氯乙烯作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-16&lt;a name=\"CS-Appendix10Operation-app-16\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;苯作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-17&lt;a name=\"CS-Appendix10Operation-app-17\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;2,4-二異氰酸甲苯作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-18&lt;a name=\"CS-Appendix10Operation-app-18\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;石綿作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-19&lt;a name=\"CS-Appendix10Operation-app-19\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;砷及其化合物作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-20&lt;a name=\"CS-Appendix10Operation-app-20\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;錳及其化合物作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-21&lt;a name=\"CS-Appendix10Operation-app-21\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;黃磷作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-22&lt;a name=\"CS-Appendix10Operation-app-22\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;聯吡啶或巴拉刈作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-23&lt;a name=\"CS-Appendix10Operation-app-23\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;粉塵作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-24&lt;a name=\"CS-Appendix10Operation-app-24\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;鉻酸及其鹽類作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-25&lt;a name=\"CS-Appendix10Operation-app-25\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;鎘及其化合物作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-26&lt;a name=\"CS-Appendix10Operation-app-26\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;鎳及其化合物作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-27&lt;a name=\"CS-Appendix10Operation-app-27\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;乙基汞化合物作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-28&lt;a name=\"CS-Appendix10Operation-app-28\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;溴丙烷作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-29&lt;a name=\"CS-Appendix10Operation-app-29\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;1,3-丁二烯作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-30&lt;a name=\"CS-Appendix10Operation-app-30\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;甲醛作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-31&lt;a name=\"CS-Appendix10Operation-app-31\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;銦及其化合物作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-32&lt;a name=\"CS-Appendix10Operation-app-32\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;汞及其無機化合物作業&lt;/td&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-33&lt;a name=\"CS-Appendix10Operation-app-33\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;苯乙烯作業&lt;/td&gt;&lt;td&gt;draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-34&lt;a name=\"CS-Appendix10Operation-app-34\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;甲苯作業&lt;/td&gt;&lt;td&gt;draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\"white-space:nowrap\"&gt;app-35&lt;a name=\"CS-Appendix10Operation-app-35\"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;二甲苯作業&lt;/td&gt;&lt;td&gt;draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;"
   },
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.url">url</a>" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation",
-  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.version">version</a>" : "0.2.1",
+  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.version">version</a>" : "0.2.3",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.name">name</a>" : "CS_Appendix10Operation",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.title">title</a>" : "附表十特別危害健康作業具名代碼系統",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.status">status</a>" : "active",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.experimental">experimental</a>" : false,
-  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.date">date</a>" : "2026-08-05T16:48:01+00:00",
+  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.date">date</a>" : "2026-08-17T03:02:16+00:00",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.publisher">publisher</a>" : "衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.contact">contact</a>" : [
     {

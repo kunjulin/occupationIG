@@ -1,4 +1,4 @@
-# 吸菸狀態與菸量範例 - 已戒菸 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.1
+# 吸菸狀態與菸量範例 - 已戒菸 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
 
 ##  Observation: 吸菸狀態與菸量範例 - 已戒菸
 

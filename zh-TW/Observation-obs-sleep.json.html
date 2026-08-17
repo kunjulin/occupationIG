@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>睡眠狀況測量範例 - JSON Representation - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.1</title>
+    <title>睡眠狀況測量範例 - JSON Representation - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -44,8 +44,8 @@
 	  <script src="assets/js/prism-cql.js" type="text/javascript"></script>
     <script src="assets/js/mermaid.js" type="text/javascript"></script>
     <script src="assets/js/mermaid-init.js" type="text/javascript"></script>
-    <style type="text/css">h2{--heading-prefix:"18.141"}
-    h3,h4,h5,h6{--heading-prefix:"18.141"}</style>
+    <style type="text/css">h2{--heading-prefix:"20.141"}
+    h3,h4,h5,h6{--heading-prefix:"20.141"}</style>
     <div id="segment-header" class="segment">    <!-- segment-header -->
       <div class="container">    <!-- container -->
 
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.2.1 - STU1
+            <span style="display:inline-block;">0.2.3 - STU1
 
 
             </span>
@@ -83,96 +83,93 @@
                 <!-- menu.xml -->
 
 <ul class="nav navbar-nav">
-  <li>
-    <a href="index.html">首頁 (Home)</a>
-  </li>
-  <li>
-    <a href="quickstart.html">快速入門 (Quick Start)</a>
-  </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">背景與案例 (Background &amp; Use Cases)
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">應用說明
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="background.html">背景 (Background)</a>
+        <a href="index.html">導言與整體架構</a>
       </li>
       <li>
-        <a href="usecases.html">應用案例 (Use Cases)</a>
+        <a href="quickstart.html">快速入門</a>
+      </li>
+      <li>
+        <a href="background.html">計畫背景</a>
+      </li>
+      <li>
+        <a href="usecases.html">應用案例</a>
       </li>
     </ul>
   </li>
   <li>
-    <a href="datamodel.html">資料模型 (Data Model)</a>
+    <a href="toc.html">目錄</a>
   </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄定義 (Examinations)
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">規範文件
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="general-exam.html">一般健康檢查 (General Exam)</a>
+        <a href="artifacts.html">資源總覽</a>
       </li>
       <li>
-        <a href="special-exam.html">特殊危害健康作業 (Special Exam)</a>
+        <a href="datamodel.html">資料模型</a>
       </li>
       <li>
-        <a href="adult-preventive-care.html">成人預防保健 (Adult Preventive Care)</a>
+        <a href="profiles-and-extensions.html">Profiles 與 Extensions</a>
       </li>
       <li>
-        <a href="service-record.html">勞工健康服務執行紀錄 (Service Record)</a>
+        <a href="terminology.html">術語與代碼系統</a>
       </li>
       <li>
-        <a href="health-management.html">健康管理分級 (Health Management)</a>
+        <a href="conformance.html">遵從性與依賴</a>
       </li>
     </ul>
   </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">FHIR 資源 (FHIR Artifacts)
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">檢查與紀錄
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="artifacts.html">資源總覽 (Artifacts Summary)</a>
+        <a href="general-exam.html">一般健康檢查</a>
       </li>
       <li>
-        <a href="artifacts.html#1">Profiles</a>
+        <a href="special-exam.html">特殊危害健康作業</a>
       </li>
       <li>
-        <a href="artifacts.html#2">Extensions</a>
+        <a href="adult-preventive-care.html">成人預防保健</a>
       </li>
       <li>
-        <a href="artifacts.html#3">Value Sets</a>
+        <a href="service-record.html">勞工健康服務執行紀錄</a>
       </li>
       <li>
-        <a href="artifacts.html#4">Code Systems</a>
-      </li>
-      <li>
-        <a href="conformance.html">遵從性與依賴 (Conformance &amp; Dependencies)</a>
-      </li>
-    </ul>
-  </li>
-  <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">術語與安全 (Terminology &amp; Security)
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="terminology.html">術語定義 (Terminology)</a>
-      </li>
-      <li>
-        <a href="security.html">安全性考量 (Security)</a>
-      </li>
-      <li>
-        <a href="ip-statements.html">智慧財產權聲明 (IP Statements)</a>
+        <a href="health-management.html">健康管理分級與配工</a>
       </li>
     </ul>
   </li>
   <li>
-    <a href="open-issues.html">未決事項 (Open Issues)</a>
+    <a href="examples.html">範例</a>
   </li>
   <li>
-    <a href="downloads.html">下載區 (Downloads)</a>
+    <a href="downloads.html">結構定義與範例檔下載</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">安全性
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="security.html">安全與個資保護</a>
+      </li>
+      <li>
+        <a href="ip-statements.html">智慧財產權聲明</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="open-issues.html">未決事項</a>
   </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
@@ -203,7 +200,7 @@
 
   <!-- layouts\layout-instance-format -->
 <div style="counter-reset: section 8" class="col-12">
-  <!-- ReleaseHeader --><p id="publish-box"><a name="l383">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.2.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <!-- ReleaseHeader --><p id="publish-box"><a name="l377">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.2.3  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
 
 
 

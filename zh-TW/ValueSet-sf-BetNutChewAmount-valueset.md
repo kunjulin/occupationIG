@@ -1,4 +1,4 @@
-# 【本地 stub】每日嚼檳榔量值集（非權威定義） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.1
+# 【本地 stub】每日嚼檳榔量值集（非權威定義） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
 
 ## ValueSet: 【本地 stub】每日嚼檳榔量值集（非權威定義） () 
 
@@ -28,12 +28,12 @@ Betel Nut Chewing Amount Value Set
   "resourceType" : "ValueSet",
   "id" : "sf-BetNutChewAmount-valueset",
   "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset",
-  "version" : "0.2.1",
+  "version" : "0.2.3",
   "name" : "SFBetNutChewAmountValueSet",
   "title" : "【本地 stub】每日嚼檳榔量值集（非權威定義）",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-05T16:48:01+00:00",
+  "date" : "2026-08-17T03:02:16+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
