@@ -1,19 +1,23 @@
 @echo off
 REM ============================================================================
-REM  送審／發佈前之術語驗證建置 (Terminology-validated build)
+REM  Terminology-validated build (for pre-submission / pre-publish use)
 REM
-REM  與 _genonce.bat 之分工：
-REM    _genonce.bat      離線建置 (-tx n/a)，日常快速建置用。
-REM                      **不驗證 LOINC/SNOMED 代碼是否存在或顯示名是否正確**，
-REM                      故其 0 Error 不得作為送審依據（文件一 v3.2 §6.6）。
-REM    _genonce_tx.bat   本檔。連線 tx.fhir.org 逐碼驗證代碼與顯示名。
-REM                      **對外發佈、送委員審查前一律以本檔重建並確認 0 Error。**
+REM  Division of labor with _genonce.bat:
+REM    _genonce.bat      Offline build (-tx n/a). Use for everyday quick builds.
+REM                      Does NOT verify that LOINC/SNOMED codes exist or that
+REM                      display names are correct, so its 0 Error result must
+REM                      NOT be used as evidence of submission readiness.
+REM    _genonce_tx.bat   This file. Connects to tx.fhir.org to validate every
+REM                      code and display name.
+REM                      Always rebuild with this file and confirm 0 Error
+REM                      before external release or committee review.
 REM
-REM  需可連外至 https://tx.fhir.org/r4。若公司網路以 TLS 攔截（如 Avast/proxy），
-REM  請先設定 JAVA_TOOL_OPTIONS 讓 JVM 信任 Windows 憑證存放區：
+REM  Requires outbound access to https://tx.fhir.org/r4. If your network does
+REM  TLS interception (e.g. Avast/corporate proxy), set JAVA_TOOL_OPTIONS so
+REM  the JVM trusts the Windows certificate store:
 REM    set JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStoreType=Windows-ROOT
 REM    set NODE_OPTIONS=--use-system-ca
-REM  詳見 .claude/skills/fhir-tx-audit/SKILL.md。
+REM  See .claude/skills/fhir-tx-audit/SKILL.md for details.
 REM ============================================================================
 SET maxmem=4096m
 SET txserver=https://tx.fhir.org/r4
@@ -36,8 +40,9 @@ java -Xmx%maxmem% -jar input-cache\publisher.jar -ig ig.ini -no-sushi -tx %txser
 
 echo.
 echo ============================================================================
-echo  請開啟 output\qa.html 確認 Errors: 0。
-echo  若出現 "Wrong Display Name" 或 "Unknown code"，代表代碼或顯示名有問題，
-echo  處理流程見 .claude/skills/fhir-tx-audit/SKILL.md
-echo  （注意：顯示名不符可能代表「用錯碼」而非僅顯示名不精確）。
+echo  Open output\qa.html and confirm Errors: 0.
+echo  If you see "Wrong Display Name" or "Unknown code", the code or display
+echo  name has a problem. See .claude/skills/fhir-tx-audit/SKILL.md for the
+echo  process (note: a display mismatch can mean the CODE itself is wrong,
+echo  not just an imprecise display name).
 echo ============================================================================
