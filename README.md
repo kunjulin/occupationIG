@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.2.3`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.2.4`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -150,6 +150,23 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.2.4（2026-08-17）補齊模板 zh-TW 字串，修復全站空白標籤（JOB-24）
+
+> 說明：本次為**呈現層修復**，未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例之定義，亦未變更任何頁面檔名。
+
+- **問題**：頁尾之 `Links: Table of Contents | QA Report` 一列只剩 `: |`，`IG © …`／`套件 …`／`產生日期 …` 三行亦消失；profile 頁之〈正式網址〉〈版本〉〈機器可讀名稱〉等標籤同樣空白。**全站每一頁都受影響。**
+- **根因**：模板 `fhir2.base.template` 隨附之 `translations/stringsBase.json` **只含 `en` 一種語言**（其餘語系僅以 `.po` 形式存在，未編入該 JSON）。本 IG 依 JOB-02 宣告 `language: zh-TW`，頁面模板以 `site.data.stringsBase['zh-TW']['<Key>']` 取字時查無此語系，Liquid 回傳空字串。模板 `scripts/ant.xml` 之複製區塊自留 TODO：「Replace this copy with something that will default missing translations to English」——上游明知缺語系不會退回英文。
+- ⚠️ **非 v0.2.3（JOB-23）引入**：自 `gh-pages` 取 JOB-23 之前那一版已發佈站台（`781a6566`）之 `zh-TW/index.html`，其頁尾與修復前**逐字相同**。此缺陷早於 JOB-23，自 JOB-02 宣告 zh-TW 起即存在。
+- **新增 [`input/data/stringsBase.json`](input/data/stringsBase.json)**：含 `en`（逐字複製自模板）與 `zh-TW`（126 鍵全數翻譯）。IG Publisher 會將 `input/data` 併入 Jekyll 之 `_data`。已於本機建置實測確認生效——頁尾恢復為「連結: 目錄 | QA 報告」。
+- **新增 [`scripts/check-translations.js`](scripts/check-translations.js) 翻譯字串閘門**並掛入 `npm run verify` 與 CI：
+  - **T-1** 模板 `en` 之每個鍵，我方 `en` 與 `zh-TW` 均須存在；**T-2** 我方 `en` 須與模板逐字相同；**T-3** `%PLACEHOLDER%` 集合須一致；**T-4** `zh-TW` 不得為空字串；**T-5** 我方多出之鍵（警告）。
+  - 內建 `--self-test` **負向測試四組**，CI 中先跑負向測試再跑實檢（比照 JOB-20～23）。
+  - **CI 步驟必須排在 IG Publisher 之後**——T-1／T-2 需與解壓後之模板比對；排在前面會靜默跳過而假性通過。
+  - 設此閘門之理由：自備字串檔即與上游脫鉤，模板日後新增鍵時我方不會自動跟上，那些新鍵會在 `en` 與 `zh-TW` **兩邊都變空白且不報錯**——與 JOB-23 之位移型錨點屬同型的靜默失效。
+- **不採行之替代方案**：不把 `language` 改回 `en`（那會讓中文內容重新被標為 `lang="en"` 並輸出至 `en/`，正是 JOB-02 修掉的問題）；不直接改 repo 根目錄之 `template/`（該目錄是每次建置解壓的產物，會被覆蓋，CI 更是重新下載）。
+- **`sushi-config.yaml`**：`version` 由 `0.2.3` 調整為 `0.2.4`。**`package-list.json`**：新增 0.2.4 條目。`input/assets/fsh-source.zip` 因版次變更一併重建。
+- 詳見 [`docs/optimization/JOB-24-zh-tw-template-strings.md`](docs/optimization/JOB-24-zh-tw-template-strings.md)。
 
 ### v0.2.3（2026-08-16）導覽列比照 TW Core IG 調整（JOB-23 實作）
 > 說明：本次為**導覽與呈現層變更**，未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例之**定義**，不影響既有實作之資料結構。

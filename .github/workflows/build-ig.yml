@@ -249,6 +249,16 @@ jobs:
         if: always()
         run: npm run check:ms
 
+      # 翻譯字串閘門（JOB-24 §5）。**必須排在 IG Publisher 之後**——T-1／T-2 需要
+      # 與模板之 stringsBase.json 比對，而該檔是 publisher 解壓 fhir2.base.template
+      # 後才存在。排在前面會靜默跳過比對而假性通過。
+      # 先跑負向測試再跑實檢，理由同 check:menu（比照 JOB-20／21／22／23）。
+      - name: Check translation strings (self-test first)
+        if: always()
+        run: |
+          npm run check:i18n:selftest
+          npm run check:i18n
+
       - name: QA gate
         run: |
           if [ "$TX_SERVER" = "n/a" ]; then

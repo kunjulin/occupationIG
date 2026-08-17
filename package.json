@@ -20,9 +20,12 @@
     "check:menu": "node scripts/check-menu.js",
     "check:menu:strict": "node scripts/check-menu.js --strict",
     "check:menu:selftest": "node scripts/check-menu.js --self-test",
+    "check:i18n": "node scripts/check-translations.js",
+    "check:i18n:strict": "node scripts/check-translations.js --strict",
+    "check:i18n:selftest": "node scripts/check-translations.js --self-test",
     "check:ms": "node scripts/check-ms-coverage.js",
     "check:ms:strict": "node scripts/check-ms-coverage.js --strict",
-    "verify": "npm run check:refs && npm run check:menu && npm run check:assets && npm run qa"
+    "verify": "npm run check:refs && npm run check:menu && npm run check:i18n && npm run check:assets && npm run qa"
   },
   "devDependencies": {
     "fsh-sushi": "3.20.0"

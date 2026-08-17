@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.2.4",
+      "date": "2026-08-17",
+      "desc": "修復全站空白標籤（JOB-24）：模板 fhir2.base.template 隨附之 translations/stringsBase.json 只含 en 一種語言，而本 IG 依 JOB-02 宣告 language: zh-TW，頁面模板取字時查無此語系而回傳空字串，導致頁尾之「連結／目錄／QA 報告」與 IG 版權、套件、產生日期三行，以及各 profile 頁之「正式網址」「版本」「機器可讀名稱」等標籤全部渲染為空白（連結與版面均在，僅無文字）。經比對 gh-pages 前一版站台確認此缺陷早於 v0.2.3，非導覽列調整所引入。新增 input/data/stringsBase.json（en 逐字複製自模板 ＋ zh-TW 126 鍵全數翻譯），並新增 scripts/check-translations.js 閘門（T-1～T-5 ＋ 四組負向自我測試）掛入 CI，防止日後模板新增字串鍵時我方檔案靜默落後。未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例之定義，亦未變更任何頁面檔名。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.2.3",
       "date": "2026-08-16",
       "desc": "導覽列（頁籤內容與順序）比照 TW Core IG v1.0.0 調整（JOB-23）：頂層由 9 項縮為 8 項，排列邏輯改為文件類型導向（應用說明→目錄→規範文件→檢查與紀錄→範例→下載→安全性→未決事項），標籤改為純中文；新增〈目錄〉與〈範例〉入口，〈安全性〉提升為頂層。新增兩張導覽用策展頁：〈Profiles 與 Extensions〉依 FHIR resource 分類列出 41 個 Profile 與 11 個 Extension，〈範例〉依使用情境與檢查類別列出 67 個範例實例。移除四條 artifacts.html#1~#4 位移型錨點連結（該編號由 IG Publisher 依建置時實際存在之 artifact 類別自動產生，類別增減即整體位移且不報錯），改指向策展頁。新增 scripts/check-menu.js 導覽列閘門並掛入 CI。既有頁面檔名與網址全數未變更；未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例之定義。工業技術研究院委託研擬中，尚未定稿。",
