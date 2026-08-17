@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.2.4`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.2.5`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -150,6 +150,35 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.2.5（2026-08-17）頁面標題中文化（JOB-25）＋ 已發佈站台對標查閱
+
+> 說明：本次為**呈現層變更**，未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例之定義，亦**未變更任何頁面檔名**。
+> 緣起：2026-08-14 工業技術研究院生醫所李建儒經理反映「格式可能還是要對標一下 TW Core IG，風格不大一樣，提案有要求一致性」。
+
+**（一）已發佈站台查閱結果（2026-08-17，<https://kunjulin.github.io/occupationIG/> v0.2.4）**
+
+- ✅ 網址為 `/zh-TW/`、`<html lang="zh-TW">`；導覽列頂層 **8 項、純中文、文件類型導向**——[JOB-23](docs/optimization/JOB-23-navigation-alignment-twcore.md) 確認生效。
+- ✅ 頁尾為「IG © 2026+ …／套件 `mohw.tw.twha#0.2.4`，基於 FHIR 4.0.1。／產生日期 2026-08-17／連結: 目錄 | QA 報告」——[JOB-24](docs/optimization/JOB-24-zh-tw-template-strings.md) 確認生效。
+- ❌ **新發現**：全站每一頁之 `<title>`、頁首 H1 與麵包屑仍為英文——`Home`、`Table of Contents`、`Artifacts Summary`、`Examples`、`Security`、`Open Issues`、`General Exam`…；TW Core 對應位置為「應用說明」「目錄」「規範文件」「範例」「安全性」。
+
+**（二）本次修正（JOB-25）**
+
+- **根因**：`sushi-config.yaml` 未宣告 `pages:` 時，**SUSHI 會自動收錄 `input/pagecontent/*.md` 全部檔案，並以「檔名去副檔名後轉 Title Case」推導頁面標題**（`index.md` → `Home`、`general-exam.md` → `General Exam`），寫入 `ImplementationGuide.definition.page.title`，再由模板填入 `<title>`／H1／麵包屑。
+  - ⚠️ **與 JOB-24 為不同來源**：JOB-24 補的是模板介面字串（`stringsBase.json`）。同一個 `TableOfContents` 鍵在頁尾已正確顯示「目錄」，麵包屑卻仍是英文，即可證兩者機制不同。
+- **新增 `sushi-config.yaml` 之 `pages:` 區塊**，逐頁指定中文標題（19 頁全數列入）。排列順序**同時決定 `toc.html` 之章節順序**，故刻意排成與導覽列一致，使兩者互相對應。
+- **`scripts/check-menu.js` 新增 R-6 閘門**：
+  - **R-6a** 每個 `input/pagecontent/*.md` 均須列於 `pages:`；**R-6b** `pages:` 條目須有對應實體檔案；**R-6c** `title` 不得為空（三者失敗即 `exit 1`）；**R-6d** `title` 不得等於 SUSHI 依檔名推導之預設值；**R-6e** `index.md` 須為第一項（後二者警告）。
+  - **設此閘門之理由**：**宣告 `pages:` 後 SUSHI 即停止自動收錄——未列於其中的頁面會從建置產出中靜默消失，且不會有任何錯誤訊息**。與 JOB-23 之位移型錨點、JOB-24 之缺語系字串同屬「靜默失效」型缺陷。
+  - 負向測試由 3 組增為 **7 組**（新增 R-6a／R-6b／R-6c／R-6d），CI 中仍先跑負向測試再跑實檢。
+- **`sushi-config.yaml`**：`version` 由 `0.2.4` 調整為 `0.2.5`。**`package-list.json`**：新增 0.2.5 條目。
+
+**（三）待建置後複核**
+
+- **N-2：`toc.html` 自身之標題與麵包屑首段**仍可能為 `Table of Contents`。該頁**非 pagecontent 檔案**，不受 `pages:` 影響；其字串可能來自 IG Publisher 內建值而非模板字串（因 `stringsBase.json` 之 `TableOfContents` 已譯且於頁尾生效）。**本容器無法建置，依 [JOB-09](docs/optimization/JOB-09-build-config-hardening.md) 之既定原則不憑猜測改動**——須於建置後自 `output/` 實際產出判定來源再處置。
+- ⚠️ 本次於本機容器完成之驗證：`npm run check:refs`、`npm run check:menu`（7 組負向測試全過；實檢 OK：頂層 8 項、入口 20 個、`pages:` 19 頁雙向對應且均有中文標題）。**tx 建置仍須於本機或 CI 執行**；`pages:` 之宣告可能使頁面順序變動而影響 QA 訊息數，須依 `qa-baseline.json` 之既定例外程序以 CI 實測值處理。**對外發佈前一律以 `_genonce_tx.bat` 重建並檢視 `output/qa.html`。**
+
+**（四）對標盤點總表**見 [JOB-25 §5](docs/optimization/JOB-25-page-titles-zh-tw.md)。刻意不比照之三項（MOHW header logo／配色、`TWCDI.html`、刪除〈快速入門〉〈未決事項〉）之理由見 [JOB-23 §2.2](docs/optimization/JOB-23-navigation-alignment-twcore.md)。
 
 ### v0.2.4（2026-08-17）補齊模板 zh-TW 字串，修復全站空白標籤（JOB-24）
 

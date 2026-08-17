@@ -48,6 +48,16 @@ const ORPHAN_ALLOWLIST = new Map([
 
 const TOP_LEVEL_SOFT_MAX = 9; // 超過即警告：頂層過多會讓導覽列折行且可尋性劣化
 
+// SUSHI 由檔名推導頁面標題之規則（JOB-25）：去副檔名、'-' 轉空白、每字首字母大寫。
+// 用於 R-6d——若 `pages:` 之 title 恰等於此推導值，代表該頁其實沒被真正命名。
+function sushiDefaultTitle(mdFile) {
+  return mdFile
+    .replace(/\.md$/, '')
+    .split('-')
+    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
+    .join(' ');
+}
+
 // ---------------------------------------------------------------- menu 解析
 //
 // 刻意不引入 YAML 套件（本 repo 無 runtime 相依，devDependencies 僅 fsh-sushi）。
@@ -85,6 +95,42 @@ function parseMenu(yamlText) {
     }
   }
   return items;
+}
+
+// ---------------------------------------------------------------- pages 解析
+//
+// `pages:` 之結構為兩層：檔名（2 空格）→ title（4 空格）。同樣採嚴格剖析。
+// 回傳 [{ file, title, line }]，順序即宣告順序（決定 toc.html 章節順序）。
+function parsePages(yamlText) {
+  const lines = yamlText.split(/\r?\n/);
+  const start = lines.findIndex((l) => /^pages:\s*$/.test(l));
+  if (start === -1) return null; // 未宣告 pages: —— SUSHI 自動收錄，R-6 不適用
+
+  const entries = [];
+  let current = null;
+
+  for (let i = start + 1; i < lines.length; i++) {
+    const raw = lines[i];
+    const lineNo = i + 1;
+    if (/^\s*$/.test(raw)) continue;
+    if (/^\s*#/.test(raw)) continue;
+    if (/^\S/.test(raw)) break;
+
+    const m = raw.match(/^(\s+)(.+?):\s*(.*?)\s*$/);
+    if (!m) throw new Error(`pages 第 ${lineNo} 行無法解析：${raw}`);
+    const [, indent, key, value] = m;
+
+    if (indent.length === 2) {
+      current = { file: key, title: null, line: lineNo };
+      entries.push(current);
+    } else if (indent.length === 4) {
+      if (!current) throw new Error(`pages 第 ${lineNo} 行：屬性缺少所屬頁面`);
+      if (key === 'title') current.title = value.replace(/^["']|["']$/g, '');
+    } else {
+      throw new Error(`pages 第 ${lineNo} 行：不支援的縮排深度 ${indent.length}（僅允許 2 或 4）`);
+    }
+  }
+  return entries;
 }
 
 // ---------------------------------------------------------------- 檢查規則
@@ -148,13 +194,58 @@ function checkMenu(yamlText, pageStems) {
     );
   }
 
-  return { errors, warnings, topCount, items };
+  // R-6：pages: 與 pagecontent 之雙向對應（JOB-25）
+  //
+  // 宣告 pages: 後 SUSHI 停止自動收錄——漏列一個檔案，該頁即從產出中**靜默消失**，
+  // 不會有任何錯誤訊息。與 R-2 之位移型錨點、JOB-24 之缺語系字串同屬靜默失效型缺陷。
+  const pages = parsePages(yamlText);
+  if (pages) {
+    const declared = new Set(pages.map((p) => p.file));
+
+    // R-6a：每個 pagecontent 檔案都要被宣告
+    for (const stem of [...pageStems].sort()) {
+      if (!declared.has(`${stem}.md`)) {
+        errors.push(
+          `R-6a input/pagecontent/${stem}.md 未列於 \`pages:\`。` +
+          `宣告 pages: 後 SUSHI 不再自動收錄，該頁會從建置產出中靜默消失。`
+        );
+      }
+    }
+
+    for (const p of pages) {
+      const stem = p.file.replace(/\.md$/, '');
+      // R-6b：宣告的檔案要真的存在
+      if (!pageStems.has(stem)) {
+        errors.push(`R-6b [第 ${p.line} 行] \`pages:\` 宣告之 ${p.file} 不存在於 input/pagecontent/。`);
+        continue;
+      }
+      // R-6c：title 不得缺漏或空白
+      if (!p.title) {
+        errors.push(`R-6c [第 ${p.line} 行] ${p.file} 缺少 title（或 title 為空）。`);
+        continue;
+      }
+      // R-6d：title 不得等於 SUSHI 由檔名推導之預設值
+      if (p.title === sushiDefaultTitle(p.file)) {
+        warnings.push(
+          `R-6d [第 ${p.line} 行] ${p.file} 之 title「${p.title}」等於 SUSHI 由檔名推導之預設值，` +
+          `等同未命名（該頁 <title>／H1／麵包屑將顯示英文）。`
+        );
+      }
+    }
+
+    // R-6e：index.md 應為第一項
+    if (pages.length && pages[0].file !== 'index.md') {
+      warnings.push(`R-6e \`pages:\` 之第一項為 ${pages[0].file}，慣例應為 index.md（決定首頁與 toc 起始）。`);
+    }
+  }
+
+  return { errors, warnings, topCount, items, pages };
 }
 
 // ---------------------------------------------------------------- 負向測試
 //
 // 閘門本身也可能失效（例如 parseMenu 提早 break 而漏檢），屆時會「全綠但沒檢查」。
-// 比照 JOB-20／JOB-21／JOB-22 之作法，內建三組必失敗案例。
+// 比照 JOB-20／JOB-21／JOB-22 之作法，內建必失敗案例。
 function selfTest() {
   const cases = [
     {
@@ -174,6 +265,31 @@ function selfTest() {
       yaml: 'menu:\n  首頁: index.html\n',
       pages: new Set(['index', 'lonely']),
       expect: /^R-5 /,
+      warningOnly: true,
+    },
+    {
+      name: 'R-6a pages: 漏列一個 pagecontent 檔案（該頁會靜默消失）',
+      yaml: 'pages:\n  index.md:\n    title: 應用說明\nmenu:\n  應用說明: index.html\n',
+      pages: new Set(['index', 'forgotten']),
+      expect: /^R-6a /,
+    },
+    {
+      name: 'R-6b pages: 宣告了不存在的檔案',
+      yaml: 'pages:\n  index.md:\n    title: 應用說明\n  ghost.md:\n    title: 幽靈頁\nmenu:\n  應用說明: index.html\n',
+      pages: new Set(['index']),
+      expect: /^R-6b /,
+    },
+    {
+      name: 'R-6c pages: 條目缺 title',
+      yaml: 'pages:\n  index.md:\n    title: 應用說明\n  bare.md:\n    title:\nmenu:\n  應用說明: index.html\n',
+      pages: new Set(['index', 'bare']),
+      expect: /^R-6c /,
+    },
+    {
+      name: 'R-6d title 等於 SUSHI 由檔名推導之預設值',
+      yaml: 'pages:\n  index.md:\n    title: 應用說明\n  general-exam.md:\n    title: General Exam\nmenu:\n  應用說明: index.html\n',
+      pages: new Set(['index', 'general-exam']),
+      expect: /^R-6d /,
       warningOnly: true,
     },
   ];
@@ -242,9 +358,12 @@ function main() {
   if (res.errors.length || (strict && res.warnings.length)) process.exit(1);
 
   const targets = res.items.filter((i) => i.target).length;
+  const pagesNote = res.pages
+    ? `；pages: 已宣告 ${res.pages.length} 頁，與 pagecontent 雙向對應且均有中文標題`
+    : '；(未宣告 pages:，頁面標題由 SUSHI 依檔名推導，R-6 未適用)';
   console.log(
     `OK: menu 頂層 ${res.topCount} 項、可點選入口 ${targets} 個，全數解析成功；` +
-    `無位移型錨點，無未白名單之孤兒頁` +
+    `無位移型錨點，無未白名單之孤兒頁${pagesNote}` +
     (res.warnings.length ? `（${res.warnings.length} 項警告）` : '') + '。'
   );
 }

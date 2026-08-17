@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.2.5",
+      "date": "2026-08-17",
+      "desc": "頁面標題中文化（JOB-25）：新增 sushi-config.yaml 之 pages: 區塊，逐頁指定中文標題。先前未宣告 pages: 時 SUSHI 依檔名推導標題（index.md→Home、general-exam.md→General Exam），致全站每頁之 <title>、頁首 H1 與麵包屑均為英文，與 TW Core IG 之中文標題不一致。pages: 排序同時決定 toc.html 章節順序，已排成與導覽列一致。另於 scripts/check-menu.js 新增 R-6 閘門：pages: 與 pagecontent 須雙向對應（漏列會使該頁自產出中靜默消失且不報錯）、title 不得為空或等於檔名推導預設值。未變更任何頁面檔名，亦未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例之定義。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.2.4",
       "date": "2026-08-17",
       "desc": "修復全站空白標籤（JOB-24）：模板 fhir2.base.template 隨附之 translations/stringsBase.json 只含 en 一種語言，而本 IG 依 JOB-02 宣告 language: zh-TW，頁面模板取字時查無此語系而回傳空字串，導致頁尾之「連結／目錄／QA 報告」與 IG 版權、套件、產生日期三行，以及各 profile 頁之「正式網址」「版本」「機器可讀名稱」等標籤全部渲染為空白（連結與版面均在，僅無文字）。經比對 gh-pages 前一版站台確認此缺陷早於 v0.2.3，非導覽列調整所引入。新增 input/data/stringsBase.json（en 逐字複製自模板 ＋ zh-TW 126 鍵全數翻譯），並新增 scripts/check-translations.js 閘門（T-1～T-5 ＋ 四組負向自我測試）掛入 CI，防止日後模板新增字串鍵時我方檔案靜默落後。未變更任何 Profile、ValueSet、CodeSystem、Extension 或範例之定義，亦未變更任何頁面檔名。工業技術研究院委託研擬中，尚未定稿。",

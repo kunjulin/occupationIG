@@ -4,7 +4,7 @@ name: TWHAIG
 title: 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)
 description: 以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】
 status: active
-version: 0.2.4
+version: 0.2.5
 # 本指引之敘述性內容為繁體中文（臺灣）。未宣告時 IG Publisher 會預設為 en，
 # 導致整份中文內容被標記為 lang="en" 並輸出至 en/ 子目錄（JOB-02）。
 language: zh-TW
@@ -75,6 +75,59 @@ parameters:
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-UnfitDiseases
+
+# 頁面標題（JOB-25，0.2.5）。
+#
+# 未宣告 `pages:` 時，SUSHI 會自動收錄 input/pagecontent/*.md 全部檔案，並以
+# 「檔名去副檔名後轉 Title Case」推導頁面標題——general-exam.md -> "General Exam"、
+# index.md -> "Home"。該標題寫入 ImplementationGuide.definition.page.title，
+# 再由模板填入 <title>、頁首 H1 與麵包屑，導致全站標題為英文
+# （2026-08-17 已發佈站台 v0.2.4 實測）。TW Core 對應位置為中文。
+#
+# ⚠️ 宣告 `pages:` 後 SUSHI 即停止自動收錄——**未列於此處的 pagecontent 檔案會從
+#    建置產出中靜默消失，且不會有任何錯誤訊息**。故 scripts/check-menu.js 新增 R-6：
+#    pagecontent 檔案與本區塊須雙向對應（漏列即 exit 1）。新增頁面時兩處都要加。
+#
+# 排列順序同時決定 toc.html 之章節順序，故刻意排成與 menu 一致。
+pages:
+  index.md:
+    title: 應用說明
+  quickstart.md:
+    title: 快速入門
+  background.md:
+    title: 計畫背景
+  usecases.md:
+    title: 應用案例
+  datamodel.md:
+    title: 資料模型
+  profiles-and-extensions.md:
+    title: Profiles 與 Extensions
+  terminology.md:
+    title: 術語與代碼系統
+  conformance.md:
+    title: 遵從性與依賴
+  general-exam.md:
+    title: 一般健康檢查
+  special-exam.md:
+    title: 特殊危害健康作業
+  adult-preventive-care.md:
+    title: 成人預防保健
+  service-record.md:
+    title: 勞工健康服務執行紀錄
+  health-management.md:
+    title: 健康管理分級與配工
+  examples.md:
+    title: 範例
+  downloads.md:
+    title: 結構定義與範例檔下載
+  security.md:
+    title: 安全與個資保護
+  ip-statements.md:
+    title: 智慧財產權聲明
+  open-issues.md:
+    title: 未決事項
+  history.md:
+    title: 版本歷程
 
 # 導覽列（JOB-23，0.2.3）。頂層 8 項，排列邏輯比照 TW Core IG v1.0.0 之
 # 「文件類型導向」：應用說明 → 目錄 → 規範文件 → 範例 → 下載 → 安全性。
