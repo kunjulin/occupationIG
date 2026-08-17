@@ -1,6 +1,6 @@
-# 吸菸量及菸齡擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 吸菸量及菸齡擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## : 吸菸量及菸齡擴充 
+## 擴充: 吸菸量及菸齡擴充 
 
 記錄每日吸菸支數與吸菸年數。
 
@@ -15,14 +15,14 @@
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-ext-smoking-quantity.json)
 
-### 
+### 擴充內容之正式檢視
 
- . 
+ [差異表、快照表與其他表示法之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
 
-*   
-*   
-*   
-*   
+*  [差異表](#tabs-diff) 
+*  [快照表](#tabs-snap) 
+*  [統計／參照](#tabs-summ) 
+*  [全部](#tabs-all) 
 
 #### Constraints
 
@@ -30,7 +30,9 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 Complex Extension: 記錄每日吸菸支數與吸菸年數。
 
- **Differential View** 
+ **差異檢視Differential View** 
+
+ **快照檢視** 
 
 #### Constraints
 
@@ -40,7 +42,7 @@ Complex Extension: 記錄每日吸菸支數與吸菸年數。
 
  
 
- , ,  
+本 Profile 之其他表示法： [CSV](../StructureDefinition-ext-smoking-quantity.csv), [Excel](../StructureDefinition-ext-smoking-quantity.xlsx), [Schematron](../StructureDefinition-ext-smoking-quantity.sch) 
 
 
 
@@ -51,12 +53,12 @@ Complex Extension: 記錄每日吸菸支數與吸菸年數。
   "resourceType" : "StructureDefinition",
   "id" : "ext-smoking-quantity",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "ExtSmokingQuantity",
   "title" : "吸菸量及菸齡擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

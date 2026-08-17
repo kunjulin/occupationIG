@@ -13,12 +13,12 @@
      fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-ServiceActivityType</b></p><a name=\"CS-ServiceActivityType\"> </a><a name=\"hcCS-ServiceActivityType\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">exam-analysis<a name=\"CS-ServiceActivityType-exam-analysis\"> </a></td><td>健康檢查結果分析</td><td>辦理健康檢查結果分析、評估、管理與保存。</td></tr><tr><td style=\"white-space:nowrap\">abnormal-followup<a name=\"CS-ServiceActivityType-abnormal-followup\"> </a></td><td>異常追蹤管理</td><td>針對健檢異常勞工辦理個案追蹤與健康指導。</td></tr><tr><td style=\"white-space:nowrap\">health-education<a name=\"CS-ServiceActivityType-health-education\"> </a></td><td>健康教育指導</td><td>辦理勞工健康教育、衛生指導、健康促進等活動。</td></tr><tr><td style=\"white-space:nowrap\">injury-prevention<a name=\"CS-ServiceActivityType-injury-prevention\"> </a></td><td>工作相關傷病預防</td><td>規劃與執行重複性作業等工作相關傷病預防措施。</td></tr><tr><td style=\"white-space:nowrap\">exposure-evaluation<a name=\"CS-ServiceActivityType-exposure-evaluation\"> </a></td><td>作業環境危害暴露評估</td><td>配合職業安全衛生人員進行危害暴露評估與現場巡視。</td></tr><tr><td style=\"white-space:nowrap\">maternity-protection<a name=\"CS-ServiceActivityType-maternity-protection\"> </a></td><td>母性健康保護</td><td>規劃與辦理妊娠、分娩後勞工之母性健康保護。</td></tr><tr><td style=\"white-space:nowrap\">unfit-assessment<a name=\"CS-ServiceActivityType-unfit-assessment\"> </a></td><td>配工與復工評估</td><td>辦理勞工適性配工、工作限制或復工評估。</td></tr><tr><td style=\"white-space:nowrap\">emergency-response<a name=\"CS-ServiceActivityType-emergency-response\"> </a></td><td>緊急醫療規劃</td><td>規劃與辦理工作場所緊急醫療與急救計畫。</td></tr></table></div>"
   ] ;
   fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType"] ;
-  fhir:CodeSystem.version [ fhir:value "0.2.3"] ;
+  fhir:CodeSystem.version [ fhir:value "0.2.4"] ;
   fhir:CodeSystem.name [ fhir:value "CS_ServiceActivityType"] ;
   fhir:CodeSystem.title [ fhir:value "臨場健康服務辦理事項代碼系統"] ;
   fhir:CodeSystem.status [ fhir:value "active"] ;
   fhir:CodeSystem.experimental [ fhir:value "true"^^xsd:boolean] ;
-  fhir:CodeSystem.date [ fhir:value "2026-08-17T03:02:16+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.date [ fhir:value "2026-08-17T05:27:05+00:00"^^xsd:dateTime] ;
   fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:CodeSystem.contact [
      fhir:index 0 ;

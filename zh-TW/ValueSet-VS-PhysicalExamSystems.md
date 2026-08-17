@@ -1,4 +1,4 @@
-# 身體檢查系統部位值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 身體檢查系統部位值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
 ## ValueSet: 身體檢查系統部位值集 
 
@@ -13,11 +13,11 @@
 
  
 
-### 
+### 展開
 
 -------
 
- . 
+ [上表之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
 
 
 
@@ -28,12 +28,12 @@
   "resourceType" : "ValueSet",
   "id" : "VS-PhysicalExamSystems",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PhysicalExamSystems",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "VS_PhysicalExamSystems",
   "title" : "身體檢查系統部位值集",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

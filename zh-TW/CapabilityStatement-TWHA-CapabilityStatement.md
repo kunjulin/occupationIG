@@ -1,11 +1,11 @@
-# 健康檢查資料交換平台服務宣告 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 健康檢查資料交換平台服務宣告 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
 ## CapabilityStatement: 健康檢查資料交換平台服務宣告 
 
  
 本實體用於宣告健康檢查資料交換平台支援的交互作用規範，主要採用 POST [base]/Bundle ($submit) 或直接交易封包 (transaction) 進行健檢資料之上傳與交換。本宣告為 requirements（規範要求）層級；實際部署之平台應發佈對應之 capability 宣告。 
 
-  |  
+ [OpenAPI-Swagger 定義原始檔](../TWHA-CapabilityStatement.openapi.json) | [下載](../TWHA-CapabilityStatement.openapi.json) 
 
 
 
@@ -16,7 +16,7 @@
   "resourceType" : "CapabilityStatement",
   "id" : "TWHA-CapabilityStatement",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CapabilityStatement/TWHA-CapabilityStatement",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "title" : "健康檢查資料交換平台服務宣告",
   "status" : "active",
   "date" : "2026-07-29",

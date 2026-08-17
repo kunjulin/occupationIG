@@ -1,6 +1,6 @@
-# 健康檢查工作經歷與職業別 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 健康檢查工作經歷與職業別 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## : 健康檢查工作經歷與職業別 Profile 
+## 資源 Profile: 健康檢查工作經歷與職業別 Profile 
 
  
 用於記錄受檢勞工之工作經歷與現任職業別，繼承自 TW Core Observation Occupation。 
@@ -11,14 +11,19 @@
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-Occupation.json)
 
-### 
+### Profile 內容之正式檢視
 
- . 
+ [差異表、快照表與其他表示法之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
 
-*   
-*   
-*   
-*   
+*  [重點元素表](#tabs-key) 
+*  [差異表](#tabs-diff) 
+*  [快照表](#tabs-snap) 
+*  [統計／參照](#tabs-summ) 
+*  [全部](#tabs-all) 
+
+#### Terminology Bindings
+
+#### Constraints
 
 #### Constraints
 
@@ -34,9 +39,17 @@ This structure refers to these other structures:
 
 * [受檢者 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient)](StructureDefinition-TWHA-Patient.md)
 
+ **重點元素檢視** 
+
+#### Terminology Bindings
+
 #### Constraints
 
- **View** 
+ **差異檢視** 
+
+#### Constraints
+
+ **快照檢視View** 
 
 #### Terminology Bindings
 
@@ -52,7 +65,7 @@ This structure refers to these other structures:
 
  
 
- ,  
+本 Profile 之其他表示法： [CSV](../StructureDefinition-TWHA-Occupation.csv), [Excel](../StructureDefinition-TWHA-Occupation.xlsx), [Schematron](../StructureDefinition-TWHA-Occupation.sch) 
 
 
 
@@ -63,11 +76,11 @@ This structure refers to these other structures:
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Occupation",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Occupation",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "TWHAOccupationProfile",
   "title" : "健康檢查工作經歷與職業別 Profile",
   "status" : "active",
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

@@ -1,6 +1,6 @@
-# 勞工健康檢查法定必驗項目值集（第一期草案） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 勞工健康檢查法定必驗項目值集（第一期草案） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## ValueSet: 勞工健康檢查法定必驗項目值集（第一期草案） () 
+## ValueSet: 勞工健康檢查法定必驗項目值集（第一期草案） (實驗性) 
 
  
 第一期法定必驗之勞工健康檢查項目草案子集，涵蓋附表九一般必驗生理量測與實驗室項目，以及噪音／鉛／粉塵三模組之核心必驗代碼。此為初版草案，範疇待附表九/十逐項法規盤點確認後修訂。 
@@ -13,11 +13,11 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
 
  
 
-### 
+### 展開
 
 -------
 
- . 
+ [上表之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
 
 
 
@@ -28,12 +28,12 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
   "resourceType" : "ValueSet",
   "id" : "VS-OccHealthCheck-Required",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "VS_OccHealthCheckRequired",
   "title" : "勞工健康檢查法定必驗項目值集（第一期草案）",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

@@ -1,15 +1,17 @@
-# 特別危害健康作業類別代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 特別危害健康作業類別代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
 ## CodeSystem: 特別危害健康作業類別代碼系統 
 
  
 勞工健康保護規則所定義之特別危害健康作業，歸併為 12 危害家族（家族層）。附表十（115.06.26 修正）逐號列舉之 35 項法定具名作業另以 CS-Appendix10Operation 表示，家族 ↔ 具名作業之對映見 ConceptMap Appendix10-to-HazardType。 
 
+下列值集之定義引用本代碼系統：
+
 * [VS_HazardType](ValueSet-VS-HazardType.md)
 
 -------
 
- . 
+ [上表之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
 
 
 
@@ -20,12 +22,12 @@
   "resourceType" : "CodeSystem",
   "id" : "CS-HazardType",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "CS_HazardType",
   "title" : "特別危害健康作業類別代碼系統",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

@@ -1,6 +1,6 @@
-# 受檢勞工範例 - 王大同 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 受檢勞工範例 - 王大同 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Patient: 受檢勞工範例 - 王大同
+## 範例 Patient: 受檢勞工範例 - 王大同
 
 Profile: [受檢者 Profile](StructureDefinition-TWHA-Patient.md)
 

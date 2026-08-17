@@ -1,6 +1,6 @@
-# 特別危害健康作業類別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 特別危害健康作業類別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## : 特別危害健康作業類別擴充 
+## 擴充: 特別危害健康作業類別擴充 
 
 標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。
 
@@ -15,14 +15,14 @@
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-ext-hazard-type.json)
 
-### 
+### 擴充內容之正式檢視
 
- . 
+ [差異表、快照表與其他表示法之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
 
-*   
-*   
-*   
-*   
+*  [差異表](#tabs-diff) 
+*  [快照表](#tabs-snap) 
+*  [統計／參照](#tabs-summ) 
+*  [全部](#tabs-all) 
 
 #### Terminology Bindings (Differential)
 
@@ -34,9 +34,11 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 Simple Extension with the type CodeableConcept: 標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。
 
- **Differential View** 
+ **差異檢視Differential View** 
 
 #### Terminology Bindings (Differential)
+
+ **快照檢視** 
 
 #### Terminology Bindings
 
@@ -48,7 +50,7 @@ Simple Extension with the type CodeableConcept: 標註該特殊體格或健康�
 
  
 
- , ,  
+本 Profile 之其他表示法： [CSV](../StructureDefinition-ext-hazard-type.csv), [Excel](../StructureDefinition-ext-hazard-type.xlsx), [Schematron](../StructureDefinition-ext-hazard-type.sch) 
 
 
 
@@ -59,12 +61,12 @@ Simple Extension with the type CodeableConcept: 標註該特殊體格或健康�
   "resourceType" : "StructureDefinition",
   "id" : "ext-hazard-type",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-hazard-type",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "ExtHazardType",
   "title" : "特別危害健康作業類別擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

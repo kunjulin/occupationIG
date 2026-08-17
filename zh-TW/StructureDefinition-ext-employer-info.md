@@ -1,6 +1,6 @@
-# 雇主事業單位資訊擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 雇主事業單位資訊擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## : 雇主事業單位資訊擴充 
+## 擴充: 雇主事業單位資訊擴充 
 
 關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。
 
@@ -15,14 +15,14 @@
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-ext-employer-info.json)
 
-### 
+### 擴充內容之正式檢視
 
- . 
+ [差異表、快照表與其他表示法之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
 
-*   
-*   
-*   
-*   
+*  [差異表](#tabs-diff) 
+*  [快照表](#tabs-snap) 
+*  [統計／參照](#tabs-summ) 
+*  [全部](#tabs-all) 
 
 #### Constraints
 
@@ -30,7 +30,9 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 Simple Extension with the type Reference: 關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。
 
- **Differential View** 
+ **差異檢視Differential View** 
+
+ **快照檢視** 
 
 #### Constraints
 
@@ -40,7 +42,7 @@ Simple Extension with the type Reference: 關聯受檢勞工所屬之事業單�
 
  
 
- , ,  
+本 Profile 之其他表示法： [CSV](../StructureDefinition-ext-employer-info.csv), [Excel](../StructureDefinition-ext-employer-info.xlsx), [Schematron](../StructureDefinition-ext-employer-info.sch) 
 
 
 
@@ -51,12 +53,12 @@ Simple Extension with the type Reference: 關聯受檢勞工所屬之事業單�
   "resourceType" : "StructureDefinition",
   "id" : "ext-employer-info",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "ExtEmployerInfo",
   "title" : "雇主事業單位資訊擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

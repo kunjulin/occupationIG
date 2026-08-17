@@ -1,6 +1,6 @@
-# 臨場服務事件範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 臨場服務事件範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Encounter: 臨場服務事件範例
+## 範例 Encounter: 臨場服務事件範例
 
 Profile: [臨場健康服務事件 Profile](StructureDefinition-TWHA-Encounter-Service.md)
 

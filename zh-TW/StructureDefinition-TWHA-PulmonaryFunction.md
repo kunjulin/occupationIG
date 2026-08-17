@@ -1,6 +1,6 @@
-# 肺功能檢查 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 肺功能檢查 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## : 肺功能檢查 Profile 
+## 資源 Profile: 肺功能檢查 Profile 
 
  
 用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。 
@@ -11,14 +11,19 @@
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-PulmonaryFunction.json)
 
-### 
+### Profile 內容之正式檢視
 
- . 
+ [差異表、快照表與其他表示法之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
 
-*   
-*   
-*   
-*   
+*  [重點元素表](#tabs-key) 
+*  [差異表](#tabs-diff) 
+*  [快照表](#tabs-snap) 
+*  [統計／參照](#tabs-summ) 
+*  [全部](#tabs-all) 
+
+#### Terminology Bindings
+
+#### Constraints
 
 #### Constraints
 
@@ -41,9 +46,17 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
 
 * The element 1 is sliced based on the values of Observation.component
 
+ **重點元素檢視** 
+
+#### Terminology Bindings
+
 #### Constraints
 
- **View** 
+ **差異檢視** 
+
+#### Constraints
+
+ **快照檢視View** 
 
 #### Terminology Bindings
 
@@ -66,7 +79,7 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
 
  
 
- ,  
+本 Profile 之其他表示法： [CSV](../StructureDefinition-TWHA-PulmonaryFunction.csv), [Excel](../StructureDefinition-TWHA-PulmonaryFunction.xlsx), [Schematron](../StructureDefinition-TWHA-PulmonaryFunction.sch) 
 
 
 
@@ -77,12 +90,12 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-PulmonaryFunction",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-PulmonaryFunction",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "TWHAPulmonaryFunctionProfile",
   "title" : "肺功能檢查 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

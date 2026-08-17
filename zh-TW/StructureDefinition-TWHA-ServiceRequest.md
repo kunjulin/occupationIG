@@ -1,6 +1,6 @@
-# 健康檢查健檢追蹤檢查要求 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 健康檢查健檢追蹤檢查要求 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## : 健康檢查健檢追蹤檢查要求 Profile 
+## 資源 Profile: 健康檢查健檢追蹤檢查要求 Profile 
 
  
 針對第三級或需要追蹤之勞工，醫師開立之追蹤檢查或現場評估排程要求，繼承自 TW Core ServiceRequest。 
@@ -11,14 +11,19 @@
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-ServiceRequest.json)
 
-### 
+### Profile 內容之正式檢視
 
- . 
+ [差異表、快照表與其他表示法之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
 
-*   
-*   
-*   
-*   
+*  [重點元素表](#tabs-key) 
+*  [差異表](#tabs-diff) 
+*  [快照表](#tabs-snap) 
+*  [統計／參照](#tabs-summ) 
+*  [全部](#tabs-all) 
+
+#### Terminology Bindings
+
+#### Constraints
 
 #### Terminology Bindings
 
@@ -34,7 +39,15 @@ This structure refers to these other structures:
 * [執業/健檢醫護與服務人員 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner)](StructureDefinition-TWHA-Practitioner.md)
 * [實施健康檢查之醫療機構 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility)](StructureDefinition-TWHA-Organization-Facility.md)
 
- **View** 
+ **重點元素檢視** 
+
+#### Terminology Bindings
+
+#### Constraints
+
+ **差異檢視** 
+
+ **快照檢視View** 
 
 #### Terminology Bindings
 
@@ -52,7 +65,7 @@ This structure refers to these other structures:
 
  
 
- ,  
+本 Profile 之其他表示法： [CSV](../StructureDefinition-TWHA-ServiceRequest.csv), [Excel](../StructureDefinition-TWHA-ServiceRequest.xlsx), [Schematron](../StructureDefinition-TWHA-ServiceRequest.sch) 
 
 
 
@@ -63,11 +76,11 @@ This structure refers to these other structures:
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-ServiceRequest",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ServiceRequest",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "TWHAServiceRequestProfile",
   "title" : "健康檢查健檢追蹤檢查要求 Profile",
   "status" : "active",
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

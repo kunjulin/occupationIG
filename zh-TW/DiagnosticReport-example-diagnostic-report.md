@@ -1,6 +1,6 @@
-# 健檢診斷報告範例 - 噪音作業特殊健康檢查 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 健檢診斷報告範例 - 噪音作業特殊健康檢查 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  DiagnosticReport: 健檢診斷報告範例 - 噪音作業特殊健康檢查
+## 範例 DiagnosticReport: 健檢診斷報告範例 - 噪音作業特殊健康檢查
 
 Profile: [健康檢查健檢診斷報告 Profile](StructureDefinition-TWHA-DiagnosticReport.md)
 

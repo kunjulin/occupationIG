@@ -14,12 +14,12 @@
      fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-SmokingStatus</b></p><a name=\"CS-SmokingStatus\"> </a><a name=\"hcCS-SmokingStatus\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">0-never<a name=\"CS-SmokingStatus-0-never\"> </a></td><td>從未吸菸</td><td>受檢勞工從未吸菸。</td></tr><tr><td style=\"white-space:nowrap\">1-occasional<a name=\"CS-SmokingStatus-1-occasional\"> </a></td><td>偶爾吸菸</td><td>受檢勞工偶爾吸菸（非每日）。</td></tr><tr><td style=\"white-space:nowrap\">2-daily<a name=\"CS-SmokingStatus-2-daily\"> </a></td><td>每日吸菸</td><td>受檢勞工每日吸菸。</td></tr><tr><td style=\"white-space:nowrap\">3-quit<a name=\"CS-SmokingStatus-3-quit\"> </a></td><td>已戒菸</td><td>受檢勞工過去曾吸菸，目前已戒除。</td></tr></table></div>"
   ] ;
   fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus"] ;
-  fhir:CodeSystem.version [ fhir:value "0.2.3"] ;
+  fhir:CodeSystem.version [ fhir:value "0.2.4"] ;
   fhir:CodeSystem.name [ fhir:value "CS_SmokingStatus"] ;
   fhir:CodeSystem.title [ fhir:value "吸菸狀態代碼系統"] ;
   fhir:CodeSystem.status [ fhir:value "active"] ;
   fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
-  fhir:CodeSystem.date [ fhir:value "2026-08-17T03:02:16+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.date [ fhir:value "2026-08-17T05:27:05+00:00"^^xsd:dateTime] ;
   fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:CodeSystem.contact [
      fhir:index -1 ;

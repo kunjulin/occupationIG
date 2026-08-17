@@ -1,6 +1,6 @@
-# 健檢影像檢查範例 - 胸部 X 光 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 健檢影像檢查範例 - 胸部 X 光 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  ImagingStudy: 健檢影像檢查範例 - 胸部 X 光
+## 範例 ImagingStudy: 健檢影像檢查範例 - 胸部 X 光
 
 Profile: [健康檢查健檢影像檢查 Profile](StructureDefinition-TWHA-ImagingStudy.md)
 

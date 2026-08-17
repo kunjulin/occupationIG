@@ -1,4 +1,4 @@
-# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
 ## ConceptMap: 健康檢查檢驗項目代碼對應 ConceptMap 
 
@@ -11,7 +11,7 @@
   "resourceType" : "ConceptMap",
   "id" : "TWHealthCheckLaboratoryMap",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "TWHealthCheckLaboratoryMap",
   "status" : "active",
   "experimental" : false,

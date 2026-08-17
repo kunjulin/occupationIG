@@ -1,6 +1,6 @@
-# 服務對象勞工群組範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 服務對象勞工群組範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Group: 服務對象勞工群組範例
+## 範例 Group: 服務對象勞工群組範例
 
 **type**: Person
 

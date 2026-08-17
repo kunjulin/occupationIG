@@ -1,15 +1,17 @@
-# 【本地 stub】戒嚼檳榔年代碼系統（非權威定義） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 【本地 stub】戒嚼檳榔年代碼系統（非權威定義） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## CodeSystem: 【本地 stub】戒嚼檳榔年代碼系統（非權威定義） () 
+## CodeSystem: 【本地 stub】戒嚼檳榔年代碼系統（非權威定義） (實驗性) 
 
  
 Betel Nut Chewing Quit Code System 
+
+下列值集之定義引用本代碼系統：
 
 * [SFBetNutChewQuitValueSet](ValueSet-sf-BetNutChewQuit-valueset.md)
 
 -------
 
- . 
+ [上表之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
 
 
 
@@ -20,12 +22,12 @@ Betel Nut Chewing Quit Code System
   "resourceType" : "CodeSystem",
   "id" : "sf-BetNutChewQuit-codesystem",
   "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "sf-BetNutChewQuit-codesystem",
   "title" : "【本地 stub】戒嚼檳榔年代碼系統（非權威定義）",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

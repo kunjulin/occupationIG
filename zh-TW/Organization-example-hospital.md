@@ -1,6 +1,6 @@
-# 實施健檢之醫療機構範例 - 航空醫務中心 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 實施健檢之醫療機構範例 - 航空醫務中心 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Organization: 實施健檢之醫療機構範例 - 航空醫務中心
+## 範例 Organization: 實施健檢之醫療機構範例 - 航空醫務中心
 
 Profile: [實施健康檢查之醫療機構 Profile](StructureDefinition-TWHA-Organization-Facility.md)
 

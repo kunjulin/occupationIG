@@ -1,6 +1,6 @@
-# 附表十 有機溶劑作業 專屬應執行項目值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 附表十 有機溶劑作業 專屬應執行項目值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## ValueSet: 附表十 有機溶劑作業 專屬應執行項目值集 () 
+## ValueSet: 附表十 有機溶劑作業 專屬應執行項目值集 (實驗性) 
 
  
 附表十第 7–12、33–35 項有機溶劑類作業之家族專屬檢查項目：各作業之尿中生物偵測代謝物與肝功能。⚠️ 附表十本文對此類作業僅列肝功能（ALT／γ-GT，二硫化碳另含心電圖）；各尿中代謝物係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。附表十號別 → 代謝物之對應見 special-exam.md 涵蓋表。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。 
@@ -13,11 +13,11 @@
 
  
 
-### 
+### 展開
 
 -------
 
- . 
+ [上表之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#terminology). 
 
 
 
@@ -28,12 +28,12 @@
   "resourceType" : "ValueSet",
   "id" : "VS-Appendix10-OrganicSolvent-RequiredSet",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-OrganicSolvent-RequiredSet",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "VS_Appendix10OrganicSolventRequiredSet",
   "title" : "附表十 有機溶劑作業 專屬應執行項目值集",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

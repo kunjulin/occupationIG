@@ -1,6 +1,6 @@
-# 嚼檳榔狀態與量化資料範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 嚼檳榔狀態與量化資料範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Observation: 嚼檳榔狀態與量化資料範例
+## 範例 Observation: 嚼檳榔狀態與量化資料範例
 
 Profile: [嚼檳榔歷史與狀態 Profile](StructureDefinition-TWHA-SocialHistory-BetelNut.md)
 

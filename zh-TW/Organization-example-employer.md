@@ -1,6 +1,6 @@
-# 雇主事業單位範例 - 大同電子 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 雇主事業單位範例 - 大同電子 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Organization: 雇主事業單位範例 - 大同電子
+## 範例 Organization: 雇主事業單位範例 - 大同電子
 
 Profile: [健康檢查所屬事業單位（雇主公司） Profile](StructureDefinition-TWHA-Organization-Employer.md)
 

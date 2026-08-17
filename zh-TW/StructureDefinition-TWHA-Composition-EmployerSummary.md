@@ -1,6 +1,6 @@
-# 雇主端健康管理摘要 Composition Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 雇主端健康管理摘要 Composition Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## : 雇主端健康管理摘要 Composition Profile 
+## 資源 Profile: 雇主端健康管理摘要 Composition Profile 
 
  
 雇主端／職安人員健康管理摘要（Employer Health Management Summary）。落實 security.md 之角色存取控制：雇主僅得取得**健康管理分級、適性配工建議與臨場服務發現**，**不得**取得檢驗數值。以 **closed section slicing** 結構性保證本摘要不含檢驗／影像 section；各 section 之 entry 以 profile 限定，檢驗類 Observation／DiagnosticReport 無從置入。此為欄位級隔離之可驗證機制，取代僅以文字宣示之做法（SMART scope 難達欄位級隔離，見 security.md §2）。存取控制之實作機制（scope／Consent／端點）屬平台端決定，見未決事項 M-10。 
@@ -11,14 +11,19 @@
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-Composition-EmployerSummary.json)
 
-### 
+### Profile 內容之正式檢視
 
- . 
+ [差異表、快照表與其他表示法之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
 
-*   
-*   
-*   
-*   
+*  [重點元素表](#tabs-key) 
+*  [差異表](#tabs-diff) 
+*  [快照表](#tabs-snap) 
+*  [統計／參照](#tabs-summ) 
+*  [全部](#tabs-all) 
+
+#### Terminology Bindings
+
+#### Constraints
 
 #### Terminology Bindings
 
@@ -46,7 +51,15 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
 
 * The element 1 is sliced based on the values of Composition.section (Closed)
 
- **View** 
+ **重點元素檢視** 
+
+#### Terminology Bindings
+
+#### Constraints
+
+ **差異檢視** 
+
+ **快照檢視View** 
 
 #### Terminology Bindings
 
@@ -76,7 +89,7 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
 
  
 
- ,  
+本 Profile 之其他表示法： [CSV](../StructureDefinition-TWHA-Composition-EmployerSummary.csv), [Excel](../StructureDefinition-TWHA-Composition-EmployerSummary.xlsx), [Schematron](../StructureDefinition-TWHA-Composition-EmployerSummary.sch) 
 
 
 
@@ -87,12 +100,12 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Composition-EmployerSummary",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmployerSummary",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "TWHACompositionEmployerSummaryProfile",
   "title" : "雇主端健康管理摘要 Composition Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

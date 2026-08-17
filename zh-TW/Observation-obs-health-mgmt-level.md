@@ -1,6 +1,6 @@
-# 健康管理分級判定範例 - 第四級管理 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 健康管理分級判定範例 - 第四級管理 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Observation: 健康管理分級判定範例 - 第四級管理
+## 範例 Observation: 健康管理分級判定範例 - 第四級管理
 
 Profile: [健康檢查健康管理分級 Observation Profile](StructureDefinition-TWHA-HealthManagementLevel.md)
 

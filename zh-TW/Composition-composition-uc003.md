@@ -1,6 +1,6 @@
-# 特殊危害健康作業檢查報告組成文件範例 (UC-003) - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 特殊危害健康作業檢查報告組成文件範例 (UC-003) - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Composition: 特殊危害健康作業檢查報告組成文件範例 (UC-003)
+## 範例 Composition: 特殊危害健康作業檢查報告組成文件範例 (UC-003)
 
 Profile: [健康檢查健檢報告組成結構 Profile](StructureDefinition-TWHA-Composition.md)
 

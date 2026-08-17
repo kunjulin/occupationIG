@@ -1,6 +1,6 @@
-# 部門/課別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 部門/課別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## : 部門/課別擴充 
+## 擴充: 部門/課別擴充 
 
 記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。
 
@@ -15,14 +15,14 @@
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-ext-department.json)
 
-### 
+### 擴充內容之正式檢視
 
- . 
+ [差異表、快照表與其他表示法之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
 
-*   
-*   
-*   
-*   
+*  [差異表](#tabs-diff) 
+*  [快照表](#tabs-snap) 
+*  [統計／參照](#tabs-summ) 
+*  [全部](#tabs-all) 
 
 #### Constraints
 
@@ -30,7 +30,9 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 Simple Extension with the type string: 記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。
 
- **Differential View** 
+ **差異檢視Differential View** 
+
+ **快照檢視** 
 
 #### Constraints
 
@@ -40,7 +42,7 @@ Simple Extension with the type string: 記錄受檢勞工於事業單位中所�
 
  
 
- , ,  
+本 Profile 之其他表示法： [CSV](../StructureDefinition-ext-department.csv), [Excel](../StructureDefinition-ext-department.xlsx), [Schematron](../StructureDefinition-ext-department.sch) 
 
 
 
@@ -51,12 +53,12 @@ Simple Extension with the type string: 記錄受檢勞工於事業單位中所�
   "resourceType" : "StructureDefinition",
   "id" : "ext-department",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "ExtDepartment",
   "title" : "部門/課別擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

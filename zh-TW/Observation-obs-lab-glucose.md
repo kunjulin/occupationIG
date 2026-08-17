@@ -1,6 +1,6 @@
-# 實驗室檢驗範例 - 空腹血糖 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 實驗室檢驗範例 - 空腹血糖 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Observation: 實驗室檢驗範例 - 空腹血糖
+## 範例 Observation: 實驗室檢驗範例 - 空腹血糖
 
 Profile: [一般健檢實驗室檢驗 Profile](StructureDefinition-TWHA-LabResult-General.md)
 

@@ -1,6 +1,6 @@
-# 適性配工建議項目擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 適性配工建議項目擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-## : 適性配工建議項目擴充 () 
+## 擴充: 適性配工建議項目擴充 (實驗性) 
 
 用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。
 
@@ -15,14 +15,14 @@
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-ext-fitness-for-work.json)
 
-### 
+### 擴充內容之正式檢視
 
- . 
+ [差異表、快照表與其他表示法之說明](http://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#structure-definitions). 
 
-*   
-*   
-*   
-*   
+*  [差異表](#tabs-diff) 
+*  [快照表](#tabs-snap) 
+*  [統計／參照](#tabs-summ) 
+*  [全部](#tabs-all) 
 
 #### Terminology Bindings (Differential)
 
@@ -34,9 +34,11 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 Simple Extension with the type CodeableConcept: 用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。
 
- **Differential View** 
+ **差異檢視Differential View** 
 
 #### Terminology Bindings (Differential)
+
+ **快照檢視** 
 
 #### Terminology Bindings
 
@@ -48,7 +50,7 @@ Simple Extension with the type CodeableConcept: 用於 CarePlan 中標註具體�
 
  
 
- , ,  
+本 Profile 之其他表示法： [CSV](../StructureDefinition-ext-fitness-for-work.csv), [Excel](../StructureDefinition-ext-fitness-for-work.xlsx), [Schematron](../StructureDefinition-ext-fitness-for-work.sch) 
 
 
 
@@ -59,12 +61,12 @@ Simple Extension with the type CodeableConcept: 用於 CarePlan 中標註具體�
   "resourceType" : "StructureDefinition",
   "id" : "ext-fitness-for-work",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work",
-  "version" : "0.2.3",
+  "version" : "0.2.4",
   "name" : "ExtFitnessForWork",
   "title" : "適性配工建議項目擴充",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-17T03:02:16+00:00",
+  "date" : "2026-08-17T05:27:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

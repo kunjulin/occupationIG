@@ -1,6 +1,6 @@
-# 臨場服務現場發現問題範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 臨場服務現場發現問題範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Observation: 臨場服務現場發現問題範例
+## 範例 Observation: 臨場服務現場發現問題範例
 
 Profile: [臨場健康服務發現問題/風險 Profile](StructureDefinition-TWHA-Observation-ServiceFinding.md)
 

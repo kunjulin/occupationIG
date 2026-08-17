@@ -1,6 +1,6 @@
-# 一般健檢報告組成文件範例 (UC-001) - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 一般健檢報告組成文件範例 (UC-001) - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Composition: 一般健檢報告組成文件範例 (UC-001)
+## 範例 Composition: 一般健檢報告組成文件範例 (UC-001)
 
 Profile: [健康檢查健檢報告組成結構 Profile](StructureDefinition-TWHA-Composition.md)
 

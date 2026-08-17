@@ -1,6 +1,6 @@
-# 身體質量指數 (BMI) 測量結果範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 身體質量指數 (BMI) 測量結果範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Observation: 身體質量指數 (BMI) 測量結果範例
+## 範例 Observation: 身體質量指數 (BMI) 測量結果範例
 
 Profile: [職業健檢生命徵象 Profile](StructureDefinition-TWHA-VitalSigns.md)
 

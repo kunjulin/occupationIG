@@ -1,6 +1,6 @@
-# 適性配工計畫範例 - 第四級管理之工作調整 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 適性配工計畫範例 - 第四級管理之工作調整 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  CarePlan: 適性配工計畫範例 - 第四級管理之工作調整
+## 範例 CarePlan: 適性配工計畫範例 - 第四級管理之工作調整
 
 依115年6月12日噪音作業特殊健康檢查結果，勞工王大同經判定為第四級健康管理。經職業醫學科醫師與事業單位協商，自115年7月1日起調整如下：
 

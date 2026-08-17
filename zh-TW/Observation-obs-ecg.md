@@ -1,6 +1,6 @@
-# 心電圖檢查結果範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# 心電圖檢查結果範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Observation: 心電圖檢查結果範例
+## 範例 Observation: 心電圖檢查結果範例
 
 Profile: [心電圖檢查 Profile](StructureDefinition-TWHA-ECG.md)
 

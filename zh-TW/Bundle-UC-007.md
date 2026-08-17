@@ -1,6 +1,6 @@
-# UC-007 職業健康急診友善摘要封包 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.3
+# UC-007 職業健康急診友善摘要封包 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.4
 
-##  Bundle: UC-007 職業健康急診友善摘要封包
+## 範例 Bundle: UC-007 職業健康急診友善摘要封包
 
 
 

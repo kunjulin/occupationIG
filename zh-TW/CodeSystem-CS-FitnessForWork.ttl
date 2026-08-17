@@ -14,12 +14,12 @@
      fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-FitnessForWork</b></p><a name=\"CS-FitnessForWork\"> </a><a name=\"hcCS-FitnessForWork\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">change-workplace<a name=\"CS-FitnessForWork-change-workplace\"> </a></td><td>變更工作場所</td><td>調整勞工之作業場所，避開特定危害因子。</td></tr><tr><td style=\"white-space:nowrap\">change-job<a name=\"CS-FitnessForWork-change-job\"> </a></td><td>更換工作</td><td>調換勞工至其他職務或性質不同之工作。</td></tr><tr><td style=\"white-space:nowrap\">reduce-hours<a name=\"CS-FitnessForWork-reduce-hours\"> </a></td><td>縮短工作時間</td><td>減少勞工暴露於危害作業之每日或每週工作時間。</td></tr><tr><td style=\"white-space:nowrap\">clinical-treatment<a name=\"CS-FitnessForWork-clinical-treatment\"> </a></td><td>醫療處置與限制</td><td>限制從事特定性質工作或建議配合臨床治療。</td></tr></table></div>"
   ] ;
   fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork"] ;
-  fhir:CodeSystem.version [ fhir:value "0.2.3"] ;
+  fhir:CodeSystem.version [ fhir:value "0.2.4"] ;
   fhir:CodeSystem.name [ fhir:value "CS_FitnessForWork"] ;
   fhir:CodeSystem.title [ fhir:value "適性配工建議代碼系統"] ;
   fhir:CodeSystem.status [ fhir:value "active"] ;
   fhir:CodeSystem.experimental [ fhir:value "true"^^xsd:boolean] ;
-  fhir:CodeSystem.date [ fhir:value "2026-08-17T03:02:16+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.date [ fhir:value "2026-08-17T05:27:05+00:00"^^xsd:dateTime] ;
   fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:CodeSystem.contact [
      fhir:index -1 ;
