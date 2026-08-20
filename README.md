@@ -22,7 +22,7 @@
 * `sushi-config.yaml`：SUSHI 編譯器的設定檔，包含專案中繼資料、依賴項、建置參數以及導覽選單配置。
 * `ig.ini`：HL7 IG Publisher 的設定檔。
 * `package-list.json`：版本歷程清單，供 publish box 與發佈流程使用。
-* `docs/optimization/`：**現行優化工作範圍（JOB-01～JOB-28）——待辦事項看這裡。**
+* `docs/optimization/`：**現行優化工作範圍（JOB-01～JOB-29）——待辦事項看這裡。**
 * `docs/regulations/`：法規附表 PDF 原文，為各項涵蓋度對照表之權威來源。
 * `docs/history/`：已被取代之歷史規劃文件（非現行規範）。
 * `docs/drafts/`：尚未接入建置流程之資源草稿。

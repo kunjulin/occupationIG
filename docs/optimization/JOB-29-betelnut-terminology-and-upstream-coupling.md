@@ -273,7 +273,7 @@ Title: "嚼檳榔歷史與狀態 Profile"
 * ^experimental = true
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#social-history
-* code = SCT#698188003 "Betel nut chewer"          // ⚠ 待 $lookup 驗證（§2.4）
+* code = SCT#698188003 "Chews betel quid"          // display 依 B.2 更正；仍待 $lookup 驗證（§2.4）
 * subject only Reference(TWHAPatientProfile)
 * performer only Reference(TWHAPractitionerProfile)
 
@@ -376,7 +376,7 @@ Description: "受檢勞工王大同：過去每日嚼食 5 顆，嚼檳 10 年�
     "code": "social-history" }] }],
   "code": { "coding": [{
     "system": "http://snomed.info/sct",
-    "code": "698188003", "display": "Betel nut chewer" }] },
+    "code": "698188003", "display": "Chews betel quid" }] },
   "subject": { "reference": "Patient/example-worker" },
   "effectiveDateTime": "2026-06-12T08:05:00+08:00",
   "valueCodeableConcept": { "coding": [{
@@ -604,3 +604,95 @@ Composition section 組成、完整度檢核與全部相關範例。
    `bq-type` 拆為兩軸、canonical 不得置於 `hpa.gov.tw` 命名空間、TWCore 版本應為 v1.0.0。
 4. panel 化列為須裁示之選項題，並說明其與 T-10 之衝突。
 5. 委員提議產出 FSH／JSON 草稿：建議**俟選項題裁示後再行產出**，避免依甲／乙／丙不同結構重工。
+
+---
+
+## 附錄 C：套用時之 repo 核對結果（2026-08-20）
+
+本附錄為**套用 v0.3.1／v0.3.2 時對 repo 現況之逐項核對**，非原評估或委員意見之內容。
+可於無網路環境查證者全部實跑；需術語伺服器或 FHIR 套件快取者一律標明未驗。
+
+### C.1 已核對屬實者
+
+| 出處 | 主張 | 核對結果 |
+|:--|:--|:--|
+| §2.1 | `CS-BetelNutStatus` 於 repo 內不存在 | ✅ 全庫檢索 `BetelNutStatus` 無命中 |
+| §2.1 | Profile 未約束 `value[x]`、無 status component | ✅ 全檔僅 `component[amount／year／quit]`，無任何 `* value[x]` 約束 |
+| §2.2 | `CS-SmokingStatus` 四碼可對稱複製 | ✅ 實為 `#0-never`／`#1-occasional`／`#2-daily`／`#3-quit`，逐碼一致 |
+| §2.2 | `ExtCessationDuration` 標題含「戒檳榔」但嚼檳 Profile 從未使用 | ✅ 標題為「戒除時間（戒菸/戒檳榔月數）擴充」；BetelNut Profile 全檔未引用 |
+| §2.3 | `CS-HealthMgmtLevel` 之 provisional 格式可套用 | ✅ `^experimental = true` ＋ 描述載明 provisional 與 M-2 |
+| §3.1 | 三個 component 為 `required` 綁定 | ✅ 三行皆 `(required)` |
+| §3.3 | repo 內未出現 `{個}/d` | ✅ 全庫檢索無命中 |
+| B.13 | TW Core 相依為 v1.0.0 而非 v0.3.2 | ✅ `sushi-config.yaml` 之 `dependencies` 為 `tw.gov.mohw.twcore: 1.0.0` |
+| B.7 | 吸菸 Profile 之 `Parent` 為 TW Core 之單一 Observation | ✅ `TWHASocialHistorySmokingProfile` 之 `Parent` 為 `TWCoreSmokingStatus` |
+
+### C.2 ⚠️ §2.4 之查證狀態敘述須更正（v0.3.2 未更動，仍待改）
+
+§2.4 謂 SNOMED `698188003`「目前屬**未驗證對照**」。**此與 repo 既有紀錄不符。**
+[`terminology.md`](../../input/pagecontent/terminology.md) §4.1〈已驗證之綁定 SNOMED CT 代碼〉
+明列該碼為「**✅ 已驗證 2026-07-26**」，係透過 `tx.fhir.org`（SNOMED International Edition）
+完成 **`$validate-code` 代碼有效性驗證**；§4.2 之免責語（「SNOMED CT 欄位**除 §4.1 所列者外**
+均未經術語伺服器驗證」）亦明確將本碼排除在未驗證之外。
+
+**精確的缺口是另一件事**：已完成者為「代碼存在且有效」，未完成者為以 `$lookup` 取官方 FSN
+並逐軸確認其作為 `Observation.code` 之語意適切性——依 [CLAUDE.md](../../CLAUDE.md) §2.2，
+兩者本不可互相取代。故 §2.4 之**要求成立、理由須改寫**。
+
+**連帶：驗收標準 #6 之載具用錯。** `display-verification-report.csv` 為 **LOINC 專用**產物
+（標頭 `code,ig_display,loinc_display,loinc_status,overlap,verdict,files`，324 列，無任何 SNOMED 碼）。
+SNOMED 之驗證紀錄現行載於 `terminology.md` §4.1。#6 應改為「更新 §4.1 之驗證狀態欄
+（由 `$validate-code` 升為含 `$lookup` 語意覆核）」，否則字面上無法滿足。
+
+### C.3 B.2 之 display 更正已回頭套用至本文件自身
+
+B.2 判定 `"Betel nut chewer"` 為 display 不符、應為 `"Chews betel quid"`，
+但 **§A.1 之 FSH 骨架與 §A.2 之 JSON 範例仍寫著錯誤的 display**——而那兩處正是實作者
+複製貼上的來源。已依 B.2 之裁定就地更正（`* code = SCT#698188003 "Chews betel quid"`）。
+
+> 這正是 [CLAUDE.md](../../CLAUDE.md) §2.2 所指之型態：**錯誤 display 會沿著範例擴散，
+> 而建置驗證不會攔**。規範文件內的範例與其自身的裁定不一致時，先壞的是範例。
+
+**repo 內之敘述頁本來就是對的**：`terminology.md` §4.1、`datamodel.md`、`general-exam.md`、
+`VS-CoreUploadSet.fsh` 均已使用 `Chews betel quid`。錯誤僅存在於本評估文件與對外之修訂案 v2.1。
+
+### C.4 ⚠️ 尚未記錄之落差：`Observation.code` 與敘述頁不符
+
+§A.1 已將 `Observation.code` 改為 `SCT#698188003`，方向正確。但**現況之落差本身仍未被記錄**：
+
+```fsh
+* code = TWCRSFObsBehCS#BetelNutChewing "嚼檳榔行為"
+// aliases.fsh:83  TWCRSFObsBehCS = https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem
+```
+
+而兩張敘述頁在**與吸菸相同之欄位**（吸菸列填的正是其實際 `Observation.code` `LNC#72166-2`）都宣稱：
+
+| 頁面 | 欄位標題 | 嚼檳列內容 |
+|:--|:--|:--|
+| [`general-exam.md`](../../input/pagecontent/general-exam.md) | 代碼 / 術語系統 | SNOMED CT `698188003` (Chews betel quid) |
+| [`datamodel.md`](../../input/pagecontent/datamodel.md) | 備註 / LOINC 代碼 | SNOMED CT `698188003` (Chews betel quid) |
+
+即：**敘述頁說 code 是 SNOMED `698188003`，FSH 固定的卻是上游 `sf-ObserBeh#BetelNutChewing`。**
+（`VS-CoreUploadSet` 之 `SCT#698188003` 不算不一致——該值集描述已自陳「不作 `Observation.code` 綁定」。）
+
+此落差與 §2.1 之「狀態無承載位置」同型、同一支 Profile，**應併入 §2.1 一併敘明**，
+否則實作者只會看到「狀態缺件」而不知 `code` 也對不上。
+
+§5 亦應據此增列 **C-0（`Observation.code` 改用 `SCT#698188003`）並排在 C-1 之前**：
+`code` 為 **1..1** 且固定為上游代碼，是三者中唯一與「建置能否完成」直接相關者。
+§A.1 雖已這麼寫，但 §5 之措施表未列，路徑 C 之敘述會與 §A.1 不一致。
+
+### C.5 未能核對者（本容器限制）
+
+| 項目 | 限制 |
+|:--|:--|
+| B.5 之 `value-quantity` expression | **未驗**。本容器無 FHIR 套件快取（`~/.fhir/packages` 僅有 `packages.ini`），且 `packages.fhir.org`／`hl7.org` 皆遭 proxy 封鎖（連線碼 000）。B.5 所附之一行指令**可於 CI 執行**——CI 之套件快取已含 `hl7.fhir.r4.core#4.0.1`。在取得該輸出之前，B.5 之結論宜標為待複核 |
+| SNOMED `698188003` 之 `$lookup`（§2.4／C.2） | **未驗**。tx.fhir.org 遭封鎖 |
+| 上游 `package.tgz` 之 `file://` 落點（§4.2／§4.3） | **未驗**。`mitw.dicom.org.tw` 遭封鎖（403）。惟 v0.3.0 之 CI 實測提供部分答案：run 32347196173 之 3 筆 ERROR 均落在 `StructureDefinition.text.div`，未出現任何 canonical 解析錯誤，且 SUSHI 成功解析全部 9 個 canonical——證據偏向 §4.3 之「非致命」欄，但**不等於已逐檔檢視** |
+| 委員所引 `tw-core-7`／`tw-core-8` 是否存續於 v1.0.0 | **未驗**。同上，套件不可得。B.13 之保留意見成立 |
+
+### C.6 機械面：版次調整連帶重建下載檔
+
+`sushi-config.yaml` 版次 `0.3.1 → 0.3.2` 使 `fsh-source.zip` 過期——該 zip 之收錄範圍為
+「SUSHI 的實際輸入」，含 `sushi-config.yaml`（見 `scripts/build-fsh-source-zip.js` 檔頭）。
+已執行 `npm run build:assets` 重建。**凡調整版次或 `menu` 者皆須比照辦理**，
+`npm run check:assets` 會攔。（v0.3.1 套用時亦踩到同一點。）
