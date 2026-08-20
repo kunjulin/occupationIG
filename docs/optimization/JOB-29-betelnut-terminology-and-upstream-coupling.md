@@ -922,11 +922,10 @@ C-0 之前提為「以 `$lookup` 取官方 FSN 並確認其作為 `Observation.c
 
 - 上游 `package.tgz` 之 `file://` 落點逐檔檢視（§4.2）——`mitw.dicom.org.tw` 遭 proxy 封鎖。
 - LOINC 答案清單 `LL3678-1` 之展開（見 D.3a 註記）。
-- `cannot be resolved` 之 **24 筆未歸因**（見下）。
-- 上游 `package.tgz` 之 `file://` 落點逐檔檢視（§4.2）。
-- LOINC 答案清單 `LL3678-1` 之展開（見 D.3a 註記）。
 
-### D.5 QA 增量實測與未歸因缺口
+（原列於此之「`cannot be resolved` 之 24 筆未歸因」已於 D.5.1 清點完成，故移除。）
+
+### D.5 QA 增量實測與歸因
 
 量測來源 CI run 32371696249（commit `e52445ad`，含 display 修正，err = 0）。
 
@@ -936,27 +935,62 @@ C-0 之前提為「以 `$lookup` 取官方 FSN 並確認其作為 `Observation.c
 | `Reference to experimental` | 15 → 48（+33） | 3 個嚼檳範例對 6 個新 experimental CodeSystem 之引用 |
 | `…CodeSystem https://twcore` | 15 → 48（+33） | 同上（`hapi.fhir.tw` 仍為 0，JOB-28 成果未回退） |
 | `There are no valid display names` | 237 → 246（+9） | 新引用之碼缺 zh-TW designation |
-| `cannot be resolved` | 2157 → 2321（+164） | **僅 140 可歸因，24 筆未歸因** |
+| `cannot be resolved` | 2157 → 2321（+164） | 逐頁清點後**全數歸因**，見 D.5.1 |
+
+#### D.5.1 `cannot be resolved` +164 之逐頁清點（假說遭推翻）
+
+初版曾以「14 個新增物件 × 每件 10 筆 = 140」歸因，留下 **24 筆缺口**，並提出一個
+與實測吻合的假說：*若 ValueSet 每件 14 筆而 CodeSystem 每件 10 筆*，則
+`6×10 ＋ 6×14 ＋ 2×10 = 164` 恰好相符。當時已註明「吻合不等於驗證」。
+
+於 CI 加入一次性統計步驟，自 `output/qa.txt` 就斷鏈之**來源頁名**分群清點
+（run 32373143249，job 96438228892，commit `16a1a18d`）。結果：
 
 ```
-可歸因      140 筆   14 個新增物件 × 每件 10 筆
-                     （12 個 CodeSystem／ValueSet ＋ 2 個新範例實例）
-未歸因       24 筆   ← 缺口
-─────────────────
-實測合計    164 筆
+MARKER-TOTAL 2321   無法解析頁名: 0
+MARKER-DISTINCT-BASE 904   DISTINCT-PAGE 2320
+MARKER-NEW-ARTIFACTS 共 64 件，合計 192 筆
 ```
 
-「每件 10 筆」為 `_categoriesNote` 所載之既有實測規則（5 種渲染變體 × 根層與 zh-TW 兩層）。
+**該假說遭推翻。** ValueSet 與 CodeSystem 的渲染變體數相同，皆為 5 種：
 
-那 24 筆有一個與實測吻合之假說：**若 ValueSet 之輸出頁數多於 CodeSystem**（每件 14 而非 10），
-則 `6×10 ＋ 6×14 ＋ 2×10 = 164`，與實測完全相符。**但吻合不等於驗證**——
-本假說未經逐檔清點，不得當作規則沿用，亦不得據以推算下一次的增量。
+```
+MARKER-VARIANTS CodeSystem-CS-BetelNutStatus → 5 種頁面
+MARKER-VARIANTS ValueSet-VS-BetelNutStatus   → 5 種頁面
+    *.html / *.json.html / *.xml.html / *.ttl.html / *.change.history.html   各 1
+```
 
-欲確認該 24 筆之歸屬，須自 `qa.txt` 就 `cannot be resolved` 之**來源頁名分群清點**
-（`CodeSystem-CS-BetelNut*`／`ValueSet-VS-BetelNut*`／`Observation-obs-betelnut*` 等），
-確認後再更新 `_categoriesNote` 之每件筆數規則。本版未做——該清點需要 `qa.txt` 全文，
-而本容器無法下載 CI artifact（需授權）；CI 內現有之「Broken link breakdown」步驟
-只統計**目標網址**分布，不分來源頁，無法回答此問題。
+真正的來源是**渲染變體以外的附屬頁**——IG Publisher 另為每個 CodeSystem／ValueSet
+產出一頁 `-testing`，為 StructureDefinition 另產出 `-definitions`／`-examples`／
+`-mappings`／`-testing` 四頁。每一種都各自出現在根層與 `zh-TW/` 語言層。實測逐件筆數：
 
-> 📌 **這不影響本版之正確性**：基準線採用的是實測值 2321，不是推算值。
-> 未歸因的是「為什麼是 164 而不是 140」，不是「164 這個數字對不對」。
+| 物件種類 | 根層頁數 | 每件筆數（×2 層） |
+|:--|:--|--:|
+| 範例實例（`Observation-obs-betelnut*`） | 5 | **10** |
+| CodeSystem／ValueSet | 5 ＋ `-testing` | **12** |
+| Profile（StructureDefinition） | 5 ＋ `-definitions`／`-examples`／`-mappings`／`-testing` | **18** |
+
+據此重算，增量**完全對得上，無餘數**：
+
+```
+6 個新 CodeSystem × 12 =  72
+6 個新 ValueSet    × 12 =  72
+2 個新範例實例     × 10 =  20
+─────────────────────────────
+合計                     164   ＝ CI 實測增量（2157 → 2321）
+```
+
+原本的 24 筆缺口即 `12 件（6 CS ＋ 6 VS）× -testing 1 頁 × 2 層 = 24`。
+
+交叉驗算：上表 64 件／192 筆之中，`obs-betelnut`（10 筆）與既有之
+`StructureDefinition-TWHA-SocialHistory-BetelNut`（18 筆）共 28 筆屬**既有物件**，
+上一版已計入基準線；`192 − 28 = 164`。另 `MARKER-BY-TYPE` 顯示根層 ValueSet
+62 個頁名基底／186 筆（每基底 3.00）、CodeSystem 36 個／108 筆（每基底 3.00）
+——即「主頁 5 ＋ `-testing` 1」平均為 3，與逐件 12 筆之推算一致。
+
+> 📌 兩點記錄以免重蹈：
+> 1. 假說再怎麼與實測吻合都不是驗證。此處的 `6×14` 在算術上完美命中 164，
+>    但 ValueSet 根本沒有 14 種頁面——**對的答案、錯的理由**，若當成規則沿用，
+>    下次推算就會錯。
+> 2. `_categoriesNote` 原載之「每新增一個 artifact 即 +10」是**以範例實例量到的**，
+>    被過度推廣到所有 artifact 種類。已依上表更正為分種類之三個數字。
