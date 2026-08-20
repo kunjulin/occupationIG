@@ -26,19 +26,19 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Encounter.extension:examType","Encounter.extension","examType","","",1,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-type]]} {[]}
-","檢查類型擴充","標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","檢查類型擴充","【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Encounter.extension:hazardType","Encounter.extension","hazardType","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-hazard-type]]} {[]}
-","特別危害健康作業類別擴充","標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","特別危害健康作業類別擴充","【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Encounter.extension:examInterval","Encounter.extension","examInterval","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval]]} {[]}
-","健康檢查實施週期擴充","標註此次健康檢查之實施週期（如每年、每3年、每5年）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","健康檢查實施週期擴充","【依據：勞工健康保護規則附表】標註此次健康檢查之實施週期（如每年、每3年、每5年）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Encounter.extension:department","Encounter.extension","department","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department]]} {[]}
-","部門/課別擴充","記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","部門/課別擴充","【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Encounter.modifierExtension","Encounter.modifierExtension","","extensions

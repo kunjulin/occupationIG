@@ -1,9 +1,9 @@
-# 職業健檢生命徵象 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 職業健檢生命徵象 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 資源 Profile: 職業健檢生命徵象 Profile 
 
  
-用於記錄勞工身高、體重、腰圍等基本生理特徵，繼承自 TW Core Vital Signs。 
+【主管機關：國民健康署】用於記錄勞工身高、體重、腰圍等基本生理特徵，繼承自 TW Core Vital Signs。 
 
 **Usages:**
 
@@ -79,12 +79,16 @@ This structure refers to these other structures:
 {
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-VitalSigns",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "TWHAVitalSignsProfile",
   "title" : "職業健檢生命徵象 Profile",
   "status" : "active",
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -100,7 +104,7 @@ This structure refers to these other structures:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "用於記錄勞工身高、體重、腰圍等基本生理特徵，繼承自 TW Core Vital Signs。",
+  "description" : "【主管機關：國民健康署】用於記錄勞工身高、體重、腰圍等基本生理特徵，繼承自 TW Core Vital Signs。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",

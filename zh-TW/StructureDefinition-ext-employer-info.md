@@ -1,8 +1,8 @@
-# 雇主事業單位資訊擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 雇主事業單位資訊擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 擴充: 雇主事業單位資訊擴充 
 
-關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。
+【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。
 
 **Context of Use**
 
@@ -28,7 +28,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Simple Extension with the type Reference: 關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。
+Simple Extension with the type Reference: 【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。
 
  **差異檢視Differential View** 
 
@@ -38,7 +38,7 @@ Simple Extension with the type Reference: 關聯受檢勞工所屬之事業單�
 
 ** Summary **
 
-Simple Extension with the type Reference: 關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。
+Simple Extension with the type Reference: 【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。
 
  
 
@@ -53,12 +53,12 @@ Simple Extension with the type Reference: 關聯受檢勞工所屬之事業單�
   "resourceType" : "StructureDefinition",
   "id" : "ext-employer-info",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "ExtEmployerInfo",
   "title" : "雇主事業單位資訊擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -74,7 +74,7 @@ Simple Extension with the type Reference: 關聯受檢勞工所屬之事業單�
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。",
+  "description" : "【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -107,7 +107,7 @@ Simple Extension with the type Reference: 關聯受檢勞工所屬之事業單�
       "id" : "Extension",
       "path" : "Extension",
       "short" : "雇主事業單位資訊擴充",
-      "definition" : "關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。"
+      "definition" : "【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。"
     },
     {
       "id" : "Extension.extension",

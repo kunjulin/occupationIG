@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>健康檢查健檢就醫事件 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0</title>
+    <title>健康檢查健檢就醫事件 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.4.0 - STU1
+            <span style="display:inline-block;">0.5.0 - STU1
 
 
             </span>
@@ -169,7 +169,7 @@
     </ul>
   </li>
   <li>
-    <a href="open-issues.html">未決事項</a>
+    <a href="open-issues.html">已知限制與試用須知</a>
   </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
@@ -200,7 +200,7 @@
 
   <!-- layouts\layout-profile -->
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l377">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.4.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l377">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.5.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   
 
 
@@ -292,7 +292,7 @@
       <td colspan="4"><i>正式網址</i>: <span class="copy-text">https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter<button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter" title="點擊複製網址" class="btn-copy"></button></span>
       </td>
       <td><i>版本</i>:
-      <span class="copy-text">0.4.0<button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter|0.4.0" title="點擊複製含版本之網址" class="btn-copy"></button></span>
+      <span class="copy-text">0.5.0<button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter|0.5.0" title="點擊複製含版本之網址" class="btn-copy"></button></span>
       </td>
       <td style="text-align: right;border-left-style: hidden" title="啟用後可看到自上次正式發佈以來之變更">
         <span id="toggle-change-display"><label for="showChanges" style="margin:0;font-weight:normal">標示文字變更？</label>
@@ -334,7 +334,7 @@
   </table>
 
 <p>
-<p>本 Profile 用於描述勞工進行一般體格檢查、一般健康檢查或特殊體格/健康檢查的就醫事件，繼承自 TW Core Encounter。</p>
+<p>【技術規格】本 Profile 用於描述勞工進行一般體格檢查、一般健康檢查或特殊體格/健康檢查的就醫事件，繼承自 TW Core Encounter。</p>
 
 </p>
 
@@ -665,7 +665,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-TWHA-Organization-Facility.html">實施健康檢查之醫療機構 Profile</a>)</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">負責這次就醫的機構</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 51f292c0-abf6-43ab-8eb5-5cd89f56a68f
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 5162e05b-0486-4d84-b4bc-f95d79c7ed1e
 document.getElementById('cbTWHA-EncounterK-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
 filterDesc(document.getElementById('TWHA-EncounterK'), 'binding', document.getElementById('cbTWHA-EncounterK-binding').checked, document.getElementById('ppTWHA-EncounterK'));
 document.getElementById('cbTWHA-EncounterK-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
@@ -1020,7 +1020,7 @@ filterDesc(document.getElementById('TWHA-EncounterK'), 'obligation', document.ge
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><span style="opacity: 0.5">0</span><span style="opacity: 0.5">..</span><span style="opacity: 0.5">1</span></td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-TWHA-Organization-Facility.html">實施健康檢查之醫療機構 Profile</a>)</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><span style="opacity: 0.5">負責這次就醫的機構</span></td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 51f292c0-abf6-43ab-8eb5-5cd89f56a68f
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 5162e05b-0486-4d84-b4bc-f95d79c7ed1e
 document.getElementById('cbTWHA-EncounterD-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
 filterDesc(document.getElementById('TWHA-EncounterD'), 'binding', document.getElementById('cbTWHA-EncounterD-binding').checked, document.getElementById('ppTWHA-EncounterD'));
 document.getElementById('cbTWHA-EncounterD-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
@@ -1664,7 +1664,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="https://twcore.mohw.gov.tw/ig/twcore/1.0.0/StructureDefinition-Encounter-twcore.html">TW Core Encounter</a>)</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">此就醫是哪次就醫的一部份？</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 51f292c0-abf6-43ab-8eb5-5cd89f56a68f
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 5162e05b-0486-4d84-b4bc-f95d79c7ed1e
 document.getElementById('cbTWHA-EncounterS-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
 filterDesc(document.getElementById('TWHA-EncounterS'), 'binding', document.getElementById('cbTWHA-EncounterS-binding').checked, document.getElementById('ppTWHA-EncounterS'));
 document.getElementById('cbTWHA-EncounterS-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
@@ -2633,7 +2633,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-TWHA-Organization-Facility.html">實施健康檢查之醫療機構 Profile</a>)</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">負責這次就醫的機構</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 51f292c0-abf6-43ab-8eb5-5cd89f56a68f
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 5162e05b-0486-4d84-b4bc-f95d79c7ed1e
 document.getElementById('cbTWHA-EncounterKA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
 filterDesc(document.getElementById('TWHA-EncounterKA'), 'binding', document.getElementById('cbTWHA-EncounterKA-binding').checked, document.getElementById('ppTWHA-EncounterKA'));
 document.getElementById('cbTWHA-EncounterKA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
@@ -2987,7 +2987,7 @@ filterDesc(document.getElementById('TWHA-EncounterKA'), 'obligation', document.g
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><span style="opacity: 0.5">0</span><span style="opacity: 0.5">..</span><span style="opacity: 0.5">1</span></td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="StructureDefinition-TWHA-Organization-Facility.html">實施健康檢查之醫療機構 Profile</a>)</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><span style="opacity: 0.5">負責這次就醫的機構</span></td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 51f292c0-abf6-43ab-8eb5-5cd89f56a68f
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 5162e05b-0486-4d84-b4bc-f95d79c7ed1e
 document.getElementById('cbTWHA-EncounterDA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
 filterDesc(document.getElementById('TWHA-EncounterDA'), 'binding', document.getElementById('cbTWHA-EncounterDA-binding').checked, document.getElementById('ppTWHA-EncounterDA'));
 document.getElementById('cbTWHA-EncounterDA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
@@ -3628,7 +3628,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4/references.html">Reference</a>(<a href="https://twcore.mohw.gov.tw/ig/twcore/1.0.0/StructureDefinition-Encounter-twcore.html">TW Core Encounter</a>)</td>
 <td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">此就醫是哪次就醫的一部份？</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 51f292c0-abf6-43ab-8eb5-5cd89f56a68f
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="https://hl7.org/fhir/R4/help16.png" alt="doco" style="background-color: inherit"/> Documentation for this format</a></td></tr><script type="text/javascript">  // 5162e05b-0486-4d84-b4bc-f95d79c7ed1e
 document.getElementById('cbTWHA-EncounterSA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
 filterDesc(document.getElementById('TWHA-EncounterSA'), 'binding', document.getElementById('cbTWHA-EncounterSA-binding').checked, document.getElementById('ppTWHA-EncounterSA'));
 document.getElementById('cbTWHA-EncounterSA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
@@ -4359,9 +4359,9 @@ Summary
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.4.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.5.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-20 13:40:00 +0000">
+  <span title="2026-08-20 16:35:00 +0000">
     2026-08-20
   </span>
 

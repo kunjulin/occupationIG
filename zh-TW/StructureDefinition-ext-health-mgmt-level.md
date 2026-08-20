@@ -1,8 +1,8 @@
-# 健康管理分級擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 健康管理分級擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 擴充: 健康管理分級擴充 (實驗性) 
 
-記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。
+【依據：勞工健康保護規則附表】記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。
 
 **Context of Use**
 
@@ -32,7 +32,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Simple Extension with the type CodeableConcept: 記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。
+Simple Extension with the type CodeableConcept: 【依據：勞工健康保護規則附表】記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。
 
  **差異檢視Differential View** 
 
@@ -46,7 +46,7 @@ Simple Extension with the type CodeableConcept: 記錄醫師針對勞工健康�
 
 ** Summary **
 
-Simple Extension with the type CodeableConcept: 記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。
+Simple Extension with the type CodeableConcept: 【依據：勞工健康保護規則附表】記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。
 
  
 
@@ -61,12 +61,12 @@ Simple Extension with the type CodeableConcept: 記錄醫師針對勞工健康�
   "resourceType" : "StructureDefinition",
   "id" : "ext-health-mgmt-level",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-health-mgmt-level",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "ExtHealthMgmtLevel",
   "title" : "健康管理分級擴充",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -82,7 +82,7 @@ Simple Extension with the type CodeableConcept: 記錄醫師針對勞工健康�
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。",
+  "description" : "【依據：勞工健康保護規則附表】記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -107,7 +107,7 @@ Simple Extension with the type CodeableConcept: 記錄醫師針對勞工健康�
       "id" : "Extension",
       "path" : "Extension",
       "short" : "健康管理分級擴充",
-      "definition" : "記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。"
+      "definition" : "【依據：勞工健康保護規則附表】記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。"
     },
     {
       "id" : "Extension.extension",

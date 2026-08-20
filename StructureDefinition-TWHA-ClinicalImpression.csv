@@ -25,7 +25,7 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ClinicalImpression.extension:healthMgmtLevel","ClinicalImpression.extension","healthMgmtLevel","","",1,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-health-mgmt-level]]} {[]}
-","健康管理分級擴充","記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","健康管理分級擴充","【依據：勞工健康保護規則附表】記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ClinicalImpression.modifierExtension","ClinicalImpression.modifierExtension","","extensions

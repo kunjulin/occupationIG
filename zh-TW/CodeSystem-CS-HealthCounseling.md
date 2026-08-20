@@ -1,9 +1,9 @@
-# 健康諮詢與衛教指導項目代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 健康諮詢與衛教指導項目代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## CodeSystem: 健康諮詢與衛教指導項目代碼系統 
 
  
-國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。 
+【技術規格】國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。 
 
 下列值集之定義引用本代碼系統：
 
@@ -22,12 +22,12 @@
   "resourceType" : "CodeSystem",
   "id" : "CS-HealthCounseling",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "CS_HealthCounseling",
   "title" : "健康諮詢與衛教指導項目代碼系統",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -43,7 +43,7 @@
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。",
+  "description" : "【技術規格】國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。",
   "caseSensitive" : true,
   "content" : "complete",
   "count" : 10,

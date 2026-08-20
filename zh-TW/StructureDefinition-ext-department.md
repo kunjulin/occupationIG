@@ -1,8 +1,8 @@
-# 部門/課別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 部門/課別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 擴充: 部門/課別擴充 
 
-記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。
+【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。
 
 **Context of Use**
 
@@ -28,7 +28,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Simple Extension with the type string: 記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。
+Simple Extension with the type string: 【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。
 
  **差異檢視Differential View** 
 
@@ -38,7 +38,7 @@ Simple Extension with the type string: 記錄受檢勞工於事業單位中所�
 
 ** Summary **
 
-Simple Extension with the type string: 記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。
+Simple Extension with the type string: 【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。
 
  
 
@@ -53,12 +53,12 @@ Simple Extension with the type string: 記錄受檢勞工於事業單位中所�
   "resourceType" : "StructureDefinition",
   "id" : "ext-department",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "ExtDepartment",
   "title" : "部門/課別擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -74,7 +74,7 @@ Simple Extension with the type string: 記錄受檢勞工於事業單位中所�
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。",
+  "description" : "【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -99,7 +99,7 @@ Simple Extension with the type string: 記錄受檢勞工於事業單位中所�
       "id" : "Extension",
       "path" : "Extension",
       "short" : "部門/課別擴充",
-      "definition" : "記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。"
+      "definition" : "【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。"
     },
     {
       "id" : "Extension.extension",

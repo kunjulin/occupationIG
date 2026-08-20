@@ -1,9 +1,9 @@
-# 健康檢查健檢就醫事件 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 健康檢查健檢就醫事件 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 資源 Profile: 健康檢查健檢就醫事件 Profile 
 
  
-本 Profile 用於描述勞工進行一般體格檢查、一般健康檢查或特殊體格/健康檢查的就醫事件，繼承自 TW Core Encounter。 
+【技術規格】本 Profile 用於描述勞工進行一般體格檢查、一般健康檢查或特殊體格/健康檢查的就醫事件，繼承自 TW Core Encounter。 
 
 **Usages:**
 
@@ -99,11 +99,11 @@ This structure refers to these extensions:
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Encounter",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "TWHAEncounterProfile",
   "title" : "健康檢查健檢就醫事件 Profile",
   "status" : "active",
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -119,7 +119,7 @@ This structure refers to these extensions:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "本 Profile 用於描述勞工進行一般體格檢查、一般健康檢查或特殊體格/健康檢查的就醫事件，繼承自 TW Core Encounter。",
+  "description" : "【技術規格】本 Profile 用於描述勞工進行一般體格檢查、一般健康檢查或特殊體格/健康檢查的就醫事件，繼承自 TW Core Encounter。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",

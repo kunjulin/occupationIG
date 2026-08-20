@@ -1,8 +1,8 @@
-# 檢查類型擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 檢查類型擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 擴充: 檢查類型擴充 
 
-標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。
+【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。
 
 **Context of Use**
 
@@ -32,7 +32,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Simple Extension with the type CodeableConcept: 標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。
+Simple Extension with the type CodeableConcept: 【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。
 
  **差異檢視Differential View** 
 
@@ -46,7 +46,7 @@ Simple Extension with the type CodeableConcept: 標註該就醫事件（Encounte
 
 ** Summary **
 
-Simple Extension with the type CodeableConcept: 標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。
+Simple Extension with the type CodeableConcept: 【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。
 
  
 
@@ -61,12 +61,12 @@ Simple Extension with the type CodeableConcept: 標註該就醫事件（Encounte
   "resourceType" : "StructureDefinition",
   "id" : "ext-exam-type",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-type",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "ExtExamType",
   "title" : "檢查類型擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -82,7 +82,7 @@ Simple Extension with the type CodeableConcept: 標註該就醫事件（Encounte
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。",
+  "description" : "【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -103,7 +103,7 @@ Simple Extension with the type CodeableConcept: 標註該就醫事件（Encounte
       "id" : "Extension",
       "path" : "Extension",
       "short" : "檢查類型擴充",
-      "definition" : "標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。"
+      "definition" : "【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。"
     },
     {
       "id" : "Extension.extension",

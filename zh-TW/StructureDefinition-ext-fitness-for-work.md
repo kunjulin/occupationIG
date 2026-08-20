@@ -1,8 +1,8 @@
-# 適性配工建議項目擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 適性配工建議項目擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 擴充: 適性配工建議項目擴充 (實驗性) 
 
-用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。
+【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。
 
 **Context of Use**
 
@@ -32,7 +32,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Simple Extension with the type CodeableConcept: 用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。
+Simple Extension with the type CodeableConcept: 【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。
 
  **差異檢視Differential View** 
 
@@ -46,7 +46,7 @@ Simple Extension with the type CodeableConcept: 用於 CarePlan 中標註具體�
 
 ** Summary **
 
-Simple Extension with the type CodeableConcept: 用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。
+Simple Extension with the type CodeableConcept: 【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。
 
  
 
@@ -61,12 +61,12 @@ Simple Extension with the type CodeableConcept: 用於 CarePlan 中標註具體�
   "resourceType" : "StructureDefinition",
   "id" : "ext-fitness-for-work",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "ExtFitnessForWork",
   "title" : "適性配工建議項目擴充",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -82,7 +82,7 @@ Simple Extension with the type CodeableConcept: 用於 CarePlan 中標註具體�
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。",
+  "description" : "【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -103,7 +103,7 @@ Simple Extension with the type CodeableConcept: 用於 CarePlan 中標註具體�
       "id" : "Extension",
       "path" : "Extension",
       "short" : "適性配工建議項目擴充",
-      "definition" : "用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。"
+      "definition" : "【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。"
     },
     {
       "id" : "Extension.extension",

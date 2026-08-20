@@ -1,9 +1,9 @@
-# 口腔黏膜檢查表嚼檳榔習慣級距代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 口腔黏膜檢查表嚼檳榔習慣級距代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## CodeSystem: 口腔黏膜檢查表嚼檳榔習慣級距代碼系統 (實驗性) 
 
  
-逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。） 
+【主管機關：國民健康署】逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。） 
 
 下列值集之定義引用本代碼系統：
 
@@ -21,13 +21,17 @@
 {
   "resourceType" : "CodeSystem",
   "id" : "CS-BetelNutHpaCategory",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "CS_BetelNutHpaCategory",
   "title" : "口腔黏膜檢查表嚼檳榔習慣級距代碼系統",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -43,7 +47,7 @@
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。）",
+  "description" : "【主管機關：國民健康署】逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。）",
   "caseSensitive" : true,
   "content" : "complete",
   "count" : 6,

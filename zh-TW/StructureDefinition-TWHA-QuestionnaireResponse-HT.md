@@ -1,9 +1,9 @@
-# 成人預防保健問卷回覆 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 成人預防保健問卷回覆 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 資源 Profile: 成人預防保健問卷回覆 Profile 
 
  
-用於記錄成人預防保健（國健署成人預防保健服務）之自覺症狀與生活習慣問卷回覆，繼承自 TW Core QuestionnaireResponse。 
+【主管機關：國民健康署】用於記錄成人預防保健（國健署成人預防保健服務）之自覺症狀與生活習慣問卷回覆，繼承自 TW Core QuestionnaireResponse。 
 
 **Usages:**
 
@@ -74,12 +74,12 @@ This structure refers to these other structures:
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-QuestionnaireResponse-HT",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-QuestionnaireResponse-HT",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "TWHAQuestionnaireResponseHTProfile",
   "title" : "成人預防保健問卷回覆 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -95,7 +95,7 @@ This structure refers to these other structures:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "用於記錄成人預防保健（國健署成人預防保健服務）之自覺症狀與生活習慣問卷回覆，繼承自 TW Core QuestionnaireResponse。",
+  "description" : "【主管機關：國民健康署】用於記錄成人預防保健（國健署成人預防保健服務）之自覺症狀與生活習慣問卷回覆，繼承自 TW Core QuestionnaireResponse。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",

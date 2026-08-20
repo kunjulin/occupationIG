@@ -33,13 +33,13 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","病人所屬國籍","The nationality of the patient.","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Patient.extension:employerInfo","Patient.extension","employerInfo","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info]]} {[]}
-","雇主事業單位資訊擴充","關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","雇主事業單位資訊擴充","【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Patient.extension:employmentDate","Patient.extension","employmentDate","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employment-date]]} {[]}
-","受僱日期擴充","記錄受檢勞工於事業單位之受僱日期。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","受僱日期擴充","【依據：勞工健康保護規則附表】記錄受檢勞工於事業單位之受僱日期。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Patient.extension:department","Patient.extension","department","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department]]} {[]}
-","部門/課別擴充","記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","部門/課別擴充","【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Patient.modifierExtension","Patient.modifierExtension","","extensions
 user content","",0,*,"","Y","","Extension {[]} {[]}

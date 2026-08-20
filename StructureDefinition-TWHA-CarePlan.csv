@@ -39,7 +39,7 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "CarePlan.extension:fitnessForWork","CarePlan.extension","fitnessForWork","","",1,*,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work]]} {[]}
-","適性配工建議項目擴充","用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","適性配工建議項目擴充","【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "CarePlan.modifierExtension","CarePlan.modifierExtension","","extensions

@@ -1,9 +1,9 @@
-# 附表十 粉塵作業 專屬應執行項目值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 附表十 粉塵作業 專屬應執行項目值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## ValueSet: 附表十 粉塵作業 專屬應執行項目值集 (實驗性) 
 
  
-附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。 
+【依據：勞工健康保護規則附表】附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。 
 
  **References** 
 
@@ -28,12 +28,12 @@
   "resourceType" : "ValueSet",
   "id" : "VS-Appendix10-Dust-RequiredSet",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Dust-RequiredSet",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "VS_Appendix10DustRequiredSet",
   "title" : "附表十 粉塵作業 專屬應執行項目值集",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -49,7 +49,7 @@
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。",
+  "description" : "【依據：勞工健康保護規則附表】附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。",
   "compose" : {
     "include" : [{
       "system" : "http://loinc.org",

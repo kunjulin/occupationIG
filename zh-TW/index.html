@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>應用說明 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0</title>
+    <title>應用說明 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.4.0 - STU1
+            <span style="display:inline-block;">0.5.0 - STU1
 
 
             </span>
@@ -169,7 +169,7 @@
     </ul>
   </li>
   <li>
-    <a href="open-issues.html">未決事項</a>
+    <a href="open-issues.html">已知限制與試用須知</a>
   </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
@@ -206,7 +206,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.4.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.5.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>應用說明</h2>
   
 
@@ -219,7 +219,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td colspan="4"><i>正式網址</i>: <span class="copy-text">https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha<button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha" title="點擊複製網址" class="btn-copy"></button></span>
       </td>
       <td><i>版本</i>:
-      <span class="copy-text">0.4.0<button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha|0.4.0" title="點擊複製含版本之網址" class="btn-copy"></button></span>
+      <span class="copy-text">0.5.0<button data-clipboard-text="https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha|0.5.0" title="點擊複製含版本之網址" class="btn-copy"></button></span>
       </td>
       <td style="text-align: right;border-left-style: hidden" title="啟用後可看到自上次正式發佈以來之變更">
         <span id="toggle-change-display"><label for="showChanges" style="margin:0;font-weight:normal">標示文字變更？</label>
@@ -318,6 +318,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h3 id="22-計畫定位">2.2 計畫定位</h3>
 <p>為解決上述問題，本計畫建立「臺灣勞工健康檢查交換實作指引（TWHA IG）」，以<strong>勞工健康檢查為核心主體</strong>，作為勞工健康檢查資料交換之 FHIR 標準，並向特殊職類與一般健康檢查／成人預防保健需求開放擴充，使各機構之健檢資料能以標準化、可驗證之格式進行交換與上傳。</p>
+
+<blockquote>
+  <p><strong>範疇聲明</strong>　本指引之主管機關為<strong>國民健康署</strong>；勞工健康檢查項目係依《勞工健康保護規則》
+附表之項目表建立之<strong>結構化表達</strong>，<strong>非另立勞工健檢之規範，亦未受勞動部職業安全衛生署委任或授權</strong>。
+全文見<a href="conformance.html">遵從性要求 &sect;7.0</a>，該節並定義 Level 1（Core 上傳合規）與
+Level 2（勞工健檢涵蓋）兩個合規層級。</p>
+</blockquote>
 
 <hr/>
 
@@ -448,9 +455,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.4.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.5.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-20 13:40:00 +0000">
+  <span title="2026-08-20 16:35:00 +0000">
     2026-08-20
   </span>
 

@@ -1,8 +1,8 @@
-# 特別危害健康作業類別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 特別危害健康作業類別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 擴充: 特別危害健康作業類別擴充 
 
-標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。
+【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。
 
 **Context of Use**
 
@@ -32,7 +32,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Simple Extension with the type CodeableConcept: 標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。
+Simple Extension with the type CodeableConcept: 【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。
 
  **差異檢視Differential View** 
 
@@ -46,7 +46,7 @@ Simple Extension with the type CodeableConcept: 標註該特殊體格或健康�
 
 ** Summary **
 
-Simple Extension with the type CodeableConcept: 標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。
+Simple Extension with the type CodeableConcept: 【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。
 
  
 
@@ -61,12 +61,12 @@ Simple Extension with the type CodeableConcept: 標註該特殊體格或健康�
   "resourceType" : "StructureDefinition",
   "id" : "ext-hazard-type",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-hazard-type",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "ExtHazardType",
   "title" : "特別危害健康作業類別擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -82,7 +82,7 @@ Simple Extension with the type CodeableConcept: 標註該特殊體格或健康�
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。",
+  "description" : "【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -103,7 +103,7 @@ Simple Extension with the type CodeableConcept: 標註該特殊體格或健康�
       "id" : "Extension",
       "path" : "Extension",
       "short" : "特別危害健康作業類別擴充",
-      "definition" : "標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。"
+      "definition" : "【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。"
     },
     {
       "id" : "Extension.extension",

@@ -13,13 +13,18 @@
      fhir:Narrative.status [ fhir:value "generated" ] ;
      fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-SmokingStatus</b></p><a name=\"CS-SmokingStatus\"> </a><a name=\"hcCS-SmokingStatus\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">0-never<a name=\"CS-SmokingStatus-0-never\"> </a></td><td>從未吸菸</td><td>受檢勞工從未吸菸。</td></tr><tr><td style=\"white-space:nowrap\">1-occasional<a name=\"CS-SmokingStatus-1-occasional\"> </a></td><td>偶爾吸菸</td><td>受檢勞工偶爾吸菸（非每日）。</td></tr><tr><td style=\"white-space:nowrap\">2-daily<a name=\"CS-SmokingStatus-2-daily\"> </a></td><td>每日吸菸</td><td>受檢勞工每日吸菸。</td></tr><tr><td style=\"white-space:nowrap\">3-quit<a name=\"CS-SmokingStatus-3-quit\"> </a></td><td>已戒菸</td><td>受檢勞工過去曾吸菸，目前已戒除。</td></tr></table></div>"
   ] ;
+  fhir:DomainResource.extension [
+     fhir:index -1 ;
+     fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status" ] ;
+     fhir:Extension.valueCode [ fhir:value "trial-use" ]
+  ] ;
   fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus"] ;
-  fhir:CodeSystem.version [ fhir:value "0.4.0"] ;
+  fhir:CodeSystem.version [ fhir:value "0.5.0"] ;
   fhir:CodeSystem.name [ fhir:value "CS_SmokingStatus"] ;
   fhir:CodeSystem.title [ fhir:value "吸菸狀態代碼系統"] ;
   fhir:CodeSystem.status [ fhir:value "active"] ;
   fhir:CodeSystem.experimental [ fhir:value "false"^^xsd:boolean] ;
-  fhir:CodeSystem.date [ fhir:value "2026-08-20T13:40:11+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.date [ fhir:value "2026-08-20T16:35:38+00:00"^^xsd:dateTime] ;
   fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:CodeSystem.contact [
      fhir:index -1 ;
@@ -38,7 +43,7 @@
        fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
      ]
   ] ;
-  fhir:CodeSystem.description [ fhir:value "勞工健檢生活習慣調查中之吸菸狀態分類。"] ;
+  fhir:CodeSystem.description [ fhir:value "【主管機關：國民健康署】勞工健檢生活習慣調查中之吸菸狀態分類。"] ;
   fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
   fhir:CodeSystem.content [ fhir:value "complete"] ;
   fhir:CodeSystem.count [ fhir:value "4"^^xsd:nonNegativeInteger] ;

@@ -1,9 +1,9 @@
-# 實施健康檢查之醫療機構 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 實施健康檢查之醫療機構 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 資源 Profile: 實施健康檢查之醫療機構 Profile 
 
  
-本 Profile 用於描述實施勞工體格檢查、健康檢查或提供臨場健康服務之醫療機構，繼承自 TW Core Organization (醫院) 以精確反映醫療機構語義。 
+【技術規格】本 Profile 用於描述實施勞工體格檢查、健康檢查或提供臨場健康服務之醫療機構，繼承自 TW Core Organization (醫院) 以精確反映醫療機構語義。 
 
 **Usages:**
 
@@ -65,11 +65,11 @@ Mandatory: 1 element
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Organization-Facility",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "TWHAOrganizationFacilityProfile",
   "title" : "實施健康檢查之醫療機構 Profile",
   "status" : "active",
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -85,7 +85,7 @@ Mandatory: 1 element
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "本 Profile 用於描述實施勞工體格檢查、健康檢查或提供臨場健康服務之醫療機構，繼承自 TW Core Organization (醫院) 以精確反映醫療機構語義。",
+  "description" : "【技術規格】本 Profile 用於描述實施勞工體格檢查、健康檢查或提供臨場健康服務之醫療機構，繼承自 TW Core Organization (醫院) 以精確反映醫療機構語義。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "v2",

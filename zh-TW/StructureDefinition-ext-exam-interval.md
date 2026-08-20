@@ -1,8 +1,8 @@
-# 健康檢查實施週期擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 健康檢查實施週期擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 擴充: 健康檢查實施週期擴充 
 
-標註此次健康檢查之實施週期（如每年、每3年、每5年）。
+【依據：勞工健康保護規則附表】標註此次健康檢查之實施週期（如每年、每3年、每5年）。
 
 **Context of Use**
 
@@ -28,7 +28,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Simple Extension with the type Quantity: 標註此次健康檢查之實施週期（如每年、每3年、每5年）。
+Simple Extension with the type Quantity: 【依據：勞工健康保護規則附表】標註此次健康檢查之實施週期（如每年、每3年、每5年）。
 
  **差異檢視Differential View** 
 
@@ -38,7 +38,7 @@ Simple Extension with the type Quantity: 標註此次健康檢查之實施週期
 
 ** Summary **
 
-Simple Extension with the type Quantity: 標註此次健康檢查之實施週期（如每年、每3年、每5年）。
+Simple Extension with the type Quantity: 【依據：勞工健康保護規則附表】標註此次健康檢查之實施週期（如每年、每3年、每5年）。
 
  
 
@@ -53,12 +53,12 @@ Simple Extension with the type Quantity: 標註此次健康檢查之實施週期
   "resourceType" : "StructureDefinition",
   "id" : "ext-exam-interval",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "ExtExamInterval",
   "title" : "健康檢查實施週期擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -74,7 +74,7 @@ Simple Extension with the type Quantity: 標註此次健康檢查之實施週期
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "標註此次健康檢查之實施週期（如每年、每3年、每5年）。",
+  "description" : "【依據：勞工健康保護規則附表】標註此次健康檢查之實施週期（如每年、每3年、每5年）。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -95,7 +95,7 @@ Simple Extension with the type Quantity: 標註此次健康檢查之實施週期
       "id" : "Extension",
       "path" : "Extension",
       "short" : "健康檢查實施週期擴充",
-      "definition" : "標註此次健康檢查之實施週期（如每年、每3年、每5年）。"
+      "definition" : "【依據：勞工健康保護規則附表】標註此次健康檢查之實施週期（如每年、每3年、每5年）。"
     },
     {
       "id" : "Extension.extension",

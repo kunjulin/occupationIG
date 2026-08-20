@@ -403,7 +403,7 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-CarePlan","CarePlan.extension:fitnessForWork","CarePlan.extension","fitnessForWork","","",1,*,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-fitness-for-work]]} {[]}
-","適性配工建議項目擴充","用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","適性配工建議項目擴充","【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-CarePlan","CarePlan.modifierExtension","CarePlan.modifierExtension","","extensions
@@ -619,7 +619,7 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-ClinicalImpression","ClinicalImpression.extension:healthMgmtLevel","ClinicalImpression.extension","healthMgmtLevel","","",1,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-health-mgmt-level]]} {[]}
-","健康管理分級擴充","記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","健康管理分級擴充","【依據：勞工健康保護規則附表】記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-ClinicalImpression","ClinicalImpression.modifierExtension","ClinicalImpression.modifierExtension","","extensions
@@ -3614,11 +3614,11 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Encounter-Service","Encounter.extension:employerInfo","Encounter.extension","employerInfo","","",1,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info]]} {[]}
-","雇主事業單位資訊擴充","關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","雇主事業單位資訊擴充","【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Encounter-Service","Encounter.extension:department","Encounter.extension","department","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department]]} {[]}
-","部門/課別擴充","記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","部門/課別擴充","【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Encounter-Service","Encounter.modifierExtension","Encounter.modifierExtension","","extensions
@@ -3983,19 +3983,19 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Encounter","Encounter.extension:examType","Encounter.extension","examType","","",1,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-type]]} {[]}
-","檢查類型擴充","標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","檢查類型擴充","【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Encounter","Encounter.extension:hazardType","Encounter.extension","hazardType","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-hazard-type]]} {[]}
-","特別危害健康作業類別擴充","標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","特別危害健康作業類別擴充","【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Encounter","Encounter.extension:examInterval","Encounter.extension","examInterval","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval]]} {[]}
-","健康檢查實施週期擴充","標註此次健康檢查之實施週期（如每年、每3年、每5年）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","健康檢查實施週期擴充","【依據：勞工健康保護規則附表】標註此次健康檢查之實施週期（如每年、每3年、每5年）。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Encounter","Encounter.extension:department","Encounter.extension","department","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department]]} {[]}
-","部門/課別擴充","記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","部門/課別擴充","【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Encounter","Encounter.modifierExtension","Encounter.modifierExtension","","extensions
@@ -7143,13 +7143,13 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","病人所屬國籍","The nationality of the patient.","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Patient","Patient.extension:employerInfo","Patient.extension","employerInfo","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info]]} {[]}
-","雇主事業單位資訊擴充","關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","雇主事業單位資訊擴充","【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Patient","Patient.extension:employmentDate","Patient.extension","employmentDate","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employment-date]]} {[]}
-","受僱日期擴充","記錄受檢勞工於事業單位之受僱日期。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","受僱日期擴充","【依據：勞工健康保護規則附表】記錄受檢勞工於事業單位之受僱日期。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Patient","Patient.extension:department","Patient.extension","department","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department]]} {[]}
-","部門/課別擴充","記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
+","部門/課別擴充","【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Patient","Patient.modifierExtension","Patient.modifierExtension","","extensions
 user content","",0,*,"","Y","","Extension {[]} {[]}
@@ -8695,7 +8695,7 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Procedure-ServiceActivity","Procedure.extension:employerInfo","Procedure.extension","employerInfo","","",1,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info]]} {[]}
-","雇主事業單位資訊擴充","關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","雇主事業單位資訊擴充","【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Procedure-ServiceActivity","Procedure.modifierExtension","Procedure.modifierExtension","","extensions
@@ -11097,11 +11097,11 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-SocialHistory-Smoking","Observation.extension:smokingQuantity","Observation.extension","smokingQuantity","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity]]} {[]}
-","吸菸量及菸齡擴充","記錄每日吸菸支數與吸菸年數。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","吸菸量及菸齡擴充","【主管機關：國民健康署】記錄每日吸菸支數與吸菸年數。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-SocialHistory-Smoking","Observation.extension:cessationDuration","Observation.extension","cessationDuration","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-cessation-duration]]} {[]}
-","戒除時間（戒菸/戒檳榔月數）擴充","記錄受檢者已戒菸或已戒檳榔的月數。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","戒除時間（戒菸/戒檳榔月數）擴充","【主管機關：國民健康署】記錄受檢者已戒菸或已戒檳榔的月數。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-SocialHistory-Smoking","Observation.modifierExtension","Observation.modifierExtension","","extensions
@@ -11371,7 +11371,7 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Task-ServiceTask","Task.extension:employerInfo","Task.extension","employerInfo","","",1,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employer-info]]} {[]}
-","雇主事業單位資訊擴充","關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","雇主事業單位資訊擴充","【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "TWHA-Task-ServiceTask","Task.modifierExtension","Task.modifierExtension","","extensions
@@ -12372,7 +12372,7 @@ The alternate way is to use the value element for actual observations and use th
 ","Provides guide for interpretation of component result","Guidance on how to interpret the value by comparison to a normal or recommended range.","Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient's age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.","Knowing what values are considered ""normal"" can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts.","","","","","","","",,,,,"",,,,"Observation.component.referenceRange",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-cessation-duration","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","戒除時間（戒菸/戒檳榔月數）擴充","記錄受檢者已戒菸或已戒檳榔的月數。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","戒除時間（戒菸/戒檳榔月數）擴充","【主管機關：國民健康署】記錄受檢者已戒菸或已戒檳榔的月數。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-cessation-duration","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12387,7 +12387,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,,,,"",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-department","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","部門/課別擴充","記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","部門/課別擴充","【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-department","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12402,7 +12402,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,,,,"",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-employer-info","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","雇主事業單位資訊擴充","關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","雇主事業單位資訊擴充","【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-employer-info","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12417,7 +12417,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,,,,"",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-employment-date","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","受僱日期擴充","記錄受檢勞工於事業單位之受僱日期。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","受僱日期擴充","【依據：勞工健康保護規則附表】記錄受檢勞工於事業單位之受僱日期。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-employment-date","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12432,7 +12432,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,,,,"",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-exam-interval","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","健康檢查實施週期擴充","標註此次健康檢查之實施週期（如每年、每3年、每5年）。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","健康檢查實施週期擴充","【依據：勞工健康保護規則附表】標註此次健康檢查之實施週期（如每年、每3年、每5年）。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-exam-interval","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12447,7 +12447,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,,,,"",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-exam-type","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","檢查類型擴充","標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","檢查類型擴充","【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-exam-type","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12462,7 +12462,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExamType","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-fitness-for-work","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","適性配工建議項目擴充","用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","適性配工建議項目擴充","【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-fitness-for-work","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12477,7 +12477,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-FitnessForWork","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-hazard-type","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","特別危害健康作業類別擴充","標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","特別危害健康作業類別擴充","【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-hazard-type","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12492,7 +12492,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-health-mgmt-level","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","健康管理分級擴充","記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","健康管理分級擴充","【依據：勞工健康保護規則附表】記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-health-mgmt-level","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12507,7 +12507,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthMgmtLevel","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-labor-report-code","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","勞動部通報報告代碼擴充","標註此檢查結果通報至勞動部時所採用之報告大類代碼。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","勞動部通報報告代碼擴充","【依據：勞工健康保護規則附表】標註此檢查結果通報至勞動部時所採用之報告大類代碼。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-labor-report-code","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}
@@ -12522,7 +12522,7 @@ ext-1:Must have either extensions or value[x], not both {extension.exists() != v
 ","Value of extension","Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R4/extensibility.html) for a list).","","","","","","","","","",,"required","","https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-LaborReportCode","",,,,"Extension.value[x]",0,1,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 "
 "ext-smoking-quantity","Extension","Extension","","","",0,*,"","","","null {[]} {[]}
-","吸菸量及菸齡擴充","記錄每日吸菸支數與吸菸年數。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
+","吸菸量及菸齡擴充","【主管機關：國民健康署】記錄每日吸菸支數與吸菸年數。","","","","","","","","","",,,,,"",,,,"Extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "ext-smoking-quantity","Extension.id","Extension.id","","","",0,1,"","","","string {[]} {[]}

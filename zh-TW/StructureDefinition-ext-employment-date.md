@@ -1,8 +1,8 @@
-# 受僱日期擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 受僱日期擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 擴充: 受僱日期擴充 
 
-記錄受檢勞工於事業單位之受僱日期。
+【依據：勞工健康保護規則附表】記錄受檢勞工於事業單位之受僱日期。
 
 **Context of Use**
 
@@ -28,7 +28,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Simple Extension with the type date: 記錄受檢勞工於事業單位之受僱日期。
+Simple Extension with the type date: 【依據：勞工健康保護規則附表】記錄受檢勞工於事業單位之受僱日期。
 
  **差異檢視Differential View** 
 
@@ -38,7 +38,7 @@ Simple Extension with the type date: 記錄受檢勞工於事業單位之受僱�
 
 ** Summary **
 
-Simple Extension with the type date: 記錄受檢勞工於事業單位之受僱日期。
+Simple Extension with the type date: 【依據：勞工健康保護規則附表】記錄受檢勞工於事業單位之受僱日期。
 
  
 
@@ -53,12 +53,12 @@ Simple Extension with the type date: 記錄受檢勞工於事業單位之受僱�
   "resourceType" : "StructureDefinition",
   "id" : "ext-employment-date",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-employment-date",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "ExtEmploymentDate",
   "title" : "受僱日期擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -74,7 +74,7 @@ Simple Extension with the type date: 記錄受檢勞工於事業單位之受僱�
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "記錄受檢勞工於事業單位之受僱日期。",
+  "description" : "【依據：勞工健康保護規則附表】記錄受檢勞工於事業單位之受僱日期。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -95,7 +95,7 @@ Simple Extension with the type date: 記錄受檢勞工於事業單位之受僱�
       "id" : "Extension",
       "path" : "Extension",
       "short" : "受僱日期擴充",
-      "definition" : "記錄受檢勞工於事業單位之受僱日期。"
+      "definition" : "【依據：勞工健康保護規則附表】記錄受檢勞工於事業單位之受僱日期。"
     },
     {
       "id" : "Extension.extension",

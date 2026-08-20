@@ -26,11 +26,11 @@ anonymous resourcescontained resources","",0,*,"","","","Resource {[]} {[]}
 ","",,"open","DomainResource.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Observation.extension:smokingQuantity","Observation.extension","smokingQuantity","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity]]} {[]}
-","吸菸量及菸齡擴充","記錄每日吸菸支數與吸菸年數。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","吸菸量及菸齡擴充","【主管機關：國民健康署】記錄每日吸菸支數與吸菸年數。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Observation.extension:cessationDuration","Observation.extension","cessationDuration","","",0,1,"","","","Extension {[CanonicalType[https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-cessation-duration]]} {[]}
-","戒除時間（戒菸/戒檳榔月數）擴充","記錄受檢者已戒菸或已戒檳榔的月數。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
+","戒除時間（戒菸/戒檳榔月數）擴充","【主管機關：國民健康署】記錄受檢者已戒菸或已戒檳榔的月數。","","","","","","","","","",,,,,"",,,,"DomainResource.extension",0,*,"ele-1
 ","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Observation.modifierExtension","Observation.modifierExtension","","extensions

@@ -1,9 +1,9 @@
-# 肺功能檢查 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 肺功能檢查 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 資源 Profile: 肺功能檢查 Profile 
 
  
-用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。 
+【依據：勞工健康保護規則附表】用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。 
 
 **Usages:**
 
@@ -90,12 +90,12 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-PulmonaryFunction",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-PulmonaryFunction",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "TWHAPulmonaryFunctionProfile",
   "title" : "肺功能檢查 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -111,7 +111,7 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。",
+  "description" : "【依據：勞工健康保護規則附表】用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",

@@ -1,8 +1,8 @@
-# 吸菸量及菸齡擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 吸菸量及菸齡擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## 擴充: 吸菸量及菸齡擴充 
 
-記錄每日吸菸支數與吸菸年數。
+【主管機關：國民健康署】記錄每日吸菸支數與吸菸年數。
 
 **Context of Use**
 
@@ -28,7 +28,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Complex Extension: 記錄每日吸菸支數與吸菸年數。
+Complex Extension: 【主管機關：國民健康署】記錄每日吸菸支數與吸菸年數。
 
  **差異檢視Differential View** 
 
@@ -38,7 +38,7 @@ Complex Extension: 記錄每日吸菸支數與吸菸年數。
 
 ** Summary **
 
-Complex Extension: 記錄每日吸菸支數與吸菸年數。
+Complex Extension: 【主管機關：國民健康署】記錄每日吸菸支數與吸菸年數。
 
  
 
@@ -52,13 +52,17 @@ Complex Extension: 記錄每日吸菸支數與吸菸年數。
 {
   "resourceType" : "StructureDefinition",
   "id" : "ext-smoking-quantity",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "trial-use"
+  }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "ExtSmokingQuantity",
   "title" : "吸菸量及菸齡擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -74,7 +78,7 @@ Complex Extension: 記錄每日吸菸支數與吸菸年數。
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "記錄每日吸菸支數與吸菸年數。",
+  "description" : "【主管機關：國民健康署】記錄每日吸菸支數與吸菸年數。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "rim",
@@ -95,7 +99,7 @@ Complex Extension: 記錄每日吸菸支數與吸菸年數。
       "id" : "Extension",
       "path" : "Extension",
       "short" : "吸菸量及菸齡擴充",
-      "definition" : "記錄每日吸菸支數與吸菸年數。"
+      "definition" : "【主管機關：國民健康署】記錄每日吸菸支數與吸菸年數。"
     },
     {
       "id" : "Extension.extension",

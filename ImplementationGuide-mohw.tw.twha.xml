@@ -8,11 +8,11 @@
 </div></div>
   </text>
   <url value="https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"/>
-  <version value="0.4.0"/>
+  <version value="0.5.0"/>
   <name value="TWHAIG"/>
   <title value="臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"/>
   <status value="active"/>
-  <date value="2026-08-20T13:40:11+00:00"/>
+  <date value="2026-08-20T16:35:38+00:00"/>
   <publisher value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
   <contact>
     <name value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
@@ -730,7 +730,7 @@
         <reference value="StructureDefinition/TWHA-LabResult-General"/>
       </reference>
       <name value="一般健檢實驗室檢驗 Profile"/>
-      <description value="用於記錄勞工一般體格與健康檢查之實驗室檢驗結果，如血液、尿液及生化項目，繼承自 TW Core Lab Result。"/>
+      <description value="【主管機關：國民健康署】用於記錄勞工一般體格與健康檢查之實驗室檢驗結果，如血液、尿液及生化項目，繼承自 TW Core Lab Result。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -741,7 +741,7 @@
         <reference value="ValueSet/VS-UnfitDiseases"/>
       </reference>
       <name value="不適合從事作業之疾病值集"/>
-      <description value="依據勞工健康保護規則附表十二所列，不適合從事特定特別危害健康作業之疾病代碼值集（以 ICD-10-CM 表示）。"/>
+      <description value="【依據：勞工健康保護規則附表】依據勞工健康保護規則附表十二所列，不適合從事特定特別危害健康作業之疾病代碼值集（以 ICD-10-CM 表示）。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -752,7 +752,7 @@
         <reference value="ValueSet/VS-CoreUploadSet"/>
       </reference>
       <name value="主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）"/>
-      <description value="群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之狀態由本 IG 之 VS-BetelNutStatus 承載（與吸菸狀態四碼逐碼對稱）；量／年數／戒除期間自 v0.4.0 起改以 UCUM Quantity 承載（{quid}/d、a、a 或 mo），上游臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之級距碼降為可選 component（extensible）供勾稽之用，見 TWHA-SocialHistory-BetelNut 與術語頁 §6.2b。注意戒除期間之單位以原始採集粒度為準（上游以「年」計），與吸菸之戒除「月數」（LNC#63632-4）不同，不得逕行換算。"/>
+      <description value="【主管機關：國民健康署】群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之狀態由本 IG 之 VS-BetelNutStatus 承載（與吸菸狀態四碼逐碼對稱）；量／年數／戒除期間自 v0.4.0 起改以 UCUM Quantity 承載（{quid}/d、a、a 或 mo），上游臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之級距碼降為可選 component（extensible）供勾稽之用，見 TWHA-SocialHistory-BetelNut 與術語頁 §6.2b。注意戒除期間之單位以原始採集粒度為準（上游以「年」計），與吸菸之戒除「月數」（LNC#63632-4）不同，不得逕行換算。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -763,7 +763,7 @@
         <reference value="StructureDefinition/TWHA-Composition-ServiceRecord"/>
       </reference>
       <name value="健康檢查健康服務執行紀錄組成結構 Profile"/>
-      <description value="本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。&#xA;&#xA;**subject／custodian 語意界定（回應委員意見）**：本文件之標的為「**一次臨場服務事件與其紀錄**」，故 `subject` 為受服務之事業單位（作業場所），`custodian` 為保管該紀錄之醫療機構。**惟本 IG 並非一律以 Organization 作 subject**：文件內各關聯資源依其性質分別設定——個人健康指導以 Patient 為 subject、群體衛教以 Group 為 subject、事業單位則以 `serviceProvider`／`custodian`／`focus`／`extension[employerInfo]` 表達，詳見各該 Profile。"/>
+      <description value="【依據：勞工健康保護規則附表】本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。&#xA;&#xA;**subject／custodian 語意界定（回應委員意見）**：本文件之標的為「**一次臨場服務事件與其紀錄**」，故 `subject` 為受服務之事業單位（作業場所），`custodian` 為保管該紀錄之醫療機構。**惟本 IG 並非一律以 Organization 作 subject**：文件內各關聯資源依其性質分別設定——個人健康指導以 Patient 為 subject、群體衛教以 Group 為 subject、事業單位則以 `serviceProvider`／`custodian`／`focus`／`extension[employerInfo]` 表達，詳見各該 Profile。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -774,7 +774,7 @@
         <reference value="StructureDefinition/TWHA-HealthManagementLevel"/>
       </reference>
       <name value="健康檢查健康管理分級 Observation Profile"/>
-      <description value="用於以獨立 Observation 資源記錄受檢勞工健康檢查後，經醫師總評判定之健康管理分級（1-4級）。"/>
+      <description value="【依據：勞工健康保護規則附表】用於以獨立 Observation 資源記錄受檢勞工健康檢查後，經醫師總評判定之健康管理分級（1-4級）。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -785,7 +785,7 @@
         <reference value="StructureDefinition/TWHA-Composition"/>
       </reference>
       <name value="健康檢查健檢報告組成結構 Profile"/>
-      <description value="本 Profile 用於定義一般健康檢查、勞工健康檢查及成人預防保健等健康檢查報告的文件組成結構，以 Composition 作為文件核心，並定義各項目的 Section，繼承自 TW Core Composition。"/>
+      <description value="【技術規格】本 Profile 用於定義一般健康檢查、勞工健康檢查及成人預防保健等健康檢查報告的文件組成結構，以 Composition 作為文件核心，並定義各項目的 Section，繼承自 TW Core Composition。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -796,7 +796,7 @@
         <reference value="StructureDefinition/TWHA-Encounter"/>
       </reference>
       <name value="健康檢查健檢就醫事件 Profile"/>
-      <description value="本 Profile 用於描述勞工進行一般體格檢查、一般健康檢查或特殊體格/健康檢查的就醫事件，繼承自 TW Core Encounter。"/>
+      <description value="【技術規格】本 Profile 用於描述勞工進行一般體格檢查、一般健康檢查或特殊體格/健康檢查的就醫事件，繼承自 TW Core Encounter。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -807,7 +807,7 @@
         <reference value="StructureDefinition/TWHA-ImagingStudy"/>
       </reference>
       <name value="健康檢查健檢影像檢查 Profile"/>
-      <description value="用於記錄勞工胸部 X 光、骨骼 X 光等影像檢查，繼承自 TW Core ImagingStudy。"/>
+      <description value="【技術規格】用於記錄勞工胸部 X 光、骨骼 X 光等影像檢查，繼承自 TW Core ImagingStudy。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -818,7 +818,7 @@
         <reference value="StructureDefinition/TWHA-DiagnosticReport"/>
       </reference>
       <name value="健康檢查健檢診斷報告 Profile"/>
-      <description value="本 Profile 用於彙整勞工體格及健康檢查結果之診斷報告，繼承自 TW Core DiagnosticReport。"/>
+      <description value="【技術規格】本 Profile 用於彙整勞工體格及健康檢查結果之診斷報告，繼承自 TW Core DiagnosticReport。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -829,7 +829,7 @@
         <reference value="StructureDefinition/TWHA-ServiceRequest"/>
       </reference>
       <name value="健康檢查健檢追蹤檢查要求 Profile"/>
-      <description value="針對第三級或需要追蹤之勞工，醫師開立之追蹤檢查或現場評估排程要求，繼承自 TW Core ServiceRequest。"/>
+      <description value="【技術規格】針對第三級或需要追蹤之勞工，醫師開立之追蹤檢查或現場評估排程要求，繼承自 TW Core ServiceRequest。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -840,7 +840,7 @@
         <reference value="StructureDefinition/TWHA-ClinicalImpression"/>
       </reference>
       <name value="健康檢查健檢醫師總評與分級 Profile"/>
-      <description value="用於記錄健檢判定醫師針對勞工檢查結果進行之總體臨床評估、健康管理分級（1-4級）及處置建議。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄健檢判定醫師針對勞工檢查結果進行之總體臨床評估、健康管理分級（1-4級）及處置建議。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -851,7 +851,7 @@
         <reference value="StructureDefinition/TWHA-Bundle-Document"/>
       </reference>
       <name value="健康檢查報告交換封包 (Document Bundle) Profile"/>
-      <description value="用於健檢報告交換的 Document Bundle，其第一個 entry 必須為 Composition（以 twha-bnd-1 不變條件驗證），且型態 (type) 必須為 document。"/>
+      <description value="【技術規格】用於健檢報告交換的 Document Bundle，其第一個 entry 必須為 Composition（以 twha-bnd-1 不變條件驗證），且型態 (type) 必須為 document。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -862,7 +862,7 @@
         <reference value="StructureDefinition/ext-exam-interval"/>
       </reference>
       <name value="健康檢查實施週期擴充"/>
-      <description value="標註此次健康檢查之實施週期（如每年、每3年、每5年）。"/>
+      <description value="【依據：勞工健康保護規則附表】標註此次健康檢查之實施週期（如每年、每3年、每5年）。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -873,7 +873,7 @@
         <reference value="StructureDefinition/TWHA-Occupation"/>
       </reference>
       <name value="健康檢查工作經歷與職業別 Profile"/>
-      <description value="用於記錄受檢勞工之工作經歷與現任職業別，繼承自 TW Core Observation Occupation。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄受檢勞工之工作經歷與現任職業別，繼承自 TW Core Observation Occupation。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -884,7 +884,7 @@
         <reference value="StructureDefinition/TWHA-Organization-Employer"/>
       </reference>
       <name value="健康檢查所屬事業單位（雇主公司） Profile"/>
-      <description value="本 Profile 用於描述受檢勞工所屬之事業單位或公司，繼承自 TW Core Organization (公司) 以精確反映公司法人組織語義。其中統一編號以 identifier 表示。"/>
+      <description value="【技術規格】本 Profile 用於描述受檢勞工所屬之事業單位或公司，繼承自 TW Core Organization (公司) 以精確反映公司法人組織語義。其中統一編號以 identifier 表示。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -895,7 +895,7 @@
         <reference value="StructureDefinition/TWHA-Condition"/>
       </reference>
       <name value="健康檢查既往病史與不適作業疾病 Profile"/>
-      <description value="用於記錄勞工之既往慢性病病史，或醫師判定屬於附表十二不適合從事作業之疾病，繼承自 TW Core Condition。"/>
+      <description value="【技術規格】用於記錄勞工之既往慢性病病史，或醫師判定屬於附表十二不適合從事作業之疾病，繼承自 TW Core Condition。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -906,7 +906,7 @@
         <reference value="ValueSet/VS-CoreDataset"/>
       </reference>
       <name value="健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）"/>
-      <description value="Core 之檢驗子集（主管機關（國健署）最小共通上傳集之 Observation.code 綁定值集，綁定強度 extensible）。僅收錄 Core 之 10 檢驗項 preferred code 及其 acceptable 變異碼；生理量測（身高/體重/腰圍/血壓）碼分屬 VS-TWHAVitalSigns、社會史（吸菸/嚼檳）碼分屬 SocialHistory profile。Core 全集（21 列）之群組見 VS-CoreUploadSet。acceptable→preferred 歸一見 ConceptMap TWHealthCheckLaboratoryMap。"/>
+      <description value="【主管機關：國民健康署】Core 之檢驗子集（主管機關（國健署）最小共通上傳集之 Observation.code 綁定值集，綁定強度 extensible）。僅收錄 Core 之 10 檢驗項 preferred code 及其 acceptable 變異碼；生理量測（身高/體重/腰圍/血壓）碼分屬 VS-TWHAVitalSigns、社會史（吸菸/嚼檳）碼分屬 SocialHistory profile。Core 全集（21 列）之群組見 VS-CoreUploadSet。acceptable→preferred 歸一見 ConceptMap TWHealthCheckLaboratoryMap。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -928,7 +928,7 @@
         <reference value="StructureDefinition/TWHA-Questionnaire"/>
       </reference>
       <name value="健康檢查自覺症狀問卷定義 Profile"/>
-      <description value="用於定義勞工體格或健康檢查中，自覺症狀調查（附表十一之自覺症狀部分）的問卷結構 Profile。"/>
+      <description value="【技術規格】用於定義勞工體格或健康檢查中，自覺症狀調查（附表十一之自覺症狀部分）的問卷結構 Profile。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -939,7 +939,7 @@
         <reference value="StructureDefinition/TWHA-Bundle-Transaction"/>
       </reference>
       <name value="健康檢查資料上傳封包 (Transaction Bundle) Profile"/>
-      <description value="用於健檢系統或醫療院所向主管機關平台進行批次上傳/新增資料之 Transaction Bundle，其型態 (type) 必須為 transaction，且 entry 必須包含 HTTP 請求方法資訊。去重與冪等重傳之契約見 conformance.html「上傳介接契約」；整包處理語意（transaction 全有全無 vs batch 部分成功）為未決事項 M-9，若定案採 batch，本 profile 之 type 固定值需隨之調整。範例：UC-008（首次上傳）、UC-009（含缺值與冪等重傳）。"/>
+      <description value="【技術規格】用於健檢系統或醫療院所向主管機關平台進行批次上傳/新增資料之 Transaction Bundle，其型態 (type) 必須為 transaction，且 entry 必須包含 HTTP 請求方法資訊。去重與冪等重傳之契約見 conformance.html「上傳介接契約」；整包處理語意（transaction 全有全無 vs batch 部分成功）為未決事項 M-9，若定案採 batch，本 profile 之 type 固定值需隨之調整。範例：UC-008（首次上傳）、UC-009（含缺值與冪等重傳）。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -961,7 +961,7 @@
         <reference value="ValueSet/VS-ExtendedDataset"/>
       </reference>
       <name value="健康檢查進階與領域擴充項目值集"/>
-      <description value="包含特殊健康檢查與體格檢查之實驗室與生理功能檢驗項目，以及自費健康檢查常見之影像學檢查（如 MRI、CT、PET/CT、超音波、骨密度等）與內視鏡檢查（如胃鏡、大腸鏡），對應至 LOINC 代碼。"/>
+      <description value="【技術規格】包含特殊健康檢查與體格檢查之實驗室與生理功能檢驗項目，以及自費健康檢查常見之影像學檢查（如 MRI、CT、PET/CT、超音波、骨密度等）與內視鏡檢查（如胃鏡、大腸鏡），對應至 LOINC 代碼。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -972,7 +972,7 @@
         <reference value="StructureDefinition/TWHA-CarePlan"/>
       </reference>
       <name value="健康檢查適性配工計畫 Profile"/>
-      <description value="用於針對第四級健康管理勞工，由醫師、事業單位等共同制定之適性配工計畫（變更場所、工作或縮短工時等），繼承自 TW Core CarePlan。"/>
+      <description value="【依據：勞工健康保護規則附表】用於針對第四級健康管理勞工，由醫師、事業單位等共同制定之適性配工計畫（變更場所、工作或縮短工時等），繼承自 TW Core CarePlan。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -983,7 +983,7 @@
         <reference value="CodeSystem/CS-HealthMgmtLevel"/>
       </reference>
       <name value="健康管理分級代碼系統"/>
-      <description value="依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"/>
+      <description value="【依據：勞工健康保護規則附表】依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -994,7 +994,7 @@
         <reference value="ValueSet/VS-HealthMgmtLevel"/>
       </reference>
       <name value="健康管理分級值集"/>
-      <description value="包含健康管理分級（第一級至第四級）代碼之值集。（provisional，隨 CS-HealthMgmtLevel 待官方確認）"/>
+      <description value="【依據：勞工健康保護規則附表】包含健康管理分級（第一級至第四級）代碼之值集。（provisional，隨 CS-HealthMgmtLevel 待官方確認）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1016,7 +1016,7 @@
         <reference value="StructureDefinition/ext-health-mgmt-level"/>
       </reference>
       <name value="健康管理分級擴充"/>
-      <description value="記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。"/>
+      <description value="【依據：勞工健康保護規則附表】記錄醫師針對勞工健康狀況判定之健康管理分級（1-4級）。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1027,7 +1027,7 @@
         <reference value="StructureDefinition/TWHA-Procedure-Counseling"/>
       </reference>
       <name value="健康諮詢與衛教指導 Profile"/>
-      <description value="用於記錄成人預防保健服務及一般健康檢查中，醫師或醫護團隊提供之健康諮詢、衛教指導與預防教育活動（如戒菸、節酒、腎病識能指導等），繼承自 TW Core Procedure。"/>
+      <description value="【技術規格】用於記錄成人預防保健服務及一般健康檢查中，醫師或醫護團隊提供之健康諮詢、衛教指導與預防教育活動（如戒菸、節酒、腎病識能指導等），繼承自 TW Core Procedure。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1049,7 +1049,7 @@
         <reference value="CodeSystem/CS-HealthCounseling"/>
       </reference>
       <name value="健康諮詢與衛教指導項目代碼系統"/>
-      <description value="國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。"/>
+      <description value="【技術規格】國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1060,7 +1060,7 @@
         <reference value="ValueSet/VS-HealthCounseling"/>
       </reference>
       <name value="健康諮詢與衛教指導項目值集"/>
-      <description value="包含成人預防保健與健康檢查中健康諮詢項目代碼之值集。"/>
+      <description value="【技術規格】包含成人預防保健與健康檢查中健康諮詢項目代碼之值集。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1126,7 +1126,7 @@
         <reference value="ValueSet/VS-LaborReportCode"/>
       </reference>
       <name value="勞動部通報報告代碼值集"/>
-      <description value="包含勞動部通報報告類別代碼之值集。（provisional，隨 CS-LaborReportCode 待官方確認）"/>
+      <description value="【依據：勞工健康保護規則附表】包含勞動部通報報告類別代碼之值集。（provisional，隨 CS-LaborReportCode 待官方確認）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1137,7 +1137,7 @@
         <reference value="StructureDefinition/ext-labor-report-code"/>
       </reference>
       <name value="勞動部通報報告代碼擴充"/>
-      <description value="標註此檢查結果通報至勞動部時所採用之報告大類代碼。"/>
+      <description value="【依據：勞工健康保護規則附表】標註此檢查結果通報至勞動部時所採用之報告大類代碼。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1148,7 +1148,7 @@
         <reference value="CodeSystem/CS-LaborReportCode"/>
       </reference>
       <name value="勞動部通報報告代碼系統"/>
-      <description value="勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"/>
+      <description value="【依據：勞工健康保護規則附表】勞工健檢結果通報勞動部（LABOR）系統時所使用之報告類別代碼。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1170,7 +1170,7 @@
         <reference value="ValueSet/VS-OccHealthCheck-Required"/>
       </reference>
       <name value="勞工健康檢查法定必驗項目值集（第一期草案）"/>
-      <description value="第一期法定必驗之勞工健康檢查項目草案子集，涵蓋附表九一般必驗生理量測與實驗室項目，以及噪音／鉛／粉塵三模組之核心必驗代碼。此為初版草案，範疇待附表九/十逐項法規盤點確認後修訂。"/>
+      <description value="【依據：勞工健康保護規則附表】第一期法定必驗之勞工健康檢查項目草案子集，涵蓋附表九一般必驗生理量測與實驗室項目，以及噪音／鉛／粉塵三模組之核心必驗代碼。此為初版草案，範疇待附表九/十逐項法規盤點確認後修訂。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1181,7 +1181,7 @@
         <reference value="StructureDefinition/ext-employment-date"/>
       </reference>
       <name value="受僱日期擴充"/>
-      <description value="記錄受檢勞工於事業單位之受僱日期。"/>
+      <description value="【依據：勞工健康保護規則附表】記錄受檢勞工於事業單位之受僱日期。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1203,7 +1203,7 @@
         <reference value="StructureDefinition/TWHA-Patient"/>
       </reference>
       <name value="受檢者 Profile"/>
-      <description value="本 Profile 用於描述接受健康檢查（含一般健檢、勞工健檢與成人預防保健）之受檢者，繼承自 TW Core Patient，並可選擴充記錄其所屬事業單位、受僱日期與所屬部門。"/>
+      <description value="【技術規格】本 Profile 用於描述接受健康檢查（含一般健檢、勞工健檢與成人預防保健）之受檢者，繼承自 TW Core Patient，並可選擴充記錄其所屬事業單位、受僱日期與所屬部門。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1214,7 +1214,7 @@
         <reference value="CodeSystem/CS-BetelNutHpaCategory"/>
       </reference>
       <name value="口腔黏膜檢查表嚼檳榔習慣級距代碼系統"/>
-      <description value="逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。）"/>
+      <description value="【主管機關：國民健康署】逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1225,7 +1225,7 @@
         <reference value="ValueSet/VS-BetelNutHpaCategory"/>
       </reference>
       <name value="口腔黏膜檢查表嚼檳榔習慣級距值集"/>
-      <description value="包含口腔黏膜檢查表（107/7 修訂）嚼檳榔習慣六個級距之值集。（provisional，隨 CS-BetelNutHpaCategory）"/>
+      <description value="【主管機關：國民健康署】包含口腔黏膜檢查表（107/7 修訂）嚼檳榔習慣六個級距之值集。（provisional，隨 CS-BetelNutHpaCategory）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1236,7 +1236,7 @@
         <reference value="StructureDefinition/TWHA-SocialHistory-Smoking"/>
       </reference>
       <name value="吸菸歷史與狀態 Profile"/>
-      <description value="用於記錄勞工之吸菸狀態與吸菸量、戒菸時間等資訊，繼承自 TW Core Observation Smoking Status。"/>
+      <description value="【主管機關：國民健康署】用於記錄勞工之吸菸狀態與吸菸量、戒菸時間等資訊，繼承自 TW Core Observation Smoking Status。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1247,7 +1247,7 @@
         <reference value="CodeSystem/CS-SmokingStatus"/>
       </reference>
       <name value="吸菸狀態代碼系統"/>
-      <description value="勞工健檢生活習慣調查中之吸菸狀態分類。"/>
+      <description value="【主管機關：國民健康署】勞工健檢生活習慣調查中之吸菸狀態分類。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1258,7 +1258,7 @@
         <reference value="ValueSet/VS-SmokingStatus"/>
       </reference>
       <name value="吸菸狀態值集"/>
-      <description value="包含吸菸狀態代碼的值集。"/>
+      <description value="【主管機關：國民健康署】包含吸菸狀態代碼的值集。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1291,7 +1291,7 @@
         <reference value="StructureDefinition/ext-smoking-quantity"/>
       </reference>
       <name value="吸菸量及菸齡擴充"/>
-      <description value="記錄每日吸菸支數與吸菸年數。"/>
+      <description value="【主管機關：國民健康署】記錄每日吸菸支數與吸菸年數。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1302,7 +1302,7 @@
         <reference value="StructureDefinition/TWHA-SocialHistory-BetelNut"/>
       </reference>
       <name value="嚼檳榔歷史與狀態 Profile"/>
-      <description value="用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `value[x]` 承載（值集 VS-BetelNutStatus，與吸菸之 CS-SmokingStatus 逐碼對稱）；每日嚼食量、嚼食年數與戒除期間以 `component` 之 `Quantity` 承載（UCUM）。上游臺灣癌症登記短表 (TWCR_SF) 之級距碼降為可選 component（extensible），供與癌症登記勾稽。"/>
+      <description value="【主管機關：國民健康署】用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `value[x]` 承載（值集 VS-BetelNutStatus，與吸菸之 CS-SmokingStatus 逐碼對稱）；每日嚼食量、嚼食年數與戒除期間以 `component` 之 `Quantity` 承載（UCUM）。上游臺灣癌症登記短表 (TWCR_SF) 之級距碼降為可選 component（extensible），供與癌症登記勾稽。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1313,7 +1313,7 @@
         <reference value="CodeSystem/CS-BetelNutStatus"/>
       </reference>
       <name value="嚼檳榔狀態代碼系統"/>
-      <description value="勞工健檢生活習慣調查中之嚼檳榔狀態分類，與吸菸狀態（CS-SmokingStatus）逐碼對稱。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）"/>
+      <description value="【主管機關：國民健康署】勞工健檢生活習慣調查中之嚼檳榔狀態分類，與吸菸狀態（CS-SmokingStatus）逐碼對稱。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1324,7 +1324,7 @@
         <reference value="ValueSet/VS-BetelNutStatus"/>
       </reference>
       <name value="嚼檳榔狀態值集"/>
-      <description value="包含嚼檳榔狀態代碼的值集。（provisional，隨 CS-BetelNutStatus 待官方確認）不含「不詳」——狀態不詳者以 `dataAbsentReason` 表達，見 CS-BetelNutStatus 之說明。"/>
+      <description value="【主管機關：國民健康署】包含嚼檳榔狀態代碼的值集。（provisional，隨 CS-BetelNutStatus 待官方確認）不含「不詳」——狀態不詳者以 `dataAbsentReason` 表達，見 CS-BetelNutStatus 之說明。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1368,7 +1368,7 @@
         <reference value="CodeSystem/CS-BetelNutInfoSource"/>
       </reference>
       <name value="嚼檳榔資料來源代碼系統"/>
-      <description value="嚼檳榔資訊之取得來源。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"/>
+      <description value="【主管機關：國民健康署】嚼檳榔資訊之取得來源。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1379,7 +1379,7 @@
         <reference value="ValueSet/VS-BetelNutInfoSource"/>
       </reference>
       <name value="嚼檳榔資料來源值集"/>
-      <description value="包含嚼檳榔資料來源代碼之值集。（provisional，隨 CS-BetelNutInfoSource 待官方確認）"/>
+      <description value="【主管機關：國民健康署】包含嚼檳榔資料來源代碼之值集。（provisional，隨 CS-BetelNutInfoSource 待官方確認）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1390,7 +1390,7 @@
         <reference value="CodeSystem/CS-BetelNutComponent"/>
       </reference>
       <name value="嚼檳榔量化元件代碼系統"/>
-      <description value="`TWHA-SocialHistory-BetelNut` 各 `component.code` 之本地代碼。前三碼與上游 TWCR_SF `sf-BetNutChewBeh` 之 `amount`／`year`／`quit` 為 1:1 對應。（**provisional**：隨本指引之嚼檳榔建模待主管機關確認，M-5。）"/>
+      <description value="【主管機關：國民健康署】`TWHA-SocialHistory-BetelNut` 各 `component.code` 之本地代碼。前三碼與上游 TWCR_SF `sf-BetNutChewBeh` 之 `amount`／`year`／`quit` 為 1:1 對應。（**provisional**：隨本指引之嚼檳榔建模待主管機關確認，M-5。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1412,7 +1412,7 @@
         <reference value="StructureDefinition/TWHA-Practitioner"/>
       </reference>
       <name value="執業/健檢醫護與服務人員 Profile"/>
-      <description value="本 Profile 用於描述實施勞工體格檢查、健康檢查或臨場健康服務之醫師、護理人員、職安人員等，繼承自 TW Core Practitioner。"/>
+      <description value="【技術規格】本 Profile 用於描述實施勞工體格檢查、健康檢查或臨場健康服務之醫師、護理人員、職安人員等，繼承自 TW Core Practitioner。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1445,7 +1445,7 @@
         <reference value="StructureDefinition/TWHA-Organization-Facility"/>
       </reference>
       <name value="實施健康檢查之醫療機構 Profile"/>
-      <description value="本 Profile 用於描述實施勞工體格檢查、健康檢查或提供臨場健康服務之醫療機構，繼承自 TW Core Organization (醫院) 以精確反映醫療機構語義。"/>
+      <description value="【技術規格】本 Profile 用於描述實施勞工體格檢查、健康檢查或提供臨場健康服務之醫療機構，繼承自 TW Core Organization (醫院) 以精確反映醫療機構語義。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1500,7 +1500,7 @@
         <reference value="StructureDefinition/TWHA-ECG"/>
       </reference>
       <name value="心電圖檢查 Profile"/>
-      <description value="用於記錄勞工心電圖檢查結果，通常於高溫作業特殊健檢中實施，繼承自 TW Core Observation ECG（v1.0.0 新增之心電圖專用 Profile）。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄勞工心電圖檢查結果，通常於高溫作業特殊健檢中實施，繼承自 TW Core Observation ECG（v1.0.0 新增之心電圖專用 Profile）。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1522,7 +1522,7 @@
         <reference value="StructureDefinition/TWHA-QuestionnaireResponse-HT"/>
       </reference>
       <name value="成人預防保健問卷回覆 Profile"/>
-      <description value="用於記錄成人預防保健（國健署成人預防保健服務）之自覺症狀與生活習慣問卷回覆，繼承自 TW Core QuestionnaireResponse。"/>
+      <description value="【主管機關：國民健康署】用於記錄成人預防保健（國健署成人預防保健服務）之自覺症狀與生活習慣問卷回覆，繼承自 TW Core QuestionnaireResponse。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1555,7 +1555,7 @@
         <reference value="StructureDefinition/ext-cessation-duration"/>
       </reference>
       <name value="戒除時間（戒菸/戒檳榔月數）擴充"/>
-      <description value="記錄受檢者已戒菸或已戒檳榔的月數。"/>
+      <description value="【主管機關：國民健康署】記錄受檢者已戒菸或已戒檳榔的月數。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1577,7 +1577,7 @@
         <reference value="ValueSet/VS-TimeUnitYearMonth"/>
       </reference>
       <name value="時間單位值集（年／月）"/>
-      <description value="戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12（JOB-29 §A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。"/>
+      <description value="【主管機關：國民健康署】戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12（JOB-29 §A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1588,7 +1588,7 @@
         <reference value="CodeSystem/CS-OrganicSolventType"/>
       </reference>
       <name value="有機溶劑種類代碼系統"/>
-      <description value="特別危害健康作業中之有機溶劑種類（主要 7 種）。"/>
+      <description value="【依據：勞工健康保護規則附表】特別危害健康作業中之有機溶劑種類（主要 7 種）。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1599,7 +1599,7 @@
         <reference value="ValueSet/VS-OrganicSolventType"/>
       </reference>
       <name value="有機溶劑種類值集"/>
-      <description value="包含特別危害健康作業中之常見有機溶劑代碼。"/>
+      <description value="【依據：勞工健康保護規則附表】包含特別危害健康作業中之常見有機溶劑代碼。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1621,7 +1621,7 @@
         <reference value="CodeSystem/CS-ExamType"/>
       </reference>
       <name value="檢查類型代碼系統"/>
-      <description value="勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。"/>
+      <description value="【技術規格】勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1632,7 +1632,7 @@
         <reference value="ValueSet/VS-ExamType"/>
       </reference>
       <name value="檢查類型值集"/>
-      <description value="包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查之代碼。"/>
+      <description value="【技術規格】包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查之代碼。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1643,7 +1643,7 @@
         <reference value="StructureDefinition/ext-exam-type"/>
       </reference>
       <name value="檢查類型擴充"/>
-      <description value="標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。"/>
+      <description value="【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1654,7 +1654,7 @@
         <reference value="CodeSystem/CS-BetelNutAdditive"/>
       </reference>
       <name value="檳榔添加物代碼系統"/>
-      <description value="嚼食檳榔所用之添加物。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"/>
+      <description value="【主管機關：國民健康署】嚼食檳榔所用之添加物。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1665,7 +1665,7 @@
         <reference value="ValueSet/VS-BetelNutAdditive"/>
       </reference>
       <name value="檳榔添加物值集"/>
-      <description value="包含檳榔添加物代碼之值集。（provisional，隨 CS-BetelNutAdditive 待官方確認）"/>
+      <description value="【主管機關：國民健康署】包含檳榔添加物代碼之值集。（provisional，隨 CS-BetelNutAdditive 待官方確認）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1676,7 +1676,7 @@
         <reference value="CodeSystem/CS-BetelNutLime"/>
       </reference>
       <name value="檳榔石灰種類代碼系統"/>
-      <description value="嚼食檳榔所用之石灰種類。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"/>
+      <description value="【主管機關：國民健康署】嚼食檳榔所用之石灰種類。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1687,7 +1687,7 @@
         <reference value="ValueSet/VS-BetelNutLime"/>
       </reference>
       <name value="檳榔石灰種類值集"/>
-      <description value="包含檳榔石灰種類代碼之值集。（provisional，隨 CS-BetelNutLime 待官方確認）"/>
+      <description value="【主管機關：國民健康署】包含檳榔石灰種類代碼之值集。（provisional，隨 CS-BetelNutLime 待官方確認）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1709,7 +1709,7 @@
         <reference value="StructureDefinition/TWHA-WorkExposure"/>
       </reference>
       <name value="特別危害健康作業危害因子暴露史 Profile"/>
-      <description value="用於記錄受檢勞工從事特別危害作業（如高溫、噪音、鉛、粉塵等）之暴露年數與詳細工作性質。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄受檢勞工從事特別危害作業（如高溫、噪音、鉛、粉塵等）之暴露年數與詳細工作性質。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1720,7 +1720,7 @@
         <reference value="CodeSystem/CS-HazardType"/>
       </reference>
       <name value="特別危害健康作業類別代碼系統"/>
-      <description value="勞工健康保護規則所定義之特別危害健康作業，歸併為 12 危害家族（家族層）。附表十（115.06.26 修正）逐號列舉之 35 項法定具名作業另以 CS-Appendix10Operation 表示，家族 ↔ 具名作業之對映見 ConceptMap Appendix10-to-HazardType。"/>
+      <description value="【依據：勞工健康保護規則附表】勞工健康保護規則所定義之特別危害健康作業，歸併為 12 危害家族（家族層）。附表十（115.06.26 修正）逐號列舉之 35 項法定具名作業另以 CS-Appendix10Operation 表示，家族 ↔ 具名作業之對映見 ConceptMap Appendix10-to-HazardType。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1731,7 +1731,7 @@
         <reference value="ValueSet/VS-HazardType"/>
       </reference>
       <name value="特別危害健康作業類別值集"/>
-      <description value="包含 12 大類特別危害健康作業類別之代碼。"/>
+      <description value="【依據：勞工健康保護規則附表】包含 12 大類特別危害健康作業類別之代碼。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1742,7 +1742,7 @@
         <reference value="StructureDefinition/ext-hazard-type"/>
       </reference>
       <name value="特別危害健康作業類別擴充"/>
-      <description value="標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。"/>
+      <description value="【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1753,7 +1753,7 @@
         <reference value="CodeSystem/CS-SpecificChemicalType"/>
       </reference>
       <name value="特定化學物質種類代碼系統"/>
-      <description value="特別危害健康作業中之特定化學物質種類。"/>
+      <description value="【依據：勞工健康保護規則附表】特別危害健康作業中之特定化學物質種類。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1764,7 +1764,7 @@
         <reference value="ValueSet/VS-SpecificChemicalType"/>
       </reference>
       <name value="特定化學物質種類值集"/>
-      <description value="包含特別危害健康作業中之常見特定化學物質代碼。"/>
+      <description value="【依據：勞工健康保護規則附表】包含特別危害健康作業中之常見特定化學物質代碼。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1775,7 +1775,7 @@
         <reference value="StructureDefinition/TWHA-LabResult-Special"/>
       </reference>
       <name value="特殊健檢實驗室檢驗 Profile"/>
-      <description value="用於記錄特別危害健康作業勞工之特殊實驗室檢驗結果（如血中鉛等），繼承自 TW Core Lab Result。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄特別危害健康作業勞工之特殊實驗室檢驗結果（如血中鉛等），繼承自 TW Core Lab Result。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1808,7 +1808,7 @@
         <reference value="StructureDefinition/TWHA-SocialHistory-Sleep"/>
       </reference>
       <name value="睡眠狀況 Profile"/>
-      <description value="用於記錄勞工之平均每日睡眠時間（以小時計）。"/>
+      <description value="【技術規格】用於記錄勞工之平均每日睡眠時間（以小時計）。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1830,7 +1830,7 @@
         <reference value="StructureDefinition/TWHA-SDOH-QuestionnaireResponse"/>
       </reference>
       <name value="社會決定因素 (SDOH) 問卷回覆 Profile"/>
-      <description value="用於記錄受檢者之社會決定因素問卷結果（基於精簡版 PRAPARE 社會風險問卷），繼承自 TW Core QuestionnaireResponse。"/>
+      <description value="【技術規格】用於記錄受檢者之社會決定因素問卷結果（基於精簡版 PRAPARE 社會風險問卷），繼承自 TW Core QuestionnaireResponse。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1852,7 +1852,7 @@
         <reference value="StructureDefinition/TWHA-Composition-EmergencySummary"/>
       </reference>
       <name value="職業健康急診友善摘要 Composition Profile"/>
-      <description value="職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用。&#xA;&#xA;**定位**：本 Profile 為**按需產生之臨床摘要原型（prototype）**，屬工作小組建議方案，**非正式交換要求**；俟臨床測試與回饋後再確認其範圍與必填欄位。&#xA;&#xA;**使用限制（負向表列，實作與臨床使用時必須遵守）**：&#xA;1. **本摘要不取代急診臨床評估**：所載資料為既有健檢紀錄之彙整，不構成診斷或處置建議，急診決策仍應以當下臨床評估為準。&#xA;2. **舊值必須顯示資料日期與來源機構**：所引用之每筆檢驗／量測結果，均須可辨識其 `effectiveDateTime` 與 `performer`／來源機構；未標示日期與來源之數值不得呈現。&#xA;3. **無資料不等於無暴露**：本摘要未列出某項危害暴露，僅表示系統中無相關紀錄，**不得推論該勞工未曾暴露**；必要時仍應詢問病史。&#xA;4. **受檢者自述與機構驗證資料必須可區分**：以問卷／自述取得之資訊（如 QuestionnaireResponse）與經醫療機構檢驗驗證之結果，須於呈現時明確區分，不得混同陳列。"/>
+      <description value="【技術規格】職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用。&#xA;&#xA;**定位**：本 Profile 為**按需產生之臨床摘要原型（prototype）**，屬工作小組建議方案，**非正式交換要求**；俟臨床測試與回饋後再確認其範圍與必填欄位。&#xA;&#xA;**使用限制（負向表列，實作與臨床使用時必須遵守）**：&#xA;1. **本摘要不取代急診臨床評估**：所載資料為既有健檢紀錄之彙整，不構成診斷或處置建議，急診決策仍應以當下臨床評估為準。&#xA;2. **舊值必須顯示資料日期與來源機構**：所引用之每筆檢驗／量測結果，均須可辨識其 `effectiveDateTime` 與 `performer`／來源機構；未標示日期與來源之數值不得呈現。&#xA;3. **無資料不等於無暴露**：本摘要未列出某項危害暴露，僅表示系統中無相關紀錄，**不得推論該勞工未曾暴露**；必要時仍應詢問病史。&#xA;4. **受檢者自述與機構驗證資料必須可區分**：以問卷／自述取得之資訊（如 QuestionnaireResponse）與經醫療機構檢驗驗證之結果，須於呈現時明確區分，不得混同陳列。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1874,7 +1874,7 @@
         <reference value="StructureDefinition/TWHA-VitalSigns"/>
       </reference>
       <name value="職業健檢生命徵象 Profile"/>
-      <description value="用於記錄勞工身高、體重、腰圍等基本生理特徵，繼承自 TW Core Vital Signs。"/>
+      <description value="【主管機關：國民健康署】用於記錄勞工身高、體重、腰圍等基本生理特徵，繼承自 TW Core Vital Signs。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1885,7 +1885,7 @@
         <reference value="ValueSet/VS-TWHAVitalSigns"/>
       </reference>
       <name value="職業健檢生命徵象項目值集"/>
-      <description value="包含身高、體重、腰圍及血壓等生理測量項目之 LOINC 代碼。"/>
+      <description value="【主管機關：國民健康署】包含身高、體重、腰圍及血壓等生理測量項目之 LOINC 代碼。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1896,7 +1896,7 @@
         <reference value="StructureDefinition/TWHA-HearingTest"/>
       </reference>
       <name value="聽力檢查 Profile"/>
-      <description value="用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。&#xA;&#xA;**交換規則（回應委員意見）**：&#xA;1. **須保留原始 panel／component 代碼**：若來源系統採 `21104-5` 系列等變異碼，交換時**應同時保留原始代碼**（如置於 `code.coding` 之另一 coding），**不得僅存歸一後之代碼**，以維持可追溯性。&#xA;2. **panel 層 mapping 不等於 component 層等價**：ConceptMap 現僅建立 panel 對 panel 之對應；**各頻率 component 之對應尚未建立（mapping unavailable）**，不得逕行推論等價。&#xA;3. **聽閾單位**：以 UCUM `dB` 表達（臨床意義為 dB HL，依 ISO 1999 判讀）。&#xA;4. **特殊情形不得以一般數值表達**：「未測」「無反應」「超出儀器上限」等情形，**應以 `dataAbsentReason` 或明確代碼表達**，不得填入 0、999 等假數值，亦不得省略該 component。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。&#xA;&#xA;**交換規則（回應委員意見）**：&#xA;1. **須保留原始 panel／component 代碼**：若來源系統採 `21104-5` 系列等變異碼，交換時**應同時保留原始代碼**（如置於 `code.coding` 之另一 coding），**不得僅存歸一後之代碼**，以維持可追溯性。&#xA;2. **panel 層 mapping 不等於 component 層等價**：ConceptMap 現僅建立 panel 對 panel 之對應；**各頻率 component 之對應尚未建立（mapping unavailable）**，不得逕行推論等價。&#xA;3. **聽閾單位**：以 UCUM `dB` 表達（臨床意義為 dB HL，依 ISO 1999 判讀）。&#xA;4. **特殊情形不得以一般數值表達**：「未測」「無反應」「超出儀器上限」等情形，**應以 `dataAbsentReason` 或明確代碼表達**，不得填入 0、999 等假數值，亦不得省略該 component。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1918,7 +1918,7 @@
         <reference value="StructureDefinition/TWHA-PulmonaryFunction"/>
       </reference>
       <name value="肺功能檢查 Profile"/>
-      <description value="用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1940,7 +1940,7 @@
         <reference value="ValueSet/VS-PulmonaryFunction"/>
       </reference>
       <name value="肺功能檢查項目值集"/>
-      <description value="包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的 LOINC 代碼，以供肺功能檢查 Profile 使用。"/>
+      <description value="【依據：勞工健康保護規則附表】包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的 LOINC 代碼，以供肺功能檢查 Profile 使用。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1962,7 +1962,7 @@
         <reference value="StructureDefinition/TWHA-Encounter-Service"/>
       </reference>
       <name value="臨場健康服務事件 Profile"/>
-      <description value="本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。&#xA;&#xA;**語意界定（回應委員意見）**：本資源表達「**一次臨場服務事件**」。`serviceProvider` 為提供服務之醫療機構；受服務之事業單位以 `extension[employerInfo]` 表達，**不置於 subject**。"/>
+      <description value="【依據：勞工健康保護規則附表】本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。&#xA;&#xA;**語意界定（回應委員意見）**：本資源表達「**一次臨場服務事件**」。`serviceProvider` 為提供服務之醫療機構；受服務之事業單位以 `extension[employerInfo]` 表達，**不置於 subject**。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1973,7 +1973,7 @@
         <reference value="StructureDefinition/TWHA-Task-ServiceTask"/>
       </reference>
       <name value="臨場健康服務建議與改善任務 Profile"/>
-      <description value="用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。&#xA;&#xA;**for／focus／owner 語意界定（回應委員意見）**：本資源表達「**後續改善工作**」。`focus` 指向所依據之現場發現（ServiceFinding）；`owner` 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 `for` 表達該 Patient。**事業單位以 `owner` 表達，不置於 `for`。**"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。&#xA;&#xA;**for／focus／owner 語意界定（回應委員意見）**：本資源表達「**後續改善工作**」。`focus` 指向所依據之現場發現（ServiceFinding）；`owner` 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 `for` 表達該 Patient。**事業單位以 `owner` 表達，不置於 `for`。**"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1984,7 +1984,7 @@
         <reference value="StructureDefinition/TWHA-Observation-ServiceFinding"/>
       </reference>
       <name value="臨場健康服務發現問題/風險 Profile"/>
-      <description value="用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。&#xA;&#xA;**subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。&#xA;&#xA;**subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1995,7 +1995,7 @@
         <reference value="CodeSystem/CS-ServiceActivityType"/>
       </reference>
       <name value="臨場健康服務辦理事項代碼系統"/>
-      <description value="附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。（**provisional**：本地代碼配置，尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）。另因 SNOMED 現無適切之職業健康諮詢 procedure 代碼，改善建議諮詢暫以本代碼系統承載，該用法列為本地碼治理事項。）"/>
+      <description value="【依據：勞工健康保護規則附表】附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。（**provisional**：本地代碼配置，尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）。另因 SNOMED 現無適切之職業健康諮詢 procedure 代碼，改善建議諮詢暫以本代碼系統承載，該用法列為本地碼治理事項。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2006,7 +2006,7 @@
         <reference value="ValueSet/VS-ServiceActivityType"/>
       </reference>
       <name value="臨場健康服務辦理事項值集"/>
-      <description value="包含臨場健康服務項目活動類別代碼之值集。（provisional，隨 CS-ServiceActivityType 待官方確認）"/>
+      <description value="【依據：勞工健康保護規則附表】包含臨場健康服務項目活動類別代碼之值集。（provisional，隨 CS-ServiceActivityType 待官方確認）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2028,7 +2028,7 @@
         <reference value="StructureDefinition/TWHA-Procedure-ServiceActivity"/>
       </reference>
       <name value="臨場服務執行活動項目 Profile"/>
-      <description value="用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。&#xA;&#xA;**subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。&#xA;&#xA;**subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2083,7 +2083,7 @@
         <reference value="StructureDefinition/TWHA-QuestionnaireResponse"/>
       </reference>
       <name value="自覺症狀問卷回覆 Profile"/>
-      <description value="用於記錄勞工所填寫之自覺症狀問卷結果，必須關聯至受檢勞工，繼承自 TW Core QuestionnaireResponse。"/>
+      <description value="【技術規格】用於記錄勞工所填寫之自覺症狀問卷結果，必須關聯至受檢勞工，繼承自 TW Core QuestionnaireResponse。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2226,7 +2226,7 @@
         <reference value="StructureDefinition/TWHA-VisionTest"/>
       </reference>
       <name value="視力與辨色力檢查 Profile"/>
-      <description value="用於記錄勞工眼部檢查結果，包含左右眼裸視/矯正視力及辨色力項目，繼承自 TW Core Observation Clinical Result。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄勞工眼部檢查結果，包含左右眼裸視/矯正視力及辨色力項目，繼承自 TW Core Observation Clinical Result。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2237,7 +2237,7 @@
         <reference value="CodeSystem/CS-PhysicalExamSystems"/>
       </reference>
       <name value="身體檢查系統部位代碼系統"/>
-      <description value="附表十一理學檢查中所涉及之身體系統部位分類。"/>
+      <description value="【依據：勞工健康保護規則附表】附表十一理學檢查中所涉及之身體系統部位分類。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2248,7 +2248,7 @@
         <reference value="ValueSet/VS-PhysicalExamSystems"/>
       </reference>
       <name value="身體檢查系統部位值集"/>
-      <description value="包含理學檢查中各系統部位代碼之值集。"/>
+      <description value="【依據：勞工健康保護規則附表】包含理學檢查中各系統部位代碼之值集。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2259,7 +2259,7 @@
         <reference value="StructureDefinition/TWHA-PhysicalExam"/>
       </reference>
       <name value="身體理學檢查 Profile"/>
-      <description value="用於記錄勞工身體各系統（頭頸部、呼吸、心血管、消化、神經、肌肉骨骼、皮膚）之理學檢查結果，繼承自 TW Core Observation Clinical Result。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄勞工身體各系統（頭頸部、呼吸、心血管、消化、神經、肌肉骨骼、皮膚）之理學檢查結果，繼承自 TW Core Observation Clinical Result。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2303,7 +2303,7 @@
         <reference value="CodeSystem/CS-FitnessForWork"/>
       </reference>
       <name value="適性配工建議代碼系統"/>
-      <description value="第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"/>
+      <description value="【依據：勞工健康保護規則附表】第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2314,7 +2314,7 @@
         <reference value="ValueSet/VS-FitnessForWork"/>
       </reference>
       <name value="適性配工建議值集"/>
-      <description value="包含適性配工或工作調整建議代碼之值集。（provisional，隨 CS-FitnessForWork 待官方確認）"/>
+      <description value="【依據：勞工健康保護規則附表】包含適性配工或工作調整建議代碼之值集。（provisional，隨 CS-FitnessForWork 待官方確認）"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2325,7 +2325,7 @@
         <reference value="StructureDefinition/ext-fitness-for-work"/>
       </reference>
       <name value="適性配工建議項目擴充"/>
-      <description value="用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。"/>
+      <description value="【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2347,7 +2347,7 @@
         <reference value="StructureDefinition/ext-department"/>
       </reference>
       <name value="部門/課別擴充"/>
-      <description value="記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。"/>
+      <description value="【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2369,7 +2369,7 @@
         <reference value="ValueSet/VS-Appendix9-RequiredSet"/>
       </reference>
       <name value="附表九 一般健康檢查法定應執行項目值集"/>
-      <description value="《勞工健康保護規則》附表九所列一般體格／健康檢查之法定應執行**檢驗與量測**項目（以健康檢查欄為準，含 LDL-C）。非檢驗項目（作業經歷、既往病史、生活習慣、自覺症狀、身體各系統理學檢查）以 TWHA-Occupation／TWHA-Condition／SocialHistory／TWHA-PhysicalExam 承載，不列為本值集成員。用於法定完整性稽核，非 profile 之 element binding。所有代碼均取自已通過術語稽核之既有內容。⚠️ 紅血球數（789-8）與 MCV（787-2）係 115.06.26 修正新增；repo 內附表九 PDF 為修正前版本，該二項無 repo 內原文可逐項核對，見未決事項 M-11。"/>
+      <description value="【依據：勞工健康保護規則附表】《勞工健康保護規則》附表九所列一般體格／健康檢查之法定應執行**檢驗與量測**項目（以健康檢查欄為準，含 LDL-C）。非檢驗項目（作業經歷、既往病史、生活習慣、自覺症狀、身體各系統理學檢查）以 TWHA-Occupation／TWHA-Condition／SocialHistory／TWHA-PhysicalExam 承載，不列為本值集成員。用於法定完整性稽核，非 profile 之 element binding。所有代碼均取自已通過術語稽核之既有內容。⚠️ 紅血球數（789-8）與 MCV（787-2）係 115.06.26 修正新增；repo 內附表九 PDF 為修正前版本，該二項無 repo 內原文可逐項核對，見未決事項 M-11。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2391,7 +2391,7 @@
         <reference value="ValueSet/VS-Appendix10-Noise-RequiredSet"/>
       </reference>
       <name value="附表十 噪音作業 專屬應執行項目值集"/>
-      <description value="附表十第 2 項噪音作業之家族專屬檢查項目（純音聽力）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
+      <description value="【依據：勞工健康保護規則附表】附表十第 2 項噪音作業之家族專屬檢查項目（純音聽力）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2402,7 +2402,7 @@
         <reference value="ValueSet/VS-Appendix10-OrganicSolvent-RequiredSet"/>
       </reference>
       <name value="附表十 有機溶劑作業 專屬應執行項目值集"/>
-      <description value="附表十第 7–12、33–35 項有機溶劑類作業之家族專屬檢查項目：各作業之尿中生物偵測代謝物與肝功能。⚠️ 附表十本文對此類作業僅列肝功能（ALT／γ-GT，二硫化碳另含心電圖）；各尿中代謝物係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。附表十號別 → 代謝物之對應見 special-exam.md 涵蓋表。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
+      <description value="【依據：勞工健康保護規則附表】附表十第 7–12、33–35 項有機溶劑類作業之家族專屬檢查項目：各作業之尿中生物偵測代謝物與肝功能。⚠️ 附表十本文對此類作業僅列肝功能（ALT／γ-GT，二硫化碳另含心電圖）；各尿中代謝物係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。附表十號別 → 代謝物之對應見 special-exam.md 涵蓋表。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2413,7 +2413,7 @@
         <reference value="ValueSet/VS-Appendix10-RequiredSet"/>
       </reference>
       <name value="附表十 特殊健康檢查應執行項目值集（已落地家族）"/>
-      <description value="附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待 JOB-01 臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
+      <description value="【依據：勞工健康保護規則附表】附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待 JOB-01 臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2424,7 +2424,7 @@
         <reference value="ValueSet/VS-Appendix10-Dust-RequiredSet"/>
       </reference>
       <name value="附表十 粉塵作業 專屬應執行項目值集"/>
-      <description value="附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
+      <description value="【依據：勞工健康保護規則附表】附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2435,7 +2435,7 @@
         <reference value="ValueSet/VS-Appendix10-Lead-RequiredSet"/>
       </reference>
       <name value="附表十 鉛作業 專屬應執行項目值集"/>
-      <description value="附表十第 5 項鉛作業之家族專屬檢查項目。附表十本文僅列血中鉛；尿中鉛／共聚卟啉／δ-ALA 係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
+      <description value="【依據：勞工健康保護規則附表】附表十第 5 項鉛作業之家族專屬檢查項目。附表十本文僅列血中鉛；尿中鉛／共聚卟啉／δ-ALA 係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2446,7 +2446,7 @@
         <reference value="ValueSet/VS-Appendix10-Operation"/>
       </reference>
       <name value="附表十特別危害健康作業值集（35 項）"/>
-      <description value="包含《勞工健康保護規則》附表十 35 項法定具名作業之代碼。"/>
+      <description value="【依據：勞工健康保護規則附表】包含《勞工健康保護規則》附表十 35 項法定具名作業之代碼。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2457,7 +2457,7 @@
         <reference value="CodeSystem/CS-Appendix10Operation"/>
       </reference>
       <name value="附表十特別危害健康作業具名代碼系統"/>
-      <description value="《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。"/>
+      <description value="【依據：勞工健康保護規則附表】《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2479,7 +2479,7 @@
         <reference value="StructureDefinition/ext-employer-info"/>
       </reference>
       <name value="雇主事業單位資訊擴充"/>
-      <description value="關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。"/>
+      <description value="【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2490,7 +2490,7 @@
         <reference value="StructureDefinition/TWHA-Composition-EmployerSummary"/>
       </reference>
       <name value="雇主端健康管理摘要 Composition Profile"/>
-      <description value="雇主端／職安人員健康管理摘要（Employer Health Management Summary）。落實 security.md 之角色存取控制：雇主僅得取得**健康管理分級、適性配工建議與臨場服務發現**，**不得**取得檢驗數值。以 **closed section slicing** 結構性保證本摘要不含檢驗／影像 section；各 section 之 entry 以 profile 限定，檢驗類 Observation／DiagnosticReport 無從置入。此為欄位級隔離之可驗證機制，取代僅以文字宣示之做法（SMART scope 難達欄位級隔離，見 security.md §2）。存取控制之實作機制（scope／Consent／端點）屬平台端決定，見未決事項 M-10。"/>
+      <description value="【依據：勞工健康保護規則附表】雇主端／職安人員健康管理摘要（Employer Health Management Summary）。落實 security.md 之角色存取控制：雇主僅得取得**健康管理分級、適性配工建議與臨場服務發現**，**不得**取得檢驗數值。以 **closed section slicing** 結構性保證本摘要不含檢驗／影像 section；各 section 之 entry 以 profile 限定，檢驗類 Observation／DiagnosticReport 無從置入。此為欄位級隔離之可驗證機制，取代僅以文字宣示之做法（SMART scope 難達欄位級隔離，見 security.md §2）。存取控制之實作機制（scope／Consent／端點）屬平台端決定，見未決事項 M-10。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2512,7 +2512,7 @@
         <reference value="StructureDefinition/TWHA-SocialHistory-Alcohol"/>
       </reference>
       <name value="飲酒歷史與狀態 Profile"/>
-      <description value="用於記錄勞工之飲酒習慣歷史與狀態。"/>
+      <description value="【技術規格】用於記錄勞工之飲酒習慣歷史與狀態。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2685,7 +2685,7 @@
           <valueUrl value="open-issues.html"/>
         </extension>
         <nameUrl value="open-issues.html"/>
-        <title value="未決事項"/>
+        <title value="已知限制與試用須知"/>
         <generation value="markdown"/>
       </page>
       <page>

@@ -1,9 +1,9 @@
-# 身體檢查系統部位代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
+# 身體檢查系統部位代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
 
 ## CodeSystem: 身體檢查系統部位代碼系統 
 
  
-附表十一理學檢查中所涉及之身體系統部位分類。 
+【依據：勞工健康保護規則附表】附表十一理學檢查中所涉及之身體系統部位分類。 
 
 下列值集之定義引用本代碼系統：
 
@@ -22,12 +22,12 @@
   "resourceType" : "CodeSystem",
   "id" : "CS-PhysicalExamSystems",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems",
-  "version" : "0.4.0",
+  "version" : "0.5.0",
   "name" : "CS_PhysicalExamSystems",
   "title" : "身體檢查系統部位代碼系統",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-20T13:40:11+00:00",
+  "date" : "2026-08-20T16:35:38+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -43,7 +43,7 @@
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "附表十一理學檢查中所涉及之身體系統部位分類。",
+  "description" : "【依據：勞工健康保護規則附表】附表十一理學檢查中所涉及之身體系統部位分類。",
   "caseSensitive" : true,
   "content" : "complete",
   "count" : 7,
