@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.3.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.3.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -139,25 +139,77 @@ set NODE_OPTIONS=--use-system-ca
 ## 優化工作範圍 (Optimization Job Scopes)
 
 2026-07-26 就發佈網站（<https://kunjulin.github.io/occupationIG/>）進行審閱後，
-已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-28**），置於 [`docs/optimization/`](docs/optimization/README.md)：
+已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-29**），置於 [`docs/optimization/`](docs/optimization/README.md)：
 
 * [`docs/optimization/README.md`](docs/optimization/README.md)：審閱總結、優先序矩陣、建議執行順序、全域驗收標準。
 * [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)：
   tx 建置 QA 統計基準線（err 0 / warn 208 / info 257）與術語稽核明細，供各 JOB 驗收比對。
   **重跑 tx 建置後請一併更新此檔。**
-* `docs/optimization/JOB-01` ~ `JOB-28`：各 JOB 之問題證據、驗收標準、工作項目與風險；
+* `docs/optimization/JOB-01` ~ `JOB-29`：各 JOB 之問題證據、驗收標準、工作項目與風險；
   每份結尾均附「交給 Claude 規劃用提示」，可直接複製使用。
   （JOB-14 以後為後續審閱、主管指示或外部來函所新增之工作項。最近三項為
   [`JOB-26`](docs/optimization/JOB-26-open-issues-convergence.md) 未決事項收斂、
   [`JOB-27`](docs/optimization/JOB-27-access-control-scope.md) 存取控制範疇界定、
   [`JOB-28`](docs/optimization/JOB-28-twcrsf-upstream-dependency.md) TWCR_SF 改正式相依，
-  均已於 v0.3.0 執行。）
+  均已於 v0.3.0 執行；
+  [`JOB-29`](docs/optimization/JOB-29-betelnut-terminology-and-upstream-coupling.md)
+  嚼檳榔術語與上游耦合度為 v0.3.1 之**評估**，尚未實作。）
 
 建議節奏：一個 JOB → 一次規劃 → 一個 commit。優先處理 P0（JOB-01～03）。
 
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.3.1（2026-08-20）嚼檳榔術語之權責界線與上游耦合度（JOB-29 評估，未變更任何定義）
+
+> 說明：本版**僅新增評估文件**，未變更任何 Profile、值集、CodeSystem、Extension、範例或頁面檔名，
+> 亦未變更 `dependencies`，**不影響 QA 基準線**。對外發佈前仍須以 `_genonce_tx.bat` 重跑。
+> 緣起：(1) 國民健康署上傳欄位文件之嚼檳榔欄位無編碼，詢問可否比照吸菸自訂值集；
+> (2) 取得 TWCR_SF 上游 `package.tgz` 後，發現封裝內含 `file://C:\Users\Lily\TWCR_SF\output`
+> 之開發者本機路徑。
+
+**[JOB-29](docs/optimization/JOB-29-betelnut-terminology-and-upstream-coupling.md)｜嚼檳榔術語之權責界線，與 TWCR_SF 相依之耦合度調整（評估）**
+
+- **兩個問題必須分開答。** 「檳榔沒有碼，是不是我們自己定？」混合了術語治理（誰有權在哪個命名空間定義代碼）
+  與相依治理（建置的可重現性）兩個層次，答案不同：**狀態欄位應自訂；量／年／戒除不應自行複製上游代碼，
+  而應降低耦合度。**
+- **查出一項既存缺件**：《建議修訂案 v2.1》第 9 列載明嚼檳狀態「建 `CS-BetelNutStatus`」，
+  但該 CodeSystem 於 repo 內**並不存在**，且 `TWHA-SocialHistory-BetelNut` 未約束 `value[x]`、
+  亦無 status component——**「嚼檳狀態」在指引中沒有承載位置**。此性質與 JOB-18 之 UCUM 落差同型，
+  但更嚴重（那是單位標錯，這是欄位缺件）：若外部依修訂案第 9 列實作，送出之資源無法通過本指引之 Profile。
+- **自訂沒有治理障礙**：建議之 canonical 位於本指引自己的命名空間，與 `check-dependencies.js` **D-2**
+  所禁止的情形（在他方命名空間下發佈定義）正好相反；上游 TWCR_SF 為 **CC0-1.0**，亦無授權障礙。
+  依 `CS-HealthMgmtLevel` 之既有格式標 `experimental = true` 並載明 provisional 即可。
+- **量／年／戒除的問題不在「誰的碼」，在「不該是碼」**：以 94 個代碼列舉「每日 N 顆」係把數值編碼化，
+  與同指引之吸菸建模（`64218-1` + UCUM `/d`）不對稱，且 `required` 綁定使建置成為單點相依。
+  建議主軸改 `Quantity`（`{quid}/d`／`a`／`mo`），上游級距碼降為可選 component（`extensible`）。
+- **上游封裝瑕疵**：`file://` 本機路徑之嚴重度取決於落點——落在 `canonical`／資源 `.url` 為**致命**，
+  落在建置參數則非致命。本容器之 proxy 封鎖上游站台無法複驗，故 JOB-29 §4.2 提供三行定位指令，
+  §4.3 給出分級表，**不預先斷言**。無論落點為何，「未上架 registry ＋ CI 須抓 static file ＋
+  封裝含本機路徑」三者合起來，對國家 IG 報備審查構成**可重現性**風險：審查方無法以標準工具鏈重建本指引。
+- **明確不建議**：退回本地 stub（D-4 即為此設，且屬治理倒退）、把上游 90 餘碼複製進本命名空間
+  （製造第二套權威來源，JOB-10 §7.3 已否決）、等上游修復（v0.1.1 為 2024-08-01 建置，無時程可依）。
+- **路徑 C（解耦而非切斷）**：C-1 主軸改 Quantity、C-2 上游碼降為 `extensible` 可選 component、
+  C-3 保留正式相依不推翻 JOB-28、C-4 新增閘門 **D-5**（套件內不得含 `file:` scheme、canonical 須為 https，
+  自帶負向測試）、C-5 由工研院轉知上游並請其上架 registry（**本案不等待**）。
+  重點在 C-2：**把單點相依從「建置阻斷級」降為「可切換級」**。
+- **另查出一項單位錯誤**：修訂案 v2.1 將嚼檳量之 UCUM 標為 `{個}/d`，惟 UCUM 註記僅允許可列印 ASCII 字元，
+  中文不在其列，**`{個}/d` 並非合法 UCUM code**。應為 `Quantity.code = {quid}/d`、`Quantity.unit = 顆/日`。
+  與 JOB-18／19 之 `{pack}/d` 同型。**repo 內未出現此字串（已全庫檢索），僅影響對外文件。**
+- **附錄 A（改版後之完整範例）**：給出建議之 Profile 骨架、四種臨床情形之 FSH 與 JSON 範例
+  （已戒／目前每日嚼食／從未嚼食／有嚼但量不詳）、同一位受檢者之新舊對照，以及上游代碼之落點對照表。
+  **逐碼檢視上游三個清單後另查出兩項語意風險**：(1) 數值與哨兵值混編於同一代碼軸——
+  `sf-BetNutChewAmount` 之 `01`–`89` 是數量、`90` 是設限值（≧90）、**`91` 其實是狀態**（偶爾嚼、無定量）、
+  `98`／`99` 是缺值原因，接收端把代碼當數字用即誤讀；(2) **跨清單同碼異義**——`#88` 在量的清單是
+  「每日 88 顆」、在戒除清單是「無嚼檳榔」，實作端錯置代碼系統會產生反向誤讀，
+  **且 `required` 綁定攔不住**（兩個綁定各自都通過，只是綁錯 component），
+  性質同修訂案 v2.1 第 1 項（22326-3 誤用）之送審阻斷級語意風險。
+- **附錄 A.6 修正本評估自身之一項寫法**：§3.2 原寫戒除期間 UCUM「一律 `mo`」，
+  經逐碼檢視改為 **`a` 或 `mo` 並行**，以原始採集粒度為準——上游以「年」收集，
+  強制乘 12 會**偽造精度**；且吸菸之 `63632-4` 官方例示單位本即 `d`／`wk`／`mo`／`a` 四者並列。
+- **本版不實作。** 綁定強度變更屬規範性變更，且會影響既有範例 `obs-betelnut`，
+  依既定慣例（評估與實作分兩個版次）待核准後於下一版執行。
 
 ### v0.3.0（2026-08-20）未決事項收斂、存取控制範疇界定、TWCR_SF 改正式相依
 

@@ -79,6 +79,7 @@ Claude 會針對該 JOB 產出 plan 後再實作，避免一次塞太多範圍�
 | [JOB-26](JOB-26-open-issues-convergence.md) | 未決事項收斂：A 類 6 項逕行定案＋保存期限移出範疇（M-6／M-7） | **P1** | 治理／文件 | M（2–3 人日） | T-1（已結案） | ✅ **已執行（v0.3.0）**：待決 18→**8 項**，其中僅 2 項涉主管機關擬公告之欄位內容。M-8 分期落地規則／M-9 預設 `transaction`／T-3 SNOMED 處置規則／T-9 未結構化交換規則／T-10 維持 TW Core 繼承；T-6 逐項補列理由並分【A】1 項長期保留（`VS-UnfitDiseases` 引用整個 ICD-10-CM）、【B】5 項待 CI `drop-no-validate` 實測後移除。P-1 筆數依實測由 12 更正為 10 |
 | [JOB-27](JOB-27-access-control-scope.md) | 存取控制範疇界定：IG 不規定「誰可以看病歷」；M-10 改名為稽核與同意機制之選型 | **P1** | 治理／安全 | S（0.5 人日） | 無 | ✅ **已執行（v0.3.0）**：`security.md` 新增 §0 範疇聲明並引 TW Core〈安全性〉頁原文為據；以 (a) 存取控制（不在範圍）／(b) 交換內容組成（本指引職責、已定案且由 closed slicing 可驗證）兩層區分。與 JOB-26 之 M-6 同一原則 |
 | [JOB-28](JOB-28-twcrsf-upstream-dependency.md) | TWCR_SF 改為正式相依：刪 9 個本地 stub、清 9 條 `special-url`，G-5 結案 | **P1** | 相依治理／術語 | S–M（1 人日） | 無（推翻 JOB-10 路徑 B 之前提） | ✅ **已執行（v0.3.0）**：上游站台 mitw.dicom.org.tw v0.1.1 可用、`package.tgz` HTTP 200、代碼集 94=94 完全一致、CC0-1.0。CI 新增 `Fetch TWCR_SF package`（含 name／version 驗證）；新增 `check-dependencies.js`（D-1~D-4＋4 組負向＋1 組正向對照），對舊狀態實跑攔下 11 筆。**待 CI 首次執行確認 §6 五項** |
+| [JOB-29](JOB-29-betelnut-terminology-and-upstream-coupling.md) | 嚼檳榔術語之權責界線（狀態欄位自訂）與 TWCR_SF 相依之耦合度調整 | **P1** | 術語／相依治理／對外一致性 | M（2–3 人日） | 須在 JOB-28（v0.3.0）之後 | 📋 **評估（v0.3.1）**：查出「嚼檳狀態」在指引中無承載位置（`CS-BetelNutStatus` 不存在、Profile 未約束 `value[x]`）；建議狀態欄位自訂、量／年／戒除改 Quantity 主軸、上游碼降為 `extensible` 可選、新增 D-5 閘門檢查 `file:` scheme。**待核准後實作** |
 
 各已執行之 JOB 於其檔案 **§7 執行紀錄**載明實際變更、刻意未做的部分，
 以及**尚待在可建置環境驗證的項目**。
