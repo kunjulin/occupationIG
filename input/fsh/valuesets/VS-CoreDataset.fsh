@@ -1,7 +1,7 @@
 ValueSet: VS_CoreDataset
 Id: VS-CoreDataset
 Title: "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）"
-Description: "Core 之檢驗子集（主管機關（國健署）最小共通上傳集之 Observation.code 綁定值集，綁定強度 extensible）。僅收錄 Core 之 10 檢驗項 preferred code 及其 acceptable 變異碼；生理量測（身高/體重/腰圍/血壓）碼分屬 VS-TWHAVitalSigns、社會史（吸菸/嚼檳）碼分屬 SocialHistory profile。Core 全集（21 列）之群組見 VS-CoreUploadSet。acceptable→preferred 歸一見 ConceptMap TWHealthCheckLaboratoryMap。"
+Description: "【主管機關：國民健康署】Core 之檢驗子集（主管機關（國健署）最小共通上傳集之 Observation.code 綁定值集，綁定強度 extensible）。僅收錄 Core 之 10 檢驗項 preferred code 及其 acceptable 變異碼；生理量測（身高/體重/腰圍/血壓）碼分屬 VS-TWHAVitalSigns、社會史（吸菸/嚼檳）碼分屬 SocialHistory profile。Core 全集（21 列）之群組見 VS-CoreUploadSet。acceptable→preferred 歸一見 ConceptMap TWHealthCheckLaboratoryMap。"
 * ^experimental = false
 
 // 09001C 總膽固醇 (Total Cholesterol) — Preferred 2093-3
@@ -47,3 +47,5 @@ Description: "Core 之檢驗子集（主管機關（國健署）最小共通上�
 // 14051C C型肝炎抗體 (anti-HCV) — Preferred 13955-0
 * LNC#13955-0 "Hepatitis C virus Ab [Presence] in Serum or Plasma by Immunoassay"
 * LNC#16128-1 "Hepatitis C virus Ab [Presence] in Serum"                  // Acceptable: 血清通用碼（原 47365-2 為捐血者篩檢情境碼，不適用一般健檢，已更正）
+
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use

@@ -1,7 +1,7 @@
 Extension: ExtEmployerInfo
 Id: ext-employer-info
 Title: "雇主事業單位資訊擴充"
-Description: "關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。"
+Description: "【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。"
 * ^experimental = false
 * ^context[0].type = #element
 * ^context[0].expression = "Patient"

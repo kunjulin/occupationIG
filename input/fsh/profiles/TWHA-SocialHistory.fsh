@@ -2,7 +2,7 @@ Profile: TWHASocialHistorySmokingProfile
 Parent: TWCoreSmokingStatus
 Id: TWHA-SocialHistory-Smoking
 Title: "吸菸歷史與狀態 Profile"
-Description: "用於記錄勞工之吸菸狀態與吸菸量、戒菸時間等資訊，繼承自 TW Core Observation Smoking Status。"
+Description: "【主管機關：國民健康署】用於記錄勞工之吸菸狀態與吸菸量、戒菸時間等資訊，繼承自 TW Core Observation Smoking Status。"
 * ^experimental = false
 * subject only Reference(TWHAPatientProfile)
 * performer only Reference(TWHAPractitionerProfile)
@@ -17,11 +17,12 @@ Description: "用於記錄勞工之吸菸狀態與吸菸量、戒菸時間等資
 * extension contains ExtCessationDuration named cessationDuration 0..1
 
 * obeys twha-obs-1
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 Profile: TWHASocialHistoryBetelNutProfile
 Parent: Observation
 Id: TWHA-SocialHistory-BetelNut
 Title: "嚼檳榔歷史與狀態 Profile"
-Description: "用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `value[x]` 承載（值集 VS-BetelNutStatus，與吸菸之 CS-SmokingStatus 逐碼對稱）；每日嚼食量、嚼食年數與戒除期間以 `component` 之 `Quantity` 承載（UCUM）。上游臺灣癌症登記短表 (TWCR_SF) 之級距碼降為可選 component（extensible），供與癌症登記勾稽。"
+Description: "【主管機關：國民健康署】用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `value[x]` 承載（值集 VS-BetelNutStatus，與吸菸之 CS-SmokingStatus 逐碼對稱）；每日嚼食量、嚼食年數與戒除期間以 `component` 之 `Quantity` 承載（UCUM）。上游臺灣癌症登記短表 (TWCR_SF) 之級距碼降為可選 component（extensible），供與癌症登記勾稽。"
 // ═══ JOB-29 路徑甲 ＋ C-0（v0.4.0）═══════════════════════════════════
 //
 // 本 Profile 於 v0.4.0 前之三個問題，一併於此解決：
@@ -140,11 +141,12 @@ Description: "用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `v
 * component[amountCoded].valueCodeableConcept from TWCRSFBetNutChewAmountVS (extensible)
 
 * obeys twha-obs-1
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 Profile: TWHASocialHistoryAlcoholProfile
 Parent: Observation
 Id: TWHA-SocialHistory-Alcohol
 Title: "飲酒歷史與狀態 Profile"
-Description: "用於記錄勞工之飲酒習慣歷史與狀態。"
+Description: "【技術規格】用於記錄勞工之飲酒習慣歷史與狀態。"
 * ^experimental = false
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#social-history
@@ -158,7 +160,7 @@ Profile: TWHASocialHistorySleepProfile
 Parent: Observation
 Id: TWHA-SocialHistory-Sleep
 Title: "睡眠狀況 Profile"
-Description: "用於記錄勞工之平均每日睡眠時間（以小時計）。"
+Description: "【技術規格】用於記錄勞工之平均每日睡眠時間（以小時計）。"
 * ^experimental = false
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#social-history

@@ -23,7 +23,7 @@
 ValueSet: VS_Appendix10NoiseRequiredSet
 Id: VS-Appendix10-Noise-RequiredSet
 Title: "附表十 噪音作業 專屬應執行項目值集"
-Description: "附表十第 2 項噪音作業之家族專屬檢查項目（純音聽力）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
+Description: "【依據：勞工健康保護規則附表】附表十第 2 項噪音作業之家族專屬檢查項目（純音聽力）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
 * ^experimental = true
 * ^status = #draft
 * LNC#89015-2 "Pure tone air conduction threshold audiometry panel"    // 純音聽力（0.5–8 kHz 各頻率以 TWHA-HearingTest component 承載）
@@ -32,7 +32,7 @@ Description: "附表十第 2 項噪音作業之家族專屬檢查項目（純音
 ValueSet: VS_Appendix10LeadRequiredSet
 Id: VS-Appendix10-Lead-RequiredSet
 Title: "附表十 鉛作業 專屬應執行項目值集"
-Description: "附表十第 5 項鉛作業之家族專屬檢查項目。附表十本文僅列血中鉛；尿中鉛／共聚卟啉／δ-ALA 係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
+Description: "【依據：勞工健康保護規則附表】附表十第 5 項鉛作業之家族專屬檢查項目。附表十本文僅列血中鉛；尿中鉛／共聚卟啉／δ-ALA 係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
 * ^experimental = true
 * ^status = #draft
 * LNC#77307-7 "Lead [Mass/volume] in Venous blood"                     // 血中鉛（Preferred；5671-3／23749-5 為 Acceptable，經 ConceptMap 歸一）
@@ -44,7 +44,7 @@ Description: "附表十第 5 項鉛作業之家族專屬檢查項目。附表十
 ValueSet: VS_Appendix10DustRequiredSet
 Id: VS-Appendix10-Dust-RequiredSet
 Title: "附表十 粉塵作業 專屬應執行項目值集"
-Description: "附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
+Description: "【依據：勞工健康保護規則附表】附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
 * ^experimental = true
 * ^status = #draft
 * LNC#36643-5 "XR Chest 2 Views"                                       // 胸部 X 光（塵肺症）
@@ -58,7 +58,7 @@ Description: "附表十第 23 項粉塵作業之家族專屬檢查項目（胸�
 ValueSet: VS_Appendix10OrganicSolventRequiredSet
 Id: VS-Appendix10-OrganicSolvent-RequiredSet
 Title: "附表十 有機溶劑作業 專屬應執行項目值集"
-Description: "附表十第 7–12、33–35 項有機溶劑類作業之家族專屬檢查項目：各作業之尿中生物偵測代謝物與肝功能。⚠️ 附表十本文對此類作業僅列肝功能（ALT／γ-GT，二硫化碳另含心電圖）；各尿中代謝物係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。附表十號別 → 代謝物之對應見 special-exam.md 涵蓋表。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
+Description: "【依據：勞工健康保護規則附表】附表十第 7–12、33–35 項有機溶劑類作業之家族專屬檢查項目：各作業之尿中生物偵測代謝物與肝功能。⚠️ 附表十本文對此類作業僅列肝功能（ALT／γ-GT，二硫化碳另含心電圖）；各尿中代謝物係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。附表十號別 → 代謝物之對應見 special-exam.md 涵蓋表。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
 * ^experimental = true
 * ^status = #draft
 * LNC#1742-6 "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma" // ALT（家族共同）
@@ -77,7 +77,7 @@ Description: "附表十第 7–12、33–35 項有機溶劑類作業之家族專
 ValueSet: VS_Appendix10RequiredSet
 Id: VS-Appendix10-RequiredSet
 Title: "附表十 特殊健康檢查應執行項目值集（已落地家族）"
-Description: "附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待 JOB-01 臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
+Description: "【依據：勞工健康保護規則附表】附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待 JOB-01 臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
 * ^experimental = true
 * ^status = #draft
 * include codes from valueset VS_Appendix10NoiseRequiredSet

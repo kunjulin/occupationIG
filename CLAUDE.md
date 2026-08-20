@@ -54,7 +54,7 @@ IG Publisher 驗證通過僅證明**語法正確**且**已被引用之術語**�
 | 層次 | 意義 | 產物 |
 |:--|:--|:--|
 | **① IG scope** | 本指引能表達什麼＝Core ∪ Extended | `VS-CoreDataset` ∪ `VS-ExtendedDataset` |
-| **② Core upload set** | 主管機關（國健署）最小共通上傳集，21 列 | `VS-CoreUploadSet` |
+| **② Core upload set** | 主管機關（國健署）最小共通上傳集，**16 主項／21 列**；⚠️ `VS-CoreUploadSet` 展開為 **20 碼**，與 21 列差三項（見下） | `VS-CoreUploadSet` |
 | **③ 情境資料集** | 某法定情境依法應做什麼 | `VS-Appendix9-RequiredSet`（附表九，完整）／`VS-Appendix10-RequiredSet`（附表十，已落地噪音／鉛／粉塵／有機溶劑四家族，餘待 JOB-01） |
 
 **① ≠ ② ≠ ③。** 不得以「某項目不在 Core（②）」推論該項目不重要或非 Must Support。
@@ -62,6 +62,25 @@ IG Publisher 驗證通過僅證明**語法正確**且**已被引用之術語**�
 > 更新（v0.2.1）：③ 原記為「尚未以值集定義（backlog；見 JOB-07）」，惟該值集已於 0.2.0 落地
 > （`input/fsh/valuesets/VS-Appendix9-RequiredSet.fsh`、`VS-Appendix10-RequiredSet.fsh`，
 > [index.md](input/pagecontent/index.md) §3 已引用），故更正。**附表十尚有未審家族待補，見未決事項 M-8。**
+
+> ⚠️ **更新（v0.5.0，JOB-30）：21 列是對的，`VS-CoreUploadSet` 展開為 20 碼也是對的
+> ——兩者計的不是同一件事。** 差異已依主管機關上傳欄位原案
+> （TWHA IG 完整編碼附件 v7.6〈Core 主管機關最小集(21)〉）逐列查明，共三處：
+>
+> | 差異 | 說明 |
+> |:--|:--|
+> | 群組值集多了 BMI `39156-5` | **不是 Core 列**；係 `VS-TWHAVitalSigns` 之成員被群組一併帶入。**不得據 `VS-CoreUploadSet` 推論 BMI 屬最小上傳集。** |
+> | 群組值集少了嚼檳量（`30907X-2`） | 原案為獨立一列，本 IG 以 `component[amount]` 承載，非獨立 `Observation.code` |
+> | 群組值集少了嚼檳月數（`30907X-3`） | 同上，以 `component` 承載 |
+>
+> 核算 `20 − 1 ＋ 2 = 21`。逐列對照見 [conformance.md §7.2](input/pagecontent/conformance.md)。
+> 主項 16 係以**健保醫令前綴**計（血壓 2 列、吸菸 3 列、嚼檳 3 列、尿蛋白 2 列）。
+>
+> **仍待國健署確認之三項實質差異**（非計數問題，見確認單第 4 項）：
+> ① BMI 是否納入；② 第 11 列「嚼檳月數」指**戒檳**月數或**嚼食持續**期間
+> （**兩者語意相反，不得臆測**，本 IG 兩個 component 皆已備妥）；
+> ③ 嚼檳量單位原案記 `{個}/d`，本 IG 用 `{quid}/d`（UCUM annotation 僅接受 ASCII，
+> `{個}` 非合法 UCUM）。
 
 ### 2.5 Preferred（代碼層級）≠ 綁定強度 preferred
 
@@ -80,7 +99,7 @@ input/assets/         下載用資產；會被複製到輸出根目錄，可由 
 sushi-config.yaml     IG metadata、dependencies、parameters、menu
 ig.ini                IG Publisher 設定（template 目前為 #current，未釘版）
 package-list.json     版本歷程（供 publish box 與發佈流程使用）
-docs/optimization/    現行優化工作範圍（13 個 JOB）← 待辦事項看這裡
+docs/optimization/    現行優化工作範圍（JOB-01～JOB-30）← 待辦事項看這裡
 docs/regulations/     法規附表 PDF 原文（對照表之權威來源）
 docs/history/         已被取代之歷史規劃文件（非現行規範）
 docs/drafts/          未接入建置的資源草稿
@@ -101,22 +120,36 @@ template/             IG 模板之本機複本（角色待釐清，見 JOB-09）
 | 宣告 Must Support 卻不在範例中填該欄位 | MS 欄位至少要有一個範例實際填值，或以 `dataAbsentReason` 示範缺值 |
 | 以泛用字串抑制警告 | `input/ignoreWarnings.txt` 須用精確訊息並附理由；勿抑制術語伺服器連線失敗 |
 | 憑既有 markdown 表格轉抄法規項目 | 以 `docs/regulations/` 之 PDF 原文逐項核對 |
+| 沿用文件所載之數字（如「21 列」「24 處錨點」） | **自原始碼逐項數出來，並回頭核對權威來源**。JOB-30 實測：`VS-CoreUploadSet` 展開 **20 碼**（非 21）、具名錨點 **23 處**（非 24）。⚠️ 但「20 碼」**不代表 21 列是錯的**——回查原案後查明兩者計的不是同一件事（見 §2.4）。**數不符時先找權威來源，不要急著改文件數字，也不要急著補足差額。** |
+| 以「每新增一個 artifact 即 +10 筆斷鏈」推算 QA 增量 | 依**種類**：範例實例 **10**／CodeSystem・ValueSet **12**／Profile **18**（皆已含根層與 `zh-TW` 兩層）。舊的「一律 +10」是 JOB-05 以範例實例量得後被過度推廣（JOB-29 §D.5.1） |
+| 標 `standards-status` 卻不管資源自身的 `status` | IG Publisher 會交叉檢查：`draft` ↔ `status = draft`、`trial-use`／`normative` ↔ `status = active`。本 repo 全部 artifact 繼承 `sushi-config.yaml` 之 `status: active`，**標 `draft` 即自相矛盾**（JOB-30 實測命中 71 件）。故現行僅 Level 1 標 `trial-use`，其餘不標（JOB-30 §7.7） |
+| 新增 artifact 卻沒登記權責歸屬 | `scripts/governance-map.js` 須先登記（標籤＋合規層級），否則 `npm run check:gov` 失敗 |
 
 ---
 
 ## 5. 檢查指令
 
 ```bash
+npm run verify                                    # 全部閘門（各閘門均先跑 --self-test 負向案例）
 node scripts/check-pagecontent-refs.js            # pagecontent 與 FSH 是否同步（backlog 標註可通過）
 node scripts/check-pagecontent-refs.js --strict    # 連 backlog 標註也視為失敗（釋出前檢查）
+npm run check:gov                                 # 權責標籤／合規層級／不得越權表述（JOB-30）
 npx fsh-sushi .                                   # FSH 與 sushi-config.yaml 語法
 _genonce_tx.bat                                   # 送審用完整建置（Windows，需可連外）
 ```
 
-建置後**必看** `output/qa.html`。目前基準線（2026-07-26）：
-`err = 0, warn = 208, info = 257`，明細見
-[`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)。
-**任一類別筆數不得高於基準線。**
+> ⚠️ **本容器（Claude Code 遠端環境）跑不了 SUSHI 與 tx 建置**：proxy 封鎖
+> `packages.fhir.org`、`tx.fhir.org`、`loinc.org`、`hl7.org`。故 FSH 語法與所有 QA 數字
+> **一律以 CI 為準**；本機只能跑上列 node 閘門。`qa-baseline.json` **不得憑推算調整**。
+
+建置後**必看** `output/qa.html`。
+**基準線之唯一權威來源是 [`qa-baseline.json`](qa-baseline.json)**，由 `scripts/qa-gate.js` 逐類別比對；
+**任一類別筆數不得高於基準線**，上調必須具名說明多出來的是什麼（見該檔之 `_*Note`）。
+
+> 歷史起點為 2026-07-26 之 `err = 0, warn = 208, info = 257`
+> （[明細](docs/optimization/evidence/qa-summary-2026-07-26.md)），
+> **該數字早已不是現值，勿引用**——v0.4.0 實測為 `err = 0, warn 上限 152, info 上限 459`。
+> 要引用現值請直接讀 `qa-baseline.json`。
 
 ---
 
@@ -132,7 +165,14 @@ _genonce_tx.bat                                   # 送審用完整建置（Wind
 目前登記在案者（摘要，明細以該頁為準）：
 
 * 正式 canonical namespace 之核定機關與命名（現為 provisional）
-* 國健署最小上傳集 21 列之正式公告版本（**M-5**）
+* 國健署最小上傳集之正式公告版本（**M-5**）。逐列組成已由原案 v7.6 查明（§2.4），
+  尚待確認者為三項實質差異：BMI 是否納入、「嚼檳月數」之語意、嚼檳量單位標記。
+  確認單草稿已備妥於 `docs/drafts/HPA-CONFIRMATION-JOB-30.md` 第 4 項。
+  ⚠️ 國健署「嚼檳定案即同意 21 項」目前**僅為口頭／轉述**；
+  **取得可引用之書面依據前，M-5 狀態、嚼檳系列 `experimental`、Level 1 成熟度三者一律不得變更。**
+* **勞工區塊之 artifact 是否要標 `standards-status = draft`（JOB-30 §7.7）**——
+  要標就必須把 71 個 artifact 之 `status` 由 `active` 改為 `draft`，
+  屬**已發佈中繼資料之規範性變更**，須 PI 裁示，本團隊不逕行為之。
 * 第 19 條保存期限**起算點**之法定解釋（**M-6**）
 * 本 IG 之授權條款（`license`）與著作權歸屬（涉委託契約）
 * 臺灣境內 SNOMED CT 之授權管道
@@ -142,6 +182,6 @@ _genonce_tx.bat                                   # 送審用完整建置（Wind
 
 ## 7. 待辦從哪裡看
 
-[`docs/optimization/README.md`](docs/optimization/README.md) —— 13 個 JOB 的優先序、
+[`docs/optimization/README.md`](docs/optimization/README.md) —— 各 JOB（現至 **JOB-30**）的優先序、
 相依關係與驗收標準。每個 JOB 檔案結尾都有可直接使用的規劃提示。
 **一個 JOB → 一次規劃 → 一個 commit。**

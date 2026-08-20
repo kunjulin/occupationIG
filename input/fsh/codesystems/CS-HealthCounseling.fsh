@@ -1,7 +1,7 @@
 CodeSystem: CS_HealthCounseling
 Id: CS-HealthCounseling
 Title: "健康諮詢與衛教指導項目代碼系統"
-Description: "國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。"
+Description: "【技術規格】國民健康署成人預防保健服務及一般健康檢查中醫師提供之健康諮詢與衛教指導項目。"
 * ^experimental = false
 * ^caseSensitive = true
 * #counsel-smoking "戒菸諮詢與衛教" "提供戒菸相關諮詢、輔助藥物說明及衛教指導。"
@@ -18,6 +18,6 @@ Description: "國民健康署成人預防保健服務及一般健康檢查中醫
 ValueSet: VS_HealthCounseling
 Id: VS-HealthCounseling
 Title: "健康諮詢與衛教指導項目值集"
-Description: "包含成人預防保健與健康檢查中健康諮詢項目代碼之值集。"
+Description: "【技術規格】包含成人預防保健與健康檢查中健康諮詢項目代碼之值集。"
 * ^experimental = false
 * include codes from system CS_HealthCounseling

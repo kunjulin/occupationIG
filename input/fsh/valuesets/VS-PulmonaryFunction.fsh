@@ -1,7 +1,7 @@
 ValueSet: VS_PulmonaryFunction
 Id: VS-PulmonaryFunction
 Title: "肺功能檢查項目值集"
-Description: "包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的 LOINC 代碼，以供肺功能檢查 Profile 使用。"
+Description: "【依據：勞工健康保護規則附表】包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的 LOINC 代碼，以供肺功能檢查 Profile 使用。"
 * ^experimental = false
 // v1.1 修正：FEV1 之正確 LOINC 為 20150-9；19868-9 與 19870-5 之 Component 均為 FVC（非 FEV1），標示更正
 * LNC#19868-9 "Forced vital capacity [Volume] Respiratory system by Spirometry"   // FVC (Preferred：方法通用碼，未限定支氣管擴張劑前後)

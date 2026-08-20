@@ -2,7 +2,7 @@ Profile: TWHAPulmonaryFunctionProfile
 Parent: TWCoreClinicalResult
 Id: TWHA-PulmonaryFunction
 Title: "肺功能檢查 Profile"
-Description: "用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。"
+Description: "【依據：勞工健康保護規則附表】用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。"
 * ^experimental = false
 * status = #final
 * code = LNC#19868-9 "Forced vital capacity [Volume] Respiratory system by Spirometry"

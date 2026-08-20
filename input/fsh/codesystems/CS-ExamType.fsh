@@ -1,7 +1,7 @@
 CodeSystem: CS_ExamType
 Id: CS-ExamType
 Title: "檢查類型代碼系統"
-Description: "勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。"
+Description: "【技術規格】勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。"
 * ^experimental = false
 * ^caseSensitive = true
 * #general-physical "一般體格檢查" "雇主僱用勞工時，為辨識其工作適性，實施之體格檢查。"
@@ -12,6 +12,6 @@ Description: "勞工體格及健康檢查之類型，包含一般體格檢查、
 ValueSet: VS_ExamType
 Id: VS-ExamType
 Title: "檢查類型值集"
-Description: "包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查之代碼。"
+Description: "【技術規格】包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查之代碼。"
 * ^experimental = false
 * include codes from system CS_ExamType

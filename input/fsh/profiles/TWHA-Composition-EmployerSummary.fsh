@@ -18,7 +18,7 @@ Profile: TWHACompositionEmployerSummaryProfile
 Parent: TWCoreComposition
 Id: TWHA-Composition-EmployerSummary
 Title: "雇主端健康管理摘要 Composition Profile"
-Description: "雇主端／職安人員健康管理摘要（Employer Health Management Summary）。落實 security.md 之角色存取控制：雇主僅得取得**健康管理分級、適性配工建議與臨場服務發現**，**不得**取得檢驗數值。以 **closed section slicing** 結構性保證本摘要不含檢驗／影像 section；各 section 之 entry 以 profile 限定，檢驗類 Observation／DiagnosticReport 無從置入。此為欄位級隔離之可驗證機制，取代僅以文字宣示之做法（SMART scope 難達欄位級隔離，見 security.md §2）。存取控制之實作機制（scope／Consent／端點）屬平台端決定，見未決事項 M-10。"
+Description: "【依據：勞工健康保護規則附表】雇主端／職安人員健康管理摘要（Employer Health Management Summary）。落實 security.md 之角色存取控制：雇主僅得取得**健康管理分級、適性配工建議與臨場服務發現**，**不得**取得檢驗數值。以 **closed section slicing** 結構性保證本摘要不含檢驗／影像 section；各 section 之 entry 以 profile 限定，檢驗類 Observation／DiagnosticReport 無從置入。此為欄位級隔離之可驗證機制，取代僅以文字宣示之做法（SMART scope 難達欄位級隔離，見 security.md §2）。存取控制之實作機制（scope／Consent／端點）屬平台端決定，見未決事項 M-10。"
 * ^experimental = false
 * status = #final
 * type 1..1

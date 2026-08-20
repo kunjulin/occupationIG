@@ -2,7 +2,7 @@ Profile: TWHAQuestionnaireResponseHTProfile
 Parent: TWCoreQuestionnaireResponse
 Id: TWHA-QuestionnaireResponse-HT
 Title: "成人預防保健問卷回覆 Profile"
-Description: "用於記錄成人預防保健（國健署成人預防保健服務）之自覺症狀與生活習慣問卷回覆，繼承自 TW Core QuestionnaireResponse。"
+Description: "【主管機關：國民健康署】用於記錄成人預防保健（國健署成人預防保健服務）之自覺症狀與生活習慣問卷回覆，繼承自 TW Core QuestionnaireResponse。"
 * ^experimental = false
 * status = #completed
 * subject 1..1

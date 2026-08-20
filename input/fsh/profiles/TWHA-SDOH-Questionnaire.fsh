@@ -2,7 +2,7 @@ Profile: TWHASDOHQuestionnaireResponseProfile
 Parent: TWCoreQuestionnaireResponse
 Id: TWHA-SDOH-QuestionnaireResponse
 Title: "社會決定因素 (SDOH) 問卷回覆 Profile"
-Description: "用於記錄受檢者之社會決定因素問卷結果（基於精簡版 PRAPARE 社會風險問卷），繼承自 TW Core QuestionnaireResponse。"
+Description: "【技術規格】用於記錄受檢者之社會決定因素問卷結果（基於精簡版 PRAPARE 社會風險問卷），繼承自 TW Core QuestionnaireResponse。"
 * ^experimental = false
 * status = #completed
 * subject 1..1

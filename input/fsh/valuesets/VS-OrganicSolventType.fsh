@@ -1,7 +1,7 @@
 CodeSystem: CS_OrganicSolventType
 Id: CS-OrganicSolventType
 Title: "有機溶劑種類代碼系統"
-Description: "特別危害健康作業中之有機溶劑種類（主要 7 種）。"
+Description: "【依據：勞工健康保護規則附表】特別危害健康作業中之有機溶劑種類（主要 7 種）。"
 * ^experimental = false
 * ^caseSensitive = true
 * #tetrachloroethane "四氯乙烷"
@@ -15,7 +15,7 @@ Description: "特別危害健康作業中之有機溶劑種類（主要 7 種）
 ValueSet: VS_OrganicSolventType
 Id: VS-OrganicSolventType
 Title: "有機溶劑種類值集"
-Description: "包含特別危害健康作業中之常見有機溶劑代碼。"
+Description: "【依據：勞工健康保護規則附表】包含特別危害健康作業中之常見有機溶劑代碼。"
 * ^experimental = false
 * include codes from system CS_OrganicSolventType
 
@@ -24,7 +24,7 @@ Description: "包含特別危害健康作業中之常見有機溶劑代碼。"
 CodeSystem: CS_SpecificChemicalType
 Id: CS-SpecificChemicalType
 Title: "特定化學物質種類代碼系統"
-Description: "特別危害健康作業中之特定化學物質種類。"
+Description: "【依據：勞工健康保護規則附表】特別危害健康作業中之特定化學物質種類。"
 * ^experimental = false
 * ^caseSensitive = true
 * #benzidine "聯苯胺"
@@ -43,6 +43,6 @@ Description: "特別危害健康作業中之特定化學物質種類。"
 ValueSet: VS_SpecificChemicalType
 Id: VS-SpecificChemicalType
 Title: "特定化學物質種類值集"
-Description: "包含特別危害健康作業中之常見特定化學物質代碼。"
+Description: "【依據：勞工健康保護規則附表】包含特別危害健康作業中之常見特定化學物質代碼。"
 * ^experimental = false
 * include codes from system CS_SpecificChemicalType
