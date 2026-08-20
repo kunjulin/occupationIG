@@ -92,10 +92,23 @@ Description: "【主管機關：國民健康署】用於記錄勞工之嚼檳榔
 * component[amount].valueQuantity.system = "http://unitsofmeasure.org"
 * component[amount].valueQuantity.code = #"{quid}/d"
 
-* component[durationYears].code = CS_BetelNutComponent#duration-years "嚼食年數"
+// ═══ 本 component 承載主管機關最小上傳集之第 11 列（醫令 30907X-3）═══
+// 原案欄名為「嚼檳月數」，經主管機關答覆確認**其語意為「嚼了多久」（嚼食持續期間）**，
+// 而非與吸菸列對稱之「戒檳月數」——故對映至本欄，不是 component[cessationDuration]。
+// ⚠️ 該答覆目前為 PI 轉述之口頭確認，書面依據待補（M-5）；但單位放寬屬技術相容性調整，
+//    不涉及 M-5 狀態、experimental 旗標或成熟度，故先行實作。
+//
+// 單位由固定 #a 放寬為 `a` 或 `mo`：原案以**月**收集，而本指引原僅允許年。
+// 不做強制換算——把「嚼 18 個月」寫成「1.5 年」或把「嚼 2 年」寫成「24 個月」
+// 都會偽造精度，與 cessationDuration 採同一原則（JOB-29 §A.6）。
+//
+// ⚠️ 代碼 id 保留 `duration-years`（含 "years" 字樣）而不改名：該代碼已於 v0.4.0
+//    發佈，改代碼屬破壞性變更。**以 display 與定義表達真實語意，不以代碼 id 表達**
+//    ——代碼 id 只是識別字，不是語意來源（CLAUDE.md §2.2 之同一原則）。
+* component[durationYears].code = CS_BetelNutComponent#duration-years "嚼食持續期間"
 * component[durationYears].value[x] only Quantity
 * component[durationYears].valueQuantity.system = "http://unitsofmeasure.org"
-* component[durationYears].valueQuantity.code = #a
+* component[durationYears].valueQuantity.code from VS_TimeUnitYearMonth (required)
 
 // 單位不固定為 mo：以原始採集粒度為準，強制轉換會偽造精度（JOB-29 §A.6）。
 * component[cessationDuration].code = CS_BetelNutComponent#cessation-duration "戒除期間"

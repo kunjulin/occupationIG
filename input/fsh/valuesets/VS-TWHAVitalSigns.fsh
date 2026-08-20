@@ -24,6 +24,8 @@ CodeSystem: CS_PhysicalExamSystems
 Id: CS-PhysicalExamSystems
 Title: "身體檢查系統部位代碼系統"
 Description: "【依據：勞工健康保護規則附表】附表十一理學檢查中所涉及之身體系統部位分類。"
+* ^status = #draft
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 * ^experimental = false
 * ^caseSensitive = true
 * #head-neck "頭頸部" "包含眼、耳、鼻、喉、口腔及頸部之檢查。"
@@ -38,6 +40,8 @@ ValueSet: VS_PhysicalExamSystems
 Id: VS-PhysicalExamSystems
 Title: "身體檢查系統部位值集"
 Description: "【依據：勞工健康保護規則附表】包含理學檢查中各系統部位代碼之值集。"
+* ^status = #draft
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 * ^experimental = false
 * include codes from system CS_PhysicalExamSystems
 
@@ -47,5 +51,7 @@ ValueSet: VS_UnfitDiseases
 Id: VS-UnfitDiseases
 Title: "不適合從事作業之疾病值集"
 Description: "【依據：勞工健康保護規則附表】依據勞工健康保護規則附表十二所列，不適合從事特定特別危害健康作業之疾病代碼值集（以 ICD-10-CM 表示）。"
+* ^status = #draft
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 * ^experimental = false
 * include codes from system ICD10CM

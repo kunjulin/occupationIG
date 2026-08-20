@@ -24,22 +24,23 @@
 //   2 → Level 2｜勞工健檢涵蓋
 //   0 → 不屬任一合規層級之共用技術結構（兩層皆會用到，但本身不構成合規標的）
 //
-// standards-status：**只有 level 1 標 `trial-use`；其餘不標**。
+// standards-status（v0.6.0 起，依 PI 裁示）：
+//   level 1 → `trial-use`（＋ 資源 status 維持 active）
+//   level 2 → `draft`     （＋ 資源 status **必須併同為 draft**，見下）
+//   level 0 → 不標         （共用技術結構，不構成合規標的）
 //
-// ⚠️ 這一點與 JOB-30 §3.2(2) 原訂之「勞工區塊標 draft」不同，理由為 CI 實測
-//    （PR #29 run 32388655444）：IG Publisher 會交叉檢查 standards-status 與資源本身之
-//    `status`，`draft` ↔ `status = draft`、`trial-use`／`normative` ↔ `status = active`。
-//    本 repo 之 `sushi-config.yaml` 宣告 `status: active` 並由全部 artifact 繼承
-//    （僅 6 個 ValueSet 明示覆寫為 draft），故一旦標 `draft` 即產生
-//    「The resource status and the standards status are not consistent」——
-//    **實測命中 71 個 artifact，等於每一個被標 draft 者都自相矛盾**。
+// ⚠️ **standards-status = draft 必須與資源自身之 `status = draft` 併同設定。**
+//    IG Publisher 會交叉檢查兩者（`draft` ↔ `status = draft`；
+//    `trial-use`／`normative` ↔ `status = active`），不一致即發出
+//    「The resource status and the standards status are not consistent」。
 //
-//    要讓 draft 成立，只能把那 71 個 artifact 之 `status` 改為 `draft`，
-//    那是**已發佈中繼資料之規範性變更**（實作端會據 status 判斷可否使用），
-//    超出本 JOB「不變更任何 Profile 之結構約束」之範圍，須由 PI 裁示。
-//    故本版採**不標**：Level 1 之成熟度明示為 trial-use，Level 2 與共用結構
-//    之較低成熟度改由 §7 之層級定義與權責標籤表達，不以自相矛盾的中繼資料表達。
-//    此項已登記於 JOB-30 §7.7 待裁示。
+//    v0.5.0 曾單標 standards-status 而未動 status，CI 實測**命中 71 個 artifact**
+//    （PR #29 run 32388655444）——每一個被標 draft 者都自相矛盾。當時因該修正屬
+//    **已發佈中繼資料之規範性變更**而未逕行為之，改為「Level 2 不標」並登記待裁示。
+//
+//    PI 已於 2026-08-20 裁示：**勞工區塊要機器可讀地標 draft**。故 v0.6.0 起，
+//    Level 2 之 artifact 於 FSH 同時設定 `^status = #draft` 與 standards-status `#draft`，
+//    由 check-governance-tags.js 之 G-3 逐件強制兩者一致（缺一即失敗）。
 //
 // 例：TWHA-Bundle-Transaction 之內容依據是技術決定（tag = tech），
 //     但它是 Level 1 之上傳封包結構（level = 1）——這正是兩軸不可互推之實例。
@@ -166,7 +167,11 @@ const MAP = {
 const STANDARDS_STATUS_URL =
   'http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status';
 
-// 回傳 null 代表「不得標 standards-status」（見上方之理由）。
-const statusOf = (level) => (level === 1 ? 'trial-use' : null);
+// 回傳 null 代表「不得標 standards-status」（level 0 之共用技術結構）。
+const statusOf = (level) => (level === 1 ? 'trial-use' : level === 2 ? 'draft' : null);
 
-module.exports = { TAGS, MAP, STANDARDS_STATUS_URL, statusOf };
+// standards-status 為 draft 者，資源自身之 status 必須也是 draft（IG Publisher 交叉檢查）。
+// 回傳 null 代表「不要求特定 status」（即沿用 sushi-config 之 active）。
+const resourceStatusOf = (level) => (statusOf(level) === 'draft' ? 'draft' : null);
+
+module.exports = { TAGS, MAP, STANDARDS_STATUS_URL, statusOf, resourceStatusOf };
