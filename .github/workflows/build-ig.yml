@@ -175,6 +175,65 @@ jobs:
             [ -f "$d/package/package.json" ] || { echo "FAIL 套件目錄缺失：$d"; exit 1; }
           done
 
+      # 上游套件把「本套件渲染於何處」記成了建置者的本機 Windows 路徑
+      # （file://C:\Users\Lily\TWCR_SF\output）。IG Publisher 以該基底組出本 IG
+      # profile 敘述中指向 TWCR_SF 值集之連結，於 run 32347196173 產生 3 筆 ERROR：
+      #
+      #   StructureDefinition/TWHA-SocialHistory-BetelNut: StructureDefinition.text.div:
+      #   The URL is not valid because '(URL contains 4 Invalid Characters: '\')':
+      #   file://C:\Users\Lily\TWCR_SF\output/ValueSet-sf-BetNutChew{Amount,Year,Quit}-valueset.html
+      #
+      # 這是上游封裝之瑕疵，本 IG 無從於原始碼修正——但也不能不管：不修的話，本 IG
+      # 發佈出去的 profile 頁面會帶著指向他人電腦的 file:// 連結。故於安裝階段將該基底
+      # 改為上游站台實際位址，使連結指向真正的上游頁面。**只改渲染基底，不動任何定義。**
+      #
+      # ⚠️ 失敗設計：找不到可替換之處即中止。若上游改版修好了此問題，掃描會 0 命中，
+      #    此時以「站台位址是否已存在」區分「已修好」與「假設失效」——後者必須讓 CI 紅，
+      #    否則本步驟會靜默地什麼都沒做，而錯誤照樣出現在下一步。
+      - name: Repair TWCR_SF rendering base
+        env:
+          TWCRSF_VERSION: '0.1.1'
+          TWCRSF_SITE: 'https://mitw.dicom.org.tw/IG/TWCR_SF'
+        run: |
+          set -euo pipefail
+          node - "$HOME/.fhir/packages/fhir.TWCRSF#${TWCRSF_VERSION}" \
+                 "$HOME/.fhir/packages/fhir.twcrsf#${TWCRSF_VERSION}" <<'EOF'
+          const fs = require('fs'), path = require('path');
+          const SITE = process.env.TWCRSF_SITE;
+          // 吃到 output 區段為止：file://C:\Users\Lily\TWCR_SF\output/X.html -> <SITE>/X.html
+          const RE = /file:\/\/[^"'\s]*?output(?=[\\/]|["'\s]|$)/g;
+          let replaced = 0, siteSeen = false, files = 0, root = '';
+          const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {
+            const p = path.join(d, e.name);
+            if (e.isDirectory()) return walk(p);
+            let s;
+            try { s = fs.readFileSync(p, 'utf8'); } catch { return; }
+            if (s.includes(SITE)) siteSeen = true;
+            if (!s.includes('file://')) return;
+            const hits = s.match(RE);
+            if (!hits) return;
+            fs.writeFileSync(p, s.replace(RE, SITE));
+            replaced += hits.length; files += 1;
+            console.log(`  ${path.relative(root, p)}：${hits.length} 處 → ${SITE}`);
+            [...new Set(hits)].forEach((h) => console.log(`      原值 ${h}`));
+          });
+          process.argv.slice(2).forEach((r) => {
+            root = r;
+            if (!fs.existsSync(root)) { console.error(`FAIL 套件目錄不存在：${root}`); process.exit(1); }
+            console.log(`掃描 ${root}`);
+            walk(root);
+          });
+          console.log(`共改寫 ${replaced} 處，涉及 ${files} 個檔案。`);
+          if (replaced === 0) {
+            if (siteSeen) { console.log('0 命中，但站台位址已存在——判定先前已修復（快取命中），通過。'); }
+            else {
+              console.error('FAIL 掃描 0 命中且查無站台位址：上游封裝可能已改版，本步驟之假設失效。');
+              console.error('     請重新檢視套件內容後更新本步驟，不要讓它靜默通過。');
+              process.exit(1);
+            }
+          }
+          EOF
+
       - name: Cache IG Publisher jar
         uses: actions/cache@v4
         with:

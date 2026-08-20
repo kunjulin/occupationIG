@@ -138,6 +138,43 @@ SUSHI 以 `1 Error` 結束（exit 1），建置在 IG Publisher 之前即中止�
 > 於同一次 CI 均已通過（§6 第 1 項達標）。依 §6 之處置原則，正確修法是修取得步驟，
 > **不得還原 stub**。
 
+### 4.2 上游把渲染基底記成了建置者的本機路徑（第二次 CI 實測，run 32347196173）
+
+修好大小寫後建置完整跑完，但 `err` 由 0 升為 **3**：
+
+```
+ERROR: StructureDefinition/TWHA-SocialHistory-BetelNut: StructureDefinition.text.div:
+  The URL is not valid because '(URL contains 4 Invalid Characters: '\')':
+  file://C:\Users\Lily\TWCR_SF\output/ValueSet-sf-BetNutChewAmount-valueset.html
+  （另 -BetNutChewYear-、-BetNutChewQuit- 各一）
+```
+
+上游套件記錄之「本套件渲染於何處」是**建置者的本機 Windows 路徑**。IG Publisher
+以該基底組出本 IG profile 敘述中指向 TWCR_SF 值集的連結，於是三個綁定各產生一筆
+無效 URL 錯誤。
+
+**這不是本 IG 原始碼能修的**——本 IG 沒有任何地方寫出這個路徑。**但也不能不管**：
+不修的話，本 IG 發佈出去的 `TWHA-SocialHistory-BetelNut` 頁面會帶著指向他人電腦的
+`file://` 連結。
+
+**處置**：新增 `Repair TWCR_SF rendering base` 步驟，於安裝階段把該基底改為上游站台
+實際位址 `https://mitw.dicom.org.tw/IG/TWCR_SF`，使連結指向真正的上游頁面。
+**只改渲染基底，不動任何定義**——代碼、值集成員、繫結一律原封不動。
+
+失敗設計（三種情形各有出口，經負向測試實跑驗證）：
+
+| 情形 | 行為 |
+|:--|:--|
+| 掃到 `file://…output` | 逐檔列印原值與命中數後改寫，通過 |
+| 0 命中，但站台位址已存在 | 判定先前已修復（快取命中），通過 |
+| 0 命中，且查無站台位址 | **FAIL**——上游封裝已改版、本步驟假設失效 |
+
+第三種情形必須讓 CI 紅：否則本步驟會靜默地什麼都沒做，而錯誤照樣出現在下一步，
+屆時要從「IG Publisher 報無效 URL」回推到「修復步驟沒對上」相當費事。
+
+> 📌 若日後查明 IG Publisher 有支援覆寫相依套件渲染位址的正式參數，應以該參數取代
+> 本步驟——改寫他方套件內容終究是權宜手段，只是目前找不到不改寫又能修好的作法。
+
 ---
 
 ## 5. 新增閘門 `scripts/check-dependencies.js`
