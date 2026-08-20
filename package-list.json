@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.6.2",
+      "date": "2026-08-20",
+      "desc": "v0.6.1 已發佈站台之獨立複驗（JOB-31）：本版僅新增評估文件，未變更任何 Profile、值集、CodeSystem、Extension、範例、頁面內容、頁面檔名、導覽設定或相依宣告，不影響 QA 基準線。複驗方法為自 gh-pages 取得已發佈產出本身，以 qa.txt（閘門實際解析之來源，非 qa.html——後者訊息在摘要區與明細區重複出現且倍數不一，逐字串計數會系統性高估）逐項比對。通過複驗者：22 個具名類別全部與基準線完全相符零回歸；101 件權責登記之全量比對獨立複驗結果相同（Level 1 active/trial-use 24 件、Level 2 draft/draft 50 件、共用技術結構 active/無 27 件，不符者 0、找不到對應產出者 0）；conformance.html §7.0 範疇聲明含未受職安署委任或授權全句、§7.2 之 21 列與 13+3+3+2=21 算式、open-issues.html 標題已為已知限制與試用須知且主表 20 列加已結案表 6 列合計 26 項，均實測存在。三項發現：(1) qa-baseline.json 之 totals.warn 上限仍為 152 而實測為 91，鬆動 61 筆，未依 repo 自訂之「每個 JOB 完成後應下調」慣例以 qa-gate.js --update 回填，代表未來可再新增最多 61 筆 WARNING 而閘門不會亮；(2) 91 筆 WARNING 中僅 66 筆落在具名類別內，其餘 25 筆完全未具名——含 10 筆 Composition 走訪不可達之實質結構問題、7 筆 ImagingStudy 值集解析不到、4 筆 Observation 缺 subject/effective[x]（基準線具名的是 should have a performer，措辭不同故抓不到，屬同類盲區換措辭復現）、2 筆 UCUM {quid} 註記警告（JOB-29 之刻意決定，須具名並註明已知且刻意否則會被誤修）、2 筆 ShareableConceptMap（基準線僅具名 ShareableValueSet）；(3) 已發佈之本 IG 命名空間定義類 artifact 103 件而登記表 101 件，差額為 TWHealthCheckLaboratoryMap、Appendix10-to-HazardType 兩個 ConceptMap 與 NamingSystem NS-ReportIdentifier——成因非閘門失效而是登記範圍界定，check-governance-tags.js 之 scanFsh 僅掃四種宣告而排除 Instance: 宣告者；問題點在於 TWHealthCheckLaboratoryMap 功能上屬 Level 1 之必要配套（acceptable→preferred 歸一對照）卻無成熟度標記亦不受閘門保護。另就共用技術結構 27 件是否亦標 draft 提出意見：建議不標，因該 27 件為兩層共用之相依基礎，標 draft 將使 Level 1 產生大量 Reference to draft（該類別為受監控具名類別、基準線 12）並觸發閘門，且相依鏈之成熟度不得高於其基礎，Level 1 之 trial-use 反而失去意義。本版不實作，待裁示後執行。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.6.1",
       "date": "2026-08-20",
       "desc": "修正 v0.6.0 之標記失效：v0.6.0 宣稱 Level 2 之 50 件 artifact 標 draft，實際上線者僅 44 件，6 件未生效。原因為 FSH 之 Description 可為跨行字串，而 v0.6.0 之注入一律插在 Description 之次行，對 6 個跨行者而言是插進字串內部，SUSHI 遂視為描述文字而非規則，故該 6 件之 status 仍為 active、亦無 standards-status，且其描述文字中多出兩行規則字樣。受影響者為 TWHA-HearingTest、TWHA-Task-ServiceTask、TWHA-Encounter-Service、TWHA-Composition-ServiceRecord、TWHA-Observation-ServiceFinding、TWHA-Procedure-ServiceActivity。本版將規則改置於字串閉合行之後並清除誤入之描述文字。更須檢討者為權責標籤閘門未攔下此錯：該閘門逐行掃描，看到 * ^status = #draft 這行字即判定齊備，不管 SUSHI 會不會將其視為規則，檢查的是檔案裡有沒有這行字而非這行字會不會生效，故 6 件破損資料一路綠燈；已改為追蹤字串狀態，Description 內部之行一律略過，自我測試新增第 ⑧ 案（規則插進跨行 Description 內部須被抓到）與第 ⑧b 案（跨行 Description 加規則正確置於其後不得誤報），現為 12 組。此與 JOB-30 §7.8 同型，均為閘門只檢查了一半——上次是只核對標記與登記層級相符而未核對與資源 status 相容，這次是只核對字面存在而未核對語法位置，兩次都是產出端抓到而閘門沒抓到。發現方式為 v0.6.0 發佈後逐件抽驗 gh-pages 之實際產出，本機閘門與 CI 皆為綠，是線上 JSON 與登記不符才暴露此事。QA 實測無任何類別變動（TOTAL info 467、Reference to draft 12，差異皆為 0），因 Reference to draft 係由實例引用 draft CodeSystem 觸發、profile 自身為 draft 不觸發，故本版不調整基準線。工業技術研究院委託研擬中，尚未定稿。",
