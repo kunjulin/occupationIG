@@ -520,3 +520,35 @@ MARKER-REF-DRAFT-CS 共 21 筆
 > 卻沒核對「它與資源自身的 status 是否相容」——**檢查了一半**。
 > 本輪把它變成閘門的責任，往後同型錯誤在本機 `npm run verify` 就會被攔下，
 > 不必等 CI 跑完 7 分鐘的 tx 建置。
+
+#### 7.8.1 實測結果：warn 回到 91，info 具名上調 459 → 467
+
+| | v0.5.0 首輪（只標 standards-status） | v0.6.0（status 併同改 draft） |
+|:--|--:|--:|
+| `TOTAL warn` | **162**（+10，含 71 件 not consistent） | **91**（-61，全數消失） |
+| `TOTAL info` | 476 | **467** |
+| `TOTAL err` | 0 | 0 |
+
+**新增具名類別 `Reference to draft` = 12 筆**，逐筆歸因無餘數：
+
+```
+CS-PhysicalExamSystems|0.6.0   6 筆   obs-physical component[0]／[1]（UC-001／UC-002／獨立範例）
+CS-HazardType|0.6.0            4 筆   example-encounter-special、obs-exposure-lead、tx9-obs-exposure
+─────────────────────────────────────
+本次引入                      10 筆
+narrative-status|4.0.1         2 筆   ← 非本次引入（HL7 R4 核心自身即為 draft）
+```
+
+`457（上一輪實測） + 10 = 467`，與實測相符。
+
+> 📌 **兩點不得外推**：
+> 1. Level 2 之 18 個 CodeSystem 全部改為 draft，但只有 **2 個**產生此類訊息——
+>    「Reference to draft」只在**範例實例實際用到該代碼**時觸發，**跟著範例走，
+>    不跟著 artifact 數走**。不得以「18 × N」推算。
+> 2. 12 筆中有 2 筆是 HL7 R4 核心的 `narrative-status`（其 status 在 R4 即為 draft），
+>    **本 IG 無從變更**，且該範例本次未被修改，故先前版本即已存在。
+>    **把它算成本次的代價會高估**。
+
+**量測方法**：先新增具名類別並**暫置 0**，讓閘門把實測筆數印在「差異」欄、
+再依 `_detailCategories` 之逐筆清單歸因後填入真值——**不先猜數字再回頭湊**。
+此程序源自 JOB-29 §D.5.1 之教訓：當時的假說在算術上完美命中 164，理由卻是錯的。
