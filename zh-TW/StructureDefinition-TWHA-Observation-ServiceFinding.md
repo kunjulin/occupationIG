@@ -1,12 +1,9 @@
-# 臨場健康服務發現問題/風險 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.0
+# 臨場健康服務發現問題/風險 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.1
 
 ## 資源 Profile: 臨場健康服務發現問題/風險 Profile 
 
  
 【依據：勞工健康保護規則附表】用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。 
-* ^status = #draft
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
- 
 **subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。 
 
 **Usages:**
@@ -82,13 +79,17 @@ This structure refers to these other structures:
 {
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Observation-ServiceFinding",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "draft"
+  }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Observation-ServiceFinding",
-  "version" : "0.6.0",
+  "version" : "0.6.1",
   "name" : "TWHAObservationServiceFindingProfile",
   "title" : "臨場健康服務發現問題/風險 Profile",
-  "status" : "active",
+  "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-20T17:39:23+00:00",
+  "date" : "2026-08-20T18:13:29+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -104,7 +105,7 @@ This structure refers to these other structures:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "【依據：勞工健康保護規則附表】用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。\n* ^status = #draft\n* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft\n\n**subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。",
+  "description" : "【依據：勞工健康保護規則附表】用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。\n\n**subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",

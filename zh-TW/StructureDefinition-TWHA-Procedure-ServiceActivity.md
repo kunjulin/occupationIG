@@ -1,12 +1,9 @@
-# 臨場服務執行活動項目 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.0
+# 臨場服務執行活動項目 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.1
 
 ## 資源 Profile: 臨場服務執行活動項目 Profile ( 實驗性 ) 
 
  
 【依據：勞工健康保護規則附表】用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。 
-* ^status = #draft
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
- 
 **subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。 
 
 **Usages:**
@@ -95,13 +92,17 @@ This structure refers to these extensions:
 {
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Procedure-ServiceActivity",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "draft"
+  }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-ServiceActivity",
-  "version" : "0.6.0",
+  "version" : "0.6.1",
   "name" : "TWHAProcedureServiceActivityProfile",
   "title" : "臨場服務執行活動項目 Profile",
-  "status" : "active",
+  "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-20T17:39:23+00:00",
+  "date" : "2026-08-20T18:13:29+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -117,7 +118,7 @@ This structure refers to these extensions:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "【依據：勞工健康保護規則附表】用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。\n* ^status = #draft\n* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft\n\n**subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。",
+  "description" : "【依據：勞工健康保護規則附表】用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。\n\n**subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",

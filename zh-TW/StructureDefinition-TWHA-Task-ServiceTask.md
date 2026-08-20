@@ -1,12 +1,9 @@
-# 臨場健康服務建議與改善任務 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.0
+# 臨場健康服務建議與改善任務 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.1
 
 ## 資源 Profile: 臨場健康服務建議與改善任務 Profile 
 
  
 【依據：勞工健康保護規則附表】用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。 
-* ^status = #draft
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
- 
 **for／focus／owner 語意界定（回應委員意見）**：本資源表達「**後續改善工作**」。`focus` 指向所依據之現場發現（ServiceFinding）；`owner` 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 `for` 表達該 Patient。**事業單位以 `owner` 表達，不置於 `for`。** 
 
 **Usages:**
@@ -99,13 +96,17 @@ This structure refers to these extensions:
 {
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Task-ServiceTask",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "draft"
+  }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Task-ServiceTask",
-  "version" : "0.6.0",
+  "version" : "0.6.1",
   "name" : "TWHATaskServiceTaskProfile",
   "title" : "臨場健康服務建議與改善任務 Profile",
-  "status" : "active",
+  "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-20T17:39:23+00:00",
+  "date" : "2026-08-20T18:13:29+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -121,7 +122,7 @@ This structure refers to these extensions:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "【依據：勞工健康保護規則附表】用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。\n* ^status = #draft\n* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft\n\n**for／focus／owner 語意界定（回應委員意見）**：本資源表達「**後續改善工作**」。`focus` 指向所依據之現場發現（ServiceFinding）；`owner` 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 `for` 表達該 Patient。**事業單位以 `owner` 表達，不置於 `for`。**",
+  "description" : "【依據：勞工健康保護規則附表】用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。\n\n**for／focus／owner 語意界定（回應委員意見）**：本資源表達「**後續改善工作**」。`focus` 指向所依據之現場發現（ServiceFinding）；`owner` 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 `for` 表達該 Patient。**事業單位以 `owner` 表達，不置於 `for`。**",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",
