@@ -536,6 +536,11 @@ jobs:
                   return;
                 }
                 for (const p of (j.parameter||[])) {
+                  // 濾掉 RELATEDNAMES2：LOINC 之該欄位為多語系同義詞巨集（單筆逾 2000 字元、
+                  // 每碼 6 種語言），會把前一個代碼的結果擠出日誌尾段可讀範圍——首輪即因此
+                  // 讀不到 SNOMED 698188003 之 FSN。輸出過量與輸出不足同樣等於沒量到。
+                  if (p.name === "property" &&
+                      (p.part||[]).some(x => x.valueCode === "RELATEDNAMES2")) continue;
                   if (p.name === "property") {
                     const kv = Object.fromEntries((p.part||[]).map(x =>
                       [x.name, x.valueCode ?? x.valueString ?? x.valueBoolean ??

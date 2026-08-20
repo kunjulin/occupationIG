@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.4.0",
+      "date": "2026-08-20",
+      "desc": "JOB-29 C-0 與路徑甲之實作——**本版含規範性變更**。(1) C-0：TWHA-SocialHistory-BetelNut 之 Observation.code 由上游 sf-ObserBeh#BetelNutChewing 改為 SNOMED 698188003（Chews betel quid），消除與敘述頁之落差，並移除本 Profile 對上游之最後一處硬綁定。(2) 補既存缺件：新增 value[x] 承載嚼檳狀態，綁定新設之 VS-BetelNutStatus（4 碼，與吸菸之 CS-SmokingStatus 逐碼對稱；不含 unknown，狀態不詳者以 dataAbsentReason 表達）。(3) 量／年數／戒除期間由上游列舉碼改以 UCUM Quantity 承載（{quid}/d、a、a 或 mo），component.code 改用本地 CS-BetelNutComponent——此為解耦之實際著力點，核心三項不再需要解析上游 canonical；上游級距碼降為可選 component（extensible），移除之不影響任何核心資料。三個 component 由 1..1 改為 0..1，「從未嚼食」者不再須填三個哨兵碼。(4) 依委員意見（附錄 B）增列是否含菸草、添加物、石灰種類、戒除日期與資料來源（LOINC 48766-0）；添加物與石灰種類拆為兩個軸而非四選一。(5) panel 化採選項甲：維持單一 Observation ＋ component，不改 hasMember——委員之立論為鏡射菸品 panel，惟本指引吸菸 Profile 繼承 TW Core 之單一 Observation 且 T-10 已裁示維持繼承，僅檳榔 panel 化反而造成不對稱。(6) 術語頁 §6.2b 全面改寫：三套來源（國健署上傳欄位／口腔黏膜檢查表／TWCR_SF）之界線、上游代碼落點對照、跨清單同碼異義之警示。口腔黏膜檢查表之 6 選 1 級距因未取得原文而未落地，登記為 T-13。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.3.3",
       "date": "2026-08-20",
       "desc": "JOB-29 評估之內部一致性修訂（仍不實作）：(1) §2.4 之查證狀態敘述更正——初稿據修訂案 v2.1「無國際碼」推論 SNOMED 698188003 屬未驗證對照，惟 terminology.md §4.1 已明列其為「已驗證 2026-07-26」（tx.fhir.org、$validate-code），故該推論不成立；尚待補者為以 $lookup 取官方 FSN 並確認其作為 Observation.code 之語意適切性，兩者依 CLAUDE.md §2.2 不可互相取代。(2) 驗收標準 #6 之載具更正為 terminology.md §4.1——display-verification-report.csv 為 LOINC 專用產物（324 列、無任何 SNOMED 碼），字面上無法滿足；驗收 #3 之戒除期間單位同步隨 §3.2／§A.6 更正為「a 或 mo，以原始採集粒度為準」。(3) 新增 §2.1.1 記載同一支 Profile 之第二處落差：Observation.code 固定為上游 sf-ObserBeh#BetelNutChewing，而 general-exam.md 與 datamodel.md 在與吸菸相同之欄位均宣稱為 SNOMED 698188003；該欄位為 1..1 且固定為上游代碼，係本 Profile 對上游最後一處硬綁定，故 §5 增列 C-0 並排序於 C-1 之前。(4) 附錄 B.2 之 display 裁定回頭套用至 §A.1 與 §A.2 之範例本身（Betel nut chewer → Chews betel quid）。另加入一次性 CI 診斷步驟以實證附錄 B.5 之 value-quantity 搜尋參數主張，取得結果後移除。本版未變更任何 Profile、值集、CodeSystem、Extension、範例、頁面檔名或相依宣告。工業技術研究院委託研擬中，尚未定稿。",

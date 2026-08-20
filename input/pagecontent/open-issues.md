@@ -55,6 +55,7 @@
 | [T-10](#t-10) | DiagnosticReport 無法彙整非檢驗類結果 | TW Core／本專案 | 🔶 **已定預設：維持 TW Core 繼承（0.3.0）** |
 | [T-11](#t-11) | eGFR 多估算公式並存 | 職醫科／平台端 | 待決（MDRD 保留已具公文依據、T-5 結案；餘 Cystatin C 公式範圍待定） |
 | [T-12](#t-12) | UCUM 稽核之 Scale 未對映碼（29 筆） | 執行團隊／術語 | ✅ **已解決（2026-07-30）**：三碼經 loinc.org 查證（Doc／SemiQn／-），SemiQn 納入稽核、餘明確排除，`--max-unknown` 已歸零 |
+| [T-13](#t-13) | 口腔黏膜檢查表之 6 選 1 級距未取得原文 | 國健署／執行團隊 | 待決（`component[hpaCategory]` 因此未落地，0.4.0） |
 | [P-1](#p-1) | canonical 命名空間為 provisional | 主管機關 | 待決 |
 | [P-2](#p-2) | 授權條款未宣告 | 委託契約雙方 | 待決 |
 
@@ -692,6 +693,36 @@ tx.fhir.org 於部分代碼以 LOINC 答案清單碼回傳且未附 display，�
 分類健全度 241／320 ＝ 75.3%、`err = 0`、`Wrong Display Name = 0`、`VS-ExtendedDataset = 288`。
 
 **出處**　JOB-19 補充事項施作（2026-07-30）提出；[JOB-20](https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-20-t12-scale-parts-resolution.md) 結案
+
+---
+
+## T-13　口腔黏膜檢查表之 6 選 1 級距未取得原文 <a id="t-13"></a>
+
+**現況**　JOB-29 附錄 B 採認委員建議之 `bq-hpa-category`——保留口腔黏膜檢查表之
+**原始勾選**為 coded Observation，**不換算成中位數**（假精確會污染 dose-response 分析），
+此與 [T-9](#t-9)「保留原始 coding」為同一原則。0.4.0 實作路徑甲時，
+委員欄位清單中其餘各項（含菸草、添加物、石灰種類、戒除日期、資料來源）均已落地，
+**唯獨本項未落地**。
+
+**待決**　該表（107/7 修訂）6 個級距之**原文字面與排序**。
+
+**所需輸入**　口腔黏膜檢查表之原文（或國健署確認之級距定義）。
+
+**影響範圍**　`input/fsh/codesystems/CS-BetelNut.fsh`（增列 `CS-BetelNutHpaCategory` 與對應值集——**backlog**，取得原文後方能定義）、`TWHA-SocialHistory-BetelNut`（增列 `component[hpaCategory] 0..1`）、`terminology.md` §6.2b-1 之三套來源對照表。
+
+**為何不逕行擬稿**　級距之**文字與切點**屬該表之實質內容，非本團隊可推定；
+依 [CLAUDE.md](https://github.com/kunjulin/occupationIG/blob/main/CLAUDE.md) §4
+「憑既有 markdown 表格轉抄法規項目」之戒律，須以原文逐項核對。
+自行擬一組看似合理的級距，會產生一個**外觀正確但與實際表單對不上**的值集——
+其危害甚於暫時缺件。
+
+**若決策不同**　若主管機關認為健檢上傳不需保留篩檢表之原始級距，本項可逕行關閉，
+`component[hpaCategory]` 不再需要；量化資料已由 `component[amount]`（UCUM `{quid}/d`）承載。
+
+> ⚠️ **範疇提醒**：口腔黏膜檢查表是**癌症篩檢用表，不是健檢上傳欄位**。
+> 納入其原始級距無妨（可回溯、可稽核），但**不得因此把篩檢表欄位當成健檢上傳欄位**
+> ——後者才是 [M-5](#m-5) 待國健署確認之標的。三套來源之對照見
+> [術語頁 §6.2b-1](terminology.html)。
 
 ---
 

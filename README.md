@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.3.3`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.4.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -160,6 +160,42 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.4.0（2026-08-20）嚼檳榔 Profile 解耦與欄位擴充（JOB-29 C-0 ＋ 路徑甲）
+
+> ⚠️ **本版含規範性變更**：`TWHA-SocialHistory-BetelNut` 之 `Observation.code`、
+> `value[x]` 與三個 `component` 之型別／基數／綁定均有變動，既有範例已同步改寫。
+> 實作端須依新結構調整。
+
+- **C-0**：`Observation.code` 由上游 `sf-ObserBeh#BetelNutChewing` 改為
+  **SNOMED `698188003`（Chews betel quid）**。此舉同時消除與
+  [`general-exam.md`](input/pagecontent/general-exam.md)／[`datamodel.md`](input/pagecontent/datamodel.md)
+  之落差（兩頁在與吸菸相同之欄位早已宣稱該碼），並移除本 Profile 對上游之**最後一處硬綁定**
+  ——該欄位為 `1..1` 且固定為上游代碼，不改則其餘解耦做完仍達不到「可切換級」。
+- **補既存缺件**：新增 `value[x]` 承載嚼檳狀態，綁定
+  [VS-BetelNutStatus](ValueSet-VS-BetelNutStatus.html)（4 碼，與 `CS-SmokingStatus` 逐碼對稱）。
+  **不含 `unknown`**——狀態不詳者以 `dataAbsentReason` 表達，使「狀態不詳」與
+  「狀態已知但量不詳」得以區分。
+- **量／年數／戒除期間改 UCUM `Quantity`**（`{quid}/d`、`a`、`a` 或 `mo`）；
+  `component.code` 改用本地 `CS-BetelNutComponent`——**這才是解耦的實際著力點**：
+  值改成 Quantity 仍不夠，`component.code` 若續用上游，建置照樣要解析上游 canonical。
+  上游級距碼降為可選 component（`amountCoded`，extensible），**移除之不影響任何核心資料**。
+  三個 component 由 `1..1` 改為 `0..1`——舊版使「從未嚼食」者仍須填三個哨兵碼，
+  其中 `quit#88`（無嚼檳榔）與 `amount#88`（每日 88 顆）同碼異義。
+- **依委員意見增列欄位**：是否含菸草、添加物、石灰種類、戒除日期、資料來源（LOINC `48766-0`）。
+  添加物與石灰種類**拆為兩個軸**而非四選一——一個人可以「荖葉＋白灰」。
+- **panel 化採選項甲**（維持單一 Observation ＋ component）：委員之立論為鏡射菸品 panel，
+  惟本指引吸菸 Profile 繼承 TW Core 之單一 Observation，且 [T-10](input/pagecontent/open-issues.md)
+  已裁示維持繼承——僅檳榔 panel 化反而造成與吸菸不對稱，與該立論相反。
+- **[`terminology.md`](input/pagecontent/terminology.md) §6.2b 全面改寫**：三套來源
+  （國健署上傳欄位／口腔黏膜檢查表／TWCR_SF）之界線、上游代碼落點對照、
+  跨清單同碼異義之警示。§6.2b 原述之【本地 stub】架構已於 v0.3.0 刪除，該段敘述一併更正。
+- **口腔黏膜檢查表之 6 選 1 級距未落地**，因未取得原文——登記為
+  [T-13](input/pagecontent/open-issues.md)。**不逕行擬稿**：級距之文字與切點屬該表實質內容，
+  自行擬一組看似合理的值集，其危害甚於暫時缺件。
+- **附錄 B.8 #1 作廢**：以 CI `$lookup` 實測，`8663-7` 之 `EXAMPLE_UCUM_UNITS`
+  **官方即為 `{#}/d`**，委員係逐字引用；本案原由「全名含 pack per day」推論應為 `{pack}/d`，
+  該推論方法本身即 JOB-18 所戒之「以名稱推單位」。詳見 JOB-29 §B.8.1。
 
 ### v0.3.3（2026-08-20）JOB-29 評估之內部一致性修訂（仍不實作）
 

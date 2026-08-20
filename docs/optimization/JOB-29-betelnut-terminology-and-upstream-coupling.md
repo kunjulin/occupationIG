@@ -659,10 +659,42 @@ Composition section 組成、完整度檢核與全部相關範例。
 
 | # | 位置 | 問題 |
 |--:|:--|:--|
-| 1 | 一、之表格：`8663-7` 單位標 **`{#}/d`** | `8663-7` 之 LOINC 全名為 **Cigarettes smoked current (pack per day) - Reported**，單位應為 **`{pack}/d`**。標為 `{#}/d`（支／日）即量綱不符——**與本案 JOB-18 所修正之事故完全同型**（該次是反向：以 `{pack}/d` 承載 `64218-1` 之支／日）。本案吸菸量採 `64218-1` + `/d`，與 `8663-7` 是不同碼、不同量綱，不可混用 |
+| 1 | ~~一、之表格：`8663-7` 單位標 `{#}/d`~~ | ❌ **本項作廢——委員無誤，本案之「更正」才是錯的。** 詳見 B.8.1 |
 | 2 | 三-D 範例：`hasMember` 掛在 `bq-duration` 上並指向 `bq-status` | `hasMember` 應掛在 **panel**（`bq-panel`）並指向各成員；成員之間不應互指。與委員自己 A 表（`bq-panel` → hasMember）矛盾 |
 | 3 | 三-C-3：`valueRange` 可被 `value-quantity` search | 見 B.5 |
 | 4 | 一／三：`{pack}.a`、`{quid}.a` 之量綱 | UCUM 註記**不影響可換算性**，故 `{quid}.a` 與 `a` 為同量綱。查詢 `value-quantity=gt10\|\|a` 會**同時命中嚼食年數與累積顆-年**。處置：凡量綱相同而語意不同者，搜尋**必須併帶 `code=`**；此點須寫入 implementation note，不能只靠單位區辨 |
+
+#### B.8.1 ⚠️ 更正：B.8 #1 之指謫不成立（CI `$lookup` 實測，run 32368926449）
+
+B.8 #1 原主張委員把 `8663-7` 之單位標為 `{#}/d` 係量綱不符、應為 `{pack}/d`。
+**以 tx.fhir.org 實測 `$lookup`（LOINC 2.82）後，該指謫不成立：**
+
+```
+display                Cigarettes smoked current (pack per day) - Reported
+property PROPERTY      LP6839-7          （NRat＝Number rate＝Count/Time）
+property EXAMPLE_UNITS #/day
+property EXAMPLE_UCUM_UNITS  {#}/d       ← LOINC 官方值
+property STATUS        ACTIVE
+```
+
+**`{#}/d` 正是 LOINC 官方之 `EXAMPLE_UCUM_UNITS`**，委員係逐字引用官方欄位。
+名稱寫「pack per day」而單位欄寫 `{#}/d`，是 **LOINC 自身**於該碼上的不一致
+（其 PROPERTY 為 NRat＝計數/時間，`{#}` 為無量綱之「數目」註記）——不是委員的錯。
+
+**本案據以立論的方式有誤**：B.8 #1 係由「LOINC 全名含 pack per day」**推論**單位應為
+`{pack}/d`，而未查 `EXAMPLE_UCUM_UNITS` 欄位本身。這與 JOB-18 之事故確實同型，
+但同型的是**方法**而非方向——JOB-18 的教訓正是「以名稱推單位會出錯，須查官方欄位」，
+本項卻重蹈了它。
+
+> 📌 **對本案之實質影響：無。** 本 IG 之吸菸量採 `64218-1`（支/日，`/d`），
+> 從未使用 `8663-7`（全庫檢索無命中）。本項屬**對委員方案之回饋內容**，
+> 更正後應自對外回覆中撤除，不得以此指謫委員。
+>
+> 若日後確需承載「包/日」，仍應以 `$lookup` 之 `EXAMPLE_UCUM_UNITS` 為準，
+> 並注意 `{#}/d` 與 `{pack}/d` 在 UCUM 下**皆為無量綱註記 ÷ 日**、屬同量綱，
+> 單位不足以區辨語意——與 B.8 #4 同一結論：**搜尋必須併帶 `code=`**。
+
+---
 
 ### B.9 一項範疇提醒：現在有三套來源，不可混為一談
 
@@ -774,3 +806,66 @@ B.2 判定 `"Betel nut chewer"` 為 display 不符、應為 `"Chews betel quid"`
 「SUSHI 的實際輸入」，含 `sushi-config.yaml`（見 `scripts/build-fsh-source-zip.js` 檔頭）。
 已執行 `npm run build:assets` 重建。**凡調整版次或 `menu` 者皆須比照辦理**，
 `npm run check:assets` 會攔。（v0.3.1 套用時亦踩到同一點。）
+
+---
+
+## 附錄 D：執行紀錄（v0.4.0，C-0 ＋ 路徑甲）
+
+### D.1 §2.4 之前提如何滿足
+
+C-0 之前提為「以 `$lookup` 取官方 FSN 並確認其作為 `Observation.code` 之語意適切性」，
+驗收 #6 明訂「覆核未過則 C-0 不成立」。本容器 proxy 封鎖 `tx.fhir.org`（實測連線失敗），
+故以一次性 CI 步驟向建置所用之同一術語伺服器查證（run 32368926449）。
+
+實測所得之關鍵語意軸：
+
+```
+698188003  property {"code":"363714003","code-display":"Interprets",
+                     "value":"228272008","description":"Health-related behavior"}
+```
+
+`Interprets → Health-related behavior`：該概念之**受詮釋對象為「健康相關行為」**，
+正是「以一個 Observation 記錄某項行為」之語意形狀，**適合作為 `Observation.code`**。
+據此判定 C-0 成立。
+
+輔證（非本次量測）：`terminology.md` §4.1 已記載該碼於 2026-07-26 通過 `$validate-code`；
+委員以 Ontoserver 查得 FSN 為 `Chews betel quid (finding)`。
+
+> ⚠️ **首輪未取得 FSN 逐字原文**：LOINC 之 `RELATEDNAMES2` 為多語系同義詞巨集
+> （單筆逾 2000 字元 × 6 語言），把前一個代碼的結果擠出日誌尾段可讀範圍。
+> **輸出過量與輸出不足同樣等於沒量到**——已於診斷步驟濾除該欄位後重取。
+
+### D.2 落地範圍與刻意未做者
+
+| 委員欄位 | 落地情形 |
+|:--|:--|
+| 嚼檳狀態（自訂值集） | ✅ `value[x]` ← `VS-BetelNutStatus`（4 碼，不含 `unknown`） |
+| 量／年數／戒除期間 | ✅ `component` ＋ UCUM `Quantity` |
+| 戒除日期 | ✅ `component[cessationDate]`（`dateTime`，優先於期間） |
+| 是否含菸草 | ✅ `component[withTobacco]`（`boolean`） |
+| 添加物／石灰種類 | ✅ **拆為兩個 component**（B.6：兩個軸，非四選一） |
+| 資料來源 | ✅ `component[informationSource]`，code 為 LOINC `48766-0` |
+| 上游級距碼 | ✅ `component[amountCoded]`，`extensible`、`0..1`（C-2） |
+| 口腔黏膜檢查表 6 選 1 | ❌ **未落地**——未取得原文，登記為 [T-13](../../input/pagecontent/open-issues.md) |
+| panel ＋ `hasMember` | ❌ **不做**——採選項甲，理由見 B.7 |
+
+**T-13 為何不逕行擬稿**：級距之文字與切點屬該表之實質內容，非本團隊可推定。
+自行擬一組看似合理的級距，會產生一個**外觀正確但與實際表單對不上**的值集，
+其危害甚於暫時缺件——與 CLAUDE.md §4「憑既有 markdown 表格轉抄法規項目」為同一戒律。
+
+### D.3 一併修正之既有落差（非本 JOB 原範圍）
+
+| 位置 | 問題 |
+|:--|:--|
+| `terminology.md` §6.2b | 仍描述 v0.3.0 已刪除之【本地 stub】架構——JOB-28 更新了 README 之依賴段，**漏了這一頁**。已全面改寫 |
+| `CLAUDE.md` §2.5 | 「本 IG **各**值集之綁定強度為 extensible」過度概括：全庫實測 `required` 11 處、`extensible` 3 處，後者恰為檢驗／量測三大資料集值集——即該節所談者。已改為精確敘述 |
+| 附錄 B.8 #1 | 對委員之指謫不成立，見 B.8.1 |
+
+### D.4 尚未驗證者
+
+- 上游 `package.tgz` 之 `file://` 落點逐檔檢視（§4.2）——`mitw.dicom.org.tw` 遭 proxy 封鎖。
+- 本版之 QA 訊息增量——**新增 7 個 CodeSystem／ValueSet artifact 與 2 個範例，
+  依既有規則每 artifact 約使 `cannot be resolved` +10、`should have an OID assigned` +1，
+  且本地值集標 `experimental = true` 會使 `Reference to experimental CodeSystem https://twcore`
+  上升**。⚠️ **以上為依既有規則之預期，非量測值；一律以 CI 實測回填，不預先填數字**
+  （`docs/RELEASE.md` §2.2）。
