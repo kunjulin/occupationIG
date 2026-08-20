@@ -2,7 +2,7 @@ Profile: TWHAVisionTestProfile
 Parent: TWCoreClinicalResult
 Id: TWHA-VisionTest
 Title: "視力與辨色力檢查 Profile"
-Description: "用於記錄勞工眼部檢查結果，包含左右眼裸視/矯正視力及辨色力項目，繼承自 TW Core Observation Clinical Result。"
+Description: "【依據：勞工健康保護規則附表】用於記錄勞工眼部檢查結果，包含左右眼裸視/矯正視力及辨色力項目，繼承自 TW Core Observation Clinical Result。"
 * ^experimental = false
 * status = #final
 * code = LNC#98497-1 "Visual acuity panel"
@@ -23,3 +23,4 @@ Description: "用於記錄勞工眼部檢查結果，包含左右眼裸視/矯�
 * component[colorVision].value[x] only CodeableConcept
 
 * obeys twha-obs-1
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

@@ -2,7 +2,7 @@ Profile: TWHACompositionEmergencySummaryProfile
 Parent: TWCoreComposition
 Id: TWHA-Composition-EmergencySummary
 Title: "職業健康急診友善摘要 Composition Profile"
-Description: "職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用。
+Description: "【技術規格】職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用。
 
 **定位**：本 Profile 為**按需產生之臨床摘要原型（prototype）**，屬工作小組建議方案，**非正式交換要求**；俟臨床測試與回饋後再確認其範圍與必填欄位。
 
@@ -45,3 +45,5 @@ Description: "職業健康急診友善摘要（Occupational Health Emergency Sum
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "健康管理分級與急診注意事項"
 * section[assessment].entry only Reference(ClinicalImpression or CarePlan)
+
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

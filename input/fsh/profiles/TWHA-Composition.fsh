@@ -2,7 +2,7 @@ Profile: TWHACompositionProfile
 Parent: TWCoreComposition
 Id: TWHA-Composition
 Title: "健康檢查健檢報告組成結構 Profile"
-Description: "本 Profile 用於定義一般健康檢查、勞工健康檢查及成人預防保健等健康檢查報告的文件組成結構，以 Composition 作為文件核心，並定義各項目的 Section，繼承自 TW Core Composition。"
+Description: "【技術規格】本 Profile 用於定義一般健康檢查、勞工健康檢查及成人預防保健等健康檢查報告的文件組成結構，以 Composition 作為文件核心，並定義各項目的 Section，繼承自 TW Core Composition。"
 * ^experimental = false
 * status = #final
 * type = http://loinc.org#11502-2 "Laboratory report"
@@ -57,3 +57,5 @@ Description: "本 Profile 用於定義一般健康檢查、勞工健康檢查及
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "醫師總評、分級與建議"
 * section[assessment].entry only Reference(ClinicalImpression or CarePlan or ServiceRequest or Procedure)
+
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

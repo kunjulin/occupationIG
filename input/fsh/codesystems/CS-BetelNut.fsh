@@ -18,7 +18,7 @@
 CodeSystem: CS_BetelNutStatus
 Id: CS-BetelNutStatus
 Title: "嚼檳榔狀態代碼系統"
-Description: "勞工健檢生活習慣調查中之嚼檳榔狀態分類，與吸菸狀態（CS-SmokingStatus）逐碼對稱。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）"
+Description: "【主管機關：國民健康署】勞工健檢生活習慣調查中之嚼檳榔狀態分類，與吸菸狀態（CS-SmokingStatus）逐碼對稱。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）"
 * ^experimental = true
 * ^caseSensitive = true
 * #0-never "從未嚼食檳榔" "受檢勞工從未嚼食檳榔。"
@@ -26,10 +26,11 @@ Description: "勞工健檢生活習慣調查中之嚼檳榔狀態分類，與吸
 * #2-daily "每日嚼食" "受檢勞工每日嚼食檳榔。"
 * #3-quit "已戒除" "受檢勞工過去曾嚼食檳榔，目前已戒除。"
 
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 ValueSet: VS_BetelNutStatus
 Id: VS-BetelNutStatus
 Title: "嚼檳榔狀態值集"
-Description: "包含嚼檳榔狀態代碼的值集。（provisional，隨 CS-BetelNutStatus 待官方確認）不含「不詳」——狀態不詳者以 `dataAbsentReason` 表達，見 CS-BetelNutStatus 之說明。"
+Description: "【主管機關：國民健康署】包含嚼檳榔狀態代碼的值集。（provisional，隨 CS-BetelNutStatus 待官方確認）不含「不詳」——狀態不詳者以 `dataAbsentReason` 表達，見 CS-BetelNutStatus 之說明。"
 * ^experimental = true
 * include codes from system CS_BetelNutStatus
 
@@ -37,10 +38,11 @@ Description: "包含嚼檳榔狀態代碼的值集。（provisional，隨 CS-Bet
 // **這是「解耦」的實際著力點**（JOB-29 §A.1）：component.code 若仍取自上游
 // sf-BetNutChewBeh，則即使值改為 Quantity，建置仍須解析上游 canonical 才能完成。
 // 與上游 amount／year／quit 之對應為 1:1，列於 terminology.md 之對照表。
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 CodeSystem: CS_BetelNutComponent
 Id: CS-BetelNutComponent
 Title: "嚼檳榔量化元件代碼系統"
-Description: "`TWHA-SocialHistory-BetelNut` 各 `component.code` 之本地代碼。前三碼與上游 TWCR_SF `sf-BetNutChewBeh` 之 `amount`／`year`／`quit` 為 1:1 對應。（**provisional**：隨本指引之嚼檳榔建模待主管機關確認，M-5。）"
+Description: "【主管機關：國民健康署】`TWHA-SocialHistory-BetelNut` 各 `component.code` 之本地代碼。前三碼與上游 TWCR_SF `sf-BetNutChewBeh` 之 `amount`／`year`／`quit` 為 1:1 對應。（**provisional**：隨本指引之嚼檳榔建模待主管機關確認，M-5。）"
 * ^experimental = true
 * ^caseSensitive = true
 * #amount "每日嚼食量" "每日嚼食檳榔之顆數，以 UCUM `{quid}/d` 表達。對應上游 sf-BetNutChewBeh#amount。"
@@ -57,56 +59,62 @@ Description: "`TWHA-SocialHistory-BetelNut` 各 `component.code` 之本地代碼
 // JOB-29 附錄 B.6：委員原案之 bq-type 將「荖花／荖葉／紅灰／白灰」列為單一 0..1，
 // 但那是**兩個軸**——添加物與石灰種類——一個人可以「荖葉＋白灰」。以單一 0..1 承載
 // 會強迫填報者二選一而失真，其性質與附錄 A.5(一) 所指之混編同型。故拆為兩個 component。
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 CodeSystem: CS_BetelNutAdditive
 Id: CS-BetelNutAdditive
 Title: "檳榔添加物代碼系統"
-Description: "嚼食檳榔所用之添加物。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"
+Description: "【主管機關：國民健康署】嚼食檳榔所用之添加物。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"
 * ^experimental = true
 * ^caseSensitive = true
 * #betel-inflorescence "荖花" "以荖花（檳榔花）為添加物。"
 * #betel-leaf "荖葉" "以荖葉為添加物。"
 * #none "無添加物" "未使用荖花或荖葉。"
 
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 ValueSet: VS_BetelNutAdditive
 Id: VS-BetelNutAdditive
 Title: "檳榔添加物值集"
-Description: "包含檳榔添加物代碼之值集。（provisional，隨 CS-BetelNutAdditive 待官方確認）"
+Description: "【主管機關：國民健康署】包含檳榔添加物代碼之值集。（provisional，隨 CS-BetelNutAdditive 待官方確認）"
 * ^experimental = true
 * include codes from system CS_BetelNutAdditive
 
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 CodeSystem: CS_BetelNutLime
 Id: CS-BetelNutLime
 Title: "檳榔石灰種類代碼系統"
-Description: "嚼食檳榔所用之石灰種類。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"
+Description: "【主管機關：國民健康署】嚼食檳榔所用之石灰種類。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"
 * ^experimental = true
 * ^caseSensitive = true
 * #red-lime "紅灰" "使用紅灰。"
 * #white-lime "白灰" "使用白灰。"
 
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 ValueSet: VS_BetelNutLime
 Id: VS-BetelNutLime
 Title: "檳榔石灰種類值集"
-Description: "包含檳榔石灰種類代碼之值集。（provisional，隨 CS-BetelNutLime 待官方確認）"
+Description: "【主管機關：國民健康署】包含檳榔石灰種類代碼之值集。（provisional，隨 CS-BetelNutLime 待官方確認）"
 * ^experimental = true
 * include codes from system CS_BetelNutLime
 
 // ─────────────────────────────────────────────── 資料來源
 // JOB-29 附錄 B.1 #6：以 LOINC 48766-0（Information source）為 component.code，
 // 值為本地之三分類。標註資料來源可使「自述」與「病歷／篩檢表」之可信度差異被保留。
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 CodeSystem: CS_BetelNutInfoSource
 Id: CS-BetelNutInfoSource
 Title: "嚼檳榔資料來源代碼系統"
-Description: "嚼檳榔資訊之取得來源。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"
+Description: "【主管機關：國民健康署】嚼檳榔資訊之取得來源。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"
 * ^experimental = true
 * ^caseSensitive = true
 * #self-report "受檢者自述" "由受檢者於問診或問卷中自行陳述。"
 * #medical-record "病歷紀錄" "自既有病歷紀錄取得。"
 * #screening-form "篩檢表" "自口腔黏膜檢查等篩檢表取得。"
 
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 ValueSet: VS_BetelNutInfoSource
 Id: VS-BetelNutInfoSource
 Title: "嚼檳榔資料來源值集"
-Description: "包含嚼檳榔資料來源代碼之值集。（provisional，隨 CS-BetelNutInfoSource 待官方確認）"
+Description: "【主管機關：國民健康署】包含嚼檳榔資料來源代碼之值集。（provisional，隨 CS-BetelNutInfoSource 待官方確認）"
 * ^experimental = true
 * include codes from system CS_BetelNutInfoSource
 
@@ -129,10 +137,11 @@ Description: "包含嚼檳榔資料來源代碼之值集。（provisional，隨 
 //
 // 附帶觀察（未實作）：同表「2.吸菸習慣」為結構完全相同之六選項，僅單位由「顆」改「支」。
 // 本指引之吸菸 Profile 繼承 TW Core，未納入此級距；如日後需要，應比照本代碼系統辦理。
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 CodeSystem: CS_BetelNutHpaCategory
 Id: CS-BetelNutHpaCategory
 Title: "口腔黏膜檢查表嚼檳榔習慣級距代碼系統"
-Description: "逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。）"
+Description: "【主管機關：國民健康署】逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。）"
 * ^experimental = true
 * ^caseSensitive = true
 * #0-none "無" "表列第 1 項（⓿）：無嚼檳榔習慣。"
@@ -142,10 +151,11 @@ Description: "逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月
 * #4-ge10y-lt20 "嚼超過 10 年，每天少於 20 顆" "表列第 5 項（❹）。可導出：年數 > 10、每日 < 20 顆。"
 * #5-ge10y-ge20 "嚼超過 10 年，每天 20 顆及以上" "表列第 6 項（❺）。可導出：年數 > 10、每日 ≧ 20 顆。"
 
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 ValueSet: VS_BetelNutHpaCategory
 Id: VS-BetelNutHpaCategory
 Title: "口腔黏膜檢查表嚼檳榔習慣級距值集"
-Description: "包含口腔黏膜檢查表（107/7 修訂）嚼檳榔習慣六個級距之值集。（provisional，隨 CS-BetelNutHpaCategory）"
+Description: "【主管機關：國民健康署】包含口腔黏膜檢查表（107/7 修訂）嚼檳榔習慣六個級距之值集。（provisional，隨 CS-BetelNutHpaCategory）"
 * ^experimental = true
 * include codes from system CS_BetelNutHpaCategory
 
@@ -154,10 +164,11 @@ Description: "包含口腔黏膜檢查表（107/7 修訂）嚼檳榔習慣六個
 // 上游以「年」收集（sf-BetNutChewQuit#01 = 已戒 1 年），強制轉為 12 mo 會**偽造精度**
 // ——原始資料並未主張「恰好 12 個月」。吸菸之 63632-4 官方例示單位本即為
 // d／wk／mo／a 四者並列，故並行不破壞與吸菸的對稱性。
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 ValueSet: VS_TimeUnitYearMonth
 Id: VS-TimeUnitYearMonth
 Title: "時間單位值集（年／月）"
-Description: "戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12（JOB-29 §A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。"
+Description: "【主管機關：國民健康署】戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12（JOB-29 §A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。"
 * ^experimental = false
 // ⚠️ display 必須用 UCUM 官方值，不可寫「年」「月」。
 // 首版寫成中文，CI 實測回報 2 筆 Wrong Display Name（tx：valid display is one of
@@ -166,3 +177,5 @@ Description: "戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`�
 // （a＝年、mo＝月），屬後者，故改採官方 display；中文說明置於本值集之 Description。
 * UCUM#a "a"
 * UCUM#mo "mo"
+
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use

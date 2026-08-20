@@ -23,7 +23,7 @@
 ValueSet: VS_Appendix9RequiredSet
 Id: VS-Appendix9-RequiredSet
 Title: "附表九 一般健康檢查法定應執行項目值集"
-Description: "《勞工健康保護規則》附表九所列一般體格／健康檢查之法定應執行**檢驗與量測**項目（以健康檢查欄為準，含 LDL-C）。非檢驗項目（作業經歷、既往病史、生活習慣、自覺症狀、身體各系統理學檢查）以 TWHA-Occupation／TWHA-Condition／SocialHistory／TWHA-PhysicalExam 承載，不列為本值集成員。用於法定完整性稽核，非 profile 之 element binding。所有代碼均取自已通過術語稽核之既有內容。⚠️ 紅血球數（789-8）與 MCV（787-2）係 115.06.26 修正新增；repo 內附表九 PDF 為修正前版本，該二項無 repo 內原文可逐項核對，見未決事項 M-11。"
+Description: "【依據：勞工健康保護規則附表】《勞工健康保護規則》附表九所列一般體格／健康檢查之法定應執行**檢驗與量測**項目（以健康檢查欄為準，含 LDL-C）。非檢驗項目（作業經歷、既往病史、生活習慣、自覺症狀、身體各系統理學檢查）以 TWHA-Occupation／TWHA-Condition／SocialHistory／TWHA-PhysicalExam 承載，不列為本值集成員。用於法定完整性稽核，非 profile 之 element binding。所有代碼均取自已通過術語稽核之既有內容。⚠️ 紅血球數（789-8）與 MCV（787-2）係 115.06.26 修正新增；repo 內附表九 PDF 為修正前版本，該二項無 repo 內原文可逐項核對，見未決事項 M-11。"
 * ^experimental = true
 * ^status = #draft
 
@@ -52,3 +52,5 @@ Description: "《勞工健康保護規則》附表九所列一般體格／健康
 * LNC#2089-1 "Cholesterol in LDL [Mass/volume] in Serum or Plasma"   // LDL-C（健康檢查欄新增）
 // 附表九(3)：胸部 X 光（大片）
 * LNC#24648-8 "XR Chest PA upright"                                    // 胸部 X 光
+
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

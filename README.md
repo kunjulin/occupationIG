@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.4.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.5.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -160,6 +160,57 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.5.0（2026-08-20）呈現分層與權責界線（JOB-30 實作，A 部＋B 部一批完成）
+
+> 說明：本版**未變更任何 Profile 之結構約束、值集成員或範例內容**；變更集中於
+> 敘述頁、artifact 之 `Description` 標籤與 `standards-status`。
+> `open-issues.md` 之**檔名、所有 `<a id>` 錨點與 `menu` target 一律未動**。
+> 對外發佈前仍須以 `_genonce_tx.bat` 重跑 tx 建置。
+
+**B 部｜治理分軌**
+
+- `conformance.md` 新增 **§7 合規層級**：**Level 1｜Core 上傳合規**（內容依據為國民健康署
+  健檢上傳欄位規範）與 **Level 2｜勞工健檢涵蓋**（內容依據為《勞工健康保護規則》附表）。
+  **Level 2 以 Level 1 為前提，Level 1 不以 Level 2 為前提**；層級係本指引之
+  **技術符合性層級，不構成主管機關之認證或採認**。
+- **§7.0 範疇聲明**：本指引之主管機關**只有國民健康署一個**；勞工健檢項目係依該規則附表
+  建立之**結構化表達**，**非另立勞工健檢規範，亦未受勞動部職業安全衛生署委任或授權**。
+  `index.md` §2.2 摘要一句。
+- ⚠️ **§7.2 之 Level 1 清單自 `VS-CoreUploadSet` 逐列展開核對（未沿用任何既有文件之數字），
+  實得 16 主項／20 列——較各處所載之「21 列」少 1 列。** 主項數相符。
+  **本版不逕自補足該列**：差異可能是本指引漏收，也可能是原案之計列口徑不同
+  （例如嚼檳量另計一列）。已列為 [M-5](input/pagecontent/open-issues.md) 待國民健康署
+  確認之事項，並產出送簽確認單草稿 [`docs/drafts/HPA-CONFIRMATION-JOB-30.md`](docs/drafts/HPA-CONFIRMATION-JOB-30.md)。
+- **權責標籤**：101 個定義型 artifact 之 `Description` 起首標示內容依據——
+  `【主管機關：國民健康署】` **24**／`【依據：勞工健康保護規則附表】` **50**／`【技術規格】` **27**。
+  導入 HL7 `structuredefinition-standards-status`（Level 1 之 24 件標 `trial-use`，其餘 `draft`），
+  **IG 層 `status` 不動**——FHIR IG 一次只能發一個版本，分軌無法靠版次達成。
+- 新增登記表 [`scripts/governance-map.js`](scripts/governance-map.js) 與閘門
+  [`scripts/check-governance-tags.js`](scripts/check-governance-tags.js)（七組自我測試，
+  其中兩組為**正向對照**），已掛入 `npm run verify`。該閘門並**禁止把職安署寫成本指引之
+  治理或主管機關**，且對否定句之豁免**逐行印出**，不靜默。
+
+**A 部｜〈未決事項〉頁分層（不是搬家）**
+
+- 標題由「未決事項」改為「**已知限制與試用須知**」（`pages:` 與 `menu:` 同步），
+  **檔名與錨點不動**——站內連結與外部引用全數維持有效。
+- 一覽表**一次加兩欄**：「對試用的影響」（A／B／C／D 四級）與「權責歸屬」，**26 項全填**。
+  頁首加試用單位總結句：**26 項中真正可能影響欄位內容者為 3 項**（M-5／M-8／M-11）。
+- 已結案 6 項移列頁尾〈已結案（存查）〉，**編號與錨點不變**。
+- 逐項技術明細移至 [`docs/optimization/open-issues-detail.md`](docs/optimization/open-issues-detail.md)，頁內以單一連結指入。
+- ⚠️ **權責歸屬之 T-11 依既有「決定者」欄改列**（JOB-30 初步歸類為「本專案技術決定」，
+  與既有之「職醫科／平台端」矛盾），故該群 7→8、本專案技術決定 8→7。
+
+**一併更正之過時數據**（皆屬本頁既載之事實陳述，非新增議題）
+
+- 斷鏈之逐件筆數由「一律 +10」改為**分種類三值**：範例實例 10／CodeSystem・ValueSet 12／
+  Profile 18（JOB-29 §D.5.1 實測）。
+- 斷鏈總數改記 **v0.4.0 實測 2,321 筆**；`history.html` 子項之 2,026 筆註明係 2026-07-28
+  實測、未再重測。
+
+**⚠️ 嚼檳系列之 `experimental` 維持 `true`**：國健署之同意目前僅為口頭／轉述，
+**未取得可引用之書面依據前不得變更**（M-5、`experimental`、Level 1 成熟度三者一律不動）。
 
 ### v0.4.1（2026-08-20）先行公布供臨床試用之整備評估（JOB-30，未變更任何定義）
 

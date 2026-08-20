@@ -1,7 +1,7 @@
 ValueSet: VS_CoreUploadSet
 Id: VS-CoreUploadSet
 Title: "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）"
-Description: "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之狀態由本 IG 之 VS-BetelNutStatus 承載（與吸菸狀態四碼逐碼對稱）；量／年數／戒除期間自 v0.4.0 起改以 UCUM Quantity 承載（{quid}/d、a、a 或 mo），上游臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之級距碼降為可選 component（extensible）供勾稽之用，見 TWHA-SocialHistory-BetelNut 與術語頁 §6.2b。注意戒除期間之單位以原始採集粒度為準（上游以「年」計），與吸菸之戒除「月數」（LNC#63632-4）不同，不得逕行換算。"
+Description: "【主管機關：國民健康署】群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之狀態由本 IG 之 VS-BetelNutStatus 承載（與吸菸狀態四碼逐碼對稱）；量／年數／戒除期間自 v0.4.0 起改以 UCUM Quantity 承載（{quid}/d、a、a 或 mo），上游臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之級距碼降為可選 component（extensible）供勾稽之用，見 TWHA-SocialHistory-BetelNut 與術語頁 §6.2b。注意戒除期間之單位以原始採集粒度為準（上游以「年」計），與吸菸之戒除「月數」（LNC#63632-4）不同，不得逕行換算。"
 * ^experimental = false
 // 檢驗子集（10 項 + acceptable）
 * include codes from valueset VS_CoreDataset
@@ -12,3 +12,5 @@ Description: "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、�
 * LNC#64218-1  // 吸菸量 How many cigarettes do you smoke per day now [PhenX]（官方 Property NRat＝Count/Time，單位為「支/日」`/d`，非「包/日」；pack-year／packs/day 須另尋代碼並經查證，勿沿用本碼）
 * LNC#63632-4  // 戒菸月數 Have quit smoking (duration)
 * SCT#698188003 // 嚼檳狀態 Chews betel quid
+
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
