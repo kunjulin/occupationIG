@@ -52,16 +52,33 @@ function scanFsh(root) {
           if (KINDS.includes(kind) || /^(Instance|Logical|Resource|RuleSet|Invariant|Mapping|Alias)$/.test(kind)) {
             close();
             if (KINDS.includes(kind)) {
-              cur = { kind, file: rel, line: i + 1, id: null, desc: null, statusCode: null, resStatus: null };
+              cur = { kind, file: rel, line: i + 1, id: null, desc: null, statusCode: null, resStatus: null, inDesc: false };
             }
             return;
           }
         }
         if (!cur) return;
+
+        // ⚠️ Description 可以是**跨行字串**（開頭 `"` 到數行後才閉合）。落在字串內部的
+        //    `* ^status = ...` 只是描述文字，SUSHI **不會**當成規則。v0.6.0 首版把規則
+        //    插進了 6 個跨行 Description 內部，產出之 StructureDefinition 既無
+        //    standards-status、status 也仍是 active——而本閘門當時逐行掃描，看到那兩行
+        //    就判定齊備，**綠燈放行**。錯的不只是注入腳本，更是這個閘門：
+        //    它檢查的是「檔案裡有沒有這行字」，不是「SUSHI 會不會把它當成規則」。
+        //    故此處追蹤字串狀態，字串內部之行一律略過。
+        if (cur.inDesc) {
+          if (/"\s*$/.test(line)) cur.inDesc = false;
+          return;
+        }
         const id = line.match(/^Id:\s+(\S+)/);
         if (id) { cur.id = id[1]; return; }
         const desc = line.match(/^Description:\s+"(.*)$/);
-        if (desc) { cur.desc = desc[1]; return; }
+        if (desc) {
+          cur.desc = desc[1];
+          // 同一行未閉合（結尾不是未跳脫之 `"`）即為跨行字串
+          if (!/"\s*$/.test(line.slice('Description:'.length).trim().slice(1))) cur.inDesc = true;
+          return;
+        }
         const st = line.match(/standards-status\]\.valueCode\s*=\s*#(\S+)/);
         if (st) { cur.statusCode = st[1]; return; }
         // 資源自身之 status（^status = #draft）。standards-status = draft 時必須併同設定，
@@ -253,13 +270,38 @@ function selfTest() {
     return r.violations.length === 0 && r.exempted.length === 1;
   });
 
+  // ⑧ 規則被插進**跨行 Description 字串內部** → 必須被抓到。
+  //    這正是 v0.6.0 首版之錯誤形態：檔案裡看得到 `* ^status = #draft`，
+  //    但它在字串內，SUSHI 不當成規則，產出之資源仍是 active 且無 standards-status。
+  //    舊版閘門逐行掃描而綠燈放行，是**閘門檢查了錯的東西**。
+  reset();
+  mk('valuesets', 'a.fsh',
+     good('VS-Ok', TAGS.hpa, 'trial-use') +
+     `ValueSet: Z\nId: VS-Bad\nTitle: "t"\nDescription: "${TAGS.reg}跨行描述之第一行，\n` +
+     `* ^status = #draft\n` +
+     `* ^extension[${STANDARDS_STATUS_URL}].valueCode = #draft\n` +
+     `這一行才是描述的結尾。"\n`);
+  run('⑧ 規則被插進跨行 Description 內部',
+      () => checkArtifacts(tmp, M).violations.some((v) => v.startsWith('[G-3')));
+
+  // ⑧b 跨行 Description ＋ 規則正確置於字串閉合之後 → 不得誤報（正向對照）
+  reset();
+  mk('valuesets', 'a.fsh',
+     good('VS-Ok', TAGS.hpa, 'trial-use') +
+     `ValueSet: Z\nId: VS-Bad\nTitle: "t"\nDescription: "${TAGS.reg}跨行描述之第一行，\n` +
+     `這一行才是描述的結尾。"\n` +
+     `* ^status = #draft\n` +
+     `* ^extension[${STANDARDS_STATUS_URL}].valueCode = #draft\n`);
+  run('⑧b 跨行 Description ＋ 規則置於其後（正向對照）',
+      () => checkArtifacts(tmp, M).violations.length === 0);
+
   // ⑦ 完整正例：全部登記齊備時不得誤報
   reset();
   mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft', 'draft'));
   run('⑦ 齊備時不誤報（正向對照）', () => checkArtifacts(tmp, M).violations.length === 0);
 
   let bad = 0;
-  console.log('負向自我測試（①～⑤ 必須被抓到；⑥⑦ 為正向對照，必須不被抓到）：');
+  console.log('負向自我測試（負向案必須被抓到；標「正向對照」者必須不被抓到）：');
   for (const [name, ok] of results) {
     console.log(`  ${ok ? '✔' : '✖'} ${name}`);
     if (!ok) bad++;
