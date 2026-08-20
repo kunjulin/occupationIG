@@ -922,8 +922,41 @@ C-0 之前提為「以 `$lookup` 取官方 FSN 並確認其作為 `Observation.c
 
 - 上游 `package.tgz` 之 `file://` 落點逐檔檢視（§4.2）——`mitw.dicom.org.tw` 遭 proxy 封鎖。
 - LOINC 答案清單 `LL3678-1` 之展開（見 D.3a 註記）。
-- 本版之 QA 訊息增量——**新增 7 個 CodeSystem／ValueSet artifact 與 2 個範例，
-  依既有規則每 artifact 約使 `cannot be resolved` +10、`should have an OID assigned` +1，
-  且本地值集標 `experimental = true` 會使 `Reference to experimental CodeSystem https://twcore`
-  上升**。⚠️ **以上為依既有規則之預期，非量測值；一律以 CI 實測回填，不預先填數字**
-  （`docs/RELEASE.md` §2.2）。
+- `cannot be resolved` 之 **24 筆未歸因**（見下）。
+- 上游 `package.tgz` 之 `file://` 落點逐檔檢視（§4.2）。
+- LOINC 答案清單 `LL3678-1` 之展開（見 D.3a 註記）。
+
+### D.5 QA 增量實測與未歸因缺口
+
+量測來源 CI run 32371696249（commit `e52445ad`，含 display 修正，err = 0）。
+
+| 類別 | 基準 → 實測 | 歸因 |
+|:--|:--|:--|
+| `should have an OID assigned` | 37 → 49（+12） | **完全對得上**：6 CodeSystem ＋ 6 ValueSet，一件一筆 |
+| `Reference to experimental` | 15 → 48（+33） | 3 個嚼檳範例對 6 個新 experimental CodeSystem 之引用 |
+| `…CodeSystem https://twcore` | 15 → 48（+33） | 同上（`hapi.fhir.tw` 仍為 0，JOB-28 成果未回退） |
+| `There are no valid display names` | 237 → 246（+9） | 新引用之碼缺 zh-TW designation |
+| `cannot be resolved` | 2157 → 2321（+164） | **僅 140 可歸因，24 筆未歸因** |
+
+```
+可歸因      140 筆   14 個新增物件 × 每件 10 筆
+                     （12 個 CodeSystem／ValueSet ＋ 2 個新範例實例）
+未歸因       24 筆   ← 缺口
+─────────────────
+實測合計    164 筆
+```
+
+「每件 10 筆」為 `_categoriesNote` 所載之既有實測規則（5 種渲染變體 × 根層與 zh-TW 兩層）。
+
+那 24 筆有一個與實測吻合之假說：**若 ValueSet 之輸出頁數多於 CodeSystem**（每件 14 而非 10），
+則 `6×10 ＋ 6×14 ＋ 2×10 = 164`，與實測完全相符。**但吻合不等於驗證**——
+本假說未經逐檔清點，不得當作規則沿用，亦不得據以推算下一次的增量。
+
+欲確認該 24 筆之歸屬，須自 `qa.txt` 就 `cannot be resolved` 之**來源頁名分群清點**
+（`CodeSystem-CS-BetelNut*`／`ValueSet-VS-BetelNut*`／`Observation-obs-betelnut*` 等），
+確認後再更新 `_categoriesNote` 之每件筆數規則。本版未做——該清點需要 `qa.txt` 全文，
+而本容器無法下載 CI artifact（需授權）；CI 內現有之「Broken link breakdown」步驟
+只統計**目標網址**分布，不分來源頁，無法回答此問題。
+
+> 📌 **這不影響本版之正確性**：基準線採用的是實測值 2321，不是推算值。
+> 未歸因的是「為什麼是 164 而不是 140」，不是「164 這個數字對不對」。
