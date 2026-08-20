@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.2.5`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.3.3`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -22,7 +22,7 @@
 * `sushi-config.yaml`：SUSHI 編譯器的設定檔，包含專案中繼資料、依賴項、建置參數以及導覽選單配置。
 * `ig.ini`：HL7 IG Publisher 的設定檔。
 * `package-list.json`：版本歷程清單，供 publish box 與發佈流程使用。
-* `docs/optimization/`：**現行優化工作範圍（13 個 JOB）——待辦事項看這裡。**
+* `docs/optimization/`：**現行優化工作範圍（JOB-01～JOB-29）——待辦事項看這裡。**
 * `docs/regulations/`：法規附表 PDF 原文，為各項涵蓋度對照表之權威來源。
 * `docs/history/`：已被取代之歷史規劃文件（非現行規範）。
 * `docs/drafts/`：尚未接入建置流程之資源草稿。
@@ -60,7 +60,7 @@
 ```bash
 npm ci                 # 安裝已釘版之 SUSHI（3.20.0）
 npm run build          # SUSHI → IG Publisher（帶 tx，publisher 釘版 2.2.11）
-npm run verify         # pagecontent 參照檢查 + QA 閘門
+npm run verify         # pagecontent 參照 + 導覽列 + 外部相依 + 下載資產 + QA 閘門
 ```
 
 `npm run build` 會將 publisher 完整輸出寫入 `input-cache/publisher-run.log`，
@@ -113,43 +113,211 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 依賴指引 (Dependencies)
-* **tw.gov.mohw.twcore**: `1.0.0`（`sushi-config.yaml` 之 IG 套件依賴）
-* **TWCR_SF（臺灣癌症登記短表 IG, `hapi.fhir.tw`）**：**非套件層級依賴**。
-  嚼檳榔相關之 5 個 CodeSystem 與 4 個 ValueSet 由本 IG 以【本地 stub】承載
-  （`input/fsh/codesystems/TWCRSF-mocks.fsh`），其 canonical 屬 TWCR_SF 命名空間，
-  並以 `sushi-config.yaml` 之 `parameters.special-url` 列為例外。
 
-  > ⚠️ **這不是「引用外部定義」，是本 IG 自行定義了他方命名空間下的資源。**
-  > 2026-07-28 CI 實測：`fhir.twcrsf` 套件在三個 registry 之根路徑皆 404，
-  > 該 10 個 canonical 於 `hapi.fhir.tw` 亦全部 404（伺服器有回應，只是不服務這些資源）。
-  > 故已依 JOB-10 路徑 B 降級為 stub：`content = #fragment`、`status = #draft`、
-  > `experimental = true`、標題冠【本地 stub】、`copyright` 載明權威來源。
+* **tw.gov.mohw.twcore**: `1.0.0` —— 臺灣核心實作指引（母規範）。
+* **fhir.TWCRSF**: `0.1.1` —— 臺灣癌症登記短表實作指引（TWCR_SF），提供嚼檳榔行為之
+  5 個 CodeSystem 與 4 個 ValueSet（`sf-BetNutChew*`／`sf-ObserBeh`）。
+  本指引之 `TWHA-SocialHistory-BetelNut` 採其元件架構與值集（**required 綁定**），
+  以與癌症登記語意一致。授權 **CC0-1.0**。
+
+  > ⚠️ **該套件未上架任何公開 registry**（`fhir.twcrsf`／`fhir.TWCRSF` 大小寫皆 404，
+  > 2026-07-28 與 2026-08-20 兩度實測）。其 IG 站台提供標準之 `package.tgz`，
+  > 故 **CI 自站台取得並解入 FHIR 套件快取**，見 `.github/workflows/build-ig.yml`
+  > 之「Fetch TWCR_SF package」步驟。本機建置亦須比照辦理，或先行取得該套件。
   >
-  > **實作端應以 TWCR_SF 官方定義為準。** 本 stub 之代碼清單未經上游核對——
-  > 無從核對，因為上游不可達。詳見[未決事項 G-5](input/pagecontent/open-issues.md)。
+  > 站台：<https://mitw.dicom.org.tw/IG/TWCR_SF/>　canonical：`https://hapi.fhir.tw/fhir/...`
+  > （**canonical 是識別碼，不是下載位址；FHIR 不要求其可解析**——0.2.5 以前誤以
+  > canonical 之 404 推論上游不存在，見 [JOB-28](docs/optimization/JOB-28-twcrsf-upstream-dependency.md) §1.2）。
+
+  > 📌 **0.3.0 起本指引不再自行定義他方命名空間下的資源。** 先前之 9 個本地 stub
+  > 與 `special-url` 之 9 條例外均已刪除，並由
+  > [`scripts/check-dependencies.js`](scripts/check-dependencies.js) 於 CI 阻擋其復現
+  > （D-1～D-4）。**CI 若抓不到套件，請修取得步驟，不要把 stub 貼回來。**
 
 ---
 
 ## 優化工作範圍 (Optimization Job Scopes)
 
 2026-07-26 就發佈網站（<https://kunjulin.github.io/occupationIG/>）進行審閱後，
-已將待優化事項整理為 **13 個可獨立執行的 JOB**，置於 [`docs/optimization/`](docs/optimization/README.md)：
+已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-29**），置於 [`docs/optimization/`](docs/optimization/README.md)：
 
 * [`docs/optimization/README.md`](docs/optimization/README.md)：審閱總結、優先序矩陣、建議執行順序、全域驗收標準。
 * [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)：
   tx 建置 QA 統計基準線（err 0 / warn 208 / info 257）與術語稽核明細，供各 JOB 驗收比對。
   **重跑 tx 建置後請一併更新此檔。**
-* `docs/optimization/JOB-01` ~ `JOB-23`：各 JOB 之問題證據、驗收標準、工作項目與風險；
+* `docs/optimization/JOB-01` ~ `JOB-29`：各 JOB 之問題證據、驗收標準、工作項目與風險；
   每份結尾均附「交給 Claude 規劃用提示」，可直接複製使用。
-  （JOB-14 以後為後續審閱／主管指示新增之工作項；最新為
-  [`JOB-23`](docs/optimization/JOB-23-navigation-alignment-twcore.md)——導覽列比照 TW Core IG 之差異分析，
-  **評估完成、待核准後實作**。）
+  （JOB-14 以後為後續審閱、主管指示或外部來函所新增之工作項。最近三項為
+  [`JOB-26`](docs/optimization/JOB-26-open-issues-convergence.md) 未決事項收斂、
+  [`JOB-27`](docs/optimization/JOB-27-access-control-scope.md) 存取控制範疇界定、
+  [`JOB-28`](docs/optimization/JOB-28-twcrsf-upstream-dependency.md) TWCR_SF 改正式相依，
+  均已於 v0.3.0 執行；
+  [`JOB-29`](docs/optimization/JOB-29-betelnut-terminology-and-upstream-coupling.md)
+  嚼檳榔術語與上游耦合度為 v0.3.1／v0.3.2 之**評估**，尚未實作。）
 
 建議節奏：一個 JOB → 一次規劃 → 一個 commit。優先處理 P0（JOB-01～03）。
 
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.3.3（2026-08-20）JOB-29 評估之內部一致性修訂（仍不實作）
+
+> 說明：本版**僅修訂評估文件**，未變更任何 Profile、值集、CodeSystem、Extension、範例、
+> 頁面檔名或 `dependencies`。另加入一次性 CI 診斷步驟以實證附錄 B.5 之主張，**取得結果後移除**。
+
+- **§2.4 之查證狀態敘述更正**：初稿據修訂案 v2.1 之「無國際碼」推論 SNOMED `698188003`
+  「屬未驗證對照」，惟 [`terminology.md`](input/pagecontent/terminology.md) §4.1 已明列其為
+  「**✅ 已驗證 2026-07-26**」（`tx.fhir.org`、`$validate-code`），§4.2 之免責語亦明確將其排除，
+  **該推論不成立**。尚待補者為以 **`$lookup`** 取官方 FSN 並確認其作為 `Observation.code` 之
+  **語意適切性**——依 [CLAUDE.md](CLAUDE.md) §2.2，「代碼有效」與「語意正確」不可互相取代
+  （2026-07-26 查出並移除之 16 個錯碼，全部都通過了代碼有效性檢查）。
+- **驗收標準之載具與單位更正**：#6 由 `display-verification-report.csv` 改為
+  `terminology.md` §4.1——前者為 **LOINC 專用**產物（324 列、無任何 SNOMED 碼），字面上無法滿足；
+  #3 之戒除期間單位隨 §3.2／§A.6 更正為「`a` 或 `mo`，以原始採集粒度為準」（原寫「一律 `mo`」）。
+- **新增 §2.1.1：同一支 Profile 之第二處落差**。`Observation.code` 固定為上游
+  `sf-ObserBeh#BetelNutChewing`，而 [`general-exam.md`](input/pagecontent/general-exam.md) 與
+  [`datamodel.md`](input/pagecontent/datamodel.md) 在**與吸菸相同之欄位**（吸菸列填的正是其實際
+  code `LNC#72166-2`）均宣稱嚼檳之 code 為 SNOMED `698188003`。該欄位為 **1..1** 且固定為上游代碼，
+  是本 Profile 對上游**最後一處硬綁定**——不改則 C-1／C-2 做完仍達不到「可切換級」。
+  故 §5 **增列 C-0 並排序於 C-1 之前**，與 §A.1 原本之寫法一致。
+- **附錄 B.2 之 display 裁定回頭套用至文件自身**：B.2 判定 `"Betel nut chewer"` 應為
+  `"Chews betel quid"`，但 §A.1 之 FSH 骨架與 §A.2 之 JSON 範例仍寫著錯誤 display——
+  而那兩處正是實作者複製貼上的來源。已就地更正。**repo 內之敘述頁本來就是對的**
+  （`terminology.md` §4.1、`datamodel.md`、`general-exam.md`、`VS-CoreUploadSet.fsh` 均已用
+  `Chews betel quid`），錯誤僅存在於評估文件與對外之修訂案 v2.1。
+- **新增附錄 C**：套用時之 repo 逐項核對結果（9 項屬實、2 項須更正、4 項因 proxy 限制未能複驗）。
+
+### v0.3.2（2026-08-20）委員意見之逐項處置（JOB-29 附錄 B，未變更任何定義）
+
+> 說明：本版**僅於 JOB-29 補入附錄 B**，未變更任何 Profile、值集、CodeSystem、Extension、範例、
+> 頁面檔名或 `dependencies`，**不影響 QA 基準線**。對外發佈前仍須以 `_genonce_tx.bat` 重跑。
+> 緣起：委員就菸品在 FHIR 之標準表達、檳榔標準碼現況（Ontoserver SNOMED CT 2026-07-31 版展開）
+> 與建議之 IG 設計提出完整方案。
+
+**[JOB-29 附錄 B](docs/optimization/JOB-29-betelnut-terminology-and-upstream-coupling.md)｜委員意見（2026-08-20）之逐項處置**
+
+- **直接採認 7 項**：SNOMED 全部 betel 相關概念僅 6 個且**無 ex-chewer／never-chewer、無 duration／amount observable**
+  （此查證直接補上本評估 §2.4 之缺口）；不可挪用菸品 LOINC（`88029-4` 等）記檳榔年數，否則造成菸品暴露之假陽性；
+  自建 CodeSystem／ValueSet 並鏡射菸品結構（與本案獨立得出之結論一致）；戒除以 `bq-quit-date`（dateTime）
+  為原始事實優先於期間；`bq-with-tobacco`（IARC 對含／不含菸草分開評估）；資料來源 LOINC `48766-0`；
+  原始勾選保留為 coded Observation 且**不換算成中位數**（與 T-9「保留原始 coding」同一原則）。
+- **據以更正本案一處 display**：`698188003` 之官方詞條為 **`Chews betel quid`**，本評估 §A.1 與
+  《建議修訂案 v2.1》第 9 列均寫 `Betel nut chewer`，屬 JOB-01 所稽核之 `Wrong Display Name` 類別。
+- **附條件同意 3 項**：(1) 狀態值集**維持 4 碼**——`unknown` 應走 `dataAbsentReason`，放進值集即是委員自己
+  在檢視上游時所批評的「哨兵值混編」，且會使「狀態不詳」與「狀態已知但量不詳」無法區分；
+  (2) 派生值改用 **`valueQuantity` + `comparator`** 而非 `valueRange`——R4 之 `value-quantity` expression 為
+  `(Observation.value as Quantity) | (Observation.value as SampledData)`，**不含 `Range`**，
+  故 `valueRange` 反而**不可**搜尋，與委員第一節「一律用 valueQuantity 保證可 search」之主張自相衝突
+  （本容器連不到 hl7.org，附錄 B.5 附本機一行複核指令，**不採信本文陳述**）；
+  (3) `bq-type` 之「荖花／荖葉／紅灰／白灰」實為**兩個軸**（添加物／石灰種類），一人可「荖葉＋白灰」，
+  應拆分或改 `0..*`。
+- **不同意 2 項（技術與事實）**：CodeSystem canonical 不得置於 `hpa.gov.tw` 命名空間
+  （`check-dependencies.js` **D-2** 即為此設，俟 M-1 核定後再議）；**TW Core 現行版本為 v1.0.0 而非 v0.3.2**
+  （JOB-23 實測、本案 `dependencies` 即為 `1.0.0`），所引 `tw-core-7`／`tw-core-8` invariant 是否存續於 v1.0.0
+  須複核後再引用。
+- **列管 1 項（須 PI 裁示）**：改為 **panel + `hasMember`** 之多 Observation 結構。本指引之吸菸 Profile
+  `Parent` 為 `TWCoreSmokingStatus`（單一 Observation），而 JOB-26 已裁示 **T-10 維持 TW Core 繼承**，
+  故吸菸不能 panel 化；**若僅檳榔 panel 化，結果是檳榔與吸菸在本指引內結構不對稱——正好與委員
+  「鏡射菸品」之立論相反**。附錄 B.7 列甲／乙／丙三選項，建議**甲**：維持 component 結構但完整採納
+  委員之欄位清單，取得內容價值而不付結構重構成本。
+- **另指出委員方案四處技術細節須更正**：`8663-7` 單位應為 `{pack}/d`（其 LOINC 全名即 "pack per day"）
+  而非所標之 `{#}/d`，**與 JOB-18 所修正之事故完全同型**；三-D 範例之 `hasMember` 掛在 `bq-duration` 上
+  並指向 `bq-status`，應掛於 panel（與其自身 A 表矛盾）；`valueRange` 可搜尋之陳述（見上）；
+  `{quid}.a` 與 `a` 在 UCUM 下**同量綱**（註記不影響可換算性），查詢 `value-quantity=gt10||a`
+  會同時命中嚼食年數與累積顆-年，故搜尋**必須併帶 `code=`**。
+- **範疇提醒**：現有**三套來源**不可混為一談——國健署健檢上傳欄位（無編碼，本案 Core 之對標對象，M-5）、
+  口腔黏膜檢查表（6 選 1 bucket，癌症篩檢用表，委員 `bq-hpa-category` 所本）、TWCR_SF（逐顆逐年列舉碼，
+  現行綁定來源）。三者對照關係應於 `terminology.md` 以一張表明列。
+- **委員提議產出 FSH／JSON 草稿**：建議俟 panel 選項題裁示後再行產出，避免依甲／乙／丙不同結構重工。
+
+### v0.3.1（2026-08-20）嚼檳榔術語之權責界線與上游耦合度（JOB-29 評估，未變更任何定義）
+
+> 說明：本版**僅新增評估文件**，未變更任何 Profile、值集、CodeSystem、Extension、範例或頁面檔名，
+> 亦未變更 `dependencies`，**不影響 QA 基準線**。對外發佈前仍須以 `_genonce_tx.bat` 重跑。
+> 緣起：(1) 國民健康署上傳欄位文件之嚼檳榔欄位無編碼，詢問可否比照吸菸自訂值集；
+> (2) 取得 TWCR_SF 上游 `package.tgz` 後，發現封裝內含 `file://C:\Users\Lily\TWCR_SF\output`
+> 之開發者本機路徑。
+
+**[JOB-29](docs/optimization/JOB-29-betelnut-terminology-and-upstream-coupling.md)｜嚼檳榔術語之權責界線，與 TWCR_SF 相依之耦合度調整（評估）**
+
+- **兩個問題必須分開答。** 「檳榔沒有碼，是不是我們自己定？」混合了術語治理（誰有權在哪個命名空間定義代碼）
+  與相依治理（建置的可重現性）兩個層次，答案不同：**狀態欄位應自訂；量／年／戒除不應自行複製上游代碼，
+  而應降低耦合度。**
+- **查出一項既存缺件**：《建議修訂案 v2.1》第 9 列載明嚼檳狀態「建 `CS-BetelNutStatus`」，
+  但該 CodeSystem 於 repo 內**並不存在**，且 `TWHA-SocialHistory-BetelNut` 未約束 `value[x]`、
+  亦無 status component——**「嚼檳狀態」在指引中沒有承載位置**。此性質與 JOB-18 之 UCUM 落差同型，
+  但更嚴重（那是單位標錯，這是欄位缺件）：若外部依修訂案第 9 列實作，送出之資源無法通過本指引之 Profile。
+- **自訂沒有治理障礙**：建議之 canonical 位於本指引自己的命名空間，與 `check-dependencies.js` **D-2**
+  所禁止的情形（在他方命名空間下發佈定義）正好相反；上游 TWCR_SF 為 **CC0-1.0**，亦無授權障礙。
+  依 `CS-HealthMgmtLevel` 之既有格式標 `experimental = true` 並載明 provisional 即可。
+- **量／年／戒除的問題不在「誰的碼」，在「不該是碼」**：以 94 個代碼列舉「每日 N 顆」係把數值編碼化，
+  與同指引之吸菸建模（`64218-1` + UCUM `/d`）不對稱，且 `required` 綁定使建置成為單點相依。
+  建議主軸改 `Quantity`（`{quid}/d`／`a`／`mo`），上游級距碼降為可選 component（`extensible`）。
+- **上游封裝瑕疵**：`file://` 本機路徑之嚴重度取決於落點——落在 `canonical`／資源 `.url` 為**致命**，
+  落在建置參數則非致命。本容器之 proxy 封鎖上游站台無法複驗，故 JOB-29 §4.2 提供三行定位指令，
+  §4.3 給出分級表，**不預先斷言**。無論落點為何，「未上架 registry ＋ CI 須抓 static file ＋
+  封裝含本機路徑」三者合起來，對國家 IG 報備審查構成**可重現性**風險：審查方無法以標準工具鏈重建本指引。
+- **明確不建議**：退回本地 stub（D-4 即為此設，且屬治理倒退）、把上游 90 餘碼複製進本命名空間
+  （製造第二套權威來源，JOB-10 §7.3 已否決）、等上游修復（v0.1.1 為 2024-08-01 建置，無時程可依）。
+- **路徑 C（解耦而非切斷）**：C-1 主軸改 Quantity、C-2 上游碼降為 `extensible` 可選 component、
+  C-3 保留正式相依不推翻 JOB-28、C-4 新增閘門 **D-5**（套件內不得含 `file:` scheme、canonical 須為 https，
+  自帶負向測試）、C-5 由工研院轉知上游並請其上架 registry（**本案不等待**）。
+  重點在 C-2：**把單點相依從「建置阻斷級」降為「可切換級」**。
+- **另查出一項單位錯誤**：修訂案 v2.1 將嚼檳量之 UCUM 標為 `{個}/d`，惟 UCUM 註記僅允許可列印 ASCII 字元，
+  中文不在其列，**`{個}/d` 並非合法 UCUM code**。應為 `Quantity.code = {quid}/d`、`Quantity.unit = 顆/日`。
+  與 JOB-18／19 之 `{pack}/d` 同型。**repo 內未出現此字串（已全庫檢索），僅影響對外文件。**
+- **附錄 A（改版後之完整範例）**：給出建議之 Profile 骨架、四種臨床情形之 FSH 與 JSON 範例
+  （已戒／目前每日嚼食／從未嚼食／有嚼但量不詳）、同一位受檢者之新舊對照，以及上游代碼之落點對照表。
+  **逐碼檢視上游三個清單後另查出兩項語意風險**：(1) 數值與哨兵值混編於同一代碼軸——
+  `sf-BetNutChewAmount` 之 `01`–`89` 是數量、`90` 是設限值（≧90）、**`91` 其實是狀態**（偶爾嚼、無定量）、
+  `98`／`99` 是缺值原因，接收端把代碼當數字用即誤讀；(2) **跨清單同碼異義**——`#88` 在量的清單是
+  「每日 88 顆」、在戒除清單是「無嚼檳榔」，實作端錯置代碼系統會產生反向誤讀，
+  **且 `required` 綁定攔不住**（兩個綁定各自都通過，只是綁錯 component），
+  性質同修訂案 v2.1 第 1 項（22326-3 誤用）之送審阻斷級語意風險。
+- **附錄 A.6 修正本評估自身之一項寫法**：§3.2 原寫戒除期間 UCUM「一律 `mo`」，
+  經逐碼檢視改為 **`a` 或 `mo` 並行**，以原始採集粒度為準——上游以「年」收集，
+  強制乘 12 會**偽造精度**；且吸菸之 `63632-4` 官方例示單位本即 `d`／`wk`／`mo`／`a` 四者並列。
+- **本版不實作。** 綁定強度變更屬規範性變更，且會影響既有範例 `obs-betelnut`，
+  依既定慣例（評估與實作分兩個版次）待核准後於下一版執行。
+
+### v0.3.0（2026-08-20）未決事項收斂、存取控制範疇界定、TWCR_SF 改正式相依
+
+> 說明：本次**未變更任何 Profile 綁定、值集成員、範例或頁面檔名**。變更集中於治理層（未決事項之定案與範疇界定）、文件層（範疇聲明）與相依層（外部套件）。
+> 緣起：2026-08-20 國民健康署來函詢問定案時程與「定案前可否提供健保署及醫療院所應用」，據以全面盤點未決事項。
+
+**（一）[JOB-26](docs/optimization/JOB-26-open-issues-convergence.md) 未決事項收斂**
+
+- **目標不是清空清單，而是逐項標示「本項是否影響主管機關現在就要公告的內容」。** 經查證，[US Core v9.0.0](https://hl7.org/fhir/us/core/toc.html) 與 TW Core IG v1.0.0 **均無 known issues 專頁**，故本指引之〈未決事項〉頁並非國際慣例，而是受託研製中草案之誠實揭露；其價值在於可被逐項回答。
+- **A 類逕行定案 6 項**：M-8（情境資料集**分期落地規則**，T-1 已結案故相依解除）、M-9（**預設 `transaction`**，`batch` 為可選；因範例 entry 結構兩者通用，定案不影響已發佈範例）、T-3（SNOMED 未驗證對照之三條處置規則，**本版即生效不待 T-4**）、T-9（未結構化項目**保留原始 coding、接收端不得拒收**）、T-10（**維持 TW Core 繼承**，不為單一議題脫離母規範）、T-6（見下）。
+- **範疇界定 2 項**：**M-6《勞工健康保護規則》第 19 條保存期限 → 不列入本指引範疇**。保存期限係各事業單位與醫療機構**依法自行辦理之行政義務**，與資料如何交換無涉；且起算點（檢查日／報告日／離職日）尚無定論，**在法律解釋確定前結構化進欄位等於把未定解釋寫死進規範**。M-7 隨之關閉，`ext-retention-period` 自 backlog 移除。**兩者均保留編號並改標狀態，未刪除條目**（依「編號一經公開即不變更」之規則；悄悄消失會被解讀為掩蓋）。
+- **T-6 逐項補列理由**，並分兩類：**【A】應長期保留 1 個**——`VS-UnfitDiseases` 之定義為 `include codes from system ICD10CM`，即**意向式引用整個 ICD-10-CM**，須由 tx 端展開整個外部代碼系統，**這是 `no-validate` 的正當用途**；**【B】具備移除條件 5 個**——均為逐碼列舉清單且已通過 JOB-01／19／20 稽核。**本版不逕行移除【B】**：移除後可能一次浮出大量訊息，依既定原則**不預先猜測 QA 數字**，改於 CI 提供 `drop-no-validate` 實驗開關取得實測值後再行移除。
+- **文件一致性修正**：`open-issues.md` 之 P-1 記「每新增一個 artifact 增加 **12** 筆」，與 `qa-baseline.json` 之實測註記（**+10**，5 種渲染變體 × 2 層）不一致，**依實測更正**。
+- **結果**：標「待決」之項目由 18 項降為 **8 項**；其中**僅 2 項**（Core 欄位清單本身、事業單位識別碼）涉及主管機關擬公告之欄位內容。
+
+**（二）[JOB-27](docs/optimization/JOB-27-access-control-scope.md) 存取控制範疇界定**
+
+- **`security.md` 新增 §0 範疇聲明**：**本指引不規定「誰可以看病歷」**。何人得以存取屬法規、主管機關函釋與機構政策範疇。依據為 TW Core IG〈安全性〉頁原文——「系統**可以（MAY）**透過加密和相關存取控制來保護資料的機密性。**所使用的策略和方法不在此規範的範圍內**」、「系統建議應該（SHOULD）**依據國家、地方和機構政策**實作同意要求」。
+- **但「封包裡放什麼」是本指引職責，且已定案**：§0.1 以對照表區分 **(a) 存取控制**（不在範圍）與 **(b) 交換內容組成**（本指引職責）。以雇主端為例——本指引不規定雇主有無權限存取，但**明確規定**雇主端封包之 `section` 採 **closed slicing**，**結構上不含檢驗 section**；此為**驗證器會擋下來的結構約束，非原則宣示**。
+- **[M-10](input/pagecontent/open-issues.md) 改名**為「**稽核與同意機制之選型**」。原標題「雇主端資料隔離之實作機制」讀起來像揭露範圍未定，實則範圍已定案，未定的僅為 `Consent`／`Provenance`／`AuditEvent`／SMART scope 之機制選型。內文明列揭露範圍與存取控制政策**均不在本項範圍內**；技術建議標明為**技術設計建議，非本指引之政策認定**。
+- 本項與 JOB-26 之 M-6 採**同一原則**：法規與機構政策層面之決定不納入資料規格。
+
+**（三）[JOB-28](docs/optimization/JOB-28-twcrsf-upstream-dependency.md) TWCR_SF 改為正式相依**
+
+- **先前判定不成立**。[JOB-10](docs/optimization/JOB-10-twcrsf-dependency-governance.md)（2026-07-28）探測三個 package registry 與 `hapi.fhir.tw` canonical 皆 404，據以走路徑 B（本地 stub）。該判定**就其探測範圍而言正確，惟未涵蓋 IG 站台本身**——**canonical 是識別碼，不是下載位址，FHIR 不要求其可解析**。
+- **2026-08-20 重新查證**：上游站台為 `https://mitw.dicom.org.tw/IG/TWCR_SF/`，**v0.1.1**，`package.tgz` **HTTP 200（734 KB）**，`packageId = fhir.TWCRSF`，`status = active`、`experimental = false`、`content = complete`，授權 **CC0-1.0**；`sf-BetNutChewAmount` 上游 **94 碼，與本地 stub 94 碼完全一致**。套件本身仍未上架任何 registry（大小寫皆 404）。
+- **變更**：新增 `fhir.TWCRSF: 0.1.1` 正式相依；**刪除 `TWCRSF-mocks.fsh`（5 CodeSystem ＋ 4 ValueSet）**；**移除 `special-url` 之 9 條例外**；G-5 結案。**`aliases.fsh` 與 `TWHA-SocialHistory.fsh` 均無須修改**——別名以 canonical 表達，而 canonical 在 stub 與上游之間是同一字串，這是本次切換成本低的主因。
+- **CI 新增 `Fetch TWCR_SF package` 步驟**：自 IG 站台取得 `package.tgz` 解入 `~/.fhir/packages/fhir.TWCRSF#0.1.1`，並**驗證 `package.json` 之 name／version 與預期相符**（避免取到錯誤頁或改版內容而不自知）；置於 `Cache FHIR packages` 之後，快取命中時為 no-op。
+- **新增 [`scripts/check-dependencies.js`](scripts/check-dependencies.js) 外部相依閘門**：**D-1** 相依須宣告／**D-2** FSH 不得以 `^url` 自行定義他方命名空間／**D-3** `special-url` 不得復現／**D-4** 已刪除之 9 個 stub id 不得復現。**設此閘門之理由**：CI 若抓不到套件，最容易發生的「修法」是把 stub 貼回來讓 CI 轉綠——**那是還原成舊的權宜作法而非修復，且不會有任何錯誤訊息**。內建負向測試 4 組 ＋ **正向對照 1 組**（乾淨狀態不得誤報）；**對 0.2.5 舊狀態實跑攔下 11 筆**（D-1 一筆、D-2 九筆、D-3 一筆）。
+  - ⚠️ D-3 首版以單一正則取 `special-url` 區塊，因 `\s` 跨行吃掉換行而誤判邊界，**負向測試當場抓到靜默放行**，已改為明確的行狀態機。這正是負向測試存在的理由。
+- **附帶修正**：`VS-CoreUploadSet` 描述原載「嚼檳量／嚼檳月數屬本地 Extension（`ext-betelnut-quantity`）」，**兩處皆誤**——該 extension **不存在**，且實際由 TWCR_SF 之 component ＋ 值集承載（required 綁定）。已改寫，並註明**上游以「年」計，與吸菸之戒除「月數」（`LNC#63632-4`）單位不同**。此類錯誤 `check-pagecontent-refs.js` 抓不到（只掃 pagecontent 不掃 FSH `Description`），屬已知缺口。
+
+**（四）版次與待驗證事項**
+
+- `sushi-config.yaml` `0.2.5` → `0.3.0`；`package-list.json` 新增條目；`npm run verify` 納入 `check:deps`。
+- ⚠️ **本容器 proxy 封鎖 `packages.fhir.org`／`packages2.fhir.org`／`mitw.dicom.org.tw`，無法執行 SUSHI 或 IG Publisher。** 已完成之驗證：`check:refs`、`check:menu`（7 組負向測試）、`check:deps`（5 組負向測試＋對舊狀態之回歸佐證）、CI workflow YAML 解析、T-6 實驗開關腳本實跑（正確移除 5 項、保留 `VS-UnfitDiseases`）。
+- **待 CI 首次執行確認**（JOB-28 §6）：套件下載與 name／version 驗證、SUSHI 解析 9 個 canonical、`Reference to experimental` 之實際降幅（現為 15 筆，**不預先承諾數字**）、移除 `special-url` 後無新增未解析訊息、`err = 0` 維持。**若 SUSHI 解析失敗，正確處置是修取得步驟，不得還原 stub（D-4 會擋）。**
+- **對外發佈前一律以 `_genonce_tx.bat` 重建並檢視 `output/qa.html`**；`qa-baseline.json` 須依 CI 實測更新並具名說明。
 
 ### v0.2.5（2026-08-17）頁面標題中文化（JOB-25）＋ 已發佈站台對標查閱
 

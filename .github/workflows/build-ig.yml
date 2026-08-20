@@ -34,6 +34,11 @@ on:
         type: boolean
         required: false
         default: false
+      drop-no-validate:
+        description: '【實驗用】建置前移除 no-validate 之【B】五項值集，量測實際浮出之訊息數（T-6）。不得用於發佈'
+        type: boolean
+        required: false
+        default: false
 
 # 同一分支的新 push 取消舊的執行；建置需 10–20 分鐘，避免排隊堆積。
 concurrency:
@@ -84,6 +89,15 @@ jobs:
           npm run check:menu:selftest
           npm run check:menu
 
+      # 外部相依閘門（JOB-28 §5）。TWCR_SF 之 9 個 artifact 於 0.3.0 由本地 stub 改為
+      # 正式相依。此閘門固定該狀態：不得自行定義他方命名空間、不得復現 special-url
+      # 例外、不得把已刪除的 stub 貼回來。CI 若抓不到套件，正確的修法是修取得步驟，
+      # 不是還原成舊的權宜作法——那會靜默地退回「本 IG 自行定義他方資源」的狀態。
+      - name: Check external dependencies (self-test first)
+        run: |
+          npm run check:deps:selftest
+          npm run check:deps
+
       # ---------------------------------------------------------------- 建置環境
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -110,6 +124,116 @@ jobs:
           restore-keys: |
             fhir-packages-
 
+      # TWCR_SF（fhir.TWCRSF#0.1.1）未上架任何公開 registry——2026-07-28 與 2026-08-20
+      # 兩度實測，fhir.twcrsf／fhir.TWCRSF 大小寫於 packages.fhir.org、packages2.fhir.org、
+      # packages.simplifier.net 皆 404。但其 IG 站台提供標準的 package.tgz，故自站台取得
+      # 並解入 FHIR 套件快取，SUSHI 與 IG Publisher 即可如常解析（JOB-28 §4）。
+      #
+      # 置於 Cache FHIR packages 之後：快取命中時下載為 no-op（先檢查目錄是否已存在）。
+      #
+      # ⚠️ 大小寫：上游 package.json 之 name 為 fhir.TWCRSF（含大寫），但 SUSHI 會將套件 id
+      #    正規化為小寫並印出 "fhir.TWCRSF contains uppercase characters ... SUSHI will use
+      #    fhir.twcrsf"，因而只到 ~/.fhir/packages/fhir.twcrsf#<ver> 找。若僅解到原大小寫之
+      #    目錄，SUSHI 會判定快取未命中而回頭連 registry（該套件未上架，必 404）並中止建置
+      #    ——run 32346874349 即為此。故兩種大小寫之目錄都提供同一份套件：小寫供 SUSHI，
+      #    原大小寫保留以對應上游宣告之 name 與 sushi-config 之相依鍵。
+      - name: Fetch TWCR_SF package
+        env:
+          TWCRSF_VERSION: '0.1.1'
+          TWCRSF_URL: 'https://mitw.dicom.org.tw/IG/TWCR_SF/package.tgz'
+        run: |
+          set -euo pipefail
+          root="$HOME/.fhir/packages"
+          dest="$root/fhir.TWCRSF#${TWCRSF_VERSION}"
+          lower="$root/fhir.twcrsf#${TWCRSF_VERSION}"
+          if [ -f "$dest/package/package.json" ]; then
+            echo "快取已命中：$dest"
+          else
+            mkdir -p "$dest"
+            echo "自 $TWCRSF_URL 下載…"
+            curl -fsSL --retry 3 --retry-delay 5 -o /tmp/twcrsf.tgz "$TWCRSF_URL"
+            tar -xzf /tmp/twcrsf.tgz -C "$dest"
+            # 驗證取得的確實是預期的套件與版本，而非錯誤頁或改版後的內容
+            got_id=$(node -p "require('$dest/package/package.json').name")
+            got_ver=$(node -p "require('$dest/package/package.json').version")
+            echo "取得：$got_id#$got_ver"
+            if [ "$got_id" != "fhir.TWCRSF" ] || [ "$got_ver" != "$TWCRSF_VERSION" ]; then
+              echo "FAIL 套件與預期不符（期望 fhir.TWCRSF#${TWCRSF_VERSION}）"
+              exit 1
+            fi
+            ls "$dest/package" | head -5
+          fi
+          # 小寫別名（SUSHI 實際查找的名稱）。以複本而非符號連結提供，避免快取打包／
+          # 還原與套件管理器對連結之處理差異。
+          if [ ! -f "$lower/package/package.json" ]; then
+            rm -rf "$lower"
+            cp -a "$dest" "$lower"
+            echo "已另以小寫名稱提供同一份套件：$lower"
+          fi
+          # 驗證兩者皆就位——SUSHI 找不到就會回頭連 registry，而該套件未上架，必然失敗。
+          for d in "$dest" "$lower"; do
+            [ -f "$d/package/package.json" ] || { echo "FAIL 套件目錄缺失：$d"; exit 1; }
+          done
+
+      # 上游套件把「本套件渲染於何處」記成了建置者的本機 Windows 路徑
+      # （file://C:\Users\Lily\TWCR_SF\output）。IG Publisher 以該基底組出本 IG
+      # profile 敘述中指向 TWCR_SF 值集之連結，於 run 32347196173 產生 3 筆 ERROR：
+      #
+      #   StructureDefinition/TWHA-SocialHistory-BetelNut: StructureDefinition.text.div:
+      #   The URL is not valid because '(URL contains 4 Invalid Characters: '\')':
+      #   file://C:\Users\Lily\TWCR_SF\output/ValueSet-sf-BetNutChew{Amount,Year,Quit}-valueset.html
+      #
+      # 這是上游封裝之瑕疵，本 IG 無從於原始碼修正——但也不能不管：不修的話，本 IG
+      # 發佈出去的 profile 頁面會帶著指向他人電腦的 file:// 連結。故於安裝階段將該基底
+      # 改為上游站台實際位址，使連結指向真正的上游頁面。**只改渲染基底，不動任何定義。**
+      #
+      # ⚠️ 失敗設計：找不到可替換之處即中止。若上游改版修好了此問題，掃描會 0 命中，
+      #    此時以「站台位址是否已存在」區分「已修好」與「假設失效」——後者必須讓 CI 紅，
+      #    否則本步驟會靜默地什麼都沒做，而錯誤照樣出現在下一步。
+      - name: Repair TWCR_SF rendering base
+        env:
+          TWCRSF_VERSION: '0.1.1'
+          TWCRSF_SITE: 'https://mitw.dicom.org.tw/IG/TWCR_SF'
+        run: |
+          set -euo pipefail
+          node - "$HOME/.fhir/packages/fhir.TWCRSF#${TWCRSF_VERSION}" \
+                 "$HOME/.fhir/packages/fhir.twcrsf#${TWCRSF_VERSION}" <<'EOF'
+          const fs = require('fs'), path = require('path');
+          const SITE = process.env.TWCRSF_SITE;
+          // 吃到 output 區段為止：file://C:\Users\Lily\TWCR_SF\output/X.html -> <SITE>/X.html
+          const RE = /file:\/\/[^"'\s]*?output(?=[\\/]|["'\s]|$)/g;
+          let replaced = 0, siteSeen = false, files = 0, root = '';
+          const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {
+            const p = path.join(d, e.name);
+            if (e.isDirectory()) return walk(p);
+            let s;
+            try { s = fs.readFileSync(p, 'utf8'); } catch { return; }
+            if (s.includes(SITE)) siteSeen = true;
+            if (!s.includes('file://')) return;
+            const hits = s.match(RE);
+            if (!hits) return;
+            fs.writeFileSync(p, s.replace(RE, SITE));
+            replaced += hits.length; files += 1;
+            console.log(`  ${path.relative(root, p)}：${hits.length} 處 → ${SITE}`);
+            [...new Set(hits)].forEach((h) => console.log(`      原值 ${h}`));
+          });
+          process.argv.slice(2).forEach((r) => {
+            root = r;
+            if (!fs.existsSync(root)) { console.error(`FAIL 套件目錄不存在：${root}`); process.exit(1); }
+            console.log(`掃描 ${root}`);
+            walk(root);
+          });
+          console.log(`共改寫 ${replaced} 處，涉及 ${files} 個檔案。`);
+          if (replaced === 0) {
+            if (siteSeen) { console.log('0 命中，但站台位址已存在——判定先前已修復（快取命中），通過。'); }
+            else {
+              console.error('FAIL 掃描 0 命中且查無站台位址：上游封裝可能已改版，本步驟之假設失效。');
+              console.error('     請重新檢視套件內容後更新本步驟，不要讓它靜默通過。');
+              process.exit(1);
+            }
+          }
+          EOF
+
       - name: Cache IG Publisher jar
         uses: actions/cache@v4
         with:
@@ -129,6 +253,27 @@ jobs:
       # target-relative」；5 組 comment 矛盾則為 JOB-01 只修 display 未修 comment 之殘留。
       - name: Check downloadable assets are current
         run: npm run check:assets
+
+      # T-6 實驗開關。預設不啟用；設為 true 時移除 no-validate 之【B】五項，
+      # 讓該次建置的 qa.txt 顯示「若移除會浮出多少訊息」。這是取得決策依據的方式，
+      # 取代憑猜測直接移除（本專案既定原則：不預先猜測 QA 數字）。
+      # ⚠️ 此模式之產出不得用於發佈，亦不得據以更新 qa-baseline.json。
+      - name: '[experiment] Drop no-validate group B'
+        if: github.event.inputs.drop-no-validate == 'true'
+        run: |
+          set -euo pipefail
+          echo "⚠️ 實驗模式：移除 no-validate 之【B】五項（T-6 量測用，非發佈用）"
+          node - <<'EOF'
+          const fs = require('fs');
+          const B = ['VS-CoreDataset','VS-ExtendedDataset','VS-OccHealthCheck-Required',
+                     'VS-PulmonaryFunction','VS-TWHAVitalSigns'];
+          let s = fs.readFileSync('sushi-config.yaml','utf8');
+          const before = s.split(/\r?\n/).length;
+          s = s.split(/\r?\n/).filter(l => !B.some(v => l.includes(`/ValueSet/${v}`) && l.trim().startsWith('-'))).join('\n');
+          fs.writeFileSync('sushi-config.yaml', s);
+          console.log(`已移除 ${before - s.split(/\r?\n/).length} 行；保留 VS-UnfitDiseases（【A】類）`);
+          EOF
+          grep -A 8 'no-validate:' sushi-config.yaml
 
       - name: Run SUSHI
         run: npm run sushi
@@ -259,13 +404,17 @@ jobs:
           npm run check:i18n:selftest
           npm run check:i18n
 
+      # 比對表另存一份，供結尾之「QA gate summary」複述——見該步驟之說明。
+      # 管線末端是 tee，預設會以 tee 的退出碼作為整條管線之結果，閘門失敗將被吞掉；
+      # 故加 `set -o pipefail`，使 npm 的非零退出碼傳出，閘門失敗仍讓建置紅。
       - name: QA gate
         run: |
+          set -o pipefail
           if [ "$TX_SERVER" = "n/a" ]; then
             echo "::warning::離線建置（-tx n/a），未經術語驗證，不得作為送審依據。"
-            npm run qa -- --log input-cache/publisher-run.log
+            npm run qa -- --log input-cache/publisher-run.log 2>&1 | tee /tmp/qa-gate.txt
           else
-            npm run qa -- --log input-cache/publisher-run.log --expect-tx
+            npm run qa -- --log input-cache/publisher-run.log --expect-tx 2>&1 | tee /tmp/qa-gate.txt
           fi
 
       # JOB-19 線 B（＋補充事項 §2／§3）：UCUM 建議單位稽核閘門（需 tx；離線建置略過）。
@@ -329,6 +478,30 @@ jobs:
           path: output
           if-no-files-found: error
           retention-days: 14
+
+      # 把 QA 閘門的比對表複述於 job 結尾，並寫入 job summary。
+      #
+      # 它是本建置最重要的產出，也是回填 qa-baseline.json 的唯一依據（見
+      # docs/RELEASE.md §2.2：增量與降幅一律以 CI 實測為準，不得預先猜測）。但在原
+      # 位置之後還有 UCUM 逐碼清單（320 行）與數千個檔案的 artifact 上傳日誌，往回捲
+      # 很久才看得到；以日誌 API 取尾段時更是完全構不到，實測要回填時只能改用上一次
+      # 失敗建置的數字——那正是「拿別次量測充當本次實測」的入口。故在此複述一次。
+      - name: QA gate summary (repeat)
+        if: always()
+        run: |
+          set -u
+          if [ ! -f /tmp/qa-gate.txt ]; then
+            echo "(無 QA 閘門輸出——建置在該步驟之前即中止)"
+            exit 0
+          fi
+          cat /tmp/qa-gate.txt
+          {
+            echo '### QA 閘門比對表'
+            echo ''
+            echo '```'
+            cat /tmp/qa-gate.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
   # ==================================================================== 發佈
   # JOB-08 第二階段。**預設不會自動執行**：
