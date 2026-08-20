@@ -404,13 +404,17 @@ jobs:
           npm run check:i18n:selftest
           npm run check:i18n
 
+      # 比對表另存一份，供結尾之「QA gate summary」複述——見該步驟之說明。
+      # 管線末端是 tee，預設會以 tee 的退出碼作為整條管線之結果，閘門失敗將被吞掉；
+      # 故加 `set -o pipefail`，使 npm 的非零退出碼傳出，閘門失敗仍讓建置紅。
       - name: QA gate
         run: |
+          set -o pipefail
           if [ "$TX_SERVER" = "n/a" ]; then
             echo "::warning::離線建置（-tx n/a），未經術語驗證，不得作為送審依據。"
-            npm run qa -- --log input-cache/publisher-run.log
+            npm run qa -- --log input-cache/publisher-run.log 2>&1 | tee /tmp/qa-gate.txt
           else
-            npm run qa -- --log input-cache/publisher-run.log --expect-tx
+            npm run qa -- --log input-cache/publisher-run.log --expect-tx 2>&1 | tee /tmp/qa-gate.txt
           fi
 
       # JOB-19 線 B（＋補充事項 §2／§3）：UCUM 建議單位稽核閘門（需 tx；離線建置略過）。
@@ -474,6 +478,30 @@ jobs:
           path: output
           if-no-files-found: error
           retention-days: 14
+
+      # 把 QA 閘門的比對表複述於 job 結尾，並寫入 job summary。
+      #
+      # 它是本建置最重要的產出，也是回填 qa-baseline.json 的唯一依據（見
+      # docs/RELEASE.md §2.2：增量與降幅一律以 CI 實測為準，不得預先猜測）。但在原
+      # 位置之後還有 UCUM 逐碼清單（320 行）與數千個檔案的 artifact 上傳日誌，往回捲
+      # 很久才看得到；以日誌 API 取尾段時更是完全構不到，實測要回填時只能改用上一次
+      # 失敗建置的數字——那正是「拿別次量測充當本次實測」的入口。故在此複述一次。
+      - name: QA gate summary (repeat)
+        if: always()
+        run: |
+          set -u
+          if [ ! -f /tmp/qa-gate.txt ]; then
+            echo "(無 QA 閘門輸出——建置在該步驟之前即中止)"
+            exit 0
+          fi
+          cat /tmp/qa-gate.txt
+          {
+            echo '### QA 閘門比對表'
+            echo ''
+            echo '```'
+            cat /tmp/qa-gate.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
   # ==================================================================== 發佈
   # JOB-08 第二階段。**預設不會自動執行**：
