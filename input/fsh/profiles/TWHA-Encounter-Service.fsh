@@ -10,5 +10,3 @@ Description: "【依據：勞工健康保護規則附表】本 Profile 用於描
 * class = http://terminology.hl7.org/CodeSystem/v3-ActCode#FLD
 * participant.individual only Reference(TWHAPractitionerProfile)
 * serviceProvider only Reference(TWHAOrganizationFacilityProfile)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

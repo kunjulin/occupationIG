@@ -7,5 +7,3 @@ Description: "【技術規格】本 Profile 用於彙整勞工體格及健康檢
 * performer only Reference(TWHAPractitionerProfile or TWHAOrganizationFacilityProfile)
 * encounter only Reference(TWHAEncounterProfile)
 * imagingStudy only Reference(TWCoreImagingStudy)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

@@ -29,7 +29,6 @@ Description: "【依據：勞工健康保護規則附表】附表十第 2 項噪
 * LNC#89015-2 "Pure tone air conduction threshold audiometry panel"    // 純音聽力（0.5–8 kHz 各頻率以 TWHA-HearingTest component 承載）
 
 // ---- 鉛作業（附表十 5；★ 第一期已結構化）----
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_Appendix10LeadRequiredSet
 Id: VS-Appendix10-Lead-RequiredSet
 Title: "附表十 鉛作業 專屬應執行項目值集"
@@ -42,7 +41,6 @@ Description: "【依據：勞工健康保護規則附表】附表十第 5 項鉛
 * LNC#11215-1 "Delta aminolevulinate [Mass/volume] in Urine"          // 尿中 δ-胺基酮戊酸
 
 // ---- 粉塵作業（附表十 23；★ 第一期已結構化）----
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_Appendix10DustRequiredSet
 Id: VS-Appendix10-Dust-RequiredSet
 Title: "附表十 粉塵作業 專屬應執行項目值集"
@@ -57,7 +55,6 @@ Description: "【依據：勞工健康保護規則附表】附表十第 23 項�
 // ---- 有機溶劑作業（附表十 7–12、33–35；涵蓋表列為已審／已驗）----
 // 一個值集涵蓋有機溶劑家族之各作業專屬尿中代謝物；哪一號作業對應哪一代謝物，
 // 見 special-exam.md 涵蓋表與各節說明。肝功能 ALT／γ-GT 為家族共同要求。
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_Appendix10OrganicSolventRequiredSet
 Id: VS-Appendix10-OrganicSolvent-RequiredSet
 Title: "附表十 有機溶劑作業 專屬應執行項目值集"
@@ -77,7 +74,6 @@ Description: "【依據：勞工健康保護規則附表】附表十第 7–12�
 // ---- grouping：附表十已落地家族之總集 ----
 // 隨 JOB-01 逐家族結案，於此 include 增列對應子值集；未落地家族之清單見
 // special-exam.md 涵蓋表與 M-8。此為分期揭露，非「附表十完整需求」之表述。
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_Appendix10RequiredSet
 Id: VS-Appendix10-RequiredSet
 Title: "附表十 特殊健康檢查應執行項目值集（已落地家族）"
@@ -88,5 +84,3 @@ Description: "【依據：勞工健康保護規則附表】附表十特別危害
 * include codes from valueset VS_Appendix10LeadRequiredSet
 * include codes from valueset VS_Appendix10DustRequiredSet
 * include codes from valueset VS_Appendix10OrganicSolventRequiredSet
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

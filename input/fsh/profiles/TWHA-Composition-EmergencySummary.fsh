@@ -45,5 +45,3 @@ Description: "【技術規格】職業健康急診友善摘要（Occupational He
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "健康管理分級與急診注意事項"
 * section[assessment].entry only Reference(ClinicalImpression or CarePlan)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

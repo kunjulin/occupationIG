@@ -51,12 +51,9 @@ Description: "【依據：勞工健康保護規則附表】《勞工健康保護
 * #app-35 ^designation[0].value = "draft：115.06.26 修正新增之具名作業，施行日尚待勞動部職業安全衛生署確認；本 IG 之檢查項目與代碼配置屬暫定"
 
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_Appendix10Operation
 Id: VS-Appendix10-Operation
 Title: "附表十特別危害健康作業值集（35 項）"
 Description: "【依據：勞工健康保護規則附表】包含《勞工健康保護規則》附表十 35 項法定具名作業之代碼。"
 * ^experimental = false
 * include codes from system CS_Appendix10Operation
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

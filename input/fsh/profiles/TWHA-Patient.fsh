@@ -6,5 +6,3 @@ Description: "【技術規格】本 Profile 用於描述接受健康檢查（含
 * extension contains ExtEmployerInfo named employerInfo 0..1
 * extension contains ExtEmploymentDate named employmentDate 0..1
 * extension contains ExtDepartment named department 0..1
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

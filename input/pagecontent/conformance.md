@@ -209,9 +209,17 @@ Level 2 涵蓋附表九／十／十一之法定應執行項目值集、特別危
 故該標籤寫「依據」而非治理或主管機關（§7.0）。
 
 成熟度以 HL7 `structuredefinition-standards-status` extension 標示：
-**Level 1 之 artifact 標 `trial-use`，其餘標 `draft`**；
+**Level 1 之 24 件 artifact 標 `trial-use`；Level 2 與共用技術結構不標**。
 **IG 層之 `status` 不變**——FHIR IG 一次只能發佈一個版本，
 故「兩區塊各走各的節奏」無法靠版次達成，只能靠層級與 artifact 標籤。
+
+> ⚠️ **為何 Level 2 不標 `draft`**：IG Publisher 會交叉檢查 `standards-status` 與資源本身之
+> `status`（`draft` ↔ `status = draft`、`trial-use` ↔ `status = active`）。本指引之
+> artifact 一律繼承 `status: active`，故標 `draft` 會使該 artifact **自相矛盾**
+> ——CI 實測命中 **71 件**。要讓 `draft` 成立，須把該 71 件之 `status` 改為 `draft`，
+> 屬**已發佈中繼資料之規範性變更**，超出本版範圍，待裁示。
+> 在此之前，Level 2 之較低成熟度由**本節之層級定義與權責標籤**表達，
+> **不以自相矛盾的中繼資料表達**。
 
 > 嚼檳系列之 `experimental` 維持 `true`：其理由為所綁本地值集皆為 provisional、
 > 待 [M-5](open-issues.html#m-5)。**不得為使 Core 之外觀較佳而改標 `false`**

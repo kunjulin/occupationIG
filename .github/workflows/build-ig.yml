@@ -503,39 +503,6 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
-      # ⚠️ 一次性統計（JOB-30 步驟 4：standards-status 帶進來的新訊息形態）
-      # ——**取得結果後即移除**。
-      #
-      # v0.5.0 為 101 個 artifact 補上 standards-status，QA 閘門之具名類別全數持平、
-      # err = 0（故 ValueSet／CodeSystem 之 context 確定被接受），惟 TOTAL warn +10、
-      # info +17。摘要只印出前 15 種形態，看得到「status 與 standards status 不一致」
-      # 這個新類別存在，**但看不到它究竟命中哪些 artifact、共幾筆**。
-      # 不知道確切名單就無從判斷該改 status、改標籤、還是具名上調基準線。
-      #
-      # ⚠️ 位置固定在 build job 結尾並加 if: always()；輸出逐筆但已收斂到兩個類別，
-      #    不傾印整份 qa.txt（重蹈 LOINC RELATEDNAMES2 之覆轍者為輸出過量）。
-      - name: '[one-shot] standards-status 帶進之新訊息（JOB-30）'
-        if: always()
-        run: |
-          set -u
-          f=output/qa.txt
-          [ -f "$f" ] || { echo "MARKER-NO-QA 找不到 $f（建置未產生）"; exit 0; }
-          node - "$f" <<'EOF'
-          const fs = require('fs');
-          const lines = fs.readFileSync(process.argv[2], 'utf8').split(/\r?\n/);
-          const show = (label, re) => {
-            const hit = lines.filter((l) => re.test(l));
-            console.log(`MARKER-${label} 共 ${hit.length} 筆`);
-            // 逐筆列出資源名即可，訊息本文相同，不重複印
-            const ids = hit.map((l) => (l.match(/(CodeSystem|ValueSet|StructureDefinition)\/[\w.-]+/) || ['(未能解析)'])[0]);
-            const cnt = new Map();
-            for (const i of ids) cnt.set(i, (cnt.get(i) || 0) + 1);
-            for (const [i, n] of [...cnt].sort()) console.log(`    ${i}  ${n}`);
-          };
-          show('STATUS-INCONSISTENT', /standards status .* are not consistent|resource status .* standards status/i);
-          show('REF-DRAFT-CS', /Reference to draft CodeSystem/);
-          EOF
-
   # ==================================================================== 發佈
   # JOB-08 第二階段。**預設不會自動執行**：
   #

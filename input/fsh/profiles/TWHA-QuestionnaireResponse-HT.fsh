@@ -10,7 +10,6 @@ Description: "【主管機關：國民健康署】用於記錄成人預防保健
 * source only Reference(TWHAPatientProfile)
 * author only Reference(TWHAPatientProfile or TWHAPractitionerProfile)
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 Instance: adult-preventive-care-questionnaire
 InstanceOf: TWHAQuestionnaireProfile
 Title: "國健署成人預防保健生活習慣與既往病史問卷定義"

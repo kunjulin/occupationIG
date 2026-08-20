@@ -22,4 +22,3 @@ Description: "【依據：勞工健康保護規則附表】用於記錄受檢勞
 * component[workDetails].value[x] only string
 
 * obeys twha-obs-1
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

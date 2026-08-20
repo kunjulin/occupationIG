@@ -89,7 +89,13 @@ function checkArtifacts(root, map) {
       violations.push(`[G-1] ${where} ${a.id} Description 起首非登記之標籤 ${tag}（實為「${a.desc.slice(0, 14)}…」）`);
     }
     const want = statusOf(level);
-    if (a.statusCode === null) {
+    if (want === null) {
+      // 非 Level 1 者**不得**標 standards-status：標 draft 會與 status = active 互相矛盾
+      // （CI 實測命中 71 個 artifact），標 trial-use 又會謊報成熟度。見 governance-map.js。
+      if (a.statusCode !== null) {
+        violations.push(`[G-3] ${where} ${a.id} 層級 ${level} 不得標 standards-status（實為 #${a.statusCode}）`);
+      }
+    } else if (a.statusCode === null) {
       violations.push(`[G-3] ${where} ${a.id} 缺 standards-status（應為 #${want}）`);
     } else if (a.statusCode !== want) {
       violations.push(`[G-3] ${where} ${a.id} standards-status 為 #${a.statusCode}，登記層級 ${level} 應為 #${want}`);
@@ -153,9 +159,10 @@ function selfTest() {
     fs.mkdirSync(path.join(tmp, sub), { recursive: true });
     fs.writeFileSync(path.join(tmp, sub, name), body);
   };
+  // status 傳 null 代表不輸出 standards-status（非 Level 1 之正確形態）
   const good = (id, tag, status) =>
     `ValueSet: X\nId: ${id}\nTitle: "t"\nDescription: "${tag}測試值集。"\n` +
-    `* ^extension[${STANDARDS_STATUS_URL}].valueCode = #${status}\n`;
+    (status ? `* ^extension[${STANDARDS_STATUS_URL}].valueCode = #${status}\n` : '');
   const M = { 'VS-Ok': ['hpa', 1], 'VS-Bad': ['reg', 2] };
 
   const results = [];
@@ -177,12 +184,17 @@ function selfTest() {
 
   // ② standards-status 與層級不符 → 必須被抓到
   reset();
-  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'draft') + good('VS-Bad', TAGS.reg, 'draft'));
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'draft') + good('VS-Bad', TAGS.reg, null));
   run('② level 1 卻標 draft', () => checkArtifacts(tmp, M).violations.some((v) => v.startsWith('[G-3]')));
+
+  // ②b 非 Level 1 卻標了 standards-status → 必須被抓到（本輪新增之規則）
+  reset();
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft'));
+  run('②b 非 Level 1 卻標 standards-status', () => checkArtifacts(tmp, M).violations.some((v) => /不得標 standards-status/.test(v)));
 
   // ③ 未登記之新 artifact → 必須被抓到
   reset();
-  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft') +
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, null) +
      good('VS-Unregistered', TAGS.tech, 'draft'));
   run('③ 未登記之 artifact', () => checkArtifacts(tmp, M).violations.some((v) => /未登記/.test(v)));
 
@@ -206,7 +218,7 @@ function selfTest() {
 
   // ⑦ 完整正例：全部登記齊備時不得誤報
   reset();
-  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft'));
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, null));
   run('⑦ 齊備時不誤報（正向對照）', () => checkArtifacts(tmp, M).violations.length === 0);
 
   let bad = 0;
@@ -238,7 +250,8 @@ function main() {
   console.log(`權責標籤閘門：掃描 ${a.count} 個定義型 artifact，登記 ${Object.keys(MAP).length} 筆`);
   console.log(`  標籤分佈　國健署 ${byTag.hpa || 0}／勞工健康保護規則附表 ${byTag.reg || 0}／技術規格 ${byTag.tech || 0}`);
   console.log(`  層級分佈　Level 1 ${byLevel[1] || 0}（standards-status = trial-use）／` +
-              `Level 2 ${byLevel[2] || 0}／共用技術結構 ${byLevel[0] || 0}（draft）`);
+              `Level 2 ${byLevel[2] || 0}／共用技術結構 ${byLevel[0] || 0}` +
+              `（後兩者不標 standards-status——標 draft 會與 status = active 矛盾，見 governance-map.js）`);
   if (o.exempted.length) {
     console.log(`  G-4 否定句豁免 ${o.exempted.length} 行（逐行列出，抑制不得靜默）：`);
     o.exempted.forEach((e) => console.log(`    - ${e}`));

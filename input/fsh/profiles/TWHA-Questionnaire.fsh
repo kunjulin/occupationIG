@@ -6,5 +6,3 @@ Description: "【技術規格】用於定義勞工體格或健康檢查中，自
 * ^experimental = false
 * status = #active
 * item 1..*
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

@@ -420,3 +420,52 @@ v0.4.0 已解除原先的相依（JOB-29 實作完成），故 A 部與 B 部**�
 * **未動嚼檳系列之 `experimental`**、未變更 M-5 狀態、未升 Level 1 成熟度
   （驗收 #7；口頭同意不足以支撐規範文件之狀態變更）。
 * **未拆成兩個 IG**（§3.3）。
+
+### 7.7 `standards-status` 之實作偏離原案，並附一項待裁示
+
+**原案（§3.2(2)）**：Core 區塊標 `trial-use`、勞工區塊標 `draft`。
+**實作**：Level 1 之 24 件標 `trial-use`；**Level 2 與共用技術結構不標**。
+
+**理由為 CI 實測，非設計偏好。** IG Publisher 會交叉檢查 `standards-status`
+與資源本身之 `status`（`draft` ↔ `status = draft`；`trial-use`／`normative` ↔ `status = active`）。
+本 repo 之 `sushi-config.yaml` 宣告 `status: active` 並由全部 artifact 繼承
+（僅 6 個 ValueSet 明示覆寫為 `draft`），故凡標 `draft` 者皆自相矛盾。
+
+**PR #29 首輪實測（run 32387646599，err = 0，全部具名類別持平）**：
+TOTAL info 459→476（+17）、warn 152→162（+10），閘門以天花板退步失敗。
+第二輪加一次性統計逐筆列名（run 32388655444）：
+
+```
+MARKER-STATUS-INCONSISTENT 共 71 筆
+    CodeSystem/…            11 件（每件 1 筆）
+    StructureDefinition/…   45 件（36 profile ＋ 9 extension）
+    ValueSet/…              15 件
+MARKER-REF-DRAFT-CS 共 21 筆
+    CS-ExamType 8／CS-PhysicalExamSystems 6／CS-HazardType 4／CS-HealthCounseling 1／(未解析) 2
+```
+
+**71 ＝ 全部被標 `draft` 者**（50 Level 2 ＋ 27 共用 − 6 已明示 `status = draft` 之 ValueSet）。
+換言之這不是零星警告，而是**本 JOB 自己製造的系統性矛盾**。
+
+> ⚠️ **一項未解之計數落差，據實記錄**：qa.txt 中相符之行數為 71 ＋ 21 ＝ 92，
+> 而閘門計得之增量僅 27（warn 10 ＋ info 17）。**兩者對不起來，本輪未查明原因**
+> （可能是 qa.txt 於不同區段重複列出同一訊息，而摘要只計一次）。
+> 此落差**不影響本節之結論**——結論所依據的是「71 件被標 draft 者全部自相矛盾」
+> 這個事實，不是增量的絕對值。**不以未查明之推測充當已知。**
+
+#### 三條路與本版之選擇
+
+| | 作法 | 代價 |
+|:--|:--|:--|
+| (a) | 把該 71 件之 `status` 改為 `draft` | **已發佈中繼資料之規範性變更**——實作端據 `status` 判斷可否使用。超出本 JOB「不變更任何 Profile 之結構約束」之授權範圍 |
+| (b) | 全部改標 `trial-use` | 消除矛盾，但**謊報成熟度**，且 Level 1／Level 2 之差異化完全消失 |
+| **(c)** | **Level 1 標 `trial-use`；其餘不標**（本版採用） | 差異化保留（Level 1 明示成熟度，Level 2 未明示），無矛盾，無規範性變更 |
+
+**⚠️ 待 PI 裁示**：若認為勞工區塊之成熟度**必須**以機器可讀方式標為 `draft`，
+則須併同採 (a)，把該 71 件之 `status` 改為 `draft`——**該決定屬規範性變更，
+本團隊不逕行為之**。在裁示前，Level 2 之較低成熟度由 `conformance.md` §7 之層級定義
+與權責標籤表達。
+
+> 📌 本項與 JOB-29 §D.5.1 之教訓同型：**原案的規則在紙上成立，落到實作才發現
+> 它與另一項既有設定衝突**。處置一致——先量測命中範圍，再選代價最小且不越權的路，
+> 並把被放棄的選項與其代價寫下來，讓裁示者看得到自己在選什麼。

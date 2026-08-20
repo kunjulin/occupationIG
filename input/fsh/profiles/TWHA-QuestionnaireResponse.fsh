@@ -9,5 +9,3 @@ Description: "【技術規格】用於記錄勞工所填寫之自覺症狀問卷
 * subject only Reference(TWHAPatientProfile)
 * source only Reference(TWHAPatientProfile)
 * author only Reference(TWHAPatientProfile or TWHAPractitionerProfile)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

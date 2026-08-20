@@ -35,5 +35,3 @@ Description: "【依據：勞工健康保護規則附表】第一期法定必驗
 * LNC#20150-9 "FEV1" // 粉塵：FEV1（正確碼，v1.1 更正）
 * LNC#19926-5 "FEV1/FVC" // 粉塵：FEV1/FVC
 * LNC#36643-5 "XR Chest 2 Views" // 粉塵：胸部 X 光（2 views，塵肺症）
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

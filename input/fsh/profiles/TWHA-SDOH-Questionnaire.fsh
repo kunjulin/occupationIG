@@ -10,7 +10,6 @@ Description: "【技術規格】用於記錄受檢者之社會決定因素問卷
 * source only Reference(TWHAPatientProfile)
 * author only Reference(TWHAPatientProfile or TWHAPractitionerProfile)
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 Instance: twha-sdoh-questionnaire
 InstanceOf: TWHAQuestionnaireProfile
 Title: "精簡版 PRAPARE 社會風險問卷定義"

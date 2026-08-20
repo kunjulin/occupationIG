@@ -8,5 +8,3 @@ Description: "【技術規格】記錄受檢勞工於事業單位中所屬之部
 * ^context[1].type = #element
 * ^context[1].expression = "Encounter"
 * value[x] only string
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

@@ -9,7 +9,6 @@ Description: "【依據：勞工健康保護規則附表】第四級管理中，
 * #reduce-hours "縮短工作時間" "減少勞工暴露於危害作業之每日或每週工作時間。"
 * #clinical-treatment "醫療處置與限制" "限制從事特定性質工作或建議配合臨床治療。"
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_FitnessForWork
 Id: VS-FitnessForWork
 Title: "適性配工建議值集"
@@ -19,7 +18,6 @@ Description: "【依據：勞工健康保護規則附表】包含適性配工或
 
 /// -------------------------------------
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 CodeSystem: CS_LaborReportCode
 Id: CS-LaborReportCode
 Title: "勞動部通報報告代碼系統"
@@ -32,7 +30,6 @@ Description: "【依據：勞工健康保護規則附表】勞工健檢結果通
 * #30904X "鉛作業特殊健檢通報" "從事鉛作業勞工之特殊健檢結果通報。"
 * #30905X "其他特殊危害健康作業通報" "其他特別危害作業勞工之特殊健檢結果通報。"
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_LaborReportCode
 Id: VS-LaborReportCode
 Title: "勞動部通報報告代碼值集"
@@ -42,7 +39,6 @@ Description: "【依據：勞工健康保護規則附表】包含勞動部通報
 
 /// -------------------------------------
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 CodeSystem: CS_ServiceActivityType
 Id: CS-ServiceActivityType
 Title: "臨場健康服務辦理事項代碼系統"
@@ -58,12 +54,9 @@ Description: "【依據：勞工健康保護規則附表】附表八中醫護人
 * #unfit-assessment "配工與復工評估" "辦理勞工適性配工、工作限制或復工評估。"
 * #emergency-response "緊急醫療規劃" "規劃與辦理工作場所緊急醫療與急救計畫。"
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_ServiceActivityType
 Id: VS-ServiceActivityType
 Title: "臨場健康服務辦理事項值集"
 Description: "【依據：勞工健康保護規則附表】包含臨場健康服務項目活動類別代碼之值集。（provisional，隨 CS-ServiceActivityType 待官方確認）"
 * ^experimental = true
 * include codes from system CS_ServiceActivityType
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

@@ -9,5 +9,3 @@ Description: "【依據：勞工健康保護規則附表】用於 CarePlan 中�
 * ^context[0].expression = "CarePlan"
 * value[x] only CodeableConcept
 * valueCodeableConcept from VS_FitnessForWork (required)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

@@ -34,7 +34,6 @@ Description: "【依據：勞工健康保護規則附表】附表十一理學檢
 * #musculoskeletal "肌肉骨骼系統" "包含脊椎、四肢關節活動度及肌肉力量之檢查。"
 * #skin "皮膚" "包含皮膚疹、黃疸、疤痕或潰瘍之檢查。"
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_PhysicalExamSystems
 Id: VS-PhysicalExamSystems
 Title: "身體檢查系統部位值集"
@@ -44,12 +43,9 @@ Description: "【依據：勞工健康保護規則附表】包含理學檢查中
 
 /// -------------------------------------
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_UnfitDiseases
 Id: VS-UnfitDiseases
 Title: "不適合從事作業之疾病值集"
 Description: "【依據：勞工健康保護規則附表】依據勞工健康保護規則附表十二所列，不適合從事特定特別危害健康作業之疾病代碼值集（以 ICD-10-CM 表示）。"
 * ^experimental = false
 * include codes from system ICD10CM
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

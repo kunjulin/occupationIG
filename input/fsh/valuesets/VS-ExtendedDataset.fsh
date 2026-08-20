@@ -409,4 +409,3 @@ Description: "【技術規格】包含特殊健康檢查與體格檢查之實驗
 
 // 3-x 視力檢查
 * LNC#98497-1 "Visual acuity panel"
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

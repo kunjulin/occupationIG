@@ -39,5 +39,3 @@ Description: "【依據：勞工健康保護規則附表】本 Profile 用於定
 * section[recommendations].code = http://loinc.org#51898-5
 * section[recommendations].title = "改善建議與追蹤"
 * section[recommendations].entry only Reference(Task)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

@@ -6,5 +6,3 @@ Description: "【依據：勞工健康保護規則附表】標註此次健康檢
 * ^context[0].type = #element
 * ^context[0].expression = "Encounter"
 * value[x] only Quantity
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

@@ -156,7 +156,6 @@ Description: "【技術規格】用於記錄勞工之飲酒習慣歷史與狀態
 * value[x] only CodeableConcept
 
 * obeys twha-obs-1
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 Profile: TWHASocialHistorySleepProfile
 Parent: Observation
 Id: TWHA-SocialHistory-Sleep
@@ -174,4 +173,3 @@ Description: "【技術規格】用於記錄勞工之平均每日睡眠時間（
 * valueQuantity.unit = "hours"
 
 * obeys twha-obs-1
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

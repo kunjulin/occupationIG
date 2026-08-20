@@ -13,4 +13,3 @@ Description: "【依據：勞工健康保護規則附表】用於以獨立 Obser
 * valueCodeableConcept from VS_HealthMgmtLevel (required)
 
 * obeys twha-obs-1
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

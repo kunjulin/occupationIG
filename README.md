@@ -184,8 +184,13 @@ set NODE_OPTIONS=--use-system-ca
   確認之事項，並產出送簽確認單草稿 [`docs/drafts/HPA-CONFIRMATION-JOB-30.md`](docs/drafts/HPA-CONFIRMATION-JOB-30.md)。
 - **權責標籤**：101 個定義型 artifact 之 `Description` 起首標示內容依據——
   `【主管機關：國民健康署】` **24**／`【依據：勞工健康保護規則附表】` **50**／`【技術規格】` **27**。
-  導入 HL7 `structuredefinition-standards-status`（Level 1 之 24 件標 `trial-use`，其餘 `draft`），
-  **IG 層 `status` 不動**——FHIR IG 一次只能發一個版本，分軌無法靠版次達成。
+  導入 HL7 `structuredefinition-standards-status`（**Level 1 之 24 件標 `trial-use`；
+  Level 2 與共用技術結構不標**），**IG 層 `status` 不動**——FHIR IG 一次只能發一個版本，
+  分軌無法靠版次達成。
+- ⚠️ **原訂「勞工區塊標 `draft`」依 CI 實測改為不標**：IG Publisher 交叉檢查
+  `standards-status` 與資源之 `status`，本指引 artifact 一律繼承 `status: active`，
+  標 `draft` 即自相矛盾——**實測命中 71 件**。要讓 `draft` 成立須改那 71 件之 `status`，
+  屬已發佈中繼資料之規範性變更，超出本版範圍，**待裁示**（JOB-30 §7.7）。
 - 新增登記表 [`scripts/governance-map.js`](scripts/governance-map.js) 與閘門
   [`scripts/check-governance-tags.js`](scripts/check-governance-tags.js)（七組自我測試，
   其中兩組為**正向對照**），已掛入 `npm run verify`。該閘門並**禁止把職安署寫成本指引之

@@ -49,5 +49,3 @@ Description: "【依據：勞工健康保護規則附表】雇主端／職安人
 * section[serviceFindings].code = http://loinc.org#29554-3
 * section[serviceFindings].title = "臨場服務發現問題"
 * section[serviceFindings].entry only Reference(TWHAObservationServiceFindingProfile)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

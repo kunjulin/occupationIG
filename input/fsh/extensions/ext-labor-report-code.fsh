@@ -13,5 +13,3 @@ Description: "【依據：勞工健康保護規則附表】標註此檢查結果
 * ^context[2].expression = "Bundle"
 * value[x] only CodeableConcept
 * valueCodeableConcept from VS_LaborReportCode (required)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

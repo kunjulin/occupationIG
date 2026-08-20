@@ -8,5 +8,3 @@ Description: "【依據：勞工健康保護規則附表】用於針對第四級
 * intent = #plan
 * subject only Reference(TWHAPatientProfile)
 * extension contains ExtFitnessForWork named fitnessForWork 1..*
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

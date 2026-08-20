@@ -10,4 +10,3 @@ Description: "【依據：勞工健康保護規則附表】用於記錄勞工心
 * value[x] only CodeableConcept
 
 * obeys twha-obs-1
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

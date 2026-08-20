@@ -7,5 +7,3 @@ Description: "【技術規格】標註該就醫事件（Encounter）是屬於一
 * ^context[0].expression = "Encounter"
 * value[x] only CodeableConcept
 * valueCodeableConcept from VS_ExamType (required)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

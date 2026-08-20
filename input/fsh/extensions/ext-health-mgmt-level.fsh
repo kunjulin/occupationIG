@@ -11,5 +11,3 @@ Description: "【依據：勞工健康保護規則附表】記錄醫師針對勞
 * ^context[1].expression = "Observation"
 * value[x] only CodeableConcept
 * valueCodeableConcept from VS_HealthMgmtLevel (required)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

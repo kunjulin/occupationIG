@@ -9,12 +9,9 @@ Description: "【技術規格】勞工體格及健康檢查之類型，包含一
 * #special-physical "特殊體格檢查" "雇主使勞工從事特別危害健康作業前，實施之體格檢查。"
 * #special-health "特殊健康檢查" "雇主對從事特別危害健康作業在職勞工，每年實施之定期健康檢查。"
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_ExamType
 Id: VS-ExamType
 Title: "檢查類型值集"
 Description: "【技術規格】包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查之代碼。"
 * ^experimental = false
 * include codes from system CS_ExamType
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

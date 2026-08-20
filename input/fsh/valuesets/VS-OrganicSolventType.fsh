@@ -12,7 +12,6 @@ Description: "【依據：勞工健康保護規則附表】特別危害健康作
 * #dimethylformamide "二甲基甲醯胺"
 * #n-hexane "正己烷"
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_OrganicSolventType
 Id: VS-OrganicSolventType
 Title: "有機溶劑種類值集"
@@ -22,7 +21,6 @@ Description: "【依據：勞工健康保護規則附表】包含特別危害健
 
 /// -------------------------------------
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 CodeSystem: CS_SpecificChemicalType
 Id: CS-SpecificChemicalType
 Title: "特定化學物質種類代碼系統"
@@ -42,12 +40,9 @@ Description: "【依據：勞工健康保護規則附表】特別危害健康作
 * #mercury "汞"
 * #formaldehyde "甲醛"
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_SpecificChemicalType
 Id: VS-SpecificChemicalType
 Title: "特定化學物質種類值集"
 Description: "【依據：勞工健康保護規則附表】包含特別危害健康作業中之常見特定化學物質代碼。"
 * ^experimental = false
 * include codes from system CS_SpecificChemicalType
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

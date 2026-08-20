@@ -24,7 +24,23 @@
 //   2 → Level 2｜勞工健檢涵蓋
 //   0 → 不屬任一合規層級之共用技術結構（兩層皆會用到，但本身不構成合規標的）
 //
-// standards-status 由 level 決定：level 1 → trial-use，其餘 → draft。
+// standards-status：**只有 level 1 標 `trial-use`；其餘不標**。
+//
+// ⚠️ 這一點與 JOB-30 §3.2(2) 原訂之「勞工區塊標 draft」不同，理由為 CI 實測
+//    （PR #29 run 32388655444）：IG Publisher 會交叉檢查 standards-status 與資源本身之
+//    `status`，`draft` ↔ `status = draft`、`trial-use`／`normative` ↔ `status = active`。
+//    本 repo 之 `sushi-config.yaml` 宣告 `status: active` 並由全部 artifact 繼承
+//    （僅 6 個 ValueSet 明示覆寫為 draft），故一旦標 `draft` 即產生
+//    「The resource status and the standards status are not consistent」——
+//    **實測命中 71 個 artifact，等於每一個被標 draft 者都自相矛盾**。
+//
+//    要讓 draft 成立，只能把那 71 個 artifact 之 `status` 改為 `draft`，
+//    那是**已發佈中繼資料之規範性變更**（實作端會據 status 判斷可否使用），
+//    超出本 JOB「不變更任何 Profile 之結構約束」之範圍，須由 PI 裁示。
+//    故本版採**不標**：Level 1 之成熟度明示為 trial-use，Level 2 與共用結構
+//    之較低成熟度改由 §7 之層級定義與權責標籤表達，不以自相矛盾的中繼資料表達。
+//    此項已登記於 JOB-30 §7.7 待裁示。
+//
 // 例：TWHA-Bundle-Transaction 之內容依據是技術決定（tag = tech），
 //     但它是 Level 1 之上傳封包結構（level = 1）——這正是兩軸不可互推之實例。
 
@@ -150,6 +166,7 @@ const MAP = {
 const STANDARDS_STATUS_URL =
   'http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status';
 
-const statusOf = (level) => (level === 1 ? 'trial-use' : 'draft');
+// 回傳 null 代表「不得標 standards-status」（見上方之理由）。
+const statusOf = (level) => (level === 1 ? 'trial-use' : null);
 
 module.exports = { TAGS, MAP, STANDARDS_STATUS_URL, statusOf };

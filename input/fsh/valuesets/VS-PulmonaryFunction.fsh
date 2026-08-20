@@ -13,5 +13,3 @@ Description: "【依據：勞工健康保護規則附表】包含常用之肺功
 * LNC#19911-7 "Diffusion capacity.carbon monoxide"
 * LNC#19862-2 "Total lung capacity"
 * LNC#20146-7 "Residual volume"
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

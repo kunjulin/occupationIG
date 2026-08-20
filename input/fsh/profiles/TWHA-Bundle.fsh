@@ -17,7 +17,6 @@ Description: "【技術規格】用於健檢報告交換的 Document Bundle，�
 * entry.resource 1..1
 * obeys twha-bnd-1
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 Profile: TWHABundleTransactionProfile
 Parent: Bundle
 Id: TWHA-Bundle-Transaction

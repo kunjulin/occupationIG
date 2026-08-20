@@ -15,5 +15,3 @@ Description: "【依據：勞工健康保護規則附表】用於記錄臨場服
 * owner only Reference(TWCoreOrganization) // 主管或改善單位
 * focus only Reference(TWHAObservationServiceFindingProfile) // 指向發現的問題/風險
 * extension contains ExtEmployerInfo named employerInfo 1..1
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

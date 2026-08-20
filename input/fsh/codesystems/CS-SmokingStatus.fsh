@@ -31,12 +31,9 @@ Description: "【依據：勞工健康保護規則附表】依據勞工健康保
 * #level-3 "第三級管理" "健康檢查結果異常，且無法確定其異常與工作之相關性，需進行追蹤檢查或工作場所危害暴露評估者。"
 * #level-4 "第四級管理" "健康檢查結果異常，且經醫師評估與工作相關，屬健康危害顯著，需進行適性配工與治療者。"
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_HealthMgmtLevel
 Id: VS-HealthMgmtLevel
 Title: "健康管理分級值集"
 Description: "【依據：勞工健康保護規則附表】包含健康管理分級（第一級至第四級）代碼之值集。（provisional，隨 CS-HealthMgmtLevel 待官方確認）"
 * ^experimental = true
 * include codes from system CS_HealthMgmtLevel
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

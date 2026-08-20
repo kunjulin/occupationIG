@@ -17,12 +17,9 @@ Description: "【依據：勞工健康保護規則附表】勞工健康保護規
 * #paraquat "聯吡啶或巴拉刈作業" "製造、處置或使用聯吡啶或巴拉刈之作業。"
 * #other "其他指定作業" "其他經中央主管機關公告指定之作業。"
 
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 ValueSet: VS_HazardType
 Id: VS-HazardType
 Title: "特別危害健康作業類別值集"
 Description: "【依據：勞工健康保護規則附表】包含 12 大類特別危害健康作業類別之代碼。"
 * ^experimental = false
 * include codes from system CS_HazardType
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

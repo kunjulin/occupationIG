@@ -52,5 +52,3 @@ Description: "【依據：勞工健康保護規則附表】《勞工健康保護
 * LNC#2089-1 "Cholesterol in LDL [Mass/volume] in Serum or Plasma"   // LDL-C（健康檢查欄新增）
 // 附表九(3)：胸部 X 光（大片）
 * LNC#24648-8 "XR Chest PA upright"                                    // 胸部 X 光
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

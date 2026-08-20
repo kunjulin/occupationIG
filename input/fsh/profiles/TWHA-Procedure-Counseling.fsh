@@ -8,5 +8,3 @@ Description: "【技術規格】用於記錄成人預防保健服務及一般健
 * code from VS_HealthCounseling (required)
 * subject only Reference(TWHAPatientProfile)
 * encounter only Reference(TWHAEncounterProfile)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

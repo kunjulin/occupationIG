@@ -57,5 +57,3 @@ Description: "【技術規格】本 Profile 用於定義一般健康檢查、勞
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "醫師總評、分級與建議"
 * section[assessment].entry only Reference(ClinicalImpression or CarePlan or ServiceRequest or Procedure)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

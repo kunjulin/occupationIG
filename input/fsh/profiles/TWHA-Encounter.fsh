@@ -11,5 +11,3 @@ Description: "【技術規格】本 Profile 用於描述勞工進行一般體格
 * subject only Reference(TWHAPatientProfile)
 * participant.individual only Reference(TWHAPractitionerProfile)
 * serviceProvider only Reference(TWHAOrganizationFacilityProfile)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft

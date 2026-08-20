@@ -12,5 +12,3 @@ Description: "【技術規格】關聯受檢勞工所屬之事業單位組織資
 * ^context[3].type = #element
 * ^context[3].expression = "Task"
 * value[x] only Reference(TWCoreOrganization)
-
-* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
