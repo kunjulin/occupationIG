@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.5.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.6.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -160,6 +160,47 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.6.0（2026-08-20）主管機關答覆之落地 ＋ 勞工區塊標 `draft`（JOB-30 §7.8）
+
+> ⚠️ **本版含規範性中繼資料變更**：Level 2 之 50 件 artifact，其 `status` 由 `active`
+> 改為 `draft`。實作端據 `status` 判斷該 artifact 是否可納入正式系統，**請留意**。
+> Level 1 之 24 件不受影響（`status` 仍為 `active`）——**這正是分軌的目的**。
+
+**三項差異已獲主管機關答覆**（2026-08-20，口頭轉述，書面待補）：
+
+| # | 事項 | 答覆 | 處置 |
+|:--|:--|:--|:--|
+| ① | BMI 是否納入 21 列 | **不納入** | 維持現況；`39156-5` 供生理量測用，不屬最小上傳集 |
+| ② | 第 11 列「嚼檳月數」語意 | **指「嚼了多久」** | 對映至 `component[durationYears]`；單位由固定 `a` 放寬為 `a` 或 `mo` |
+| ③ | 嚼檳量單位標記 | **同意採 `{quid}/d`** | 維持現況 |
+
+- ②之落地：`component[durationYears]` 改綁 `VS-TimeUnitYearMonth`（required），
+  **不做強制換算**——把「嚼 18 個月」寫成「1.5 年」同樣會偽造精度。
+  顯示名由「嚼食年數」改為「**嚼食持續期間**」；**代碼 id 保留 `duration-years`**
+  （該碼已於 v0.4.0 發佈，改名屬破壞性變更；真實語意以顯示名與定義為準，不以 id 為準）。
+  範例 `obs-betelnut-current` 改以 `240 mo` 示範，與 `obs-betelnut` 之 `10 a` 並存。
+- ⚠️ **上開答覆為口頭轉述**：依既定立場，**取得可引用之書面依據前，M-5 狀態、
+  嚼檳系列 `experimental` 與 Level 1 成熟度一律不變更**。本版僅做技術相容性調整。
+- **依 PI 裁示，勞工區塊改以機器可讀方式標 `draft`**（JOB-30 §7.7 之路徑 (a)）：
+  Level 2 之 50 件同時設 `standards-status = draft` 與 `^status = #draft`
+  （44 件新增、6 件原已為 draft）。共用技術結構 27 件**維持不標**——裁示文字為
+  「勞工區塊」，**不擴大解釋**。
+- **閘門新增 G-3b**：`standards-status` 與資源 `status` 必須一致，缺一即失敗，
+  反向不一致亦攔；自我測試由 8 組增為 **10 組**。
+  > v0.5.0 那 71 件不一致是 **IG Publisher 抓到、本專案閘門沒抓到**——閘門當時只核對
+  > 標記與登記層級是否相符，**沒核對它與資源 `status` 是否相容**。本輪補上。
+- **QA 實測**：`warn` 由 v0.5.0 首輪之 162 回到 **91**（71 件 `not consistent` 全數消失）；
+  `info` 具名上調 459 → **467**，新增具名類別 `Reference to draft` = 12 筆，逐筆歸因無餘數
+  （`CS-PhysicalExamSystems` 6 ＋ `CS-HazardType` 4 ＝ 本次引入 10；另 2 筆為 HL7 R4 核心之
+  `narrative-status`，其 status 在 R4 即為 draft，**非本次引入**）。`457 + 10 = 467`。
+  ⚠️ 該類別**跟著範例走、不跟著 artifact 數走**——18 個 Level 2 CodeSystem 全改 draft，
+  但只有被範例實際引用的 2 個產生訊息，**不得以「18 × N」推算**。
+- **更正 v0.5.0 之一處計數敘述**：16 主項／21 列之關係為「主項＝不重複之健保醫令」，
+  16 項中僅吸菸 3 列、嚼檳 3 列、尿蛋白 2 列展開，其餘 13 項各 1 列（`13+3+3+2=21`）。
+  v0.5.0 誤記為「血壓 2 列」——**收縮壓 `30904X` 與舒張壓 `30905X` 是兩個獨立醫令、
+  各 1 列**；兩者在 FHIR 併為一個 Observation 的兩個 component 是本指引的建模方式，
+  **不是原案的計列方式**。
 
 ### v0.5.0（2026-08-20）呈現分層與權責界線（JOB-30 實作，A 部＋B 部一批完成）
 

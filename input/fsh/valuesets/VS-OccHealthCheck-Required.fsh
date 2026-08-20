@@ -8,6 +8,8 @@ ValueSet: VS_OccHealthCheckRequired
 Id: VS-OccHealthCheck-Required
 Title: "勞工健康檢查法定必驗項目值集（第一期草案）"
 Description: "【依據：勞工健康保護規則附表】第一期法定必驗之勞工健康檢查項目草案子集，涵蓋附表九一般必驗生理量測與實驗室項目，以及噪音／鉛／粉塵三模組之核心必驗代碼。此為初版草案，範疇待附表九/十逐項法規盤點確認後修訂。"
+* ^status = #draft
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 * ^experimental = true
 
 // 一般健檢必驗項目 (附表九)

@@ -8,7 +8,12 @@
 //   G-1  每支 Profile／Extension／ValueSet／CodeSystem 之 Description 起首均有權責標籤，
 //        且與 scripts/governance-map.js 之登記一致。
 //   G-2  登記表無孤兒項（登記了但 FSH 已不存在）——防止改名後標籤悄悄失效。
-//   G-3  standards-status extension 與登記之合規層級一致（level 1 → trial-use，餘 draft）。
+//   G-3  standards-status extension 與登記之合規層級一致
+//        （level 1 → trial-use；level 2 → draft；level 0 → 不標）。
+//   G-3b standards-status = draft 者，資源自身之 ^status 必須也是 draft。
+//        IG Publisher 會交叉檢查兩者；v0.5.0 只標了 standards-status 而未動 status，
+//        實測 71 件全部被判 not consistent——當時是 IG Publisher 抓到、閘門沒抓到，
+//        故本輪把它變成閘門的責任（自我測試案 ②c／②d）。
 //   G-4  全 repo 不得出現「把職安署寫成本指引之治理／主管機關」之表述（越權主張）。
 //
 // ⚠️ G-4 之否定句豁免：本專案的文件**必須**能寫出「不得把職安署列為治理機關」這句話，
@@ -22,7 +27,7 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
-const { TAGS, MAP, STANDARDS_STATUS_URL, statusOf } = require('./governance-map');
+const { TAGS, MAP, STANDARDS_STATUS_URL, statusOf, resourceStatusOf } = require('./governance-map');
 
 const FSH_DIRS = ['profiles', 'extensions', 'valuesets', 'codesystems'];
 const KINDS = ['Profile', 'Extension', 'ValueSet', 'CodeSystem'];
@@ -47,7 +52,7 @@ function scanFsh(root) {
           if (KINDS.includes(kind) || /^(Instance|Logical|Resource|RuleSet|Invariant|Mapping|Alias)$/.test(kind)) {
             close();
             if (KINDS.includes(kind)) {
-              cur = { kind, file: rel, line: i + 1, id: null, desc: null, statusCode: null };
+              cur = { kind, file: rel, line: i + 1, id: null, desc: null, statusCode: null, resStatus: null };
             }
             return;
           }
@@ -58,7 +63,11 @@ function scanFsh(root) {
         const desc = line.match(/^Description:\s+"(.*)$/);
         if (desc) { cur.desc = desc[1]; return; }
         const st = line.match(/standards-status\]\.valueCode\s*=\s*#(\S+)/);
-        if (st) { cur.statusCode = st[1]; }
+        if (st) { cur.statusCode = st[1]; return; }
+        // 資源自身之 status（^status = #draft）。standards-status = draft 時必須併同設定，
+        // 否則 IG Publisher 會判為不一致——v0.5.0 實測命中 71 件。
+        const rs = line.match(/^\*\s*\^status\s*=\s*#(\S+)/);
+        if (rs) { cur.resStatus = rs[1]; }
       });
       close();
     }
@@ -90,8 +99,7 @@ function checkArtifacts(root, map) {
     }
     const want = statusOf(level);
     if (want === null) {
-      // 非 Level 1 者**不得**標 standards-status：標 draft 會與 status = active 互相矛盾
-      // （CI 實測命中 71 個 artifact），標 trial-use 又會謊報成熟度。見 governance-map.js。
+      // level 0（共用技術結構）不標 standards-status：它不構成合規標的。
       if (a.statusCode !== null) {
         violations.push(`[G-3] ${where} ${a.id} 層級 ${level} 不得標 standards-status（實為 #${a.statusCode}）`);
       }
@@ -99,6 +107,19 @@ function checkArtifacts(root, map) {
       violations.push(`[G-3] ${where} ${a.id} 缺 standards-status（應為 #${want}）`);
     } else if (a.statusCode !== want) {
       violations.push(`[G-3] ${where} ${a.id} standards-status 為 #${a.statusCode}，登記層級 ${level} 應為 #${want}`);
+    }
+
+    // G-3b：standards-status 與資源自身之 status 必須一致。
+    // IG Publisher 交叉檢查兩者；v0.5.0 單標 standards-status 而未動 status，
+    // 實測 71 件全部被判「not consistent」。故此處逐件強制，缺一即失敗。
+    const wantRes = resourceStatusOf(level);
+    if (wantRes !== null && a.resStatus !== wantRes) {
+      violations.push(
+        `[G-3b] ${where} ${a.id} standards-status = #${want} 需併同 ^status = #${wantRes}` +
+        `（實為 ${a.resStatus === null ? '未設定，將繼承 sushi-config 之 active' : '#' + a.resStatus}）`);
+    }
+    if (wantRes === null && a.resStatus === 'draft' && want !== null) {
+      violations.push(`[G-3b] ${where} ${a.id} standards-status = #${want} 與 ^status = #draft 不一致`);
     }
   }
 
@@ -159,9 +180,11 @@ function selfTest() {
     fs.mkdirSync(path.join(tmp, sub), { recursive: true });
     fs.writeFileSync(path.join(tmp, sub, name), body);
   };
-  // status 傳 null 代表不輸出 standards-status（非 Level 1 之正確形態）
-  const good = (id, tag, status) =>
+  // status 傳 null 代表不輸出 standards-status（level 0 之正確形態）。
+  // resStatus 為資源自身之 ^status；standards-status = draft 者必須併同設定為 draft。
+  const good = (id, tag, status, resStatus) =>
     `ValueSet: X\nId: ${id}\nTitle: "t"\nDescription: "${tag}測試值集。"\n` +
+    (resStatus ? `* ^status = #${resStatus}\n` : '') +
     (status ? `* ^extension[${STANDARDS_STATUS_URL}].valueCode = #${status}\n` : '');
   const M = { 'VS-Ok': ['hpa', 1], 'VS-Bad': ['reg', 2] };
 
@@ -184,18 +207,32 @@ function selfTest() {
 
   // ② standards-status 與層級不符 → 必須被抓到
   reset();
-  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'draft') + good('VS-Bad', TAGS.reg, null));
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'draft') + good('VS-Bad', TAGS.reg, 'draft', 'draft'));
   run('② level 1 卻標 draft', () => checkArtifacts(tmp, M).violations.some((v) => v.startsWith('[G-3]')));
 
-  // ②b 非 Level 1 卻標了 standards-status → 必須被抓到（本輪新增之規則）
+  // ②b level 0 之共用技術結構卻標了 standards-status → 必須被抓到
   reset();
-  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft'));
-  run('②b 非 Level 1 卻標 standards-status', () => checkArtifacts(tmp, M).violations.some((v) => /不得標 standards-status/.test(v)));
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft', 'draft') +
+     good('VS-Shared', TAGS.tech, 'draft', 'draft'));
+  run('②b level 0 卻標 standards-status',
+      () => checkArtifacts(tmp, { ...M, 'VS-Shared': ['tech', 0] }).violations.some((v) => /不得標 standards-status/.test(v)));
+
+  // ②c standards-status = draft 但未併同設 ^status = draft → 必須被抓到。
+  //    這正是 v0.5.0 之 71 件不一致的形態；當時是 IG Publisher 抓到、閘門沒抓到，
+  //    故本輪把它變成閘門的責任。
+  reset();
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft', null));
+  run('②c draft 未併同改 ^status', () => checkArtifacts(tmp, M).violations.some((v) => v.startsWith('[G-3b]')));
+
+  // ②d ^status 設成 draft 但 standards-status 是 trial-use → 反向不一致亦須被抓到
+  reset();
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use', 'draft') + good('VS-Bad', TAGS.reg, 'draft', 'draft'));
+  run('②d ^status 與 standards-status 反向不一致', () => checkArtifacts(tmp, M).violations.some((v) => v.startsWith('[G-3b]')));
 
   // ③ 未登記之新 artifact → 必須被抓到
   reset();
-  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, null) +
-     good('VS-Unregistered', TAGS.tech, 'draft'));
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft', 'draft') +
+     good('VS-Unregistered', TAGS.tech, null));
   run('③ 未登記之 artifact', () => checkArtifacts(tmp, M).violations.some((v) => /未登記/.test(v)));
 
   // ④ 孤兒登記（改名後舊 id 仍在表中）→ 必須被抓到
@@ -218,7 +255,7 @@ function selfTest() {
 
   // ⑦ 完整正例：全部登記齊備時不得誤報
   reset();
-  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, null));
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft', 'draft'));
   run('⑦ 齊備時不誤報（正向對照）', () => checkArtifacts(tmp, M).violations.length === 0);
 
   let bad = 0;
@@ -249,9 +286,9 @@ function main() {
   }
   console.log(`權責標籤閘門：掃描 ${a.count} 個定義型 artifact，登記 ${Object.keys(MAP).length} 筆`);
   console.log(`  標籤分佈　國健署 ${byTag.hpa || 0}／勞工健康保護規則附表 ${byTag.reg || 0}／技術規格 ${byTag.tech || 0}`);
-  console.log(`  層級分佈　Level 1 ${byLevel[1] || 0}（standards-status = trial-use）／` +
-              `Level 2 ${byLevel[2] || 0}／共用技術結構 ${byLevel[0] || 0}` +
-              `（後兩者不標 standards-status——標 draft 會與 status = active 矛盾，見 governance-map.js）`);
+  console.log(`  層級分佈　Level 1 ${byLevel[1] || 0}（standards-status = trial-use，status 維持 active）／` +
+              `Level 2 ${byLevel[2] || 0}（standards-status = draft ＋ ^status = draft，兩者由 G-3b 強制一致）／` +
+              `共用技術結構 ${byLevel[0] || 0}（不標 standards-status）`);
   if (o.exempted.length) {
     console.log(`  G-4 否定句豁免 ${o.exempted.length} 行（逐行列出，抑制不得靜默）：`);
     o.exempted.forEach((e) => console.log(`    - ${e}`));

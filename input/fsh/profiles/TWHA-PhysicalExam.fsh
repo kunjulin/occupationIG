@@ -3,6 +3,8 @@ Parent: TWCoreClinicalResult
 Id: TWHA-PhysicalExam
 Title: "身體理學檢查 Profile"
 Description: "【依據：勞工健康保護規則附表】用於記錄勞工身體各系統（頭頸部、呼吸、心血管、消化、神經、肌肉骨骼、皮膚）之理學檢查結果，繼承自 TW Core Observation Clinical Result。"
+* ^status = #draft
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 * ^experimental = false
 * status = #final
 * code = LNC#29545-1 "Physical findings note"

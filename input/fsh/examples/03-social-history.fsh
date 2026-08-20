@@ -34,7 +34,7 @@ Description: "受檢勞工王大同的嚼檳榔習慣：過去每日嚼食 5 顆
 * valueCodeableConcept = CS_BetelNutStatus#3-quit "已戒除"
 * component[amount].code = CS_BetelNutComponent#amount "每日嚼食量"
 * component[amount].valueQuantity = 5 '{quid}/d' "顆/日"
-* component[durationYears].code = CS_BetelNutComponent#duration-years "嚼食年數"
+* component[durationYears].code = CS_BetelNutComponent#duration-years "嚼食持續期間"
 * component[durationYears].valueQuantity = 10 'a' "年"
 * component[cessationDuration].code = CS_BetelNutComponent#cessation-duration "戒除期間"
 * component[cessationDuration].valueQuantity = 1 'a' "年"
@@ -46,7 +46,7 @@ Description: "受檢勞工王大同的嚼檳榔習慣：過去每日嚼食 5 顆
 Instance: obs-betelnut-current
 InstanceOf: TWHASocialHistoryBetelNutProfile
 Title: "嚼檳榔狀態與量化資料範例（現嚼，含情境欄位）"
-Description: "受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉、白灰），嚼檳 20 年，未戒。另附上游 TWCR_SF 級距碼作為對照。"
+Description: "受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉、白灰），嚼食持續期間以原始採集粒度送出 240 個月，未戒。另附上游 TWCR_SF 級距碼作為對照。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#social-history
 * code = SCT#698188003 "Chews betel quid"
@@ -56,8 +56,10 @@ Description: "受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉�
 * valueCodeableConcept = CS_BetelNutStatus#2-daily "每日嚼食"
 * component[amount].code = CS_BetelNutComponent#amount "每日嚼食量"
 * component[amount].valueQuantity = 10 '{quid}/d' "顆/日"
-* component[durationYears].code = CS_BetelNutComponent#duration-years "嚼食年數"
-* component[durationYears].valueQuantity = 20 'a' "年"
+// 以「月」示範放寬後之單位（原案第 11 列以月收集）；obs-betelnut 之同一欄位用「年」。
+// 兩者並存即證明 a／mo 兩種採集粒度都送得出去，接收端不必、也不應自行換算。
+* component[durationYears].code = CS_BetelNutComponent#duration-years "嚼食持續期間"
+* component[durationYears].valueQuantity = 240 'mo' "月"
 * component[withTobacco].code = CS_BetelNutComponent#with-tobacco "是否含菸草"
 * component[withTobacco].valueBoolean = true
 * component[additive].code = CS_BetelNutComponent#additive "添加物"
@@ -66,7 +68,7 @@ Description: "受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉�
 * component[lime].valueCodeableConcept = CS_BetelNutLime#white-lime "白灰"
 * component[amountCoded].code = CS_BetelNutComponent#amount-coded "每日嚼食量（上游級距碼）"
 * component[amountCoded].valueCodeableConcept = TWCRSFBetNutChewAmountCS#10 "每日10顆"
-// 口腔黏膜檢查表之原始勾選並存：每日 10 顆（< 20）、嚼 20 年（> 10）⇒ 表列第 5 項。
+// 口腔黏膜檢查表之原始勾選並存：每日 10 顆（< 20）、嚼 240 個月（＝20 年，> 10）⇒ 表列第 5 項。
 // 兩者並存不衝突——級距是原始勾選，Quantity 是實測值，前者不由後者導出、亦不換算。
 * component[hpaCategory].code = CS_BetelNutComponent#hpa-category "口腔黏膜檢查表級距"
 * component[hpaCategory].valueCodeableConcept = CS_BetelNutHpaCategory#4-ge10y-lt20 "嚼超過 10 年，每天少於 20 顆"

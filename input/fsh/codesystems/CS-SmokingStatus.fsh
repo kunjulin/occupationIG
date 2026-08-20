@@ -24,6 +24,8 @@ CodeSystem: CS_HealthMgmtLevel
 Id: CS-HealthMgmtLevel
 Title: "健康管理分級代碼系統"
 Description: "【依據：勞工健康保護規則附表】依據勞工健康保護規則第 21 條規定，醫師依健康檢查結果判定之健康管理分級。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）"
+* ^status = #draft
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 * ^experimental = true
 * ^caseSensitive = true
 * #level-1 "第一級管理" "健康檢查結果無異常，或有部分異常但經醫師評估與工作無關，屬大致正常者。"
@@ -35,5 +37,7 @@ ValueSet: VS_HealthMgmtLevel
 Id: VS-HealthMgmtLevel
 Title: "健康管理分級值集"
 Description: "【依據：勞工健康保護規則附表】包含健康管理分級（第一級至第四級）代碼之值集。（provisional，隨 CS-HealthMgmtLevel 待官方確認）"
+* ^status = #draft
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 * ^experimental = true
 * include codes from system CS_HealthMgmtLevel

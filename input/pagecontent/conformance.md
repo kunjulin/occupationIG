@@ -150,7 +150,7 @@ acceptable 變異碼經 [ConceptMap](ConceptMap-TWHealthCheckLaboratoryMap.html)
 | 8 | `30906X-3` | 戒菸月數 | LOINC `63632-4` | `mo` | 同上．`extension[cessationDuration]` |
 | 9 | `30907X-1` | 嚼檳狀態 | **無 LOINC**；SNOMED CT `698188003` | — | [TWHA-SocialHistory-BetelNut](StructureDefinition-TWHA-SocialHistory-BetelNut.html)．`value[x]` |
 | 10 | `30907X-2` | 嚼檳量 | 無代碼 | `{個}/d` | 同上．`component[amount]`（本指引用 `{quid}/d`，見下註 ③） |
-| 11 | `30907X-3` | 嚼檳月數 | 無代碼 | `mo` | 同上．`component[cessationDuration]` 或 `component[durationYears]`（**語意待確認，見下註 ②**） |
+| 11 | `30907X-3` | 嚼檳月數 | 無代碼 | `mo` | 同上．`component[durationYears]`（＝**嚼食持續期間**，見下註 ②） |
 | 12 | `09001C` | 總膽固醇 | LOINC `2093-3` | `mg/dL` | [TWHA-LabResult-General](StructureDefinition-TWHA-LabResult-General.html) |
 | 13 | `09005C` | 飯前血糖 | LOINC `1558-6` | `mg/dL` | 同上 |
 | 14 | `09004C` | 三酸甘油酯 | LOINC `2571-8` | `mg/dL` | 同上 |
@@ -162,7 +162,13 @@ acceptable 變異碼經 [ConceptMap](ConceptMap-TWHealthCheckLaboratoryMap.html)
 | 20 | `14032C` | B 型肝炎表面抗原 | LOINC `5196-1` | — | 同上 |
 | 21 | `14051C` | C 型肝炎抗體 | LOINC `13955-0` | — | 同上 |
 
-**主項 16**（以醫令前綴計）：血壓 2 列、吸菸 3 列、嚼檳 3 列、尿蛋白 2 列，其餘一項一列。
+**16 主項／21 列**之關係：「主項」＝**不重複之健保醫令代碼**，「列」＝填報欄位。
+16 項中**僅 3 項展開為多列**——吸菸 `30906X` 3 列、嚼檳 `30907X` 3 列、尿蛋白 `06003C` 2 列，
+其餘 13 項各 1 列。核算 `13 + 3 + 3 + 2 = 21`。
+
+> ⚠️ **血壓不是「1 主項 2 列」**：收縮壓 `30904X` 與舒張壓 `30905X` 是**兩個獨立醫令**，
+> 各自為一個主項、各 1 列。兩者在 FHIR 中同屬一個 `BloodPressure` Observation 的兩個
+> component，**但那是本指引的建模方式，不是原案的計列方式**——兩者不可互推。
 
 > ⚠️ **`VS-CoreUploadSet` 不等於本表，兩者相差三項——引用時務必分清。**
 > [VS-CoreUploadSet](ValueSet-VS-CoreUploadSet.html) 是**跨值集之群組**，
@@ -177,16 +183,28 @@ acceptable 變異碼經 [ConceptMap](ConceptMap-TWHealthCheckLaboratoryMap.html)
 > 核算：`20 − 1（BMI） + 2（嚼檳量、嚼檳月數） = 21`。
 > **故「21 列」是對的，`VS-CoreUploadSet` 展開為 20 碼也是對的**——兩者計的不是同一件事。
 
-**三項待主管機關確認**（已列入送簽確認單）：
+**三項差異已獲主管機關答覆**（2026-08-20）：
 
-① **BMI 是否納入最小上傳集**。原案 21 列未收 BMI，本指引之 `VS-TWHAVitalSigns` 收錄之。
-② **第 11 列「嚼檳月數」之語意**。與吸菸列對稱者應為「**戒**檳月數」
-（對應 `component[cessationDuration]`），惟原案欄名為「嚼檳月數」，
-亦可讀為「嚼食持續月數」（對應 `component[durationYears]`，本指引以年計）。
-**兩者語意相反，不得臆測**——本指引兩個 component 皆已備妥，待確認後對映。
-③ **嚼檳量之單位**。原案記 `{個}/d`，本指引用 **`{quid}/d`**：UCUM 之 annotation
-僅接受 ASCII，`{個}` 為非 ASCII，**不是合法 UCUM**（JOB-29 §A）。
-數值語意相同（顆／日），僅標記法不同。
+| # | 事項 | 答覆 | 本指引之處置 |
+|:--|:--|:--|:--|
+| ① | BMI 是否納入 | **不在 21 列內** | 維持現況：`39156-5` 留在 `VS-TWHAVitalSigns`（生理量測用），**不屬最小上傳集** |
+| ② | 第 11 列「嚼檳月數」之語意 | **指「嚼了多久」**，即嚼食持續期間 | 對映至 `component[durationYears]`（**非** `cessationDuration`）；單位由固定 `a` 放寬為 `a` 或 `mo` |
+| ③ | 嚼檳量之單位標記 | **同意轉換為標準的 `{quid}/d`** | 維持現況 |
+
+> ⚠️ **上開答覆目前為口頭／轉述，書面依據待補**（見〈已知限制與試用須知〉M-5）。
+> 依本指引既定立場，**在取得可引用之書面依據前，M-5 之狀態、嚼檳系列之 `experimental`
+> 旗標與 Level 1 之成熟度一律不變更**。本節所載之處置屬**技術相容性調整**
+> （單位放寬、語意對映、敘述更正），不涉及上述三者，故先行實作。
+
+> 📌 **②之處置說明**：原案欄名「嚼檳月數」與吸菸列之「戒菸月數」形式對稱，
+> 易被讀成「戒檳月數」；經確認其語意為**嚼食持續期間**，兩者方向相反，故特此載明。
+> 單位放寬為 `a` 或 `mo` 而**不做強制換算**——把「嚼 18 個月」寫成「1.5 年」
+> 同樣會偽造精度。`component[cessationDuration]`（戒除期間）仍保留，
+> 但**不屬最小上傳集之欄位**。
+>
+> `CS-BetelNutComponent` 之代碼 id 保留 `duration-years`（含 "years" 字樣）：
+> 該碼已於 v0.4.0 發佈，改名屬破壞性變更。**真實語意以顯示名與定義為準，
+> 不以代碼 id 為準**——代碼 id 只是識別字。
 
 **Level 1 之 artifact 清單**（共 24 件，可由 `node scripts/check-governance-tags.js` 機器核對；
 清單本體登記於 `scripts/governance-map.js`）：
@@ -227,17 +245,27 @@ Level 2 涵蓋附表九／十／十一之法定應執行項目值集、特別危
 故該標籤寫「依據」而非治理或主管機關（§7.0）。
 
 成熟度以 HL7 `structuredefinition-standards-status` extension 標示：
-**Level 1 之 24 件 artifact 標 `trial-use`；Level 2 與共用技術結構不標**。
+
+| 層級 | `standards-status` | 資源之 `status` |
+|:--|:--|:--|
+| **Level 1**（24 件） | `trial-use` | `active` |
+| **Level 2**（50 件） | `draft` | **`draft`** |
+| 共用技術結構（27 件） | 不標 | `active` |
+
 **IG 層之 `status` 不變**——FHIR IG 一次只能發佈一個版本，
 故「兩區塊各走各的節奏」無法靠版次達成，只能靠層級與 artifact 標籤。
 
-> ⚠️ **為何 Level 2 不標 `draft`**：IG Publisher 會交叉檢查 `standards-status` 與資源本身之
-> `status`（`draft` ↔ `status = draft`、`trial-use` ↔ `status = active`）。本指引之
-> artifact 一律繼承 `status: active`，故標 `draft` 會使該 artifact **自相矛盾**
-> ——CI 實測命中 **71 件**。要讓 `draft` 成立，須把該 71 件之 `status` 改為 `draft`，
-> 屬**已發佈中繼資料之規範性變更**，超出本版範圍，待裁示。
-> 在此之前，Level 2 之較低成熟度由**本節之層級定義與權責標籤**表達，
-> **不以自相矛盾的中繼資料表達**。
+> ⚠️ **Level 2 之 `status` 併同改為 `draft`，屬本版之規範性中繼資料變更。**
+> IG Publisher 會交叉檢查 `standards-status` 與資源自身之 `status`
+> （`draft` ↔ `status = draft`；`trial-use` ↔ `status = active`），兩者不一致即發出
+> 「The resource status and the standards status are not consistent」。
+> v0.5.0 曾只標 `standards-status` 而未動 `status`，實測**命中 71 件自相矛盾**，
+> 故當時暫採「Level 2 不標」並登記待裁示；**PI 已於 2026-08-20 裁示勞工區塊須以
+> 機器可讀方式標為 `draft`**，本版依裁示併同調整 `status`。
+>
+> **對實作端的意義**：Level 2 之 artifact 其 `status` 為 `draft`，
+> 表示**尚未定稿、內容可能變動**；實作端據此判斷是否納入正式系統。
+> Level 1 之 `status` 維持 `active`，不受影響——**這正是分軌的目的**。
 
 > 嚼檳系列之 `experimental` 維持 `true`：其理由為所綁本地值集皆為 provisional、
 > 待 [M-5](open-issues.html#m-5)。**不得為使 Core 之外觀較佳而改標 `false`**
