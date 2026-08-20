@@ -579,11 +579,44 @@ R4 之 `Observation` 搜尋參數 `value-quantity`，其 expression 為
 `(Observation.value as Quantity) | (Observation.value as SampledData)`——**不含 `Range`**。
 以 `valueRange` 表達之期間無法被 `value-quantity=gt10|http://unitsofmeasure.org|a` 命中。
 
-> **本容器連不到 hl7.org（WebFetch 內容截斷），未能取得逐字原文。**
-> 請於本機以一行複核，不採信本文陳述：
-> ```bash
-> grep -A2 '"expression"' ~/.fhir/packages/hl7.fhir.r4.core#4.0.1/package/SearchParameter-Observation-value-quantity.json
+> ✅ **已於 CI 實證（run 32365319056，commit 5ddbd4ec）。** 本容器無 FHIR 套件快取、
+> `packages.fhir.org` 與 `hl7.org` 皆遭 proxy 封鎖（連線碼 000），故以一次性診斷步驟
+> 於 CI 之 `~/.fhir/packages/hl7.fhir.r4.core#4.0.1` 讀取官方定義之逐字原文：
+>
 > ```
+> URL         http://hl7.org/fhir/SearchParameter/Observation-value-quantity
+> VERSION     4.0.1
+> BASE        ["Observation"]
+> TYPE        quantity
+> EXPRESSION  (Observation.value as Quantity) | (Observation.value as SampledData)
+> ```
+>
+> **`expression` 確實不含 `Range`，B.5 之核心主張成立。** 診斷步驟已於回填後移除。
+
+#### ⚠️ 實測順帶查出：同一份 SearchParameter 之 `xpath` 與 `expression` 不一致
+
+同一個資源之 `xpath` 欄位**列出了全部 11 種 `value[x]`**，其中包含 `valueRange`：
+
+```
+f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString |
+f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange |
+f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime |
+f:Observation/f:valueDateTime | f:Observation/f:valuePeriod
+```
+
+**這解釋了「`valueRange` 可被 `value-quantity` 命中」何以是個看似有據的說法**——
+只看 `xpath` 會得到相反結論。
+
+判讀（**此為解讀，非量測**）：以 `expression` 為準。理由有二——
+
+1. R4 以 **FHIRPath `expression` 為搜尋參數之定義**，`xpath` 屬既有相容欄位；
+2. **該 `xpath` 內部即自相矛盾**：本參數之 `type` 為 `quantity`，而 xpath 卻含
+   `valueCodeableConcept`、`valueString`、`valueBoolean` 等**無法進行數量比較**之型別。
+   一個宣告為 quantity 的參數不可能對字串做 `gt10` 比較，可見該欄位係規範建置時
+   按 `value[x]` 全集自動展開之產物，非逐型別之有效定義。
+
+**實作上的意涵不變**：派生值一律用 `valueQuantity` + `comparator`。
+但若日後有人以 `xpath` 為據主張相反結論，**須先解釋上述型別矛盾**，不得僅引該欄位。
 
 處置：派生值一律用 `valueQuantity` + `comparator`（`>=` / `<`），不用 `valueRange`。
 此法既可搜尋，也能表達「10 年以上」「每日 20 顆以上」等開放區間，
@@ -730,7 +763,7 @@ B.2 判定 `"Betel nut chewer"` 為 display 不符、應為 `"Chews betel quid"`
 
 | 項目 | 限制 |
 |:--|:--|
-| B.5 之 `value-quantity` expression | **未驗**。本容器無 FHIR 套件快取（`~/.fhir/packages` 僅有 `packages.ini`），且 `packages.fhir.org`／`hl7.org` 皆遭 proxy 封鎖（連線碼 000）。B.5 所附之一行指令**可於 CI 執行**——CI 之套件快取已含 `hl7.fhir.r4.core#4.0.1`。在取得該輸出之前，B.5 之結論宜標為待複核 |
+| B.5 之 `value-quantity` expression | ✅ **已實證**（run 32365319056）。以一次性 CI 診斷步驟讀取官方定義：`expression` 為 `(Observation.value as Quantity) \| (Observation.value as SampledData)`，**不含 `Range`**，B.5 核心主張成立。順帶查出同一資源之 `xpath` 列出全部 11 種 `value[x]`（含 `valueRange`）而與 `expression` 不一致，詳見 B.5 之補述。診斷步驟已移除 |
 | SNOMED `698188003` 之 `$lookup`（§2.4／C.2） | **未驗**。tx.fhir.org 遭封鎖 |
 | 上游 `package.tgz` 之 `file://` 落點（§4.2／§4.3） | **未驗**。`mitw.dicom.org.tw` 遭封鎖（403）。惟 v0.3.0 之 CI 實測提供部分答案：run 32347196173 之 3 筆 ERROR 均落在 `StructureDefinition.text.div`，未出現任何 canonical 解析錯誤，且 SUSHI 成功解析全部 9 個 canonical——證據偏向 §4.3 之「非致命」欄，但**不等於已逐檔檢視** |
 | 委員所引 `tw-core-7`／`tw-core-8` 是否存續於 v1.0.0 | **未驗**。同上，套件不可得。B.13 之保留意見成立 |
