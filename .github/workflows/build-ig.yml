@@ -129,31 +129,51 @@ jobs:
       # packages.simplifier.net 皆 404。但其 IG 站台提供標準的 package.tgz，故自站台取得
       # 並解入 FHIR 套件快取，SUSHI 與 IG Publisher 即可如常解析（JOB-28 §4）。
       #
-      # 置於 Cache FHIR packages 之後：快取命中時本步驟為 no-op（先檢查目錄是否已存在）。
+      # 置於 Cache FHIR packages 之後：快取命中時下載為 no-op（先檢查目錄是否已存在）。
+      #
+      # ⚠️ 大小寫：上游 package.json 之 name 為 fhir.TWCRSF（含大寫），但 SUSHI 會將套件 id
+      #    正規化為小寫並印出 "fhir.TWCRSF contains uppercase characters ... SUSHI will use
+      #    fhir.twcrsf"，因而只到 ~/.fhir/packages/fhir.twcrsf#<ver> 找。若僅解到原大小寫之
+      #    目錄，SUSHI 會判定快取未命中而回頭連 registry（該套件未上架，必 404）並中止建置
+      #    ——run 32346874349 即為此。故兩種大小寫之目錄都提供同一份套件：小寫供 SUSHI，
+      #    原大小寫保留以對應上游宣告之 name 與 sushi-config 之相依鍵。
       - name: Fetch TWCR_SF package
         env:
           TWCRSF_VERSION: '0.1.1'
           TWCRSF_URL: 'https://mitw.dicom.org.tw/IG/TWCR_SF/package.tgz'
         run: |
           set -euo pipefail
-          dest="$HOME/.fhir/packages/fhir.TWCRSF#${TWCRSF_VERSION}"
+          root="$HOME/.fhir/packages"
+          dest="$root/fhir.TWCRSF#${TWCRSF_VERSION}"
+          lower="$root/fhir.twcrsf#${TWCRSF_VERSION}"
           if [ -f "$dest/package/package.json" ]; then
             echo "快取已命中：$dest"
-            exit 0
+          else
+            mkdir -p "$dest"
+            echo "自 $TWCRSF_URL 下載…"
+            curl -fsSL --retry 3 --retry-delay 5 -o /tmp/twcrsf.tgz "$TWCRSF_URL"
+            tar -xzf /tmp/twcrsf.tgz -C "$dest"
+            # 驗證取得的確實是預期的套件與版本，而非錯誤頁或改版後的內容
+            got_id=$(node -p "require('$dest/package/package.json').name")
+            got_ver=$(node -p "require('$dest/package/package.json').version")
+            echo "取得：$got_id#$got_ver"
+            if [ "$got_id" != "fhir.TWCRSF" ] || [ "$got_ver" != "$TWCRSF_VERSION" ]; then
+              echo "FAIL 套件與預期不符（期望 fhir.TWCRSF#${TWCRSF_VERSION}）"
+              exit 1
+            fi
+            ls "$dest/package" | head -5
           fi
-          mkdir -p "$dest"
-          echo "自 $TWCRSF_URL 下載…"
-          curl -fsSL --retry 3 --retry-delay 5 -o /tmp/twcrsf.tgz "$TWCRSF_URL"
-          tar -xzf /tmp/twcrsf.tgz -C "$dest"
-          # 驗證取得的確實是預期的套件與版本，而非錯誤頁或改版後的內容
-          got_id=$(node -p "require('$dest/package/package.json').name")
-          got_ver=$(node -p "require('$dest/package/package.json').version")
-          echo "取得：$got_id#$got_ver"
-          if [ "$got_id" != "fhir.TWCRSF" ] || [ "$got_ver" != "$TWCRSF_VERSION" ]; then
-            echo "FAIL 套件與預期不符（期望 fhir.TWCRSF#${TWCRSF_VERSION}）"
-            exit 1
+          # 小寫別名（SUSHI 實際查找的名稱）。以複本而非符號連結提供，避免快取打包／
+          # 還原與套件管理器對連結之處理差異。
+          if [ ! -f "$lower/package/package.json" ]; then
+            rm -rf "$lower"
+            cp -a "$dest" "$lower"
+            echo "已另以小寫名稱提供同一份套件：$lower"
           fi
-          ls "$dest/package" | head -5
+          # 驗證兩者皆就位——SUSHI 找不到就會回頭連 registry，而該套件未上架，必然失敗。
+          for d in "$dest" "$lower"; do
+            [ -f "$d/package/package.json" ] || { echo "FAIL 套件目錄缺失：$d"; exit 1; }
+          done
 
       - name: Cache IG Publisher jar
         uses: actions/cache@v4

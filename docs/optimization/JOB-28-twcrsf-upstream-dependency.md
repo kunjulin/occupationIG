@@ -103,11 +103,40 @@ JOB-10 之結論寫為「上游**既無套件、亦不服務該命名空間下�
 
 要點：
 
-- 置於 `Cache FHIR packages` **之後**，快取命中時為 no-op（先檢查目錄是否存在）。
-- 解至 `~/.fhir/packages/fhir.TWCRSF#0.1.1`，即標準 FHIR 套件快取路徑，
-  SUSHI 與 IG Publisher 皆可如常解析。
+- 置於 `Cache FHIR packages` **之後**，快取命中時下載為 no-op（先檢查目錄是否存在）。
+- 解至 `~/.fhir/packages/fhir.TWCRSF#0.1.1`，即標準 FHIR 套件快取路徑。
 - **下載後驗證 `package.json` 之 `name` 與 `version` 與預期相符**，
   避免取到錯誤頁或上游改版後的內容而不自知。
+
+### 4.1 大小寫：SUSHI 會把套件 id 正規化為小寫（首次 CI 實測，run 32346874349）
+
+上游 `package.json` 之 `name` 為 **`fhir.TWCRSF`**（含大寫），`sushi-config.yaml` 之相依鍵
+亦照此宣告。但 SUSHI 於載入時印出
+
+```
+warn  fhir.TWCRSF contains uppercase characters, which is discouraged.
+      SUSHI will use fhir.twcrsf as the package name.
+```
+
+並**只到 `~/.fhir/packages/fhir.twcrsf#0.1.1` 查找**。首次 CI 僅解至原大小寫之目錄，
+SUSHI 遂判定快取未命中，回頭連 registry——該套件未上架，必然 404：
+
+```
+info  Attempting to download fhir.twcrsf#0.1.1 from https://packages.fhir.org/...
+error Failed to load fhir.twcrsf#0.1.1: Failed to download from the registry
+```
+
+SUSHI 以 `1 Error` 結束（exit 1），建置在 IG Publisher 之前即中止。
+
+**處置**：兩種大小寫之目錄都提供同一份套件——小寫供 SUSHI 查找，原大小寫保留以對應
+上游宣告之 `name` 與 `sushi-config.yaml` 之相依鍵。以複本而非符號連結提供，
+避免快取打包／還原與套件管理器對連結之處理差異。步驟結尾驗證兩者皆就位：
+**SUSHI 找不到就會回頭連 registry，而該套件未上架，必然失敗**——與其讓它在
+下一步以較難判讀的形式爆掉，不如在取得階段就明講缺了哪個目錄。
+
+> ⚠️ 此為**取得步驟之缺陷，非「上游不可用」**。站台下載與 `name`／`version` 驗證
+> 於同一次 CI 均已通過（§6 第 1 項達標）。依 §6 之處置原則，正確修法是修取得步驟，
+> **不得還原 stub**。
 
 ---
 
