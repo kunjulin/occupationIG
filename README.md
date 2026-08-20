@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.3.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.3.2`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -153,13 +153,56 @@ set NODE_OPTIONS=--use-system-ca
   [`JOB-28`](docs/optimization/JOB-28-twcrsf-upstream-dependency.md) TWCR_SF 改正式相依，
   均已於 v0.3.0 執行；
   [`JOB-29`](docs/optimization/JOB-29-betelnut-terminology-and-upstream-coupling.md)
-  嚼檳榔術語與上游耦合度為 v0.3.1 之**評估**，尚未實作。）
+  嚼檳榔術語與上游耦合度為 v0.3.1／v0.3.2 之**評估**，尚未實作。）
 
 建議節奏：一個 JOB → 一次規劃 → 一個 commit。優先處理 P0（JOB-01～03）。
 
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.3.2（2026-08-20）委員意見之逐項處置（JOB-29 附錄 B，未變更任何定義）
+
+> 說明：本版**僅於 JOB-29 補入附錄 B**，未變更任何 Profile、值集、CodeSystem、Extension、範例、
+> 頁面檔名或 `dependencies`，**不影響 QA 基準線**。對外發佈前仍須以 `_genonce_tx.bat` 重跑。
+> 緣起：委員就菸品在 FHIR 之標準表達、檳榔標準碼現況（Ontoserver SNOMED CT 2026-07-31 版展開）
+> 與建議之 IG 設計提出完整方案。
+
+**[JOB-29 附錄 B](docs/optimization/JOB-29-betelnut-terminology-and-upstream-coupling.md)｜委員意見（2026-08-20）之逐項處置**
+
+- **直接採認 7 項**：SNOMED 全部 betel 相關概念僅 6 個且**無 ex-chewer／never-chewer、無 duration／amount observable**
+  （此查證直接補上本評估 §2.4 之缺口）；不可挪用菸品 LOINC（`88029-4` 等）記檳榔年數，否則造成菸品暴露之假陽性；
+  自建 CodeSystem／ValueSet 並鏡射菸品結構（與本案獨立得出之結論一致）；戒除以 `bq-quit-date`（dateTime）
+  為原始事實優先於期間；`bq-with-tobacco`（IARC 對含／不含菸草分開評估）；資料來源 LOINC `48766-0`；
+  原始勾選保留為 coded Observation 且**不換算成中位數**（與 T-9「保留原始 coding」同一原則）。
+- **據以更正本案一處 display**：`698188003` 之官方詞條為 **`Chews betel quid`**，本評估 §A.1 與
+  《建議修訂案 v2.1》第 9 列均寫 `Betel nut chewer`，屬 JOB-01 所稽核之 `Wrong Display Name` 類別。
+- **附條件同意 3 項**：(1) 狀態值集**維持 4 碼**——`unknown` 應走 `dataAbsentReason`，放進值集即是委員自己
+  在檢視上游時所批評的「哨兵值混編」，且會使「狀態不詳」與「狀態已知但量不詳」無法區分；
+  (2) 派生值改用 **`valueQuantity` + `comparator`** 而非 `valueRange`——R4 之 `value-quantity` expression 為
+  `(Observation.value as Quantity) | (Observation.value as SampledData)`，**不含 `Range`**，
+  故 `valueRange` 反而**不可**搜尋，與委員第一節「一律用 valueQuantity 保證可 search」之主張自相衝突
+  （本容器連不到 hl7.org，附錄 B.5 附本機一行複核指令，**不採信本文陳述**）；
+  (3) `bq-type` 之「荖花／荖葉／紅灰／白灰」實為**兩個軸**（添加物／石灰種類），一人可「荖葉＋白灰」，
+  應拆分或改 `0..*`。
+- **不同意 2 項（技術與事實）**：CodeSystem canonical 不得置於 `hpa.gov.tw` 命名空間
+  （`check-dependencies.js` **D-2** 即為此設，俟 M-1 核定後再議）；**TW Core 現行版本為 v1.0.0 而非 v0.3.2**
+  （JOB-23 實測、本案 `dependencies` 即為 `1.0.0`），所引 `tw-core-7`／`tw-core-8` invariant 是否存續於 v1.0.0
+  須複核後再引用。
+- **列管 1 項（須 PI 裁示）**：改為 **panel + `hasMember`** 之多 Observation 結構。本指引之吸菸 Profile
+  `Parent` 為 `TWCoreSmokingStatus`（單一 Observation），而 JOB-26 已裁示 **T-10 維持 TW Core 繼承**，
+  故吸菸不能 panel 化；**若僅檳榔 panel 化，結果是檳榔與吸菸在本指引內結構不對稱——正好與委員
+  「鏡射菸品」之立論相反**。附錄 B.7 列甲／乙／丙三選項，建議**甲**：維持 component 結構但完整採納
+  委員之欄位清單，取得內容價值而不付結構重構成本。
+- **另指出委員方案四處技術細節須更正**：`8663-7` 單位應為 `{pack}/d`（其 LOINC 全名即 "pack per day"）
+  而非所標之 `{#}/d`，**與 JOB-18 所修正之事故完全同型**；三-D 範例之 `hasMember` 掛在 `bq-duration` 上
+  並指向 `bq-status`，應掛於 panel（與其自身 A 表矛盾）；`valueRange` 可搜尋之陳述（見上）；
+  `{quid}.a` 與 `a` 在 UCUM 下**同量綱**（註記不影響可換算性），查詢 `value-quantity=gt10||a`
+  會同時命中嚼食年數與累積顆-年，故搜尋**必須併帶 `code=`**。
+- **範疇提醒**：現有**三套來源**不可混為一談——國健署健檢上傳欄位（無編碼，本案 Core 之對標對象，M-5）、
+  口腔黏膜檢查表（6 選 1 bucket，癌症篩檢用表，委員 `bq-hpa-category` 所本）、TWCR_SF（逐顆逐年列舉碼，
+  現行綁定來源）。三者對照關係應於 `terminology.md` 以一張表明列。
+- **委員提議產出 FSH／JSON 草稿**：建議俟 panel 選項題裁示後再行產出，避免依甲／乙／丙不同結構重工。
 
 ### v0.3.1（2026-08-20）嚼檳榔術語之權責界線與上游耦合度（JOB-29 評估，未變更任何定義）
 

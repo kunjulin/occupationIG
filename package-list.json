@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.3.2",
+      "date": "2026-08-20",
+      "desc": "委員意見之逐項處置（JOB-29 附錄 B）：本版僅於 JOB-29 補入附錄 B，未變更任何 Profile、值集、CodeSystem、Extension、範例、頁面檔名或相依宣告，不影響 QA 基準線。委員就菸品在 FHIR 之標準表達、檳榔標準碼現況（Ontoserver SNOMED CT 2026-07-31 版展開）與建議之 IG 設計提出完整方案，依本案五級框架逐項處置：直接採認 7 項（含 SNOMED 全部 betel 相關概念僅 6 個且無 ex-chewer／never-chewer 與 duration／amount observable，直接補上本評估 §2.4 缺口；不可挪用菸品 LOINC 記檳榔年數；戒除以 quit-date 優先；bq-with-tobacco 依 IARC 分開評估；資料來源 48766-0；原始勾選保留不換算），並據以更正本案一處 display（698188003 應為 Chews betel quid 而非 Betel nut chewer，屬 Wrong Display Name 類別）；附條件同意 3 項（狀態值集維持 4 碼、unknown 走 dataAbsentReason；派生值改用 valueQuantity + comparator 而非 valueRange，因 R4 之 value-quantity expression 不含 Range 故 Range 反而不可搜尋；bq-type 之荖花荖葉與紅灰白灰實為兩個軸應拆分）；不同意 2 項（canonical 不得置於 hpa.gov.tw 命名空間，D-2 閘門即為此設；TW Core 現行版本為 v1.0.0 而非 v0.3.2）；列管 1 項須 PI 裁示（panel + hasMember 結構重構與 T-10 維持 TW Core 繼承之裁示衝突，且僅檳榔 panel 化會與吸菸不對稱，反與委員鏡射菸品之立論相反）。另指出委員方案四處技術細節須更正（8663-7 單位應為 {pack}/d、hasMember 掛錯層級、valueRange 搜尋、{quid}.a 與 a 同量綱故搜尋須併帶 code）。本版不實作，待裁示後執行。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.3.1",
       "date": "2026-08-20",
       "desc": "嚼檳榔術語之權責界線與上游耦合度評估（JOB-29）：本版僅新增評估文件，未變更任何 Profile、值集、CodeSystem、Extension、範例、頁面檔名或相依宣告，不影響 QA 基準線。緣起為國民健康署上傳欄位文件之嚼檳榔欄位無編碼、以及取得 TWCR_SF 上游 package.tgz 後發現封裝內含開發者本機路徑（file://C:\\\\Users\\\\Lily\\\\TWCR_SF\\\\output）。評估將兩者拆為術語治理與相依治理兩題分別作答：嚼檳「狀態」欄位應由本指引自訂（canonical 位於本指引命名空間，標 provisional），並查出一項既存缺件——建議修訂案 v2.1 第 9 列所載之 CS-BetelNutStatus 於 repo 內並不存在，且 TWHA-SocialHistory-BetelNut 未約束 value[x]，致「嚼檳狀態」在指引中無承載位置；嚼檳「量／年／戒除」則不應自行複製上游 90 餘碼列舉清單，而應將綁定主軸改為 Quantity（{quid}/d、a、mo），上游級距碼降為 extensible 之可選 component，並新增 D-5 閘門檢查套件內不得含 file: scheme。另查出修訂案 v2.1 之嚼檳量 UCUM 標示 {個}/d 非合法 UCUM（註記僅允許可列印 ASCII），應為 {quid}/d。附錄 A 另給出改版後之 Profile 骨架與四種臨床情形之 FSH／JSON 範例，並經逐碼檢視上游三個代碼清單後查出兩項語意風險：數值與哨兵值混編於同一代碼軸（sf-BetNutChewAmount 之 91 實為狀態「偶爾嚼」而非 91 顆、90 為設限值、98/99 為缺值原因），以及跨清單同碼異義（#88 在量的清單為「每日88顆」、在戒除清單為「無嚼檳榔」，required 綁定無法攔阻錯置）。附錄 A.6 並修正本評估自身之一項寫法：戒除期間 UCUM 由「一律 mo」改為「a 或 mo 並行」，以原始採集粒度為準，避免偽造精度。本版不實作，待核准後於下一版執行。工業技術研究院委託研擬中，尚未定稿。",

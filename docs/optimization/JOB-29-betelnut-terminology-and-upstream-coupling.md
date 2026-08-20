@@ -8,7 +8,7 @@
 | **相依** | 須在 **v0.3.0（JOB-28）之後**套用；本 JOB 不推翻 JOB-28 |
 | **主要影響檔案** | `input/fsh/profiles/TWHA-SocialHistory.fsh`、`input/fsh/codesystems/`（新增）、`input/fsh/extensions/ext-cessation-duration.fsh`、`input/fsh/examples/03-social-history.fsh`、`scripts/check-dependencies.js`、`input/pagecontent/terminology.md`、`input/pagecontent/open-issues.md`、對外之《勞工健檢上傳欄位建議修訂案》 |
 | **緣起** | 2026-08-20：(1) 國民健康署上傳欄位文件之嚼檳榔欄位無編碼，詢問是否比照吸菸自訂值集；(2) 取得 TWCR_SF 上游 `package.tgz` 後，發現封裝內含 `file://C:\Users\Lily\TWCR_SF\output` 之開發者本機路徑 |
-| **狀態** | 📋 **評估（v0.3.1）——待核准後於下一版實作** |
+| **狀態** | 📋 **評估（v0.3.1；v0.3.2 補入附錄 B 委員意見處置）——待核准後實作** |
 
 ---
 
@@ -466,3 +466,141 @@ FHIR 對這三件事各有正規位置（`Quantity.comparator`、狀態 `value`�
 
 實作時以值集 `VS_TimeUnitYearMonth`（`a`／`mo`）約束，並於 implementation note 載明
 「**原始以年收集者送 `a`，不得逕行乘 12**」。
+
+---
+
+## 附錄 B：委員意見（2026-08-20）之逐項處置
+
+> 委員就菸品在 FHIR 之標準表達、檳榔標準碼現況（Ontoserver SNOMED CT 2026-07-31 版展開）
+> 與建議之 IG 設計提出完整方案。**內容價值高，其中 SNOMED 查證直接補上本評估 §2.4 之缺口。**
+> 以下依本案既定五級框架逐項處置；另列四項須更正之技術細節。
+
+決議狀態五級：階段性同意／附條件同意／技術方向同意但政策意義保留／暫予保留（列管）／不同意。
+
+### B.1 處置總表
+
+| # | 委員建議 | 決議 | 本期處置 |
+|--:|:--|:--|:--|
+| 1 | SNOMED 全部 betel 相關概念僅 6 個，**無 ex-chewer／never-chewer，亦無 duration／amount observable** | **階段性同意** | 直接採認，補入 §2.4；並據以更正 display（見 B.2） |
+| 2 | **不可挪用菸品 LOINC（88029-4 等）記檳榔年數**，否則造成菸品暴露之假陽性 | **階段性同意** | 與本案立場一致，明文寫入 `terminology.md` |
+| 3 | 檳榔必須自建 CodeSystem + ValueSet，結構鏡射菸品 | **階段性同意** | 即本評估 §2.2／§3.2 之結論，兩案獨立得出同一判斷 |
+| 4 | 戒除以 **`bq-quit-date`（dateTime）** 表達 | **階段性同意** | **改進本評估 A.6**：日期是原始事實，期間是導出值（會隨檢查日改變）。惟上游與現行問卷收的是「已戒 N 年」，故兩者並存、優先 quit-date（見 B.3） |
+| 5 | `bq-with-tobacco`（檳榔是否含菸草）—— IARC 對含／不含菸草分開評估 | **階段性同意** | 納入 `0..1`。理由充分且流病分析確有需要 |
+| 6 | 資料來源標註 LOINC **48766-0**（自述／病歷／篩檢表） | **階段性同意** | 納入 `0..1` |
+| 7 | 原始勾選保留為 coded Observation（`bq-hpa-category`），**不換算成中位數**（假精確會污染 dose-response） | **階段性同意** | 與 JOB-26 之 T-9「保留原始 coding」同一原則 |
+| 8 | 狀態值集 **5 碼**（含 `unknown`） | **附條件同意** | **維持 4 碼**：`unknown` 應走 `dataAbsentReason`，見 B.4 |
+| 9 | 派生 duration 用 **`valueRange`** 以支援分析查詢 | **附條件同意** | 改用 **`valueQuantity` + `comparator`**，見 B.5（`valueRange` 反而不可搜尋） |
+| 10 | `bq-type`：荖花／荖葉／紅灰／白灰 | **附條件同意** | 這是**兩個軸**（添加物／石灰種類），應拆分或改 `0..*`，見 B.6 |
+| 11 | CodeSystem canonical 用 `https://hpa.gov.tw/fhir/...` | **不同意（技術理由）** | 本 IG 不得在他方命名空間下定義資源——`check-dependencies.js` **D-2** 即為此設。應置於本 IG 命名空間，俟主管機關核定（M-1）後再議 |
+| 12 | 改為 **panel + `hasMember`** 之多 Observation 結構 | **暫予保留（列管）** | 與 JOB-26 之 T-10 裁示衝突，且會破壞委員自己主張的「與菸品對稱」，見 B.7。**列為須 PI 裁示之選項題** |
+| 13 | 「TWCore 目前公開版為 v0.3.2」 | **不同意（事實更正）** | 本案相依為 **v1.0.0**（JOB-23 實測導覽列即 v1.0.0）。所引 `tw-core-7`／`tw-core-8` invariant 是否存續於 v1.0.0，**須複核後再引用** |
+
+### B.2 SNOMED display 之更正
+
+委員查得 `698188003` 之詞條為 **「Chews betel quid」**（finding）。
+本評估 §A.1 與《建議修訂案 v2.1》第 9 列均寫 `"Betel nut chewer"`——**屬 display 不符**，
+即 JOB-01 所稽核之 `Wrong Display Name` 類別。實作時應以官方 display 為準，
+並仍須通過本案既有之 `$lookup` 管線納入 `display-verification-report.csv`
+（委員以 Ontoserver 查證，本案基準為 tx.fhir.org，兩者須一致才算結案）。
+
+### B.3 戒除：日期優先，期間為輔
+
+| 來源 | 可得資料 | 建議表達 |
+|:--|:--|:--|
+| 直接詢問受檢者 | 戒除日期／年月 | `bq-quit-date`，`valueDateTime`（可只到年或年月） |
+| 上游 TWCR_SF `sf-BetNutChewQuit` | 「已戒 N 年」 | `cessation-duration`，`valueQuantity = N a` |
+| 現行問卷 6 選 1 | 僅「已戒」 | 僅 `value = 3-quit`，兩者皆不送 |
+
+**不得由「已戒 N 年」回推 quit-date**——與 A.6「不得逕行乘 12」同一原則（偽造精度）。
+
+### B.4 `unknown` 不應進狀態值集
+
+委員於其方案第四節自陳「未知者用 `dataAbsentReason`（`asked-unknown`／`not-asked`），不要用 0 年」，
+此原則正確，但**同一原則亦適用於狀態**：把 `unknown` 放進狀態值集，
+就是委員自己在檢視上游時所批評的「哨兵值混編於同一代碼軸」（本評估 A.5(一)）。
+
+處置：狀態值集維持 4 碼（`0-never`／`1-occasional`／`2-daily`／`3-quit`），
+不詳者送 `value.dataAbsentReason`。此舉同時使「狀態不詳」與「狀態為某值但量不詳」得以區分——
+若 `unknown` 是值集成員，兩者會被壓成同一種表達。
+
+### B.5 `valueRange` 反而不可搜尋——與委員第一節之主張衝突
+
+委員第一節主張「duration 一律用 `valueQuantity(a)` **保證可 search**」，
+第三節 C-3 又建議派生值用 `valueRange`。**兩者不能兼得。**
+
+R4 之 `Observation` 搜尋參數 `value-quantity`，其 expression 為
+`(Observation.value as Quantity) | (Observation.value as SampledData)`——**不含 `Range`**。
+以 `valueRange` 表達之期間無法被 `value-quantity=gt10|http://unitsofmeasure.org|a` 命中。
+
+> **本容器連不到 hl7.org（WebFetch 內容截斷），未能取得逐字原文。**
+> 請於本機以一行複核，不採信本文陳述：
+> ```bash
+> grep -A2 '"expression"' ~/.fhir/packages/hl7.fhir.r4.core#4.0.1/package/SearchParameter-Observation-value-quantity.json
+> ```
+
+處置：派生值一律用 `valueQuantity` + `comparator`（`>=` / `<`），不用 `valueRange`。
+此法既可搜尋，也能表達「10 年以上」「每日 20 顆以上」等開放區間，
+與 A.4 對上游 `#90（≧90顆）` 之處置一致。
+
+### B.6 `bq-type` 混了兩個軸
+
+「荖花／荖葉／紅灰／白灰」並非互斥之四選一：
+
+| 軸 | 取值 |
+|:--|:--|
+| 添加物 | 荖花／荖葉／無 |
+| 石灰種類 | 紅灰／白灰 |
+
+一個人可以「荖葉＋白灰」。以單一 `0..1` CodeableConcept 承載會強迫填報者二選一而失真——
+其性質與 A.5(一) 所指之混編同型。處置：拆為兩個 component，或維持單一 component 但改 `0..*`。
+
+### B.7 panel 化：與 T-10 裁示衝突，且會**破壞**與菸品的對稱
+
+委員方案之立論基礎是「結構鏡射菸品 panel（LOINC 88028-6）」。但本案之實況是：
+
+- 本指引之 `TWHASocialHistorySmokingProfile` 之 `Parent` 為 **`TWCoreSmokingStatus`**，
+  即**單一 Observation**（`valueCodeableConcept` ＋ Extension），受 TW Core 母規範約束；
+- JOB-26 已裁示 **T-10：維持 TW Core 繼承，不為單一議題脫離母規範**；
+- 故**吸菸不能改為 panel**。若僅檳榔 panel 化，結果是**檳榔與吸菸在本指引內結構不對稱**
+  ——正好與委員的立論相反。
+
+其餘成本：`hasMember` 之多資源結構會連帶影響 UC-008／UC-009 之 transaction 封包、
+Composition section 組成、完整度檢核與全部相關範例。
+
+處置：**列管，作為須 PI 裁示之選項題**。
+
+| 選項 | 內容 | 代價 |
+|:--|:--|:--|
+| **甲（建議）** | 維持單一 Observation ＋ component，**但完整採納委員之欄位清單**（with-tobacco、type、quit-date、hpa-category、資料來源） | 取得內容價值，不付結構重構成本；與吸菸對稱 |
+| 乙 | 檳榔改 panel，吸菸維持 | 與吸菸不對稱，且違反委員自身立論 |
+| 丙 | 兩者皆改 panel | 牴觸 T-10（脫離 TW Core 繼承），須重開該裁示 |
+
+### B.8 委員方案中須更正之技術細節（四項）
+
+| # | 位置 | 問題 |
+|--:|:--|:--|
+| 1 | 一、之表格：`8663-7` 單位標 **`{#}/d`** | `8663-7` 之 LOINC 全名為 **Cigarettes smoked current (pack per day) - Reported**，單位應為 **`{pack}/d`**。標為 `{#}/d`（支／日）即量綱不符——**與本案 JOB-18 所修正之事故完全同型**（該次是反向：以 `{pack}/d` 承載 `64218-1` 之支／日）。本案吸菸量採 `64218-1` + `/d`，與 `8663-7` 是不同碼、不同量綱，不可混用 |
+| 2 | 三-D 範例：`hasMember` 掛在 `bq-duration` 上並指向 `bq-status` | `hasMember` 應掛在 **panel**（`bq-panel`）並指向各成員；成員之間不應互指。與委員自己 A 表（`bq-panel` → hasMember）矛盾 |
+| 3 | 三-C-3：`valueRange` 可被 `value-quantity` search | 見 B.5 |
+| 4 | 一／三：`{pack}.a`、`{quid}.a` 之量綱 | UCUM 註記**不影響可換算性**，故 `{quid}.a` 與 `a` 為同量綱。查詢 `value-quantity=gt10\|\|a` 會**同時命中嚼食年數與累積顆-年**。處置：凡量綱相同而語意不同者，搜尋**必須併帶 `code=`**；此點須寫入 implementation note，不能只靠單位區辨 |
+
+### B.9 一項範疇提醒：現在有三套來源，不可混為一談
+
+| 來源 | 粒度 | 與本案之關係 |
+|:--|:--|:--|
+| **國健署健檢上傳欄位**（原案，M-5） | 嚼檳狀態／量／月數，**無編碼** | **本案 Core 之對標對象** |
+| **口腔黏膜檢查表**（委員所引，107/7 修訂） | 6 選 1 ordinal bucket | 癌症篩檢用表，**非**健檢上傳欄位 |
+| **TWCR_SF**（癌症登記短表） | 逐顆／逐年列舉碼 | 現行 Profile 之綁定來源 |
+
+委員之 `bq-hpa-category` 係對應**第二列**。納入無妨（可回溯、可稽核），
+但**不得因此把口腔黏膜檢查表之欄位當成健檢上傳欄位**——後者才是 M-5 待國健署確認之標的。
+三套來源之對照關係應於 `terminology.md` 以一張表明列。
+
+### B.10 對委員之回覆重點（供對外用）
+
+1. SNOMED 查證結果直接採認，並據以更正本案一處 display（`Betel nut chewer` → `Chews betel quid`），一併致謝。
+2. 自建 CodeSystem／ValueSet、不挪用菸品 LOINC、原始勾選保留不換算——三點與本案獨立得出之結論一致，已納入。
+3. 五處建議須調整：`unknown` 走 `dataAbsentReason`、派生值用 `comparator` 而非 `Range`、
+   `bq-type` 拆為兩軸、canonical 不得置於 `hpa.gov.tw` 命名空間、TWCore 版本應為 v1.0.0。
+4. panel 化列為須裁示之選項題，並說明其與 T-10 之衝突。
+5. 委員提議產出 FSH／JSON 草稿：建議**俟選項題裁示後再行產出**，避免依甲／乙／丙不同結構重工。
