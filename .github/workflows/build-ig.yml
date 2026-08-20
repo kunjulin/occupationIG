@@ -503,6 +503,59 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # ⚠️ 一次性查證步驟（JOB-29 §2.4 之語意覆核前提）——**取得結果後即移除**。
+      #
+      # C-0（Observation.code 由上游碼改為 SCT#698188003）之前提為「以 $lookup 取官方
+      # FSN 並確認其作為 Observation.code 之語意適切性」；驗收 #6 明訂「覆核未過則
+      # C-0 不成立」。terminology.md §4.1 已記載該碼於 2026-07-26 通過 $validate-code
+      # （代碼存在且有效），但**代碼有效 ≠ 語意正確**（CLAUDE.md §2.2），故須另取官方
+      # FSN 與語意軸。本容器 proxy 封鎖 tx.fhir.org，CI 則於建置時即連線該伺服器。
+      #
+      # 同批一併查證兩個 LOINC：48766-0（委員建議之資料來源碼，B.1 #6 已採認）與
+      # 8663-7（B.8 #1 主張其為 pack/day，本案先前僅引用未複驗）。
+      #
+      # ⚠️ 位置固定在 job 結尾：診斷輸出要放在讀得到的地方（見 QA gate summary 之說明）。
+      #    不使建置失敗，但查不到時印出明顯標記——輸出由人判讀，靜默不得當成已確認。
+      - name: '[one-shot] tx $lookup for JOB-29 C-0 prerequisite'
+        if: always()
+        run: |
+          set -u
+          [ "$TX_SERVER" = "n/a" ] && { echo "MARKER-SKIP 離線建置，跳過"; exit 0; }
+          lookup() {   # $1=system  $2=code
+            echo "───────── MARKER-LOOKUP $2 ($1)"
+            body=$(curl -sS --max-time 60 -G "$TX_SERVER/CodeSystem/\$lookup" \
+                     --data-urlencode "system=$1" --data-urlencode "code=$2" \
+                     -H 'Accept: application/fhir+json' 2>&1) || {
+              echo "MARKER-CURL-FAIL $2"; return 0; }
+            printf '%s' "$body" | node -e '
+              let s=""; process.stdin.on("data",d=>s+=d).on("end",()=>{
+                let j; try { j=JSON.parse(s); } catch(e) {
+                  console.log("MARKER-PARSE-FAIL", s.slice(0,300)); return; }
+                if (j.resourceType === "OperationOutcome") {
+                  console.log("MARKER-OUTCOME", JSON.stringify(j.issue));
+                  return;
+                }
+                for (const p of (j.parameter||[])) {
+                  if (p.name === "property") {
+                    const kv = Object.fromEntries((p.part||[]).map(x =>
+                      [x.name, x.valueCode ?? x.valueString ?? x.valueBoolean ??
+                               (x.valueCoding ? (x.valueCoding.display ?? x.valueCoding.code) : undefined)]));
+                    console.log("  property", JSON.stringify(kv));
+                  } else if (p.name === "designation") {
+                    const kv = Object.fromEntries((p.part||[]).map(x =>
+                      [x.name, x.valueString ?? (x.valueCoding ? (x.valueCoding.display ?? x.valueCoding.code) : undefined)]));
+                    console.log("  designation", JSON.stringify(kv));
+                  } else {
+                    console.log("  " + p.name, p.valueString ?? p.valueCode ?? p.valueBoolean);
+                  }
+                }
+              });'
+          }
+          lookup "http://snomed.info/sct" "698188003"
+          lookup "http://loinc.org"       "48766-0"
+          lookup "http://loinc.org"       "8663-7"
+          echo "───────── MARKER-LOOKUP-END"
+
   # ==================================================================== 發佈
   # JOB-08 第二階段。**預設不會自動執行**：
   #
