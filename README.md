@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.6.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.6.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -160,6 +160,30 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.6.1（2026-08-20）修正 6 個跨行 Description 之標記失效（JOB-30）
+
+> ⚠️ **本版為 v0.6.0 之修正**：v0.6.0 宣稱「Level 2 之 50 件標 `draft`」，
+> 實際上線者僅 44 件——**6 件的標記未生效**。v0.6.1 使其名實相符。
+
+- **問題**：FSH 之 `Description:` 可為**跨行字串**。v0.6.0 之注入一律插在
+  `Description:` 之次行，對 6 個跨行者而言是**插進了字串內部**，
+  SUSHI 遂視為描述文字而非規則，故其 `status` 仍為 `active`、亦無 `standards-status`，
+  且描述文字中多出兩行規則字樣。
+  受影響：`TWHA-HearingTest`、`TWHA-Task-ServiceTask`、`TWHA-Encounter-Service`、
+  `TWHA-Composition-ServiceRecord`、`TWHA-Observation-ServiceFinding`、
+  `TWHA-Procedure-ServiceActivity`。
+- **更該檢討者為閘門未攔下**：它逐行掃描，看到 `* ^status = #draft` 這行字即判定齊備，
+  **不管 SUSHI 會不會將其視為規則**——檢查的是「檔案裡有沒有這行字」，
+  不是「這行字會不會生效」。故 6 件破損資料一路綠燈。
+  已改為追蹤字串狀態，Description 內部之行一律略過；自我測試新增 ⑧／⑧b，現為 **12 組**。
+  > 此與 §7.8 同型：**閘門只檢查了一半**。上次是只核對標記與登記層級相符、未核對與資源
+  > `status` 相容；這次是只核對字面存在、未核對語法位置。**兩次都是產出端抓到、閘門沒抓到。**
+- **發現方式**：v0.6.0 發佈後**逐件抽驗 gh-pages 之實際產出**——
+  本機閘門與 CI 皆為綠，是線上 JSON 與登記不符才暴露此事。
+- QA 實測**無任何類別變動**（`TOTAL info 467`、`Reference to draft 12`，差異皆為 0）：
+  `Reference to draft` 係由**實例引用 draft CodeSystem** 觸發，profile 自身為 draft 不觸發。
+  故本版不調整 `qa-baseline.json`。
 
 ### v0.6.0（2026-08-20）主管機關答覆之落地 ＋ 勞工區塊標 `draft`（JOB-30 §7.8）
 
