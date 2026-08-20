@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.3.2`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.3.3`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -160,6 +160,33 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.3.3（2026-08-20）JOB-29 評估之內部一致性修訂（仍不實作）
+
+> 說明：本版**僅修訂評估文件**，未變更任何 Profile、值集、CodeSystem、Extension、範例、
+> 頁面檔名或 `dependencies`。另加入一次性 CI 診斷步驟以實證附錄 B.5 之主張，**取得結果後移除**。
+
+- **§2.4 之查證狀態敘述更正**：初稿據修訂案 v2.1 之「無國際碼」推論 SNOMED `698188003`
+  「屬未驗證對照」，惟 [`terminology.md`](input/pagecontent/terminology.md) §4.1 已明列其為
+  「**✅ 已驗證 2026-07-26**」（`tx.fhir.org`、`$validate-code`），§4.2 之免責語亦明確將其排除，
+  **該推論不成立**。尚待補者為以 **`$lookup`** 取官方 FSN 並確認其作為 `Observation.code` 之
+  **語意適切性**——依 [CLAUDE.md](CLAUDE.md) §2.2，「代碼有效」與「語意正確」不可互相取代
+  （2026-07-26 查出並移除之 16 個錯碼，全部都通過了代碼有效性檢查）。
+- **驗收標準之載具與單位更正**：#6 由 `display-verification-report.csv` 改為
+  `terminology.md` §4.1——前者為 **LOINC 專用**產物（324 列、無任何 SNOMED 碼），字面上無法滿足；
+  #3 之戒除期間單位隨 §3.2／§A.6 更正為「`a` 或 `mo`，以原始採集粒度為準」（原寫「一律 `mo`」）。
+- **新增 §2.1.1：同一支 Profile 之第二處落差**。`Observation.code` 固定為上游
+  `sf-ObserBeh#BetelNutChewing`，而 [`general-exam.md`](input/pagecontent/general-exam.md) 與
+  [`datamodel.md`](input/pagecontent/datamodel.md) 在**與吸菸相同之欄位**（吸菸列填的正是其實際
+  code `LNC#72166-2`）均宣稱嚼檳之 code 為 SNOMED `698188003`。該欄位為 **1..1** 且固定為上游代碼，
+  是本 Profile 對上游**最後一處硬綁定**——不改則 C-1／C-2 做完仍達不到「可切換級」。
+  故 §5 **增列 C-0 並排序於 C-1 之前**，與 §A.1 原本之寫法一致。
+- **附錄 B.2 之 display 裁定回頭套用至文件自身**：B.2 判定 `"Betel nut chewer"` 應為
+  `"Chews betel quid"`，但 §A.1 之 FSH 骨架與 §A.2 之 JSON 範例仍寫著錯誤 display——
+  而那兩處正是實作者複製貼上的來源。已就地更正。**repo 內之敘述頁本來就是對的**
+  （`terminology.md` §4.1、`datamodel.md`、`general-exam.md`、`VS-CoreUploadSet.fsh` 均已用
+  `Chews betel quid`），錯誤僅存在於評估文件與對外之修訂案 v2.1。
+- **新增附錄 C**：套用時之 repo 逐項核對結果（9 項屬實、2 項須更正、4 項因 proxy 限制未能複驗）。
 
 ### v0.3.2（2026-08-20）委員意見之逐項處置（JOB-29 附錄 B，未變更任何定義）
 

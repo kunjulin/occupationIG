@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.3.3",
+      "date": "2026-08-20",
+      "desc": "JOB-29 評估之內部一致性修訂（仍不實作）：(1) §2.4 之查證狀態敘述更正——初稿據修訂案 v2.1「無國際碼」推論 SNOMED 698188003 屬未驗證對照，惟 terminology.md §4.1 已明列其為「已驗證 2026-07-26」（tx.fhir.org、$validate-code），故該推論不成立；尚待補者為以 $lookup 取官方 FSN 並確認其作為 Observation.code 之語意適切性，兩者依 CLAUDE.md §2.2 不可互相取代。(2) 驗收標準 #6 之載具更正為 terminology.md §4.1——display-verification-report.csv 為 LOINC 專用產物（324 列、無任何 SNOMED 碼），字面上無法滿足；驗收 #3 之戒除期間單位同步隨 §3.2／§A.6 更正為「a 或 mo，以原始採集粒度為準」。(3) 新增 §2.1.1 記載同一支 Profile 之第二處落差：Observation.code 固定為上游 sf-ObserBeh#BetelNutChewing，而 general-exam.md 與 datamodel.md 在與吸菸相同之欄位均宣稱為 SNOMED 698188003；該欄位為 1..1 且固定為上游代碼，係本 Profile 對上游最後一處硬綁定，故 §5 增列 C-0 並排序於 C-1 之前。(4) 附錄 B.2 之 display 裁定回頭套用至 §A.1 與 §A.2 之範例本身（Betel nut chewer → Chews betel quid）。另加入一次性 CI 診斷步驟以實證附錄 B.5 之 value-quantity 搜尋參數主張，取得結果後移除。本版未變更任何 Profile、值集、CodeSystem、Extension、範例、頁面檔名或相依宣告。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.3.2",
       "date": "2026-08-20",
       "desc": "委員意見之逐項處置（JOB-29 附錄 B）：本版僅於 JOB-29 補入附錄 B，未變更任何 Profile、值集、CodeSystem、Extension、範例、頁面檔名或相依宣告，不影響 QA 基準線。委員就菸品在 FHIR 之標準表達、檳榔標準碼現況（Ontoserver SNOMED CT 2026-07-31 版展開）與建議之 IG 設計提出完整方案，依本案五級框架逐項處置：直接採認 7 項（含 SNOMED 全部 betel 相關概念僅 6 個且無 ex-chewer／never-chewer 與 duration／amount observable，直接補上本評估 §2.4 缺口；不可挪用菸品 LOINC 記檳榔年數；戒除以 quit-date 優先；bq-with-tobacco 依 IARC 分開評估；資料來源 48766-0；原始勾選保留不換算），並據以更正本案一處 display（698188003 應為 Chews betel quid 而非 Betel nut chewer，屬 Wrong Display Name 類別）；附條件同意 3 項（狀態值集維持 4 碼、unknown 走 dataAbsentReason；派生值改用 valueQuantity + comparator 而非 valueRange，因 R4 之 value-quantity expression 不含 Range 故 Range 反而不可搜尋；bq-type 之荖花荖葉與紅灰白灰實為兩個軸應拆分）；不同意 2 項（canonical 不得置於 hpa.gov.tw 命名空間，D-2 閘門即為此設；TW Core 現行版本為 v1.0.0 而非 v0.3.2）；列管 1 項須 PI 裁示（panel + hasMember 結構重構與 T-10 維持 TW Core 繼承之裁示衝突，且僅檳榔 panel 化會與吸菸不對稱，反與委員鏡射菸品之立論相反）。另指出委員方案四處技術細節須更正（8663-7 單位應為 {pack}/d、hasMember 掛錯層級、valueRange 搜尋、{quid}.a 與 a 同量綱故搜尋須併帶 code）。本版不實作，待裁示後執行。工業技術研究院委託研擬中，尚未定稿。",

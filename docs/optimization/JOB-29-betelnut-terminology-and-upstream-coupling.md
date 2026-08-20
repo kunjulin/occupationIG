@@ -60,6 +60,28 @@
 吸菸量 UCUM 落差同型，但更嚴重——那是單位標錯，這是**欄位缺件**。
 若國健署依修訂案第 9 列實作，送出的資源將無法通過本指引之 Profile。
 
+#### 2.1.1 同一支 Profile 之第二處落差：`Observation.code` 與敘述頁不符
+
+`code` 之固定值取自**上游**之 CodeSystem（`aliases.fsh:83`：
+`TWCRSFObsBehCS = https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem`），
+但本指引之兩張敘述頁，在**與吸菸相同之欄位**（吸菸列填的正是其實際
+`Observation.code` `LNC#72166-2`）都宣稱嚼檳之 code 為 SNOMED `698188003`：
+
+| 頁面 | 欄位標題 | 嚼檳列內容 |
+|:--|:--|:--|
+| [`general-exam.md`](../../input/pagecontent/general-exam.md) | 代碼 / 術語系統 | SNOMED CT `698188003` (Chews betel quid) |
+| [`datamodel.md`](../../input/pagecontent/datamodel.md) | 備註 / LOINC 代碼 | SNOMED CT `698188003` (Chews betel quid) |
+
+（`VS-CoreUploadSet` 內之 `SCT#698188003` **不算**不一致——該值集描述已自陳
+「不作 `Observation.code` 綁定」，係涵蓋矩陣之項目識別。）
+
+**兩處落差同型、同一支 Profile，應一併處置**：只講「狀態缺件」而不講 `code` 對不上，
+實作者照著改仍會對不起來。
+
+此外，`code` 為 **1..1** 且固定為上游代碼——**它是本 Profile 對上游最後一處硬綁定**：
+即使三個 `component` 全數改為 Quantity（§3.2），單這一行仍會使上游不可用時建置失敗。
+故 §5 將其列為 **C-0**，排序在 C-1 之前。
+
 ### 2.2 建議：比照吸菸的**結構**，不挪用吸菸的**代碼**
 
 本指引之吸菸建模已具備完整三層，可直接對稱複製：
@@ -94,12 +116,28 @@
 
 ### 2.4 一個必須先補的查證
 
-修訂案 v2.1 第 9 列之「查證」欄標為「**— 無國際碼**」——該欄僅陳述 LOINC 無對應碼，
-**並未表示 SNOMED `698188003` 已通過本案之逐碼驗證程序**。以 JOB-01／JOB-26（T-3 處置規則）
-之標準衡量，該碼目前屬「未驗證對照」，**不得逕標為正式建議 mapping**。
+修訂案 v2.1 第 9 列之「查證」欄標為「**— 無國際碼**」——該欄僅陳述 LOINC 無對應碼。
 
-實作前須以既有管線（CI 之 `$lookup`／`$validate-code`）確認其 FSN、狀態與語意軸，
-並將結果納入 `display-verification-report.csv`。本容器無法連線術語伺服器，**不預先宣稱結果**。
+> ⚠️ **本節初稿據此推論該碼「屬未驗證對照」，該推論不成立，已更正。**
+> [`terminology.md`](../../input/pagecontent/terminology.md) §4.1〈已驗證之綁定 SNOMED CT 代碼〉
+> 明列 `698188003` 為「**✅ 已驗證 2026-07-26**」，係透過 `tx.fhir.org`（SNOMED International
+> Edition）完成 **`$validate-code` 代碼有效性驗證**；§4.2 之免責語（「SNOMED CT 欄位
+> **除 §4.1 所列者外**均未經術語伺服器驗證」）亦明確將本碼排除在未驗證之外。
+
+**尚待補的是另一件事**：已完成者為「**代碼存在且有效**」，未完成者為以 **`$lookup` 取官方 FSN
+並逐軸確認其作為 `Observation.code` 之語意適切性**——確認 `Chews betel quid` 是一個
+**finding**，用作觀察項目之 `code`（而非用作 `value`）是否適當。
+
+依 [CLAUDE.md](../../CLAUDE.md) §2.2，這兩者本就不可互相取代：**代碼有效 ≠ 語意正確**，
+而建置驗證只檢查前者。本 IG 於 2026-07-26 查出並移除的 16 個錯碼，全部都通過了代碼有效性檢查。
+
+實作前須以既有管線取得官方 FSN 並完成語意覆核，**並將結果回填 `terminology.md` §4.1 之
+「驗證狀態」欄**（由 `$validate-code` 升為含 `$lookup` 語意覆核）。
+本容器無法連線術語伺服器，**不預先宣稱結果**。
+
+> 📌 **不要寫進 `display-verification-report.csv`**：該檔為 **LOINC 專用**產物
+> （標頭 `code,ig_display,loinc_display,loinc_status,overlap,verdict,files`，324 列，
+> 無任何 SNOMED 碼）。SNOMED 之驗證紀錄現行載體即為 `terminology.md` §4.1。
 
 ---
 
@@ -198,6 +236,7 @@ tar xzf package.tgz --wildcards -O 'package/*.json' 2>/dev/null | grep -n 'file:
 
 | # | 措施 | 效果 |
 |--:|:--|:--|
+| **C-0** | `Observation.code` 由 `TWCRSFObsBehCS#BetelNutChewing` 改為 `SCT#698188003`（§2.1.1、§A.1；**須先完成 §2.4 之語意覆核**） | `code` 為 1..1 且固定為上游代碼，是本 Profile 對上游**最後一處硬綁定**；不改則 C-1／C-2 做完仍達不到「可切換級」。同時消除 §2.1.1 之敘述頁落差 |
 | **C-1** | 量／年／戒除之綁定主軸改 `Quantity`（§3.2） | 核心資料不再需要解析上游 canonical |
 | **C-2** | 上游級距碼降為可選 component，綁定強度 `required` → `extensible` | 上游若長期不可用，可於一版內移除該 component 而**不影響任何核心資料** |
 | **C-3** | 保留 `fhir.TWCRSF` 正式相依（不推翻 JOB-28） | 對照關係與癌症登記勾稽能力維持 |
@@ -206,6 +245,11 @@ tar xzf package.tgz --wildcards -O 'package/*.json' 2>/dev/null | grep -n 'file:
 
 C-2 是整個路徑的重點：**把單點相依從「建置阻斷級」降為「可切換級」**。
 做完之後，上游是否修復、何時上架，都不再影響本案時程。
+
+**但 C-2 單獨不足**：`component[*].code` 若仍取自上游 `sf-BetNutChewBeh`，或 `Observation.code`
+仍為 C-0 所指之上游固定值，建置照樣需要解析上游 canonical。故三者須合起來看——
+**C-0（`code`）＋ C-1（值改 Quantity）＋ 本地 `CS_BetelNutComponent`（`component.code`，見 §A.1）
+才共同構成「不依賴上游即可建置」**，C-2 則負責讓保留下來的對照關係可隨時卸除。
 
 C-4 依本案既定工程慣例（JOB-20／21／22／23），須自帶負向測試，CI 中先跑負向再跑實檢。
 
@@ -217,12 +261,15 @@ C-4 依本案既定工程慣例（JOB-20／21／22／23），須自帶負向測�
    `experimental = true` 且描述載明 provisional 與待確認事項編號；
 2. `TWHASocialHistoryBetelNutProfile` 具備狀態承載位置（`value[x]` 綁定 `VS-BetelNutStatus`），
    修訂案第 9 列之建模說明與指引一致；
-3. 量／年／戒除三者以 `Quantity` 為主軸，UCUM 分別為 `{quid}/d`、`a`、`mo`，
+3. 量／年／戒除三者以 `Quantity` 為主軸，UCUM 分別為 `{quid}/d`、`a`、
+   **`a` 或 `mo`（戒除期間以原始採集粒度為準，見 §A.6——原寫「一律 `mo`」已隨 §3.2 更正）**，
    且通過本案 UCUM 稽核腳本；
 4. 上游級距碼之綁定強度為 `extensible`，且移除該 component 不使建置失敗（以實驗開關實測）；
 5. `check-dependencies.js` 新增 D-5 並含負向測試，CI 綠燈；
-6. SNOMED `698188003` 完成 `$lookup` 驗證並納入 `display-verification-report.csv`；
-   若驗證未過，依 T-3 處置規則改列 informative 對照區；
+6. SNOMED `698188003` 完成 **`$lookup` 語意覆核**（官方 FSN、狀態、作為 `Observation.code`
+   之適切性），結果回填 **`terminology.md` §4.1 之「驗證狀態」欄**——**不是**
+   `display-verification-report.csv`（該檔為 LOINC 專用，無任何 SNOMED 碼，見 §2.4）；
+   若覆核未過，依 T-3 處置規則改列 informative 對照區，且 C-0 不成立；
 7. `qa-baseline.json` 依 CI 實測更新並具名說明，**不預先填數字**。
 
 ---
@@ -626,7 +673,7 @@ Composition section 組成、完整度檢核與全部相關範例。
 | B.13 | TW Core 相依為 v1.0.0 而非 v0.3.2 | ✅ `sushi-config.yaml` 之 `dependencies` 為 `tw.gov.mohw.twcore: 1.0.0` |
 | B.7 | 吸菸 Profile 之 `Parent` 為 TW Core 之單一 Observation | ✅ `TWHASocialHistorySmokingProfile` 之 `Parent` 為 `TWCoreSmokingStatus` |
 
-### C.2 ⚠️ §2.4 之查證狀態敘述須更正（v0.3.2 未更動，仍待改）
+### C.2 ✅ §2.4 之查證狀態敘述須更正——**已於 v0.3.3 就地更正**
 
 §2.4 謂 SNOMED `698188003`「目前屬**未驗證對照**」。**此與 repo 既有紀錄不符。**
 [`terminology.md`](../../input/pagecontent/terminology.md) §4.1〈已驗證之綁定 SNOMED CT 代碼〉
@@ -655,7 +702,7 @@ B.2 判定 `"Betel nut chewer"` 為 display 不符、應為 `"Chews betel quid"`
 **repo 內之敘述頁本來就是對的**：`terminology.md` §4.1、`datamodel.md`、`general-exam.md`、
 `VS-CoreUploadSet.fsh` 均已使用 `Chews betel quid`。錯誤僅存在於本評估文件與對外之修訂案 v2.1。
 
-### C.4 ⚠️ 尚未記錄之落差：`Observation.code` 與敘述頁不符
+### C.4 ✅ 落差：`Observation.code` 與敘述頁不符——**已於 v0.3.3 補入 §2.1.1 並列為 C-0**
 
 §A.1 已將 `Observation.code` 改為 `SCT#698188003`，方向正確。但**現況之落差本身仍未被記錄**：
 
@@ -674,12 +721,10 @@ B.2 判定 `"Betel nut chewer"` 為 display 不符、應為 `"Chews betel quid"`
 即：**敘述頁說 code 是 SNOMED `698188003`，FSH 固定的卻是上游 `sf-ObserBeh#BetelNutChewing`。**
 （`VS-CoreUploadSet` 之 `SCT#698188003` 不算不一致——該值集描述已自陳「不作 `Observation.code` 綁定」。）
 
-此落差與 §2.1 之「狀態無承載位置」同型、同一支 Profile，**應併入 §2.1 一併敘明**，
-否則實作者只會看到「狀態缺件」而不知 `code` 也對不上。
-
-§5 亦應據此增列 **C-0（`Observation.code` 改用 `SCT#698188003`）並排在 C-1 之前**：
-`code` 為 **1..1** 且固定為上游代碼，是三者中唯一與「建置能否完成」直接相關者。
-§A.1 雖已這麼寫，但 §5 之措施表未列，路徑 C 之敘述會與 §A.1 不一致。
+此落差與 §2.1 之「狀態無承載位置」同型、同一支 Profile。
+**處置（v0.3.3）**：已併入 §2.1.1 敘明，並於 §5 增列 **C-0**（`Observation.code` 改用
+`SCT#698188003`）排在 C-1 之前——`code` 為 **1..1** 且固定為上游代碼，是三者中唯一與
+「建置能否完成」直接相關者。§A.1 原已這麼寫，但 §5 措施表未列，兩處會不一致，現已一致。
 
 ### C.5 未能核對者（本容器限制）
 

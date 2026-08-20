@@ -278,6 +278,39 @@ jobs:
       - name: Run SUSHI
         run: npm run sushi
 
+      # ⚠️ 一次性診斷步驟（JOB-29 附錄 B.5）——**取得結果後即移除，勿留在 workflow**。
+      #
+      # B.5 主張「R4 之 value-quantity 搜尋參數不含 Range，故以 valueRange 表達之期間
+      # 不可被 value-quantity 命中」，並據此把派生值之設計由 valueRange 改為
+      # valueQuantity + comparator。該主張會改變規範性設計，卻是 JOB-29 全篇唯一
+      # 未經實證者——本容器無 FHIR 套件快取，且 packages.fhir.org 與 hl7.org 皆遭
+      # proxy 封鎖（連線碼 000），無從複驗。
+      #
+      # CI 之 ~/.fhir/packages 於 Run SUSHI 後必含 hl7.fhir.r4.core#4.0.1，故在此讀取
+      # 官方定義之逐字原文。不使建置失敗（診斷用），但找不到時印出明顯標記——
+      # 本步驟之輸出由人直接判讀，靜默無輸出不得被當成「已確認」。
+      - name: '[one-shot] Read R4 value-quantity SearchParameter (JOB-29 B.5)'
+        run: |
+          set -u
+          f=$(find "$HOME/.fhir/packages" -path '*hl7.fhir.r4.core*' \
+                -name 'SearchParameter-Observation-value-quantity.json' 2>/dev/null | head -1)
+          if [ -z "$f" ]; then
+            echo "MARKER-NOT-FOUND 找不到 SearchParameter-Observation-value-quantity.json"
+            echo "  以下為套件內含 value-quantity 字樣之候選檔："
+            find "$HOME/.fhir/packages" -path '*hl7.fhir.r4.core*' -name '*value-quantity*' | head -20
+            exit 0
+          fi
+          echo "MARKER-FILE $f"
+          node -e '
+            const j = require(process.argv[1]);
+            console.log("MARKER-URL        ", j.url);
+            console.log("MARKER-VERSION    ", j.version);
+            console.log("MARKER-BASE       ", JSON.stringify(j.base));
+            console.log("MARKER-TYPE       ", j.type);
+            console.log("MARKER-EXPRESSION ", j.expression);
+            console.log("MARKER-XPATH      ", j.xpath);
+          ' "$f"
+
       # --repo/--target 啟用 -auto-ig-build，使 publish box 由「Local Development
       # build」改為 CI build 文案（JOB-02 驗收條件 #2）。網址由 github context 推導，
       # 不寫死；fork 或改名後仍然正確。
