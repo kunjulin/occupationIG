@@ -177,11 +177,16 @@ set NODE_OPTIONS=--use-system-ca
 - **§7.0 範疇聲明**：本指引之主管機關**只有國民健康署一個**；勞工健檢項目係依該規則附表
   建立之**結構化表達**，**非另立勞工健檢規範，亦未受勞動部職業安全衛生署委任或授權**。
   `index.md` §2.2 摘要一句。
-- ⚠️ **§7.2 之 Level 1 清單自 `VS-CoreUploadSet` 逐列展開核對（未沿用任何既有文件之數字），
-  實得 16 主項／20 列——較各處所載之「21 列」少 1 列。** 主項數相符。
-  **本版不逕自補足該列**：差異可能是本指引漏收，也可能是原案之計列口徑不同
-  （例如嚼檳量另計一列）。已列為 [M-5](input/pagecontent/open-issues.md) 待國民健康署
-  確認之事項，並產出送簽確認單草稿 [`docs/drafts/HPA-CONFIRMATION-JOB-30.md`](docs/drafts/HPA-CONFIRMATION-JOB-30.md)。
+- **§7.2 之 Level 1 逐列清單**：自 `VS-CoreUploadSet` 逐列展開核對後，**與各處所載之
+  「21 列」差 3 項**；隨後取得主管機關上傳欄位原案（完整編碼附件 v7.6〈Core 主管機關最小集(21)〉），
+  查明**兩個數字都對、計的不是同一件事**——群組值集多了 BMI `39156-5`（原案未收，
+  係 `VS-TWHAVitalSigns` 成員被一併帶入），少了嚼檳量 `30907X-2` 與嚼檳月數 `30907X-3`
+  （原案各為獨立一列，本指引以 `component` 承載）。`20 − 1 ＋ 2 = 21`。
+  §7.2 已改寫為**原案之 21 列**（以健保醫令為鍵值），`VS-CoreUploadSet.fsh` 亦加註三處差異。
+  ⚠️ **仍待國健署確認之三項實質差異**：① BMI 是否納入；② 第 11 列「嚼檳月數」指
+  **戒檳**月數或**嚼食持續**期間（**兩者語意相反**，兩個 component 皆已備妥）；
+  ③ 嚼檳量單位原案記 `{個}/d`，本指引用 `{quid}/d`（UCUM annotation 僅接受 ASCII）。
+  已列為 [`docs/drafts/HPA-CONFIRMATION-JOB-30.md`](docs/drafts/HPA-CONFIRMATION-JOB-30.md) 第 4 項。
 - **權責標籤**：101 個定義型 artifact 之 `Description` 起首標示內容依據——
   `【主管機關：國民健康署】` **24**／`【依據：勞工健康保護規則附表】` **50**／`【技術規格】` **27**。
   導入 HL7 `structuredefinition-standards-status`（**Level 1 之 24 件標 `trial-use`；

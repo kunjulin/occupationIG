@@ -132,43 +132,61 @@ profile 之 `type` 固定值、本節之錯誤處理敘述、`$submit` 之回應
 院所與平台端得**僅實作並宣告 Level 1**；主管機關亦得僅就 Level 1 要求符合性。
 勞工區塊之**範圍與節奏均不變**——分層改變的是「可以分開宣告」，不是刪減內容。
 
-### 7.2 Level 1 逐列清單（自 `VS-CoreUploadSet` 展開）
+### 7.2 Level 1 逐列清單（21 列）
 
-下表由 [VS-CoreUploadSet](ValueSet-VS-CoreUploadSet.html) 逐列展開，
-每列取該項目之 **Preferred 代碼**；acceptable 變異碼經
-[ConceptMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 歸一，不另計列。
+下表逐列取自**主管機關上傳欄位原案**（TWHA IG 完整編碼附件 v7.6〈Core 主管機關最小集(21)〉），
+以**健保醫令代碼**為鍵值；「本指引承載」欄說明各列於本指引中實際落在哪個元素。
+acceptable 變異碼經 [ConceptMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 歸一，不另計列。
 
-| # | 主項 | 列 | Preferred 代碼 | 承載 Profile |
-|--:|:--|:--|:--|:--|
-| 1 | 總膽固醇 | 總膽固醇 | LOINC `2093-3` | [TWHA-LabResult-General](StructureDefinition-TWHA-LabResult-General.html) |
-| 2 | 飯前血糖 | 飯前血糖 | LOINC `1558-6` | 同上 |
-| 3 | 三酸甘油酯 | 三酸甘油酯 | LOINC `2571-8` | 同上 |
-| 4 | 高密度脂蛋白膽固醇 | HDL-C | LOINC `2085-9` | 同上 |
-| 5 | 低密度脂蛋白膽固醇 | LDL-C | LOINC `2089-1` | 同上 |
-| 6 | 肌酸酐 | 肌酸酐 | LOINC `2160-0` | 同上 |
-| 7 | 尿蛋白 | 尿蛋白定量 | LOINC `2888-6` | 同上 |
-| 8 | 尿蛋白 | 尿蛋白定性 | LOINC `5804-0` | 同上 |
-| 9 | B 型肝炎表面抗原 | HBsAg | LOINC `5196-1` | 同上 |
-| 10 | C 型肝炎抗體 | anti-HCV | LOINC `13955-0` | 同上 |
-| 11 | 身高 | 身高 | LOINC `8302-2` | [TWHA-VitalSigns](StructureDefinition-TWHA-VitalSigns.html) |
-| 12 | 體重 | 體重 | LOINC `29463-7` | 同上 |
-| 13 | 腰圍 | 腰圍 | LOINC `8280-0` | 同上 |
-| 14 | 血壓 | 收縮壓 | LOINC `8480-6` | `TWCoreBloodPressure` |
-| 15 | 血壓 | 舒張壓 | LOINC `8462-4` | 同上 |
-| 16 | 身體質量指數 | BMI | LOINC `39156-5` | [TWHA-VitalSigns](StructureDefinition-TWHA-VitalSigns.html) |
-| 17 | 吸菸 | 吸菸狀態 | LOINC `72166-2` | [TWHA-SocialHistory-Smoking](StructureDefinition-TWHA-SocialHistory-Smoking.html) |
-| 18 | 吸菸 | 吸菸量 | LOINC `64218-1` | 同上（`ext-smoking-quantity`） |
-| 19 | 吸菸 | 戒菸月數 | LOINC `63632-4` | 同上（`ext-cessation-duration`） |
-| 20 | 嚼檳榔 | 嚼檳狀態 | SNOMED CT `698188003` | [TWHA-SocialHistory-BetelNut](StructureDefinition-TWHA-SocialHistory-BetelNut.html) |
+| # | 醫令 | 項目 | Preferred 代碼 | UCUM | 本指引承載 |
+|--:|:--|:--|:--|:--|:--|
+| 1 | `30901X` | 身高 | LOINC `8302-2` | `cm` | [TWHA-VitalSigns](StructureDefinition-TWHA-VitalSigns.html) |
+| 2 | `30902X` | 體重 | LOINC `29463-7` | `kg` | 同上 |
+| 3 | `30903X` | 腰圍 | LOINC `8280-0` | `cm` | 同上 |
+| 4 | `30904X` | 血壓＿收縮壓 | LOINC `8480-6` | `mm[Hg]` | `TWCoreBloodPressure` |
+| 5 | `30905X` | 血壓＿舒張壓 | LOINC `8462-4` | `mm[Hg]` | 同上 |
+| 6 | `30906X-1` | 吸菸狀態 | LOINC `72166-2` | — | [TWHA-SocialHistory-Smoking](StructureDefinition-TWHA-SocialHistory-Smoking.html)．`value[x]` |
+| 7 | `30906X-2` | 吸菸量 | LOINC `64218-1` | `/d`（支／日） | 同上．`extension[smokingQuantity]` |
+| 8 | `30906X-3` | 戒菸月數 | LOINC `63632-4` | `mo` | 同上．`extension[cessationDuration]` |
+| 9 | `30907X-1` | 嚼檳狀態 | **無 LOINC**；SNOMED CT `698188003` | — | [TWHA-SocialHistory-BetelNut](StructureDefinition-TWHA-SocialHistory-BetelNut.html)．`value[x]` |
+| 10 | `30907X-2` | 嚼檳量 | 無代碼 | `{個}/d` | 同上．`component[amount]`（本指引用 `{quid}/d`，見下註 ③） |
+| 11 | `30907X-3` | 嚼檳月數 | 無代碼 | `mo` | 同上．`component[cessationDuration]` 或 `component[durationYears]`（**語意待確認，見下註 ②**） |
+| 12 | `09001C` | 總膽固醇 | LOINC `2093-3` | `mg/dL` | [TWHA-LabResult-General](StructureDefinition-TWHA-LabResult-General.html) |
+| 13 | `09005C` | 飯前血糖 | LOINC `1558-6` | `mg/dL` | 同上 |
+| 14 | `09004C` | 三酸甘油酯 | LOINC `2571-8` | `mg/dL` | 同上 |
+| 15 | `09043C` | HDL-C | LOINC `2085-9` | `mg/dL` | 同上 |
+| 16 | `09044C` | LDL-C（方法通用碼） | LOINC `2089-1` | `mg/dL` | 同上 |
+| 17 | `09015C` | 肌酸酐 | LOINC `2160-0` | `mg/dL` | 同上 |
+| 18 | `06003C-1` | 尿蛋白＿定量 | LOINC `2888-6` | `mg/dL` | 同上 |
+| 19 | `06003C-2` | 尿蛋白＿定性 | LOINC `5804-0` | — | 同上 |
+| 20 | `14032C` | B 型肝炎表面抗原 | LOINC `5196-1` | — | 同上 |
+| 21 | `14051C` | C 型肝炎抗體 | LOINC `13955-0` | — | 同上 |
 
-> ⚠️ **逐列核對結果：16 主項相符，惟實得 20 列，與各處所載之「21 列」差 1 列。**
-> 本表係自 `VS-CoreUploadSet.fsh` 實際展開（檢驗子集 10 ＋ 生理量測 6 ＋ 社會史 4），
-> **非沿用既有文件之數字**。主項數 16 與原案相符（尿蛋白 2 列、血壓 2 列、吸菸 3 列）。
+**主項 16**（以醫令前綴計）：血壓 2 列、吸菸 3 列、嚼檳 3 列、尿蛋白 2 列，其餘一項一列。
+
+> ⚠️ **`VS-CoreUploadSet` 不等於本表，兩者相差三項——引用時務必分清。**
+> [VS-CoreUploadSet](ValueSet-VS-CoreUploadSet.html) 是**跨值集之群組**，
+> 逐碼展開為 **20 個 preferred 代碼**，與本表之 21 列有三處差異：
 >
-> **本指引不逕自補足該列**——差異可能是本指引漏收一列，也可能是原案之計列口徑不同
-> （例如嚼檳除狀態外另計一列嚼檳量；本指引之嚼檳量以 `component[amount]`
-> 承載於同一 Observation，不另立一列）。兩者對「必填欄位有哪些」的結論不同，
-> **屬 [M-5](open-issues.html#m-5) 待國民健康署確認之事項**，已列為送簽確認單第 4 項。
+> | 差異 | 說明 |
+> |:--|:--|
+> | ＋ BMI `39156-5` | **不是 Core 列**。它來自 `VS-TWHAVitalSigns`——該值集另有生理量測之綁定用途，故一併被群組帶入。**不得據 `VS-CoreUploadSet` 推論 BMI 屬最小上傳集。** |
+> | − 嚼檳量（第 10 列） | 官方原案為獨立一列，本指引以**同一 Observation 之 `component[amount]`** 承載，非獨立 `Observation.code`，故群組值集中無對應碼。 |
+> | − 嚼檳月數（第 11 列） | 同上，以 `component` 承載。 |
+>
+> 核算：`20 − 1（BMI） + 2（嚼檳量、嚼檳月數） = 21`。
+> **故「21 列」是對的，`VS-CoreUploadSet` 展開為 20 碼也是對的**——兩者計的不是同一件事。
+
+**三項待主管機關確認**（已列入送簽確認單）：
+
+① **BMI 是否納入最小上傳集**。原案 21 列未收 BMI，本指引之 `VS-TWHAVitalSigns` 收錄之。
+② **第 11 列「嚼檳月數」之語意**。與吸菸列對稱者應為「**戒**檳月數」
+（對應 `component[cessationDuration]`），惟原案欄名為「嚼檳月數」，
+亦可讀為「嚼食持續月數」（對應 `component[durationYears]`，本指引以年計）。
+**兩者語意相反，不得臆測**——本指引兩個 component 皆已備妥，待確認後對映。
+③ **嚼檳量之單位**。原案記 `{個}/d`，本指引用 **`{quid}/d`**：UCUM 之 annotation
+僅接受 ASCII，`{個}` 為非 ASCII，**不是合法 UCUM**（JOB-29 §A）。
+數值語意相同（顆／日），僅標記法不同。
 
 **Level 1 之 artifact 清單**（共 24 件，可由 `node scripts/check-governance-tags.js` 機器核對；
 清單本體登記於 `scripts/governance-map.js`）：
