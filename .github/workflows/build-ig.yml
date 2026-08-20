@@ -34,6 +34,11 @@ on:
         type: boolean
         required: false
         default: false
+      drop-no-validate:
+        description: '【實驗用】建置前移除 no-validate 之【B】五項值集，量測實際浮出之訊息數（T-6）。不得用於發佈'
+        type: boolean
+        required: false
+        default: false
 
 # 同一分支的新 push 取消舊的執行；建置需 10–20 分鐘，避免排隊堆積。
 concurrency:
@@ -84,6 +89,15 @@ jobs:
           npm run check:menu:selftest
           npm run check:menu
 
+      # 外部相依閘門（JOB-28 §5）。TWCR_SF 之 9 個 artifact 於 0.3.0 由本地 stub 改為
+      # 正式相依。此閘門固定該狀態：不得自行定義他方命名空間、不得復現 special-url
+      # 例外、不得把已刪除的 stub 貼回來。CI 若抓不到套件，正確的修法是修取得步驟，
+      # 不是還原成舊的權宜作法——那會靜默地退回「本 IG 自行定義他方資源」的狀態。
+      - name: Check external dependencies (self-test first)
+        run: |
+          npm run check:deps:selftest
+          npm run check:deps
+
       # ---------------------------------------------------------------- 建置環境
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -110,6 +124,37 @@ jobs:
           restore-keys: |
             fhir-packages-
 
+      # TWCR_SF（fhir.TWCRSF#0.1.1）未上架任何公開 registry——2026-07-28 與 2026-08-20
+      # 兩度實測，fhir.twcrsf／fhir.TWCRSF 大小寫於 packages.fhir.org、packages2.fhir.org、
+      # packages.simplifier.net 皆 404。但其 IG 站台提供標準的 package.tgz，故自站台取得
+      # 並解入 FHIR 套件快取，SUSHI 與 IG Publisher 即可如常解析（JOB-28 §4）。
+      #
+      # 置於 Cache FHIR packages 之後：快取命中時本步驟為 no-op（先檢查目錄是否已存在）。
+      - name: Fetch TWCR_SF package
+        env:
+          TWCRSF_VERSION: '0.1.1'
+          TWCRSF_URL: 'https://mitw.dicom.org.tw/IG/TWCR_SF/package.tgz'
+        run: |
+          set -euo pipefail
+          dest="$HOME/.fhir/packages/fhir.TWCRSF#${TWCRSF_VERSION}"
+          if [ -f "$dest/package/package.json" ]; then
+            echo "快取已命中：$dest"
+            exit 0
+          fi
+          mkdir -p "$dest"
+          echo "自 $TWCRSF_URL 下載…"
+          curl -fsSL --retry 3 --retry-delay 5 -o /tmp/twcrsf.tgz "$TWCRSF_URL"
+          tar -xzf /tmp/twcrsf.tgz -C "$dest"
+          # 驗證取得的確實是預期的套件與版本，而非錯誤頁或改版後的內容
+          got_id=$(node -p "require('$dest/package/package.json').name")
+          got_ver=$(node -p "require('$dest/package/package.json').version")
+          echo "取得：$got_id#$got_ver"
+          if [ "$got_id" != "fhir.TWCRSF" ] || [ "$got_ver" != "$TWCRSF_VERSION" ]; then
+            echo "FAIL 套件與預期不符（期望 fhir.TWCRSF#${TWCRSF_VERSION}）"
+            exit 1
+          fi
+          ls "$dest/package" | head -5
+
       - name: Cache IG Publisher jar
         uses: actions/cache@v4
         with:
@@ -129,6 +174,27 @@ jobs:
       # target-relative」；5 組 comment 矛盾則為 JOB-01 只修 display 未修 comment 之殘留。
       - name: Check downloadable assets are current
         run: npm run check:assets
+
+      # T-6 實驗開關。預設不啟用；設為 true 時移除 no-validate 之【B】五項，
+      # 讓該次建置的 qa.txt 顯示「若移除會浮出多少訊息」。這是取得決策依據的方式，
+      # 取代憑猜測直接移除（本專案既定原則：不預先猜測 QA 數字）。
+      # ⚠️ 此模式之產出不得用於發佈，亦不得據以更新 qa-baseline.json。
+      - name: '[experiment] Drop no-validate group B'
+        if: github.event.inputs.drop-no-validate == 'true'
+        run: |
+          set -euo pipefail
+          echo "⚠️ 實驗模式：移除 no-validate 之【B】五項（T-6 量測用，非發佈用）"
+          node - <<'EOF'
+          const fs = require('fs');
+          const B = ['VS-CoreDataset','VS-ExtendedDataset','VS-OccHealthCheck-Required',
+                     'VS-PulmonaryFunction','VS-TWHAVitalSigns'];
+          let s = fs.readFileSync('sushi-config.yaml','utf8');
+          const before = s.split(/\r?\n/).length;
+          s = s.split(/\r?\n/).filter(l => !B.some(v => l.includes(`/ValueSet/${v}`) && l.trim().startsWith('-'))).join('\n');
+          fs.writeFileSync('sushi-config.yaml', s);
+          console.log(`已移除 ${before - s.split(/\r?\n/).length} 行；保留 VS-UnfitDiseases（【A】類）`);
+          EOF
+          grep -A 8 'no-validate:' sushi-config.yaml
 
       - name: Run SUSHI
         run: npm run sushi

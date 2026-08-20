@@ -4,7 +4,7 @@ name: TWHAIG
 title: 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)
 description: 以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】
 status: active
-version: 0.2.5
+version: 0.3.0
 # 本指引之敘述性內容為繁體中文（臺灣）。未宣告時 IG Publisher 會預設為 en，
 # 導致整份中文內容被標記為 lang="en" 並輸出至 en/ 子目錄（JOB-02）。
 language: zh-TW
@@ -21,6 +21,25 @@ contact:
         value: https://twcore.mohw.gov.tw/twregistry/
 dependencies:
   tw.gov.mohw.twcore: 1.0.0
+  # 臺灣癌症登記短表實作指引（TWCR_SF）——嚼檳榔行為之代碼系統與值集來源（JOB-28）。
+  #
+  # 本 IG 之 TWHA-SocialHistory-BetelNut 採 TWCR_SF 之元件架構與值集（required 綁定），
+  # 以便與癌症登記語意一致。0.2.5 以前因上游不可達，改以本地 stub 承載（JOB-10 路徑 B）。
+  #
+  # 2026-08-20 重新查證（JOB-28 §1）：上游 IG 站台實際位於 mitw.dicom.org.tw，
+  # 而非先前僅探測之 hapi.fhir.tw（後者為 canonical 命名空間，不負責託管）：
+  #   站台   https://mitw.dicom.org.tw/IG/TWCR_SF/          v0.1.1（2024-08-01 建置）
+  #   套件   https://mitw.dicom.org.tw/IG/TWCR_SF/package.tgz   HTTP 200，734 KB
+  #   狀態   status = active、experimental = false、content = complete、授權 CC0-1.0
+  #   代碼   sf-BetNutChewAmount 上游 94 碼，與本地 stub 94 碼一致
+  # 故改採 JOB-10 路徑 A，刪除本地 stub。
+  #
+  # ⚠️ 套件仍未上架任何公開 registry（fhir.twcrsf／fhir.TWCRSF 大小寫皆 404），
+  #    故 CI 須先自 IG 站台下載 package.tgz 解入 FHIR 套件快取，見
+  #    .github/workflows/build-ig.yml 之「Fetch TWCR_SF package」步驟。
+  fhir.TWCRSF:
+    version: 0.1.1
+    uri: https://hapi.fhir.tw/fhir/ImplementationGuide/fhir.TWCRSF
 
 parameters:
   # 預設翻譯語言。這才是決定輸出語言目錄名稱的參數。
@@ -42,32 +61,38 @@ parameters:
   # 本草案以 GitHub Pages 供審閱，故指向實際可達位址；正式發佈於 twcore.mohw.gov.tw
   # 後應改回官方站並改由 HL7 發佈流程依 package-list.json 產生 history.html。
   path-history: https://kunjulin.github.io/occupationIG/history.html
-  # special-url：宣告下列網址雖非本 IG 之 canonical，仍容許出現於本 IG 產出中。
+  # special-url 已於 0.3.0 移除（JOB-28）。
+  # 原列 9 個 hapi.fhir.tw（TWCR_SF）canonical，係本地 stub 時期為容許他方命名空間
+  # 出現於本 IG 產出而設之例外。改為正式 dependencies 後，該等 canonical 由上游套件
+  # 提供，不再需要例外宣告。scripts/check-dependencies.js 之 D-3 禁止其復現。
+
+  # no-validate：排除於驗證之外的值集。逐項理由如下（JOB-26 補列）。
   #
-  # 這 9 個屬 TWCR_SF（臺灣癌症登記短表 IG，hapi.fhir.tw）之命名空間，本 IG 以
-  # 【本地 stub】承載（input/fsh/codesystems/TWCRSF-mocks.fsh，content = fragment）。
+  # 0.2.5 以前本區塊之**原始理由未見於任何文件或 commit 訊息**，而這六個正是本 IG 的
+  # 核心術語資產，無理由的排除會削弱「0 Error」的說服力。JOB-01（術語稽核，
+  # Wrong Display Name 133→0）與 JOB-19／20（UCUM 與 Scale 稽核）完成後已具備重評基礎，
+  # 故本版逐項寫明理由，並依實際情形分為兩類：
   #
-  # 2026-07-28 CI 實測：fhir.twcrsf 套件在三個 registry 之根路徑皆 404，
-  # 且該 10 個 canonical 於 hapi.fhir.tw 亦全部 404（伺服器有回應，只是不服務這些資源），
-  # 故無法改為正式 dependencies（JOB-10 路徑 A）。**本參數於路徑 B 下應保留**——
-  # 移除只會讓建置失敗，不會解決治理問題。套件一旦可用即應連同 stub 一併移除。
-  special-url:
-    - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem
-    - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem
-    - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem
-    - https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem
-    - https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem
-    - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset
-    - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset
-    - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset
-    - https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset
-  # ⚠️ 待確認（JOB-09）：以下六個值集被排除於驗證之外，但**原始理由未見於任何文件或
-  # commit 訊息**。這六個正是本 IG 的核心術語資產，將其排除會削弱「0 Error」的說服力
-  # （審查者必然會看本檔）。
+  # 【A】有實質理由，應長期保留 —— 1 個
+  #   VS-UnfitDiseases
+  #     其定義為 `include codes from system ICD10CM`，即**意向式引用整個 ICD-10-CM
+  #     代碼系統**（附表十二不適作業疾病，以 ICD-10-CM 表示）。此類 intensional include
+  #     須由術語伺服器展開整個外部代碼系統，展開量極大且相依於 tx 端是否服務 ICD-10-CM。
+  #     這是 no-validate 的正當用途，非權宜之計。
   #
-  # 目前不逕行移除：移除後可能一次浮出大量訊息，須有 JOB-01 之術語稽核結果為基礎才能
-  # 判斷何者為真問題。**JOB-01 完成後應重新評估並儘可能移除**；屆時若仍需保留，
-  # 必須逐項寫明理由。此項已登記為待確認事項（JOB-13）。
+  # 【B】已具備移除條件，惟須先量測 —— 5 個
+  #   VS-CoreDataset（10 檢驗項＋acceptable）、VS-ExtendedDataset（288 碼）、
+  #   VS-OccHealthCheck-Required（22 碼）、VS-PulmonaryFunction（9 碼）、
+  #   VS-TWHAVitalSigns（生理量測）
+  #     五者均為**逐碼列舉**之 LOINC／SNOMED 清單，且已通過 JOB-01 顯示名稽核
+  #     （Wrong Display Name = 0）與 JOB-19／20 之 UCUM／Scale 稽核。
+  #
+  # ⚠️ **本版不逕行移除【B】**。移除後可能一次浮出大量訊息，而本專案之既定原則是
+  #    **不憑猜測寫入、不預先猜測 QA 數字**（同 JOB-09 對模板釘版之裁示）。
+  #    改為在 CI 提供實驗開關：workflow_dispatch 之 `drop-no-validate` 輸入設為 true 時，
+  #    建置前移除【B】五項並照常產出 qa.txt，即可取得實測訊息數作為決策依據。
+  #    取得實測值後另以一次版本變更移除，屆時本區塊僅餘 VS-UnfitDiseases。
+  #    此項續掛於未決事項 T-6。
   no-validate:
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset
     - https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset
