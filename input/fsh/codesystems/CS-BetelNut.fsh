@@ -159,5 +159,10 @@ Id: VS-TimeUnitYearMonth
 Title: "時間單位值集（年／月）"
 Description: "戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12（JOB-29 §A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。"
 * ^experimental = false
-* UCUM#a "年"
-* UCUM#mo "月"
+// ⚠️ display 必須用 UCUM 官方值，不可寫「年」「月」。
+// 首版寫成中文，CI 實測回報 2 筆 Wrong Display Name（tx：valid display is one of
+// 'a' or '(year)' ／ 'mo' or '(month)'）——而該類別之基準線為 0 且係 JOB-01 費力歸零者。
+// 依 CLAUDE.md §2.2 先判斷是「用錯碼」還是「display 漂移」：此處代碼正確
+// （a＝年、mo＝月），屬後者，故改採官方 display；中文說明置於本值集之 Description。
+* UCUM#a "a"
+* UCUM#mo "mo"
