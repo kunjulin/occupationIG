@@ -1,0 +1,97 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "CS-BetelNutComponent"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-BetelNutComponent</b></p><a name=\"CS-BetelNutComponent\"> </a><a name=\"hcCS-BetelNutComponent\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">amount<a name=\"CS-BetelNutComponent-amount\"> </a></td><td>每日嚼食量</td><td>每日嚼食檳榔之顆數，以 UCUM `{quid}/d` 表達。對應上游 sf-BetNutChewBeh#amount。</td></tr><tr><td style=\"white-space:nowrap\">duration-years<a name=\"CS-BetelNutComponent-duration-years\"> </a></td><td>嚼食年數</td><td>嚼食檳榔之總年數，以 UCUM `a` 表達。對應上游 sf-BetNutChewBeh#year。</td></tr><tr><td style=\"white-space:nowrap\">cessation-duration<a name=\"CS-BetelNutComponent-cessation-duration\"> </a></td><td>戒除期間</td><td>已戒除之期間，以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「已戒 1 年」逕行改寫為 12 個月，見 JOB-29 §A.6）。對應上游 sf-BetNutChewBeh#quit。</td></tr><tr><td style=\"white-space:nowrap\">cessation-date<a name=\"CS-BetelNutComponent-cessation-date\"> </a></td><td>戒除日期</td><td>戒除之日期（得僅至年或年月）。**日期為原始事實，期間為導出值**——期間會隨檢查日改變，故兩者並存時以本欄為準（JOB-29 附錄 B.3）。**不得由「已戒 N 年」回推本欄**。</td></tr><tr><td style=\"white-space:nowrap\">with-tobacco<a name=\"CS-BetelNutComponent-with-tobacco\"> </a></td><td>是否含菸草</td><td>所嚼食之檳榔是否含菸草。IARC 對含／不含菸草之檳榔分開評估，故流行病學分析需要此欄（JOB-29 附錄 B.1 #5）。</td></tr><tr><td style=\"white-space:nowrap\">additive<a name=\"CS-BetelNutComponent-additive\"> </a></td><td>添加物</td><td>所嚼食之檳榔所用之添加物（荖花／荖葉／無）。</td></tr><tr><td style=\"white-space:nowrap\">lime<a name=\"CS-BetelNutComponent-lime\"> </a></td><td>石灰種類</td><td>所嚼食之檳榔所用之石灰種類（紅灰／白灰）。</td></tr><tr><td style=\"white-space:nowrap\">hpa-category<a name=\"CS-BetelNutComponent-hpa-category\"> </a></td><td>口腔黏膜檢查表級距</td><td>國民健康署口腔黏膜檢查表（107/7 修訂）之嚼檳榔習慣原始勾選，保留不換算成中位數（T-13）。</td></tr><tr><td style=\"white-space:nowrap\">amount-coded<a name=\"CS-BetelNutComponent-amount-coded\"> </a></td><td>每日嚼食量（上游級距碼）</td><td>以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。**可選、綁定強度 extensible**——移除本 component 不影響任何核心資料（JOB-29 路徑 C-2）。</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent"] ;
+  fhir:CodeSystem.version [ fhir:value "0.4.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CS_BetelNutComponent"] ;
+  fhir:CodeSystem.title [ fhir:value "嚼檳榔量化元件代碼系統"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-08-20T13:40:11+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "`TWHA-SocialHistory-BetelNut` 各 `component.code` 之本地代碼。前三碼與上游 TWCR_SF `sf-BetNutChewBeh` 之 `amount`／`year`／`quit` 為 1:1 對應。（**provisional**：隨本指引之嚼檳榔建模待主管機關確認，M-5。）"] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "9"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "amount" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "每日嚼食量" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "每日嚼食檳榔之顆數，以 UCUM `{quid}/d` 表達。對應上游 sf-BetNutChewBeh#amount。" ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "duration-years" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼食年數" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "嚼食檳榔之總年數，以 UCUM `a` 表達。對應上游 sf-BetNutChewBeh#year。" ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "cessation-duration" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "戒除期間" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "已戒除之期間，以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「已戒 1 年」逕行改寫為 12 個月，見 JOB-29 §A.6）。對應上游 sf-BetNutChewBeh#quit。" ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "cessation-date" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "戒除日期" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "戒除之日期（得僅至年或年月）。**日期為原始事實，期間為導出值**——期間會隨檢查日改變，故兩者並存時以本欄為準（JOB-29 附錄 B.3）。**不得由「已戒 N 年」回推本欄**。" ]
+  ], [
+     fhir:index 4 ;
+     fhir:CodeSystem.concept.code [ fhir:value "with-tobacco" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "是否含菸草" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "所嚼食之檳榔是否含菸草。IARC 對含／不含菸草之檳榔分開評估，故流行病學分析需要此欄（JOB-29 附錄 B.1 #5）。" ]
+  ], [
+     fhir:index 5 ;
+     fhir:CodeSystem.concept.code [ fhir:value "additive" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "添加物" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "所嚼食之檳榔所用之添加物（荖花／荖葉／無）。" ]
+  ], [
+     fhir:index 6 ;
+     fhir:CodeSystem.concept.code [ fhir:value "lime" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "石灰種類" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "所嚼食之檳榔所用之石灰種類（紅灰／白灰）。" ]
+  ], [
+     fhir:index 7 ;
+     fhir:CodeSystem.concept.code [ fhir:value "hpa-category" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "口腔黏膜檢查表級距" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "國民健康署口腔黏膜檢查表（107/7 修訂）之嚼檳榔習慣原始勾選，保留不換算成中位數（T-13）。" ]
+  ], [
+     fhir:index 8 ;
+     fhir:CodeSystem.concept.code [ fhir:value "amount-coded" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "每日嚼食量（上游級距碼）" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。**可選、綁定強度 extensible**——移除本 component 不影響任何核心資料（JOB-29 路徑 C-2）。" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,4 +1,4 @@
-# 特殊健檢實驗室檢驗 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3
+# 特殊健檢實驗室檢驗 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
 
 ## 資源 Profile: 特殊健檢實驗室檢驗 Profile 
 
@@ -80,11 +80,11 @@ This structure refers to these other structures:
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-LabResult-Special",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-Special",
-  "version" : "0.3.3",
+  "version" : "0.4.0",
   "name" : "TWHALabResultSpecialProfile",
   "title" : "特殊健檢實驗室檢驗 Profile",
   "status" : "active",
-  "date" : "2026-08-20T12:04:33+00:00",
+  "date" : "2026-08-20T13:40:11+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

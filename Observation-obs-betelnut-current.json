@@ -1,0 +1,159 @@
+{
+  "resourceType" : "Observation",
+  "id" : "obs-betelnut-current",
+  "meta" : {
+    "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-betelnut-current</b></p><a name=\"obs-betelnut-current\"> </a><a name=\"hcobs-betelnut-current\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-SocialHistory-BetelNut.html\">嚼檳榔歷史與狀態 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 698188003}\">Chews betel quid</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2026-06-12 08:05:00+0800</p><p><b>performer</b>: <a href=\"Practitioner-example-nurse.html\">Practitioner 陳健護(official)</a></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus 2-daily}\">每日嚼食</span></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent amount}\">每日嚼食量</span></p><p><b>value</b>: 10 顆/日<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  code{quid}/d = '{quid}/d')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent duration-years}\">嚼食年數</span></p><p><b>value</b>: 20 年<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codea = 'a')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent with-tobacco}\">是否含菸草</span></p><p><b>value</b>: true</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent additive}\">添加物</span></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutAdditive betel-leaf}\">荖葉</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent lime}\">石灰種類</span></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutLime white-lime}\">白灰</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent amount-coded}\">每日嚼食量（上游級距碼）</span></p><p><b>value</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem 10}\">每日10顆</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent hpa-category}\">口腔黏膜檢查表級距</span></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory 4-ge10y-lt20}\">嚼超過 10 年，每天少於 20 顆</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 48766-0}\">Information source</span></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource self-report}\">受檢者自述</span></p></blockquote></div>"
+  },
+  "status" : "final",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+      "code" : "social-history"
+    }]
+  }],
+  "code" : {
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "698188003",
+      "display" : "Chews betel quid"
+    }]
+  },
+  "subject" : {
+    "reference" : "Patient/example-worker"
+  },
+  "effectiveDateTime" : "2026-06-12T08:05:00+08:00",
+  "performer" : [{
+    "reference" : "Practitioner/example-nurse"
+  }],
+  "valueCodeableConcept" : {
+    "coding" : [{
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus",
+      "code" : "2-daily",
+      "display" : "每日嚼食"
+    }]
+  },
+  "component" : [{
+    "code" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+        "code" : "amount",
+        "display" : "每日嚼食量"
+      }]
+    },
+    "valueQuantity" : {
+      "value" : 10,
+      "unit" : "顆/日",
+      "system" : "http://unitsofmeasure.org",
+      "code" : "{quid}/d"
+    }
+  },
+  {
+    "code" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+        "code" : "duration-years",
+        "display" : "嚼食年數"
+      }]
+    },
+    "valueQuantity" : {
+      "value" : 20,
+      "unit" : "年",
+      "system" : "http://unitsofmeasure.org",
+      "code" : "a"
+    }
+  },
+  {
+    "code" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+        "code" : "with-tobacco",
+        "display" : "是否含菸草"
+      }]
+    },
+    "valueBoolean" : true
+  },
+  {
+    "code" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+        "code" : "additive",
+        "display" : "添加物"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutAdditive",
+        "code" : "betel-leaf",
+        "display" : "荖葉"
+      }]
+    }
+  },
+  {
+    "code" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+        "code" : "lime",
+        "display" : "石灰種類"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutLime",
+        "code" : "white-lime",
+        "display" : "白灰"
+      }]
+    }
+  },
+  {
+    "code" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+        "code" : "amount-coded",
+        "display" : "每日嚼食量（上游級距碼）"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem",
+        "code" : "10",
+        "display" : "每日10顆"
+      }]
+    }
+  },
+  {
+    "code" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+        "code" : "hpa-category",
+        "display" : "口腔黏膜檢查表級距"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory",
+        "code" : "4-ge10y-lt20",
+        "display" : "嚼超過 10 年，每天少於 20 顆"
+      }]
+    }
+  },
+  {
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "48766-0",
+        "display" : "Information source"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource",
+        "code" : "self-report",
+        "display" : "受檢者自述"
+      }]
+    }
+  }]
+}

@@ -1,0 +1,37 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "VS-BetelNutStatus",
+  "language" : "zh-TW",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 取值集合 VS-BetelNutStatus</b></p><a name=\"VS-BetelNutStatus\"> </a><a name=\"hcVS-BetelNutStatus\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-CS-BetelNutStatus.html\"><code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version &#x1F4E6;0.4.0</span></li></ul></div>"
+  },
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-BetelNutStatus",
+  "version" : "0.4.0",
+  "name" : "VS_BetelNutStatus",
+  "title" : "嚼檳榔狀態值集",
+  "status" : "active",
+  "experimental" : true,
+  "date" : "2026-08-20T13:40:11+00:00",
+  "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+  "contact" : [{
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  },
+  {
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  }],
+  "description" : "包含嚼檳榔狀態代碼的值集。（provisional，隨 CS-BetelNutStatus 待官方確認）不含「不詳」——狀態不詳者以 `dataAbsentReason` 表達，見 CS-BetelNutStatus 之說明。",
+  "compose" : {
+    "include" : [{
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus"
+    }]
+  }
+}

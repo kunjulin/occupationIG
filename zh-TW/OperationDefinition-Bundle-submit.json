@@ -7,12 +7,12 @@
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 操作定义 Bundle-submit</b></p><a name=\"Bundle-submit\"> </a><a name=\"hcBundle-submit\"> </a><p>URL: [base]/Bundle/$submit</p><h3>Parameters</h3><table class=\"grid\"><tr><td><b>Use</b></td><td><b>Name</b></td><td><b>Scope</b></td><td><b>Cardinality</b></td><td><b>Type</b></td><td><b>Binding</b></td><td><b>Documentation</b></td></tr><tr><td>IN</td><td>content</td><td/><td>1..1</td><td><a href=\"http://hl7.org/fhir/R4/bundle.html\">Bundle</a> (<a href=\"StructureDefinition-TWHA-Bundle-Transaction.html\" title=\"https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Transaction\">健康檢查資料上傳封包 (Transaction Bundle) Profile</a>)</td><td/><td><div><p>上傳封包，須符合 TWHA-Bundle-Transaction（每個 entry 具 request.method 與 request.url）。範例見 Bundle-UC-008.html／Bundle-UC-009.html。</p>\n</div></td></tr><tr><td>OUT</td><td>return</td><td/><td>1..1</td><td><a href=\"http://hl7.org/fhir/R4/bundle.html\">Bundle</a></td><td/><td><div><p>成功時為 type = transaction-response 之 Bundle，逐 entry 回報 response.status 與伺服器指派之位址；驗證失敗時整體回應為 OperationOutcome（HTTP 422），issue.expression 指向出錯之 entry 路徑。</p>\n</div></td></tr></table></div>"
   },
   "url" : "https://twcore.mohw.gov.tw/ig/twha/OperationDefinition/Bundle-submit",
-  "version" : "0.3.3",
+  "version" : "0.4.0",
   "name" : "Submit",
   "title" : "健檢資料上傳作業 ($submit)",
   "status" : "active",
   "kind" : "operation",
-  "date" : "2026-08-20T12:04:33+00:00",
+  "date" : "2026-08-20T13:40:11+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

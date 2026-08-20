@@ -1,4 +1,4 @@
-# mohw.tw.twha#0.3.3: 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)(zh-TW)
+# mohw.tw.twha#0.4.0: 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)(zh-TW)
 
 ## Pages
 
@@ -28,6 +28,12 @@
 ### CodeSystems
 
 * [附表十特別危害健康作業具名代碼系統](CodeSystem-CS-Appendix10Operation.md)
+* [檳榔添加物代碼系統](CodeSystem-CS-BetelNutAdditive.md)
+* [嚼檳榔量化元件代碼系統](CodeSystem-CS-BetelNutComponent.md)
+* [口腔黏膜檢查表嚼檳榔習慣級距代碼系統](CodeSystem-CS-BetelNutHpaCategory.md)
+* [嚼檳榔資料來源代碼系統](CodeSystem-CS-BetelNutInfoSource.md)
+* [檳榔石灰種類代碼系統](CodeSystem-CS-BetelNutLime.md)
+* [嚼檳榔狀態代碼系統](CodeSystem-CS-BetelNutStatus.md)
 * [檢查類型代碼系統](CodeSystem-CS-ExamType.md)
 * [適性配工建議代碼系統](CodeSystem-CS-FitnessForWork.md)
 * [特別危害健康作業類別代碼系統](CodeSystem-CS-HazardType.md)
@@ -49,6 +55,11 @@
 * [附表十 有機溶劑作業 專屬應執行項目值集](ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.md)
 * [附表十 特殊健康檢查應執行項目值集（已落地家族）](ValueSet-VS-Appendix10-RequiredSet.md)
 * [附表九 一般健康檢查法定應執行項目值集](ValueSet-VS-Appendix9-RequiredSet.md)
+* [檳榔添加物值集](ValueSet-VS-BetelNutAdditive.md)
+* [口腔黏膜檢查表嚼檳榔習慣級距值集](ValueSet-VS-BetelNutHpaCategory.md)
+* [嚼檳榔資料來源值集](ValueSet-VS-BetelNutInfoSource.md)
+* [檳榔石灰種類值集](ValueSet-VS-BetelNutLime.md)
+* [嚼檳榔狀態值集](ValueSet-VS-BetelNutStatus.md)
 * [健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）](ValueSet-VS-CoreDataset.md)
 * [主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）](ValueSet-VS-CoreUploadSet.md)
 * [檢查類型值集](ValueSet-VS-ExamType.md)
@@ -66,6 +77,7 @@
 * [吸菸狀態值集](ValueSet-VS-SmokingStatus.md)
 * [特定化學物質種類值集](ValueSet-VS-SpecificChemicalType.md)
 * [職業健檢生命徵象項目值集](ValueSet-VS-TWHAVitalSigns.md)
+* [時間單位值集（年／月）](ValueSet-VS-TimeUnitYearMonth.md)
 * [不適合從事作業之疾病值集](ValueSet-VS-UnfitDiseases.md)
 
 ### Resource Profiles
@@ -177,6 +189,8 @@
 * [example-imaging-chest-xray (ImagingStudy)](ImagingStudy-example-imaging-chest-xray.md)
 * [example-service-finding (Observation)](Observation-example-service-finding.md)
 * [obs-alcohol (Observation)](Observation-obs-alcohol.md)
+* [obs-betelnut-current (Observation)](Observation-obs-betelnut-current.md)
+* [obs-betelnut-never (Observation)](Observation-obs-betelnut-never.md)
 * [obs-betelnut (Observation)](Observation-obs-betelnut.md)
 * [obs-bloodpressure (Observation)](Observation-obs-bloodpressure.md)
 * [obs-bmi (Observation)](Observation-obs-bmi.md)

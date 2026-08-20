@@ -1,4 +1,4 @@
-# 未決事項 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3
+# 未決事項 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
 
 ## 未決事項
 
@@ -54,6 +54,7 @@
 | [T-10](#t-10) | DiagnosticReport 無法彙整非檢驗類結果 | TW Core／本專案 | 🔶**已定預設：維持 TW Core 繼承（0.3.0）** |
 | [T-11](#t-11) | eGFR 多估算公式並存 | 職醫科／平台端 | 待決（MDRD 保留已具公文依據、T-5 結案；餘 Cystatin C 公式範圍待定） |
 | [T-12](#t-12) | UCUM 稽核之 Scale 未對映碼（29 筆） | 執行團隊／術語 | ✅**已解決（2026-07-30）**：三碼經 loinc.org 查證（Doc／SemiQn／-），SemiQn 納入稽核、餘明確排除，`--max-unknown`已歸零 |
+| [T-13](#t-13) | 口腔黏膜檢查表之 6 選 1 級距未取得原文 | 國健署／執行團隊 | ✅**已解決（2026-08-20）**：原文取得，`CS-BetelNutHpaCategory`與`component[hpaCategory]`已落地 |
 | [P-1](#p-1) | canonical 命名空間為 provisional | 主管機關 | 待決 |
 | [P-2](#p-2) | 授權條款未宣告 | 委託契約雙方 | 待決 |
 
@@ -531,6 +532,28 @@ IG Publisher 只檢查「代碼是否存在於該 CodeSystem」，**不檢查 `d
 **驗收（CI run 30539459829）** `Scale 未知 = 0`、`未列於對照檔 = 0`、`不符 = 0`、 分類健全度 241／320 ＝ 75.3%、`err = 0`、`Wrong Display Name = 0`、`VS-ExtendedDataset = 288`。
 
 **出處** JOB-19 補充事項施作（2026-07-30）提出；[JOB-20](https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-20-t12-scale-parts-resolution.md) 結案
+
+-------
+
+## T-13 口腔黏膜檢查表之 6 選 1 級距未取得原文 ✅ 已解決（0.4.0） 
+
+**現況** JOB-29 附錄 B 採認委員建議之 `bq-hpa-category`——保留口腔黏膜檢查表之 **原始勾選**為 coded Observation，**不換算成中位數**（假精確會污染 dose-response 分析）， 此與 [T-9](#t-9)「保留原始 coding」為同一原則。0.4.0 實作路徑甲時， 委員欄位清單中其餘各項（含菸草、添加物、石灰種類、戒除日期、資料來源）均已落地， **唯獨本項未落地**。
+
+**✅ 決議（2026-08-20）** 原文已取得（口腔黏膜檢查表 107 年 7 月修訂本）， 六個級距逐字錄入 [CS-BetelNutHpaCategory](CodeSystem-CS-BetelNutHpaCategory.md)， 並以 `component[hpaCategory]`（required 綁定）承載原始勾選。本條結案。
+
+**代碼編號之依據** 該表六個選項之印刷編號末項為 ❺，六項而止於 5，故首項為 ⓿； 本代碼系統之 `0-`～`5-` 前綴即依此順序，**非另行編號**。命名沿用 `CS-SmokingStatus` 之「數字前綴＋語意」慣例。
+
+**尚存之範疇問題（不影響本條結案）** 「篩檢表級距是否應納入健檢交換」屬 [M-5](#m-5) 之範疇問題，非本條之標的。故該代碼系統標 `experimental = true`， 描述載明係**選項文字為原文、納入與否待確認**。
+
+**原待決事項（存查）** 該表 6 個級距之原文字面與排序；所需輸入為該表原文 或國健署確認之級距定義。
+
+**影響範圍（已實作）** `input/fsh/codesystems/CS-BetelNut.fsh`（`CS-BetelNutHpaCategory` ＋ `VS-BetelNutHpaCategory`）、`TWHA-SocialHistory-BetelNut`（`component[hpaCategory] 0..1`）、`terminology.md` §6.2b、範例 `obs-betelnut-current`。
+
+**為何當時不逕行擬稿（存查）** 級距之**文字與切點**屬該表之實質內容，非本團隊可推定； 依 [CLAUDE.md](https://github.com/kunjulin/occupationIG/blob/main/CLAUDE.md) §4 「憑既有 markdown 表格轉抄法規項目」之戒律，須以原文逐項核對。 自行擬一組看似合理的級距，會產生一個**外觀正確但與實際表單對不上**的值集—— 其危害甚於暫時缺件。**事後對照原文，此判斷正確**：實際級距同時綁定「嚼食年數」與 「每日顆數」兩個維度（如「嚼超過 10 年，每天 20 顆及以上」），非單一維度之分段， 與一般會憑空擬出的「1–9 顆／10–19 顆／20 顆以上」形狀不同。
+
+**若決策不同** 若主管機關認為健檢上傳不需保留篩檢表之原始級距，本項可逕行關閉， `component[hpaCategory]` 不再需要；量化資料已由 `component[amount]`（UCUM `{quid}/d`）承載。
+
+> ⚠️ **範疇提醒**：口腔黏膜檢查表是**癌症篩檢用表，不是健檢上傳欄位**。 納入其原始級距無妨（可回溯、可稽核），但**不得因此把篩檢表欄位當成健檢上傳欄位** ——後者才是 [M-5](#m-5) 待國健署確認之標的。三套來源之對照見 [術語頁 §6.2b-1](terminology.md)。
 
 -------
 

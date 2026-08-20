@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>Artifacts Summary - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3</title>
+    <title>Artifacts Summary - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.3.3 - STU1
+            <span style="display:inline-block;">0.4.0 - STU1
 
 
             </span>
@@ -206,7 +206,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.3.3  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.4.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>Artifacts Summary</h2>
   
   
@@ -509,7 +509,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>用於記錄勞工之嚼檳榔習慣與量化資料。本 Profile 基於 Observation 資源，採用與臺灣癌症登記短表實作指引 (TWCR_SF) 相同之元件架構及值集，以便進行跨系統之整合介接。</p>
+<p>用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 <code class="language-plaintext highlighter-rouge">value[x]</code> 承載（值集 VS-BetelNutStatus，與吸菸之 CS-SmokingStatus 逐碼對稱）；每日嚼食量、嚼食年數與戒除期間以 <code class="language-plaintext highlighter-rouge">component</code> 之 <code class="language-plaintext highlighter-rouge">Quantity</code> 承載（UCUM）。上游臺灣癌症登記短表 (TWCR_SF) 之級距碼降為可選 component（extensible），供與癌症登記勾稽。</p>
 </td>
          </tr>
          <tr>
@@ -925,7 +925,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
                </a>
             </td>
             <td>
-<p>群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之量／年／戒除年由臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之值集承載（sf-BetNutChewAmount／sf-BetNutChewYear／sf-BetNutChewQuit，required 綁定，見 TWHA-SocialHistory-BetelNut），非本 IG 自訂，亦非無碼；LOINC／SNOMED 就此無對應碼故採國內值集。注意上游以「年」計，與吸菸之戒除「月數」（LNC#63632-4）單位不同。</p>
+<p>群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之狀態由本 IG 之 VS-BetelNutStatus 承載（與吸菸狀態四碼逐碼對稱）；量／年數／戒除期間自 v0.4.0 起改以 UCUM Quantity 承載（{quid}/d、a、a 或 mo），上游臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之級距碼降為可選 component（extensible）供勾稽之用，見 TWHA-SocialHistory-BetelNut 與術語頁 &sect;6.2b。注意戒除期間之單位以原始採集粒度為準（上游以「年」計），與吸菸之戒除「月數」（LNC#63632-4）不同，不得逕行換算。</p>
 </td>
          </tr>
          <tr>
@@ -996,6 +996,17 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
+               <a href="ValueSet-VS-BetelNutHpaCategory.html" title="ValueSet/VS-BetelNutHpaCategory">
+                  <span title="ValueSet/VS-BetelNutHpaCategory">口腔黏膜檢查表嚼檳榔習慣級距值集
+</span>
+               </a>
+            </td>
+            <td>
+<p>包含口腔黏膜檢查表（107/7 修訂）嚼檳榔習慣六個級距之值集。（provisional，隨 CS-BetelNutHpaCategory）</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="ValueSet-VS-SmokingStatus.html" title="ValueSet/VS-SmokingStatus">
                   <span title="ValueSet/VS-SmokingStatus">吸菸狀態值集
 </span>
@@ -1003,6 +1014,39 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>包含吸菸狀態代碼的值集。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-VS-BetelNutStatus.html" title="ValueSet/VS-BetelNutStatus">
+                  <span title="ValueSet/VS-BetelNutStatus">嚼檳榔狀態值集
+</span>
+               </a>
+            </td>
+            <td>
+<p>包含嚼檳榔狀態代碼的值集。（provisional，隨 CS-BetelNutStatus 待官方確認）不含「不詳」——狀態不詳者以 <code class="language-plaintext highlighter-rouge">dataAbsentReason</code> 表達，見 CS-BetelNutStatus 之說明。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-VS-BetelNutInfoSource.html" title="ValueSet/VS-BetelNutInfoSource">
+                  <span title="ValueSet/VS-BetelNutInfoSource">嚼檳榔資料來源值集
+</span>
+               </a>
+            </td>
+            <td>
+<p>包含嚼檳榔資料來源代碼之值集。（provisional，隨 CS-BetelNutInfoSource 待官方確認）</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-VS-TimeUnitYearMonth.html" title="ValueSet/VS-TimeUnitYearMonth">
+                  <span title="ValueSet/VS-TimeUnitYearMonth">時間單位值集（年／月）
+</span>
+               </a>
+            </td>
+            <td>
+<p>戒除期間所允許之 UCUM 時間單位：<code class="language-plaintext highlighter-rouge">a</code>（年）與 <code class="language-plaintext highlighter-rouge">mo</code>（月）。<strong>以原始採集粒度為準</strong>——原始以年收集者送 <code class="language-plaintext highlighter-rouge">a</code>，不得逕行乘 12（JOB-29 &sect;A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。</p>
 </td>
          </tr>
          <tr>
@@ -1025,6 +1069,28 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查之代碼。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-VS-BetelNutAdditive.html" title="ValueSet/VS-BetelNutAdditive">
+                  <span title="ValueSet/VS-BetelNutAdditive">檳榔添加物值集
+</span>
+               </a>
+            </td>
+            <td>
+<p>包含檳榔添加物代碼之值集。（provisional，隨 CS-BetelNutAdditive 待官方確認）</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-VS-BetelNutLime.html" title="ValueSet/VS-BetelNutLime">
+                  <span title="ValueSet/VS-BetelNutLime">檳榔石灰種類值集
+</span>
+               </a>
+            </td>
+            <td>
+<p>包含檳榔石灰種類代碼之值集。（provisional，隨 CS-BetelNutLime 待官方確認）</p>
 </td>
          </tr>
          <tr>
@@ -1224,6 +1290,17 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
+               <a href="CodeSystem-CS-BetelNutHpaCategory.html" title="CodeSystem/CS-BetelNutHpaCategory">
+                  <span title="CodeSystem/CS-BetelNutHpaCategory">口腔黏膜檢查表嚼檳榔習慣級距代碼系統
+</span>
+               </a>
+            </td>
+            <td>
+<p>逐字錄自國民健康署<strong>口腔黏膜檢查表（107 年 7 月修訂）</strong>「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。<strong>該表為癌症篩檢用表，非健檢上傳欄位</strong>（見 open-issues T-13、術語頁 &sect;6.2b-1）。（<strong>provisional</strong>：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。）</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="CodeSystem-CS-SmokingStatus.html" title="CodeSystem/CS-SmokingStatus">
                   <span title="CodeSystem/CS-SmokingStatus">吸菸狀態代碼系統
 </span>
@@ -1231,6 +1308,39 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>勞工健檢生活習慣調查中之吸菸狀態分類。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-CS-BetelNutStatus.html" title="CodeSystem/CS-BetelNutStatus">
+                  <span title="CodeSystem/CS-BetelNutStatus">嚼檳榔狀態代碼系統
+</span>
+               </a>
+            </td>
+            <td>
+<p>勞工健檢生活習慣調查中之嚼檳榔狀態分類，與吸菸狀態（CS-SmokingStatus）逐碼對稱。（<strong>provisional</strong>：本代碼系統為工作小組建議之本地代碼配置，<strong>尚待主管機關確認官方代碼與定義（M-5）</strong>；不得表述為已對接官方申報系統。）</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-CS-BetelNutInfoSource.html" title="CodeSystem/CS-BetelNutInfoSource">
+                  <span title="CodeSystem/CS-BetelNutInfoSource">嚼檳榔資料來源代碼系統
+</span>
+               </a>
+            </td>
+            <td>
+<p>嚼檳榔資訊之取得來源。（<strong>provisional</strong>：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-CS-BetelNutComponent.html" title="CodeSystem/CS-BetelNutComponent">
+                  <span title="CodeSystem/CS-BetelNutComponent">嚼檳榔量化元件代碼系統
+</span>
+               </a>
+            </td>
+            <td>
+<p><code class="language-plaintext highlighter-rouge">TWHA-SocialHistory-BetelNut</code> 各 <code class="language-plaintext highlighter-rouge">component.code</code> 之本地代碼。前三碼與上游 TWCR_SF <code class="language-plaintext highlighter-rouge">sf-BetNutChewBeh</code> 之 <code class="language-plaintext highlighter-rouge">amount</code>／<code class="language-plaintext highlighter-rouge">year</code>／<code class="language-plaintext highlighter-rouge">quit</code> 為 1:1 對應。（<strong>provisional</strong>：隨本指引之嚼檳榔建模待主管機關確認，M-5。）</p>
 </td>
          </tr>
          <tr>
@@ -1253,6 +1363,28 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
             </td>
             <td>
 <p>勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-CS-BetelNutAdditive.html" title="CodeSystem/CS-BetelNutAdditive">
+                  <span title="CodeSystem/CS-BetelNutAdditive">檳榔添加物代碼系統
+</span>
+               </a>
+            </td>
+            <td>
+<p>嚼食檳榔所用之添加物。（<strong>provisional</strong>：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-CS-BetelNutLime.html" title="CodeSystem/CS-BetelNutLime">
+                  <span title="CodeSystem/CS-BetelNutLime">檳榔石灰種類代碼系統
+</span>
+               </a>
+            </td>
+            <td>
+<p>嚼食檳榔所用之石灰種類。（<strong>provisional</strong>：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）</p>
 </td>
          </tr>
          <tr>
@@ -1619,13 +1751,35 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="Observation-obs-betelnut.html" title="Observation/obs-betelnut">
-                  <span title="Observation/obs-betelnut">嚼檳榔狀態與量化資料範例
+               <a href="Observation-obs-betelnut-never.html" title="Observation/obs-betelnut-never">
+                  <span title="Observation/obs-betelnut-never">嚼檳榔狀態範例（從未嚼食）
 </span>
                </a>
             </td>
             <td>
-<p>受檢勞工王大同的嚼檳榔習慣，每日嚼食 5 顆，嚼檳 10 年，目前已戒除 1 年（12個月）。</p>
+<p>受檢勞工林志明：從未嚼食檳榔。三個量化 component 全部不送。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Observation-obs-betelnut.html" title="Observation/obs-betelnut">
+                  <span title="Observation/obs-betelnut">嚼檳榔狀態與量化資料範例（已戒）
+</span>
+               </a>
+            </td>
+            <td>
+<p>受檢勞工王大同的嚼檳榔習慣：過去每日嚼食 5 顆，嚼檳 10 年，目前已戒除 1 年。</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Observation-obs-betelnut-current.html" title="Observation/obs-betelnut-current">
+                  <span title="Observation/obs-betelnut-current">嚼檳榔狀態與量化資料範例（現嚼，含情境欄位）
+</span>
+               </a>
+            </td>
+            <td>
+<p>受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉、白灰），嚼檳 20 年，未戒。另附上游 TWCR_SF 級距碼作為對照。</p>
 </td>
          </tr>
          <tr>
@@ -2172,9 +2326,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.3.3，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.4.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-20 12:04:00 +0000">
+  <span title="2026-08-20 13:40:00 +0000">
     2026-08-20
   </span>
 

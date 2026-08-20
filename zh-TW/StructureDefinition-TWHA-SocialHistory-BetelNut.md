@@ -1,13 +1,13 @@
-# 嚼檳榔歷史與狀態 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3
+# 嚼檳榔歷史與狀態 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
 
 ## 資源 Profile: 嚼檳榔歷史與狀態 Profile ( 實驗性 ) 
 
  
-用於記錄勞工之嚼檳榔習慣與量化資料。本 Profile 基於 Observation 資源，採用與臺灣癌症登記短表實作指引 (TWCR_SF) 相同之元件架構及值集，以便進行跨系統之整合介接。 
+用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `value[x]` 承載（值集 VS-BetelNutStatus，與吸菸之 CS-SmokingStatus 逐碼對稱）；每日嚼食量、嚼食年數與戒除期間以 `component` 之 `Quantity` 承載（UCUM）。上游臺灣癌症登記短表 (TWCR_SF) 之級距碼降為可選 component（extensible），供與癌症登記勾稽。 
 
 **Usages:**
 
-* Examples for this Profile: [Observation/obs-betelnut](Observation-obs-betelnut.md)
+* Examples for this Profile: [Observation/obs-betelnut-current](Observation-obs-betelnut-current.md), [Observation/obs-betelnut-never](Observation-obs-betelnut-never.md) and [Observation/obs-betelnut](Observation-obs-betelnut.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-SocialHistory-BetelNut.json)
 
@@ -35,7 +35,7 @@ You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir
 
 ** Summary **
 
-Mandatory: 3 elements
+Must-Support: 3 elements
 
 **Structures**
 
@@ -70,7 +70,7 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
 
 ** Summary **
 
-Mandatory: 3 elements
+Must-Support: 3 elements
 
 **Structures**
 
@@ -98,12 +98,12 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-SocialHistory-BetelNut",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut",
-  "version" : "0.3.3",
+  "version" : "0.4.0",
   "name" : "TWHASocialHistoryBetelNutProfile",
   "title" : "嚼檳榔歷史與狀態 Profile",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-20T12:04:33+00:00",
+  "date" : "2026-08-20T13:40:11+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -119,7 +119,7 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "用於記錄勞工之嚼檳榔習慣與量化資料。本 Profile 基於 Observation 資源，採用與臺灣癌症登記短表實作指引 (TWCR_SF) 相同之元件架構及值集，以便進行跨系統之整合介接。",
+  "description" : "用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `value[x]` 承載（值集 VS-BetelNutStatus，與吸菸之 CS-SmokingStatus 逐碼對稱）；每日嚼食量、嚼食年數與戒除期間以 `component` 之 `Quantity` 承載（UCUM）。上游臺灣癌症登記短表 (TWCR_SF) 之級距碼降為可選 component（extensible），供與癌症登記勾稽。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",
@@ -188,9 +188,9 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
       "path" : "Observation.code",
       "patternCodeableConcept" : {
         "coding" : [{
-          "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem",
-          "code" : "BetelNutChewing",
-          "display" : "嚼檳榔行為"
+          "system" : "http://snomed.info/sct",
+          "code" : "698188003",
+          "display" : "Chews betel quid"
         }]
       }
     },
@@ -211,6 +211,17 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
       }]
     },
     {
+      "id" : "Observation.value[x]",
+      "path" : "Observation.value[x]",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-BetelNutStatus"
+      }
+    },
+    {
       "id" : "Observation.component",
       "path" : "Observation.component",
       "slicing" : {
@@ -220,24 +231,24 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
         }],
         "ordered" : false,
         "rules" : "open"
-      },
-      "min" : 3
+      }
     },
     {
       "id" : "Observation.component:amount",
       "path" : "Observation.component",
       "sliceName" : "amount",
-      "min" : 1,
-      "max" : "1"
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
     },
     {
       "id" : "Observation.component:amount.code",
       "path" : "Observation.component.code",
       "patternCodeableConcept" : {
         "coding" : [{
-          "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
+          "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
           "code" : "amount",
-          "display" : "每日嚼檳榔量，以 ”顆” 計算"
+          "display" : "每日嚼食量"
         }]
       }
     },
@@ -245,69 +256,287 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
       "id" : "Observation.component:amount.value[x]",
       "path" : "Observation.component.value[x]",
       "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "Observation.component:amount.value[x].system",
+      "path" : "Observation.component.value[x].system",
+      "patternUri" : "http://unitsofmeasure.org"
+    },
+    {
+      "id" : "Observation.component:amount.value[x].code",
+      "path" : "Observation.component.value[x].code",
+      "patternCode" : "{quid}/d"
+    },
+    {
+      "id" : "Observation.component:durationYears",
+      "path" : "Observation.component",
+      "sliceName" : "durationYears",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Observation.component:durationYears.code",
+      "path" : "Observation.component.code",
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+          "code" : "duration-years",
+          "display" : "嚼食年數"
+        }]
+      }
+    },
+    {
+      "id" : "Observation.component:durationYears.value[x]",
+      "path" : "Observation.component.value[x]",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "Observation.component:durationYears.value[x].system",
+      "path" : "Observation.component.value[x].system",
+      "patternUri" : "http://unitsofmeasure.org"
+    },
+    {
+      "id" : "Observation.component:durationYears.value[x].code",
+      "path" : "Observation.component.value[x].code",
+      "patternCode" : "a"
+    },
+    {
+      "id" : "Observation.component:cessationDuration",
+      "path" : "Observation.component",
+      "sliceName" : "cessationDuration",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Observation.component:cessationDuration.code",
+      "path" : "Observation.component.code",
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+          "code" : "cessation-duration",
+          "display" : "戒除期間"
+        }]
+      }
+    },
+    {
+      "id" : "Observation.component:cessationDuration.value[x]",
+      "path" : "Observation.component.value[x]",
+      "type" : [{
+        "code" : "Quantity"
+      }]
+    },
+    {
+      "id" : "Observation.component:cessationDuration.value[x].system",
+      "path" : "Observation.component.value[x].system",
+      "patternUri" : "http://unitsofmeasure.org"
+    },
+    {
+      "id" : "Observation.component:cessationDuration.value[x].code",
+      "path" : "Observation.component.value[x].code",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TimeUnitYearMonth"
+      }
+    },
+    {
+      "id" : "Observation.component:cessationDate",
+      "path" : "Observation.component",
+      "sliceName" : "cessationDate",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Observation.component:cessationDate.code",
+      "path" : "Observation.component.code",
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+          "code" : "cessation-date",
+          "display" : "戒除日期"
+        }]
+      }
+    },
+    {
+      "id" : "Observation.component:cessationDate.value[x]",
+      "path" : "Observation.component.value[x]",
+      "type" : [{
+        "code" : "dateTime"
+      }]
+    },
+    {
+      "id" : "Observation.component:withTobacco",
+      "path" : "Observation.component",
+      "sliceName" : "withTobacco",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Observation.component:withTobacco.code",
+      "path" : "Observation.component.code",
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+          "code" : "with-tobacco",
+          "display" : "是否含菸草"
+        }]
+      }
+    },
+    {
+      "id" : "Observation.component:withTobacco.value[x]",
+      "path" : "Observation.component.value[x]",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },
+    {
+      "id" : "Observation.component:additive",
+      "path" : "Observation.component",
+      "sliceName" : "additive",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Observation.component:additive.code",
+      "path" : "Observation.component.code",
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+          "code" : "additive",
+          "display" : "添加物"
+        }]
+      }
+    },
+    {
+      "id" : "Observation.component:additive.value[x]",
+      "path" : "Observation.component.value[x]",
+      "type" : [{
         "code" : "CodeableConcept"
       }],
       "binding" : {
         "strength" : "required",
+        "valueSet" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-BetelNutAdditive"
+      }
+    },
+    {
+      "id" : "Observation.component:lime",
+      "path" : "Observation.component",
+      "sliceName" : "lime",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Observation.component:lime.code",
+      "path" : "Observation.component.code",
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+          "code" : "lime",
+          "display" : "石灰種類"
+        }]
+      }
+    },
+    {
+      "id" : "Observation.component:lime.value[x]",
+      "path" : "Observation.component.value[x]",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-BetelNutLime"
+      }
+    },
+    {
+      "id" : "Observation.component:informationSource",
+      "path" : "Observation.component",
+      "sliceName" : "informationSource",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Observation.component:informationSource.code",
+      "path" : "Observation.component.code",
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "http://loinc.org",
+          "code" : "48766-0",
+          "display" : "Information source"
+        }]
+      }
+    },
+    {
+      "id" : "Observation.component:informationSource.value[x]",
+      "path" : "Observation.component.value[x]",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-BetelNutInfoSource"
+      }
+    },
+    {
+      "id" : "Observation.component:hpaCategory",
+      "path" : "Observation.component",
+      "sliceName" : "hpaCategory",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Observation.component:hpaCategory.code",
+      "path" : "Observation.component.code",
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+          "code" : "hpa-category",
+          "display" : "口腔黏膜檢查表級距"
+        }]
+      }
+    },
+    {
+      "id" : "Observation.component:hpaCategory.value[x]",
+      "path" : "Observation.component.value[x]",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-BetelNutHpaCategory"
+      }
+    },
+    {
+      "id" : "Observation.component:amountCoded",
+      "path" : "Observation.component",
+      "sliceName" : "amountCoded",
+      "min" : 0,
+      "max" : "1"
+    },
+    {
+      "id" : "Observation.component:amountCoded.code",
+      "path" : "Observation.component.code",
+      "patternCodeableConcept" : {
+        "coding" : [{
+          "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
+          "code" : "amount-coded",
+          "display" : "每日嚼食量（上游級距碼）"
+        }]
+      }
+    },
+    {
+      "id" : "Observation.component:amountCoded.value[x]",
+      "path" : "Observation.component.value[x]",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "strength" : "extensible",
         "valueSet" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset"
-      }
-    },
-    {
-      "id" : "Observation.component:year",
-      "path" : "Observation.component",
-      "sliceName" : "year",
-      "min" : 1,
-      "max" : "1"
-    },
-    {
-      "id" : "Observation.component:year.code",
-      "path" : "Observation.component.code",
-      "patternCodeableConcept" : {
-        "coding" : [{
-          "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
-          "code" : "year",
-          "display" : "嚼檳榔年"
-        }]
-      }
-    },
-    {
-      "id" : "Observation.component:year.value[x]",
-      "path" : "Observation.component.value[x]",
-      "type" : [{
-        "code" : "CodeableConcept"
-      }],
-      "binding" : {
-        "strength" : "required",
-        "valueSet" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset"
-      }
-    },
-    {
-      "id" : "Observation.component:quit",
-      "path" : "Observation.component",
-      "sliceName" : "quit",
-      "min" : 1,
-      "max" : "1"
-    },
-    {
-      "id" : "Observation.component:quit.code",
-      "path" : "Observation.component.code",
-      "patternCodeableConcept" : {
-        "coding" : [{
-          "system" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
-          "code" : "quit",
-          "display" : "戒嚼檳榔年"
-        }]
-      }
-    },
-    {
-      "id" : "Observation.component:quit.value[x]",
-      "path" : "Observation.component.value[x]",
-      "type" : [{
-        "code" : "CodeableConcept"
-      }],
-      "binding" : {
-        "strength" : "required",
-        "valueSet" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset"
       }
     }]
   }

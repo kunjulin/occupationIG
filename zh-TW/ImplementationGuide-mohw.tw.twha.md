@@ -10,11 +10,11 @@
   "id" : "mohw.tw.twha",
   "language" : "zh-TW",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha",
-  "version" : "0.3.3",
+  "version" : "0.4.0",
   "name" : "TWHAIG",
   "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-08-20T12:04:33+00:00",
+  "date" : "2026-08-20T13:40:11+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -1034,7 +1034,7 @@
         "reference" : "ValueSet/VS-CoreUploadSet"
       },
       "name" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
-      "description" : "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之量／年／戒除年由臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之值集承載（sf-BetNutChewAmount／sf-BetNutChewYear／sf-BetNutChewQuit，required 綁定，見 TWHA-SocialHistory-BetelNut），非本 IG 自訂，亦非無碼；LOINC／SNOMED 就此無對應碼故採國內值集。注意上游以「年」計，與吸菸之戒除「月數」（LNC#63632-4）單位不同。",
+      "description" : "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之狀態由本 IG 之 VS-BetelNutStatus 承載（與吸菸狀態四碼逐碼對稱）；量／年數／戒除期間自 v0.4.0 起改以 UCUM Quantity 承載（{quid}/d、a、a 或 mo），上游臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之級距碼降為可選 component（extensible）供勾稽之用，見 TWHA-SocialHistory-BetelNut 與術語頁 §6.2b。注意戒除期間之單位以原始採集粒度為準（上游以「年」計），與吸菸之戒除「月數」（LNC#63632-4）不同，不得逕行換算。",
       "exampleBoolean" : false
     },
     {
@@ -1696,6 +1696,38 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-BetelNutHpaCategory.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CS-BetelNutHpaCategory"
+      },
+      "name" : "口腔黏膜檢查表嚼檳榔習慣級距代碼系統",
+      "description" : "逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。）",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-BetelNutHpaCategory.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VS-BetelNutHpaCategory"
+      },
+      "name" : "口腔黏膜檢查表嚼檳榔習慣級距值集",
+      "description" : "包含口腔黏膜檢查表（107/7 修訂）嚼檳榔習慣六個級距之值集。（provisional，隨 CS-BetelNutHpaCategory）",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       },
       {
@@ -1802,8 +1834,56 @@
         "reference" : "StructureDefinition/TWHA-SocialHistory-BetelNut"
       },
       "name" : "嚼檳榔歷史與狀態 Profile",
-      "description" : "用於記錄勞工之嚼檳榔習慣與量化資料。本 Profile 基於 Observation 資源，採用與臺灣癌症登記短表實作指引 (TWCR_SF) 相同之元件架構及值集，以便進行跨系統之整合介接。",
+      "description" : "用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `value[x]` 承載（值集 VS-BetelNutStatus，與吸菸之 CS-SmokingStatus 逐碼對稱）；每日嚼食量、嚼食年數與戒除期間以 `component` 之 `Quantity` 承載（UCUM）。上游臺灣癌症登記短表 (TWCR_SF) 之級距碼降為可選 component（extensible），供與癌症登記勾稽。",
       "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-BetelNutStatus.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CS-BetelNutStatus"
+      },
+      "name" : "嚼檳榔狀態代碼系統",
+      "description" : "勞工健檢生活習慣調查中之嚼檳榔狀態分類，與吸菸狀態（CS-SmokingStatus）逐碼對稱。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-BetelNutStatus.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VS-BetelNutStatus"
+      },
+      "name" : "嚼檳榔狀態值集",
+      "description" : "包含嚼檳榔狀態代碼的值集。（provisional，隨 CS-BetelNutStatus 待官方確認）不含「不詳」——狀態不詳者以 `dataAbsentReason` 表達，見 CS-BetelNutStatus 之說明。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-betelnut-never.html"
+      }],
+      "reference" : {
+        "reference" : "Observation/obs-betelnut-never"
+      },
+      "name" : "嚼檳榔狀態範例（從未嚼食）",
+      "description" : "受檢勞工林志明：從未嚼食檳榔。三個量化 component 全部不送。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut"
     },
     {
       "extension" : [{
@@ -1817,9 +1897,73 @@
       "reference" : {
         "reference" : "Observation/obs-betelnut"
       },
-      "name" : "嚼檳榔狀態與量化資料範例",
-      "description" : "受檢勞工王大同的嚼檳榔習慣，每日嚼食 5 顆，嚼檳 10 年，目前已戒除 1 年（12個月）。",
+      "name" : "嚼檳榔狀態與量化資料範例（已戒）",
+      "description" : "受檢勞工王大同的嚼檳榔習慣：過去每日嚼食 5 顆，嚼檳 10 年，目前已戒除 1 年。",
       "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Observation"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Observation-obs-betelnut-current.html"
+      }],
+      "reference" : {
+        "reference" : "Observation/obs-betelnut-current"
+      },
+      "name" : "嚼檳榔狀態與量化資料範例（現嚼，含情境欄位）",
+      "description" : "受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉、白灰），嚼檳 20 年，未戒。另附上游 TWCR_SF 級距碼作為對照。",
+      "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-BetelNutInfoSource.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CS-BetelNutInfoSource"
+      },
+      "name" : "嚼檳榔資料來源代碼系統",
+      "description" : "嚼檳榔資訊之取得來源。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-BetelNutInfoSource.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VS-BetelNutInfoSource"
+      },
+      "name" : "嚼檳榔資料來源值集",
+      "description" : "包含嚼檳榔資料來源代碼之值集。（provisional，隨 CS-BetelNutInfoSource 待官方確認）",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-BetelNutComponent.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CS-BetelNutComponent"
+      },
+      "name" : "嚼檳榔量化元件代碼系統",
+      "description" : "`TWHA-SocialHistory-BetelNut` 各 `component.code` 之本地代碼。前三碼與上游 TWCR_SF `sf-BetNutChewBeh` 之 `amount`／`year`／`quit` 為 1:1 對應。（**provisional**：隨本指引之嚼檳榔建模待主管機關確認，M-5。）",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -2080,6 +2224,22 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-TimeUnitYearMonth.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VS-TimeUnitYearMonth"
+      },
+      "name" : "時間單位值集（年／月）",
+      "description" : "戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12（JOB-29 §A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "CodeSystem"
       },
       {
@@ -2171,6 +2331,70 @@
       },
       "name" : "檢查類型擴充",
       "description" : "標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-BetelNutAdditive.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CS-BetelNutAdditive"
+      },
+      "name" : "檳榔添加物代碼系統",
+      "description" : "嚼食檳榔所用之添加物。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-BetelNutAdditive.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VS-BetelNutAdditive"
+      },
+      "name" : "檳榔添加物值集",
+      "description" : "包含檳榔添加物代碼之值集。（provisional，隨 CS-BetelNutAdditive 待官方確認）",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-BetelNutLime.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CS-BetelNutLime"
+      },
+      "name" : "檳榔石灰種類代碼系統",
+      "description" : "嚼食檳榔所用之石灰種類。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-VS-BetelNutLime.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/VS-BetelNutLime"
+      },
+      "name" : "檳榔石灰種類值集",
+      "description" : "包含檳榔石灰種類代碼之值集。（provisional，隨 CS-BetelNutLime 待官方確認）",
       "exampleBoolean" : false
     },
     {

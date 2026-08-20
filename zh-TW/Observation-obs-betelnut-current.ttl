@@ -1,0 +1,203 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix loinc: <http://loinc.org/rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-betelnut-current> a fhir:Observation ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "obs-betelnut-current"] ;
+  fhir:Resource.meta [
+     fhir:Meta.profile [
+       fhir:value "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut" ;
+       fhir:index -1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut>
+     ]
+  ] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-betelnut-current</b></p><a name=\"obs-betelnut-current\"> </a><a name=\"hcobs-betelnut-current\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-SocialHistory-BetelNut.html\">嚼檳榔歷史與狀態 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 698188003}\">Chews betel quid</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))</a></p><p><b>effective</b>: 2026-06-12 08:05:00+0800</p><p><b>performer</b>: <a href=\"Practitioner-example-nurse.html\">Practitioner 陳健護(official)</a></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus 2-daily}\">每日嚼食</span></p><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent amount}\">每日嚼食量</span></p><p><b>value</b>: 10 顆/日<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  code{quid}/d = '{quid}/d')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent duration-years}\">嚼食年數</span></p><p><b>value</b>: 20 年<span style=\"background: LightGoldenRodYellow\"> (Details: UCUM  codea = 'a')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent with-tobacco}\">是否含菸草</span></p><p><b>value</b>: true</p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent additive}\">添加物</span></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutAdditive betel-leaf}\">荖葉</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent lime}\">石灰種類</span></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutLime white-lime}\">白灰</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent amount-coded}\">每日嚼食量（上游級距碼）</span></p><p><b>value</b>: <span title=\"Codes:{https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem 10}\">每日10顆</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent hpa-category}\">口腔黏膜檢查表級距</span></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory 4-ge10y-lt20}\">嚼超過 10 年，每天少於 20 顆</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: <span title=\"Codes:{http://loinc.org 48766-0}\">Information source</span></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource self-report}\">受檢者自述</span></p></blockquote></div>"
+  ] ;
+  fhir:Observation.status [ fhir:value "final"] ;
+  fhir:Observation.category [
+     fhir:index -1 ;
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ] ;
+       fhir:Coding.code [ fhir:value "social-history" ]
+     ]
+  ] ;
+  fhir:Observation.code [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       a sct:698188003 ;
+       fhir:Coding.system [ fhir:value "http://snomed.info/sct" ] ;
+       fhir:Coding.code [ fhir:value "698188003" ] ;
+       fhir:Coding.display [ fhir:value "Chews betel quid" ]
+     ]
+  ] ;
+  fhir:Observation.subject [
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker> ;
+     fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
+  ] ;
+  fhir:Observation.effectiveDateTime [ fhir:value "2026-06-12T08:05:00+08:00"^^xsd:dateTime] ;
+  fhir:Observation.performer [
+     fhir:index -1 ;
+     fhir:link <https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-nurse> ;
+     fhir:Reference.reference [ fhir:value "Practitioner/example-nurse" ]
+  ] ;
+  fhir:Observation.valueCodeableConcept [
+     fhir:CodeableConcept.coding [
+       fhir:index -1 ;
+       fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus" ] ;
+       fhir:Coding.code [ fhir:value "2-daily" ] ;
+       fhir:Coding.display [ fhir:value "每日嚼食" ]
+     ]
+  ] ;
+  fhir:Observation.component [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent" ] ;
+         fhir:Coding.code [ fhir:value "amount" ] ;
+         fhir:Coding.display [ fhir:value "每日嚼食量" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueQuantity [
+       fhir:Quantity.value [ fhir:value "10"^^xsd:decimal ] ;
+       fhir:Quantity.unit [ fhir:value "顆/日" ] ;
+       fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ] ;
+       fhir:Quantity.code [ fhir:value "{quid}/d" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent" ] ;
+         fhir:Coding.code [ fhir:value "duration-years" ] ;
+         fhir:Coding.display [ fhir:value "嚼食年數" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueQuantity [
+       fhir:Quantity.value [ fhir:value "20"^^xsd:decimal ] ;
+       fhir:Quantity.unit [ fhir:value "年" ] ;
+       fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ] ;
+       fhir:Quantity.code [ fhir:value "a" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent" ] ;
+         fhir:Coding.code [ fhir:value "with-tobacco" ] ;
+         fhir:Coding.display [ fhir:value "是否含菸草" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueBoolean [ fhir:value "true"^^xsd:boolean ]
+  ], [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent" ] ;
+         fhir:Coding.code [ fhir:value "additive" ] ;
+         fhir:Coding.display [ fhir:value "添加物" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutAdditive" ] ;
+         fhir:Coding.code [ fhir:value "betel-leaf" ] ;
+         fhir:Coding.display [ fhir:value "荖葉" ]
+       ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent" ] ;
+         fhir:Coding.code [ fhir:value "lime" ] ;
+         fhir:Coding.display [ fhir:value "石灰種類" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutLime" ] ;
+         fhir:Coding.code [ fhir:value "white-lime" ] ;
+         fhir:Coding.display [ fhir:value "白灰" ]
+       ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent" ] ;
+         fhir:Coding.code [ fhir:value "amount-coded" ] ;
+         fhir:Coding.display [ fhir:value "每日嚼食量（上游級距碼）" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem" ] ;
+         fhir:Coding.code [ fhir:value "10" ] ;
+         fhir:Coding.display [ fhir:value "每日10顆" ]
+       ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent" ] ;
+         fhir:Coding.code [ fhir:value "hpa-category" ] ;
+         fhir:Coding.display [ fhir:value "口腔黏膜檢查表級距" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory" ] ;
+         fhir:Coding.code [ fhir:value "4-ge10y-lt20" ] ;
+         fhir:Coding.display [ fhir:value "嚼超過 10 年，每天少於 20 顆" ]
+       ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:Observation.component.code [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         a loinc:48766-0 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "48766-0" ] ;
+         fhir:Coding.display [ fhir:value "Information source" ]
+       ]
+     ] ;
+     fhir:Observation.component.valueCodeableConcept [
+       fhir:CodeableConcept.coding [
+         fhir:index -1 ;
+         fhir:Coding.system [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource" ] ;
+         fhir:Coding.code [ fhir:value "self-report" ] ;
+         fhir:Coding.display [ fhir:value "受檢者自述" ]
+       ]
+     ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/Observation/obs-betelnut-current.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

@@ -1,0 +1,72 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "CS-BetelNutStatus"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-BetelNutStatus</b></p><a name=\"CS-BetelNutStatus\"> </a><a name=\"hcCS-BetelNutStatus\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">0-never<a name=\"CS-BetelNutStatus-0-never\"> </a></td><td>從未嚼食檳榔</td><td>受檢勞工從未嚼食檳榔。</td></tr><tr><td style=\"white-space:nowrap\">1-occasional<a name=\"CS-BetelNutStatus-1-occasional\"> </a></td><td>偶爾嚼食</td><td>受檢勞工偶爾嚼食檳榔（非每日，且無固定量）。</td></tr><tr><td style=\"white-space:nowrap\">2-daily<a name=\"CS-BetelNutStatus-2-daily\"> </a></td><td>每日嚼食</td><td>受檢勞工每日嚼食檳榔。</td></tr><tr><td style=\"white-space:nowrap\">3-quit<a name=\"CS-BetelNutStatus-3-quit\"> </a></td><td>已戒除</td><td>受檢勞工過去曾嚼食檳榔，目前已戒除。</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus"] ;
+  fhir:CodeSystem.version [ fhir:value "0.4.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CS_BetelNutStatus"] ;
+  fhir:CodeSystem.title [ fhir:value "嚼檳榔狀態代碼系統"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-08-20T13:40:11+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "勞工健檢生活習慣調查中之嚼檳榔狀態分類，與吸菸狀態（CS-SmokingStatus）逐碼對稱。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）"] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "4"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "0-never" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "從未嚼食檳榔" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "受檢勞工從未嚼食檳榔。" ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "1-occasional" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "偶爾嚼食" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "受檢勞工偶爾嚼食檳榔（非每日，且無固定量）。" ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "2-daily" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "每日嚼食" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "受檢勞工每日嚼食檳榔。" ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "3-quit" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "已戒除" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "受檢勞工過去曾嚼食檳榔，目前已戒除。" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

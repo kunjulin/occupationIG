@@ -1,4 +1,4 @@
-# 實施健康檢查之醫療機構 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3
+# 實施健康檢查之醫療機構 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
 
 ## 資源 Profile: 實施健康檢查之醫療機構 Profile 
 
@@ -65,11 +65,11 @@ Mandatory: 1 element
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Organization-Facility",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility",
-  "version" : "0.3.3",
+  "version" : "0.4.0",
   "name" : "TWHAOrganizationFacilityProfile",
   "title" : "實施健康檢查之醫療機構 Profile",
   "status" : "active",
-  "date" : "2026-08-20T12:04:33+00:00",
+  "date" : "2026-08-20T13:40:11+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

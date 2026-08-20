@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3</title>
+    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.3.3 - STU1
+            <span style="display:inline-block;">0.4.0 - STU1
 
 
             </span>
@@ -206,7 +206,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.3.3  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.4.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>術語與代碼系統</h2>
   
 
@@ -249,7 +249,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           <li><a href="#61-盤點結果" id="markdown-toc-61-盤點結果">6.1 盤點結果</a></li>
           <li><a href="#62-重點項目與單位陷阱覆核時優先檢視" id="markdown-toc-62-重點項目與單位陷阱覆核時優先檢視">6.2 重點項目與單位陷阱（覆核時優先檢視）</a></li>
           <li><a href="#62a-egfr-估算公式之沿革國健署-1150115-公文" id="markdown-toc-62a-egfr-估算公式之沿革國健署-1150115-公文">6.2a eGFR 估算公式之沿革（國健署 115.01.15 公文）</a></li>
-          <li><a href="#62b-嚼檳榔相關代碼之權威來源twcr_sf" id="markdown-toc-62b-嚼檳榔相關代碼之權威來源twcr_sf">6.2b 嚼檳榔相關代碼之權威來源（TWCR_SF）</a></li>
+          <li><a href="#62b-嚼檳榔之建模與三套資料來源" id="markdown-toc-62b-嚼檳榔之建模與三套資料來源">6.2b 嚼檳榔之建模與三套資料來源</a></li>
           <li><a href="#63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性" id="markdown-toc-63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性">6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）</a></li>
         </ul>
       </li>
@@ -1477,39 +1477,228 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
 不屬《勞工健康保護規則》附表九／附表十之法定項目（國健署原案 21 列收 <code class="language-plaintext highlighter-rouge">09015C</code> 肌酸酐、未收 eGFR）。</p>
 </blockquote>
 
-<h3 id="62b-嚼檳榔相關代碼之權威來源twcr_sf">6.2b 嚼檳榔相關代碼之權威來源（TWCR_SF）</h3>
+<h3 id="62b-嚼檳榔之建模與三套資料來源">6.2b 嚼檳榔之建模與三套資料來源</h3>
 
-<p><code class="language-plaintext highlighter-rouge">TWHA-SocialHistory-BetelNut</code> 所用之嚼檳榔量／年／戒檳榔年代碼，
-權威來源為<strong>臺灣癌症登記短表實作指引（TWCR_SF）</strong>，命名空間 <code class="language-plaintext highlighter-rouge">https://hapi.fhir.tw</code>。</p>
+<blockquote>
+  <p>本節於 v0.4.0 全面改寫。<strong>0.3.0 以前之敘述（本指引以【本地 stub】承載 TWCR_SF 定義）
+已不適用</strong>——該批 stub 已於 v0.3.0 隨 JOB-28 刪除、改為正式相依，
+<a href="open-issues.html#g-5">未決事項 G-5</a> 亦已結案。</p>
+</blockquote>
 
-<p>本指引以<strong>【本地 stub】</strong>承載這些定義（<code class="language-plaintext highlighter-rouge">content = fragment</code>、<code class="language-plaintext highlighter-rouge">status = draft</code>、
-<code class="language-plaintext highlighter-rouge">experimental = true</code>），<strong>非權威定義</strong>。原因：</p>
+<h4 id="62b-1-️-三套來源不可混為一談">6.2b-1 ⚠️ 三套來源不可混為一談</h4>
+
+<p>嚼檳榔欄位現有<strong>三套</strong>不同粒度的來源，性質與效力各異：</p>
 
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">探測（2026-07-28，CI 實測）</th>
-      <th style="text-align: left">結果</th>
+      <th style="text-align: left">來源</th>
+      <th style="text-align: left">粒度</th>
+      <th style="text-align: left">與本指引之關係</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">fhir.twcrsf</code> 套件（3 個 registry 之根路徑）</td>
-      <td style="text-align: left">全部 404——套件 ID 不存在</td>
+      <td style="text-align: left"><strong>國健署健檢上傳欄位</strong>（原案）</td>
+      <td style="text-align: left">嚼檳狀態／量／月數，<strong>無編碼</strong></td>
+      <td style="text-align: left"><strong>本指引 Core 之對標對象</strong>，正式公告版本待確認（<a href="open-issues.html#m-5">M-5</a>）</td>
     </tr>
     <tr>
-      <td style="text-align: left">10 個 canonical 於 <code class="language-plaintext highlighter-rouge">hapi.fhir.tw</code></td>
-      <td style="text-align: left">全部 404——伺服器有回應，不服務這些資源</td>
+      <td style="text-align: left"><strong>口腔黏膜檢查表</strong>（107/7 修訂）</td>
+      <td style="text-align: left">6 選 1 之 ordinal 級距（年數 × 每日顆數）</td>
+      <td style="text-align: left"><strong>癌症篩檢用表，非健檢上傳欄位</strong>。原始勾選以 <code class="language-plaintext highlighter-rouge">component[hpaCategory]</code> 保留（<a href="ValueSet-VS-BetelNutHpaCategory.html">VS-BetelNutHpaCategory</a>），<strong>不換算成中位數</strong>；但<strong>不得因此把篩檢表欄位當成健檢上傳欄位</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>TWCR_SF</strong>（癌症登記短表）</td>
+      <td style="text-align: left">逐顆／逐年之列舉碼</td>
+      <td style="text-align: left">正式相依 <code class="language-plaintext highlighter-rouge">fhir.TWCRSF#0.1.1</code>；於本指引降為<strong>可選對照</strong>（見 6.2b-3）</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>實作端應以 TWCR_SF 官方定義為準。</strong> 本 stub 之代碼清單未經上游核對——
-無從核對，因為上游不可達。若 TWCR_SF 日後於同一 canonical 發佈不同內容，
-同時載入兩者的系統會遇到衝突。</p>
+<h4 id="62b-2-本指引之建模v040-起">6.2b-2 本指引之建模（v0.4.0 起）</h4>
 
-<p>上游套件一旦可用，本指引應改為正式套件依賴並刪除 stub。
-見<a href="open-issues.html#g-5">未決事項 G-5</a>。</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">語意</th>
+      <th style="text-align: left">承載位置</th>
+      <th style="text-align: left">綁定／單位</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Observation.code</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">code</code></td>
+      <td style="text-align: left">SNOMED <code class="language-plaintext highlighter-rouge">698188003</code>（Chews betel quid）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">嚼檳狀態</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">value[x]</code>（CodeableConcept）</td>
+      <td style="text-align: left"><a href="ValueSet-VS-BetelNutStatus.html">VS-BetelNutStatus</a>（required，provisional）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">每日嚼食量</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[amount]</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Quantity</code>，UCUM <code class="language-plaintext highlighter-rouge">{quid}/d</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">嚼食年數</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[durationYears]</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Quantity</code>，UCUM <code class="language-plaintext highlighter-rouge">a</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">戒除期間</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[cessationDuration]</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Quantity</code>，UCUM <code class="language-plaintext highlighter-rouge">a</code> 或 <code class="language-plaintext highlighter-rouge">mo</code>（<a href="ValueSet-VS-TimeUnitYearMonth.html">VS-TimeUnitYearMonth</a>）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">戒除日期</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[cessationDate]</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">dateTime</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">是否含菸草</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[withTobacco]</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">boolean</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">添加物</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[additive]</code></td>
+      <td style="text-align: left"><a href="ValueSet-VS-BetelNutAdditive.html">VS-BetelNutAdditive</a>（required）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">石灰種類</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[lime]</code></td>
+      <td style="text-align: left"><a href="ValueSet-VS-BetelNutLime.html">VS-BetelNutLime</a>（required）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">資料來源</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[informationSource]</code></td>
+      <td style="text-align: left">LOINC <code class="language-plaintext highlighter-rouge">48766-0</code>；值 <a href="ValueSet-VS-BetelNutInfoSource.html">VS-BetelNutInfoSource</a>（extensible）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">口腔黏膜檢查表級距</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[hpaCategory]</code></td>
+      <td style="text-align: left"><a href="ValueSet-VS-BetelNutHpaCategory.html">VS-BetelNutHpaCategory</a>（required，<strong>原始勾選，不換算</strong>）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">上游級距碼（對照）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[amountCoded]</code></td>
+      <td style="text-align: left">TWCR_SF <code class="language-plaintext highlighter-rouge">sf-BetNutChewAmount</code>（<strong>extensible、可選</strong>）</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>與吸菸建模對稱</strong>：吸菸量走 <code class="language-plaintext highlighter-rouge">64218-1</code> ＋ UCUM <code class="language-plaintext highlighter-rouge">/d</code>（數值），嚼檳量亦走 UCUM 數值；
+<code class="language-plaintext highlighter-rouge">CS-BetelNutStatus</code> 與 <code class="language-plaintext highlighter-rouge">CS-SmokingStatus</code> 四碼逐碼對稱，便於同一份問卷邏輯共用。</p>
+
+<blockquote>
+  <p>⚠️ <strong>「不詳」不在狀態值集內。</strong> 狀態不詳者送 <code class="language-plaintext highlighter-rouge">value.dataAbsentReason</code>；
+「狀態已知但量不詳」則送 <code class="language-plaintext highlighter-rouge">component[amount].dataAbsentReason</code>。兩者藉此得以區分——
+若把 <code class="language-plaintext highlighter-rouge">unknown</code> 放進值集，會被壓成同一種表達。</p>
+</blockquote>
+
+<blockquote>
+  <p>⚠️ <strong>戒除期間之單位以原始採集粒度為準。</strong> 原始以「年」收集者送 <code class="language-plaintext highlighter-rouge">1 a</code>，
+<strong>不得逕行改寫為 <code class="language-plaintext highlighter-rouge">12 mo</code></strong>——原始資料並未主張「恰好 12 個月」，轉換會偽造精度。</p>
+</blockquote>
+
+<blockquote>
+  <p>⚠️ <strong>搜尋時必須併帶 <code class="language-plaintext highlighter-rouge">code=</code>。</strong> UCUM 之註記（<code class="language-plaintext highlighter-rouge">{...}</code>）不影響可換算性，
+故 <code class="language-plaintext highlighter-rouge">{quid}.a</code>（累積顆-年）與 <code class="language-plaintext highlighter-rouge">a</code>（嚼食年數）為<strong>同量綱</strong>，
+<code class="language-plaintext highlighter-rouge">value-quantity=gt10||a</code> 會同時命中兩者。<strong>單位不足以區辨語意。</strong></p>
+</blockquote>
+
+<blockquote>
+  <p>⚠️ <strong>兩個「附表九」不是同一份。</strong> 口腔黏膜檢查表在其來源文件中標為
+【附表九】（國民健康署），與本指引反覆援引之《勞工健康保護規則》<strong>附表九</strong>
+（一般體格及健康檢查項目）<strong>分屬不同法規、內容全然無關</strong>。
+本指引凡未加註者，「附表九」一律指《勞工健康保護規則》者。</p>
+
+  <p>⚠️ <strong>級距可導出界限，但不得取中點。</strong> 該表 ❷–❺ 四項各自綁定「嚼食年數」與
+「每日顆數」兩個維度之區間，可據以導出 <code class="language-plaintext highlighter-rouge">component[durationYears]</code> 與
+<code class="language-plaintext highlighter-rouge">component[amount]</code> 之<strong>界限</strong>（例如第 6 項 ⇒ 年數 &gt; 10、每日 ≧ 20），
+應以 <code class="language-plaintext highlighter-rouge">Quantity.comparator</code> 表達；<strong>取區間中點充作實測值會造成假精確，
+污染 dose-response 分析</strong>（<a href="open-issues.html#t-9">T-9</a> 之同一原則）。</p>
+
+  <p>附帶觀察：同表「2.吸菸習慣」為結構完全相同之六選項，僅單位由「顆」改「支」。
+本指引之吸菸 Profile 繼承 TW Core，未納入此級距。</p>
+</blockquote>
+
+<h4 id="62b-3-上游級距碼--本模型之落點對照">6.2b-3 上游級距碼 → 本模型之落點對照</h4>
+
+<p><strong>這張表本身就是「不宜硬套 ConceptMap」的證據</strong>：同一個代碼清單裡的代碼，
+會落到 FHIR 的<strong>三個不同位置</strong>（<code class="language-plaintext highlighter-rouge">value</code>／<code class="language-plaintext highlighter-rouge">component.valueQuantity</code>／<code class="language-plaintext highlighter-rouge">dataAbsentReason</code>）。
+ConceptMap 對映的是概念與概念，不是概念與數值。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">上游 <code class="language-plaintext highlighter-rouge">sf-BetNutChewAmount</code></th>
+      <th style="text-align: left">語意</th>
+      <th style="text-align: left">本模型落點</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">00</code></td>
+      <td style="text-align: left">無嚼檳榔</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">value = 0-never</code>；不送 amount</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">01</code>–<code class="language-plaintext highlighter-rouge">89</code></td>
+      <td style="text-align: left">每日 N 顆</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[amount].valueQuantity = N {quid}/d</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">90</code></td>
+      <td style="text-align: left">每日 <strong>≧90</strong> 顆</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">valueQuantity.comparator = &gt;=</code>，<code class="language-plaintext highlighter-rouge">value = 90</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">91</code></td>
+      <td style="text-align: left"><strong>偶爾嚼（無規律或無定量）</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">value = 1-occasional</code>；amount 不送</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">98</code></td>
+      <td style="text-align: left">有嚼，但量不詳</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">component[amount].dataAbsentReason = unknown</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">99</code></td>
+      <td style="text-align: left">病歷未記載／完全不詳</td>
+      <td style="text-align: left">整筆 <code class="language-plaintext highlighter-rouge">value.dataAbsentReason = unknown</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">sf-BetNutChewYear</code>：<code class="language-plaintext highlighter-rouge">00</code> 無嚼檳榔 → 不送；<code class="language-plaintext highlighter-rouge">01</code>–<code class="language-plaintext highlighter-rouge">97</code> → <code class="language-plaintext highlighter-rouge">N a</code>；<code class="language-plaintext highlighter-rouge">98</code> 年不詳 →
+<code class="language-plaintext highlighter-rouge">dataAbsentReason</code>；<code class="language-plaintext highlighter-rouge">99</code> 未記載 → 整筆不詳。</p>
+
+<p><code class="language-plaintext highlighter-rouge">sf-BetNutChewQuit</code>：<code class="language-plaintext highlighter-rouge">00</code> 無戒 → <code class="language-plaintext highlighter-rouge">value = 2-daily</code>、不送 cessation；<code class="language-plaintext highlighter-rouge">01</code>–<code class="language-plaintext highlighter-rouge">87</code> → <code class="language-plaintext highlighter-rouge">N a</code>；
+<strong><code class="language-plaintext highlighter-rouge">88</code> 無嚼檳榔</strong> → <code class="language-plaintext highlighter-rouge">value = 0-never</code>；<code class="language-plaintext highlighter-rouge">98</code> 已戒但年不詳 → <code class="language-plaintext highlighter-rouge">3-quit</code> ＋ <code class="language-plaintext highlighter-rouge">dataAbsentReason</code>；
+<code class="language-plaintext highlighter-rouge">99</code> 未記載 → 整筆不詳。</p>
+
+<blockquote>
+  <p>⚠️ <strong>跨清單同碼異義</strong>：<code class="language-plaintext highlighter-rouge">88</code> 於 <code class="language-plaintext highlighter-rouge">sf-BetNutChewAmount</code> 是「每日 88 顆」，
+於 <code class="language-plaintext highlighter-rouge">sf-BetNutChewQuit</code> 是「無嚼檳榔」。兩者皆為合法代碼、僅所屬 CodeSystem 不同，
+實作端若在 component 之間錯置代碼系統，會產生「每日 88 顆」↔「從未嚼檳榔」之反向誤讀，
+<strong>而 required 綁定攔不住</strong>（兩個綁定各自都通過，只是綁錯 component）。
+改為 <code class="language-plaintext highlighter-rouge">Quantity</code> 後，該類錯置會直接呈現為單位或量綱不符，可被機器攔下。</p>
+</blockquote>
+
+<h4 id="62b-4-componentcode-為何改用本地碼">6.2b-4 <code class="language-plaintext highlighter-rouge">component.code</code> 為何改用本地碼</h4>
+
+<p><code class="language-plaintext highlighter-rouge">component.code</code> 若續用上游 <code class="language-plaintext highlighter-rouge">sf-BetNutChewBeh</code>，則即使值改為 <code class="language-plaintext highlighter-rouge">Quantity</code>，
+<strong>建置仍須解析上游 canonical 才能完成</strong>。改用本地
+<a href="CodeSystem-CS-BetelNutComponent.html">CS-BetelNutComponent</a> 後，
+核心三項（量／年數／戒除期間）不再依賴上游；上游級距碼僅存於可選之
+<code class="language-plaintext highlighter-rouge">component[amountCoded]</code>，移除該 component 不影響任何核心資料。</p>
+
+<p>本地碼與上游之對應為 1:1：<code class="language-plaintext highlighter-rouge">amount</code> ↔ <code class="language-plaintext highlighter-rouge">amount</code>、<code class="language-plaintext highlighter-rouge">duration-years</code> ↔ <code class="language-plaintext highlighter-rouge">year</code>、
+<code class="language-plaintext highlighter-rouge">cessation-duration</code> ↔ <code class="language-plaintext highlighter-rouge">quit</code>。</p>
 
 <h3 id="63-代碼狀態異常本次盤點附帶發現與-ucum-無關但影響代碼適用性">6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）</h3>
 
@@ -1632,9 +1821,9 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.3.3，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.4.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-20 12:04:00 +0000">
+  <span title="2026-08-20 13:40:00 +0000">
     2026-08-20
   </span>
 

@@ -1,0 +1,68 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "CS-BetelNutInfoSource"] ;
+  fhir:Resource.language [ fhir:value "zh-TW"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-BetelNutInfoSource</b></p><a name=\"CS-BetelNutInfoSource\"> </a><a name=\"hcCS-BetelNutInfoSource\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">self-report<a name=\"CS-BetelNutInfoSource-self-report\"> </a></td><td>受檢者自述</td><td>由受檢者於問診或問卷中自行陳述。</td></tr><tr><td style=\"white-space:nowrap\">medical-record<a name=\"CS-BetelNutInfoSource-medical-record\"> </a></td><td>病歷紀錄</td><td>自既有病歷紀錄取得。</td></tr><tr><td style=\"white-space:nowrap\">screening-form<a name=\"CS-BetelNutInfoSource-screening-form\"> </a></td><td>篩檢表</td><td>自口腔黏膜檢查等篩檢表取得。</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource"] ;
+  fhir:CodeSystem.version [ fhir:value "0.4.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CS_BetelNutInfoSource"] ;
+  fhir:CodeSystem.title [ fhir:value "嚼檳榔資料來源代碼系統"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-08-20T13:40:11+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index -1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index -1 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "嚼檳榔資訊之取得來源。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）"] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "3"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "self-report" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "受檢者自述" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "由受檢者於問診或問卷中自行陳述。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "medical-record" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "病歷紀錄" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "自既有病歷紀錄取得。" ]
+  ], [
+     fhir:index -1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "screening-form" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "篩檢表" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "自口腔黏膜檢查等篩檢表取得。" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

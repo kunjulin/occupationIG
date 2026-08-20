@@ -1,0 +1,82 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:Resource.id [ fhir:value "CS-BetelNutHpaCategory"] ;
+  fhir:DomainResource.text [
+     fhir:Narrative.status [ fhir:value "generated" ] ;
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-BetelNutHpaCategory</b></p><a name=\"CS-BetelNutHpaCategory\"> </a><a name=\"hcCS-BetelNutHpaCategory\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">0-none<a name=\"CS-BetelNutHpaCategory-0-none\"> </a></td><td>無</td><td>表列第 1 項（⓿）：無嚼檳榔習慣。</td></tr><tr><td style=\"white-space:nowrap\">1-quit<a name=\"CS-BetelNutHpaCategory-1-quit\"> </a></td><td>已戒</td><td>表列第 2 項（❶）：已戒除。</td></tr><tr><td style=\"white-space:nowrap\">2-lt10y-lt20<a name=\"CS-BetelNutHpaCategory-2-lt10y-lt20\"> </a></td><td>嚼 10 年以下，每天少於 20 顆</td><td>表列第 3 項（❷）。可導出：年數 &lt; 10、每日 &lt; 20 顆。</td></tr><tr><td style=\"white-space:nowrap\">3-lt10y-ge20<a name=\"CS-BetelNutHpaCategory-3-lt10y-ge20\"> </a></td><td>嚼 10 年以下，每天 20 顆及以上</td><td>表列第 4 項（❸）。可導出：年數 &lt; 10、每日 ≧ 20 顆。</td></tr><tr><td style=\"white-space:nowrap\">4-ge10y-lt20<a name=\"CS-BetelNutHpaCategory-4-ge10y-lt20\"> </a></td><td>嚼超過 10 年，每天少於 20 顆</td><td>表列第 5 項（❹）。可導出：年數 &gt; 10、每日 &lt; 20 顆。</td></tr><tr><td style=\"white-space:nowrap\">5-ge10y-ge20<a name=\"CS-BetelNutHpaCategory-5-ge10y-ge20\"> </a></td><td>嚼超過 10 年，每天 20 顆及以上</td><td>表列第 6 項（❺）。可導出：年數 &gt; 10、每日 ≧ 20 顆。</td></tr></table></div>"
+  ] ;
+  fhir:CodeSystem.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory"] ;
+  fhir:CodeSystem.version [ fhir:value "0.4.0"] ;
+  fhir:CodeSystem.name [ fhir:value "CS_BetelNutHpaCategory"] ;
+  fhir:CodeSystem.title [ fhir:value "口腔黏膜檢查表嚼檳榔習慣級距代碼系統"] ;
+  fhir:CodeSystem.status [ fhir:value "active"] ;
+  fhir:CodeSystem.experimental [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.date [ fhir:value "2026-08-20T13:40:11+00:00"^^xsd:dateTime] ;
+  fhir:CodeSystem.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
+  fhir:CodeSystem.contact [
+     fhir:index 0 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ], [
+     fhir:index 1 ;
+     fhir:ContactDetail.name [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室" ] ;
+     fhir:ContactDetail.telecom [
+       fhir:index 0 ;
+       fhir:ContactPoint.system [ fhir:value "url" ] ;
+       fhir:ContactPoint.value [ fhir:value "https://twcore.mohw.gov.tw/twregistry/" ]
+     ]
+  ] ;
+  fhir:CodeSystem.description [ fhir:value "逐字錄自國民健康署**口腔黏膜檢查表（107 年 7 月修訂）**「菸檳習慣」欄之「1.嚼檳榔習慣」六個選項。**該表為癌症篩檢用表，非健檢上傳欄位**（見 open-issues T-13、術語頁 §6.2b-1）。（**provisional**：選項文字為該表原文，惟「篩檢表級距是否納入健檢交換」之範疇問題尚待主管機關確認，M-5。）"] ;
+  fhir:CodeSystem.caseSensitive [ fhir:value "true"^^xsd:boolean] ;
+  fhir:CodeSystem.content [ fhir:value "complete"] ;
+  fhir:CodeSystem.count [ fhir:value "6"^^xsd:nonNegativeInteger] ;
+  fhir:CodeSystem.concept [
+     fhir:index 0 ;
+     fhir:CodeSystem.concept.code [ fhir:value "0-none" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "無" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "表列第 1 項（⓿）：無嚼檳榔習慣。" ]
+  ], [
+     fhir:index 1 ;
+     fhir:CodeSystem.concept.code [ fhir:value "1-quit" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "已戒" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "表列第 2 項（❶）：已戒除。" ]
+  ], [
+     fhir:index 2 ;
+     fhir:CodeSystem.concept.code [ fhir:value "2-lt10y-lt20" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼 10 年以下，每天少於 20 顆" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "表列第 3 項（❷）。可導出：年數 < 10、每日 < 20 顆。" ]
+  ], [
+     fhir:index 3 ;
+     fhir:CodeSystem.concept.code [ fhir:value "3-lt10y-ge20" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼 10 年以下，每天 20 顆及以上" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "表列第 4 項（❸）。可導出：年數 < 10、每日 ≧ 20 顆。" ]
+  ], [
+     fhir:index 4 ;
+     fhir:CodeSystem.concept.code [ fhir:value "4-ge10y-lt20" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼超過 10 年，每天少於 20 顆" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "表列第 5 項（❹）。可導出：年數 > 10、每日 < 20 顆。" ]
+  ], [
+     fhir:index 5 ;
+     fhir:CodeSystem.concept.code [ fhir:value "5-ge10y-ge20" ] ;
+     fhir:CodeSystem.concept.display [ fhir:value "嚼超過 10 年，每天 20 顆及以上" ] ;
+     fhir:CodeSystem.concept.definition [ fhir:value "表列第 6 項（❺）。可導出：年數 > 10、每日 ≧ 20 顆。" ]
+  ] .
+
+# - ontology header ------------------------------------------------------------
+
+<https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory.ttl> a owl:Ontology ;
+  owl:imports fhir:fhir.ttl .
+
+# -------------------------------------------------------------------------------------
+

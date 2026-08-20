@@ -1,4 +1,4 @@
-# 術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3
+# 術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
 
 ## 術語與代碼系統
 
@@ -345,20 +345,71 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 
 > **資料來源語意**：依公文，兩個時期之 eGFR **均為機構自行填入**（114 年之 CKD-EPI 自動計算功能 已於 115 年取消，MDRD 則一貫為必填、機構填入），其產生者為**申報機構而非檢驗儀器**；交換時 `Observation.performer` 之語意宜予區辨（填報機構 vs 檢驗執行者）。eGFR **僅用於成健**， 不屬《勞工健康保護規則》附表九／附表十之法定項目（國健署原案 21 列收 `09015C` 肌酸酐、未收 eGFR）。
 
-### 6.2b 嚼檳榔相關代碼之權威來源（TWCR_SF）
+### 6.2b 嚼檳榔之建模與三套資料來源
 
-`TWHA-SocialHistory-BetelNut` 所用之嚼檳榔量／年／戒檳榔年代碼， 權威來源為**臺灣癌症登記短表實作指引（TWCR_SF）**，命名空間 `https://hapi.fhir.tw`。
+> 本節於 v0.4.0 全面改寫。**0.3.0 以前之敘述（本指引以【本地 stub】承載 TWCR_SF 定義） 已不適用**——該批 stub 已於 v0.3.0 隨 JOB-28 刪除、改為正式相依， [未決事項 G-5](open-issues.md#g-5) 亦已結案。
 
-本指引以**【本地 stub】**承載這些定義（`content = fragment`、`status = draft`、 `experimental = true`），**非權威定義**。原因：
+#### 6.2b-1 ⚠️ 三套來源不可混為一談
 
-| | |
-| :--- | :--- |
-| `fhir.twcrsf`套件（3 個 registry 之根路徑） | 全部 404——套件 ID 不存在 |
-| 10 個 canonical 於`hapi.fhir.tw` | 全部 404——伺服器有回應，不服務這些資源 |
+嚼檳榔欄位現有**三套**不同粒度的來源，性質與效力各異：
 
-**實作端應以 TWCR_SF 官方定義為準。** 本 stub 之代碼清單未經上游核對—— 無從核對，因為上游不可達。若 TWCR_SF 日後於同一 canonical 發佈不同內容， 同時載入兩者的系統會遇到衝突。
+| | | |
+| :--- | :--- | :--- |
+| **國健署健檢上傳欄位**（原案） | 嚼檳狀態／量／月數，**無編碼** | **本指引 Core 之對標對象**，正式公告版本待確認（[M-5](open-issues.md#m-5)） |
+| **口腔黏膜檢查表**（107/7 修訂） | 6 選 1 之 ordinal 級距（年數 × 每日顆數） | **癌症篩檢用表，非健檢上傳欄位**。原始勾選以`component[hpaCategory]`保留（[VS-BetelNutHpaCategory](ValueSet-VS-BetelNutHpaCategory.md)），**不換算成中位數**；但**不得因此把篩檢表欄位當成健檢上傳欄位** |
+| **TWCR_SF**（癌症登記短表） | 逐顆／逐年之列舉碼 | 正式相依`fhir.TWCRSF#0.1.1`；於本指引降為**可選對照**（見 6.2b-3） |
 
-上游套件一旦可用，本指引應改為正式套件依賴並刪除 stub。 見[未決事項 G-5](open-issues.md#g-5)。
+#### 6.2b-2 本指引之建模（v0.4.0 起）
+
+| | | |
+| :--- | :--- | :--- |
+| Observation.code | `code` | SNOMED`698188003`（Chews betel quid） |
+| 嚼檳狀態 | `value[x]`（CodeableConcept） | [VS-BetelNutStatus](ValueSet-VS-BetelNutStatus.md)（required，provisional） |
+| 每日嚼食量 | `component[amount]` | `Quantity`，UCUM`{quid}/d` |
+| 嚼食年數 | `component[durationYears]` | `Quantity`，UCUM`a` |
+| 戒除期間 | `component[cessationDuration]` | `Quantity`，UCUM`a`或`mo`（[VS-TimeUnitYearMonth](ValueSet-VS-TimeUnitYearMonth.md)） |
+| 戒除日期 | `component[cessationDate]` | `dateTime` |
+| 是否含菸草 | `component[withTobacco]` | `boolean` |
+| 添加物 | `component[additive]` | [VS-BetelNutAdditive](ValueSet-VS-BetelNutAdditive.md)（required） |
+| 石灰種類 | `component[lime]` | [VS-BetelNutLime](ValueSet-VS-BetelNutLime.md)（required） |
+| 資料來源 | `component[informationSource]` | LOINC`48766-0`；值[VS-BetelNutInfoSource](ValueSet-VS-BetelNutInfoSource.md)（extensible） |
+| 口腔黏膜檢查表級距 | `component[hpaCategory]` | [VS-BetelNutHpaCategory](ValueSet-VS-BetelNutHpaCategory.md)（required，**原始勾選，不換算**） |
+| 上游級距碼（對照） | `component[amountCoded]` | TWCR_SF`sf-BetNutChewAmount`（**extensible、可選**） |
+
+**與吸菸建模對稱**：吸菸量走 `64218-1` ＋ UCUM `/d`（數值），嚼檳量亦走 UCUM 數值； `CS-BetelNutStatus` 與 `CS-SmokingStatus` 四碼逐碼對稱，便於同一份問卷邏輯共用。
+
+> ⚠️ **「不詳」不在狀態值集內。** 狀態不詳者送 `value.dataAbsentReason`； 「狀態已知但量不詳」則送 `component[amount].dataAbsentReason`。兩者藉此得以區分—— 若把 `unknown` 放進值集，會被壓成同一種表達。
+
+> ⚠️ **戒除期間之單位以原始採集粒度為準。** 原始以「年」收集者送 `1 a`， **不得逕行改寫為 `12 mo`**——原始資料並未主張「恰好 12 個月」，轉換會偽造精度。
+
+> ⚠️ **搜尋時必須併帶 `code=`。** UCUM 之註記（`{...}`）不影響可換算性， 故 `{quid}.a`（累積顆-年）與 `a`（嚼食年數）為**同量綱**， `value-quantity=gt10||a` 會同時命中兩者。**單位不足以區辨語意。**
+
+> ⚠️ **兩個「附表九」不是同一份。** 口腔黏膜檢查表在其來源文件中標為 【附表九】（國民健康署），與本指引反覆援引之《勞工健康保護規則》**附表九** （一般體格及健康檢查項目）**分屬不同法規、內容全然無關**。 本指引凡未加註者，「附表九」一律指《勞工健康保護規則》者。⚠️ **級距可導出界限，但不得取中點。** 該表 ❷–❺ 四項各自綁定「嚼食年數」與 「每日顆數」兩個維度之區間，可據以導出 `component[durationYears]` 與 `component[amount]` 之**界限**（例如第 6 項 ⇒ 年數 > 10、每日 ≧ 20）， 應以 `Quantity.comparator` 表達；**取區間中點充作實測值會造成假精確， 污染 dose-response 分析**（[T-9](open-issues.md#t-9) 之同一原則）。附帶觀察：同表「2.吸菸習慣」為結構完全相同之六選項，僅單位由「顆」改「支」。 本指引之吸菸 Profile 繼承 TW Core，未納入此級距。
+
+#### 6.2b-3 上游級距碼 → 本模型之落點對照
+
+**這張表本身就是「不宜硬套 ConceptMap」的證據**：同一個代碼清單裡的代碼， 會落到 FHIR 的**三個不同位置**（`value`／`component.valueQuantity`／`dataAbsentReason`）。 ConceptMap 對映的是概念與概念，不是概念與數值。
+
+| | | |
+| :--- | :--- | :--- |
+| `00` | 無嚼檳榔 | `value = 0-never`；不送 amount |
+| `01`–`89` | 每日 N 顆 | `component[amount].valueQuantity = N {quid}/d` |
+| `90` | 每日**≧90**顆 | `valueQuantity.comparator = >=`，`value = 90` |
+| `91` | **偶爾嚼（無規律或無定量）** | `value = 1-occasional`；amount 不送 |
+| `98` | 有嚼，但量不詳 | `component[amount].dataAbsentReason = unknown` |
+| `99` | 病歷未記載／完全不詳 | 整筆`value.dataAbsentReason = unknown` |
+
+`sf-BetNutChewYear`：`00` 無嚼檳榔 → 不送；`01`–`97` → `N a`；`98` 年不詳 → `dataAbsentReason`；`99` 未記載 → 整筆不詳。
+
+`sf-BetNutChewQuit`：`00` 無戒 → `value = 2-daily`、不送 cessation；`01`–`87` → `N a`； **`88` 無嚼檳榔** → `value = 0-never`；`98` 已戒但年不詳 → `3-quit` ＋ `dataAbsentReason`； `99` 未記載 → 整筆不詳。
+
+> ⚠️ **跨清單同碼異義**：`88` 於 `sf-BetNutChewAmount` 是「每日 88 顆」， 於 `sf-BetNutChewQuit` 是「無嚼檳榔」。兩者皆為合法代碼、僅所屬 CodeSystem 不同， 實作端若在 component 之間錯置代碼系統，會產生「每日 88 顆」↔「從未嚼檳榔」之反向誤讀， **而 required 綁定攔不住**（兩個綁定各自都通過，只是綁錯 component）。 改為 `Quantity` 後，該類錯置會直接呈現為單位或量綱不符，可被機器攔下。
+
+#### 6.2b-4 component.code 為何改用本地碼
+
+`component.code` 若續用上游 `sf-BetNutChewBeh`，則即使值改為 `Quantity`， **建置仍須解析上游 canonical 才能完成**。改用本地 [CS-BetelNutComponent](CodeSystem-CS-BetelNutComponent.md) 後， 核心三項（量／年數／戒除期間）不再依賴上游；上游級距碼僅存於可選之 `component[amountCoded]`，移除該 component 不影響任何核心資料。
+
+本地碼與上游之對應為 1:1：`amount` ↔ `amount`、`duration-years` ↔ `year`、 `cessation-duration` ↔ `quit`。
 
 ### 6.3 代碼狀態異常（本次盤點附帶發現，與 UCUM 無關但影響代碼適用性）
 

@@ -1,4 +1,4 @@
-# 適性配工建議代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3
+# 適性配工建議代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0
 
 ## CodeSystem: 適性配工建議代碼系統 (實驗性) 
 
@@ -22,12 +22,12 @@
   "resourceType" : "CodeSystem",
   "id" : "CS-FitnessForWork",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork",
-  "version" : "0.3.3",
+  "version" : "0.4.0",
   "name" : "CS_FitnessForWork",
   "title" : "適性配工建議代碼系統",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-20T12:04:33+00:00",
+  "date" : "2026-08-20T13:40:11+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

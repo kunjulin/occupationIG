@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>未決事項 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3</title>
+    <title>未決事項 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.4.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.3.3 - STU1
+            <span style="display:inline-block;">0.4.0 - STU1
 
 
             </span>
@@ -206,7 +206,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.3.3  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.4.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>未決事項</h2>
   
 
@@ -427,6 +427,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">UCUM 稽核之 Scale 未對映碼（29 筆）</td>
       <td style="text-align: left">執行團隊／術語</td>
       <td style="text-align: left">✅ <strong>已解決（2026-07-30）</strong>：三碼經 loinc.org 查證（Doc／SemiQn／-），SemiQn 納入稽核、餘明確排除，<code class="language-plaintext highlighter-rouge">--max-unknown</code> 已歸零</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="#t-13">T-13</a></td>
+      <td style="text-align: left">口腔黏膜檢查表之 6 選 1 級距未取得原文</td>
+      <td style="text-align: left">國健署／執行團隊</td>
+      <td style="text-align: left">✅ <strong>已解決（2026-08-20）</strong>：原文取得，<code class="language-plaintext highlighter-rouge">CS-BetelNutHpaCategory</code> 與 <code class="language-plaintext highlighter-rouge">component[hpaCategory]</code> 已落地</td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#p-1">P-1</a></td>
@@ -1225,6 +1231,51 @@ tx.fhir.org 於部分代碼以 LOINC 答案清單碼回傳且未附 display，�
 
 <hr/>
 
+<h2 id="t-13口腔黏膜檢查表之-6-選-1-級距未取得原文-已解決040-">T-13　口腔黏膜檢查表之 6 選 1 級距未取得原文　✅ 已解決（0.4.0） <a id="t-13"></a></h2>
+
+<p><strong>現況</strong>　JOB-29 附錄 B 採認委員建議之 <code class="language-plaintext highlighter-rouge">bq-hpa-category</code>——保留口腔黏膜檢查表之
+<strong>原始勾選</strong>為 coded Observation，<strong>不換算成中位數</strong>（假精確會污染 dose-response 分析），
+此與 <a href="#t-9">T-9</a>「保留原始 coding」為同一原則。0.4.0 實作路徑甲時，
+委員欄位清單中其餘各項（含菸草、添加物、石灰種類、戒除日期、資料來源）均已落地，
+<strong>唯獨本項未落地</strong>。</p>
+
+<p><strong>✅ 決議（2026-08-20）</strong>　原文已取得（口腔黏膜檢查表 107 年 7 月修訂本），
+六個級距逐字錄入 <a href="CodeSystem-CS-BetelNutHpaCategory.html">CS-BetelNutHpaCategory</a>，
+並以 <code class="language-plaintext highlighter-rouge">component[hpaCategory]</code>（required 綁定）承載原始勾選。本條結案。</p>
+
+<p><strong>代碼編號之依據</strong>　該表六個選項之印刷編號末項為 ❺，六項而止於 5，故首項為 ⓿；
+本代碼系統之 <code class="language-plaintext highlighter-rouge">0-</code>～<code class="language-plaintext highlighter-rouge">5-</code> 前綴即依此順序，<strong>非另行編號</strong>。命名沿用
+<code class="language-plaintext highlighter-rouge">CS-SmokingStatus</code> 之「數字前綴＋語意」慣例。</p>
+
+<p><strong>尚存之範疇問題（不影響本條結案）</strong>　「篩檢表級距是否應納入健檢交換」屬
+<a href="#m-5">M-5</a> 之範疇問題，非本條之標的。故該代碼系統標 <code class="language-plaintext highlighter-rouge">experimental = true</code>，
+描述載明係<strong>選項文字為原文、納入與否待確認</strong>。</p>
+
+<p><strong>原待決事項（存查）</strong>　該表 6 個級距之原文字面與排序；所需輸入為該表原文
+或國健署確認之級距定義。</p>
+
+<p><strong>影響範圍（已實作）</strong>　<code class="language-plaintext highlighter-rouge">input/fsh/codesystems/CS-BetelNut.fsh</code>（<code class="language-plaintext highlighter-rouge">CS-BetelNutHpaCategory</code> ＋ <code class="language-plaintext highlighter-rouge">VS-BetelNutHpaCategory</code>）、<code class="language-plaintext highlighter-rouge">TWHA-SocialHistory-BetelNut</code>（<code class="language-plaintext highlighter-rouge">component[hpaCategory] 0..1</code>）、<code class="language-plaintext highlighter-rouge">terminology.md</code> &sect;6.2b、範例 <code class="language-plaintext highlighter-rouge">obs-betelnut-current</code>。</p>
+
+<p><strong>為何當時不逕行擬稿（存查）</strong>　級距之<strong>文字與切點</strong>屬該表之實質內容，非本團隊可推定；
+依 <a href="https://github.com/kunjulin/occupationIG/blob/main/CLAUDE.md">CLAUDE.md</a> &sect;4
+「憑既有 markdown 表格轉抄法規項目」之戒律，須以原文逐項核對。
+自行擬一組看似合理的級距，會產生一個<strong>外觀正確但與實際表單對不上</strong>的值集——
+其危害甚於暫時缺件。<strong>事後對照原文，此判斷正確</strong>：實際級距同時綁定「嚼食年數」與
+「每日顆數」兩個維度（如「嚼超過 10 年，每天 20 顆及以上」），非單一維度之分段，
+與一般會憑空擬出的「1–9 顆／10–19 顆／20 顆以上」形狀不同。</p>
+
+<p><strong>若決策不同</strong>　若主管機關認為健檢上傳不需保留篩檢表之原始級距，本項可逕行關閉，
+<code class="language-plaintext highlighter-rouge">component[hpaCategory]</code> 不再需要；量化資料已由 <code class="language-plaintext highlighter-rouge">component[amount]</code>（UCUM <code class="language-plaintext highlighter-rouge">{quid}/d</code>）承載。</p>
+
+<blockquote>
+  <p>⚠️ <strong>範疇提醒</strong>：口腔黏膜檢查表是<strong>癌症篩檢用表，不是健檢上傳欄位</strong>。
+納入其原始級距無妨（可回溯、可稽核），但<strong>不得因此把篩檢表欄位當成健檢上傳欄位</strong>
+——後者才是 <a href="#m-5">M-5</a> 待國健署確認之標的。三套來源之對照見
+<a href="terminology.html">術語頁 &sect;6.2b-1</a>。</p>
+</blockquote>
+
+<hr/>
+
 <h2 id="p-1canonical-命名空間為-provisional-">P-1　canonical 命名空間為 provisional <a id="p-1"></a></h2>
 
 <p><strong>現況</strong>　canonical 為 <code class="language-plaintext highlighter-rouge">https://twcore.mohw.gov.tw/ig/twha</code>，<strong>provisional</strong>——
@@ -1318,9 +1369,9 @@ CodeSystem／ValueSet／Profile／Extension 之授權條件尚待確認。</p>
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.3.3，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.4.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-20 12:04:00 +0000">
+  <span title="2026-08-20 13:40:00 +0000">
     2026-08-20
   </span>
 

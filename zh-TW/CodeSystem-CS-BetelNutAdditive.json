@@ -1,0 +1,50 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "CS-BetelNutAdditive",
+  "language" : "zh-TW",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 代码系统 CS-BetelNutAdditive</b></p><a name=\"CS-BetelNutAdditive\"> </a><a name=\"hcCS-BetelNutAdditive\"> </a><p>This case-sensitive code system <code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutAdditive</code> defines the following codes:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">betel-inflorescence<a name=\"CS-BetelNutAdditive-betel-inflorescence\"> </a></td><td>荖花</td><td>以荖花（檳榔花）為添加物。</td></tr><tr><td style=\"white-space:nowrap\">betel-leaf<a name=\"CS-BetelNutAdditive-betel-leaf\"> </a></td><td>荖葉</td><td>以荖葉為添加物。</td></tr><tr><td style=\"white-space:nowrap\">none<a name=\"CS-BetelNutAdditive-none\"> </a></td><td>無添加物</td><td>未使用荖花或荖葉。</td></tr></table></div>"
+  },
+  "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutAdditive",
+  "version" : "0.4.0",
+  "name" : "CS_BetelNutAdditive",
+  "title" : "檳榔添加物代碼系統",
+  "status" : "active",
+  "experimental" : true,
+  "date" : "2026-08-20T13:40:11+00:00",
+  "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+  "contact" : [{
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  },
+  {
+    "name" : "衛生福利部次世代數位醫療平臺專案辦公室",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://twcore.mohw.gov.tw/twregistry/"
+    }]
+  }],
+  "description" : "嚼食檳榔所用之添加物。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）",
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "betel-inflorescence",
+    "display" : "荖花",
+    "definition" : "以荖花（檳榔花）為添加物。"
+  },
+  {
+    "code" : "betel-leaf",
+    "display" : "荖葉",
+    "definition" : "以荖葉為添加物。"
+  },
+  {
+    "code" : "none",
+    "display" : "無添加物",
+    "definition" : "未使用荖花或荖葉。"
+  }]
+}
