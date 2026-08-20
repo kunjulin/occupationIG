@@ -846,12 +846,37 @@ C-0 之前提為「以 `$lookup` 取官方 FSN 並確認其作為 `Observation.c
 | 添加物／石灰種類 | ✅ **拆為兩個 component**（B.6：兩個軸，非四選一） |
 | 資料來源 | ✅ `component[informationSource]`，code 為 LOINC `48766-0` |
 | 上游級距碼 | ✅ `component[amountCoded]`，`extensible`、`0..1`（C-2） |
-| 口腔黏膜檢查表 6 選 1 | ❌ **未落地**——未取得原文，登記為 [T-13](../../input/pagecontent/open-issues.md) |
+| 口腔黏膜檢查表 6 選 1 | ✅ **已落地**（原文於同日取得）——`CS-BetelNutHpaCategory` ＋ `component[hpaCategory]`；T-13 結案 |
 | panel ＋ `hasMember` | ❌ **不做**——採選項甲，理由見 B.7 |
 
-**T-13 為何不逕行擬稿**：級距之文字與切點屬該表之實質內容，非本團隊可推定。
-自行擬一組看似合理的級距，會產生一個**外觀正確但與實際表單對不上**的值集，
-其危害甚於暫時缺件——與 CLAUDE.md §4「憑既有 markdown 表格轉抄法規項目」為同一戒律。
+**T-13 之處置與事後驗證**：原文未到手前，本案拒絕擬稿——級距之文字與切點屬該表之
+實質內容，非本團隊可推定；自行擬一組看似合理的級距，會產生一個**外觀正確但與實際
+表單對不上**的值集，其危害甚於暫時缺件（CLAUDE.md §4 之同一戒律）。
+
+**原文到手後證實該判斷正確**：實際級距**同時綁定兩個維度**——
+
+| 表列 | 原文 |
+|:--|:--|
+| 1（⓿） | 無 |
+| 2（❶） | 已戒 |
+| 3（❷） | 嚼 10 年以下，每天少於 20 顆 |
+| 4（❸） | 嚼 10 年以下，每天 20 顆及以上 |
+| 5（❹） | 嚼超過 10 年，每天少於 20 顆 |
+| 6（❺） | 嚼超過 10 年，每天 20 顆及以上 |
+
+即「嚼食年數 × 每日顆數」之 2×2 交叉，另加「無」與「已戒」兩個狀態項。
+**與一般會憑空擬出的單維分段（如 1–9 顆／10–19 顆／20 顆以上）形狀完全不同**——
+若當初擬稿，做出來的會是一個看似合理、實際對不上的值集。
+
+代碼編號之依據：該表六項而印刷編號止於 ❺，故首項為 ⓿；`0-`～`5-` 前綴依此順序，
+非另行編號。命名沿用 `CS-SmokingStatus` 之「數字前綴＋語意」慣例。
+
+⚠️ **可導出界限，不得取中點**：❷–❺ 可導出 `durationYears` 與 `amount` 之界限
+（如第 6 項 ⇒ 年數 > 10、每日 ≧ 20），應以 `Quantity.comparator` 表達；
+取區間中點充作實測值會造成假精確（附錄 B.1 #7、T-9 同一原則）。
+
+⚠️ **兩個「附表九」不是同一份**：該表在其來源文件中標為【附表九】（國民健康署），
+與本指引反覆援引之《勞工健康保護規則》附表九**分屬不同法規、內容全然無關**。
 
 ### D.3 一併修正之既有落差（非本 JOB 原範圍）
 
@@ -861,9 +886,42 @@ C-0 之前提為「以 `$lookup` 取官方 FSN 並確認其作為 `Observation.c
 | `CLAUDE.md` §2.5 | 「本 IG **各**值集之綁定強度為 extensible」過度概括：全庫實測 `required` 11 處、`extensible` 3 處，後者恰為檢驗／量測三大資料集值集——即該節所談者。已改為精確敘述 |
 | 附錄 B.8 #1 | 對委員之指謫不成立，見 B.8.1 |
 
+### D.3a `$lookup` 實測全文（run 32369946585）
+
+```
+698188003（SNOMED CT International 20250201）
+  display      Chews betel quid
+  designation  Fully specified name = "Chews betel quid (finding)"
+  designation  Synonym              = "Chews betel quid"
+  property     parent      → 409069009 "Finding related to substance use"
+  property     Interprets  → 228272008 "Health-related behavior"
+  property     inactive    = false
+
+48766-0（LOINC 2.82）
+  display  Information source ；SCALE_TYP LP7750-5（Nom）；STATUS ACTIVE
+  property AnswerList = LL3678-1        ← 見下方註記
+
+8663-7（LOINC 2.82）
+  display              Cigarettes smoked current (pack per day) - Reported
+  EXAMPLE_UNITS        #/day
+  EXAMPLE_UCUM_UNITS   {#}/d            ← 官方值；B.8 #1 據此作廢（見 B.8.1）
+  PROPERTY             LP6839-7（NRat＝Count/Time）；STATUS ACTIVE
+```
+
+**C-0 據此成立**：FSN 為 `(finding)`、上位概念為「Finding related to substance use」、
+`Interprets → Health-related behavior`——即「以一個 Observation 記錄某項行為」之語意形狀，
+適合作為 `Observation.code`。display `Chews betel quid` 亦與 tx 相符。
+
+> 📌 **一項後續事項（本版未處理）**：`48766-0` 於 LOINC 有官方答案清單 **`LL3678-1`**。
+> 本版之 `component[informationSource]` 綁定本地 `VS-BetelNutInfoSource`（extensible），
+> 三碼為自述／病歷／篩檢表。**該本地值集是否與 `LL3678-1` 重複、抑或應改綁官方清單，
+> 須取得 `LL3678-1` 之展開後再判**——本容器無法連線，不預先斷言。
+> 綁定強度為 `extensible` 而非 `required`，即為此保留餘地。
+
 ### D.4 尚未驗證者
 
 - 上游 `package.tgz` 之 `file://` 落點逐檔檢視（§4.2）——`mitw.dicom.org.tw` 遭 proxy 封鎖。
+- LOINC 答案清單 `LL3678-1` 之展開（見 D.3a 註記）。
 - 本版之 QA 訊息增量——**新增 7 個 CodeSystem／ValueSet artifact 與 2 個範例，
   依既有規則每 artifact 約使 `cannot be resolved` +10、`should have an OID assigned` +1，
   且本地值集標 `experimental = true` 會使 `Reference to experimental CodeSystem https://twcore`

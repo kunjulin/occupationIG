@@ -66,6 +66,10 @@ Description: "受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉�
 * component[lime].valueCodeableConcept = CS_BetelNutLime#white-lime "白灰"
 * component[amountCoded].code = CS_BetelNutComponent#amount-coded "每日嚼食量（上游級距碼）"
 * component[amountCoded].valueCodeableConcept = TWCRSFBetNutChewAmountCS#10 "每日10顆"
+// 口腔黏膜檢查表之原始勾選並存：每日 10 顆（< 20）、嚼 20 年（> 10）⇒ 表列第 5 項。
+// 兩者並存不衝突——級距是原始勾選，Quantity 是實測值，前者不由後者導出、亦不換算。
+* component[hpaCategory].code = CS_BetelNutComponent#hpa-category "口腔黏膜檢查表級距"
+* component[hpaCategory].valueCodeableConcept = CS_BetelNutHpaCategory#4-ge10y-lt20 "嚼超過 10 年，每天少於 20 顆"
 * component[informationSource].code = LNC#48766-0 "Information source"
 * component[informationSource].valueCodeableConcept = CS_BetelNutInfoSource#self-report "受檢者自述"
 

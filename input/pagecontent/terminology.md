@@ -400,7 +400,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 | 來源 | 粒度 | 與本指引之關係 |
 |:--|:--|:--|
 | **國健署健檢上傳欄位**（原案） | 嚼檳狀態／量／月數，**無編碼** | **本指引 Core 之對標對象**，正式公告版本待確認（[M-5](open-issues.html#m-5)） |
-| **口腔黏膜檢查表**（107/7 修訂） | 6 選 1 之 ordinal 級距 | **癌症篩檢用表，非健檢上傳欄位**。得以 `component[informationSource]` 標註來源後保留原始勾選，但**不得因此把篩檢表欄位當成健檢上傳欄位** |
+| **口腔黏膜檢查表**（107/7 修訂） | 6 選 1 之 ordinal 級距（年數 × 每日顆數） | **癌症篩檢用表，非健檢上傳欄位**。原始勾選以 `component[hpaCategory]` 保留（[VS-BetelNutHpaCategory](ValueSet-VS-BetelNutHpaCategory.html)），**不換算成中位數**；但**不得因此把篩檢表欄位當成健檢上傳欄位** |
 | **TWCR_SF**（癌症登記短表） | 逐顆／逐年之列舉碼 | 正式相依 `fhir.TWCRSF#0.1.1`；於本指引降為**可選對照**（見 6.2b-3） |
 
 #### 6.2b-2 本指引之建模（v0.4.0 起）
@@ -417,6 +417,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 | 添加物 | `component[additive]` | [VS-BetelNutAdditive](ValueSet-VS-BetelNutAdditive.html)（required） |
 | 石灰種類 | `component[lime]` | [VS-BetelNutLime](ValueSet-VS-BetelNutLime.html)（required） |
 | 資料來源 | `component[informationSource]` | LOINC `48766-0`；值 [VS-BetelNutInfoSource](ValueSet-VS-BetelNutInfoSource.html)（extensible） |
+| 口腔黏膜檢查表級距 | `component[hpaCategory]` | [VS-BetelNutHpaCategory](ValueSet-VS-BetelNutHpaCategory.html)（required，**原始勾選，不換算**） |
 | 上游級距碼（對照） | `component[amountCoded]` | TWCR_SF `sf-BetNutChewAmount`（**extensible、可選**） |
 
 **與吸菸建模對稱**：吸菸量走 `64218-1` ＋ UCUM `/d`（數值），嚼檳量亦走 UCUM 數值；
@@ -432,6 +433,20 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 > ⚠️ **搜尋時必須併帶 `code=`。** UCUM 之註記（`{...}`）不影響可換算性，
 > 故 `{quid}.a`（累積顆-年）與 `a`（嚼食年數）為**同量綱**，
 > `value-quantity=gt10||a` 會同時命中兩者。**單位不足以區辨語意。**
+
+> ⚠️ **兩個「附表九」不是同一份。** 口腔黏膜檢查表在其來源文件中標為
+> 【附表九】（國民健康署），與本指引反覆援引之《勞工健康保護規則》**附表九**
+> （一般體格及健康檢查項目）**分屬不同法規、內容全然無關**。
+> 本指引凡未加註者，「附表九」一律指《勞工健康保護規則》者。
+>
+> ⚠️ **級距可導出界限，但不得取中點。** 該表 ❷–❺ 四項各自綁定「嚼食年數」與
+> 「每日顆數」兩個維度之區間，可據以導出 `component[durationYears]` 與
+> `component[amount]` 之**界限**（例如第 6 項 ⇒ 年數 > 10、每日 ≧ 20），
+> 應以 `Quantity.comparator` 表達；**取區間中點充作實測值會造成假精確，
+> 污染 dose-response 分析**（[T-9](open-issues.html#t-9) 之同一原則）。
+>
+> 附帶觀察：同表「2.吸菸習慣」為結構完全相同之六選項，僅單位由「顆」改「支」。
+> 本指引之吸菸 Profile 繼承 TW Core，未納入此級距。
 
 #### 6.2b-3 上游級距碼 → 本模型之落點對照
 

@@ -83,6 +83,7 @@ Description: "用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `v
     additive 0..1 and
     lime 0..1 and
     informationSource 0..1 and
+    hpaCategory 0..1 and
     amountCoded 0..1
 
 * component[amount].code = CS_BetelNutComponent#amount "每日嚼食量"
@@ -117,6 +118,13 @@ Description: "用於記錄勞工之嚼檳榔狀態與量化資料。狀態以 `v
 * component[lime].code = CS_BetelNutComponent#lime "石灰種類"
 * component[lime].value[x] only CodeableConcept
 * component[lime].valueCodeableConcept from VS_BetelNutLime (required)
+
+// 口腔黏膜檢查表（107/7 修訂）之原始勾選，保留不換算（T-13、附錄 B.1 #7）。
+// 該表為癌症篩檢用表、非健檢上傳欄位——收錄係為可回溯，不得據此把篩檢表欄位
+// 當成健檢上傳欄位（M-5 之標的）。
+* component[hpaCategory].code = CS_BetelNutComponent#hpa-category "口腔黏膜檢查表級距"
+* component[hpaCategory].value[x] only CodeableConcept
+* component[hpaCategory].valueCodeableConcept from VS_BetelNutHpaCategory (required)
 
 * component[informationSource].code = LNC#48766-0 "Information source"
 * component[informationSource].value[x] only CodeableConcept
