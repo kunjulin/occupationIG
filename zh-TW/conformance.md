@@ -1,4 +1,4 @@
-# 遵從性與依賴 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
+# 遵從性與依賴 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3
 
 ## 遵從性與依賴
 
@@ -25,6 +25,7 @@
 ## 3. 依賴之實作指引與套件 (Dependencies)
 
 實作端須依下表載入對應之 FHIR 套件版本。本表由建置工具依實際依賴自動產生。
+
 
 
 

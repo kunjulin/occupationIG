@@ -1,4 +1,4 @@
-# 附表十 粉塵作業 專屬應執行項目值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
+# 附表十 粉塵作業 專屬應執行項目值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3
 
 ## ValueSet: 附表十 粉塵作業 專屬應執行項目值集 (實驗性) 
 
@@ -28,12 +28,12 @@
   "resourceType" : "ValueSet",
   "id" : "VS-Appendix10-Dust-RequiredSet",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Dust-RequiredSet",
-  "version" : "0.2.5",
+  "version" : "0.3.3",
   "name" : "VS_Appendix10DustRequiredSet",
   "title" : "附表十 粉塵作業 專屬應執行項目值集",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-17T06:57:01+00:00",
+  "date" : "2026-08-20T12:04:33+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

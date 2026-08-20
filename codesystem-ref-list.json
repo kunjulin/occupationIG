@@ -37,7 +37,7 @@
   },
   {
     "url" : "http://loinc.org",
-    "version" : "3.0.1",
+    "version" : "3.1.0",
     "status" : "active",
     "name" : "LOINC",
     "title" : "Logical Observation Identifiers, Names and Codes (LOINC)",
@@ -45,18 +45,18 @@
     "oids" : ["2.16.840.1.113883.6.1"],
     "uses" : {
     },
-    "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集",
-    "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集",
-    "ValueSet-VS-Appendix9-RequiredSet.html" : "附表九 一般健康檢查法定應執行項目值集",
-    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
-    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap",
-    "ValueSet-VS-Appendix10-Dust-RequiredSet.html" : "附表十 粉塵作業 專屬應執行項目值集",
     "ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.html" : "附表十 有機溶劑作業 專屬應執行項目值集",
-    "ValueSet-VS-Appendix10-Lead-RequiredSet.html" : "附表十 鉛作業 專屬應執行項目值集",
+    "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集",
     "ValueSet-VS-OccHealthCheck-Required.html" : "勞工健康檢查法定必驗項目值集（第一期草案）",
-    "ValueSet-VS-CoreDataset.html" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
     "ValueSet-VS-TWHAVitalSigns.html" : "職業健檢生命徵象項目值集",
-    "ValueSet-VS-Appendix10-Noise-RequiredSet.html" : "附表十 噪音作業 專屬應執行項目值集"
+    "ValueSet-VS-CoreDataset.html" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
+    "ValueSet-VS-Appendix10-Dust-RequiredSet.html" : "附表十 粉塵作業 專屬應執行項目值集",
+    "ValueSet-VS-Appendix10-Lead-RequiredSet.html" : "附表十 鉛作業 專屬應執行項目值集",
+    "ValueSet-VS-Appendix9-RequiredSet.html" : "附表九 一般健康檢查法定應執行項目值集",
+    "ConceptMap-TWHealthCheckLaboratoryMap.html" : "TWHealthCheckLaboratoryMap",
+    "ValueSet-VS-Appendix10-Noise-RequiredSet.html" : "附表十 噪音作業 專屬應執行項目值集",
+    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
+    "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集"
   },
   {
     "url" : "http://snomed.info/sct",
@@ -72,51 +72,40 @@
   },
   {
     "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem",
-    "version" : "0.2.5",
-    "status" : "draft",
-    "name" : "sf-BetNutChewAmount-codesystem",
-    "title" : "【本地 stub】每日嚼檳榔量代碼系統（非權威定義）",
+    "version" : "0.1.1",
+    "status" : "active",
+    "name" : "SFBetNutChewAmountCS",
+    "title" : "每日嚼檳榔量代碼系統",
     "description" : "Betel Nut Chewing Amount Code System",
     "uses" : {
     },
-    "ValueSet-sf-BetNutChewAmount-valueset.html" : "【本地 stub】每日嚼檳榔量值集（非權威定義）"
-  },
-  {
-    "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem",
-    "version" : "0.2.5",
-    "status" : "draft",
-    "name" : "sf-BetNutChewBeh-codesystem",
-    "title" : "【本地 stub】Betel Nut Chewing Behavior Code System（非權威定義）",
-    "description" : "Betel Nut Chewing Behavior Code System",
-    "uses" : {
-    },
-    "ValueSet-sf-BetNutChewBeh-valueset.html" : "【本地 stub】嚼檳榔行為值集（非權威定義）"
+    "https://mitw.dicom.org.tw/IG/TWCR_SF/ValueSet-sf-BetNutChewAmount-valueset.html" : "每日嚼檳榔量值集"
   },
   {
     "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem",
-    "version" : "0.2.5",
-    "status" : "draft",
-    "name" : "sf-BetNutChewQuit-codesystem",
-    "title" : "【本地 stub】戒嚼檳榔年代碼系統（非權威定義）",
+    "version" : "0.1.1",
+    "status" : "active",
+    "name" : "SFBetNutChewQuitCS",
+    "title" : "戒嚼檳榔年代碼系統",
     "description" : "Betel Nut Chewing Quit Code System",
     "uses" : {
     },
-    "ValueSet-sf-BetNutChewQuit-valueset.html" : "【本地 stub】戒嚼檳榔年值集（非權威定義）"
+    "https://mitw.dicom.org.tw/IG/TWCR_SF/ValueSet-sf-BetNutChewQuit-valueset.html" : "戒嚼檳榔年值集"
   },
   {
     "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem",
-    "version" : "0.2.5",
-    "status" : "draft",
-    "name" : "sf-BetNutChewYear-codesystem",
-    "title" : "【本地 stub】嚼檳榔年代碼系統（非權威定義）",
+    "version" : "0.1.1",
+    "status" : "active",
+    "name" : "SFBetNutChewYearCS",
+    "title" : "嚼檳榔年代碼系統",
     "description" : "Betel Nut Chewing Year Code System",
     "uses" : {
     },
-    "ValueSet-sf-BetNutChewYear-valueset.html" : "【本地 stub】嚼檳榔年值集（非權威定義）"
+    "https://mitw.dicom.org.tw/IG/TWCR_SF/ValueSet-sf-BetNutChewYear-valueset.html" : "嚼檳榔年值集"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_Appendix10Operation",
     "title" : "附表十特別危害健康作業具名代碼系統",
@@ -128,7 +117,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_ExamType",
     "title" : "檢查類型代碼系統",
@@ -139,7 +128,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_FitnessForWork",
     "title" : "適性配工建議代碼系統",
@@ -150,19 +139,19 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_HazardType",
     "title" : "特別危害健康作業類別代碼系統",
     "description" : "勞工健康保護規則所定義之特別危害健康作業，歸併為 12 危害家族（家族層）。附表十（115.06.26 修正）逐號列舉之 35 項法定具名作業另以 CS-Appendix10Operation 表示，家族 ↔ 具名作業之對映見 ConceptMap Appendix10-to-HazardType。",
     "uses" : {
     },
-    "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照",
-    "ValueSet-VS-HazardType.html" : "特別危害健康作業類別值集"
+    "ValueSet-VS-HazardType.html" : "特別危害健康作業類別值集",
+    "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_HealthCounseling",
     "title" : "健康諮詢與衛教指導項目代碼系統",
@@ -173,7 +162,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_HealthMgmtLevel",
     "title" : "健康管理分級代碼系統",
@@ -184,7 +173,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_LaborReportCode",
     "title" : "勞動部通報報告代碼系統",
@@ -195,7 +184,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-OrganicSolventType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_OrganicSolventType",
     "title" : "有機溶劑種類代碼系統",
@@ -206,7 +195,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_PhysicalExamSystems",
     "title" : "身體檢查系統部位代碼系統",
@@ -217,7 +206,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_ServiceActivityType",
     "title" : "臨場健康服務辦理事項代碼系統",
@@ -228,7 +217,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_SmokingStatus",
     "title" : "吸菸狀態代碼系統",
@@ -239,7 +228,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "CS_SpecificChemicalType",
     "title" : "特定化學物質種類代碼系統",

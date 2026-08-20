@@ -8,11 +8,11 @@
 </div></div>
   </text>
   <url value="https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"/>
-  <version value="0.2.5"/>
+  <version value="0.3.3"/>
   <name value="TWHAIG"/>
   <title value="臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"/>
   <status value="active"/>
-  <date value="2026-08-17T06:57:01+00:00"/>
+  <date value="2026-08-20T12:04:33+00:00"/>
   <publisher value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
   <contact>
     <name value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
@@ -53,6 +53,11 @@
     <packageId value="tw.gov.mohw.twcore"/>
     <version value="1.0.0"/>
   </dependsOn>
+  <dependsOn id="fhir_twcrsf">
+    <uri value="https://hapi.fhir.tw/fhir/ImplementationGuide/fhir.TWCRSF"/>
+    <packageId value="fhir.twcrsf"/>
+    <version value="0.1.1"/>
+  </dependsOn>
   <definition>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
       <extension url="code">
@@ -92,78 +97,6 @@
       </extension>
       <extension url="value">
         <valueString value="https://kunjulin.github.io/occupationIG/history.html"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueString value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueString value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueString value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueString value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueString value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueString value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueString value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueString value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueString value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -431,78 +364,6 @@
       </extension>
       <extension url="value">
         <valueString value="https://kunjulin.github.io/occupationIG/history.html"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueCode value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueCode value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueCode value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueCode value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueCode value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueCode value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueCode value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueCode value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset"/>
-      </extension>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
-      <extension url="code">
-        <valueCode value="special-url"/>
-      </extension>
-      <extension url="value">
-        <valueString value="https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -852,105 +713,6 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/sf-BetNutChewBeh-codesystem"/>
-      </reference>
-      <name value="【本地 stub】Betel Nut Chewing Behavior Code System（非權威定義）"/>
-      <description value="Betel Nut Chewing Behavior Code System"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/sf-BetNutChewYear-codesystem"/>
-      </reference>
-      <name value="【本地 stub】嚼檳榔年代碼系統（非權威定義）"/>
-      <description value="Betel Nut Chewing Year Code System"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/sf-BetNutChewYear-valueset"/>
-      </reference>
-      <name value="【本地 stub】嚼檳榔年值集（非權威定義）"/>
-      <description value="Betel Nut Chewing Year Value Set"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/sf-BetNutChewBeh-valueset"/>
-      </reference>
-      <name value="【本地 stub】嚼檳榔行為值集（非權威定義）"/>
-      <description value="Betel Nut Chewing Behavior Value Set"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/sf-BetNutChewQuit-codesystem"/>
-      </reference>
-      <name value="【本地 stub】戒嚼檳榔年代碼系統（非權威定義）"/>
-      <description value="Betel Nut Chewing Quit Code System"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/sf-BetNutChewQuit-valueset"/>
-      </reference>
-      <name value="【本地 stub】戒嚼檳榔年值集（非權威定義）"/>
-      <description value="Betel Nut Chewing Quit Value Set"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/sf-BetNutChewAmount-codesystem"/>
-      </reference>
-      <name value="【本地 stub】每日嚼檳榔量代碼系統（非權威定義）"/>
-      <description value="Betel Nut Chewing Amount Code System"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/sf-BetNutChewAmount-valueset"/>
-      </reference>
-      <name value="【本地 stub】每日嚼檳榔量值集（非權威定義）"/>
-      <description value="Betel Nut Chewing Amount Value Set"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/sf-ObserBeh-codesystem"/>
-      </reference>
-      <name value="【本地 stub】相關行為代碼系統（非權威定義）"/>
-      <description value="Observation Behavior Code System"/>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="Composition"/>
       </extension>
       <reference>
@@ -990,7 +752,7 @@
         <reference value="ValueSet/VS-CoreUploadSet"/>
       </reference>
       <name value="主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）"/>
-      <description value="群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳量／嚼檳月數屬本地 Extension（ext-betelnut-quantity），無國際碼，於文件註記。"/>
+      <description value="群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之量／年／戒除年由臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之值集承載（sf-BetNutChewAmount／sf-BetNutChewYear／sf-BetNutChewQuit，required 綁定，見 TWHA-SocialHistory-BetelNut），非本 IG 自訂，亦非無碼；LOINC／SNOMED 就此無對應碼故採國內值集。注意上游以「年」計，與吸菸之戒除「月數」（LNC#63632-4）單位不同。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>

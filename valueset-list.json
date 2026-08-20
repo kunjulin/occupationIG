@@ -1,43 +1,7 @@
 {
   "codeSystems" : [{
-    "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset",
-    "version" : "0.2.5",
-    "status" : "draft",
-    "name" : "SFBetNutChewAmountValueSet",
-    "title" : "【本地 stub】每日嚼檳榔量值集（非權威定義）",
-    "description" : "Betel Nut Chewing Amount Value Set",
-    "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem"]
-  },
-  {
-    "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset",
-    "version" : "0.2.5",
-    "status" : "draft",
-    "name" : "SFBetNutChewBehValueSet",
-    "title" : "【本地 stub】嚼檳榔行為值集（非權威定義）",
-    "description" : "Betel Nut Chewing Behavior Value Set",
-    "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"]
-  },
-  {
-    "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset",
-    "version" : "0.2.5",
-    "status" : "draft",
-    "name" : "SFBetNutChewQuitValueSet",
-    "title" : "【本地 stub】戒嚼檳榔年值集（非權威定義）",
-    "description" : "Betel Nut Chewing Quit Value Set",
-    "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem"]
-  },
-  {
-    "url" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset",
-    "version" : "0.2.5",
-    "status" : "draft",
-    "name" : "SFBetNutChewYearValueSet",
-    "title" : "【本地 stub】嚼檳榔年值集（非權威定義）",
-    "description" : "Betel Nut Chewing Year Value Set",
-    "systems" : ["https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"]
-  },
-  {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Dust-RequiredSet",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "draft",
     "name" : "VS_Appendix10DustRequiredSet",
     "title" : "附表十 粉塵作業 專屬應執行項目值集",
@@ -46,7 +10,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Lead-RequiredSet",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "draft",
     "name" : "VS_Appendix10LeadRequiredSet",
     "title" : "附表十 鉛作業 專屬應執行項目值集",
@@ -55,7 +19,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Noise-RequiredSet",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "draft",
     "name" : "VS_Appendix10NoiseRequiredSet",
     "title" : "附表十 噪音作業 專屬應執行項目值集",
@@ -64,7 +28,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_Appendix10Operation",
     "title" : "附表十特別危害健康作業值集（35 項）",
@@ -73,7 +37,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-OrganicSolvent-RequiredSet",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "draft",
     "name" : "VS_Appendix10OrganicSolventRequiredSet",
     "title" : "附表十 有機溶劑作業 專屬應執行項目值集",
@@ -82,7 +46,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-RequiredSet",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "draft",
     "name" : "VS_Appendix10RequiredSet",
     "title" : "附表十 特殊健康檢查應執行項目值集（已落地家族）",
@@ -91,7 +55,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix9-RequiredSet",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "draft",
     "name" : "VS_Appendix9RequiredSet",
     "title" : "附表九 一般健康檢查法定應執行項目值集",
@@ -100,7 +64,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_CoreDataset",
     "title" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
@@ -109,16 +73,16 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreUploadSet",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_CoreUploadSet",
     "title" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
-    "description" : "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳量／嚼檳月數屬本地 Extension（ext-betelnut-quantity），無國際碼，於文件註記。",
+    "description" : "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之量／年／戒除年由臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之值集承載（sf-BetNutChewAmount／sf-BetNutChewYear／sf-BetNutChewQuit，required 綁定，見 TWHA-SocialHistory-BetelNut），非本 IG 自訂，亦非無碼；LOINC／SNOMED 就此無對應碼故採國內值集。注意上游以「年」計，與吸菸之戒除「月數」（LNC#63632-4）單位不同。",
     "systems" : ["http://loinc.org", "http://snomed.info/sct"]
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExamType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_ExamType",
     "title" : "檢查類型值集",
@@ -127,7 +91,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_ExtendedDataset",
     "title" : "健康檢查進階與領域擴充項目值集",
@@ -136,7 +100,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-FitnessForWork",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_FitnessForWork",
     "title" : "適性配工建議值集",
@@ -145,7 +109,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_HazardType",
     "title" : "特別危害健康作業類別值集",
@@ -154,7 +118,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthCounseling",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_HealthCounseling",
     "title" : "健康諮詢與衛教指導項目值集",
@@ -163,7 +127,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthMgmtLevel",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_HealthMgmtLevel",
     "title" : "健康管理分級值集",
@@ -172,7 +136,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-LaborReportCode",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_LaborReportCode",
     "title" : "勞動部通報報告代碼值集",
@@ -181,7 +145,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_OccHealthCheckRequired",
     "title" : "勞工健康檢查法定必驗項目值集（第一期草案）",
@@ -190,7 +154,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OrganicSolventType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_OrganicSolventType",
     "title" : "有機溶劑種類值集",
@@ -199,7 +163,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PhysicalExamSystems",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_PhysicalExamSystems",
     "title" : "身體檢查系統部位值集",
@@ -208,7 +172,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_PulmonaryFunction",
     "title" : "肺功能檢查項目值集",
@@ -217,7 +181,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ServiceActivityType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_ServiceActivityType",
     "title" : "臨場健康服務辦理事項值集",
@@ -226,7 +190,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SmokingStatus",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_SmokingStatus",
     "title" : "吸菸狀態值集",
@@ -235,7 +199,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-SpecificChemicalType",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_SpecificChemicalType",
     "title" : "特定化學物質種類值集",
@@ -244,7 +208,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_TWHAVitalSigns",
     "title" : "職業健檢生命徵象項目值集",
@@ -253,7 +217,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-UnfitDiseases",
-    "version" : "0.2.5",
+    "version" : "0.3.3",
     "status" : "active",
     "name" : "VS_UnfitDiseases",
     "title" : "不適合從事作業之疾病值集",

@@ -1,4 +1,4 @@
-# 臨場健康服務建議與改善任務 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5
+# 臨場健康服務建議與改善任務 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3
 
 ## 資源 Profile: 臨場健康服務建議與改善任務 Profile 
 
@@ -97,12 +97,12 @@ This structure refers to these extensions:
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Task-ServiceTask",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Task-ServiceTask",
-  "version" : "0.2.5",
+  "version" : "0.3.3",
   "name" : "TWHATaskServiceTaskProfile",
   "title" : "臨場健康服務建議與改善任務 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-17T06:57:01+00:00",
+  "date" : "2026-08-20T12:04:33+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

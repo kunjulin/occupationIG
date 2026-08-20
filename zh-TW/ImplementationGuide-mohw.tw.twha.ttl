@@ -14,11 +14,11 @@
      fhir:Narrative.div "<div xml:lang=\"zh-TW\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\"><p class=\"res-header-id\"><b>Generated Narrative: 实施指南 mohw.tw.twha</b></p><a name=\"mohw.tw.twha\"> </a><a name=\"hcmohw.tw.twha\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: zh-TW</p></div><h2>TWHAIG</h2><p>The official URL for this implementation guide is: </p><pre>https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha</pre><div><p>以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】</p>\n</div></div>"
   ] ;
   fhir:ImplementationGuide.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"] ;
-  fhir:ImplementationGuide.version [ fhir:value "0.2.5"] ;
+  fhir:ImplementationGuide.version [ fhir:value "0.3.3"] ;
   fhir:ImplementationGuide.name [ fhir:value "TWHAIG"] ;
   fhir:ImplementationGuide.title [ fhir:value "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"] ;
   fhir:ImplementationGuide.status [ fhir:value "active"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-08-17T06:57:01+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-08-20T12:04:33+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:ImplementationGuide.contact [
      fhir:index -1 ;
@@ -81,6 +81,15 @@
      ] ;
      fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "tw.gov.mohw.twcore" ] ;
      fhir:ImplementationGuide.dependsOn.version [ fhir:value "1.0.0" ]
+  ], [
+     fhir:index -1 ;
+     fhir:Element.id [ fhir:value "fhir_twcrsf" ] ;
+     fhir:ImplementationGuide.dependsOn.uri [
+       fhir:value "https://hapi.fhir.tw/fhir/ImplementationGuide/fhir.TWCRSF" ;
+       fhir:link <https://hapi.fhir.tw/fhir/ImplementationGuide/fhir.TWCRSF>
+     ] ;
+     fhir:ImplementationGuide.dependsOn.packageId [ fhir:value "fhir.twcrsf" ] ;
+     fhir:ImplementationGuide.dependsOn.version [ fhir:value "0.1.1" ]
   ] ;
   fhir:ImplementationGuide.definition [
      fhir:Element.extension [
@@ -141,114 +150,6 @@
          fhir:index -1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
          fhir:Extension.valueString [ fhir:value "https://kunjulin.github.io/occupationIG/history.html" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueString [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset" ]
        ] ;
        fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
      ], [
@@ -649,114 +550,6 @@
          fhir:index -1 ;
          fhir:Extension.url [ fhir:value "value" ] ;
          fhir:Extension.valueString [ fhir:value "https://kunjulin.github.io/occupationIG/history.html" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset" ]
-       ] ;
-       fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "code" ] ;
-         fhir:Extension.valueCode [ fhir:value "special-url" ]
-       ], [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "value" ] ;
-         fhir:Extension.valueString [ fhir:value "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset" ]
        ] ;
        fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter" ]
      ], [
@@ -1285,132 +1078,6 @@
        fhir:Element.extension [
          fhir:index -1 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/sf-BetNutChewBeh-codesystem> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/sf-BetNutChewBeh-codesystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "【本地 stub】Betel Nut Chewing Behavior Code System（非權威定義）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Betel Nut Chewing Behavior Code System" ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/sf-BetNutChewYear-codesystem> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/sf-BetNutChewYear-codesystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "【本地 stub】嚼檳榔年代碼系統（非權威定義）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Betel Nut Chewing Year Code System" ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://twcore.mohw.gov.tw/ig/twha/ValueSet/sf-BetNutChewYear-valueset> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/sf-BetNutChewYear-valueset" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "【本地 stub】嚼檳榔年值集（非權威定義）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Betel Nut Chewing Year Value Set" ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://twcore.mohw.gov.tw/ig/twha/ValueSet/sf-BetNutChewBeh-valueset> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/sf-BetNutChewBeh-valueset" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "【本地 stub】嚼檳榔行為值集（非權威定義）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Betel Nut Chewing Behavior Value Set" ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/sf-BetNutChewQuit-codesystem> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/sf-BetNutChewQuit-codesystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "【本地 stub】戒嚼檳榔年代碼系統（非權威定義）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Betel Nut Chewing Quit Code System" ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://twcore.mohw.gov.tw/ig/twha/ValueSet/sf-BetNutChewQuit-valueset> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/sf-BetNutChewQuit-valueset" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "【本地 stub】戒嚼檳榔年值集（非權威定義）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Betel Nut Chewing Quit Value Set" ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/sf-BetNutChewAmount-codesystem> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/sf-BetNutChewAmount-codesystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "【本地 stub】每日嚼檳榔量代碼系統（非權威定義）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Betel Nut Chewing Amount Code System" ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "ValueSet" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://twcore.mohw.gov.tw/ig/twha/ValueSet/sf-BetNutChewAmount-valueset> ;
-         fhir:Reference.reference [ fhir:value "ValueSet/sf-BetNutChewAmount-valueset" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "【本地 stub】每日嚼檳榔量值集（非權威定義）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Betel Nut Chewing Amount Value Set" ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
-         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.reference [
-         fhir:link <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/sf-ObserBeh-codesystem> ;
-         fhir:Reference.reference [ fhir:value "CodeSystem/sf-ObserBeh-codesystem" ]
-       ] ;
-       fhir:ImplementationGuide.definition.resource.name [ fhir:value "【本地 stub】相關行為代碼系統（非權威定義）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "Observation Behavior Code System" ] ;
-       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
-     ], [
-       fhir:index -1 ;
-       fhir:Element.extension [
-         fhir:index -1 ;
-         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
          fhir:Extension.valueString [ fhir:value "Composition" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.reference [
@@ -1463,7 +1130,7 @@
          fhir:Reference.reference [ fhir:value "ValueSet/VS-CoreUploadSet" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.name [ fhir:value "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）" ] ;
-       fhir:ImplementationGuide.definition.resource.description [ fhir:value "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳量／嚼檳月數屬本地 Extension（ext-betelnut-quantity），無國際碼，於文件註記。" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之量／年／戒除年由臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之值集承載（sf-BetNutChewAmount／sf-BetNutChewYear／sf-BetNutChewQuit，required 綁定，見 TWHA-SocialHistory-BetelNut），非本 IG 自訂，亦非無碼；LOINC／SNOMED 就此無對應碼故採國內值集。注意上游以「年」計，與吸菸之戒除「月數」（LNC#63632-4）單位不同。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
        fhir:index -1 ;

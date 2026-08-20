@@ -10,11 +10,11 @@
   "id" : "mohw.tw.twha",
   "language" : "zh-TW",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha",
-  "version" : "0.2.5",
+  "version" : "0.3.3",
   "name" : "TWHAIG",
   "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-08-17T06:57:01+00:00",
+  "date" : "2026-08-20T12:04:33+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -59,6 +59,12 @@
     "uri" : "https://twcore.mohw.gov.tw/ig/twcore/ImplementationGuide/tw.gov.mohw.twcore",
     "packageId" : "tw.gov.mohw.twcore",
     "version" : "1.0.0"
+  },
+  {
+    "id" : "fhir_twcrsf",
+    "uri" : "https://hapi.fhir.tw/fhir/ImplementationGuide/fhir.TWCRSF",
+    "packageId" : "fhir.twcrsf",
+    "version" : "0.1.1"
   }],
   "definition" : {
     "extension" : [{
@@ -113,105 +119,6 @@
       {
         "url" : "value",
         "valueString" : "https://kunjulin.github.io/occupationIG/history.html"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -579,105 +486,6 @@
       {
         "url" : "value",
         "valueString" : "https://kunjulin.github.io/occupationIG/history.html"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewBeh-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewQuit-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewYear-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-ObserBeh-codesystem"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewAmount-valueset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewBeh-valueset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewQuit-valueset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "special-url"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://hapi.fhir.tw/fhir/ValueSet/sf-BetNutChewYear-valueset"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -1168,150 +976,6 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-sf-BetNutChewBeh-codesystem.html"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/sf-BetNutChewBeh-codesystem"
-      },
-      "name" : "【本地 stub】Betel Nut Chewing Behavior Code System（非權威定義）",
-      "description" : "Betel Nut Chewing Behavior Code System",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-sf-BetNutChewYear-codesystem.html"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/sf-BetNutChewYear-codesystem"
-      },
-      "name" : "【本地 stub】嚼檳榔年代碼系統（非權威定義）",
-      "description" : "Betel Nut Chewing Year Code System",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-sf-BetNutChewYear-valueset.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/sf-BetNutChewYear-valueset"
-      },
-      "name" : "【本地 stub】嚼檳榔年值集（非權威定義）",
-      "description" : "Betel Nut Chewing Year Value Set",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-sf-BetNutChewBeh-valueset.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/sf-BetNutChewBeh-valueset"
-      },
-      "name" : "【本地 stub】嚼檳榔行為值集（非權威定義）",
-      "description" : "Betel Nut Chewing Behavior Value Set",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-sf-BetNutChewQuit-codesystem.html"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/sf-BetNutChewQuit-codesystem"
-      },
-      "name" : "【本地 stub】戒嚼檳榔年代碼系統（非權威定義）",
-      "description" : "Betel Nut Chewing Quit Code System",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-sf-BetNutChewQuit-valueset.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/sf-BetNutChewQuit-valueset"
-      },
-      "name" : "【本地 stub】戒嚼檳榔年值集（非權威定義）",
-      "description" : "Betel Nut Chewing Quit Value Set",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-sf-BetNutChewAmount-codesystem.html"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/sf-BetNutChewAmount-codesystem"
-      },
-      "name" : "【本地 stub】每日嚼檳榔量代碼系統（非權威定義）",
-      "description" : "Betel Nut Chewing Amount Code System",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "ValueSet-sf-BetNutChewAmount-valueset.html"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/sf-BetNutChewAmount-valueset"
-      },
-      "name" : "【本地 stub】每日嚼檳榔量值集（非權威定義）",
-      "description" : "Betel Nut Chewing Amount Value Set",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      },
-      {
-        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "CodeSystem-sf-ObserBeh-codesystem.html"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/sf-ObserBeh-codesystem"
-      },
-      "name" : "【本地 stub】相關行為代碼系統（非權威定義）",
-      "description" : "Observation Behavior Code System",
-      "exampleBoolean" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Composition"
       },
       {
@@ -1370,7 +1034,7 @@
         "reference" : "ValueSet/VS-CoreUploadSet"
       },
       "name" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
-      "description" : "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳量／嚼檳月數屬本地 Extension（ext-betelnut-quantity），無國際碼，於文件註記。",
+      "description" : "群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之量／年／戒除年由臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之值集承載（sf-BetNutChewAmount／sf-BetNutChewYear／sf-BetNutChewQuit，required 綁定，見 TWHA-SocialHistory-BetelNut），非本 IG 自訂，亦非無碼；LOINC／SNOMED 就此無對應碼故採國內值集。注意上游以「年」計，與吸菸之戒除「月數」（LNC#63632-4）單位不同。",
       "exampleBoolean" : false
     },
     {

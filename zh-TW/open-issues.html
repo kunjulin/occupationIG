@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>未決事項 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.2.5</title>
+    <title>未決事項 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.3.3</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.2.5 - STU1
+            <span style="display:inline-block;">0.3.3 - STU1
 
 
             </span>
@@ -206,7 +206,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.2.5  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.3.3  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>未決事項</h2>
   
 
@@ -299,32 +299,32 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td style="text-align: left"><a href="#m-6">M-6</a></td>
       <td style="text-align: left">第 19 條保存期限之起算點</td>
-      <td style="text-align: left">勞動部（函釋）</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">—（範疇界定）</td>
+      <td style="text-align: left">✅ <strong>不列入本指引範疇（已界定，0.3.0）</strong></td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#m-7">M-7</a></td>
       <td style="text-align: left">保存期限尚未結構化</td>
-      <td style="text-align: left">本專案（俟 M-6）</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">—（範疇界定）</td>
+      <td style="text-align: left">✅ <strong>隨 M-6 關閉（0.3.0）</strong></td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#m-8">M-8</a></td>
-      <td style="text-align: left">情境資料集尚未以值集定義</td>
+      <td style="text-align: left">情境資料集之值集落地（附表十未審家族）</td>
       <td style="text-align: left">本專案</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">&#x1F536; <strong>已定分期落地規則（0.3.0）</strong>；未審八家族續辦</td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#m-9">M-9</a></td>
       <td style="text-align: left">上傳語意採 <code class="language-plaintext highlighter-rouge">transaction</code> 或 <code class="language-plaintext highlighter-rouge">batch</code></td>
       <td style="text-align: left">主管機關平台端</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">&#x1F536; <strong>已定預設為 <code class="language-plaintext highlighter-rouge">transaction</code>（0.3.0）</strong>；平台端得推翻</td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#m-10">M-10</a></td>
-      <td style="text-align: left">雇主端資料隔離之實作機制</td>
+      <td style="text-align: left">稽核與同意機制之選型</td>
       <td style="text-align: left">主管機關／平台端</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">&#x1F536; <strong>揭露範圍已定案（0.3.0）</strong>；僅餘機制選型</td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#m-11">M-11</a></td>
@@ -353,8 +353,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td style="text-align: left"><a href="#g-5">G-5</a></td>
       <td style="text-align: left">TWCR_SF 相依套件之可用性</td>
-      <td style="text-align: left">上游</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">—</td>
+      <td style="text-align: left">✅ <strong>已解決（0.3.0）</strong>：改為正式相依，stub 全數刪除</td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#t-1">T-1</a></td>
@@ -372,7 +372,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left"><a href="#t-3">T-3</a></td>
       <td style="text-align: left">SNOMED CT 對照未逐碼驗證</td>
       <td style="text-align: left">本專案</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">&#x1F536; <strong>已定處置規則（0.3.0）</strong>；逐碼驗證續辦（相依 T-4）</td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#t-4">T-4</a></td>
@@ -389,8 +389,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td style="text-align: left"><a href="#t-6">T-6</a></td>
       <td style="text-align: left">六個值集被排除於驗證之外</td>
-      <td style="text-align: left">本專案（俟 T-1）</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">本專案</td>
+      <td style="text-align: left">&#x1F536; <strong>理由已逐項補列（0.3.0）</strong>；5 項待 CI 實測後移除</td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#t-7">T-7</a></td>
@@ -408,13 +408,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left"><a href="#t-9">T-9</a></td>
       <td style="text-align: left">特殊健檢部分項目未結構化</td>
       <td style="text-align: left">本專案</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">&#x1F536; <strong>已定未結構化時之處置規則（0.3.0）</strong></td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#t-10">T-10</a></td>
       <td style="text-align: left">DiagnosticReport 無法彙整非檢驗類結果</td>
       <td style="text-align: left">TW Core／本專案</td>
-      <td style="text-align: left">待決</td>
+      <td style="text-align: left">&#x1F536; <strong>已定預設：維持 TW Core 繼承（0.3.0）</strong></td>
     </tr>
     <tr>
       <td style="text-align: left"><a href="#t-11">T-11</a></td>
@@ -467,35 +467,35 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <hr/>
 
-<h2 id="m-6第-19-條保存期限之起算點-">M-6　第 19 條保存期限之起算點 <a id="m-6"></a></h2>
+<h2 id="m-6第-19-條保存期限-不列入本指引範疇已界定-">M-6　第 19 條保存期限　✅ 不列入本指引範疇（已界定） <a id="m-6"></a></h2>
 
-<p><strong>現況</strong>　《勞工健康保護規則》第 19 條之保存期間，起算點應為「檢查日」「報告日」
-或「勞工離職日」尚無定論。本指引<strong>未於資料層固定任一解釋</strong>。</p>
+<p><strong>界定（0.3.0，JOB-26）</strong>　《勞工健康保護規則》第 19 條之保存期間，係<strong>各事業單位與
+醫療機構依法自行辦理之行政義務</strong>，與「健檢資料如何在機構間交換」無涉。本指引之職責為
+規範資料結構與交換方式，<strong>不以資料欄位承載法定保存期限，亦不對其起算點作成解釋</strong>。</p>
 
-<p><strong>待決</strong>　法定起算點之解釋。</p>
+<p><strong>為何是界定而非迴避</strong>　起算點採「檢查日」「報告日」或「勞工離職日」尚無定論，三者對同
+一筆紀錄可產生數年差異。<strong>在法律解釋確定前將保存期限結構化進資料欄位，等於把一個未定
+的解釋寫死進規範</strong>——其代價高於不做。本指引原即「未於資料層固定任一解釋」，該判斷正確，
+惟先前列於待決清單，易被誤讀為未完成之工作項目，故改標為範疇界定。</p>
 
-<p><strong>所需輸入</strong>　勞動部函釋或主管機關認定。</p>
+<p><strong>與同類事項之一致性</strong>　本項處置與存取控制政策（見 <a href="#m-10">M-10</a>）採同一原則：
+<strong>法規與機構政策層面之決定不納入資料規格</strong>。臺灣核心實作指引之〈安全性〉頁亦明載
+「所使用的策略和方法不在此規範的範圍內」，本指引比照辦理。</p>
 
-<p><strong>影響範圍</strong>　<code class="language-plaintext highlighter-rouge">background.md</code> &sect;3.1.1；未來之 <code class="language-plaintext highlighter-rouge">ext-retention-period</code>（backlog，見 M-7）。</p>
-
-<p><strong>若決策不同</strong>　三種解釋對同一筆紀錄可產生數年的保存期限差異，直接影響資料刪除時點。
-在解釋確定前結構化保存期限，等於把一個未定的法律解釋寫死進規範。</p>
+<p><strong>實作端須知</strong>　保存期限仍應依法遵循，僅係不由本指引以結構化欄位承載；
+各機構得依其資訊系統既有機制辦理。</p>
 
 <p><strong>出處</strong>　<code class="language-plaintext highlighter-rouge">background.md</code> &sect;3.1.1</p>
 
 <hr/>
 
-<h2 id="m-7保存期限尚未結構化-">M-7　保存期限尚未結構化 <a id="m-7"></a></h2>
+<h2 id="m-7保存期限尚未結構化-隨-m-6-關閉-">M-7　保存期限尚未結構化　✅ 隨 M-6 關閉 <a id="m-7"></a></h2>
 
-<p><strong>現況</strong>　保存期限以敘述方式說明，<strong>未以 extension 結構化</strong>（backlog：<code class="language-plaintext highlighter-rouge">ext-retention-period</code>）。</p>
+<p><strong>處置（0.3.0，JOB-26）</strong>　<a href="#m-6">M-6</a> 既已界定保存期限不列入本指引範疇，本項連帶關閉。
+原列為 backlog 之 <code class="language-plaintext highlighter-rouge">ext-retention-period</code> <strong>自 backlog 移除</strong>——該 extension 從未實作，
+移除無相容性影響。</p>
 
-<p><strong>待決</strong>　是否建立該 extension，以及其計算基準。</p>
-
-<p><strong>所需輸入</strong>　M-6 之解釋確定後方可進行。</p>
-
-<p><strong>影響範圍</strong>　新增 extension；<code class="language-plaintext highlighter-rouge">background.md</code>。</p>
-
-<p><strong>若決策不同</strong>　若最終不結構化，實作端須自行依敘述計算，跨系統一致性無法由規範保證。</p>
+<p><strong>編號保留</strong>　依本頁「編號一經公開即不變更」之規則，本編號保留並改標狀態，不回收再用。</p>
 
 <p><strong>出處</strong>　<code class="language-plaintext highlighter-rouge">background.md</code> &sect;3.1.1</p>
 
@@ -515,8 +515,19 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 特定化學物質、黃磷、聯吡啶。其專屬代碼在涵蓋表中多為「未審／部分驗證」，
 <strong>刻意尚未納入值集</strong>——依 JOB-07 &sect;5，未經 JOB-01 臨床確認之代碼不得寫進法定必驗值集。</p>
 
-<p><strong>所需輸入</strong>　T-1（23 個 LOINC 代碼之臨床確認，確認單已備妥）。逐家族之未審代碼
-確認後，於 <code class="language-plaintext highlighter-rouge">VS-Appendix10-RequiredSet.fsh</code> 增列對應子值集並更新涵蓋表之審查狀態欄。</p>
+<p><strong>處置規則（0.3.0，JOB-26 定案）</strong>　T-1 已於 2026-07-29 全數結案，<strong>相依已解除</strong>。
+本指引就情境資料集③採<strong>分期落地</strong>，並將規則明文化如下：</p>
+
+<ol>
+  <li>已完成臨床確認之家族（噪音／鉛／粉塵／有機溶劑）列為 <strong>normative</strong>，納入
+<code class="language-plaintext highlighter-rouge">VS-Appendix10-RequiredSet</code>。</li>
+  <li>未完成確認之家族<strong>不納入值集</strong>，於 <code class="language-plaintext highlighter-rouge">special-exam.md</code> 涵蓋表以審查狀態欄具名揭露。</li>
+  <li>實作端遇未納入之家族，<strong>保留原始 coding 並照常交換</strong>，不因值集未涵蓋而阻斷；
+此與 <a href="#t-9">T-9</a> 之處置規則一致。</li>
+</ol>
+
+<p><strong>所需輸入（續辦）</strong>　逐家族未審代碼之臨床確認。確認後於
+<code class="language-plaintext highlighter-rouge">VS-Appendix10-RequiredSet.fsh</code> 增列對應子值集並更新涵蓋表之審查狀態欄。</p>
 
 <p><strong>影響範圍</strong>　<code class="language-plaintext highlighter-rouge">VS-Appendix10-RequiredSet.fsh</code>（增列子值集）、<code class="language-plaintext highlighter-rouge">special-exam.md</code> 涵蓋表。</p>
 
@@ -535,7 +546,14 @@ JOB-04 已完成上傳契約與範例（UC-008／UC-009，暫依現行 profile �
 <a href="conformance.html">遵從性要求</a>之「上傳介接契約」一節——範例之 entry 結構兩者通用，
 故本項定案不影響已發佈之範例。</p>
 
-<p><strong>待決</strong>　採何種語意；若採 <code class="language-plaintext highlighter-rouge">batch</code>，部分成功之回報格式。</p>
+<p><strong>預設規則（0.3.0，JOB-26 定案）</strong>　本指引<strong>預設採 <code class="language-plaintext highlighter-rouge">transaction</code>（全有全無）</strong>，
+<code class="language-plaintext highlighter-rouge">batch</code> 定義為<strong>可選支援</strong>。屬技術設計層面之預設值，供實作端在平台端正式決定前有所依循，
+<strong>得由主管機關平台端之實作決定推翻</strong>，推翻時本指引配合調整。</p>
+
+<p><strong>為何可先定預設</strong>　範例之 entry 結構於兩種語意下通用（JOB-04 已驗證），
+故本項定案<strong>不影響已發佈之範例</strong>；先給預設值可讓院所端先行開發錯誤處理邏輯。</p>
+
+<p><strong>待決（續辦）</strong>　平台端最終採用之語意；若採 <code class="language-plaintext highlighter-rouge">batch</code>，部分成功之回報格式。</p>
 
 <p><strong>所需輸入</strong>　主管機關平台端之實作決定。</p>
 
@@ -547,20 +565,38 @@ JOB-04 已完成上傳契約與範例（UC-008／UC-009，暫依現行 profile �
 
 <hr/>
 
-<h2 id="m-10雇主端資料隔離之實作機制-">M-10　雇主端資料隔離之實作機制 <a id="m-10"></a></h2>
+<h2 id="m-10稽核與同意機制之選型-">M-10　稽核與同意機制之選型 <a id="m-10"></a></h2>
 
-<p><strong>現況</strong>　<code class="language-plaintext highlighter-rouge">security.md</code> 以原則層次說明雇主僅得取得健康管理分級而非檢查明細，
-<strong>未對應至具體 FHIR 機制</strong>（<code class="language-plaintext highlighter-rouge">Consent</code>／<code class="language-plaintext highlighter-rouge">Provenance</code>／<code class="language-plaintext highlighter-rouge">AuditEvent</code>／SMART scope）。</p>
+<blockquote>
+  <p><strong>本項已於 0.3.0 縮小範圍（JOB-27）。</strong> 原標題為「雇主端資料隔離之實作機制」，
+易被誤讀為<strong>揭露範圍未定</strong>。實際上揭露範圍已定案，未定的只有稽核與同意之機制選型。</p>
+</blockquote>
 
-<p><strong>待決</strong>　以何種機制落實；<code class="language-plaintext highlighter-rouge">Consent</code>／<code class="language-plaintext highlighter-rouge">AuditEvent</code> 是否納入本期範圍。</p>
+<p><strong>已定案，不在本項範圍內</strong>　<strong>雇主端可取得之資料範圍已定案且可驗證</strong>：雇主端使用
+<a href="StructureDefinition-TWHA-Composition-EmployerSummary.html">TWHA-Composition-EmployerSummary</a>，
+其 <code class="language-plaintext highlighter-rouge">section</code> 採 <strong>closed slicing</strong>，<strong>結構上保證不含檢驗 section</strong>。雇主端封包若宣告符合
+該 profile 卻夾帶檢驗數值，<strong>驗證器會擋下來</strong>——這不是原則宣示，是可驗證的結構約束。
+詳見<a href="security.html">安全與個資保護</a> &sect;2.2。</p>
+
+<p><strong>亦不在本項範圍內</strong>　<strong>誰可以存取</strong>屬存取控制政策，依法規與機構政策辦理，
+<strong>不在本指引範圍</strong>——見 <a href="security.html">security.html &sect;0</a> 之範疇聲明。</p>
+
+<p><strong>本項所指之待決</strong>　僅限<strong>稽核與同意之 FHIR 機制選型</strong>：
+<code class="language-plaintext highlighter-rouge">Consent</code>／<code class="language-plaintext highlighter-rouge">Provenance</code>／<code class="language-plaintext highlighter-rouge">AuditEvent</code>／SMART scope 各自之角色與最小實作要求，
+以及是否納入本期範圍。</p>
+
+<p><strong>技術設計建議（非政策決定）</strong>　建議之最小可稽核組合為 <code class="language-plaintext highlighter-rouge">Consent</code>（同意依據）
+＋ <code class="language-plaintext highlighter-rouge">AuditEvent</code>（存取軌跡），並以 SMART scope 表達授權範圍。<strong>此為技術設計建議，
+供主管機關與平台端採認，非本指引之政策認定。</strong></p>
 
 <p><strong>所需輸入</strong>　主管機關與平台端之架構決定。</p>
 
 <p><strong>影響範圍</strong>　<code class="language-plaintext highlighter-rouge">security.md</code>；可能新增 profile。</p>
 
-<p><strong>若決策不同</strong>　僅有原則宣示而無可驗證機制，實作端各行其是，隔離效果無法稽核。</p>
+<p><strong>若決策不同</strong>　僅有原則宣示而無可驗證之稽核機制，實作端各行其是，存取軌跡無法勾稽。
+惟<strong>揭露範圍本身不受影響</strong>——該部分已由 profile 結構保證。</p>
 
-<p><strong>出處</strong>　<code class="language-plaintext highlighter-rouge">security.md</code>；JOB-11</p>
+<p><strong>出處</strong>　<code class="language-plaintext highlighter-rouge">security.md</code>；JOB-11；JOB-27</p>
 
 <hr/>
 
@@ -660,10 +696,17 @@ ALT／γ-GT（＋二硫化碳之心電圖），各家族之尿中生物偵測項
 
 <hr/>
 
-<h2 id="g-5twcr_sf-相依套件之可用性-">G-5　TWCR_SF 相依套件之可用性 <a id="g-5"></a></h2>
+<h2 id="g-5twcr_sf-相依套件之可用性-已解決030-">G-5　TWCR_SF 相依套件之可用性　✅ 已解決（0.3.0） <a id="g-5"></a></h2>
 
-<p><strong>現況（2026-07-28 已查證）</strong>　<code class="language-plaintext highlighter-rouge">sf-*</code> 系列（5 個 CodeSystem、4 個 ValueSet）之 canonical
-位於 <code class="language-plaintext highlighter-rouge">hapi.fhir.tw</code> 命名空間。CI 實測結果：</p>
+<p><strong>結果（2026-08-20，JOB-28）</strong>　上游 IG <strong>確認可用</strong>，已改為正式 <code class="language-plaintext highlighter-rouge">dependencies</code>，
+本地 stub（5 個 CodeSystem、4 個 ValueSet）<strong>全數刪除</strong>，<code class="language-plaintext highlighter-rouge">special-url</code> 之 9 條例外一併移除。</p>
+
+<p><strong>先前判定為何不同</strong>　2026-07-28 之探測（JOB-10）僅涵蓋三個公開 package registry 與
+<code class="language-plaintext highlighter-rouge">hapi.fhir.tw</code> canonical，兩者皆 404，據以判定「上游既無套件、亦不服務該命名空間」。
+<strong>該判定就其探測範圍而言正確，惟未涵蓋 IG 站台本身</strong>——TWCR_SF 之發佈站台位於
+<code class="language-plaintext highlighter-rouge">mitw.dicom.org.tw</code>，<code class="language-plaintext highlighter-rouge">hapi.fhir.tw</code> 僅為其 canonical 命名空間，<strong>canonical 本即不要求可解析</strong>。</p>
+
+<p><strong>2026-08-20 重新查證結果</strong></p>
 
 <table>
   <thead>
@@ -674,41 +717,41 @@ ALT／γ-GT（＋二硫化碳之心電圖），各家族之尿中生物偵測項
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">fhir.twcrsf</code> 套件（3 個 registry 之<strong>根路徑</strong>）</td>
-      <td style="text-align: left"><strong>全部 404</strong>——套件 ID 不存在，非版本號給錯</td>
+      <td style="text-align: left">IG 站台 <code class="language-plaintext highlighter-rouge">mitw.dicom.org.tw/IG/TWCR_SF/</code></td>
+      <td style="text-align: left"><strong>可用</strong>，v0.1.1（2024-08-01 建置）</td>
     </tr>
     <tr>
-      <td style="text-align: left">10 個 canonical 於 <code class="language-plaintext highlighter-rouge">hapi.fhir.tw</code></td>
-      <td style="text-align: left"><strong>全部 404</strong>——伺服器有回應，只是不服務這些資源</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">package.tgz</code></td>
+      <td style="text-align: left"><strong>HTTP 200</strong>，734 KB</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">上游 CodeSystem 狀態</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">status = active</code>、<code class="language-plaintext highlighter-rouge">experimental = false</code>、<code class="language-plaintext highlighter-rouge">content = complete</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">授權</td>
+      <td style="text-align: left"><strong>CC0-1.0</strong>（無授權障礙）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">代碼一致性</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">sf-BetNutChewAmount</code> 上游 94 碼，與原 stub 94 碼<strong>完全一致</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">package registry</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">fhir.twcrsf</code>／<code class="language-plaintext highlighter-rouge">fhir.TWCRSF</code> <strong>大小寫皆仍 404</strong>（未上架）</td>
     </tr>
   </tbody>
 </table>
 
-<p>即<strong>上游既無套件、亦不服務該命名空間下的這些資源</strong>。</p>
+<p>因代碼集一致，切換不改變任何範例之有效性；因上游非 experimental，
+本 IG 引用該命名空間所產生之 experimental 提示應可消除（實際筆數以 CI 實測為準）。</p>
 
-<p>已依 JOB-10 路徑 B 處置：本 IG 之複本明確降級為 stub——
-<code class="language-plaintext highlighter-rouge">content = #fragment</code>（FHIR 為「外部代碼系統之局部複本」設計的機制，
-原標 <code class="language-plaintext highlighter-rouge">#complete</code> 等於宣稱自己是權威完整定義）、<code class="language-plaintext highlighter-rouge">status = #draft</code>、
-<code class="language-plaintext highlighter-rouge">experimental = true</code>、標題冠【本地 stub】、<code class="language-plaintext highlighter-rouge">copyright</code> 載明權威來源。</p>
+<p><strong>殘留事項</strong>　套件仍未上架公開 registry，故 CI 須自 IG 站台下載 <code class="language-plaintext highlighter-rouge">package.tgz</code> 解入
+FHIR 套件快取（見 <code class="language-plaintext highlighter-rouge">.github/workflows/build-ig.yml</code> 之「Fetch TWCR_SF package」步驟）。
+<code class="language-plaintext highlighter-rouge">scripts/check-dependencies.js</code> 已將「stub 不得復現、<code class="language-plaintext highlighter-rouge">special-url</code> 不得復現、
+相依須存在」閘門化。</p>
 
-<p><strong>待決</strong>　TWCR_SF 是否會正式發佈套件。</p>
-
-<p><strong>所需輸入</strong>　上游維護者之答覆（屬行政協調，JOB-10 &sect;4 列為範圍外）。</p>
-
-<p><strong>影響範圍</strong>　<code class="language-plaintext highlighter-rouge">TWCRSF-mocks.fsh</code>、<code class="language-plaintext highlighter-rouge">sushi-config.yaml</code> 之 <code class="language-plaintext highlighter-rouge">special-url</code>、
-<code class="language-plaintext highlighter-rouge">TWHA-SocialHistory</code> 之綁定、嚼檳榔範例。</p>
-
-<p><strong>若決策不同</strong>　套件一旦可用，應改為正式 <code class="language-plaintext highlighter-rouge">dependencies</code> 並<strong>刪除整個 stub 檔</strong>
-（JOB-10 路徑 A）。在此之前，本 IG 產出中仍存在 9 個掛在他方命名空間下的資源——
-<code class="language-plaintext highlighter-rouge">#fragment</code> 已將其正名為「局部複本」而非權威定義，但<strong>命名空間本身仍非本專案所有</strong>。</p>
-
-<blockquote>
-  <p>⚠️ <strong>未解的殘留風險</strong>：若 TWCR_SF 日後於同一 canonical 發佈與本 stub 內容不同的定義，
-同時載入兩者的系統會遇到衝突。本 stub 之代碼清單（嚼檳榔量 91 碼、年 100 碼、
-戒檳榔年 91 碼）<strong>未經上游核對</strong>——無從核對，因為上游不可達。</p>
-</blockquote>
-
-<p><strong>出處</strong>　<code class="language-plaintext highlighter-rouge">sushi-config.yaml</code>；JOB-10；CI run 30368332715／30368750214</p>
+<p><strong>出處</strong>　JOB-10、JOB-28</p>
 
 <hr/>
 
@@ -875,7 +918,18 @@ LOINC 官方定量顯示名 <code class="language-plaintext highlighter-rouge">H
 SNOMED International Browser <strong>人工填載，未經術語伺服器逐碼驗證</strong>，
 屬 draft／informative，<strong>不得作為正式建議 mapping 或交換要求使用</strong>。</p>
 
-<p><strong>待決</strong>　是否逐碼驗證並轉為正式對照。</p>
+<p><strong>處置規則（0.3.0，JOB-26 定案）</strong>　本指引明訂並固定下列規則：</p>
+
+<ol>
+  <li><strong>凡實際供 profile 綁定或正式 mapping 使用之 SNOMED CT 代碼，須完成術語伺服器驗證</strong>；</li>
+  <li><strong>未經驗證者一律置於 draft／informative 對照區</strong>，標示其性質，
+<strong>不得標為正式建議 mapping 或交換要求</strong>；</li>
+  <li>未驗證不等於移除——保留對照供實作端參考，但不賦予規範效力。</li>
+</ol>
+
+<p>此規則本版即生效，不待 T-4 之授權管道確認。</p>
+
+<p><strong>待決（續辦）</strong>　是否逐碼驗證並將 informative 對照轉為正式對照（相依 <a href="#t-4">T-4</a>）。</p>
 
 <p><strong>所需輸入</strong>　本專案工作量；且相依於 T-4（無授權則無法以術語伺服器驗證）。</p>
 
@@ -930,10 +984,23 @@ SNOMED International Browser <strong>人工填載，未經術語伺服器逐碼�
 
 <p>這六個正是本指引的核心術語資產，將其排除會削弱「<code class="language-plaintext highlighter-rouge">0 Error</code>」的說服力。</p>
 
-<p><strong>待決</strong>　能否移除；若須保留，逐項理由為何。</p>
+<p><strong>處置（0.3.0，JOB-26）</strong>　T-1 已結案，<strong>相依已解除</strong>。已於 <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code>
+逐項補列理由，並分為兩類：</p>
 
-<p><strong>所需輸入</strong>　T-1 完成後重新評估——移除後可能一次浮出大量訊息，
-須有術語稽核結果為基礎才能判斷何者為真問題。</p>
+<ul>
+  <li><strong>【A】有實質理由，應長期保留（1 個）</strong>：<code class="language-plaintext highlighter-rouge">VS-UnfitDiseases</code>。其定義為
+<code class="language-plaintext highlighter-rouge">include codes from system ICD10CM</code>，即<strong>意向式引用整個 ICD-10-CM 代碼系統</strong>；
+此類 include 須由術語伺服器展開整個外部代碼系統，展開量極大且相依於 tx 端是否服務
+ICD-10-CM。<strong>這是 <code class="language-plaintext highlighter-rouge">no-validate</code> 的正當用途。</strong></li>
+  <li><strong>【B】已具備移除條件，惟須先量測（5 個）</strong>：其餘五者均為逐碼列舉之 LOINC／SNOMED
+清單，且已通過 JOB-01 顯示名稽核（Wrong Display Name = 0）與 JOB-19／20 之
+UCUM／Scale 稽核。</li>
+</ul>
+
+<p><strong>待決（續辦）</strong>　【B】五項之實際移除。<strong>本版不逕行移除</strong>——移除後可能一次浮出大量訊息，
+而本專案既定原則為<strong>不憑猜測、不預先猜測 QA 數字</strong>。CI 已提供實驗開關
+（<code class="language-plaintext highlighter-rouge">workflow_dispatch</code> 之 <code class="language-plaintext highlighter-rouge">drop-no-validate</code>），設為 <code class="language-plaintext highlighter-rouge">true</code> 時建置前移除【B】五項並照常
+產出 <code class="language-plaintext highlighter-rouge">qa.txt</code>，即可取得實測值作為決策依據。取得實測值後另以一次版本變更移除。</p>
 
 <p><strong>影響範圍</strong>　<code class="language-plaintext highlighter-rouge">sushi-config.yaml</code>；QA 統計。</p>
 
@@ -988,7 +1055,16 @@ SNOMED International Browser <strong>人工填載，未經術語伺服器逐碼�
   <li>鈹作業之生物偵測（<strong>無公認定量 LOINC</strong>，以定性／理學評估記錄）。</li>
 </ul>
 
-<p><strong>待決</strong>　各項之代碼結構化方式。</p>
+<p><strong>處置規則（0.3.0，JOB-26 定案）</strong>　未結構化期間之交換行為明訂如下：</p>
+
+<ol>
+  <li>以通用方式記錄者，<strong>保留原始 coding 與原始文字</strong>，不得為求通過驗證而改標為近似代碼；</li>
+  <li>於 <code class="language-plaintext highlighter-rouge">special-exam.md</code> 以具名清單揭露尚未結構化之項目及其暫用承載方式；</li>
+  <li>接收端<strong>不得因項目未結構化而拒收</strong>該筆資料。</li>
+</ol>
+
+<p><strong>待決（續辦）</strong>　各項之代碼結構化方式；部分項目可能確無合適國際代碼，
+需提報新增或以本地碼承載。</p>
 
 <p><strong>所需輸入</strong>　本專案工作量；部分項目可能確無合適國際代碼，需提報新增或以本地碼承載。</p>
 
@@ -1007,7 +1083,14 @@ SNOMED International Browser <strong>人工填載，未經術語伺服器逐碼�
 現行範例（<code class="language-plaintext highlighter-rouge">example-diagnostic-report</code>）因此<strong>刻意不填 <code class="language-plaintext highlighter-rouge">result</code></strong>，
 非檢驗結果之彙整改由 <code class="language-plaintext highlighter-rouge">Composition</code> 之 section 承載。</p>
 
-<p><strong>待決</strong>　健檢報告之彙整資源選擇：(a) 維持現狀——<code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>
+<p><strong>預設規則（0.3.0，JOB-26 定案）</strong>　<strong>預設採 (a)：維持 TW Core 繼承</strong>，
+非檢驗類結果之承載方式另以 implementation note 說明。</p>
+
+<p><strong>為何不採 (b)</strong>　為單一議題脫離母規範繼承，將失去 TW Core 對本指引之一致性保證，
+且與本案「不修改核心、加掛擴充」之基本設計相違；其代價高於本議題之效益。
+俟 TW Core 維護團隊就 <code class="language-plaintext highlighter-rouge">result</code> 約束意圖答覆後再行評估。</p>
+
+<p><strong>待決（續辦）</strong>　健檢報告之彙整資源選擇：(a) 維持現狀——<code class="language-plaintext highlighter-rouge">DiagnosticReport.result</code>
 僅收檢驗項目，其餘一律走 Composition；(b) 本 IG 對 <code class="language-plaintext highlighter-rouge">result</code> 放寬型別——
 但 FHIR profile <strong>不得放寬</strong>上游約束，此路徑需改為不繼承 TWCoreDiagnosticReport；
 (c) 向 TW Core 提案放寬。</p>
@@ -1154,8 +1237,9 @@ canonical 推導為 <code class="language-plaintext highlighter-rouge">.../ig/tw
 
 <blockquote>
   <p><strong>此數字會隨文件成長。</strong> publish box 出現在每一個輸出頁面，故每新增一個敘述頁面
-即增加 2 筆（根層與 <code class="language-plaintext highlighter-rouge">zh-TW</code> 語言層各一）、每新增一個 artifact 即增加 12 筆
-（6 種渲染變體 × 2 層）。本頁自身即貢獻了 2 筆。<strong>這不是品質退步，是 P-1 未解的
+即增加 2 筆（根層與 <code class="language-plaintext highlighter-rouge">zh-TW</code> 語言層各一）、每新增一個 artifact 即增加 <strong>10 筆</strong>
+（5 種渲染變體 × 2 層）。<strong>原記 12 筆係估計值，JOB-05 兩輪實測均為 10，已依實測更正</strong>
+（<code class="language-plaintext highlighter-rouge">qa-baseline.json</code> 之 <code class="language-plaintext highlighter-rouge">_categoriesNote</code> 同此）。本頁自身即貢獻了 2 筆。<strong>這不是品質退步，是 P-1 未解的
 機械性後果</strong>；P-1 一旦解決，此類斷鏈將整批歸零。</p>
 </blockquote>
 
@@ -1234,10 +1318,10 @@ CodeSystem／ValueSet／Profile／Extension 之授權條件尚待確認。</p>
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.2.5，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.3.3，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-17 06:57:00 +0000">
-    2026-08-17
+  <span title="2026-08-20 12:04:00 +0000">
+    2026-08-20
   </span>
 
           <br/>
