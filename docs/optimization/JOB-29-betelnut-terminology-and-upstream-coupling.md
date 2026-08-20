@@ -659,10 +659,42 @@ Composition section 組成、完整度檢核與全部相關範例。
 
 | # | 位置 | 問題 |
 |--:|:--|:--|
-| 1 | 一、之表格：`8663-7` 單位標 **`{#}/d`** | `8663-7` 之 LOINC 全名為 **Cigarettes smoked current (pack per day) - Reported**，單位應為 **`{pack}/d`**。標為 `{#}/d`（支／日）即量綱不符——**與本案 JOB-18 所修正之事故完全同型**（該次是反向：以 `{pack}/d` 承載 `64218-1` 之支／日）。本案吸菸量採 `64218-1` + `/d`，與 `8663-7` 是不同碼、不同量綱，不可混用 |
+| 1 | ~~一、之表格：`8663-7` 單位標 `{#}/d`~~ | ❌ **本項作廢——委員無誤，本案之「更正」才是錯的。** 詳見 B.8.1 |
 | 2 | 三-D 範例：`hasMember` 掛在 `bq-duration` 上並指向 `bq-status` | `hasMember` 應掛在 **panel**（`bq-panel`）並指向各成員；成員之間不應互指。與委員自己 A 表（`bq-panel` → hasMember）矛盾 |
 | 3 | 三-C-3：`valueRange` 可被 `value-quantity` search | 見 B.5 |
 | 4 | 一／三：`{pack}.a`、`{quid}.a` 之量綱 | UCUM 註記**不影響可換算性**，故 `{quid}.a` 與 `a` 為同量綱。查詢 `value-quantity=gt10\|\|a` 會**同時命中嚼食年數與累積顆-年**。處置：凡量綱相同而語意不同者，搜尋**必須併帶 `code=`**；此點須寫入 implementation note，不能只靠單位區辨 |
+
+#### B.8.1 ⚠️ 更正：B.8 #1 之指謫不成立（CI `$lookup` 實測，run 32368926449）
+
+B.8 #1 原主張委員把 `8663-7` 之單位標為 `{#}/d` 係量綱不符、應為 `{pack}/d`。
+**以 tx.fhir.org 實測 `$lookup`（LOINC 2.82）後，該指謫不成立：**
+
+```
+display                Cigarettes smoked current (pack per day) - Reported
+property PROPERTY      LP6839-7          （NRat＝Number rate＝Count/Time）
+property EXAMPLE_UNITS #/day
+property EXAMPLE_UCUM_UNITS  {#}/d       ← LOINC 官方值
+property STATUS        ACTIVE
+```
+
+**`{#}/d` 正是 LOINC 官方之 `EXAMPLE_UCUM_UNITS`**，委員係逐字引用官方欄位。
+名稱寫「pack per day」而單位欄寫 `{#}/d`，是 **LOINC 自身**於該碼上的不一致
+（其 PROPERTY 為 NRat＝計數/時間，`{#}` 為無量綱之「數目」註記）——不是委員的錯。
+
+**本案據以立論的方式有誤**：B.8 #1 係由「LOINC 全名含 pack per day」**推論**單位應為
+`{pack}/d`，而未查 `EXAMPLE_UCUM_UNITS` 欄位本身。這與 JOB-18 之事故確實同型，
+但同型的是**方法**而非方向——JOB-18 的教訓正是「以名稱推單位會出錯，須查官方欄位」，
+本項卻重蹈了它。
+
+> 📌 **對本案之實質影響：無。** 本 IG 之吸菸量採 `64218-1`（支/日，`/d`），
+> 從未使用 `8663-7`（全庫檢索無命中）。本項屬**對委員方案之回饋內容**，
+> 更正後應自對外回覆中撤除，不得以此指謫委員。
+>
+> 若日後確需承載「包/日」，仍應以 `$lookup` 之 `EXAMPLE_UCUM_UNITS` 為準，
+> 並注意 `{#}/d` 與 `{pack}/d` 在 UCUM 下**皆為無量綱註記 ÷ 日**、屬同量綱，
+> 單位不足以區辨語意——與 B.8 #4 同一結論：**搜尋必須併帶 `code=`**。
+
+---
 
 ### B.9 一項範疇提醒：現在有三套來源，不可混為一談
 
@@ -774,3 +806,191 @@ B.2 判定 `"Betel nut chewer"` 為 display 不符、應為 `"Chews betel quid"`
 「SUSHI 的實際輸入」，含 `sushi-config.yaml`（見 `scripts/build-fsh-source-zip.js` 檔頭）。
 已執行 `npm run build:assets` 重建。**凡調整版次或 `menu` 者皆須比照辦理**，
 `npm run check:assets` 會攔。（v0.3.1 套用時亦踩到同一點。）
+
+---
+
+## 附錄 D：執行紀錄（v0.4.0，C-0 ＋ 路徑甲）
+
+### D.1 §2.4 之前提如何滿足
+
+C-0 之前提為「以 `$lookup` 取官方 FSN 並確認其作為 `Observation.code` 之語意適切性」，
+驗收 #6 明訂「覆核未過則 C-0 不成立」。本容器 proxy 封鎖 `tx.fhir.org`（實測連線失敗），
+故以一次性 CI 步驟向建置所用之同一術語伺服器查證（run 32368926449）。
+
+實測所得之關鍵語意軸：
+
+```
+698188003  property {"code":"363714003","code-display":"Interprets",
+                     "value":"228272008","description":"Health-related behavior"}
+```
+
+`Interprets → Health-related behavior`：該概念之**受詮釋對象為「健康相關行為」**，
+正是「以一個 Observation 記錄某項行為」之語意形狀，**適合作為 `Observation.code`**。
+據此判定 C-0 成立。
+
+輔證（非本次量測）：`terminology.md` §4.1 已記載該碼於 2026-07-26 通過 `$validate-code`；
+委員以 Ontoserver 查得 FSN 為 `Chews betel quid (finding)`。
+
+> ⚠️ **首輪未取得 FSN 逐字原文**：LOINC 之 `RELATEDNAMES2` 為多語系同義詞巨集
+> （單筆逾 2000 字元 × 6 語言），把前一個代碼的結果擠出日誌尾段可讀範圍。
+> **輸出過量與輸出不足同樣等於沒量到**——已於診斷步驟濾除該欄位後重取。
+
+### D.2 落地範圍與刻意未做者
+
+| 委員欄位 | 落地情形 |
+|:--|:--|
+| 嚼檳狀態（自訂值集） | ✅ `value[x]` ← `VS-BetelNutStatus`（4 碼，不含 `unknown`） |
+| 量／年數／戒除期間 | ✅ `component` ＋ UCUM `Quantity` |
+| 戒除日期 | ✅ `component[cessationDate]`（`dateTime`，優先於期間） |
+| 是否含菸草 | ✅ `component[withTobacco]`（`boolean`） |
+| 添加物／石灰種類 | ✅ **拆為兩個 component**（B.6：兩個軸，非四選一） |
+| 資料來源 | ✅ `component[informationSource]`，code 為 LOINC `48766-0` |
+| 上游級距碼 | ✅ `component[amountCoded]`，`extensible`、`0..1`（C-2） |
+| 口腔黏膜檢查表 6 選 1 | ✅ **已落地**（原文於同日取得）——`CS-BetelNutHpaCategory` ＋ `component[hpaCategory]`；T-13 結案 |
+| panel ＋ `hasMember` | ❌ **不做**——採選項甲，理由見 B.7 |
+
+**T-13 之處置與事後驗證**：原文未到手前，本案拒絕擬稿——級距之文字與切點屬該表之
+實質內容，非本團隊可推定；自行擬一組看似合理的級距，會產生一個**外觀正確但與實際
+表單對不上**的值集，其危害甚於暫時缺件（CLAUDE.md §4 之同一戒律）。
+
+**原文到手後證實該判斷正確**：實際級距**同時綁定兩個維度**——
+
+| 表列 | 原文 |
+|:--|:--|
+| 1（⓿） | 無 |
+| 2（❶） | 已戒 |
+| 3（❷） | 嚼 10 年以下，每天少於 20 顆 |
+| 4（❸） | 嚼 10 年以下，每天 20 顆及以上 |
+| 5（❹） | 嚼超過 10 年，每天少於 20 顆 |
+| 6（❺） | 嚼超過 10 年，每天 20 顆及以上 |
+
+即「嚼食年數 × 每日顆數」之 2×2 交叉，另加「無」與「已戒」兩個狀態項。
+**與一般會憑空擬出的單維分段（如 1–9 顆／10–19 顆／20 顆以上）形狀完全不同**——
+若當初擬稿，做出來的會是一個看似合理、實際對不上的值集。
+
+代碼編號之依據：該表六項而印刷編號止於 ❺，故首項為 ⓿；`0-`～`5-` 前綴依此順序，
+非另行編號。命名沿用 `CS-SmokingStatus` 之「數字前綴＋語意」慣例。
+
+⚠️ **可導出界限，不得取中點**：❷–❺ 可導出 `durationYears` 與 `amount` 之界限
+（如第 6 項 ⇒ 年數 > 10、每日 ≧ 20），應以 `Quantity.comparator` 表達；
+取區間中點充作實測值會造成假精確（附錄 B.1 #7、T-9 同一原則）。
+
+⚠️ **兩個「附表九」不是同一份**：該表在其來源文件中標為【附表九】（國民健康署），
+與本指引反覆援引之《勞工健康保護規則》附表九**分屬不同法規、內容全然無關**。
+
+### D.3 一併修正之既有落差（非本 JOB 原範圍）
+
+| 位置 | 問題 |
+|:--|:--|
+| `terminology.md` §6.2b | 仍描述 v0.3.0 已刪除之【本地 stub】架構——JOB-28 更新了 README 之依賴段，**漏了這一頁**。已全面改寫 |
+| `CLAUDE.md` §2.5 | 「本 IG **各**值集之綁定強度為 extensible」過度概括：全庫實測 `required` 11 處、`extensible` 3 處，後者恰為檢驗／量測三大資料集值集——即該節所談者。已改為精確敘述 |
+| 附錄 B.8 #1 | 對委員之指謫不成立，見 B.8.1 |
+
+### D.3a `$lookup` 實測全文（run 32369946585）
+
+```
+698188003（SNOMED CT International 20250201）
+  display      Chews betel quid
+  designation  Fully specified name = "Chews betel quid (finding)"
+  designation  Synonym              = "Chews betel quid"
+  property     parent      → 409069009 "Finding related to substance use"
+  property     Interprets  → 228272008 "Health-related behavior"
+  property     inactive    = false
+
+48766-0（LOINC 2.82）
+  display  Information source ；SCALE_TYP LP7750-5（Nom）；STATUS ACTIVE
+  property AnswerList = LL3678-1        ← 見下方註記
+
+8663-7（LOINC 2.82）
+  display              Cigarettes smoked current (pack per day) - Reported
+  EXAMPLE_UNITS        #/day
+  EXAMPLE_UCUM_UNITS   {#}/d            ← 官方值；B.8 #1 據此作廢（見 B.8.1）
+  PROPERTY             LP6839-7（NRat＝Count/Time）；STATUS ACTIVE
+```
+
+**C-0 據此成立**：FSN 為 `(finding)`、上位概念為「Finding related to substance use」、
+`Interprets → Health-related behavior`——即「以一個 Observation 記錄某項行為」之語意形狀，
+適合作為 `Observation.code`。display `Chews betel quid` 亦與 tx 相符。
+
+> 📌 **一項後續事項（本版未處理）**：`48766-0` 於 LOINC 有官方答案清單 **`LL3678-1`**。
+> 本版之 `component[informationSource]` 綁定本地 `VS-BetelNutInfoSource`（extensible），
+> 三碼為自述／病歷／篩檢表。**該本地值集是否與 `LL3678-1` 重複、抑或應改綁官方清單，
+> 須取得 `LL3678-1` 之展開後再判**——本容器無法連線，不預先斷言。
+> 綁定強度為 `extensible` 而非 `required`，即為此保留餘地。
+
+### D.4 尚未驗證者
+
+- 上游 `package.tgz` 之 `file://` 落點逐檔檢視（§4.2）——`mitw.dicom.org.tw` 遭 proxy 封鎖。
+- LOINC 答案清單 `LL3678-1` 之展開（見 D.3a 註記）。
+
+（原列於此之「`cannot be resolved` 之 24 筆未歸因」已於 D.5.1 清點完成，故移除。）
+
+### D.5 QA 增量實測與歸因
+
+量測來源 CI run 32371696249（commit `e52445ad`，含 display 修正，err = 0）。
+
+| 類別 | 基準 → 實測 | 歸因 |
+|:--|:--|:--|
+| `should have an OID assigned` | 37 → 49（+12） | **完全對得上**：6 CodeSystem ＋ 6 ValueSet，一件一筆 |
+| `Reference to experimental` | 15 → 48（+33） | 3 個嚼檳範例對 6 個新 experimental CodeSystem 之引用 |
+| `…CodeSystem https://twcore` | 15 → 48（+33） | 同上（`hapi.fhir.tw` 仍為 0，JOB-28 成果未回退） |
+| `There are no valid display names` | 237 → 246（+9） | 新引用之碼缺 zh-TW designation |
+| `cannot be resolved` | 2157 → 2321（+164） | 逐頁清點後**全數歸因**，見 D.5.1 |
+
+#### D.5.1 `cannot be resolved` +164 之逐頁清點（假說遭推翻）
+
+初版曾以「14 個新增物件 × 每件 10 筆 = 140」歸因，留下 **24 筆缺口**，並提出一個
+與實測吻合的假說：*若 ValueSet 每件 14 筆而 CodeSystem 每件 10 筆*，則
+`6×10 ＋ 6×14 ＋ 2×10 = 164` 恰好相符。當時已註明「吻合不等於驗證」。
+
+於 CI 加入一次性統計步驟，自 `output/qa.txt` 就斷鏈之**來源頁名**分群清點
+（run 32373143249，job 96438228892，commit `16a1a18d`）。結果：
+
+```
+MARKER-TOTAL 2321   無法解析頁名: 0
+MARKER-DISTINCT-BASE 904   DISTINCT-PAGE 2320
+MARKER-NEW-ARTIFACTS 共 64 件，合計 192 筆
+```
+
+**該假說遭推翻。** ValueSet 與 CodeSystem 的渲染變體數相同，皆為 5 種：
+
+```
+MARKER-VARIANTS CodeSystem-CS-BetelNutStatus → 5 種頁面
+MARKER-VARIANTS ValueSet-VS-BetelNutStatus   → 5 種頁面
+    *.html / *.json.html / *.xml.html / *.ttl.html / *.change.history.html   各 1
+```
+
+真正的來源是**渲染變體以外的附屬頁**——IG Publisher 另為每個 CodeSystem／ValueSet
+產出一頁 `-testing`，為 StructureDefinition 另產出 `-definitions`／`-examples`／
+`-mappings`／`-testing` 四頁。每一種都各自出現在根層與 `zh-TW/` 語言層。實測逐件筆數：
+
+| 物件種類 | 根層頁數 | 每件筆數（×2 層） |
+|:--|:--|--:|
+| 範例實例（`Observation-obs-betelnut*`） | 5 | **10** |
+| CodeSystem／ValueSet | 5 ＋ `-testing` | **12** |
+| Profile（StructureDefinition） | 5 ＋ `-definitions`／`-examples`／`-mappings`／`-testing` | **18** |
+
+據此重算，增量**完全對得上，無餘數**：
+
+```
+6 個新 CodeSystem × 12 =  72
+6 個新 ValueSet    × 12 =  72
+2 個新範例實例     × 10 =  20
+─────────────────────────────
+合計                     164   ＝ CI 實測增量（2157 → 2321）
+```
+
+原本的 24 筆缺口即 `12 件（6 CS ＋ 6 VS）× -testing 1 頁 × 2 層 = 24`。
+
+交叉驗算：上表 64 件／192 筆之中，`obs-betelnut`（10 筆）與既有之
+`StructureDefinition-TWHA-SocialHistory-BetelNut`（18 筆）共 28 筆屬**既有物件**，
+上一版已計入基準線；`192 − 28 = 164`。另 `MARKER-BY-TYPE` 顯示根層 ValueSet
+62 個頁名基底／186 筆（每基底 3.00）、CodeSystem 36 個／108 筆（每基底 3.00）
+——即「主頁 5 ＋ `-testing` 1」平均為 3，與逐件 12 筆之推算一致。
+
+> 📌 兩點記錄以免重蹈：
+> 1. 假說再怎麼與實測吻合都不是驗證。此處的 `6×14` 在算術上完美命中 164，
+>    但 ValueSet 根本沒有 14 種頁面——**對的答案、錯的理由**，若當成規則沿用，
+>    下次推算就會錯。
+> 2. `_categoriesNote` 原載之「每新增一個 artifact 即 +10」是**以範例實例量到的**，
+>    被過度推廣到所有 artifact 種類。已依上表更正為分種類之三個數字。

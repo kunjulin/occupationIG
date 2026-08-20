@@ -65,7 +65,7 @@ IG Publisher 驗證通過僅證明**語法正確**且**已被引用之術語**�
 
 ### 2.5 Preferred（代碼層級）≠ 綁定強度 preferred
 
-本 IG 各值集之綁定強度為 **extensible**。文件中的「Preferred／Acceptable」
+本 IG **檢驗／量測三大資料集值集**（`VS-CoreDataset`／`VS-ExtendedDataset`／`VS-TWHAVitalSigns`）之綁定強度為 **extensible**——本節所談者即此。（分類型值集如 `VS-HealthMgmtLevel`、`VS-BetelNutStatus` 則為 `required`；全 IG 實測 required 11 處、extensible 3 處。）文件中的「Preferred／Acceptable」
 指的是**同一檢驗項目的多個候選代碼中，哪一個優先採用**，
 與 FHIR 的 `binding.strength = preferred` 是兩件不同的事，不可混稱。
 

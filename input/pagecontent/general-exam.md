@@ -9,7 +9,7 @@
 | 欄位 | FHIR Profile / Resource | 代碼 / 術語系統 | 備註 |
 |:---|:---|:---|:---|
 | **吸菸狀態** | `TWHA-SocialHistory-Smoking` | LOINC `72166-2` (Tobacco smoking status) | 值使用 `VS_SmokingStatus`；菸量（每日支數、菸齡）以擴充 `ext-smoking-quantity` 記錄。 |
-| **嚼檳狀態** | `TWHA-SocialHistory-BetelNut` | SNOMED CT `698188003` (Chews betel quid) | 採用與臺灣癌症登記短表實作指引 (TWCR_SF) 相同之元件架構，以 `component[amount]`、`component[year]`、`component[quit]` 分別記錄每日嚼檳量、嚼檳年數與戒嚼檳年數，值集為 TWCR_SF 之 `sf-BetNutChewAmount/Year/Quit` ValueSet（required），以利跨系統整合介接。 |
+| **嚼檳狀態** | `TWHA-SocialHistory-BetelNut` | SNOMED CT `698188003` (Chews betel quid) | 狀態值使用 `VS-BetelNutStatus`（與吸菸之 `VS_SmokingStatus` 四碼逐碼對稱）；每日嚼食量、嚼食年數、戒除期間以 `component` 之 `Quantity` 記錄（UCUM `{quid}/d`、`a`、`a`／`mo`）。另可記錄戒除日期、是否含菸草、添加物、石灰種類與資料來源。上游 TWCR_SF 之級距碼降為可選 component（`amountCoded`，extensible），供與癌症登記勾稽。建模說明見[術語頁 §6.2b](terminology.html)。 |
 | **飲酒習慣** | `TWHA-SocialHistory-Alcohol` | LOINC `11331-6` (History of Alcohol use) | 記錄飲酒頻率。 |
 | **睡眠時間** | `TWHA-SocialHistory-Sleep` | LOINC `93832-4` (Sleep duration) | 記錄平均每日睡眠時間（單位：小時，UCUM: `h`）。 |
 | **既往病史** | `TWHA-Condition` | ICD-10-CM | 記錄高血壓（`I10`）、糖尿病（`E11`）等慢性病既往史。 |
