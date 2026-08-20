@@ -1,9 +1,12 @@
-# 臨場健康服務事件 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
+# 臨場健康服務事件 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.0
 
 ## 資源 Profile: 臨場健康服務事件 Profile 
 
  
 【依據：勞工健康保護規則附表】本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。 
+* ^status = #draft
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
+ 
 **語意界定（回應委員意見）**：本資源表達「**一次臨場服務事件**」。`serviceProvider` 為提供服務之醫療機構；受服務之事業單位以 `extension[employerInfo]` 表達，**不置於 subject**。 
 
 **Usages:**
@@ -94,11 +97,11 @@ This structure refers to these extensions:
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Encounter-Service",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter-Service",
-  "version" : "0.5.0",
+  "version" : "0.6.0",
   "name" : "TWHAEncounterServiceProfile",
   "title" : "臨場健康服務事件 Profile",
   "status" : "active",
-  "date" : "2026-08-20T16:35:38+00:00",
+  "date" : "2026-08-20T17:39:23+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -114,7 +117,7 @@ This structure refers to these extensions:
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "【依據：勞工健康保護規則附表】本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。\n\n**語意界定（回應委員意見）**：本資源表達「**一次臨場服務事件**」。`serviceProvider` 為提供服務之醫療機構；受服務之事業單位以 `extension[employerInfo]` 表達，**不置於 subject**。",
+  "description" : "【依據：勞工健康保護規則附表】本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。\n* ^status = #draft\n* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft\n\n**語意界定（回應委員意見）**：本資源表達「**一次臨場服務事件**」。`serviceProvider` 為提供服務之醫療機構；受服務之事業單位以 `extension[employerInfo]` 表達，**不置於 subject**。",
   "fhirVersion" : "4.0.1",
   "mapping" : [{
     "identity" : "workflow",

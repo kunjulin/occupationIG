@@ -6,13 +6,17 @@
     "status" : "generated",
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 取值集合 VS-Appendix10-RequiredSet</b></p><a name=\"VS-Appendix10-RequiredSet\"> </a><a name=\"hcVS-Appendix10-RequiredSet\"> </a><p>This value set includes codes based on the following rules:</p><ul><li>Import all the codes that are contained in the intersection of <a href=\"ValueSet-VS-Appendix10-Noise-RequiredSet.html\">附表十 噪音作業 專屬應執行項目值集</a></li><li>Import all the codes that are contained in the intersection of <a href=\"ValueSet-VS-Appendix10-Lead-RequiredSet.html\">附表十 鉛作業 專屬應執行項目值集</a></li><li>Import all the codes that are contained in the intersection of <a href=\"ValueSet-VS-Appendix10-Dust-RequiredSet.html\">附表十 粉塵作業 專屬應執行項目值集</a></li><li>Import all the codes that are contained in the intersection of <a href=\"ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.html\">附表十 有機溶劑作業 專屬應執行項目值集</a></li></ul></div>"
   },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "draft"
+  }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-RequiredSet",
-  "version" : "0.5.0",
+  "version" : "0.6.0",
   "name" : "VS_Appendix10RequiredSet",
   "title" : "附表十 特殊健康檢查應執行項目值集（已落地家族）",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-20T16:35:38+00:00",
+  "date" : "2026-08-20T17:39:23+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

@@ -1,4 +1,4 @@
-# 有機溶劑種類代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
+# 有機溶劑種類代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.0
 
 ## CodeSystem: 有機溶劑種類代碼系統 
 
@@ -21,13 +21,17 @@
 {
   "resourceType" : "CodeSystem",
   "id" : "CS-OrganicSolventType",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "draft"
+  }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-OrganicSolventType",
-  "version" : "0.5.0",
+  "version" : "0.6.0",
   "name" : "CS_OrganicSolventType",
   "title" : "有機溶劑種類代碼系統",
-  "status" : "active",
+  "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-20T16:35:38+00:00",
+  "date" : "2026-08-20T17:39:23+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

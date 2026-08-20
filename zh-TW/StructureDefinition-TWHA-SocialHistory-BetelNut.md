@@ -1,4 +1,4 @@
-# 嚼檳榔歷史與狀態 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
+# 嚼檳榔歷史與狀態 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.0
 
 ## 資源 Profile: 嚼檳榔歷史與狀態 Profile ( 實驗性 ) 
 
@@ -102,12 +102,12 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut",
-  "version" : "0.5.0",
+  "version" : "0.6.0",
   "name" : "TWHASocialHistoryBetelNutProfile",
   "title" : "嚼檳榔歷史與狀態 Profile",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-20T16:35:38+00:00",
+  "date" : "2026-08-20T17:39:23+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -288,7 +288,7 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
         "coding" : [{
           "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
           "code" : "duration-years",
-          "display" : "嚼食年數"
+          "display" : "嚼食持續期間"
         }]
       }
     },
@@ -307,7 +307,10 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
     {
       "id" : "Observation.component:durationYears.value[x].code",
       "path" : "Observation.component.value[x].code",
-      "patternCode" : "a"
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TimeUnitYearMonth"
+      }
     },
     {
       "id" : "Observation.component:cessationDuration",

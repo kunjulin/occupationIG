@@ -1,4 +1,4 @@
-# 健檢就醫事件範例 - 一般定期健康檢查 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
+# 健檢就醫事件範例 - 一般定期健康檢查 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.0
 
 ## 範例 Encounter: 健檢就醫事件範例 - 一般定期健康檢查
 

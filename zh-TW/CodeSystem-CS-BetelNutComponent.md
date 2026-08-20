@@ -1,4 +1,4 @@
-# 嚼檳榔量化元件代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
+# 嚼檳榔量化元件代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.0
 
 ## CodeSystem: 嚼檳榔量化元件代碼系統 (實驗性) 
 
@@ -26,12 +26,12 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
-  "version" : "0.5.0",
+  "version" : "0.6.0",
   "name" : "CS_BetelNutComponent",
   "title" : "嚼檳榔量化元件代碼系統",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-20T16:35:38+00:00",
+  "date" : "2026-08-20T17:39:23+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -58,8 +58,8 @@
   },
   {
     "code" : "duration-years",
-    "display" : "嚼食年數",
-    "definition" : "嚼食檳榔之總年數，以 UCUM `a` 表達。對應上游 sf-BetNutChewBeh#year。"
+    "display" : "嚼食持續期間",
+    "definition" : "嚼食檳榔之持續期間（嚼了多久），以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「嚼 2 年」逕行改寫為 24 個月）。承載主管機關最小上傳集第 11 列（醫令 30907X-3「嚼檳月數」，經主管機關答覆確認其語意為嚼食持續期間而非戒檳月數）。對應上游 sf-BetNutChewBeh#year。⚠️ 代碼 id 保留 `duration-years` 係因該碼已於 v0.4.0 發佈，改名屬破壞性變更；真實語意以本顯示名與定義為準。"
   },
   {
     "code" : "cessation-duration",

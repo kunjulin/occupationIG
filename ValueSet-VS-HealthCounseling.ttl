@@ -10,15 +10,15 @@
   fhir:Resource.id [ fhir:value "VS-HealthCounseling"] ;
   fhir:DomainResource.text [
      fhir:Narrative.status [ fhir:value "generated" ] ;
-     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 取值集合 VS-HealthCounseling</b></p><a name=\"VS-HealthCounseling\"> </a><a name=\"hcVS-HealthCounseling\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-CS-HealthCounseling.html\"><code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.5.0</span></li></ul></div>"
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 取值集合 VS-HealthCounseling</b></p><a name=\"VS-HealthCounseling\"> </a><a name=\"hcVS-HealthCounseling\"> </a><ul><li>Include all codes defined in <a href=\"CodeSystem-CS-HealthCounseling.html\"><code>https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling</code></a><span title=\"Version is not explicitly stated, which means it is fixed to the version provided in this specification\"> version ?0.6.0</span></li></ul></div>"
   ] ;
   fhir:ValueSet.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HealthCounseling"] ;
-  fhir:ValueSet.version [ fhir:value "0.5.0"] ;
+  fhir:ValueSet.version [ fhir:value "0.6.0"] ;
   fhir:ValueSet.name [ fhir:value "VS_HealthCounseling"] ;
   fhir:ValueSet.title [ fhir:value "健康諮詢與衛教指導項目值集"] ;
   fhir:ValueSet.status [ fhir:value "active"] ;
   fhir:ValueSet.experimental [ fhir:value "false"^^xsd:boolean] ;
-  fhir:ValueSet.date [ fhir:value "2026-08-20T16:35:38+00:00"^^xsd:dateTime] ;
+  fhir:ValueSet.date [ fhir:value "2026-08-20T17:39:23+00:00"^^xsd:dateTime] ;
   fhir:ValueSet.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:ValueSet.contact [
      fhir:index 0 ;

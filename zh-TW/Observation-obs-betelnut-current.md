@@ -1,4 +1,4 @@
-# 嚼檳榔狀態與量化資料範例（現嚼，含情境欄位） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.5.0
+# 嚼檳榔狀態與量化資料範例（現嚼，含情境欄位） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.0
 
 ## 範例 Observation: 嚼檳榔狀態與量化資料範例（現嚼，含情境欄位）
 
@@ -20,7 +20,7 @@ Profile: [嚼檳榔歷史與狀態 Profile](StructureDefinition-TWHA-SocialHisto
 
 > **component****code**: 每日嚼食量**value**: 10 顆/日 (Details: UCUM code{quid}/d = '{quid}/d')
 
-> **component****code**: 嚼食年數**value**: 20 年 (Details: UCUM codea = 'a')
+> **component****code**: 嚼食持續期間**value**: 240 月 (Details: UCUM codemo = 'mo')
 
 > **component****code**: 是否含菸草**value**: true
 
@@ -93,14 +93,14 @@ Profile: [嚼檳榔歷史與狀態 Profile](StructureDefinition-TWHA-SocialHisto
       "coding" : [{
         "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
         "code" : "duration-years",
-        "display" : "嚼食年數"
+        "display" : "嚼食持續期間"
       }]
     },
     "valueQuantity" : {
-      "value" : 20,
-      "unit" : "年",
+      "value" : 240,
+      "unit" : "月",
       "system" : "http://unitsofmeasure.org",
-      "code" : "a"
+      "code" : "mo"
     }
   },
   {

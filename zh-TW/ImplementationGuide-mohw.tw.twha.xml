@@ -8,11 +8,11 @@
 </div></div>
   </text>
   <url value="https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"/>
-  <version value="0.5.0"/>
+  <version value="0.6.0"/>
   <name value="TWHAIG"/>
   <title value="臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"/>
   <status value="active"/>
-  <date value="2026-08-20T16:35:38+00:00"/>
+  <date value="2026-08-20T17:39:23+00:00"/>
   <publisher value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
   <contact>
     <name value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
@@ -763,7 +763,7 @@
         <reference value="StructureDefinition/TWHA-Composition-ServiceRecord"/>
       </reference>
       <name value="健康檢查健康服務執行紀錄組成結構 Profile"/>
-      <description value="【依據：勞工健康保護規則附表】本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。&#xA;&#xA;**subject／custodian 語意界定（回應委員意見）**：本文件之標的為「**一次臨場服務事件與其紀錄**」，故 `subject` 為受服務之事業單位（作業場所），`custodian` 為保管該紀錄之醫療機構。**惟本 IG 並非一律以 Organization 作 subject**：文件內各關聯資源依其性質分別設定——個人健康指導以 Patient 為 subject、群體衛教以 Group 為 subject、事業單位則以 `serviceProvider`／`custodian`／`focus`／`extension[employerInfo]` 表達，詳見各該 Profile。"/>
+      <description value="【依據：勞工健康保護規則附表】本 Profile 用於定義臨場健康服務執行紀錄表單（附表八）的文件組成結構，以 Composition 作為文件核心。&#xA;* ^status = #draft&#xA;* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft&#xA;&#xA;**subject／custodian 語意界定（回應委員意見）**：本文件之標的為「**一次臨場服務事件與其紀錄**」，故 `subject` 為受服務之事業單位（作業場所），`custodian` 為保管該紀錄之醫療機構。**惟本 IG 並非一律以 Organization 作 subject**：文件內各關聯資源依其性質分別設定——個人健康指導以 Patient 為 subject、群體衛教以 Group 為 subject、事業單位則以 `serviceProvider`／`custodian`／`focus`／`extension[employerInfo]` 表達，詳見各該 Profile。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1357,7 +1357,7 @@
         <reference value="Observation/obs-betelnut-current"/>
       </reference>
       <name value="嚼檳榔狀態與量化資料範例（現嚼，含情境欄位）"/>
-      <description value="受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉、白灰），嚼檳 20 年，未戒。另附上游 TWCR_SF 級距碼作為對照。"/>
+      <description value="受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉、白灰），嚼食持續期間以原始採集粒度送出 240 個月，未戒。另附上游 TWCR_SF 級距碼作為對照。"/>
       <exampleCanonical value="https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut"/>
     </resource>
     <resource>
@@ -1896,7 +1896,7 @@
         <reference value="StructureDefinition/TWHA-HearingTest"/>
       </reference>
       <name value="聽力檢查 Profile"/>
-      <description value="【依據：勞工健康保護規則附表】用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。&#xA;&#xA;**交換規則（回應委員意見）**：&#xA;1. **須保留原始 panel／component 代碼**：若來源系統採 `21104-5` 系列等變異碼，交換時**應同時保留原始代碼**（如置於 `code.coding` 之另一 coding），**不得僅存歸一後之代碼**，以維持可追溯性。&#xA;2. **panel 層 mapping 不等於 component 層等價**：ConceptMap 現僅建立 panel 對 panel 之對應；**各頻率 component 之對應尚未建立（mapping unavailable）**，不得逕行推論等價。&#xA;3. **聽閾單位**：以 UCUM `dB` 表達（臨床意義為 dB HL，依 ISO 1999 判讀）。&#xA;4. **特殊情形不得以一般數值表達**：「未測」「無反應」「超出儀器上限」等情形，**應以 `dataAbsentReason` 或明確代碼表達**，不得填入 0、999 等假數值，亦不得省略該 component。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。&#xA;* ^status = #draft&#xA;* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft&#xA;&#xA;**交換規則（回應委員意見）**：&#xA;1. **須保留原始 panel／component 代碼**：若來源系統採 `21104-5` 系列等變異碼，交換時**應同時保留原始代碼**（如置於 `code.coding` 之另一 coding），**不得僅存歸一後之代碼**，以維持可追溯性。&#xA;2. **panel 層 mapping 不等於 component 層等價**：ConceptMap 現僅建立 panel 對 panel 之對應；**各頻率 component 之對應尚未建立（mapping unavailable）**，不得逕行推論等價。&#xA;3. **聽閾單位**：以 UCUM `dB` 表達（臨床意義為 dB HL，依 ISO 1999 判讀）。&#xA;4. **特殊情形不得以一般數值表達**：「未測」「無反應」「超出儀器上限」等情形，**應以 `dataAbsentReason` 或明確代碼表達**，不得填入 0、999 等假數值，亦不得省略該 component。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1962,7 +1962,7 @@
         <reference value="StructureDefinition/TWHA-Encounter-Service"/>
       </reference>
       <name value="臨場健康服務事件 Profile"/>
-      <description value="【依據：勞工健康保護規則附表】本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。&#xA;&#xA;**語意界定（回應委員意見）**：本資源表達「**一次臨場服務事件**」。`serviceProvider` 為提供服務之醫療機構；受服務之事業單位以 `extension[employerInfo]` 表達，**不置於 subject**。"/>
+      <description value="【依據：勞工健康保護規則附表】本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。&#xA;* ^status = #draft&#xA;* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft&#xA;&#xA;**語意界定（回應委員意見）**：本資源表達「**一次臨場服務事件**」。`serviceProvider` 為提供服務之醫療機構；受服務之事業單位以 `extension[employerInfo]` 表達，**不置於 subject**。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1973,7 +1973,7 @@
         <reference value="StructureDefinition/TWHA-Task-ServiceTask"/>
       </reference>
       <name value="臨場健康服務建議與改善任務 Profile"/>
-      <description value="【依據：勞工健康保護規則附表】用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。&#xA;&#xA;**for／focus／owner 語意界定（回應委員意見）**：本資源表達「**後續改善工作**」。`focus` 指向所依據之現場發現（ServiceFinding）；`owner` 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 `for` 表達該 Patient。**事業單位以 `owner` 表達，不置於 `for`。**"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。&#xA;* ^status = #draft&#xA;* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft&#xA;&#xA;**for／focus／owner 語意界定（回應委員意見）**：本資源表達「**後續改善工作**」。`focus` 指向所依據之現場發現（ServiceFinding）；`owner` 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 `for` 表達該 Patient。**事業單位以 `owner` 表達，不置於 `for`。**"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1984,7 +1984,7 @@
         <reference value="StructureDefinition/TWHA-Observation-ServiceFinding"/>
       </reference>
       <name value="臨場健康服務發現問題/風險 Profile"/>
-      <description value="【依據：勞工健康保護規則附表】用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。&#xA;&#xA;**subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。&#xA;* ^status = #draft&#xA;* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft&#xA;&#xA;**subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2028,7 +2028,7 @@
         <reference value="StructureDefinition/TWHA-Procedure-ServiceActivity"/>
       </reference>
       <name value="臨場服務執行活動項目 Profile"/>
-      <description value="【依據：勞工健康保護規則附表】用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。&#xA;&#xA;**subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。"/>
+      <description value="【依據：勞工健康保護規則附表】用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。&#xA;* ^status = #draft&#xA;* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft&#xA;&#xA;**subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
