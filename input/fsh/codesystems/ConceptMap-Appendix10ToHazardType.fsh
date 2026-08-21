@@ -4,8 +4,13 @@ Usage: #definition
 * url = "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/Appendix10-to-HazardType"
 * name = "Appendix10ToHazardType"
 * title = "附表十 35 項法定作業 對 12 危害家族 對照"
-* description = "將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。"
-* status = #active
+* description = "【依據：勞工健康保護規則附表】將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。"
+// JOB-31 §5(A)：納入權責登記（reg／Level 2）。Level 2 之 standards-status 為 draft，
+// 而 IG Publisher 交叉檢查 status 與 standards-status，故 status 併同改為 draft
+// （由 check-governance-tags.js 之 G-3b 強制一致）。
+* status = #draft
+* extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"
+* extension[0].valueCode = #draft
 * experimental = false
 * sourceCanonical = "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation"
 * targetCanonical = "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType"

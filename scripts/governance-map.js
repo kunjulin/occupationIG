@@ -162,6 +162,28 @@ const MAP = {
   'ext-department': ['tech', 0],
   'ext-employer-info': ['tech', 0],
   'ext-exam-type': ['tech', 0],
+
+  // ── ConceptMap 與 NamingSystem（JOB-31 §5，採 (A) 擴大登記範圍）────────
+  // 這三件在 FSH 中以 `Instance:` 宣告，v0.6.2 以前被 scanFsh 一律排除，
+  // 形成**未寫明的沉默排除**——與本案「範疇界定要寫出來，不是省略」之立場相違
+  // （M-6、JOB-27、JOB-30 §3.1）。
+  //
+  // TWHealthCheckLaboratoryMap 為 **Level 1 之必要配套**：Level 1 之值集綁定為
+  // extensible，院所送 acceptable 變異碼時，接收端正是靠本對照歸一至 preferred。
+  // 它既是 Level 1 宣告能否成立的一環，就必須與 Level 1 同受閘門保護。
+  'TWHealthCheckLaboratoryMap': ['hpa', 1],
+
+  // 附表十 35 項法定作業 → 12 危害家族，內容依據為該規則附表，屬勞工區塊。
+  'Appendix10-to-HazardType': ['reg', 2],
+
+  // ⚠️ NamingSystem 歸 level 0，**不是** Level 1——理由有二，且與其現況一致：
+  //   (1) NamingSystem 描述的是識別碼命名空間，**不是可宣告符合的標的**
+  //       （沒有人會說「本系統符合某 NamingSystem」），故不構成合規層級之成員；
+  //   (2) 其 `status` 現為 `#draft`。若歸 Level 1，G-3b 會要求 status = active，
+  //       等於**把它往「更成熟」的方向推**——那是實質的成熟度主張，
+  //       不能為了讓登記表好看而順手為之。
+  // level 0 之規則為「不標 standards-status」，且不限制 status，故 draft 得以保留原狀。
+  'NS-ReportIdentifier': ['tech', 0],
 };
 
 const STANDARDS_STATUS_URL =

@@ -14,7 +14,7 @@ Instance: NS-ReportIdentifier
 InstanceOf: NamingSystem
 Usage: #definition
 Title: "健檢報告封包識別碼"
-Description: "勞工健康檢查報告封包（Bundle）之識別碼命名空間。用於上傳去重、跨機構參照與稽核追溯。"
+Description: "【技術規格】勞工健康檢查報告封包（Bundle）之識別碼命名空間。用於上傳去重、跨機構參照與稽核追溯。"
 
 * name = "TWHAReportIdentifier"
 * status = #draft
@@ -27,7 +27,7 @@ Description: "勞工健康檢查報告封包（Bundle）之識別碼命名空間
 * responsible = "產生封包之健檢機構（本 IG 僅規範命名空間，不集中發放）"
 
 * description = """
-勞工健康檢查報告封包（Bundle）之識別碼命名空間。
+【技術規格】勞工健康檢查報告封包（Bundle）之識別碼命名空間。
 
 **唯一性要求**：值在同一健檢機構內須唯一且不重複使用；跨機構之唯一性由
 「命名空間 + 值」的組合達成。上傳端據此判定是否為同一份封包之重送（去重）。
