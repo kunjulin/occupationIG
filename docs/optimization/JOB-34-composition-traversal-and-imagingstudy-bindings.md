@@ -259,10 +259,13 @@ Parent: TWCoreImagingStudy
    DICOM `sect_B.5.html#table_B.5-1`，**兩者皆為網頁網址而非 ValueSet 資源**。
 3. ✅ **已完成**：UC-003 之情境已由 PI 裁示（特殊危害檢查／護理師為飲酒 Observation 之執行者），
    據此改 section 與封包。
-4. 實作後 `err` 仍為 0；`isn't reachable...` 類別降至實測值並於 `qa-baseline.json` 具名說明；
-   **雙向閘門會要求同批校準**，不得只改範例不改基準線。
-   ⚠️ **本版刻意不預填基準線**——降幅一律以 CI 實測為準（`docs/RELEASE.md` §2.2），
-   故首輪 CI 會判「未校準」而紅，屬預期。
+4. ✅ **已完成**：`err` 維持 0；基準線已依實測校準並具名歸因（`qa-baseline.json` 之 `_v084Note`）：
+   `warn 89 → 80`、`info 464 → 462`、`isn't reachable 10 → 1`、
+   `There are no valid display names 246 → 244`。**兩個降幅逐筆歸因、無餘數**——
+   -9 全來自走訪不到之減少，-2 全來自 UC-003 移除 `example-encounter-general` 後
+   該 Encounter 在此情境下之兩筆 zh-TW 顯示名提示消失（該 Encounter 本身未刪，
+   UC-001／002／004／005 仍使用，故其同型訊息保留）。
+   ⚠️ 本版刻意不預填基準線，首輪 CI 判「未校準」而紅屬預期——降幅一律以實測為準。
 
 ---
 
