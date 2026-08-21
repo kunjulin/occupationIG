@@ -86,6 +86,9 @@ Description: "噪音/鉛/粉塵等特殊危害健康作業檢查報告封包。"
 * identifier.value = "bundle-uc-003"
 * type = #document
 * timestamp = "2026-06-12T12:00:00+08:00"
+// ⚠️ UC-003 為特殊危害健康作業檢查，就醫事件為 example-encounter-special。
+// example-encounter-general 已於本版移除：它既非本次情境之就醫事件，
+// 留在封包內也不會被 Composition 走訪到（R4 §3.3.1）。
 * entry[0].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Composition/composition-uc003"
 * entry[0].resource = composition-uc003
 * entry[1].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Patient/example-worker"
@@ -94,36 +97,34 @@ Description: "噪音/鉛/粉塵等特殊危害健康作業檢查報告封包。"
 * entry[2].resource = example-doctor
 * entry[3].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Organization/example-hospital"
 * entry[3].resource = example-hospital
-* entry[4].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general"
-* entry[4].resource = example-encounter-general
-* entry[5].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-hearing"
-* entry[5].resource = obs-hearing
-* entry[6].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-pulmonary"
-* entry[6].resource = obs-pulmonary
-* entry[7].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression"
-* entry[7].resource = example-clinical-impression
-* entry[8].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-special"
-* entry[8].resource = example-encounter-special
-* entry[9].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-occupation"
-* entry[9].resource = obs-occupation
-* entry[10].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-ecg"
-* entry[10].resource = obs-ecg
-* entry[11].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ImagingStudy/example-imaging-chest-xray"
-* entry[11].resource = example-imaging-chest-xray
-* entry[12].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/DiagnosticReport/example-diagnostic-report"
-* entry[12].resource = example-diagnostic-report
-* entry[13].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-health-mgmt-level"
-* entry[13].resource = obs-health-mgmt-level
-* entry[14].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/CarePlan/example-careplan-fitness"
-* entry[14].resource = example-careplan-fitness
-* entry[15].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ServiceRequest/example-servicerequest-followup"
-* entry[15].resource = example-servicerequest-followup
-* entry[16].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-nurse"
-* entry[16].resource = example-nurse
-* entry[17].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-alcohol"
-* entry[17].resource = obs-alcohol
-* entry[18].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-smoking-former"
-* entry[18].resource = obs-smoking-former
+* entry[4].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-hearing"
+* entry[4].resource = obs-hearing
+* entry[5].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-pulmonary"
+* entry[5].resource = obs-pulmonary
+* entry[6].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression"
+* entry[6].resource = example-clinical-impression
+* entry[7].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-special"
+* entry[7].resource = example-encounter-special
+* entry[8].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-occupation"
+* entry[8].resource = obs-occupation
+* entry[9].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-ecg"
+* entry[9].resource = obs-ecg
+* entry[10].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ImagingStudy/example-imaging-chest-xray"
+* entry[10].resource = example-imaging-chest-xray
+* entry[11].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/DiagnosticReport/example-diagnostic-report"
+* entry[11].resource = example-diagnostic-report
+* entry[12].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-health-mgmt-level"
+* entry[12].resource = obs-health-mgmt-level
+* entry[13].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/CarePlan/example-careplan-fitness"
+* entry[13].resource = example-careplan-fitness
+* entry[14].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/ServiceRequest/example-servicerequest-followup"
+* entry[14].resource = example-servicerequest-followup
+* entry[15].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Practitioner/example-nurse"
+* entry[15].resource = example-nurse
+* entry[16].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-alcohol"
+* entry[16].resource = obs-alcohol
+* entry[17].fullUrl = "https://twcore.mohw.gov.tw/ig/twha/Observation/obs-smoking-former"
+* entry[17].resource = obs-smoking-former
 
 Instance: UC-004
 InstanceOf: TWHABundleDocumentProfile

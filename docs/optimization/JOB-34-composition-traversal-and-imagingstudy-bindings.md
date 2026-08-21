@@ -7,7 +7,7 @@
 | **預估** | S（診斷已完成）＋ M（實作，視裁定方向） |
 | **主要影響檔案** | `input/fsh/examples/07-compositions.fsh`、`09-bundles.fsh`、`11-special-exam-followup.fsh` |
 | **緣起** | JOB-31 §4 具名化時發現：89 筆 WARNING 中有 17 筆屬結構問題，先前僅由 `totals.warn` 一個數字間接看管 |
-| **狀態** | 🔍 **診斷完成（v0.8.3）**——步驟 1 之逐筆原文已取得並回填（§2.3、§3.3），一次性 CI 步驟已移除。本文件只做判定，**未變更任何定義**；步驟 2 待裁示 |
+| **狀態** | ⚙️ **步驟 2 已實作（v0.8.4）**——UC-003 之不可達 entry 由 11 降為 **1**，僅動範例層（`07-compositions.fsh`、`09-bundles.fsh`），**未動任何 profile**。餘 1 筆（`obs-health-mgmt-level`）卡在兩個 profile 對同一 LOINC section 的認定不一致，見 §2.5，**待裁示**。ImagingStudy 7 筆依 §3.4 採 (A) 維持現狀＋載明 |
 
 ---
 
@@ -124,21 +124,65 @@ example-servicerequest-followup、obs-alcohol、obs-smoking-former
 > 若為了對齊 qa.txt 而把它從清單刪掉，就會把唯一一筆**真正該刪的資源**藏起來。
 > 這與 CLAUDE.md §2.4「21 列 vs 20 碼」同型：**數不符時查明兩者各計什麼，不是把數字湊齊。**
 
-### 2.4 處置方向（待裁示）
+### 2.4 處置（已實作，v0.8.4）
 
-**不是把 11 個 entry 一律塞進 section 就好。** 每一筆要先判「該不該在這份文件裡」：
+PI 已裁示兩項情境問題（2026-08-21）：
+**UC-003 是特殊危害檢查，就醫事件應為 `example-encounter-special`**；
+**`example-nurse` 是「飲酒病史」Observation 的執行者**。據此實作：
 
-| 類型 | 判斷 | 建議 |
+| 項目 | 處置 | 落點 |
 |:--|:--|:--|
-| 特殊危害作業之檢查結果（`obs-occupation`／`obs-ecg`／`example-imaging-chest-xray`／`example-diagnostic-report`） | 屬本文件標題「特殊危害健康作業檢查報告」之內容 | **補進 `section[labExams]`／新增影像 section** |
-| 醫師判定（`obs-health-mgmt-level`／`example-careplan-fitness`／`example-servicerequest-followup`） | 屬總評與處置 | **補進 `section[assessment]` 或新增建議 section** |
-| 生活習慣（`obs-alcohol`／`obs-smoking-former`） | 是否屬特殊危害報告之範疇，需臨床確認 | 補進生活習慣 section，**或**自 Bundle 移除 |
-| `example-encounter-special` | 文件已有 `example-encounter-general`，**一份文件出現兩個 Encounter 需要理由** | 釐清 UC-003 究竟描述哪一次就醫；可能是**範例本身的內部矛盾** |
-| `example-nurse` | UC-003 中**無任何資源參照它** | 若無參照即應自 Bundle 移除，而非硬塞進 section |
+| `example-encounter-special` | 改列入 demographics，取代 general | `section[demographics].entry[1]` |
+| `example-encounter-general` | **自 UC-003 封包移除**（非本情境之就醫事件，留著也走訪不到） | entry 19 → 18 |
+| `obs-occupation` | 作業經歷 | `section[workHistory]`（新增） |
+| `obs-alcohol`／`obs-smoking-former` | 生活習慣 | `section[habits]`（新增） |
+| `obs-ecg`／`example-imaging-chest-xray`／`example-diagnostic-report` | 檢驗與影像檢查 | `section[labExams].entry[1..3]` |
+| `example-careplan-fitness`／`example-servicerequest-followup` | 醫師總評與建議 | `section[assessment].entry[1..2]` |
+| `example-nurse` | **不需個別處置**——`obs-alcohol.performer` 本就指向它，`obs-alcohol` 進 section 後即遞移可達 | — |
 
-⚠️ 最後兩列不是清理工作，是**範例語意問題**：UC-003 同時帶了一般與特殊兩個 Encounter，
-卻只在 section 引用一般那個；`example-nurse` 則是沒有任何人參照的孤兒。
-處置前應先確認 UC-003 想描述的情境。
+⚠️ `workHistory`（作業經歷）與 `habits`（生活習慣）**不是新增的切片**，
+`TWHA-Composition` 早已定義，只是 `composition-uc003` 沒用到。
+
+**實測結果**：UC-003 不可達 **11 → 1**（`node scripts/check-document-reachability.js`），
+其餘六個 Bundle 維持 0。
+
+### 2.5 ⚠️ 剩下 1 筆卡在兩個 profile 對同一個 section 的認定不一致
+
+`obs-health-mgmt-level`（健康管理分級，`InstanceOf: TWHAHealthManagementLevelProfile`，
+基底為 Observation）**放不進任何 section**：
+
+```fsh
+// TWHA-Composition.fsh
+* section[assessment].code  = http://loinc.org#51848-0
+* section[assessment].title = "醫師總評、分級與建議"
+* section[assessment].entry only Reference(ClinicalImpression or CarePlan or ServiceRequest or Procedure)
+```
+
+section 標題寫著**「分級」**，型別卻不收承載分級的那個資源。
+
+**這不是本文件的推論，本 IG 內部已有直接前例——而且是同一個 LOINC section：**
+
+```fsh
+// TWHA-Composition-EmployerSummary.fsh
+* section[healthManagement].code  = http://loinc.org#51848-0      ← 同一個碼
+* section[healthManagement].title = "健康管理分級與適性配工建議"
+* section[healthManagement].entry only Reference(TWHAHealthManagementLevelProfile
+                                                 or TWHAClinicalImpressionProfile
+                                                 or TWHACarePlanProfile)
+```
+
+兩個 profile 的 section 切片判別子都是 `code` 之 pattern，故 `51848-0` 在 FHIR 眼中
+**就是同一個 section**。雇主端明文允許 `TWHAHealthManagementLevelProfile`，主文件卻不允許——
+**同一個 section 在本 IG 內有兩套認定。**
+
+| 選項 | 說明 | 風險 |
+|:--|:--|:--|
+| **(A) 把 `TWHAHealthManagementLevelProfile` 加入 `TWHA-Composition.section[assessment].entry`（建議）** | 使兩個 profile 對 `51848-0` 的認定一致。屬**放寬**，既有實例全數仍合法，非破壞性變更 | 低，惟屬已發佈 profile 之定義變更 |
+| (B) 自 UC-003 移除 `obs-health-mgmt-level` | 分級已由 `example-clinical-impression.extension[healthMgmtLevel]` 表達，該 Observation 於 UC-006 之雇主端摘要仍有覆蓋 | 低，但等於承認主文件不放分級 Observation，與 §2.5 的不一致並存 |
+| (C) 維持現狀，保留 1 筆 WARNING | 不動任何定義 | 把已查明的建模不一致留在原地 |
+
+> ⚠️ **本文件不逕行採 (A)**：那是對已發佈 profile 之定義變更，依本案慣例須裁示。
+> 已實作者僅止於範例層（§2.4），未動任何 profile。
 
 ---
 
@@ -213,9 +257,12 @@ Parent: TWCoreImagingStudy
    （⚠️ 不發警告之**機制**仍未確立，已標為未驗證；不影響 §2.4 之處置。）
 2. ✅ **已完成**：§3.3 之 canonical URL 原值已取得——`RadLex_Playbook.aspx` 與
    DICOM `sect_B.5.html#table_B.5-1`，**兩者皆為網頁網址而非 ValueSet 資源**。
-3. UC-003 之情境先確認（兩個 Encounter、孤兒 `example-nurse`），再動 section。
+3. ✅ **已完成**：UC-003 之情境已由 PI 裁示（特殊危害檢查／護理師為飲酒 Observation 之執行者），
+   據此改 section 與封包。
 4. 實作後 `err` 仍為 0；`isn't reachable...` 類別降至實測值並於 `qa-baseline.json` 具名說明；
    **雙向閘門會要求同批校準**，不得只改範例不改基準線。
+   ⚠️ **本版刻意不預填基準線**——降幅一律以 CI 實測為準（`docs/RELEASE.md` §2.2），
+   故首輪 CI 會判「未校準」而紅，屬預期。
 
 ---
 

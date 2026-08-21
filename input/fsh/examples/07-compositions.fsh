@@ -67,19 +67,33 @@ Description: "整合王大同噪音/鉛/粉塵特殊危害作業檢查項目的 
 * subject = Reference(example-worker)
 * author = Reference(example-doctor)
 * date = "2026-06-12T11:45:00+08:00"
+// ⚠️ 本文件為**特殊危害健康作業**檢查報告，故 demographics 收 example-encounter-special
+// 而非 example-encounter-general——UC-003 描述的是特殊危害那一次就醫。
 * section[demographics].code = http://loinc.org#51847-2
 * section[demographics].title = "基本資料與行政資訊"
 * section[demographics].entry[0] = Reference(example-worker)
-* section[demographics].entry[1] = Reference(example-encounter-general)
+* section[demographics].entry[1] = Reference(example-encounter-special)
+* section[workHistory].code = http://loinc.org#11341-5
+* section[workHistory].title = "作業經歷"
+* section[workHistory].entry[0] = Reference(obs-occupation)
+* section[habits].code = http://loinc.org#11338-1
+* section[habits].title = "生活習慣"
+* section[habits].entry[0] = Reference(obs-alcohol)
+* section[habits].entry[1] = Reference(obs-smoking-former)
 * section[physicalExams].code = http://loinc.org#29545-1
 * section[physicalExams].title = "理學檢查"
 * section[physicalExams].entry[0] = Reference(obs-hearing)
 * section[labExams].code = http://loinc.org#30954-2
 * section[labExams].title = "檢驗與影像檢查"
 * section[labExams].entry[0] = Reference(obs-pulmonary)
+* section[labExams].entry[1] = Reference(obs-ecg)
+* section[labExams].entry[2] = Reference(example-imaging-chest-xray)
+* section[labExams].entry[3] = Reference(example-diagnostic-report)
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "醫師總評、分級與建議"
 * section[assessment].entry[0] = Reference(example-clinical-impression)
+* section[assessment].entry[1] = Reference(example-careplan-fitness)
+* section[assessment].entry[2] = Reference(example-servicerequest-followup)
 
 Instance: composition-uc004
 InstanceOf: TWHACompositionProfile
