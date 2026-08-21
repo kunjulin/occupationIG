@@ -190,6 +190,15 @@ set NODE_OPTIONS=--use-system-ca
   非 profile 自身），統一放寬會使 G-3b 全面誤判。
   `standards-status` 於 Instance 採 indexed 形式（`extension[0].url` ＋ `.valueCode`），
   不依賴 SUSHI 以 canonical 解析 extension 定義。
+- **§3 `totals.warn` 由 152 下調至 91**（依 CI run 32433486214 實測，非依評估文件所載之數字）。
+  ⚠️ **此舉推翻了 `qa-baseline.json` 既有之「未歸因之總數改善不下調天花板」政策**——
+  該政策要防的是「把未歸因的改善寫死成基準線、日後看起來像刻意達成的成果」，
+  但它製造的是「天花板與實況差 61 筆，未來可再新增最多 61 筆 WARNING 而閘門完全不會亮」。
+  **天花板的職責是攔退步，不是記功勞**，故改為下調至實測值並明載該 61 筆未逐筆歸因。
+  副作用須知悉：此後**任何一筆新增 WARNING 都會使 CI 紅**，這是刻意的。
+  ⚠️ 91 筆中仍有 **25 筆未具名**（具名者 66 筆＝OID 49 ＋ URL definition 11 ＋
+  DISCOURAGED 5 ＋ experimental-not-labeled 1），閘門對其**組成**仍是盲的，只是不再有緩衝；
+  具名化屬 JOB-31 §4，**本版未做**。
 - **自我測試 12 → 16 組**，新增 ⑨（未登記之 ConceptMap 須抓到）、⑨b（範例實例不得誤納）、
   ⑩（Instance 標 draft 未併同改 status）、⑪（profile 之 `* status = #final` 不得誤讀）。
   ⚠️ **⑨ 與 ⑩ 已實測驗證為真負向案例**：把 `INSTANCE_KINDS` 清空以模擬補強前之行為後，
