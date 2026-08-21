@@ -7,7 +7,7 @@
 | **預估** | S–M（1–1.5 人日，不含送簽時序調整） |
 | **主要影響檔案** | `input/fsh/profiles/TWHA-SocialHistory.fsh`、`input/fsh/codesystems/CS-BetelNut.fsh`、`input/fsh/examples/03-social-history.fsh`、`VS-CoreUploadSet.fsh`、`general-exam.md`、`datamodel.md`、`terminology.md`、`conformance.md`、`docs/drafts/HPA-CONFIRMATION-JOB-30.md` |
 | **緣起** | 2026-08-21 委員來函：主張 `SCT#698188003` 係 finding（答案），置於 `Observation.code`（問題）為 FHIR anti-pattern，建議回復綁定上游 `TWCRSFObsBehCS#BetelNutChewing` 並將 `698188003` 移入 `value` |
-| **狀態** | 📋 **評估（v0.6.3）**，待裁示後實作 |
+| **狀態** | 📋 評估（v0.6.3）｜**步驟 1（LOINC／SNOMED 查證）已完成，結果見 §4.1.1**；步驟 2 待裁示後實作 |
 
 ---
 
@@ -130,9 +130,78 @@ JOB-29 附錄 B #1（採認委員先前以 Ontoserver 之查詢）已確立：
 本地碼是 LOINC 無碼時的後備，不是首選。
 
 - 本 IG 目前**未使用任何 LOINC 檳榔相關碼**（全庫實測）。
-- 本容器封鎖 `loinc.org` 與 `tx.fhir.org`，**無法查證**。
+- 本容器封鎖 `loinc.org` 與 `tx.fhir.org`，**無法於本機查證**。
 - **處置**：比照 JOB-29 之作法，以一次性 CI 步驟對 tx 執行檢索
   （`$lookup`／關鍵字檢索 betel、areca、quid），取得結果後再定案；**不得憑推定逕自訂碼**。
+
+#### 4.1.1 查證結果（已執行）
+
+**執行環境**：CI run 32447792978／job 96670500124，commit `8596e460`，2026-08-21T04:47Z，
+tx = `https://tx.fhir.org/r4`。一次性步驟已於本次一併移除（驗收標準 §6.1 之留存要求由本節承擔）。
+
+**Q1｜LOINC 有無「嚼檳狀態」之 observable 碼？——無。**
+
+查詢式：`$TX/ValueSet/$expand?url=http%3A%2F%2Floinc.org%2Fvs&filter=<kw>&count=40`（全 LOINC 值集）
+
+| 關鍵字 | `expansion.total` | 回傳筆數 | 判讀 |
+|:--|:--|--:|:--|
+| `betel` | 未回報 | **0** | LOINC 無任何 betel 概念 |
+| `areca` | 未回報 | **0** | LOINC 無任何 areca 概念 |
+| `quid` | 未回報 | 40（達 `count` 上限） | **全數為 `liquid` 之子字串命中，無一與檳榔有關** |
+
+`quid` 之 40 筆前段原文（節錄，其餘同型）：
+
+```
+    LA12294-7  Able to feed self independently but requires: (a) meal set-up; OR ... a liquid, pureed or ground meat diet.
+    LP102849-9 Are you able to pour liquid from a bottle into a glass
+    61658-1    Are you able to pour liquid from a bottle into a glass [PROMIS]
+    LA26129-9  Clear liquid
+    LA26809-6  Denaturing high-pressure liquid chromatography (DHPLC)
+    76012-4    Desflurane liquid delivered during case [Volume] from Gas delivery system
+    76014-0    Enflurane liquid delivered during case [Volume] from Gas delivery system
+    ...
+```
+
+> ⚠️ **這 40 筆是本次查證唯一的陷阱**：只看「`quid` 命中 40 筆」會得出「LOINC 有相關碼」之相反結論。
+> `quid` 為 `li-quid` 之子字串，tx 之 `filter` 係對 display 作子字串比對，非語意檢索。
+> 逐筆看過 40 筆之 display 後確認**無一為檳榔概念**。
+
+**限制**：`filter` 係對概念 display／designation 之文字比對，非語意檢索；理論上
+可能存在一個不含 betel／areca／quid 任一字樣的檳榔概念。惟 LOINC 之命名慣例
+必然於 display 使用該物質之英文名（比照 `Tobacco smoking status`），且三個關鍵字
+已涵蓋該物質之全部通用英文名，故判定**LOINC 無對應碼**之信心足以據以定案。
+
+**結論**：§4 之「LOINC 優先，無則自訂本地碼」條件成立於後者——**採本指引自訂之本地狀態問題碼**。
+
+**Q2｜SNOMED `698188003` 是 finding 還是 observable entity？——finding，委員主張成立。**
+
+查詢式：`$TX/CodeSystem/$lookup?system=http%3A%2F%2Fsnomed.info%2Fsct&code=698188003&property=parent&property=inactive`
+
+```
+  display: Chews betel quid
+    inactive = undefined      ← 未回傳 inactive 屬性，即該概念未停用
+    parent = 409069009        ← Finding related to substance use
+```
+
+`409069009` 位於 `404684003 Clinical finding` 階層，**不在 `363787002 Observable entity` 階層**。
+此與 §2.2 依 JOB-29 之 `$lookup` 所作之更正一致，係**獨立一次查詢之複驗**，非同一份輸出之重述。
+
+**Q3｜對照組：吸菸狀態碼 `LNC#72166-2` 之語意軸長什麼樣？**
+
+查詢式：`$TX/CodeSystem/$lookup?system=http%3A%2F%2Floinc.org&code=72166-2&property=CLASSTYPE&property=SCALE_TYP&property=PROPERTY`
+
+```
+  display: Tobacco smoking status
+    PROPERTY  = LP6813-2      （Find）
+    SCALE_TYP = LP7750-5      （Ord）
+    CLASSTYPE = 2             （Clinical）
+```
+
+即：**Clinical 類、Find 屬性、Ord 尺度之「狀態問句」碼**——問句在 `.code`、答案在 `.value`。
+自訂之嚼檳狀態問句碼應對齊此形狀（序位尺度、臨床類、以狀態為屬性），
+而非對齊 `698188003`（肯定式 finding）。
+
+**三問合計之處置**：步驟 2 得以進行，方向為 §4 之第三方案，**且已排除 LOINC 優先之可能**。
 
 ---
 
@@ -173,8 +242,9 @@ JOB-29 附錄 B #1（採認委員先前以 Ontoserver 之查詢）已確立：
 
 ## 6. 驗收標準
 
-1. §4.1 之 LOINC 查證**已實際執行並留存輸出**（比照 JOB-29 §D.3a 之 `$lookup` 全文格式），
-   結論寫入本 JOB；**未完成查證前不得實作**。
+1. ~~§4.1 之 LOINC 查證**已實際執行並留存輸出**（比照 JOB-29 §D.3a 之 `$lookup` 全文格式），
+   結論寫入本 JOB；**未完成查證前不得實作**。~~
+   ✅ **已完成（v0.8.2）**——見 §4.1.1；一次性 CI 步驟已同步移除。結論：LOINC 無對應碼，採自訂本地碼。
 2. 全庫 `698188003` 之 13 處觸點逐一處置完畢，且**不再出現於任何 `Observation.code` 位置**
    （以腳本檢查 FSH 與已發佈 JSON，不得目視）。
 3. `Observation-obs-betelnut-never` 之 `code` 與 `value` **語意相容**；
@@ -198,10 +268,11 @@ JOB-29 附錄 B #1（採認委員先前以 Ontoserver 之查詢）已確立：
 
 ## 交給 Claude 規劃用提示
 
-> 依 `docs/optimization/JOB-32-betelnut-observation-code-semantics.md` 執行，**分兩步**：
-> **步驟 1（先做，不改任何定義）**：加一次性 CI 步驟，對 tx 檢索 LOINC 是否有檳榔／檳榔子
+> 依 `docs/optimization/JOB-32-betelnut-observation-code-semantics.md` 執行。
+> ~~**步驟 1（先做，不改任何定義）**：加一次性 CI 步驟，對 tx 檢索 LOINC 是否有檳榔／檳榔子
 > 使用狀態之 observable 碼（關鍵字 betel、areca、quid；並 `$lookup` 任何命中碼之 SCALE_TYP 與 STATUS），
-> 將完整輸出貼回本 JOB §4.1，**取得結果後移除該步驟**。**未完成前不得進入步驟 2。**
+> 將完整輸出貼回本 JOB §4.1，**取得結果後移除該步驟**。**未完成前不得進入步驟 2。**~~
+> ✅ 步驟 1 已於 v0.8.2 完成，結果見 §4.1.1：**LOINC 無檳榔相關碼**，故走「自訂本地碼」分支。
 > **步驟 2（依 §4 實作）**：`.code` 改為查證結果所定之問題碼（LOINC 優先，無則自訂本地碼）；
 > `.value` 之 `VS-BetelNutStatus` 四碼**不動**；`698188003` 改列為肯定式狀態之 SNOMED 對應，
 > 寫入 `terminology.md` 對照表，**不得放回 `.code`**；三個範例、`VS-CoreUploadSet`、

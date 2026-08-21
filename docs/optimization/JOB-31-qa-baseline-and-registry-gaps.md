@@ -92,6 +92,20 @@
 
 ## 4. ⚠️ 發現二：25 筆 WARNING 不屬任何具名類別
 
+> **更正（v0.8.2）：現為 24 筆，不是 25。**
+> 25 係以當時之 `warn 91` 減 66 所得；`warn` 已實測校準為 **90**（v0.7.1 已改善 1 筆而未同步下調，
+> 見 `qa-baseline.json` 之 `_v080Note` 末段），故未具名筆數應為 **90 − 66 = 24**。
+> 消失的那 1 筆最可能是下表末列之 `ShareableConceptMap`（v0.7.1 補了 `description`）。
+> **具名化之範圍以 24 為準。**
+>
+> **v0.8.2 之處置（兩件事，不要混為一談）**：
+> - **偵測**：`qa-gate.js` 改為雙向閘門、容差 0（波動已實測為 0）。任何一筆增減都會紅。
+> - **歸因**：閘門每輪列印「未具名 WARNING 之形態分布」，不必再臨時加一次性步驟才知道組成。
+>
+> 緊天花板保證的是**偵測**得到，具名化提供的是**歸因**——兩者不能互相取代，
+> 但有了每輪列印的形態分布後，具名化的邊際價值變成「逐類獨立設上限」而非「知道是什麼」。
+> 逐類具名仍要做（見下），其確切筆數改依該報表之實測值填寫，不沿用本表之 v0.7.0 期量測。
+
 91 筆 WARNING 中，**僅 66 筆**落在具名類別內（OID 49、URL definition 11、DISCOURAGED 5、
 experimental-not-labeled 1）；**其餘 25 筆完全未被具名**，閘門只能經由 `totals.warn`
 這個總量上限間接看到——而該上限正好鬆了 61 筆（§3），**等於目前對這 25 筆的組成完全盲目**。
@@ -102,7 +116,7 @@ experimental-not-labeled 1）；**其餘 25 筆完全未被具名**，閘門只�
 | **7** | ImagingStudy 之 `binding.valueSet: A definition could not be found`（3）＋`ValueSet '<url>' not found`（4） | 待查：`TWHA-ImagingStudy` 綁定之值集解析不到 |
 | **4** | `Best Practice Recommendation: In general, all observations should have a **subject**`／`should have an **effective[x]**`（`Observation/example-service-finding`） | ⚠️ **同類盲區換措辭復現**。基準線具名的是 `should have a performer`（JOB-05 已打到 0），**subject／effective[x] 兩種措辭未被具名** |
 | **2** | `UCUM Codes that contain human readable annotations like {quid} can be misleading … Best Practice is not to depend on annotations` | 命中 `obs-betelnut`／`obs-betelnut-current`。**屬 JOB-29 之刻意決定**（`{個}/d` 非合法 UCUM，故採 `{quid}/d`），須具名並註明「已知且刻意保留」，否則日後會被誤修 |
-| **2** | `Published concept maps SHOULD conform to the ShareableConceptMap profile` | 基準線僅具名了 `ShareableValueSet`，**ConceptMap 之對應項未具名** |
+| **2** | `Published concept maps SHOULD conform to the ShareableConceptMap profile` | 基準線僅具名了 `ShareableValueSet`，**ConceptMap 之對應項未具名**。⚠️ v0.8.2 起應為 **1** 筆：v0.7.1 補了 `description`（`* description =` 元素賦值）消掉 1 筆，v0.8.2 再以 `* title =` 補齊 `TWHealthCheckLaboratoryMap.title`，預期歸零——實際筆數以 CI 為準 |
 
 **處置**：將上述五類**逐一加入 `qa-baseline.json` 之 `categories`**（含刻意保留者，以 `_note` 說明理由），
 使其成為受監控之具名類別；`totals.warn` 同步下調（§3）。

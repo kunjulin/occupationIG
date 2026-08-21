@@ -14,7 +14,12 @@ Description: "【主管機關：國民健康署】將健康檢查實驗室檢驗
 // （預設為 #example），SUSHI 遂將 Title:／Description: 視為範例之 IG 層 metadata，
 // **不寫入 ConceptMap.title／.description**——v0.7.0 線上實測該資源兩欄皆為 null。
 // 故權責標籤改以元素賦值提供，元素賦值必定落地，與 Appendix10-to-HazardType、
-// NS-ReportIdentifier 之作法一致。（title 之缺漏另記，見 JOB-31 §9。）
+// NS-ReportIdentifier 之作法一致。
+//
+// ⚠️ v0.8.2：`title` 同理。上方之 `Title:` 關鍵字與 `Description:` 一樣**不寫入資源**，
+// 故 ConceptMap.title 一直是 null，觸發 ShareableConceptMap 之 WARNING。
+// 此處以元素賦值補上，字串與 `Title:` 保持一致以免根層與資源層兩套名稱。
+* title = "健康檢查檢驗項目代碼對應 ConceptMap"
 * description = "【主管機關：國民健康署】將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。詳細之來源版本、驗證狀態、equivalence 使用原則與歸一之臨床限制，見本指引〈術語〉頁與本檔 Description。"
 // JOB-31 §5(A)：納入權責登記（hpa／Level 1）。本對照為 Level 1 之必要配套——
 // Level 1 之值集綁定為 extensible，接收端正是靠它把院所送的 acceptable 變異碼
