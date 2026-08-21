@@ -29,6 +29,25 @@
     "",
     "TOTAL info 維持 467（實測 467，差 0，無可下調）。err 維持 0。"
   ],
+  "_v080Note": [
+    "v0.8.0（〈未決事項〉頁自建置移除）之基準線變動。",
+    "量測來源 CI run 32442098478（commit d2120741，PR #35，tx 建置，err = 0，閘門通過）。",
+    "",
+    "  cannot be resolved   2321 → 2319   (-2)   移除 input/pagecontent/open-issues.md 一頁。",
+    "",
+    "publish box 出現在每一個輸出頁面，其「Directory of published versions」連結指向",
+    "provisional canonical 下不存在之 history.html，故每一頁各斷一次。移除一個 pagecontent",
+    "頁面即 -2（根層轉址殼頁與 zh-TW 語言層各一）——與既有之「每新增一頁即 +2」對稱，",
+    "前例見 _quickstartNote（+2）與 _job23Note（兩頁 +4）。",
+    "",
+    "⚠️ 本次為**先實測、後回填**：推送時未預先調整基準線，待 CI 印出差異欄之 -2 再下調。",
+    "降幅恰為 -2 亦反向印證「每頁 2 筆」之規則在移除方向同樣成立——但**規則相符不等於",
+    "已驗證**，此處採信的是本次實測值本身。",
+    "",
+    "其餘具名類別實測差異全為 0（Reference to draft 12、There are no valid display names 246、",
+    "should have an OID assigned 49、does not match any known slice 23 等）。",
+    "TOTAL info 467、warn 91、err 0，均與基準線相同。"
+  ],
   "measuredAt": "2026-07-29",
   "igPublisherVersion": "2.2.11",
   "source": "CI run 30435061029（commit 8ab7164f，tx 建置）＋ 19252-6 顯示名微修 — JOB-01 批 3 完成，Wrong Display Name 歸零",
@@ -580,7 +599,7 @@
     "stated value for the caseSensitive element": 0,
     "There are no valid display names found for the code": 246,
     "Pinned the version of": 30,
-    "cannot be resolved": 2321,
+    "cannot be resolved": 2319,
     "does not match any known slice": 23
   },
   "_job30DraftNote": [
