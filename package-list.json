@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.7.2",
+      "date": "2026-08-21",
+      "desc": "委員意見之處置——Observation.code 之語意角色（JOB-32）：本版僅新增評估文件，未變更任何定義，不影響 QA 基準線。委員主張 SNOMED 698188003 係 finding（答案），置於 Observation.code（問題）為 FHIR anti-pattern，建議撤銷 C-0、回復綁定上游 TWCRSFObsBehCS#BetelNutChewing 並將該碼移入 value。依五級框架逐項處置：技術判斷階段性同意，且本案有更強實證——已發佈之 Observation-obs-betelnut-never.json 其 code 為 698188003（Chews betel quid）而 valueCodeableConcept 為 0-never（從未嚼食檳榔），同一筆資源自相矛盾；以 Observation?code=698188003 檢索會把從未嚼檳者一併撈出，屬偽陽性資料風險，而建置 err=0 仍成立因驗證器不檢查 code 與 value 之語意相容性，與 G-3 同一類盲區；據此亦可知現行設計並未與吸菸真正對稱（吸菸 code 為狀態問句 LNC#72166-2，嚼檳 code 為肯定式 finding）。處置方案不同意：回復上游綁定將推翻 C-0 之解耦成果（JOB-29 §2.1.1 稱該欄位為對上游最後一處硬綁定），使建置重新依賴 TWCR_SF canonical 之可解析性，且 sf-ObserBeh#BetelNutChewing 是否確為 observable entity 係委員推定未經查證。敘述頁更正方向相反：general-exam.md 與 datamodel.md 所寫者才是正確建模意圖，應更正 .code 而非敘述頁。委員建議之開放 value[x] 與建立 VS-BetelNutStatus 兩項已於 v0.4.0 完成，其來函所據為 v0.4.0 前之 repo 狀態。SNOMED 全部 betel 概念僅 6 個且無 never／ex-chewer，無法承載四碼對稱故不得混入值集。建議第三方案：.code 改為本指引自訂之狀態問題碼、.value 四碼不動、698188003 改列為肯定式狀態之 SNOMED 對應寫入 terminology.md 對照表；實作前必須先以一次性 CI 步驟查證 LOINC 是否已有檳榔使用狀態之 observable 碼，LOINC 優先於自訂本地碼。並更正 JOB-29 §D.3a 之推論——同一份 $lookup 已載明 FSN 為 Chews betel quid (finding)、parent 為 409069009 Finding related to substance use，位於 Clinical finding 階層而非 Observable entity 階層，Interprets 本身即為 Clinical finding 之屬性，以其反推可作 Observation.code 係把佐證讀過頭，屬本團隊自身判斷錯誤。另指出兩項連動風險：此為 Level 1 之 breaking change 須以 minor 版發布並附遷移說明（觸點實測 13 處）；且與 JOB-30 §3.4 送簽確認單時序衝突——該確認單 §0 現載明 Observation.code 已解耦為 698188003 且不需國健署認定，照現狀送出將發生先取得同意再改規範，確認單未處置前不得送出。本版不實作，待裁示後執行。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.7.1",
       "date": "2026-08-21",
       "desc": "修正 v0.7.0 之權責標籤未進產出：v0.7.0 宣稱三件新登記 artifact 均已加權責標籤，實際上線者僅兩件，TWHealthCheckLaboratoryMap 之標籤沒有進入產出。發現方式為 v0.7.0 發佈後逐件抽驗 gh-pages，該 ConceptMap 之 description 與 title 皆為 null。原因為該檔以 Description: 關鍵字提供描述且無 Usage: #definition（預設為 #example），SUSHI 遂將 Title: 與 Description: 視為範例之 IG 層 metadata 而不寫入 ConceptMap.title 與 .description；另兩件 Appendix10-to-HazardType 與 NS-ReportIdentifier 用的是 * description 元素賦值必定落地，故只有這一件出問題。此為既有狀況而非 v0.7.0 造成，該資源在更早版本即無 description。更須檢討者仍是閘門：它讀原始碼的 Description: 就判定齊備，而這是 v0.6.1 規則被插進跨行 Description 內部之同型錯誤且已是第三次——閘門驗的是原始碼有沒有寫，不是產出會不會有。現改為 Instance 類只採 * description 元素賦值，Description: 關鍵字一律不算數；自我測試由 16 組增為 18 組，新增標籤僅寫在關鍵字須被抓到與改以元素賦值則不得誤報兩案，其中前者已實測驗證為真負向案例（還原成採信關鍵字之行為後該案確實失敗）。一併記錄未處理者：該 ConceptMap 之 title 仍為 null，本版只補 description（因權責標籤之載體是 description），是否補 title 或改 Usage: #definition 屬呈現層調整另行處置。QA 基準線本版未動。工業技術研究院委託研擬中，尚未定稿。",

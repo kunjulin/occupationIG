@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.7.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.7.2`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -139,7 +139,7 @@ set NODE_OPTIONS=--use-system-ca
 ## 優化工作範圍 (Optimization Job Scopes)
 
 2026-07-26 就發佈網站（<https://kunjulin.github.io/occupationIG/>）進行審閱後，
-已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-31**），置於 [`docs/optimization/`](docs/optimization/README.md)：
+已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-32**），置於 [`docs/optimization/`](docs/optimization/README.md)：
 
 * [`docs/optimization/README.md`](docs/optimization/README.md)：審閱總結、優先序矩陣、建議執行順序、全域驗收標準。
 * [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)：
@@ -160,6 +160,34 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.7.2（2026-08-21）委員意見：`Observation.code` 之語意角色（JOB-32 評估，未變更任何定義）
+
+> 說明：本版**僅新增評估文件** [`JOB-32`](docs/optimization/JOB-32-betelnut-observation-code-semantics.md)，
+> **未變更任何定義，不影響 QA 基準線**。
+
+**委員主張**　`SCT#698188003` 係 finding（答案），置於 `Observation.code`（問題）為 anti-pattern；
+建議撤銷 C-0、`.code` 回復綁定上游 `TWCRSFObsBehCS#BetelNutChewing`，並將 `698188003` 移入 `value`。
+
+- **技術判斷：階段性同意**，且本案有**更強的實證**——已發佈之 `Observation-obs-betelnut-never.json`
+  其 `code` 為 `698188003`「Chews betel quid」而 `valueCodeableConcept` 為 `0-never`「從未嚼食檳榔」，
+  **同一筆資源同時斷言此人嚼檳與從未嚼檳**。以 `Observation?code=698188003` 檢索會把
+  **從未嚼檳者一併撈出**（偽陽性風險）；`err = 0` 仍成立，因驗證器**不檢查 `code` 與 `value`
+  之語意相容性**——與 G-3 同一類盲區。據此亦可知**現行設計並未與吸菸真正對稱**。
+- **處置方案：不同意**。回復綁定上游將**推翻 C-0 之解耦成果**，使建置重新依賴 TWCR_SF canonical；
+  且上游碼是否為 observable entity **係推定、未經查證**。
+- **敘述頁：更正方向相反**——敘述頁所寫者才是正確的建模意圖，應更正 `.code`。
+- **兩項已完成**：開放 `value[x]`、建立 `VS-BetelNutStatus` **均已於 v0.4.0 落地**。
+- **建議第三方案**：`.code` 改自訂狀態問題碼、`.value` 四碼不動、`698188003` 改列為
+  肯定式狀態之 SNOMED 對應。⚠️ **實作前先查證 LOINC 是否已有對應 observable 碼**（LOINC 優先）。
+- **✅ 更正 JOB-29 §D.3a 之推論**：`$lookup` 已載明 FSN 為 `(finding)`、parent 為
+  `409069009 Finding related to substance use`——位於 **Clinical finding 階層**；
+  `Interprets` 本身即 Clinical finding 之屬性，以其反推係**把佐證讀過頭**。
+- **⚠️ 兩項連動風險**：(1) 屬 **Level 1 breaking change**（觸點 13 處），須 minor 版＋遷移說明；
+  (2) **與 JOB-30 §3.4 送簽確認單時序衝突**——`HPA-CONFIRMATION-JOB-30.md` §0 現載明
+  「`Observation.code` 已解耦為 `698188003`｜不需 貴署認定」，**確認單未處置前不得送出**。
+
+**本版不實作，待裁示後執行。**
 
 ### v0.7.1（2026-08-21）修正 `TWHealthCheckLaboratoryMap` 之權責標籤未進產出（JOB-31）
 
