@@ -503,6 +503,67 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # ⚠️ 一次性查證（JOB-32）——**取得結果後即移除**。
+      #
+      # 兩個問題，都不預設答案：
+      #   Q1 LOINC 有無「嚼檳榔狀態」之 observable 碼？有 → 用它（比照吸菸 72166-2）；
+      #      無 → 才需自訂本地碼。
+      #   Q2 SNOMED 698188003 究竟是 finding 還是 observable entity？
+      #      委員主張其為 finding、不宜作 Observation.code——**該主張本身要驗**。
+      #
+      # 本容器之 proxy 封鎖 tx.fhir.org，故查證於 CI 進行（比照 JOB-01 批 3 之作法）。
+      # ⚠️ 輸出限筆數並過濾多語系 designation——不重蹈 LOINC RELATEDNAMES2 洗版之覆轍。
+      - name: '[one-shot] LOINC 嚼檳狀態碼 ＋ SNOMED 698188003 語意軸（JOB-32）'
+        if: always()
+        env:
+          TX: 'https://tx.fhir.org/r4'
+        run: |
+          set -u
+          echo "MARKER-TX $TX"
+          cat > /tmp/show.js <<'EOF'
+          const fs = require("fs");
+          const mode = process.argv[2], file = process.argv[3];
+          let j;
+          try { j = JSON.parse(fs.readFileSync(file, "utf8")); }
+          catch (e) { console.log("  (非 JSON 回應)"); process.exit(0); }
+          if (j.resourceType === "OperationOutcome") {
+            console.log("  OperationOutcome: " + (j.issue||[]).map(i=>i.diagnostics||i.code).join(" | ").slice(0,180));
+            process.exit(0);
+          }
+          if (mode === "expand") {
+            const c = (j.expansion && j.expansion.contains) || [];
+            const t = j.expansion && j.expansion.total;
+            console.log("  total=" + (t === undefined ? "?" : t) + "  returned=" + c.length);
+            for (const x of c.slice(0, 25)) console.log("    " + x.code + "  " + (x.display || ""));
+          } else {
+            const P = j.parameter || [];
+            for (const p of P) if (p.name === "display") console.log("  display: " + p.valueString);
+            for (const p of P) {
+              if (p.name !== "property") continue;
+              const parts = p.part || [];
+              const code = (parts.find(x => x.name === "code") || {}).valueCode;
+              const v = parts.find(x => x.name === "value") || {};
+              const val = v.valueCode || v.valueString || v.valueBoolean || v.valueInteger;
+              if (["parent","child","inactive","CLASSTYPE","SCALE_TYP","PROPERTY"].includes(code))
+                console.log("    " + code + " = " + val);
+            }
+          }
+          EOF
+          q() { curl -sS --max-time 60 -H "Accept: application/fhir+json" "$1" -o /tmp/r.json || echo "  (查詢失敗)"; }
+
+          for kw in betel areca quid; do
+            echo "MARKER-LOINC-FILTER [$kw]"
+            q "$TX/ValueSet/\$expand?url=http%3A%2F%2Floinc.org%2Fvs&filter=$kw&count=40"
+            node /tmp/show.js expand /tmp/r.json
+          done
+
+          echo "MARKER-SCT-698188003（委員主張其為 finding，此處驗證）"
+          q "$TX/CodeSystem/\$lookup?system=http%3A%2F%2Fsnomed.info%2Fsct&code=698188003&property=parent&property=inactive"
+          node /tmp/show.js lookup /tmp/r.json
+
+          echo "MARKER-LOINC-72166-2（吸菸狀態之對照：同型應長這樣）"
+          q "$TX/CodeSystem/\$lookup?system=http%3A%2F%2Floinc.org&code=72166-2&property=CLASSTYPE&property=SCALE_TYP&property=PROPERTY"
+          node /tmp/show.js lookup /tmp/r.json
   # ==================================================================== 發佈
   # JOB-08 第二階段。**預設不會自動執行**：
   #
