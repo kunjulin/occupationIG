@@ -54,7 +54,7 @@
 |:---|:---|:---|
 | **① IG scope（本 IG 涵蓋範圍）** | 本指引所定義之全部代碼與結構，即 **Core ∪ Extended**。屬「本 IG 能表達什麼」。 | `VS-CoreDataset` ∪ `VS-ExtendedDataset` 等 |
 | **② Core upload set（主管機關最小交換集）** | 主管機關（國健署）制定之**最小共通上傳欄位**（21 列）。屬「至少要交換什麼」。 | [VS-CoreUploadSet](ValueSet-VS-CoreUploadSet.html) |
-| **③ 情境資料集（法定情境需求）** | 特定法定情境（如附表九一般健檢、附表十某一危害作業）**依法應執行之完整檢查項目**。屬「該情境依法要做什麼」。 | [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.html)（附表九，完整）；[VS-Appendix10-RequiredSet](ValueSet-VS-Appendix10-RequiredSet.html)（附表十，已落地噪音／鉛／粉塵／有機溶劑四家族，餘待 JOB-01） |
+| **③ 情境資料集（法定情境需求）** | 特定法定情境（如附表九一般健檢、附表十某一危害作業）**依法應執行之完整檢查項目**。屬「該情境依法要做什麼」。 | [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.html)（附表九，完整）；[VS-Appendix10-RequiredSet](ValueSet-VS-Appendix10-RequiredSet.html)（附表十，已落地噪音／鉛／粉塵／有機溶劑四家族，餘待臨床確認） |
 
 > ⚠️ **① ≠ ② ≠ ③**。本 IG 涵蓋範圍（①）不等於任一法定情境之完整需求（③）；
 > 亦**不得**以「某項目不在 Core（②）」推論該項目不重要或非 Must Support。

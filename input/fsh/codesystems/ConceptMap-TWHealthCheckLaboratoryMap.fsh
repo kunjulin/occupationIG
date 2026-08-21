@@ -4,9 +4,9 @@ InstanceOf: ConceptMap
 Title: "健康檢查檢驗項目代碼對應 ConceptMap"
 Description: "【主管機關：國民健康署】將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。
 
-**來源版本**：LOINC 2.82（經 tx.fhir.org 驗證）。**驗證狀態**：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。**審查狀態**：equivalence 已於 2026-07-26 逐筆覆核並補列理由（comment），並於 2026-07-30 依 FHIR R4 target-relative 定義更正方向（JOB-22），工作小組建議方案，提請確認可否作為下一階段試作基礎。
+**來源版本**：LOINC 2.82（經 tx.fhir.org 驗證）。**驗證狀態**：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。**審查狀態**：equivalence 已於 2026-07-26 逐筆覆核並補列理由（comment），工作小組建議方案，提請確認可否作為下一階段試作基礎。
 
-**equivalence 使用原則（v20260730 依 FHIR R4 更正，JOB-22）**：R4 之 `narrower`／`wider` **以 target 為主詞**（`narrower` = target 較 source 窄；`wider` = target 較 source 廣），與直覺相反——R5 已改名為 `source-is-narrower-than-target` 以消除歧義。故本 ConceptMap 之判準為：source 為方法特化而 target 為方法通用碼者用 **`wider`**（target 較廣）；source 語意較廣而 target 較窄（指定空腹／方法／偵測極限）者用 **`narrower`**（target 較窄）；不同具體方法、不同檢體、或需數值換算而無包含關係者用 `relatedto`（Level 1，官方語意為「有關聯但確切關係未知」，**不得據以自動換算數值**）。`equivalent` 僅用於完全等義，現行無任何一組適用。\n\n⚠️ **v20260729 及更早版本之 `narrower`／`wider` 方向為錯誤值**（原依內部文件之 source-relative 定義填寫），已於 v20260730 全數更正；comment 方向敘述與 equivalence 值之一致性現已納入 CI 閘門。
+**equivalence 使用原則**：R4 之 `narrower`／`wider` **以 target 為主詞**（`narrower` = target 較 source 窄；`wider` = target 較 source 廣），與直覺相反——R5 已改名為 `source-is-narrower-than-target` 以消除歧義。故本 ConceptMap 之判準為：source 為方法特化而 target 為方法通用碼者用 **`wider`**（target 較廣）；source 語意較廣而 target 較窄（指定空腹／方法／偵測極限）者用 **`narrower`**（target 較窄）；不同具體方法、不同檢體、或需數值換算而無包含關係者用 `relatedto`（Level 1，官方語意為「有關聯但確切關係未知」，**不得據以自動換算數值**）。`equivalent` 僅用於完全等義，現行無任何一組適用。\n\n⚠️ comment 之方向敘述與 equivalence 值之一致性已納入建置閘門逐筆檢核。
 
 ⚠️ **歸一之臨床限制**：本對照供資料標準化之用，**不表示歸一後之數值可直接互換比較**（例如 MDRD 與 CKD-EPI eGFR、IFCC 與 NGSP HbA1c 均需換算或不可互換）。交換時應保留原始代碼。"
 * name = "TWHealthCheckLaboratoryMap"

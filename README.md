@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.7.3`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.7.4`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -160,6 +160,29 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.7.4（2026-08-21）對外產出之內部工作痕跡清除
+
+- **清除範圍**：`input/pagecontent/*.md` 與 **FSH 之字串內容**（`Description`、
+  概念定義等）中之內部工作編號 `JOB-n`、內部節號、開發過程敘述。
+  實檢基線 **109 處 → 0**（pagecontent 97、FSH 字串 12）。
+  ⚠️ **FSH 之 `//` 註解一律保留**（82 處）——不進產出，且是維護資訊。
+- **新增閘門** `scripts/check-no-internal-refs.js`（9 組自我測試，含 4 組正向對照），
+  已掛入 `npm run verify`。
+- ⚠️ **重新清點，未沿用既有數字**：規劃文件所載之「122 處」量測於 v0.6.1 且為
+  **產出端**計數（一處 `Description` 擴散成 `.html`／`.json`／`.xml`／`.ttl`
+  再乘兩個語言層）；本次為 **原始碼端** 計數，兩者計的不是同一件事。
+- ⚠️ **閘門樣態一度訂太寬並已收窄**：初版禁 `已於 v\d`，會誤殺
+  「該碼已於 v0.4.0 **發佈**，改名屬破壞性變更」這類**版次事實陳述**，
+  且與規格指定之替代寫法「本指引 v0.x 之修訂」自相矛盾。
+  現只禁「已於 v… 更正／修正」等開發過程敘述，並加正向對照案 ⑤b 固定此界線。
+
+**一併更正兩處與現況不符之公開敘述**（本次清理時發現，非清理本身之範圍）：
+
+| 頁面 | 原敘述 | 更正 |
+|:--|:--|:--|
+| `ip-statements.md` | TWCR_SF「目前以本地 stub 承載，**非權威定義**」 | 該批 stub 已於 v0.3.0 刪除、改為**正式相依宣告**（`fhir.TWCRSF`）。以既有相依閘門實跑覆核：9 個 stub 未復現 |
+| `history.md` | 「本機建置後手動推送」「發佈內容與 commit 之對應關係**尚未固化**」 | 現由 CI 自動發佈，產出根目錄之 `build-info.json` 記載 `sourceCommit`，**對應關係可逐次追溯** |
 
 ### v0.7.3（2026-08-21）對外試用版乾淨化之評估與計畫（JOB-33，未變更任何定義）
 

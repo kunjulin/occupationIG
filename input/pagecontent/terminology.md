@@ -65,7 +65,7 @@
 > ⚠️ **代碼驗證之五項要件（治理要求）**：
 >
 > **`$validate-code` 通過僅代表「代碼存在」，不代表「語意正確」。** 新增或引用任何代碼前，須完成下列五項；
-> 前三項已閘門化（JOB-01），後二項由 JOB-19 閘門化，均於送審用 tx 建置階段自動攔阻：
+> 前三項與後二項均已閘門化，均於送審用 tx 建置階段自動攔阻：
 >
 > | 要件 | 方法 | 單獨檢查為何不足 | CI 閘門 |
 > |:--|:--|:--|:--|
@@ -85,7 +85,7 @@
 > [extended-ucum-reference.csv](extended-ucum-reference.csv) 之 `verification` 欄。
 
 ### 3.2 代碼映射 ConceptMap
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **41 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729（JOB-14）新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **41 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729 新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收先前整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 #### 3.2.1 `equivalence` 判準與 R4／R5 對照（v20260730 更正）
 
@@ -108,11 +108,11 @@
    惟確切關係未知」。** 本 IG 以之承載「需換算／不同量測方式／不同檢體」，係因 R4 無
    「需單位換算」之專用代碼；**實作端不得據以自動換算數值**，此一用法限制特此揭露。
 
-> **v20260730 之更正（JOB-22）**：本 IG 原依內部文件之 **source-relative** 定義填寫
+> **v20260730 之更正**：本 IG 原依內部文件之 **source-relative** 定義填寫
 > `equivalence`，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment
-> 與 display 相互矛盾（JOB-01 僅修 display 未同步修 comment 之殘留）。已全數更正，
-> 更正後（JOB-22 完成時，39 組）之分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0；
-> 其後 JOB-21 移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**現行分佈為
+> 與 display 相互矛盾（先前僅修 display 未同步修 comment 之殘留）。已全數更正，
+> 更正後（39 組時）之分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0；
+> 其後移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**現行分佈為
 > `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組）**。
 > **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。
 > 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門
@@ -130,7 +130,7 @@
 `5804-0`（尿蛋白**定性**，Protein [Presence] in Urine by Test strip，醫令 06003C-2）
 **各為獨立醫令項目之 Preferred**，於主管機關（國健署）最小上傳集為兩個獨立列。
 
-原 ConceptMap 曾將 `2888-6 → 5804-0` 列為歸一（`relatedto`），已於 v20260730（JOB-21）**移除**。
+原 ConceptMap 曾將 `2888-6 → 5804-0` 列為歸一（`relatedto`），已於 v20260730 **移除**。
 理由：歸一之語意為「送 A 時視為 B」，而定量與定性係**不同檢驗、不同醫令代碼、不同 Property**
 （`Mass/volume` vs `Presence`），不可互相取代——該 element 自身之 comment 即載明「非包含關係」，
 與歸一之用途相牴觸。
@@ -230,13 +230,13 @@
 | 視力 | 視力 Panel | `98497-1` | — | 363983007 | — | 職業 |
 | 聽力 | 純音聽力 Panel | `89015-2` | — | 406081008 | dB | 職業 |
 
-> **尿沉渣自動計數之雙軌收錄（JOB-14）**：本 IG 對尿沉渣採「**體積碼（/µL 全尿自動計數）為 preferred、
+> **尿沉渣自動計數之雙軌收錄**：本 IG 對尿沉渣採「**體積碼（/µL 全尿自動計數）為 preferred、
 > 面積碼（/HPF 鏡檢沉渣）為 acceptable**」。理由為國內各機構尿液分析儀報告單位不一致——本院 Sysmex
 > UF-5000/UD-10 報每 µL，他院則以每高倍視野（/HPF）報告；兩量綱需依儀器係數換算、不可直接比較數值，
-> 故以 `#relatedto` 歸一而非 `equivalent`。此為 JOB-01 批3「整組換為體積碼」之範圍修正：面積碼為 ACTIVE
+> 故以 `#relatedto` 歸一而非 `equivalent`。此為先前「整組換為體積碼」之範圍修正：面積碼為 ACTIVE
 > 之合法 LOINC，回收為 acceptable 使以 /HPF 報告之機構亦可實作（見 ConceptMap `element[28]–[36]`）。
 
-> **社會史量化碼之單位與性質（JOB-18）**：
+> **社會史量化碼之單位與性質**：
 > - `64218-1`（吸菸量，*How many cigarettes do you smoke per day now* [PhenX]）之官方 Property 為 **NRat（Count/Time）**，
 >   例示單位為 **`/d`（支/日）**，**非「包/日」**（`{pack}/d`）。以本碼承載「包/日」之值，將使實作端把 20 支誤讀為 20 包（量綱不符）。
 >   若須交換 pack-year 或 packs/day，應另尋對應代碼並經 `$lookup` 查證，**不得沿用本碼**。
@@ -300,7 +300,7 @@ CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`ite
 （2026-07-30，CI run 30534387613）。稽核全集**由值集展開**（`VS-ExtendedDataset`
 288 碼 ∪ `VS-CoreDataset` ∪ `VS-TWHAVitalSigns` ∪ `VS-CoreUploadSet` 社會史碼，
 去重共 320 碼），非以對照檔之列為全集——後者曾因凍結於 Extended 尚為 292 碼時期而
-漏稽核 44 個量值碼（JOB-19 補充事項 §2）。
+漏稽核 44 個量值碼。
 
 | 項目 | 筆數 |
 |:--|--:|
@@ -315,14 +315,14 @@ CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`ite
 
 > 「相符 234 ／未提供 74」為對照檔之 **308 列**（234 ＋ 74）；其中 241 列為納入比對之
 > 量值碼（相符 234 ＋ 官方未提供 7），餘 67 列為對照檔亦收錄之非量值型碼（不列單位）。
-> `SemiQn`（`LP436123-6`，2023-07-05 新增之 Scale）於 JOB-20 經 loinc.org 查證後納入比對，
+> `SemiQn`（`LP436123-6`，2023-07-05 新增之 Scale）經 loinc.org 查證後納入比對，
 > 10 筆之官方單位皆經 tx `$lookup` 取回（9 筆有值、`20621-9` 官方未提供）。
 >
 > 上開數值均為 CI 閘門之具名基準
 > （`--max 0 --max-missing 0 --max-unknown 0 --min-inscope-ratio 0.5`）：值集新增量值碼而未
 > 回寫對照檔（「未列於對照檔」）、或出現新的未對映 Scale 碼，即建置失敗。
 > 另設**分類失效自我檢查**——納入比對之量值碼占全集之比率若低於 50%（實測 75.3%），
-> 即視為 Scale 判定失效而失敗，避免「全部判為不適用卻閘門全綠」之空過（見 JOB-20 §5）。
+> 即視為 Scale 判定失效而失敗，避免「全部判為不適用卻閘門全綠」之空過。
 
 完整對照表（308 筆，含 LOINC 官方顯示名與來源標註）：
 **[extended-ucum-reference.csv](extended-ucum-reference.csv)**
@@ -359,7 +359,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 | `4548-4` | HbA1c (NGSP) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `59261-8` | HbA1c (IFCC) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `98979-8` | eGFR (CKD-EPI 2021) | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
-| `33914-3` | eGFR (MDRD)（LOINC 狀態：DISCOURAGED） | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 職醫科已確認保留（2026-07-27，JOB-01 Q8）；依國健署 115.01.15 國健慢病字第1150660003號函，適用 114 年（2025）及以前之成健 eGFR（MDRD 為 VPN 必填、機構自行填入），115.01.01 起改採 CKD-EPI 2021（`98979-8`）；沿革見 §6.2a、多公式並存見 T-11 |
+| `33914-3` | eGFR (MDRD)（LOINC 狀態：DISCOURAGED） | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 職醫科已確認保留（2026-07-27）；依國健署 115.01.15 國健慢病字第1150660003號函，適用 114 年（2025）及以前之成健 eGFR（MDRD 為 VPN 必填、機構自行填入），115.01.01 起改採 CKD-EPI 2021（`98979-8`）；沿革見 §6.2a、多公式並存見 T-11 |
 
 **特別提醒：**
 - **重金屬單位不一致**：血中鉛為 `ug/dL`、尿中鉛為 `ug/L`、血中汞與鎘為 `ng/mL`——**量級不同，不可互換**。
@@ -390,7 +390,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 ### 6.2b 嚼檳榔之建模與三套資料來源
 
 > 本節於 v0.4.0 全面改寫。**0.3.0 以前之敘述（本指引以【本地 stub】承載 TWCR_SF 定義）
-> 已不適用**——該批 stub 已於 v0.3.0 隨 JOB-28 刪除、改為正式相依，
+> 已不適用**——該批 stub 已於 v0.3.0 刪除、改為正式相依，
 > [未決事項 G-5](open-issues.html#g-5) 亦已結案。
 
 #### 6.2b-1 ⚠️ 三套來源不可混為一談
@@ -500,7 +500,7 @@ ConceptMap 對映的是概念與概念，不是概念與數值。
 | `2532-0` | LDH | 狀態 **DISCOURAGED** | 同上 |
 | `1709-5` | RBC 乙醯膽鹼酯酶 | 狀態 **DISCOURAGED** | 同上 |
 | `35200-5` | 總膽固醇（acceptable） | 狀態 **DISCOURAGED** | v20260726 全面比對新發現 |
-| `55284-4` | 血壓 panel | 狀態 **DISCOURAGED** | ✅ **已處置**（JOB-18）：改為 `85354-9`（Blood pressure panel with all children optional, ACTIVE），全指引統一；`55284-4` 已不再出現於任何值集 |
+| `55284-4` | 血壓 panel | 狀態 **DISCOURAGED** | ✅ **已處置**：改為 `85354-9`（Blood pressure panel with all children optional, ACTIVE），全指引統一；`55284-4` 已不再出現於任何值集 |
 | `19571-9` 等 **5 碼** | 尿液毒品篩檢（安非他命／鴉片／苯二氮平／K他命／MDMA） | 均為 **cutoff（閾值濃度）概念碼**（`[Mass/volume] ... for Screen method`，單位 ng/mL），非篩檢結果碼 | ✅ **已處置**：改列對應之 `[Presence]` 結果碼（`3349-8`／`3879-4`／`3390-2`／`12327-3`／`14267-9`） |
 | `29771-3` | 糞便潛血（免疫法 FIT） | Hemoglobin [Presence] in Stool from gastrointestinal lower by Immunoassay | ✅ **已覆核**：概念相符（下消化道人類血紅蛋白免疫分析），顯示名已校正 |
 

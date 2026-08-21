@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.7.4",
+      "date": "2026-08-21",
+      "desc": "對外產出之內部工作痕跡清除：移除 input/pagecontent 之 .md 與 FSH 字串內容（Description、概念定義等）中的內部工作編號 JOB-n、內部節號與開發過程敘述，實檢基線由 109 處降為 0（pagecontent 97 處、FSH 字串 12 處）；FSH 之 // 註解一律保留（82 處），因其不進產出且為維護資訊。新增閘門 scripts/check-no-internal-refs.js，含 9 組自我測試（其中 4 組為正向對照，分別固定行首註解、行尾註解、版次事實陳述與乾淨內容不得誤報），已掛入 npm run verify。本次依指示重新清點而未沿用規劃文件所載之 122 處——該數字量測於 v0.6.1 且為產出端計數（一處 Description 會擴散成 html、json、xml、ttl 四種變體再乘根層與 zh-TW 兩層），本次為原始碼端計數，兩者計的不是同一件事。閘門樣態一度訂太寬並已收窄：初版禁 已於 v 加數字，會誤殺「該碼已於 v0.4.0 發佈，改名屬破壞性變更」這類版次事實陳述，且與規格指定之替代寫法「本指引 v0.x 之修訂」自相矛盾，現只禁已於 v 加更正、修正等開發過程敘述並加正向對照案固定此界線。一併更正兩處與現況不符之公開敘述（清理時發現，非清理本身之範圍）：ip-statements.md 原稱臺灣癌症登記短表 TWCR_SF「目前以本地 stub 承載，非權威定義」，惟該批 stub 已於 v0.3.0 刪除並改為正式相依宣告，已以既有相依閘門實跑覆核 9 個 stub 未復現；history.md 原稱版本係「本機建置後手動推送」且「發佈內容與原始碼 commit 之對應關係尚未固化」，惟現已由 CI 自動發佈且產出根目錄之 build-info.json 記載 sourceCommit，對應關係可逐次追溯。本版未變更任何 Profile 之結構約束、值集成員或代碼，QA 基準線未動。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.7.3",
       "date": "2026-08-21",
       "desc": "對外試用版乾淨化之評估與計畫（JOB-33）：本版僅新增評估與提示詞文件，未變更任何定義，不影響 QA 基準線。緣起為使用者指示本 IG 尚未正式發布、現站僅為試驗場、頁面備註過多，需一個乾淨版供臨床試用；裁示範圍為內部工作痕跡／各頁警語／未決事項頁／continuous build 標記四項全清，發布目標維持同一個 github.io。實測（量測於 v0.6.1，實作前須重新清點）：已發佈站台 21 個頁面、122 處內部工作編號 JOB-n 外洩，其中 CS-BetelNutComponent 因 Description 內含 JOB-n 而隨 html／json／xml／ttl 四種渲染變體擴散 28 次。關鍵發現為第四項並非呈現問題：publish box 之未授權發布與 continuous build 措辭由 IG Publisher 之 CI-build 模式產生，其真正前提是 canonical 與實際發布位置不一致——canonical 為 twcore.mohw.gov.tw/ig/twha 而站台位於 kunjulin.github.io；且 qa.txt 之 2321 筆 broken links 中有 2320 筆為同一個目標 twcore.mohw.gov.tw/ig/twha/history.html，而 history.html 本站根層與 zh-TW 各一份皆已生成，斷的不是檔案而是 canonical 前綴（該數字已於 v0.7.1 複驗，仍為 2321／2320，不受版次推進影響）。故試用期若將 canonical 改為 github.io 命名空間，banner 可改為正式發布措辭、Directory 連結可用、2320 筆斷鏈同時歸零；代價為全部資源 URL 變更且正式版移回主管機關命名空間時須再改一次，惟使用者既已明示本 IG 尚未發布過，此刻改動成本為歷來最低。警語處置分兩類：內部備註型刪除，規範性揭露不得刪除而應收斂為首頁單一使用前須知區塊（六條：canonical 暫用會變更勿寫死、Core 21 列待公告、本地代碼 provisional、SNOMED 未逐碼驗證者不得作正式建議 mapping、法規解釋不代為認定、建置通過不等於臨床適切或法規符合）。另提醒未決事項頁之兩欄與已結案移頁尾正是 JOB-30 A 部剛完成上線之成果，整頁移除等於捨棄該批工作，若目的僅為觀感則保留該頁而只做警語收斂即可達成八成效果。實作分三步三版次：v0.7.4 內部痕跡清除並新增 check-no-internal-refs 閘門、v0.8.0 警語收斂與未決事項外移及 31 處連結一次改寫、v0.9.0 canonical 與發布模式；步驟 3 須先實跑 D-2 閘門確認不受阻，且不得為消除 banner 而謊報 package-list 狀態卻不改 canonical。本版不實作，待裁示後執行。工業技術研究院委託研擬中，尚未定稿。",
