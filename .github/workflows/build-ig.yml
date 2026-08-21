@@ -505,6 +505,89 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # ⚠️ 一次性查證（JOB-32 §4.2）——**取得結果後即移除**。
+      #
+      # 上一輪（8596e460）把本項記成「LOINC／SNOMED 查證已完成」，但 SNOMED 那半
+      # 只做了 698188003 的單碼 $lookup，**從未對 SNOMED 執行任何關鍵字檢索**。
+      # 「查了一個 SNOMED 碼」不等於「查了 SNOMED」。本步驟補上真正缺的那一問。
+      #
+      # 兩個缺口，一次關掉：
+      #   Q4 SNOMED 有無可用之檳榔 observable entity？
+      #      有 → 應優先於自訂本地碼（正確階梯是 LOINC → SNOMED observable → 自訂）。
+      #   Q5 委員「SNOMED 全部 betel 概念僅 6 個」之主張——該數字已被 JOB-32 §3.3
+      #      當成決策理由，卻從未由本 repo 複驗。當作理由用的數字要能自己撐住。
+      #
+      # 判讀靠 **FSN 之語意標籤**（結尾括號內的 observable entity／finding／procedure），
+      # 不靠階層推導——標籤直接回答問題，parent 只作佐證。
+      # ⚠️ 輸出過濾：SNOMED 之 designation 含大量同義詞，只印 FSN 與 parent。
+      - name: '[one-shot] SNOMED 檳榔概念檢索 ＋ 語意標籤（JOB-32 §4.2）'
+        if: always()
+        env:
+          TX: 'https://tx.fhir.org/r4'
+          SCT_VS: 'http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs'
+        run: |
+          set -u
+          echo "MARKER-TX $TX"
+          cat > /tmp/sct.js <<'EOF'
+          const fs = require("fs");
+          const mode = process.argv[2], file = process.argv[3];
+          let j;
+          try { j = JSON.parse(fs.readFileSync(file, "utf8")); }
+          catch (e) { console.log("  (非 JSON 回應)"); process.exit(0); }
+          if (j.resourceType === "OperationOutcome") {
+            console.log("  OperationOutcome: " + (j.issue||[]).map(i=>i.diagnostics||i.code).join(" | ").slice(0,200));
+            process.exit(0);
+          }
+          if (mode === "expand") {
+            const c = (j.expansion && j.expansion.contains) || [];
+            const t = j.expansion && j.expansion.total;
+            console.log("  total=" + (t === undefined ? "?" : t) + "  returned=" + c.length);
+            for (const x of c.slice(0, 60)) console.log("    CODE " + x.code + "  " + (x.display || ""));
+          } else {
+            const P = j.parameter || [];
+            for (const p of P) if (p.name === "display") console.log("    display: " + p.valueString);
+            // FSN：designation 之 use.code = 900000000000003001。語意標籤在結尾括號內。
+            for (const p of P) {
+              if (p.name !== "designation") continue;
+              const parts = p.part || [];
+              const use = (parts.find(x => x.name === "use") || {}).valueCoding || {};
+              const val = (parts.find(x => x.name === "value") || {}).valueString || "";
+              if (use.code === "900000000000003001") {
+                const tag = (val.match(/\(([^()]+)\)\s*$/) || [])[1] || "(無語意標籤)";
+                console.log("    FSN: " + val);
+                console.log("    語意標籤: " + tag);
+              }
+            }
+            for (const p of P) {
+              if (p.name !== "property") continue;
+              const parts = p.part || [];
+              const code = (parts.find(x => x.name === "code") || {}).valueCode;
+              const v = parts.find(x => x.name === "value") || {};
+              if (code === "parent" || code === "inactive")
+                console.log("    " + code + " = " + (v.valueCode || v.valueString || v.valueBoolean));
+            }
+          }
+          EOF
+          q() { curl -sS --max-time 60 -H "Accept: application/fhir+json" "$1" -o /tmp/r.json || echo "  (查詢失敗)"; }
+
+          : > /tmp/codes.txt
+          for kw in betel areca; do
+            echo "MARKER-SCT-EXPAND [$kw]"
+            q "$TX/ValueSet/\$expand?url=$SCT_VS&filter=$kw&count=100"
+            node /tmp/sct.js expand /tmp/r.json | tee /tmp/out.txt
+            grep -o 'CODE [0-9]*' /tmp/out.txt | awk '{print $2}' >> /tmp/codes.txt || true
+          done
+
+          echo "MARKER-SCT-LOOKUP（逐碼取 FSN 語意標籤；判定 observable entity 與否）"
+          sort -u /tmp/codes.txt | head -20 > /tmp/uniq.txt
+          echo "  去重後 $(wc -l < /tmp/uniq.txt) 碼（上限 20）"
+          while read -r c; do
+            [ -z "$c" ] && continue
+            echo "  --- $c"
+            q "$TX/CodeSystem/\$lookup?system=http%3A%2F%2Fsnomed.info%2Fsct&code=$c&property=parent&property=inactive"
+            node /tmp/sct.js lookup /tmp/r.json
+          done < /tmp/uniq.txt
+
   # ==================================================================== 發佈
   # JOB-08 第二階段。**預設不會自動執行**：
   #

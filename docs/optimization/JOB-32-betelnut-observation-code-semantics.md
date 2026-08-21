@@ -7,7 +7,7 @@
 | **預估** | S–M（1–1.5 人日，不含送簽時序調整） |
 | **主要影響檔案** | `input/fsh/profiles/TWHA-SocialHistory.fsh`、`input/fsh/codesystems/CS-BetelNut.fsh`、`input/fsh/examples/03-social-history.fsh`、`VS-CoreUploadSet.fsh`、`general-exam.md`、`datamodel.md`、`terminology.md`、`conformance.md`、`docs/drafts/HPA-CONFIRMATION-JOB-30.md` |
 | **緣起** | 2026-08-21 委員來函：主張 `SCT#698188003` 係 finding（答案），置於 `Observation.code`（問題）為 FHIR anti-pattern，建議回復綁定上游 `TWCRSFObsBehCS#BetelNutChewing` 並將 `698188003` 移入 `value` |
-| **狀態** | 📋 評估（v0.6.3）｜**步驟 1（LOINC／SNOMED 查證）已完成，結果見 §4.1.1**；步驟 2 待裁示後實作 |
+| **狀態** | 📋 評估（v0.6.3）｜步驟 1 **部分完成**：LOINC 檢索已做（§4.1.1 Q1）、SNOMED `698188003` 單碼語意軸已驗（Q2）；⚠️ **SNOMED 之關鍵字檢索尚未執行**（§4.2）；步驟 2 待裁示後實作 |
 
 ---
 
@@ -103,8 +103,14 @@ v0.4.0 之 C-0 是**把程式碼改成迎合一個本身就不精確的敘述**�
 
 ### 3.3 SNOMED 無法承載四碼對稱
 
-JOB-29 附錄 B #1（採認委員先前以 Ontoserver 之查詢）已確立：
+JOB-29 附錄 B #1（採認委員先前以 Ontoserver 之查詢）記載：
 **SNOMED 全部 betel 相關概念僅 6 個，且無 ex-chewer／never-chewer，亦無 duration／amount observable。**
+
+> 🔴 **更正（v0.8.3）：原文寫「已確立」，下得太重。**
+> 該數字係**採認委員以 Ontoserver 所作之查詢**，本 repo 從未自行複驗，
+> 卻已被本節當成「SNOMED 無法承載四碼對稱」之決策理由。
+> **一個當作理由用的數字，必須可被自己的紀錄支撐。**
+> 複驗方式與判讀規則見 §4.2；在其完成前，本節之結論應視為**待驗證之推定**，非已確立之事實。
 
 故 `698188003` 至多只能表達「目前嚼食」一種狀態，**無法**構成與 `CS-SmokingStatus`
 逐碼對稱之四碼答案集。將其混入 `VS-BetelNutStatus` 只會破壞既有對稱。
@@ -138,6 +144,12 @@ JOB-29 附錄 B #1（採認委員先前以 Ontoserver 之查詢）已確立：
 
 **執行環境**：CI run 32447792978／job 96670500124，commit `8596e460`，2026-08-21T04:47Z，
 tx = `https://tx.fhir.org/r4`。一次性步驟已於本次一併移除（驗收標準 §6.1 之留存要求由本節承擔）。
+
+> ⚠️ **本節之涵蓋範圍（v0.8.3 更正）**：本輪只做了 **LOINC 的關鍵字檢索** 與
+> **SNOMED `698188003` 的單碼 `$lookup`**。**未曾對 SNOMED 執行任何 `$expand` 關鍵字檢索。**
+> 先前把本節記為「步驟 1（LOINC／SNOMED 查證）已完成」，是把「查了一個 SNOMED 碼」
+> 誤述為「查了 SNOMED」——**一個被記成已完成、實際沒做的事，比一個明擺著的待辦更危險**，
+> 因為下一個讀的人不會再去查。缺口與其處置見 §4.2。
 
 **Q1｜LOINC 有無「嚼檳狀態」之 observable 碼？——無。**
 
@@ -201,7 +213,53 @@ tx = `https://tx.fhir.org/r4`。一次性步驟已於本次一併移除（驗收
 自訂之嚼檳狀態問句碼應對齊此形狀（序位尺度、臨床類、以狀態為屬性），
 而非對齊 `698188003`（肯定式 finding）。
 
-**三問合計之處置**：步驟 2 得以進行，方向為 §4 之第三方案，**且已排除 LOINC 優先之可能**。
+**三問合計之處置**：**LOINC 優先之可能已排除**；惟「是否需自訂本地碼」尚不能定案——
+還差 SNOMED 這一邊（§4.2）。步驟 2 於 §4.2 完成前不得進入。
+
+---
+
+### 4.2 ⚠️ 尚未查證：SNOMED 是否有可用之 observable entity
+
+§4.1.1 只 `$lookup` 了 `698188003` 一個碼。**「SNOMED 有沒有可用的檳榔 observable entity」
+這一問從未被提出過，更沒有被回答。** 這個缺口同時卡住兩件事：
+
+**(1) 若 SNOMED 有 observable entity，就不該自訂本地碼。**
+§4 的處置階梯是「LOINC 優先 → 無則自訂」，但這個階梯本身漏了一階。
+本 IG 之 `Observation.code` 現行值即為 SNOMED 碼，`VS-BetelNutStatus` 之答案碼亦與 SNOMED 對照；
+若 SNOMED 備有「betel quid chewing status」之 observable entity，
+它比自訂本地碼更接近吸菸之 `LNC#72166-2` 所扮演的角色。**正確的階梯是
+LOINC → SNOMED observable → 自訂本地碼**，而中間那一階至今空白。
+
+**(2) §3.3 之決策理由至今未經本 repo 驗證。**
+§3.3 寫「JOB-29 附錄 B #1 已確立：SNOMED 全部 betel 相關概念僅 6 個」，
+並據以推出「SNOMED 無法承載四碼對稱」。⚠️ 該數字**係採認委員以 Ontoserver 所作之查詢**，
+本 repo 從未自行複驗。「已確立」三字對一個未經己方查證的外部數字而言下得太重——
+與 §2.2 更正 JOB-29 §D.3a 時所犯的是同一類毛病：**把佐證讀成結論**。
+
+**查詢式**（一次 CI 即可同時回答上列兩問）：
+
+```
+$TX/ValueSet/$expand?url=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs&filter=betel&count=100
+$TX/ValueSet/$expand?url=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs&filter=areca&count=100
+```
+
+再對每個命中碼 `$lookup`，取其 **FSN 之語意標籤**（`(observable entity)`／`(finding)`／
+`(procedure)`…）與 `parent`——語意標籤直接回答「是不是 observable entity」，
+不必靠階層推導。
+
+**判讀規則（先寫下來，避免拿到結果後才決定怎麼算）**：
+
+| 檢索結果 | 對 §4 之影響 |
+|:--|:--|
+| 有 `(observable entity)` 且語意為「嚼檳狀態／頻率」 | **改採該 SNOMED 碼**，不自訂本地碼；§4 之建議方案須改寫 |
+| 只有 `(finding)`／`(procedure)`，無 observable | §4 之自訂本地碼成立；§3.3 之結論成立 |
+| 命中數 ≠ 6 | §3.3 之「僅 6 個」須改為本次實測值，並註明原數字之來源與差異 |
+
+⚠️ **不得因為「反正結論大概一樣」而略過**。§3.3 已把該數字當成決策理由寫進評估，
+一個當作理由用的數字就必須可被自己的紀錄支撐。
+
+**限制（結果出來後仍需載明）**：`$expand` 預設不含 inactive 概念；
+`filter` 係對 display／designation 之文字比對，非語意檢索。
 
 ---
 
@@ -242,9 +300,12 @@ tx = `https://tx.fhir.org/r4`。一次性步驟已於本次一併移除（驗收
 
 ## 6. 驗收標準
 
-1. ~~§4.1 之 LOINC 查證**已實際執行並留存輸出**（比照 JOB-29 §D.3a 之 `$lookup` 全文格式），
-   結論寫入本 JOB；**未完成查證前不得實作**。~~
-   ✅ **已完成（v0.8.2）**——見 §4.1.1；一次性 CI 步驟已同步移除。結論：LOINC 無對應碼，採自訂本地碼。
+1. §4.1 之 LOINC 查證**已實際執行並留存輸出**（比照 JOB-29 §D.3a 之 `$lookup` 全文格式），
+   結論寫入本 JOB；**未完成查證前不得實作**。
+   - ✅ **LOINC 檢索已完成（v0.8.2）**——見 §4.1.1 Q1。結論：LOINC 無對應碼。
+   - ✅ **SNOMED `698188003` 單碼語意軸已驗（v0.8.2）**——見 §4.1.1 Q2。
+   - ⏳ **SNOMED 關鍵字檢索尚未執行**——見 §4.2。**此項未完成前不得進入步驟 2**，
+     因其可能推翻 §4 之「自訂本地碼」方向，亦須複驗 §3.3 所引之「僅 6 個」。
 2. 全庫 `698188003` 之 13 處觸點逐一處置完畢，且**不再出現於任何 `Observation.code` 位置**
    （以腳本檢查 FSH 與已發佈 JSON，不得目視）。
 3. `Observation-obs-betelnut-never` 之 `code` 與 `value` **語意相容**；
@@ -272,7 +333,10 @@ tx = `https://tx.fhir.org/r4`。一次性步驟已於本次一併移除（驗收
 > ~~**步驟 1（先做，不改任何定義）**：加一次性 CI 步驟，對 tx 檢索 LOINC 是否有檳榔／檳榔子
 > 使用狀態之 observable 碼（關鍵字 betel、areca、quid；並 `$lookup` 任何命中碼之 SCALE_TYP 與 STATUS），
 > 將完整輸出貼回本 JOB §4.1，**取得結果後移除該步驟**。**未完成前不得進入步驟 2。**~~
-> ✅ 步驟 1 已於 v0.8.2 完成，結果見 §4.1.1：**LOINC 無檳榔相關碼**，故走「自訂本地碼」分支。
+> ⚠️ 步驟 1 於 v0.8.2 **只完成一半**：LOINC 檢索已做（§4.1.1 Q1，結論為無碼）、
+> `698188003` 單碼語意軸已驗（Q2）；**SNOMED 之關鍵字檢索從未執行**（§4.2）。
+> 進入步驟 2 前必須先補做 §4.2 之兩式 `$expand`——它可能推翻「自訂本地碼」之方向
+> （若 SNOMED 備有 observable entity），並須複驗 §3.3 所引「僅 6 個」之外部數字。
 > **步驟 2（依 §4 實作）**：`.code` 改為查證結果所定之問題碼（LOINC 優先，無則自訂本地碼）；
 > `.value` 之 `VS-BetelNutStatus` 四碼**不動**；`698188003` 改列為肯定式狀態之 SNOMED 對應，
 > 寫入 `terminology.md` 對照表，**不得放回 `.code`**；三個範例、`VS-CoreUploadSet`、
