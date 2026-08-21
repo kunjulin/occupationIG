@@ -17,11 +17,11 @@
 > 這是一份會被政府主管機關與臨床專家審查的規範文件，不是一般應用程式專案。
 > 敘述文字的精確性與代碼的正確性同等重要。
 
-### 1.1 現況（2026-08-21，v0.9.2）
+### 1.1 現況（2026-08-21，v0.9.3）
 
 | 項目 | 狀態 |
 |:--|:--|
-| 線上站台 | **v0.9.2**，gh-pages `ddab2cbe`（sourceCommit `114c312a`，15:12Z），已逐項複驗 |
+| 線上站台 | **v0.9.3**，gh-pages `24bdf5b1`（sourceCommit `39a3dcc7`，16:12Z），已逐項複驗 |
 | 版次來源 | `sushi-config.yaml` 之 `version`。⚠️ **本表會過期，動到版次時請一併更新**；有疑義以該檔為準 |
 | 嚼檳 `Observation.code` | **`CS-BetelNutObservable#betel-quid-chewing-status`**（v0.9.0 起）。⚠️ 不再是 `SCT#698188003` |
 | 送國健署確認單 | `docs/drafts/HPA-CONFIRMATION-JOB-30.md` — **阻擋已解除，可送出**；由 PI 核閱後以正式函文發出，**本團隊不逕行對外發送** |
