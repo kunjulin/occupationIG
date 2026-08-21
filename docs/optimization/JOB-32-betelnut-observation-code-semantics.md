@@ -390,7 +390,15 @@ substance／procedure／product——**全屬檳榔科植物之過敏原檢驗�
   `VS-CoreUploadSet.fsh` 1、`general-exam.md` 1、`datamodel.md` 1、`terminology.md` 3、
   `conformance.md` 1，另 `docs/drafts/HPA-CONFIRMATION-JOB-30.md` 1。
 
-### 5.2 與 JOB-30 §3.4 送簽確認單之時序衝突（**須先處置**）
+### 5.2 與 JOB-30 §3.4 送簽確認單之時序衝突（✅ **已解除，2026-08-21**）
+
+> ✅ **本節之衝突已消滅。** §0 之技術結構列已於 v0.9.0 改為
+> `CS-BetelNutObservable#betel-quid-chewing-status`，且該碼已實際發佈於線上站台
+> （gh-pages `a1446c07`，sourceCommit `6371a1de`）。確認單之送出阻擋隨之解除，
+> 解除紀錄見該檔檔頭。
+> ⚠️ **解除的只是「送出」。** §7 所列之三項（M-5 狀態、嚼檳系列 `experimental`、
+> Level 1 成熟度）**仍全部待書面依據**，不因本節解除而鬆動。
+> 以下原文保留，作為當時判斷之紀錄。
 
 `docs/drafts/HPA-CONFIRMATION-JOB-30.md` §0 現載明：
 
@@ -427,7 +435,8 @@ substance／procedure／product——**全屬檳榔科植物之過敏原檢驗�
    明列 `.code`／`.value`／`.component` 三層之對應。
 5. `VS-CoreUploadSet` 之嚼檳列同步更新；Level 1 逐列清單（`conformance.md` §7.2，21 列）
    之該列同步，**並重新逐列核對**。
-6. `docs/drafts/HPA-CONFIRMATION-JOB-30.md` 依 §5.2 之裁定處置；**確認單未處置前不得送出**。
+6. ✅ `docs/drafts/HPA-CONFIRMATION-JOB-30.md` 依 §5.2 之裁定處置；~~**確認單未處置前不得送出**~~
+   ——已於 v0.9.0 處置並經線上站台查核，送出阻擋已解除（見 §5.2 之解除註記）。
 7. JOB-29 §D.3a 之結論句依 §2.2 更正（保留原 `$lookup` 全文，僅更正推論）。
 8. 版次為 **minor**（建議 v0.7.0）並附遷移說明；`err` 仍為 0，具名類別無超出。
 

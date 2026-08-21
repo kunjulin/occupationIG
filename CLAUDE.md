@@ -128,6 +128,7 @@ template/             IG 模板之本機複本（角色待釐清，見 JOB-09）
 | 以「每新增一個 artifact 即 +10 筆斷鏈」推算 QA 增量 | 依**種類**：範例實例 **10**／CodeSystem・ValueSet **12**／Profile **18**（皆已含根層與 `zh-TW` 兩層）。舊的「一律 +10」是 JOB-05 以範例實例量得後被過度推廣（JOB-29 §D.5.1） |
 | 標 `standards-status` 卻不管資源自身的 `status` | IG Publisher 會交叉檢查：`draft` ↔ `status = draft`、`trial-use`／`normative` ↔ `status = active`。本 repo 全部 artifact 繼承 `sushi-config.yaml` 之 `status: active`，**標 `draft` 即自相矛盾**（JOB-30 實測命中 71 件）。故現行僅 Level 1 標 `trial-use`，其餘不標（JOB-30 §7.7） |
 | 新增 artifact 卻沒登記權責歸屬 | `scripts/governance-map.js` 須先登記（標籤＋合規層級），否則 `npm run check:gov` 失敗 |
+| 改了登記表卻沒改 [conformance.md](input/pagecontent/conformance.md) §7.4 的件數 | 該處**兩張表**（標籤件數／成熟度件數）與「現值」摘要句共 7 個數字已由 **G-5** 看管（`npm run check:gov`），自登記表動態算出。⚠️ 兩張表的合計相同純屬邊際巧合，**分類軸不同**，須分別更新——v0.9.0 手動更正時就只改了其中一張 |
 
 ---
 

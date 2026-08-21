@@ -265,6 +265,89 @@ function checkOverreach(root) {
   return { violations, exempted };
 }
 
+// ---------------------------------------------------------------- G-5
+// conformance.md §7.4 之**明文件數**必須等於自 MAP 算出來的數。
+//
+// 為什麼需要這道：G-1～G-3b 管的是每一件 artifact 的標籤與成熟度**規則**，
+// 敘述頁上那幾個「26 件」「51 件」則是人手抄的**統計**，沒有任何東西在看。
+// 實測後果：§7.4 之標籤件數自 v0.7.2（ConceptMap／NamingSystem 納入登記，101 → 104）
+// 起即與登記表脫鉤，v0.9.0 再 +1 成 105，前後**跨四個版次無人察覺**，
+// 直到有人回頭手數才發現。手數一次只能修這一次，修不掉「下次又會脫鉤」。
+//
+// ⚠️ 本閘門最關鍵之設計是**錨點失效等同失敗**。
+//    若只寫「找到數字就比對」，日後有人改寫表格措辭使正則不再命中，
+//    閘門會找不到任何數字而「通過」——那正是本 repo 一再踩到的靜默失效形態
+//    （JOB-23 之位置錨點、i18n 之缺鍵、JOB-34 之走訪腳本）。
+//    故：每一個錨點都**必須**命中，缺一即失敗，訊息明說是錨點失效而非數字不符。
+const COUNT_DOC = 'input/pagecontent/conformance.md';
+
+function docCountAnchors(want) {
+  // 每一項：[錨點名稱, 正則, 期望值陣列（依 capture group 順序）]
+  // 正則刻意綁在標籤字面上，不用相對位置——位置錨點正是 JOB-23 的教訓。
+  return [
+    ['§7.4 標籤表：國民健康署',
+      /\|\s*`【主管機關：國民健康署】`\s*\|[^|]*\|\s*(\d+)\s*\|/, [want.hpa]],
+    ['§7.4 標籤表：勞工健康保護規則附表',
+      /\|\s*`【依據：勞工健康保護規則附表】`\s*\|[^|]*\|\s*(\d+)\s*\|/, [want.reg]],
+    ['§7.4 標籤表：技術規格',
+      /\|\s*`【技術規格】`\s*\|[^|]*\|\s*(\d+)\s*\|/, [want.tech]],
+    ['§7.4 成熟度表：Level 1',
+      /\*\*Level 1\*\*（(\d+) 件）/, [want.l1]],
+    ['§7.4 成熟度表：Level 2',
+      /\*\*Level 2\*\*（(\d+) 件）/, [want.l2]],
+    ['§7.4 成熟度表：共用技術結構',
+      /共用技術結構（(\d+) 件）/, [want.l0]],
+    // 「現值」那一行是四個數字一起寫的摘要句。刻意綁 `現值` 二字，
+    // 以免吃到同段落中「原記 24／50／27，合計 101」等**歷史值**——
+    // 那些是沿革記載，必須留著，不得被閘門要求改成現值。
+    ['§7.4 現值摘要句',
+      /現值\s*\*\*(\d+)／(\d+)／(\d+)\s*＝\s*(\d+)\*\*/, [want.hpa, want.reg, want.tech, want.total]],
+  ];
+}
+
+function checkDocCounts(root, map) {
+  const violations = [];
+  const byTag = {};
+  const byLevel = {};
+  for (const [, [t, l]] of Object.entries(map)) {
+    byTag[t] = (byTag[t] || 0) + 1;
+    byLevel[l] = (byLevel[l] || 0) + 1;
+  }
+  const want = {
+    hpa: byTag.hpa || 0, reg: byTag.reg || 0, tech: byTag.tech || 0,
+    l1: byLevel[1] || 0, l2: byLevel[2] || 0, l0: byLevel[0] || 0,
+    total: Object.keys(map).length,
+  };
+
+  const file = path.join(root, COUNT_DOC);
+  if (!fs.existsSync(file)) {
+    violations.push(`[G-5] 找不到 ${COUNT_DOC}——無法比對明文件數。`);
+    return { violations, want, checked: 0 };
+  }
+  const text = fs.readFileSync(file, 'utf8');
+
+  let checked = 0;
+  for (const [name, re, expect] of docCountAnchors(want)) {
+    const m = text.match(re);
+    if (!m) {
+      violations.push(
+        `[G-5] 錨點失效：${COUNT_DOC} 找不到「${name}」。` +
+        `**這不是通過**——措辭若已改寫，請同步更新 scripts/check-governance-tags.js 之 docCountAnchors()。`);
+      continue;
+    }
+    checked += 1;
+    expect.forEach((exp, i) => {
+      const got = Number(m[i + 1]);
+      if (got !== exp) {
+        violations.push(
+          `[G-5] ${name}：文件寫 ${got}，登記表（governance-map.js）實為 ${exp}。` +
+          `⚠️ 先確認是文件過期還是登記表漏登，不要反射性改文件數字。`);
+      }
+    });
+  }
+  return { violations, want, checked };
+}
+
 // ---------------------------------------------------------------- 負向自測
 function selfTest() {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'govtag-'));
@@ -442,6 +525,76 @@ function selfTest() {
   mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use') + good('VS-Bad', TAGS.reg, 'draft', 'draft'));
   run('⑦ 齊備時不誤報（正向對照）', () => checkArtifacts(tmp, M).violations.length === 0);
 
+  // ---- G-5：敘述頁明文件數 vs 登記表 ------------------------------------
+  // fixture 之 MAP：hpa 2／reg 1／tech 1，Level 1 = 2、Level 2 = 1、Level 0 = 1，合計 4。
+  const CM = { 'A': ['hpa', 1], 'B': ['hpa', 1], 'C': ['reg', 2], 'D': ['tech', 0] };
+  const doc = (hpa, reg, tech, l1, l2, l0, cur) =>
+    '### 7.4 artifact 之權責標籤與成熟度\n\n' +
+    '| 標籤 | 意義 | 件數 |\n|:--|:--|--:|\n' +
+    `| \`【主管機關：國民健康署】\` | x | ${hpa} |\n` +
+    `| \`【依據：勞工健康保護規則附表】\` | x | ${reg} |\n` +
+    `| \`【技術規格】\` | x | ${tech} |\n\n` +
+    `> ⚠️ 沿革：原記 24／50／27，合計 101。現值 **${cur}**\n\n` +
+    '| 層級 | `standards-status` | 資源之 `status` |\n|:--|:--|:--|\n' +
+    `| **Level 1**（${l1} 件） | \`trial-use\` | \`active\` |\n` +
+    `| **Level 2**（${l2} 件） | \`draft\` | **\`draft\`** |\n` +
+    `| 共用技術結構（${l0} 件） | 不標 | \`active\` |\n`;
+  const writeDoc = (body) => {
+    fs.mkdirSync(path.join(tmp, 'input', 'pagecontent'), { recursive: true });
+    fs.writeFileSync(path.join(tmp, COUNT_DOC), body);
+  };
+
+  // ⑬ 標籤表件數與登記表不符 → 必須被抓到（即 v0.7.2～v0.9.0 之實際形態）
+  reset();
+  writeDoc(doc(24, 1, 1, 2, 1, 1, '2／1／1 ＝ 4'));
+  run('⑬ 標籤表件數過期', () =>
+    checkDocCounts(tmp, CM).violations.some((v) => v.includes('國民健康署') && v.includes('登記表')));
+
+  // ⑬b 成熟度表件數與登記表不符 → 必須被抓到。
+  //     ⚠️ 這一案是**實戰抓出來的**：v0.9.0 手動更正時只改了標籤表，
+  //     下方成熟度表的 24／50／27 原封不動留著。兩張表要分別看，不能只看一張。
+  reset();
+  writeDoc(doc(2, 1, 1, 24, 50, 27, '2／1／1 ＝ 4'));
+  run('⑬b 成熟度表件數過期', () =>
+    checkDocCounts(tmp, CM).violations.some((v) => v.includes('Level 1') && v.includes('登記表')));
+
+  // ⑬c 現值摘要句與登記表不符 → 必須被抓到（含合計）
+  reset();
+  writeDoc(doc(2, 1, 1, 2, 1, 1, '2／1／1 ＝ 99'));
+  run('⑬c 現值摘要句之合計過期', () =>
+    checkDocCounts(tmp, CM).violations.some((v) => v.includes('現值摘要句')));
+
+  // ⑬d **錨點失效必須等同失敗，不得靜默通過**——本閘門最重要的一案。
+  //     若表格措辭被改寫使正則不再命中，閘門會一個數字都比不到；
+  //     此時「沒有不符」絕不等於「通過」，那正是本 repo 一再踩到的靜默失效。
+  reset();
+  writeDoc('### 7.4 artifact 之權責標籤與成熟度\n\n（表格已被改寫成散文，正則全部落空）\n');
+  run('⑬d 錨點失效判為失敗', () => {
+    const r = checkDocCounts(tmp, CM);
+    return r.checked === 0 && r.violations.length === 7 && r.violations.every((v) => v.includes('錨點失效'));
+  });
+
+  // ⑬e 文件不存在 → 失敗（而非當成沒東西可查）
+  reset();
+  run('⑬e 敘述頁不存在判為失敗', () =>
+    checkDocCounts(tmp, CM).violations.some((v) => v.includes('找不到')));
+
+  // ⑬f 全部相符 → 不得誤報（正向對照）
+  reset();
+  writeDoc(doc(2, 1, 1, 2, 1, 1, '2／1／1 ＝ 4'));
+  run('⑬f 件數全部相符（正向對照）', () => {
+    const r = checkDocCounts(tmp, CM);
+    return r.violations.length === 0 && r.checked === 7;
+  });
+
+  // ⑬g 沿革句中的歷史值不得被誤判為現值（正向對照）。
+  //     fixture 之沿革句刻意保留「原記 24／50／27，合計 101」——那是必須留存的
+  //     版次沿革記載，閘門若連它一起要求改成現值，等於逼人竄改歷史。
+  reset();
+  writeDoc(doc(2, 1, 1, 2, 1, 1, '2／1／1 ＝ 4'));
+  run('⑬g 沿革句之歷史值不誤判（正向對照）', () =>
+    checkDocCounts(tmp, CM).violations.length === 0);
+
   let bad = 0;
   console.log('負向自我測試（負向案必須被抓到；標「正向對照」者必須不被抓到）：');
   for (const [name, ok] of results) {
@@ -460,6 +613,7 @@ function main() {
 
   const a = checkArtifacts(path.join(root, 'input', 'fsh'), MAP);
   const o = checkOverreach(root);
+  const d = checkDocCounts(root, MAP);
 
   const byTag = {};
   const byLevel = {};
@@ -478,13 +632,18 @@ function main() {
     o.exempted.forEach((e) => console.log(`    - ${e}`));
   }
 
-  const all = [...a.violations, ...o.violations];
+  console.log(`  G-5 敘述頁件數　${COUNT_DOC} 比中 ${d.checked}／7 個錨點` +
+              `（國健署 ${d.want.hpa}／附表 ${d.want.reg}／技術 ${d.want.tech}，` +
+              `Level 1 ${d.want.l1}／Level 2 ${d.want.l2}／共用 ${d.want.l0}，合計 ${d.want.total}）`);
+
+  const all = [...a.violations, ...o.violations, ...d.violations];
   if (all.length) {
     console.error(`\n✖ 權責標籤閘門失敗，共 ${all.length} 筆：`);
     all.forEach((v) => console.error('  ' + v));
     process.exit(1);
   }
-  console.log('\n✔ 權責標籤與合規層級一致，且無把職安署寫成本指引治理／主管機關之表述。');
+  console.log('\n✔ 權責標籤與合規層級一致，敘述頁明文件數與登記表相符，' +
+              '且無把職安署寫成本指引治理／主管機關之表述。');
 }
 
 main();

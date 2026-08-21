@@ -250,6 +250,11 @@ set NODE_OPTIONS=--use-system-ca
   v0.8.0 警語收斂＋未決事項外移＋31 處連結改寫；v0.9.0 canonical 與發布模式
   （須先實跑 D-2；**不得為消除 banner 而謊報 `package-list` 狀態卻不改 canonical**）。
 
+> ⚠️ **上列第三步之版次標號已被佔用**：`0.9.0` 實際發佈的是 JOB-32 步驟 2
+> （嚼檳 `Observation.code` 換碼），與 canonical 無關。**本步驟目前無版次**，
+> 仍待裁示；其技術內容與前提（先實跑 D-2、不得謊報 `package-list` 狀態）不受影響。
+> 此處保留原文不改寫——那是當時的規劃紀錄，只加註以免誤讀為「v0.9.0 已處理 canonical」。
+
 **本版不實作，待裁示後執行。**
 
 ### v0.7.2（2026-08-21）委員意見：`Observation.code` 之語意角色（JOB-32 評估，未變更任何定義）
