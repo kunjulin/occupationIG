@@ -54,6 +54,17 @@ Description: "【技術規格】本 Profile 用於定義一般健康檢查、勞
 * section[labExams].title = "檢驗與影像檢查"
 * section[labExams].entry only Reference(Observation or DiagnosticReport or ImagingStudy)
 
+// ⚠️ v0.8.5：entry 加入 TWHAHealthManagementLevelProfile。
+// 本節標題寫著「分級」，型別卻不收承載分級的那個資源（該 profile 基底為 Observation），
+// 致 composition-uc003 無法把 obs-health-mgmt-level 歸入任何 section。
+//
+// 這不是就個案放寬：TWHA-Composition-EmployerSummary 之 section[healthManagement]
+// **使用同一個 LOINC 碼 51848-0**，且明文允許 TWHAHealthManagementLevelProfile。
+// section 切片之判別子為 code 之 pattern，故兩者在 FHIR 眼中就是同一個 section——
+// 本次係使兩個 profile 對同一個 section 的認定一致，非新增能力。
+//
+// 屬**放寬**：既有實例全數仍合法，非破壞性變更。加的是 profile 而非裸 Observation，
+// 故仍不允許任意 Observation 進入本節。
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "醫師總評、分級與建議"
-* section[assessment].entry only Reference(ClinicalImpression or CarePlan or ServiceRequest or Procedure)
+* section[assessment].entry only Reference(ClinicalImpression or CarePlan or ServiceRequest or Procedure or TWHAHealthManagementLevelProfile)

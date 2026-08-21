@@ -7,7 +7,7 @@
 | **預估** | S（診斷已完成）＋ M（實作，視裁定方向） |
 | **主要影響檔案** | `input/fsh/examples/07-compositions.fsh`、`09-bundles.fsh`、`11-special-exam-followup.fsh` |
 | **緣起** | JOB-31 §4 具名化時發現：89 筆 WARNING 中有 17 筆屬結構問題，先前僅由 `totals.warn` 一個數字間接看管 |
-| **狀態** | ⚙️ **步驟 2 已實作（v0.8.4）**——UC-003 之不可達 entry 由 11 降為 **1**，僅動範例層（`07-compositions.fsh`、`09-bundles.fsh`），**未動任何 profile**。餘 1 筆（`obs-health-mgmt-level`）卡在兩個 profile 對同一 LOINC section 的認定不一致，見 §2.5，**待裁示**。ImagingStudy 7 筆依 §3.4 採 (A) 維持現狀＋載明 |
+| **狀態** | ✅ **步驟 2 完成（v0.8.4 ＋ v0.8.5）**——UC-003 之不可達 entry 由 11 降為 **1**，僅動範例層（`07-compositions.fsh`、`09-bundles.fsh`），**未動任何 profile**。餘 1 筆（`obs-health-mgmt-level`）已依 PI 裁示採 (A) 於 v0.8.5 解決，**七個 Bundle 之不可達 entry 全數歸零**。同型問題另有一處（`TWHA-Composition-EmergencySummary`）未處置，見 §2.6。ImagingStudy 7 筆依 §3.4 採 (A) 維持現狀＋載明 |
 
 ---
 
@@ -177,12 +177,34 @@ section 標題寫著**「分級」**，型別卻不收承載分級的那個資�
 
 | 選項 | 說明 | 風險 |
 |:--|:--|:--|
-| **(A) 把 `TWHAHealthManagementLevelProfile` 加入 `TWHA-Composition.section[assessment].entry`（建議）** | 使兩個 profile 對 `51848-0` 的認定一致。屬**放寬**，既有實例全數仍合法，非破壞性變更 | 低，惟屬已發佈 profile 之定義變更 |
-| (B) 自 UC-003 移除 `obs-health-mgmt-level` | 分級已由 `example-clinical-impression.extension[healthMgmtLevel]` 表達，該 Observation 於 UC-006 之雇主端摘要仍有覆蓋 | 低，但等於承認主文件不放分級 Observation，與 §2.5 的不一致並存 |
+| **(A) 把 `TWHAHealthManagementLevelProfile` 加入 `TWHA-Composition.section[assessment].entry`** | 使兩個 profile 對 `51848-0` 的認定一致。屬**放寬**，既有實例全數仍合法，非破壞性變更 | 低，惟屬已發佈 profile 之定義變更 |
+| (B) 自 UC-003 移除 `obs-health-mgmt-level` | 分級已由 `example-clinical-impression.extension[healthMgmtLevel]` 表達 | 低，但等於承認主文件不放分級 Observation |
 | (C) 維持現狀，保留 1 筆 WARNING | 不動任何定義 | 把已查明的建模不一致留在原地 |
 
-> ⚠️ **本文件不逕行採 (A)**：那是對已發佈 profile 之定義變更，依本案慣例須裁示。
-> 已實作者僅止於範例層（§2.4），未動任何 profile。
+✅ **PI 已裁示採 (A)（2026-08-21），已於 v0.8.5 實作。**
+加入者為 **profile 而非裸 `Observation`**，故本節仍不允許任意 Observation 進入。
+`composition-uc003` 之 assessment 依標題次序排列：總評 → 分級 → 建議。
+實測全部七個 document Bundle 之不可達 entry **歸零**。
+
+### 2.6 ⚠️ 同型問題另有一處，本版未處置（新發現）
+
+`51848-0` 在本 IG 實際上有**三個** profile 使用，型別認定三種：
+
+| profile | section | entry 允許型別 |
+|:--|:--|:--|
+| `TWHA-Composition` | `assessment` | ClinicalImpression／CarePlan／ServiceRequest／Procedure ＋ **分級 profile（v0.8.5 加入）** |
+| `TWHA-Composition-EmployerSummary` | `healthManagement` | **分級 profile**／總評 profile／配工 profile |
+| `TWHA-Composition-EmergencySummary` | `assessment` | ClinicalImpression／CarePlan **（無分級 profile）** |
+
+⚠️ 第三列之問題比第一列更明確：**該 profile 自身的 `Description` 就寫著**
+「供急診醫師快速掌握其……以及**健康管理分級**」、「將……總評分級以 `section.entry` 引用」，
+但其 `section[assessment].entry` 並不收承載分級的資源——**文件承諾與型別約束互相矛盾**。
+
+**本版未處置**，理由有二：(1) PI 之裁示範圍為 `TWHA-Composition`；
+(2) 目前無任何實例把分級放進該摘要，故不產生 WARNING、無 QA 訊號。
+**惟這正是它值得單獨登記的原因**——沒有訊號的矛盾不會自己浮出來。
+處置方式與 (A) 相同（一行），待裁示。
+
 
 ---
 

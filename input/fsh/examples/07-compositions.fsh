@@ -91,9 +91,11 @@ Description: "整合王大同噪音/鉛/粉塵特殊危害作業檢查項目的 
 * section[labExams].entry[3] = Reference(example-diagnostic-report)
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "醫師總評、分級與建議"
+// 依本節標題「醫師總評、分級與建議」之次序排列：總評 → 分級 → 建議。
 * section[assessment].entry[0] = Reference(example-clinical-impression)
-* section[assessment].entry[1] = Reference(example-careplan-fitness)
-* section[assessment].entry[2] = Reference(example-servicerequest-followup)
+* section[assessment].entry[1] = Reference(obs-health-mgmt-level)
+* section[assessment].entry[2] = Reference(example-careplan-fitness)
+* section[assessment].entry[3] = Reference(example-servicerequest-followup)
 
 Instance: composition-uc004
 InstanceOf: TWHACompositionProfile
