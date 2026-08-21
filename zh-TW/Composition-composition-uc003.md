@@ -1,4 +1,4 @@
-# 特殊危害健康作業檢查報告組成文件範例 (UC-003) - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
+# 特殊危害健康作業檢查報告組成文件範例 (UC-003) - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
 
 ## 範例 Composition: 特殊危害健康作業檢查報告組成文件範例 (UC-003)
 
@@ -53,7 +53,7 @@ Profile: [健康檢查健檢報告組成結構 Profile](StructureDefinition-TWHA
       "reference" : "Patient/example-worker"
     },
     {
-      "reference" : "Encounter/example-encounter-general"
+      "reference" : "Encounter/example-encounter-special"
     }]
   },
   {
@@ -66,6 +66,42 @@ Profile: [健康檢查健檢報告組成結構 Profile](StructureDefinition-TWHA
     },
     "entry" : [{
       "reference" : "ClinicalImpression/example-clinical-impression"
+    },
+    {
+      "reference" : "Observation/obs-health-mgmt-level"
+    },
+    {
+      "reference" : "CarePlan/example-careplan-fitness"
+    },
+    {
+      "reference" : "ServiceRequest/example-servicerequest-followup"
+    }]
+  },
+  {
+    "title" : "作業經歷",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "11341-5"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Observation/obs-occupation"
+    }]
+  },
+  {
+    "title" : "生活習慣",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "11338-1"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Observation/obs-alcohol"
+    },
+    {
+      "reference" : "Observation/obs-smoking-former"
     }]
   },
   {
@@ -90,6 +126,15 @@ Profile: [健康檢查健檢報告組成結構 Profile](StructureDefinition-TWHA
     },
     "entry" : [{
       "reference" : "Observation/obs-pulmonary"
+    },
+    {
+      "reference" : "Observation/obs-ecg"
+    },
+    {
+      "reference" : "ImagingStudy/example-imaging-chest-xray"
+    },
+    {
+      "reference" : "DiagnosticReport/example-diagnostic-report"
     }]
   }]
 }

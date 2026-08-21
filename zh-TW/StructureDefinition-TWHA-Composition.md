@@ -1,4 +1,4 @@
-# 健康檢查健檢報告組成結構 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
+# 健康檢查健檢報告組成結構 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
 
 ## 資源 Profile: 健康檢查健檢報告組成結構 Profile 
 
@@ -40,6 +40,7 @@ This structure refers to these other structures:
 * [受檢者 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient)](StructureDefinition-TWHA-Patient.md)
 * [執業/健檢醫護與服務人員 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner)](StructureDefinition-TWHA-Practitioner.md)
 * [健康檢查健檢就醫事件 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter)](StructureDefinition-TWHA-Encounter.md)
+* [健康檢查健康管理分級 Observation Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel)](StructureDefinition-TWHA-HealthManagementLevel.md)
 
 **Slices**
 
@@ -72,6 +73,7 @@ This structure refers to these other structures:
 * [受檢者 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient)](StructureDefinition-TWHA-Patient.md)
 * [執業/健檢醫護與服務人員 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner)](StructureDefinition-TWHA-Practitioner.md)
 * [健康檢查健檢就醫事件 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter)](StructureDefinition-TWHA-Encounter.md)
+* [健康檢查健康管理分級 Observation Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel)](StructureDefinition-TWHA-HealthManagementLevel.md)
 
 **Slices**
 
@@ -92,12 +94,12 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Composition",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition",
-  "version" : "0.8.1",
+  "version" : "0.8.5",
   "name" : "TWHACompositionProfile",
   "title" : "健康檢查健檢報告組成結構 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-21T04:20:36+00:00",
+  "date" : "2026-08-21T12:32:47+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -447,7 +449,8 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/ClinicalImpression",
         "http://hl7.org/fhir/StructureDefinition/CarePlan",
         "http://hl7.org/fhir/StructureDefinition/ServiceRequest",
-        "http://hl7.org/fhir/StructureDefinition/Procedure"]
+        "http://hl7.org/fhir/StructureDefinition/Procedure",
+        "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel"]
       }]
     }]
   }

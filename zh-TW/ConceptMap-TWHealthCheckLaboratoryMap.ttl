@@ -19,8 +19,9 @@
      fhir:Extension.valueCode [ fhir:value "trial-use" ]
   ] ;
   fhir:ConceptMap.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap"] ;
-  fhir:ConceptMap.version [ fhir:value "0.8.1"] ;
+  fhir:ConceptMap.version [ fhir:value "0.8.5"] ;
   fhir:ConceptMap.name [ fhir:value "TWHealthCheckLaboratoryMap"] ;
+  fhir:ConceptMap.title [ fhir:value "健康檢查檢驗項目代碼對應 ConceptMap"] ;
   fhir:ConceptMap.status [ fhir:value "active"] ;
   fhir:ConceptMap.experimental [ fhir:value "false"^^xsd:boolean] ;
   fhir:ConceptMap.date [ fhir:value "2026-07-26"^^xsd:date] ;

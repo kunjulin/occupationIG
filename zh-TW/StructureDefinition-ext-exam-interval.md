@@ -1,4 +1,4 @@
-# 健康檢查實施週期擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
+# 健康檢查實施週期擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
 
 ## 擴充: 健康檢查實施週期擴充 
 
@@ -11,7 +11,7 @@
 **Usages:**
 
 * Use this Extension: [健康檢查健檢就醫事件 Profile](StructureDefinition-TWHA-Encounter.md)
-* Examples for this Extension: [Bundle/UC-001](Bundle-UC-001.md), [Bundle/UC-002](Bundle-UC-002.md), [Bundle/UC-003](Bundle-UC-003.md), [Bundle/UC-004](Bundle-UC-004.md)... Show 2 more, [Bundle/UC-005](Bundle-UC-005.md) and [Encounter/example-encounter-general](Encounter-example-encounter-general.md)
+* Examples for this Extension: [Bundle/UC-001](Bundle-UC-001.md), [Bundle/UC-002](Bundle-UC-002.md), [Bundle/UC-004](Bundle-UC-004.md), [Bundle/UC-005](Bundle-UC-005.md) and [Encounter/example-encounter-general](Encounter-example-encounter-general.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-ext-exam-interval.json)
 
@@ -57,12 +57,12 @@ Simple Extension with the type Quantity: 【依據：勞工健康保護規則附
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval",
-  "version" : "0.8.1",
+  "version" : "0.8.5",
   "name" : "ExtExamInterval",
   "title" : "健康檢查實施週期擴充",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-21T04:20:36+00:00",
+  "date" : "2026-08-21T12:32:47+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

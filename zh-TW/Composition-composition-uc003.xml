@@ -37,7 +37,7 @@
       <reference value="Patient/example-worker"/>
     </entry>
     <entry>
-      <reference value="Encounter/example-encounter-general"/>
+      <reference value="Encounter/example-encounter-special"/>
     </entry>
   </section>
   <section>
@@ -50,6 +50,42 @@
     </code>
     <entry>
       <reference value="ClinicalImpression/example-clinical-impression"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-health-mgmt-level"/>
+    </entry>
+    <entry>
+      <reference value="CarePlan/example-careplan-fitness"/>
+    </entry>
+    <entry>
+      <reference value="ServiceRequest/example-servicerequest-followup"/>
+    </entry>
+  </section>
+  <section>
+    <title value="作業經歷"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="11341-5"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Observation/obs-occupation"/>
+    </entry>
+  </section>
+  <section>
+    <title value="生活習慣"/>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="11338-1"/>
+      </coding>
+    </code>
+    <entry>
+      <reference value="Observation/obs-alcohol"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-smoking-former"/>
     </entry>
   </section>
   <section>
@@ -74,6 +110,15 @@
     </code>
     <entry>
       <reference value="Observation/obs-pulmonary"/>
+    </entry>
+    <entry>
+      <reference value="Observation/obs-ecg"/>
+    </entry>
+    <entry>
+      <reference value="ImagingStudy/example-imaging-chest-xray"/>
+    </entry>
+    <entry>
+      <reference value="DiagnosticReport/example-diagnostic-report"/>
     </entry>
   </section>
 </Composition>

@@ -1,4 +1,4 @@
-# 特別危害健康作業危害因子暴露史 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
+# 特別危害健康作業危害因子暴露史 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
 
 ## 資源 Profile: 特別危害健康作業危害因子暴露史 Profile 
 
@@ -96,12 +96,12 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-WorkExposure",
-  "version" : "0.8.1",
+  "version" : "0.8.5",
   "name" : "TWHAWorkExposureProfile",
   "title" : "特別危害健康作業危害因子暴露史 Profile",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-21T04:20:36+00:00",
+  "date" : "2026-08-21T12:32:47+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

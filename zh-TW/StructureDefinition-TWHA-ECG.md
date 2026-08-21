@@ -1,4 +1,4 @@
-# 心電圖檢查 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
+# 心電圖檢查 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
 
 ## 資源 Profile: 心電圖檢查 Profile 
 
@@ -82,12 +82,12 @@ This structure refers to these other structures:
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ECG",
-  "version" : "0.8.1",
+  "version" : "0.8.5",
   "name" : "TWHAECGProfile",
   "title" : "心電圖檢查 Profile",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-21T04:20:36+00:00",
+  "date" : "2026-08-21T12:32:47+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

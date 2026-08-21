@@ -1,4 +1,4 @@
-# 部門/課別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
+# 部門/課別擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
 
 ## 擴充: 部門/課別擴充 
 
@@ -53,12 +53,12 @@ Simple Extension with the type string: 【技術規格】記錄受檢勞工於�
   "resourceType" : "StructureDefinition",
   "id" : "ext-department",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-department",
-  "version" : "0.8.1",
+  "version" : "0.8.5",
   "name" : "ExtDepartment",
   "title" : "部門/課別擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-21T04:20:36+00:00",
+  "date" : "2026-08-21T12:32:47+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

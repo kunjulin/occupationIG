@@ -3,7 +3,7 @@
 <NamingSystem xmlns="http://hl7.org/fhir">
   <id value="NS-ReportIdentifier"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: 命名系统 NS-ReportIdentifier</b></p><a name="NS-ReportIdentifier"> </a><a name="hcNS-ReportIdentifier"> </a><h3>Summary</h3><table class="grid"><tr><td>Defining URL</td><td>https://twcore.mohw.gov.tw/ig/twha/NamingSystem/NS-ReportIdentifier</td></tr><tr><td>Version</td><td>0.8.1</td></tr><tr><td>Name</td><td>TWHAReportIdentifier</td></tr><tr><td>Status</td><td>draft</td></tr><tr><td>Definition</td><td><div><p>【技術規格】勞工健康檢查報告封包（Bundle）之識別碼命名空間。</p>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: 命名系统 NS-ReportIdentifier</b></p><a name="NS-ReportIdentifier"> </a><a name="hcNS-ReportIdentifier"> </a><h3>Summary</h3><table class="grid"><tr><td>Defining URL</td><td>https://twcore.mohw.gov.tw/ig/twha/NamingSystem/NS-ReportIdentifier</td></tr><tr><td>Version</td><td>0.8.5</td></tr><tr><td>Name</td><td>TWHAReportIdentifier</td></tr><tr><td>Status</td><td>draft</td></tr><tr><td>Definition</td><td><div><p>【技術規格】勞工健康檢查報告封包（Bundle）之識別碼命名空間。</p>
 <p><strong>唯一性要求</strong>：值在同一健檢機構內須唯一且不重複使用；跨機構之唯一性由
 「命名空間 + 值」的組合達成。上傳端據此判定是否為同一份封包之重送（去重）。</p>
 <p><strong>穩定性要求</strong>：同一份健檢報告重新上傳（例如更正後重送）時<strong>應沿用相同的識別碼</strong>，
@@ -15,7 +15,7 @@
     <valueUri value="https://twcore.mohw.gov.tw/ig/twha/NamingSystem/NS-ReportIdentifier"/>
   </extension>
   <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.version">
-    <valueString value="0.8.1"/>
+    <valueString value="0.8.5"/>
   </extension>
   <name value="TWHAReportIdentifier"/>
   <status value="draft"/>

@@ -36,7 +36,7 @@
       "reference" : "Patient/example-worker"
     },
     {
-      "reference" : "Encounter/example-encounter-general"
+      "reference" : "Encounter/example-encounter-special"
     }]
   },
   {
@@ -49,6 +49,42 @@
     },
     "entry" : [{
       "reference" : "ClinicalImpression/example-clinical-impression"
+    },
+    {
+      "reference" : "Observation/obs-health-mgmt-level"
+    },
+    {
+      "reference" : "CarePlan/example-careplan-fitness"
+    },
+    {
+      "reference" : "ServiceRequest/example-servicerequest-followup"
+    }]
+  },
+  {
+    "title" : "作業經歷",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "11341-5"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Observation/obs-occupation"
+    }]
+  },
+  {
+    "title" : "生活習慣",
+    "code" : {
+      "coding" : [{
+        "system" : "http://loinc.org",
+        "code" : "11338-1"
+      }]
+    },
+    "entry" : [{
+      "reference" : "Observation/obs-alcohol"
+    },
+    {
+      "reference" : "Observation/obs-smoking-former"
     }]
   },
   {
@@ -73,6 +109,15 @@
     },
     "entry" : [{
       "reference" : "Observation/obs-pulmonary"
+    },
+    {
+      "reference" : "Observation/obs-ecg"
+    },
+    {
+      "reference" : "ImagingStudy/example-imaging-chest-xray"
+    },
+    {
+      "reference" : "DiagnosticReport/example-diagnostic-report"
     }]
   }]
 }

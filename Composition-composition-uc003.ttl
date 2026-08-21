@@ -58,8 +58,8 @@
        fhir:Reference.reference [ fhir:value "Patient/example-worker" ]
      ], [
        fhir:index 1 ;
-       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-general> ;
-       fhir:Reference.reference [ fhir:value "Encounter/example-encounter-general" ]
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Encounter/example-encounter-special> ;
+       fhir:Reference.reference [ fhir:value "Encounter/example-encounter-special" ]
      ]
   ], [
      fhir:index 1 ;
@@ -76,9 +76,57 @@
        fhir:index 0 ;
        fhir:link <https://twcore.mohw.gov.tw/ig/twha/ClinicalImpression/example-clinical-impression> ;
        fhir:Reference.reference [ fhir:value "ClinicalImpression/example-clinical-impression" ]
+     ], [
+       fhir:index 1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-health-mgmt-level> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-health-mgmt-level" ]
+     ], [
+       fhir:index 2 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/CarePlan/example-careplan-fitness> ;
+       fhir:Reference.reference [ fhir:value "CarePlan/example-careplan-fitness" ]
+     ], [
+       fhir:index 3 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/ServiceRequest/example-servicerequest-followup> ;
+       fhir:Reference.reference [ fhir:value "ServiceRequest/example-servicerequest-followup" ]
      ]
   ], [
      fhir:index 2 ;
+     fhir:Composition.section.title [ fhir:value "作業經歷" ] ;
+     fhir:Composition.section.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         a loinc:11341-5 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "11341-5" ]
+       ]
+     ] ;
+     fhir:Composition.section.entry [
+       fhir:index 0 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-occupation> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-occupation" ]
+     ]
+  ], [
+     fhir:index 3 ;
+     fhir:Composition.section.title [ fhir:value "生活習慣" ] ;
+     fhir:Composition.section.code [
+       fhir:CodeableConcept.coding [
+         fhir:index 0 ;
+         a loinc:11338-1 ;
+         fhir:Coding.system [ fhir:value "http://loinc.org" ] ;
+         fhir:Coding.code [ fhir:value "11338-1" ]
+       ]
+     ] ;
+     fhir:Composition.section.entry [
+       fhir:index 0 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-alcohol> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-alcohol" ]
+     ], [
+       fhir:index 1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-smoking-former> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-smoking-former" ]
+     ]
+  ], [
+     fhir:index 4 ;
      fhir:Composition.section.title [ fhir:value "理學檢查" ] ;
      fhir:Composition.section.code [
        fhir:CodeableConcept.coding [
@@ -94,7 +142,7 @@
        fhir:Reference.reference [ fhir:value "Observation/obs-hearing" ]
      ]
   ], [
-     fhir:index 3 ;
+     fhir:index 5 ;
      fhir:Composition.section.title [ fhir:value "檢驗與影像檢查" ] ;
      fhir:Composition.section.code [
        fhir:CodeableConcept.coding [
@@ -108,6 +156,18 @@
        fhir:index 0 ;
        fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-pulmonary> ;
        fhir:Reference.reference [ fhir:value "Observation/obs-pulmonary" ]
+     ], [
+       fhir:index 1 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/Observation/obs-ecg> ;
+       fhir:Reference.reference [ fhir:value "Observation/obs-ecg" ]
+     ], [
+       fhir:index 2 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/ImagingStudy/example-imaging-chest-xray> ;
+       fhir:Reference.reference [ fhir:value "ImagingStudy/example-imaging-chest-xray" ]
+     ], [
+       fhir:index 3 ;
+       fhir:link <https://twcore.mohw.gov.tw/ig/twha/DiagnosticReport/example-diagnostic-report> ;
+       fhir:Reference.reference [ fhir:value "DiagnosticReport/example-diagnostic-report" ]
      ]
   ] .
 
