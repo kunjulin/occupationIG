@@ -261,6 +261,57 @@ $TX/ValueSet/$expand?url=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs&filter=areca&c
 **限制（結果出來後仍需載明）**：`$expand` 預設不含 inactive 概念；
 `filter` 係對 display／designation 之文字比對，非語意檢索。
 
+#### 4.2.1 第一輪結果（commit `e814e7d9`，run 32466291783／job 96723502961，2026-08-21T09:12Z）
+
+**⚠️ 本輪只答出一半，且是靜靜地少了一半——先講缺陷再講結果。**
+
+逐碼 `$lookup` 只帶了 `property=parent&property=inactive`，tx 遂**未回傳 designation**，
+於是 FSN 與語意標籤**一行都沒印出來**，而該步驟不會失敗、CI 全綠。
+本文件所設計的判讀依據（語意標籤）等於整個落空，卻沒有任何訊號提示。
+
+> 這與本 JOB 反覆記載的失效模式是同一個：**把「沒印出來」讀成「沒有」**。
+> 若當時逕以 `parent` 反推「都不是 observable entity」，就正是 §2.2 所更正的
+> 「把佐證讀成結論」——換一個位置再犯一次。故本輪**不下語意結論**，改以第二輪重問。
+
+**已成立之部分：關鍵字檢索本身有效。** 兩式皆 `count=100`，回傳筆數 < 100，故**無截斷**。
+
+| `filter` | 回傳 | 命中碼 |
+|:--|--:|:--|
+| `betel` | **7** | `25933002` Betel deposit on teeth／`75980007` Areca catechu／`227380001` Betel leaf／`227491007` Betel nut／`699276000` Betel chewer's mucosa／`698188003` Chews betel quid／**`113697002` Stenotrophomonas maltophilia** |
+| `areca` | **7** | `3927007` Areca／`75980007` Areca catechu／`227491007` Betel nut／`387942003` Queen palm specific immunoglobulin E／`392348004` Queen palm specific IgE antibody measurement／`411902005` Queen palm diagnostic allergen extract／`107631008` Family Arecaceae |
+
+union 去重 **12 碼**。
+
+> ⚠️ `113697002 Stenotrophomonas maltophilia`（一種細菌）出現在 `betel` 命中中，
+> 與 LOINC 那輪 `quid` 命中 `liquid` 是**同一類假陽性**：`filter` 是文字比對，不是語意檢索。
+> 兩輪各出現一次，可見這不是偶發——**關鍵字檢索的結果一律要逐筆看過，不能只看筆數**。
+
+**對 Q5（委員「僅 6 個」）之初步對照**：`betel` 之 7 筆扣除上開細菌 = **6**，與委員之數字相符。
+惟「相符」尚不等於「已複驗」——本輪未取得 FSN，無法逐筆確認其語意類別，
+亦未確認委員當時之計數口徑（是否含 `areca` 側、是否含 inactive）。**待第二輪定案。**
+
+**對 Q4（有無 observable entity）**：⚠️ **本輪無結論。** 12 碼之 `parent` 雖已取得
+（如 `698188003` → `409069009`、`227491007` → `13577000`），但以 parent 反推語意類別
+即為上開之「佐證讀成結論」，故不採。
+
+#### 4.2.2 第二輪之設計變更：改用階層限定檢索，不再解析 FSN 字串
+
+第二輪不修補「要記得帶 designation」了事，而是**換一個不會靜默失敗的問法**：
+
+```
+$TX/ValueSet/$expand?url=…sct%3Ffhir_vs%3Disa%2F363787002&filter=betel   ← Observable entity 階層
+$TX/ValueSet/$expand?url=…sct%3Ffhir_vs%3Disa%2F404684003&filter=betel   ← Clinical finding 階層（對照組）
+```
+
+- 回 0 筆 = **tx 依 SNOMED 階層算出來的「沒有」**，不是我方以 parent 反推的推論。
+- **Clinical finding 作對照組是必要的**：否則「Observable entity 回 0 筆」與
+  「查詢式根本壞掉」外觀完全相同。對照組回得出東西，才證明查詢式會回東西。
+- 腳本另分三種輸出：`OperationOutcome`（查詢未成立，**明文標示不得解讀為 0 筆**）／
+  空展開（查詢成立但無命中）／有命中。**第一輪的失敗正是這三者外觀相同。**
+- 逐碼 `$lookup` 同時補帶 `property=designation`；若回應仍不含 FSN，
+  腳本會印「⚠ 本次回應不含 FSN designation（非「無 FSN」，是沒要到）」——
+  **少了就要吵，不能靜靜地少。**
+
 ---
 
 ## 5. ⚠️ 兩項連動風險（委員未提及，且時效上更急）
