@@ -98,6 +98,35 @@ jobs:
           npm run check:deps:selftest
           npm run check:deps
 
+      # 權責標籤／合規層級閘門（JOB-30 步驟 4）。
+      #
+      # ⚠️ **本步驟為補漏，不是新增功能。** check:gov 與 check:intref 自建立以來
+      # 一直只存在於 `npm run verify`（本機），**從未進入 CI**——亦即 G-1～G-5 與
+      # 內部連結檢查在 PR 上是完全不執行的，全靠有人記得在本機跑。
+      # v0.9.1 新增之 G-5（§7.4 明文件數比對登記表）當時即因此不會讓 CI 變紅，
+      # 與其設立目的相悖。本版一併接入。
+      #
+      # ⚠️ 這正是本 repo 反覆出現的形態：閘門寫好了、自我測試也過了，
+      # 但沒接到會擋人的地方，於是它只是一支沒人跑的腳本。
+      - name: Check governance tags and doc counts (self-test first)
+        run: |
+          npm run check:gov:selftest
+          npm run check:gov
+
+      - name: Check no internal-only references (self-test first)
+        run: |
+          npm run check:intref:selftest
+          npm run check:intref
+
+      # 純文字欄位閘門：CodeSystem.concept.definition／display 為 FHIR string 型，
+      # 非 markdown。粗體記號與反引號不會被算繪，會逐字顯示給讀者。
+      # v0.9.0 已發佈站台實測到 6 處（5 處自 v0.4.0 累積），IG Publisher 不會警告
+      # ——語法完全合法，只有看產出頁面才發現得了。
+      - name: 純文字欄位檢核 (self-test first)
+        run: |
+          npm run check:plaintext:selftest
+          npm run check:plaintext
+
       # ---------------------------------------------------------------- 建置環境
       - name: Setup Java
         uses: actions/setup-java@v4

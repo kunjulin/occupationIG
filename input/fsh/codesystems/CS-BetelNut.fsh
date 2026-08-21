@@ -37,7 +37,11 @@ Title: "嚼檳榔觀察項目代碼系統"
 Description: "【主管機關：國民健康署】勞工健檢生活習慣調查中，嚼檳榔相關之**觀察項目（問題）碼**，用於 `Observation.code`。與承載答案之 CS-BetelNutStatus 分屬兩個代碼軸——問題碼放 `.code`、答案碼放 `.value[x]`，不得互換。角色對齊吸菸之 `LNC#72166-2`（Tobacco smoking status）：臨床類、以狀態為屬性、序位尺度之狀態問句。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，係因 LOINC 與 SNOMED CT 均無可用之嚼檳狀態問句碼（已逐一查證），**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）"
 * ^experimental = true
 * ^caseSensitive = true
-* #betel-quid-chewing-status "嚼檳榔狀態" "受檢者目前之嚼檳榔狀態。本碼為**問題**（Observation.code），答案以 `value[x]` 承載，值集為 VS-BetelNutStatus（從未／偶爾／每日／已戒除，四級序位）。⚠️ 本碼**不表示受檢者有嚼檳榔**——它問的是狀態，答案可以是「從未嚼食檳榔」。此與 SNOMED CT `698188003`（Chews betel quid）之語意不同：後者是肯定式 finding，斷言此人嚼檳，故不得置於 `.code`。角色對應吸菸之 `LNC#72166-2`（Tobacco smoking status）。"
+// ⚠️ concept.definition 於 FHIR 為 string 而非 markdown，粗體記號與反引號**不會被算繪**，
+//    會逐字顯示給讀者。故本檔之 concept 定義一律以純文字撰寫，強調改用語序與 ⚠️ 記號，
+//    代碼字面改用「」框住。此規則由 scripts/check-plaintext-fields.js 看管。
+//    （CodeSystem.description 為 markdown，不受此限，故上方 Description 之記號保留。）
+* #betel-quid-chewing-status "嚼檳榔狀態" "受檢者目前之嚼檳榔狀態。本碼是問題，用於 Observation.code；答案以 value[x] 承載，值集為 VS-BetelNutStatus（從未／偶爾／每日／已戒除，四級序位）。⚠️ 本碼並不表示受檢者有嚼檳榔——它問的是狀態，答案可以是「從未嚼食檳榔」。此與 SNOMED CT 698188003（Chews betel quid）之語意不同：後者是肯定式 finding，斷言此人嚼檳，故不得置於 Observation.code。角色對應吸菸之 LOINC 72166-2（Tobacco smoking status）。"
 * ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
 
 // ─────────────────────────────────────────────── 狀態（value[x] 之值）
@@ -78,15 +82,15 @@ Title: "嚼檳榔量化元件代碼系統"
 Description: "【主管機關：國民健康署】`TWHA-SocialHistory-BetelNut` 各 `component.code` 之本地代碼。前三碼與上游 TWCR_SF `sf-BetNutChewBeh` 之 `amount`／`year`／`quit` 為 1:1 對應。（**provisional**：隨本指引之嚼檳榔建模待主管機關確認，M-5。）"
 * ^experimental = true
 * ^caseSensitive = true
-* #amount "每日嚼食量" "每日嚼食檳榔之顆數，以 UCUM `{quid}/d` 表達。對應上游 sf-BetNutChewBeh#amount。"
-* #duration-years "嚼食持續期間" "嚼食檳榔之持續期間（嚼了多久），以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「嚼 2 年」逕行改寫為 24 個月）。承載主管機關最小上傳集第 11 列（醫令 30907X-3「嚼檳月數」，經主管機關答覆確認其語意為嚼食持續期間而非戒檳月數）。對應上游 sf-BetNutChewBeh#year。⚠️ 代碼 id 保留 `duration-years` 係因該碼已於 v0.4.0 發佈，改名屬破壞性變更；真實語意以本顯示名與定義為準。"
-* #cessation-duration "戒除期間" "已戒除之期間，以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「已戒 1 年」逕行改寫為 12 個月）。對應上游 sf-BetNutChewBeh#quit。"
-* #cessation-date "戒除日期" "戒除之日期（得僅至年或年月）。**日期為原始事實，期間為導出值**——期間會隨檢查日改變，故兩者並存時以本欄為準。**不得由「已戒 N 年」回推本欄**。"
+* #amount "每日嚼食量" "每日嚼食檳榔之顆數，以 UCUM 單位「{quid}/d」表達。對應上游 sf-BetNutChewBeh#amount。"
+* #duration-years "嚼食持續期間" "嚼食檳榔之持續期間（嚼了多久），以 UCUM 單位「a」或「mo」表達，並以原始採集粒度為準——不得將「嚼 2 年」逕行改寫為 24 個月。承載主管機關最小上傳集第 11 列（醫令 30907X-3「嚼檳月數」，經主管機關答覆確認其語意為嚼食持續期間而非戒檳月數）。對應上游 sf-BetNutChewBeh#year。⚠️ 代碼 id 保留「duration-years」係因該碼已於 v0.4.0 發佈，改名屬破壞性變更；真實語意以本顯示名與定義為準。"
+* #cessation-duration "戒除期間" "已戒除之期間，以 UCUM 單位「a」或「mo」表達，並以原始採集粒度為準——不得將「已戒 1 年」逕行改寫為 12 個月。對應上游 sf-BetNutChewBeh#quit。"
+* #cessation-date "戒除日期" "戒除之日期（得僅至年或年月）。日期為原始事實，期間為導出值——期間會隨檢查日改變，故兩者並存時以本欄為準。⚠️ 不得由「已戒 N 年」回推本欄。"
 * #with-tobacco "是否含菸草" "所嚼食之檳榔是否含菸草。IARC 對含／不含菸草之檳榔分開評估，故流行病學分析需要此欄。"
 * #additive "添加物" "所嚼食之檳榔所用之添加物（荖花／荖葉／無）。"
 * #lime "石灰種類" "所嚼食之檳榔所用之石灰種類（紅灰／白灰）。"
 * #hpa-category "口腔黏膜檢查表級距" "國民健康署口腔黏膜檢查表（107/7 修訂）之嚼檳榔習慣原始勾選，保留不換算成中位數（T-13）。"
-* #amount-coded "每日嚼食量（上游級距碼）" "以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。**可選、綁定強度 extensible**——移除本 component 不影響任何核心資料。"
+* #amount-coded "每日嚼食量（上游級距碼）" "以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。本 component 為可選，綁定強度 extensible——移除本 component 不影響任何核心資料。"
 
 // ─────────────────────────────────────────────── 添加物與石灰（兩個軸）
 // JOB-29 附錄 B.6：委員原案之 bq-type 將「荖花／荖葉／紅灰／白灰」列為單一 0..1，
