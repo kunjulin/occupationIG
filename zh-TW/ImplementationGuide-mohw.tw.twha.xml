@@ -8,11 +8,11 @@
 </div></div>
   </text>
   <url value="https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"/>
-  <version value="0.6.2"/>
+  <version value="0.7.0"/>
   <name value="TWHAIG"/>
   <title value="臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"/>
   <status value="active"/>
-  <date value="2026-08-21T00:14:56+00:00"/>
+  <date value="2026-08-21T00:59:40+00:00"/>
   <publisher value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
   <contact>
     <name value="衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院"/>
@@ -917,7 +917,7 @@
         <reference value="ConceptMap/TWHealthCheckLaboratoryMap"/>
       </reference>
       <name value="健康檢查檢驗項目代碼對應 ConceptMap"/>
-      <description value="將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。&#xA;&#xA;**來源版本**：LOINC 2.82（經 tx.fhir.org 驗證）。**驗證狀態**：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。**審查狀態**：equivalence 已於 2026-07-26 逐筆覆核並補列理由（comment），並於 2026-07-30 依 FHIR R4 target-relative 定義更正方向（JOB-22），工作小組建議方案，提請確認可否作為下一階段試作基礎。&#xA;&#xA;**equivalence 使用原則（v20260730 依 FHIR R4 更正，JOB-22）**：R4 之 `narrower`／`wider` **以 target 為主詞**（`narrower` = target 較 source 窄；`wider` = target 較 source 廣），與直覺相反——R5 已改名為 `source-is-narrower-than-target` 以消除歧義。故本 ConceptMap 之判準為：source 為方法特化而 target 為方法通用碼者用 **`wider`**（target 較廣）；source 語意較廣而 target 較窄（指定空腹／方法／偵測極限）者用 **`narrower`**（target 較窄）；不同具體方法、不同檢體、或需數值換算而無包含關係者用 `relatedto`（Level 1，官方語意為「有關聯但確切關係未知」，**不得據以自動換算數值**）。`equivalent` 僅用於完全等義，現行無任何一組適用。&#xA;&#xA;⚠️ **v20260729 及更早版本之 `narrower`／`wider` 方向為錯誤值**（原依內部文件之 source-relative 定義填寫），已於 v20260730 全數更正；comment 方向敘述與 equivalence 值之一致性現已納入 CI 閘門。&#xA;&#xA;⚠️ **歸一之臨床限制**：本對照供資料標準化之用，**不表示歸一後之數值可直接互換比較**（例如 MDRD 與 CKD-EPI eGFR、IFCC 與 NGSP HbA1c 均需換算或不可互換）。交換時應保留原始代碼。"/>
+      <description value="【主管機關：國民健康署】將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。&#xA;&#xA;**來源版本**：LOINC 2.82（經 tx.fhir.org 驗證）。**驗證狀態**：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。**審查狀態**：equivalence 已於 2026-07-26 逐筆覆核並補列理由（comment），並於 2026-07-30 依 FHIR R4 target-relative 定義更正方向（JOB-22），工作小組建議方案，提請確認可否作為下一階段試作基礎。&#xA;&#xA;**equivalence 使用原則（v20260730 依 FHIR R4 更正，JOB-22）**：R4 之 `narrower`／`wider` **以 target 為主詞**（`narrower` = target 較 source 窄；`wider` = target 較 source 廣），與直覺相反——R5 已改名為 `source-is-narrower-than-target` 以消除歧義。故本 ConceptMap 之判準為：source 為方法特化而 target 為方法通用碼者用 **`wider`**（target 較廣）；source 語意較廣而 target 較窄（指定空腹／方法／偵測極限）者用 **`narrower`**（target 較窄）；不同具體方法、不同檢體、或需數值換算而無包含關係者用 `relatedto`（Level 1，官方語意為「有關聯但確切關係未知」，**不得據以自動換算數值**）。`equivalent` 僅用於完全等義，現行無任何一組適用。&#xA;&#xA;⚠️ **v20260729 及更早版本之 `narrower`／`wider` 方向為錯誤值**（原依內部文件之 source-relative 定義填寫），已於 v20260730 全數更正；comment 方向敘述與 equivalence 值之一致性現已納入 CI 閘門。&#xA;&#xA;⚠️ **歸一之臨床限制**：本對照供資料標準化之用，**不表示歸一後之數值可直接互換比較**（例如 MDRD 與 CKD-EPI eGFR、IFCC 與 NGSP HbA1c 均需換算或不可互換）。交換時應保留原始代碼。"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -1071,7 +1071,7 @@
         <reference value="NamingSystem/NS-ReportIdentifier"/>
       </reference>
       <name value="健檢報告封包識別碼"/>
-      <description value="勞工健康檢查報告封包（Bundle）之識別碼命名空間。用於上傳去重、跨機構參照與稽核追溯。"/>
+      <description value="【技術規格】勞工健康檢查報告封包（Bundle）之識別碼命名空間。用於上傳去重、跨機構參照與稽核追溯。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -2380,7 +2380,7 @@
         <reference value="ConceptMap/Appendix10-to-HazardType"/>
       </reference>
       <name value="附表十 35 項法定作業 對 12 危害家族 對照"/>
-      <description value="將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。"/>
+      <description value="【依據：勞工健康保護規則附表】將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>

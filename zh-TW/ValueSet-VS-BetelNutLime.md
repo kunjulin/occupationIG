@@ -1,4 +1,4 @@
-# 檳榔石灰種類值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.2
+# 檳榔石灰種類值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.0
 
 ## ValueSet: 檳榔石灰種類值集 (實驗性) 
 
@@ -32,12 +32,12 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-BetelNutLime",
-  "version" : "0.6.2",
+  "version" : "0.7.0",
   "name" : "VS_BetelNutLime",
   "title" : "檳榔石灰種類值集",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-21T00:14:56+00:00",
+  "date" : "2026-08-21T00:59:40+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

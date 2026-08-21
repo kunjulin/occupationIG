@@ -1,9 +1,9 @@
-# 附表十 35 項法定作業 對 12 危害家族 對照 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.2
+# 附表十 35 項法定作業 對 12 危害家族 對照 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.0
 
 ## ConceptMap: 附表十 35 項法定作業 對 12 危害家族 對照 
 
  
-將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。 
+【依據：勞工健康保護規則附表】將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。 
 
 
 
@@ -13,13 +13,17 @@
 {
   "resourceType" : "ConceptMap",
   "id" : "Appendix10-to-HazardType",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+    "valueCode" : "draft"
+  }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/Appendix10-to-HazardType",
-  "version" : "0.6.2",
+  "version" : "0.7.0",
   "name" : "Appendix10ToHazardType",
   "title" : "附表十 35 項法定作業 對 12 危害家族 對照",
-  "status" : "active",
+  "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-21T00:14:56+00:00",
+  "date" : "2026-08-21T00:59:40+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -35,7 +39,7 @@
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。",
+  "description" : "【依據：勞工健康保護規則附表】將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。",
   "sourceCanonical" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation",
   "targetCanonical" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType",
   "group" : [{

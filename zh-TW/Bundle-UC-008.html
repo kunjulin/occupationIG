@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>UC-008 一般健檢結果上傳封包（首次上傳） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.2</title>
+    <title>UC-008 一般健檢結果上傳封包（首次上傳） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.6.2 - STU1
+            <span style="display:inline-block;">0.7.0 - STU1
 
 
             </span>
@@ -200,7 +200,7 @@
 
   <!-- layouts\layout-instance-base -->
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l377">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.6.2  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l377">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.7.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
 
 
   
@@ -267,7 +267,7 @@ If-None-Exist = identifier=https://www.cgmh.org.tw/tw/patient-id|MR-98765
 </pre><a name="urn-uuid-8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0002"> </a><a name="Organization_tx-org-hospital"> </a><a name="hcOrganization_tx-org-hospital"> </a><hr/><p>Entry 2 - fullUrl = urn:uuid:8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0002</p><p>Resource Organization:</p><blockquote><p class="res-header-id"></p><a name="UC-008/tx-org-hospital"> </a><a name="hcUC-008/tx-org-hospital"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Language: zh-TW</p><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-Organization-Facility.html">實施健康檢查之醫療機構 Profile</a></p></div><p><b>identifier</b>: Provider number/2701010024&nbsp;(use:&nbsp;official,&nbsp;)</p><p><b>name</b>: 交通部民用航空局航空醫務中心</p></blockquote><p>Request:</p><pre>POST Organization
 If-None-Exist = identifier=https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/organization-identifier-tw|2701010024
 </pre><a name="urn-uuid-8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0003"> </a><a name="Observation_tx-obs-glucose"> </a><a name="hcObservation_tx-obs-glucose"> </a><hr/><p>Entry 3 - fullUrl = urn:uuid:8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0003</p><p>Resource Observation:</p><blockquote><p class="res-header-id"></p><a name="UC-008/tx-obs-glucose"> </a><a name="hcUC-008/tx-obs-glucose"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Language: zh-TW</p><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-LabResult-General.html">一般健檢實驗室檢驗 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}">Laboratory</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 1558-6}">Fasting glucose [Mass/volume] in Serum or Plasma</span></p><p><b>subject</b>: <a href="Bundle-UC-008.html#urn-uuid-8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0001">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765&nbsp;(use:&nbsp;official,&nbsp;))</a></p><p><b>effective</b>: 2026-06-12 09:00:00+0800</p><p><b>performer</b>: <a href="Bundle-UC-008.html#urn-uuid-8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0002">Organization 交通部民用航空局航空醫務中心</a></p><p><b>value</b>: 95 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  codemg/dL = 'mg/dL')</span></p></blockquote><p>Request:</p><pre>POST Observation
-</pre><a name="urn-uuid-8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0004"> </a><a name="DiagnosticReport_tx-report-general"> </a><a name="hcDiagnosticReport_tx-report-general"> </a><hr/><p>Entry 4 - fullUrl = urn:uuid:8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0004</p><p>Resource DiagnosticReport:</p><blockquote><p class="res-header-id"></p><a name="UC-008/tx-report-general"> </a><a name="hcUC-008/tx-report-general"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Language: zh-TW</p><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-DiagnosticReport.html">健康檢查健檢診斷報告 Profile</a></p></div><h2><span title="Codes:">一般健康檢查檢驗報告</span> (<span title="Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}">Laboratory</span>) </h2><table class="grid"><tr><td>Subject</td><td>王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765&nbsp;(use:&nbsp;official,&nbsp;))</td></tr><tr><td>Relevant Time</td><td>2026-06-12 09:00:00+0800</td></tr><tr><td>Reported</td><td>2026-06-15 10:00:00+0800</td></tr><tr><td>Performer</td><td> <a href="Bundle-UC-008.html#urn-uuid-8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0002">Organization 交通部民用航空局航空醫務中心</a></td></tr><tr><td>Identifier</td><td> <a href="NamingSystem-NS-ReportIdentifier.html" title="勞工健康檢查報告封包（Bundle）之識別碼命名空間。
+</pre><a name="urn-uuid-8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0004"> </a><a name="DiagnosticReport_tx-report-general"> </a><a name="hcDiagnosticReport_tx-report-general"> </a><hr/><p>Entry 4 - fullUrl = urn:uuid:8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0004</p><p>Resource DiagnosticReport:</p><blockquote><p class="res-header-id"></p><a name="UC-008/tx-report-general"> </a><a name="hcUC-008/tx-report-general"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Language: zh-TW</p><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-TWHA-DiagnosticReport.html">健康檢查健檢診斷報告 Profile</a></p></div><h2><span title="Codes:">一般健康檢查檢驗報告</span> (<span title="Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}">Laboratory</span>) </h2><table class="grid"><tr><td>Subject</td><td>王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765&nbsp;(use:&nbsp;official,&nbsp;))</td></tr><tr><td>Relevant Time</td><td>2026-06-12 09:00:00+0800</td></tr><tr><td>Reported</td><td>2026-06-15 10:00:00+0800</td></tr><tr><td>Performer</td><td> <a href="Bundle-UC-008.html#urn-uuid-8f7a0001-1a2b-4c3d-9e4f-5a6b7c8d0002">Organization 交通部民用航空局航空醫務中心</a></td></tr><tr><td>Identifier</td><td> <a href="NamingSystem-NS-ReportIdentifier.html" title="【技術規格】勞工健康檢查報告封包（Bundle）之識別碼命名空間。
 
 **唯一性要求**：值在同一健檢機構內須唯一且不重複使用；跨機構之唯一性由
 「命名空間 + 值」的組合達成。上傳端據此判定是否為同一份封包之重送（去重）。
@@ -309,9 +309,9 @@ If-None-Exist = identifier=https://twcore.mohw.gov.tw/ig/twha/sid/report-id|RPT-
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.6.2，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.7.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-21 00:14:00 +0000">
+  <span title="2026-08-21 00:59:00 +0000">
     2026-08-21
   </span>
 
