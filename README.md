@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.6.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.6.2`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -139,7 +139,7 @@ set NODE_OPTIONS=--use-system-ca
 ## 優化工作範圍 (Optimization Job Scopes)
 
 2026-07-26 就發佈網站（<https://kunjulin.github.io/occupationIG/>）進行審閱後，
-已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-30**），置於 [`docs/optimization/`](docs/optimization/README.md)：
+已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-31**），置於 [`docs/optimization/`](docs/optimization/README.md)：
 
 * [`docs/optimization/README.md`](docs/optimization/README.md)：審閱總結、優先序矩陣、建議執行順序、全域驗收標準。
 * [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)：
@@ -160,6 +160,58 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.6.2（2026-08-20）v0.6.1 線上複驗（JOB-31 評估，未變更任何定義）
+
+> 說明：本版**僅新增評估文件** [`docs/optimization/JOB-31-qa-baseline-and-registry-gaps.md`](docs/optimization/JOB-31-qa-baseline-and-registry-gaps.md)，
+> **未變更任何 Profile／ValueSet／CodeSystem／Extension／範例／頁面內容／頁面檔名／
+> `menu`／`pages:`／`dependencies`，不影響 QA 基準線**。
+
+**方法**　自 `gh-pages` 取得**已發佈產出本身**（非 CI 日誌、非本機重建），
+以 **`qa.txt`**（閘門實際解析之來源）逐項比對。
+> ⚠️ **`qa.html` 不可用於計數**：訊息在摘要區與明細區重複出現，不同類別倍數不一
+> （實測有 ×2 亦有 ×3），逐字串計數會系統性高估。
+
+**複驗基準**　`sourceCommit 37613689`／`builtAt 2026-08-20T18:20:43Z`／IG Publisher 2.2.11／
+`ImplementationGuide.version = 0.6.1`／`qa.txt`：**err 0、warn 91、info 467**。
+
+**✅ 通過複驗**
+
+- **22 個具名類別全部與基準線完全相符（±0），零回歸。**
+- **101 件權責登記之全量比對——獨立複驗結果與施作方回報相同**：
+  Level 1 `active`＋`#trial-use` **24**、Level 2 `draft`＋`#draft` **50**、
+  共用技術結構 `active`＋無 **27**；**不符者 0，找不到對應產出者 0**。
+- 敘述頁已上線：`conformance.html` §7.0 範疇聲明（含「亦未受勞動部職業安全衛生署委任或授權」全句）、
+  §7.2「Level 1 逐列清單（21 列）」與 `13 + 3 + 3 + 2 = 21`；
+  `open-issues.html` 標題已為「已知限制與試用須知」，主表 **20** 列＋已結案表 **6** 列＝**26 項**。
+
+**⚠️ 三項發現（皆屬閘門有效性，不影響已發佈內容之正確性）**
+
+1. **基準線 `warn` 鬆動 61 筆**：上限 **152**、實測 **91**。`qa-gate.js` 判準為「高於基準線即失敗」，
+   故綠燈成立，**但未來可再新增最多 61 筆 WARNING 而閘門不會亮**。
+   `docs/optimization/README.md` 自訂之規則為「每個 JOB 完成後應下調」，
+   JOB-30 三個版次後**下調動作未執行**。
+2. **25 筆 WARNING 不屬任何具名類別**（91 中僅 66 筆具名）：
+   **10 筆** Composition 走訪不可達（R4 §3.3.1，UC-003 等，**實質結構問題**）、
+   **7 筆** ImagingStudy 值集解析不到、
+   **4 筆** `Observation/example-service-finding` 缺 `subject`／`effective[x]`
+   （⚠️ 基準線具名的是 `should have a performer`，**措辭不同故抓不到——同類盲區換措辭復現**）、
+   **2 筆** UCUM `{quid}` 註記（**JOB-29 之刻意決定**，須具名並註明「已知且刻意」否則會被誤修）、
+   **2 筆** `ShareableConceptMap`（基準線僅具名 `ShareableValueSet`）。
+3. **2 個 ConceptMap ＋ 1 個 NamingSystem 不在權責登記表**：
+   已發佈之本 IG 命名空間定義類 artifact **103** 件、登記表 **101** 件。
+   差額為 `TWHealthCheckLaboratoryMap`、`Appendix10-to-HazardType`、`NS-ReportIdentifier`。
+   成因**非閘門失效**，而是登記範圍界定——`scanFsh` 僅掃四種宣告、排除 `Instance:` 宣告者。
+   問題點：**`TWHealthCheckLaboratoryMap` 功能上屬 Level 1 之必要配套**
+   （acceptable→preferred 歸一對照），卻無成熟度標記、亦不受閘門保護。
+
+**對「共用技術結構 27 件是否亦標 `draft`」之意見：建議不標。**
+該 27 件為兩層共用之相依基礎；標 `draft` 將使 Level 1 產生大量 `Reference to draft`
+（**該類別為受監控之具名類別、基準線 12**）並觸發閘門，且**相依鏈之成熟度不得高於其基礎**，
+Level 1 之 `trial-use` 反而失去意義。若欲表達共用結構亦非定案，應以 `conformance.md` §7 文字說明，
+不變更 `status`。
+
+**本版不實作，待裁示後執行。**
 
 ### v0.6.1（2026-08-20）修正 6 個跨行 Description 之標記失效（JOB-30）
 
