@@ -44,6 +44,8 @@ const AUTO_PAGES = new Set([
 const ORPHAN_ALLOWLIST = new Map([
   ['history', '版本歷程頁。由 package-list.json 與 path-history 參數驅動，' +
               '經 publish box 之「Releases」連結進入，不佔導覽列版位。'],
+  ['open-issues', '轉址／聲明殼頁。內容已於 v0.8.0 移出，本頁僅保留 27 個錨點以維持' +
+                  '既發函文、委員回覆書與簡報所引之外部連結有效，刻意不佔導覽列版位。'],
 ]);
 
 const TOP_LEVEL_SOFT_MAX = 9; // 超過即警告：頂層過多會讓導覽列折行且可尋性劣化

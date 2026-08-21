@@ -81,7 +81,7 @@ Description: "【依據：勞工健康保護規則附表】附表十第 7–12�
 ValueSet: VS_Appendix10RequiredSet
 Id: VS-Appendix10-RequiredSet
 Title: "附表十 特殊健康檢查應執行項目值集（已落地家族）"
-Description: "【依據：勞工健康保護規則附表】附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待 JOB-01 臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
+Description: "【依據：勞工健康保護規則附表】附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。"
 * ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #draft
 * ^experimental = true
 * ^status = #draft

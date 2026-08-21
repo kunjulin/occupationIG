@@ -30,7 +30,7 @@
 
 > UC-001 ~ UC-007 為報告封包（`document`）、UC-008 ~ UC-009 為上傳封包（`transaction`）。
 > 上傳之去重、冪等與錯誤處理契約見[上傳介接契約](conformance.html)；
-> 整包處理語意（transaction／batch）為[未決事項 M-9](open-issues.html#m-9)。
+> 整包處理語意（transaction／batch）為[未決事項 M-9](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-9)。
 
 ---
 
@@ -44,7 +44,7 @@
 | **顯示名驗證報告** | 以術語伺服器逐碼比對之 `display` 語意查核結果，為代碼稽核之主要依據 | [CSV](display-verification-report.csv) |
 | **UCUM 建議單位對照** | Extended 量值項之 LOINC 官方建議單位對照 | [CSV](extended-ucum-reference.csv) |
 
-> **`loinc-valuesets.xlsx` 之欄位說明（v20260730 新增，JOB-21）**
+> **`loinc-valuesets.xlsx` 之欄位說明**
 >
 > | 欄位 | 意義 |
 > |:--|:--|
@@ -70,7 +70,7 @@
 
 > ⚠️ **顯示名驗證報告與 UCUM 對照表均為研製中之工作產物，尚有代碼待覆核。**
 > 使用前請先確認對應代碼之稽核狀態，勿逕行作為實作依據；
-> 稽核進度見 [JOB-01](https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-01-terminology-code-audit.md)。
+> 術語稽核之進度與逐碼紀錄見本專案 [GitHub 之優化工作文件](https://github.com/kunjulin/occupationIG/tree/main/docs/optimization)。
 
 ---
 

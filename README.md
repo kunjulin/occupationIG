@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.7.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.8.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -139,7 +139,7 @@ set NODE_OPTIONS=--use-system-ca
 ## 優化工作範圍 (Optimization Job Scopes)
 
 2026-07-26 就發佈網站（<https://kunjulin.github.io/occupationIG/>）進行審閱後，
-已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-31**），置於 [`docs/optimization/`](docs/optimization/README.md)：
+已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-33**），置於 [`docs/optimization/`](docs/optimization/README.md)：
 
 * [`docs/optimization/README.md`](docs/optimization/README.md)：審閱總結、優先序矩陣、建議執行順序、全域驗收標準。
 * [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)：
@@ -160,6 +160,125 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.8.1（2026-08-21）〈未決事項〉轉址／聲明殼頁（相容層）
+
+> 本版**僅新增一個不列於導覽列之相容層殼頁**，未變更任何 Profile／值集／CodeSystem／
+> Extension／範例。**不放回原內容**——內容仍在 [`docs/known-limitations.md`](docs/known-limitations.md)。
+
+- **緣起**：v0.8.0 移除 `open-issues.html` 屬破壞性變更，既發函文、委員回覆書與簡報
+  所引之 `open-issues.html#m-5` 類**穩定錨點**會全部失效。本版加回一個殼頁承接。
+- **內容**：〈本頁內容已移轉〉聲明 ＋ **27 列編號對照表**（26 議題 ＋ 已結案存查區），
+  每列即為原錨點，並指向 `docs/known-limitations.md` 之對應編號。
+  ⚠️ **錨點做成對照列而非空錨點**：純空錨點只做到「不報錯」，自舊連結進入者會停在
+  空白處；做成對照列則一進來就看得到自己那一項去哪了。
+- **`pages:` 要加、`menu:` 不加**：宣告 `pages:` 後 SUSHI 停止自動收錄，
+  **未列者會從產出中靜默消失且不報錯**；`menu:` 不加則不佔導覽列版位。
+  `check-menu.js` 之 R-5 孤兒頁白名單同步加入 `open-issues` 並附理由。
+- **27 個錨點自 v0.7.4 之原始頁面以腳本抽取比對**（`git show`），集合與順序均相同，
+  未手打。
+
+### v0.8.0（2026-08-21）警語收斂 ＋〈未決事項〉頁外移（**破壞性變更**）
+
+> ⚠️ **破壞性**：`open-issues.html` **已自網站移除**。既有指向該頁之外部連結
+> （含既發函文與簡報所引用者）將失效。
+
+- **警語收斂**：散落各頁之規範性揭露集中為首頁 [§1.1〈使用前須知〉](input/pagecontent/index.md)，
+  **六條、每條一句**，錨點 `#before-you-start`：
+  ① canonical 為試用期暫用命名空間，勿寫死 URL；② Core 21 列係工作原案，欄位可能增減；
+  ③ 本地代碼為 provisional；④ SNOMED 未逐碼驗證者不得作正式 mapping；
+  ⑤ 法規解釋不代為認定；⑥ 建置通過不等於臨床適切性或法規符合性。
+  ⚠️ **六條為規範性揭露，只收斂位置、未刪除任何一條**——它們是「哪些欄位日後會變」
+  之唯一告知管道。
+- **〈未決事項〉頁外移**：`input/pagecontent/open-issues.md` →
+  [`docs/known-limitations.md`](docs/known-limitations.md)（**版本控管檔案，非 GitHub Issues**
+  ——Issue 可被編輯、關閉、刪除且無版次，不適合作為對主管機關之揭露載體）。
+  自 `sushi-config.yaml` 之 `pages:` 與 `menu:` 移除；頁內編號與錨點沿用未變。
+- **站內連結一次改寫完畢**：實測 **35 處**（分佈 13 個頁面）。
+  規範性者 **10 處** → `index.html#before-you-start`；其餘 **25 處** → GitHub 之 `docs/` 檔案。
+  ⚠️ **重新清點，未沿用規劃文件之「31 處（24 錨點）」**——該數字量測於 v0.6.1，
+  本次實測為 34 行／**35 處連結**（一行可含兩個連結）、具名錨點 27 處。
+- 閘門結果：`check:refs`（18 頁全數解析）、`check:menu`（頂層 7 項、入口 19 個、
+  `pages:` 18 頁雙向對應、無未白名單孤兒頁）均通過。
+
+### v0.7.4（2026-08-21）對外產出之內部工作痕跡清除
+
+- **清除範圍**：`input/pagecontent/*.md` 與 **FSH 之字串內容**（`Description`、
+  概念定義等）中之內部工作編號 `JOB-n`、內部節號、開發過程敘述。
+  實檢基線 **109 處 → 0**（pagecontent 97、FSH 字串 12）。
+  ⚠️ **FSH 之 `//` 註解一律保留**（82 處）——不進產出，且是維護資訊。
+- **新增閘門** `scripts/check-no-internal-refs.js`（9 組自我測試，含 4 組正向對照），
+  已掛入 `npm run verify`。
+- ⚠️ **重新清點，未沿用既有數字**：規劃文件所載之「122 處」量測於 v0.6.1 且為
+  **產出端**計數（一處 `Description` 擴散成 `.html`／`.json`／`.xml`／`.ttl`
+  再乘兩個語言層）；本次為 **原始碼端** 計數，兩者計的不是同一件事。
+- ⚠️ **閘門樣態一度訂太寬並已收窄**：初版禁 `已於 v\d`，會誤殺
+  「該碼已於 v0.4.0 **發佈**，改名屬破壞性變更」這類**版次事實陳述**，
+  且與規格指定之替代寫法「本指引 v0.x 之修訂」自相矛盾。
+  現只禁「已於 v… 更正／修正」等開發過程敘述，並加正向對照案 ⑤b 固定此界線。
+
+**一併更正兩處與現況不符之公開敘述**（本次清理時發現，非清理本身之範圍）：
+
+| 頁面 | 原敘述 | 更正 |
+|:--|:--|:--|
+| `ip-statements.md` | TWCR_SF「目前以本地 stub 承載，**非權威定義**」 | 該批 stub 已於 v0.3.0 刪除、改為**正式相依宣告**（`fhir.TWCRSF`）。以既有相依閘門實跑覆核：9 個 stub 未復現 |
+| `history.md` | 「本機建置後手動推送」「發佈內容與 commit 之對應關係**尚未固化**」 | 現由 CI 自動發佈，產出根目錄之 `build-info.json` 記載 `sourceCommit`，**對應關係可逐次追溯** |
+
+### v0.7.3（2026-08-21）對外試用版乾淨化之評估與計畫（JOB-33，未變更任何定義）
+
+> 說明：本版**僅新增** [`JOB-33`](docs/optimization/JOB-33-clean-release-for-trial.md) 與
+> [`PROMPT-JOB-33`](docs/optimization/PROMPT-JOB-33.md)，**未變更任何定義，不影響 QA 基準線**。
+
+**緣起**　本 IG **尚未正式發布**、現站僅為試驗場、頁面備註過多，需乾淨版供臨床試用。
+裁示四項全清（內部工作痕跡／各頁 ⚠ 警語／未決事項頁／continuous build 標記），
+**發布目標維持同一個 github.io**。
+
+- **實測（量測於 v0.6.1，實作前須重新清點）**：**21 頁、122 處** `JOB-n` 外洩；
+  `CS-BetelNutComponent` 因 `Description` 內含 `JOB-n` 而隨 `.html`／`.json`／`.xml`／`.ttl`
+  **四變體擴散 28 次**。
+- **關鍵發現：第四項不是呈現問題，前提是 canonical。**
+  publish box 之「not an authorized publication／continuous build」由 **CI-build 模式**產生，
+  根因為 **canonical 與實際發布位置不一致**；且 `qa.txt` 之 **2321 筆 broken links 中 2320 筆為
+  同一目標** `https://twcore.mohw.gov.tw/ig/twha/history.html`，而 **`history.html` 本站已生成**
+  ——**斷的不是檔案，是 canonical 前綴**（**v0.7.1 複驗：數字不變**）。
+  → 改為 github.io 命名空間可使 **banner 正常、Directory 連結可用、2320 筆斷鏈歸零**。
+- **警語分兩類**：內部備註型**刪除**；規範性揭露**不得刪除**，收斂為首頁單一〈**使用前須知**〉
+  （**六條**）。
+- **📌 提醒（仍依裁示執行）**：〈未決事項〉頁之兩欄與已結案移頁尾即 **JOB-30 A 部剛上線之成果**；
+  整頁移除等於捨棄該批工作。若僅為觀感，**保留該頁只做警語收斂即達八成效果**。
+- **三步三版次**：v0.7.4 內部痕跡清除＋`check-no-internal-refs.js`；
+  v0.8.0 警語收斂＋未決事項外移＋31 處連結改寫；v0.9.0 canonical 與發布模式
+  （須先實跑 D-2；**不得為消除 banner 而謊報 `package-list` 狀態卻不改 canonical**）。
+
+**本版不實作，待裁示後執行。**
+
+### v0.7.2（2026-08-21）委員意見：`Observation.code` 之語意角色（JOB-32 評估，未變更任何定義）
+
+> 說明：本版**僅新增評估文件** [`JOB-32`](docs/optimization/JOB-32-betelnut-observation-code-semantics.md)，
+> **未變更任何定義，不影響 QA 基準線**。
+
+**委員主張**　`SCT#698188003` 係 finding（答案），置於 `Observation.code`（問題）為 anti-pattern；
+建議撤銷 C-0、`.code` 回復綁定上游 `TWCRSFObsBehCS#BetelNutChewing`，並將 `698188003` 移入 `value`。
+
+- **技術判斷：階段性同意**，且本案有**更強的實證**——已發佈之 `Observation-obs-betelnut-never.json`
+  其 `code` 為 `698188003`「Chews betel quid」而 `valueCodeableConcept` 為 `0-never`「從未嚼食檳榔」，
+  **同一筆資源同時斷言此人嚼檳與從未嚼檳**。以 `Observation?code=698188003` 檢索會把
+  **從未嚼檳者一併撈出**（偽陽性風險）；`err = 0` 仍成立，因驗證器**不檢查 `code` 與 `value`
+  之語意相容性**——與 G-3 同一類盲區。據此亦可知**現行設計並未與吸菸真正對稱**。
+- **處置方案：不同意**。回復綁定上游將**推翻 C-0 之解耦成果**，使建置重新依賴 TWCR_SF canonical；
+  且上游碼是否為 observable entity **係推定、未經查證**。
+- **敘述頁：更正方向相反**——敘述頁所寫者才是正確的建模意圖，應更正 `.code`。
+- **兩項已完成**：開放 `value[x]`、建立 `VS-BetelNutStatus` **均已於 v0.4.0 落地**。
+- **建議第三方案**：`.code` 改自訂狀態問題碼、`.value` 四碼不動、`698188003` 改列為
+  肯定式狀態之 SNOMED 對應。⚠️ **實作前先查證 LOINC 是否已有對應 observable 碼**（LOINC 優先）。
+- **✅ 更正 JOB-29 §D.3a 之推論**：`$lookup` 已載明 FSN 為 `(finding)`、parent 為
+  `409069009 Finding related to substance use`——位於 **Clinical finding 階層**；
+  `Interprets` 本身即 Clinical finding 之屬性，以其反推係**把佐證讀過頭**。
+- **⚠️ 兩項連動風險**：(1) 屬 **Level 1 breaking change**（觸點 13 處），須 minor 版＋遷移說明；
+  (2) **與 JOB-30 §3.4 送簽確認單時序衝突**——`HPA-CONFIRMATION-JOB-30.md` §0 現載明
+  「`Observation.code` 已解耦為 `698188003`｜不需 貴署認定」，**確認單未處置前不得送出**。
+
+**本版不實作，待裁示後執行。**
 
 ### v0.7.1（2026-08-21）修正 `TWHealthCheckLaboratoryMap` 之權責標籤未進產出（JOB-31）
 

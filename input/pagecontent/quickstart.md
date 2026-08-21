@@ -75,7 +75,7 @@
 
 - **Core（21 列）不等於附表九**，更不等於一份完整的勞工健檢。Core 是「最小上傳集」，不是「法定檢查項目表」。
 - **不能因為某項目不在 Core，就推論它不重要或可以不做。**
-- Core 目前係依國健署健檢上傳欄位之**工作原案**建立，正式公告版本仍待主管機關確認（[未決事項 M-5](open-issues.html#m-5)）。
+- Core 目前係依國健署健檢上傳欄位之**工作原案**建立，正式公告版本仍待主管機關確認（[未決事項 M-5](index.html#before-you-start)）。
 
 ---
 
@@ -83,7 +83,7 @@
 
 | 角色 | 拿它來做什麼 | 建議先看 |
 |:---|:---|:---|
-| **主管機關／政策單位** | 確認法定項目是否都有對應、上傳欄位是否落地 | [背景](background.html)、[未決事項](open-issues.html) |
+| **主管機關／政策單位** | 確認法定項目是否都有對應、上傳欄位是否落地 | [背景](background.html)、[未決事項](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md) |
 | **醫院／健檢機構管理者** | 評估院內 HIS/LIS 要改什麼、報告怎麼產出 | [使用情境](usecases.html)、[一般健康檢查](general-exam.html) |
 | **資訊廠商／系統整合商** | 照規格開發與驗證 | [資料模型](datamodel.html)、[FHIR 資源總覽](artifacts.html) |
 | **職業醫學／檢驗專科醫師** | 檢核代碼選得對不對、臨床語意是否正確 | [特殊危害健康作業](special-exam.html)、[術語定義](terminology.html) |
@@ -106,7 +106,7 @@
 
 ## 七、還沒定案的事（外部依賴）
 
-指引中所有需要外部機關決定的事項，都集中在[未決事項與已知限制](open-issues.html)頁，每項載明**現況、決定者、所需輸入、若決策不同的影響**。目前主要待確認者包括：
+指引中所有需要外部機關決定的事項，都集中在[未決事項與已知限制](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md)頁，每項載明**現況、決定者、所需輸入、若決策不同的影響**。目前主要待確認者包括：
 
 - **Core 資料集的正式版本**：國健署上傳欄位之正式公告版本（M-5）
 - **canonical 命名空間**：正式命名與核定機關尚待確認，現行位址為暫定（P-1）

@@ -23,7 +23,7 @@
 > [粉塵](ValueSet-VS-Appendix10-Dust-RequiredSet.html)、
 > [有機溶劑](ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.html)。
 > 下表「臨床審查狀態」欄仍為「未審」之家族，其專屬代碼**刻意尚未納入值集**——
-> 依 JOB-07 §5，未經 JOB-01 臨床確認之代碼不寫進法定必驗值集（見[未決事項 M-8](open-issues.html#m-8)）。
+> 未經臨床確認之代碼不寫進法定必驗值集（見[未決事項 M-8](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-8)）。
 > 任一家族之完整情境需求 ＝ 對應家族值集 ∪ [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.html)。
 
 | 附表十編號 | 法定作業名稱 | 危害家族 (CS-HazardType) | 代表專屬項目（LOINC／Profile） | 本 IG 承載 | 臨床審查狀態 | 術語驗證狀態 |

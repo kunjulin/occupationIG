@@ -28,9 +28,11 @@
     "check:i18n:selftest": "node scripts/check-translations.js --self-test",
     "check:ms": "node scripts/check-ms-coverage.js",
     "check:ms:strict": "node scripts/check-ms-coverage.js --strict",
-    "verify": "npm run check:gov:selftest && npm run check:gov && npm run check:refs && npm run check:menu && npm run check:deps && npm run check:assets && npm run qa",
+    "verify": "npm run check:intref:selftest && npm run check:intref && npm run check:gov:selftest && npm run check:gov && npm run check:refs && npm run check:menu && npm run check:deps && npm run check:assets && npm run qa",
     "check:gov": "node scripts/check-governance-tags.js",
-    "check:gov:selftest": "node scripts/check-governance-tags.js --self-test"
+    "check:gov:selftest": "node scripts/check-governance-tags.js --self-test",
+    "check:intref": "node scripts/check-no-internal-refs.js",
+    "check:intref:selftest": "node scripts/check-no-internal-refs.js --self-test"
   },
   "devDependencies": {
     "fsh-sushi": "3.20.0"

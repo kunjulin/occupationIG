@@ -53,7 +53,7 @@
 
 ## 6. 上傳介接契約 (Upload Interface Contract)
 
-本節定義健檢機構向主管機關平台上傳資料之介接契約（JOB-04）。
+本節定義健檢機構向主管機關平台上傳資料之介接契約。
 **平台端 API 之實際實作不在本 IG 範圍**；本節為雙方之最低共同約定。
 
 ### 6.1 端點與方法
@@ -74,7 +74,7 @@
 | `Patient` | 病歷號（機構內識別碼） | `request.ifNoneExist`（條件式建立） | [UC-008](Bundle-UC-008.html) entry[0] |
 | `Organization` | 醫事機構代碼 | `request.ifNoneExist` | [UC-008](Bundle-UC-008.html) entry[1] |
 | `DiagnosticReport` | 報告識別碼（[sid/report-id](NamingSystem-NS-ReportIdentifier.html)） | 首次上傳 `ifNoneExist`；重傳 `PUT` ＋ 查詢式 URL（條件式更新＝覆寫） | [UC-008](Bundle-UC-008.html) entry[3]、[UC-009](Bundle-UC-009.html) entry[5] |
-| `Practitioner` | **暫無**——證書字號命名空間未定（[T-2](open-issues.html#t-2)） | 一般 `POST`；T-2 定案後改條件式建立 | [UC-009](Bundle-UC-009.html) entry[2] |
+| `Practitioner` | **暫無**——證書字號命名空間未定（[T-2](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-2)） | 一般 `POST`；T-2 定案後改條件式建立 | [UC-009](Bundle-UC-009.html) entry[2] |
 
 「同一次健檢」之判定以**報告識別碼**為準：`sid/report-id` 之值在發行機構內須唯一且不得回收
 （見 [NS-ReportIdentifier](NamingSystem-NS-ReportIdentifier.html) 之描述）。
@@ -92,7 +92,7 @@ FHIR 對上傳封包有兩種處理語意，**對實作端的錯誤處理設計�
 
 現行 profile（`TWHA-Bundle-Transaction`）固定 `type = #transaction`，
 **此為暫行預設，非最終決策**——定案屬平台端，登記於
-[未決事項 M-9](open-issues.html#m-9)。若定案採 `batch`，需調整者僅：
+[未決事項 M-9](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-9)。若定案採 `batch`，需調整者僅：
 profile 之 `type` 固定值、本節之錯誤處理敘述、`$submit` 之回應定義；
 範例之 entry 結構不變。**定案前，平台端不得依任一語意實作錯誤處理**。
 
@@ -117,7 +117,7 @@ profile 之 `type` 固定值、本節之錯誤處理敘述、`$submit` 之回應
 > 情境資料集③之範疇），本指引一律**僅載明規則要素並指向待釋示**，不代該署認定。
 
 本節之層級係本指引之**技術符合性層級，不構成主管機關之認證或採認**
-（與[已知限制與試用須知 G-2](open-issues.html#g-2) 一致）。宣告符合某一層級，
+（與[已知限制與試用須知 G-2](index.html#before-you-start) 一致）。宣告符合某一層級，
 僅表示該系統之資料結構通過本指引對應 artifact 之驗證，**不表示任何機關已審閱、
 採認或背書該系統**。
 
@@ -125,7 +125,7 @@ profile 之 `type` 固定值、本節之錯誤處理敘述、`$submit` 之回應
 
 | 層級 | 範圍 | 宣告者可主張 | 內容依據 |
 |:--|:--|:--|:--|
-| **Level 1｜Core 上傳合規** | Core 最小共通上傳集之 Profile 與值集 ＋ 上傳封包結構（[UC-008](Bundle-UC-008.html)／[UC-009](Bundle-UC-009.html)） | 「本系統符合 TWHA IG Level 1」 | 國民健康署健檢上傳欄位規範（工作原案，待公告，見 [M-5](open-issues.html#m-5)） |
+| **Level 1｜Core 上傳合規** | Core 最小共通上傳集之 Profile 與值集 ＋ 上傳封包結構（[UC-008](Bundle-UC-008.html)／[UC-009](Bundle-UC-009.html)） | 「本系統符合 TWHA IG Level 1」 | 國民健康署健檢上傳欄位規範（工作原案，待公告，見 [M-5](index.html#before-you-start)） |
 | **Level 2｜勞工健檢涵蓋** | 附表九／十／十一之應執行項目、健康管理分級與適性配工、臨場健康服務執行紀錄 | 「本系統符合 TWHA IG Level 2」 | 《勞工健康保護規則》附表（**非受委任**，見 §7.0） |
 
 **Level 2 以 Level 1 為前提，Level 1 不以 Level 2 為前提。**
@@ -227,7 +227,7 @@ Level 2 涵蓋附表九／十／十一之法定應執行項目值集、特別危
 （清單同樣登記於 `scripts/governance-map.js`，以閘門逐件核對）。
 
 ⚠️ 附表十尚有**八個未審家族**未納入 `VS-Appendix10-RequiredSet`
-（見 [M-8](open-issues.html#m-8)）；宣告 Level 2 者遇未納入之家族，
+（見 [M-8](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-8)）；宣告 Level 2 者遇未納入之家族，
 **應保留原始 coding 照常交換，接收端不得因此拒收**。
 
 ### 7.4 artifact 之權責標籤與成熟度
@@ -268,5 +268,5 @@ Level 2 涵蓋附表九／十／十一之法定應執行項目值集、特別危
 > Level 1 之 `status` 維持 `active`，不受影響——**這正是分軌的目的**。
 
 > 嚼檳系列之 `experimental` 維持 `true`：其理由為所綁本地值集皆為 provisional、
-> 待 [M-5](open-issues.html#m-5)。**不得為使 Core 之外觀較佳而改標 `false`**
+> 待 [M-5](index.html#before-you-start)。**不得為使 Core 之外觀較佳而改標 `false`**
 > ——那等於宣稱未經核定之代碼已定案。

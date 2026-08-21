@@ -27,7 +27,7 @@ LOINC 由 **Regenstrief Institute, Inc.** 所有並授權，需依其授權條�
 
 > 本指引之 LOINC 顯示名以官方 display 為準。若發現本指引所載顯示名與 LOINC 官方不符，
 > 應以 LOINC 官方為準，並回報至本指引之議題追蹤
-> （相關稽核作業見 [`docs/optimization/JOB-01`](https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-01-terminology-code-audit.md)）。
+> （相關稽核作業見本專案 [GitHub 之優化工作文件](https://github.com/kunjulin/occupationIG/tree/main/docs/optimization)）。
 
 ### 2.2 SNOMED CT
 
@@ -55,7 +55,7 @@ SNOMED CT 為 **SNOMED International (IHTSDO)** 之註冊商標與著作，
 | 來源 | 引用方式 |
 |:--|:--|
 | **臺灣核心實作指引 (TW Core IG)** `tw.gov.mohw.twcore 1.0.0` | 套件層級依賴，本指引之 Profiles 繼承自此 |
-| **臺灣癌症登記短表實作指引 (TWCR_SF)** | 嚼檳榔相關 CodeSystem／ValueSet 之外部 canonical 引用。**目前以本地 stub 承載，非權威定義**——詳見[術語定義](terminology.html)與 [JOB-10](https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-10-twcrsf-dependency-governance.md) |
+| **臺灣癌症登記短表實作指引 (TWCR_SF)** | 嚼檳榔相關 CodeSystem／ValueSet 之外部 canonical 引用。**以正式相依宣告承載**（`fhir.TWCRSF`），本指引不自行定義該命名空間之資源；授權條款 CC0-1.0。詳見[術語定義](terminology.html) |
 
 ### 2.6 法規來源
 
@@ -72,7 +72,7 @@ SNOMED CT 為 **SNOMED International (IHTSDO)** 之註冊商標與著作，
 | 著作權年份 | 2026+ |
 | 發布者 | 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院 |
 
-> ⚠️ **本指引尚未宣告授權條款（`license`）。** 見[未決事項 P-2](open-issues.html#p-2)。
+> ⚠️ **本指引尚未宣告授權條款（`license`）。** 見[未決事項 P-2](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#p-2)。
 > 本指引為工業技術研究院委託研擬中之草案，其著作權歸屬與再利用條件涉及委託契約，
 > **尚待確認**，故 `sushi-config.yaml` 刻意未填 `license` 欄位——
 > 填入未經確認之授權條款，比留空更容易造成誤用。

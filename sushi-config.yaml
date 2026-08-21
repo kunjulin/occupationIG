@@ -4,7 +4,7 @@ name: TWHAIG
 title: 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)
 description: 以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】
 status: active
-version: 0.7.1
+version: 0.8.1
 # 本指引之敘述性內容為繁體中文（臺灣）。未宣告時 IG Publisher 會預設為 en，
 # 導致整份中文內容被標記為 lang="en" 並輸出至 en/ 子目錄（JOB-02）。
 language: zh-TW
@@ -149,10 +149,10 @@ pages:
     title: 安全與個資保護
   ip-statements.md:
     title: 智慧財產權聲明
-  open-issues.md:
-    title: 已知限制與試用須知
   history.md:
     title: 版本歷程
+  open-issues.md:
+    title: 本頁內容已移轉
 
 # 導覽列（JOB-23，0.2.3）。頂層 8 項，排列邏輯比照 TW Core IG v1.0.0 之
 # 「文件類型導向」：應用說明 → 目錄 → 規範文件 → 範例 → 下載 → 安全性。
@@ -188,5 +188,4 @@ menu:
   安全性:
     安全與個資保護: security.html
     智慧財產權聲明: ip-statements.html
-  已知限制與試用須知: open-issues.html
 
