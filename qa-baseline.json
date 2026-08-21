@@ -34,7 +34,27 @@
     "——本版未增刪任何 artifact，僅改 Bundle 之 entry 組成與 Composition 之 section）。",
     "",
     "⚠️ 本次仍為**先實測、後回填**：推送時未預先調整基準線，故首輪 CI 判「未校準」而紅。",
-    "那是雙向閘門的設計行為，不是失敗——降幅一律以實測為準（docs/RELEASE.md §2.2）。"
+    "那是雙向閘門的設計行為，不是失敗——降幅一律以實測為準（docs/RELEASE.md §2.2）。",
+    "",
+    "── v0.8.5 之後續變動（JOB-34 §2.5 採 (A)）──────────────────",
+    "量測來源 CI run 32480859794／job 96766705139（commit b83f4521，err = 0）。",
+    "",
+    "  TOTAL warn                                    80 →  79   (-1)",
+    "  isn't reachable ... from the Composition       1 →   0   (-1)",
+    "",
+    "TWHA-Composition.section[assessment].entry 加入 TWHAHealthManagementLevelProfile 後，",
+    "obs-health-mgmt-level 得以歸入 composition-uc003 之 assessment，最後 1 筆走訪不到消失。",
+    "-1 與 -1 完全相等，**無未歸因殘差**；TOTAL info 維持 462（該類別為 WARNING 級，不影響 info）。",
+    "其餘 30 個具名類別實測差異全為 0，未具名 WARNING 0 筆。",
+    "",
+    "📌 **本類別已歸零並鎖定為 0**：此後任何一筆新的走訪不到都會立即使 CI 紅。",
+    "⚠️ 惟「歸零」與「樣態字串失效」在閘門輸出上曾長得一樣——v0.8.5 已修正該訊息，",
+    "  零命中時會同時列出兩種可能，不再只暗示「樣態字串可能打錯」。",
+    "",
+    "⚠️ 同型問題另有一處未處置：TWHA-Composition-EmergencySummary 之 section[assessment]",
+    "  同樣使用 51848-0、其 Description 自陳承載健康管理分級，型別卻不收該資源。",
+    "  目前無實例使用故**不產生任何 WARNING**——沒有訊號的矛盾不會自己浮出來，",
+    "  故登記於 JOB-34 §2.6 待裁示，而非靜靜留著。"
   ],
   "_v082Note": [
     "v0.8.2：ConceptMap.title 補齊 ＋ QA 閘門改為雙向（機制先落地，容差待量測）。",
@@ -694,7 +714,7 @@
   ],
   "totals": {
     "err": 0,
-    "warn": 80,
+    "warn": 79,
     "info": 462
   },
   "_toleranceNote": [
@@ -780,7 +800,7 @@
     "Pinned the version of": 30,
     "cannot be resolved": 2321,
     "does not match any known slice": 23,
-    "isn't reachable by traversing forwards from the Composition": 1,
+    "isn't reachable by traversing forwards from the Composition": 0,
     "binding.valueSet: A definition could not be found for Canonical URL": 3,
     ": ValueSet '": 4,
     "all observations should have a subject": 2,

@@ -288,6 +288,8 @@ Parent: TWCoreImagingStudy
    該 Encounter 在此情境下之兩筆 zh-TW 顯示名提示消失（該 Encounter 本身未刪，
    UC-001／002／004／005 仍使用，故其同型訊息保留）。
    ⚠️ 本版刻意不預填基準線，首輪 CI 判「未校準」而紅屬預期——降幅一律以實測為準。
+   v0.8.5 採 (A) 後再降：`warn 80 → 79`、`isn't reachable 1 → 0`，兩者相等、無殘差，
+   `info` 維持 462（該類別為 WARNING 級）。**走訪不到已歸零並鎖定為 0**。
 
 ---
 
