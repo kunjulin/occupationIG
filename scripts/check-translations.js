@@ -37,21 +37,39 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const OURS = path.join(ROOT, 'input', 'data', 'stringsBase.json');
-const TEMPLATE = path.join(ROOT, 'template', 'translations', 'stringsBase.json');
+const TEMPLATE_DIR = path.join(ROOT, 'template', 'translations');
+const OURS_DIR = path.join(ROOT, 'input', 'data');
 const LANG = 'zh-TW';
+
+// ⚠️ **本閘門原本只看 stringsBase.json 一個檔，那是它自己的盲點。**
+//    模板 translations/ 下**不只一個** strings*.json：另有 stringsArtifacts.json（78 鍵），
+//    由 scripts/createArtifactSummary.xslt 以
+//      {{site.data.stringsArtifacts[lang]['<Type>Name']}}
+//    取用。該檔同樣只含 en，而我方當初只補了 stringsBase，於是 artifacts.html 之
+//    **9 個分類標題與 9 個目錄連結全部渲染為空白**——而本閘門每輪都綠。
+//    症狀與 JOB-24 完全相同，只是發生在另一個檔上；閘門存在、在跑、卻看錯了範圍。
+//
+//    故本檔改為**資料驅動**：掃描模板 translations/ 下所有 strings*.json，
+//    逐檔比對。新增之 T-0 規定「模板有的檔，我方必須也有」——
+//    日後模板再多一個 strings 檔，會直接紅燈，不會再靜默漏掉第三次。
+const TEMPLATE_GLOB = /^strings[A-Za-z0-9]*\.json$/;
+
+function templateStringFiles() {
+  if (!fs.existsSync(TEMPLATE_DIR)) return null;
+  return fs.readdirSync(TEMPLATE_DIR).filter((f) => TEMPLATE_GLOB.test(f)).sort();
+}
 
 const placeholders = (s) => [...String(s).matchAll(/%[A-Z]+%/g)].map((m) => m[0]).sort().join(',');
 
-function check(ours, templateEn) {
+function check(ours, templateEn, file = 'stringsBase.json') {
   const errors = [];
   const warnings = [];
 
   const ourEn = ours.en;
   const ourZh = ours[LANG];
 
-  if (!ourEn) errors.push('我方 stringsBase.json 缺少 `en` 區塊。');
-  if (!ourZh) errors.push(`我方 stringsBase.json 缺少 \`${LANG}\` 區塊——這正是本檔存在的理由。`);
+  if (!ourEn) errors.push(`我方 ${file} 缺少 \`en\` 區塊。`);
+  if (!ourZh) errors.push(`我方 ${file} 缺少 \`${LANG}\` 區塊——這正是本檔存在的理由。`);
   if (!ourEn || !ourZh) return { errors, warnings };
 
   if (templateEn) {
@@ -138,6 +156,63 @@ function selfTest() {
       failed++;
     }
   }
+
+  // T-0 之負向測試需要真實檔案系統（check() 只處理單一檔案之內容，
+  // 「整個檔案不存在」這件事發生在 main() 的掃描階段）。故以 child_process
+  // 在暫存目錄重建 template/translations ＋ input/data 之結構後實跑本腳本。
+  //
+  // ⚠️ 這一案是本輪的重點：**stringsArtifacts.json 缺檔四個多月，本閘門每輪都綠。**
+  //    沒有這一案，改寫成資料驅動也只是換個寫法，不保證真的會紅。
+  {
+    const os = require('os');
+    const { spawnSync } = require('child_process');
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'i18n-'));
+    const mk = (p, obj) => {
+      fs.mkdirSync(path.dirname(p), { recursive: true });
+      fs.writeFileSync(p, JSON.stringify(obj, null, 2));
+    };
+    const good = { en: { A: 'Alpha' }, [LANG]: { A: '甲' } };
+
+    const run = (name, setup, expectFail, expectRe) => {
+      fs.rmSync(tmp, { recursive: true, force: true });
+      fs.mkdirSync(tmp, { recursive: true });
+      fs.mkdirSync(path.join(tmp, 'scripts'), { recursive: true });
+      fs.copyFileSync(__filename, path.join(tmp, 'scripts', path.basename(__filename)));
+      setup(tmp);
+      const r = spawnSync(process.execPath, [path.join(tmp, 'scripts', path.basename(__filename))],
+        { encoding: 'utf8' });
+      const out = (r.stdout || '') + (r.stderr || '');
+      const gotFail = r.status !== 0;
+      const ok = gotFail === expectFail && (!expectRe || expectRe.test(out));
+      if (ok) console.log(`  ✓ ${name}`);
+      else {
+        console.error(`  ✗ ${name}：exit=${r.status}，輸出：\n${out.split('\n').slice(0, 6).join('\n')}`);
+        failed++;
+      }
+    };
+
+    run('T-0 模板有 strings 檔、我方沒有 → 失敗',
+      (d) => {
+        mk(path.join(d, 'template/translations/stringsBase.json'), { en: { A: 'Alpha' } });
+        mk(path.join(d, 'template/translations/stringsArtifacts.json'), { en: { B: 'Bravo' } });
+        mk(path.join(d, 'input/data/stringsBase.json'), good);
+        // 刻意不建立 input/data/stringsArtifacts.json
+      }, true, /T-0/);
+
+    run('T-0 兩個檔都備妥 → 不誤報（正向對照）',
+      (d) => {
+        mk(path.join(d, 'template/translations/stringsBase.json'), { en: { A: 'Alpha' } });
+        mk(path.join(d, 'template/translations/stringsArtifacts.json'), { en: { B: 'Bravo' } });
+        mk(path.join(d, 'input/data/stringsBase.json'), good);
+        mk(path.join(d, 'input/data/stringsArtifacts.json'), { en: { B: 'Bravo' }, [LANG]: { B: '乙' } });
+      }, false, null);
+
+    run('模板與我方皆無 strings 檔 → 判為未執行，不得靜默通過',
+      (d) => { fs.mkdirSync(path.join(d, 'input/data'), { recursive: true }); },
+      true, /形同未執行/);
+
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
   if (failed) {
     console.error(`\n負向測試失敗 ${failed} 組——閘門本身失效，修好前不得信任其結果。`);
     process.exit(1);
@@ -154,25 +229,59 @@ function main() {
   }
   const strict = args.includes('--strict');
 
-  if (!fs.existsSync(OURS)) {
-    console.error(`✖ 找不到 ${path.relative(ROOT, OURS)}——本 IG 之 zh-TW 字串檔遺失。`);
-    process.exit(1);
-  }
-  const ours = JSON.parse(fs.readFileSync(OURS, 'utf8'));
+  const tplFiles = templateStringFiles();
+  const errors = [];
+  const warnings = [];
+  const summary = [];
 
-  let templateEn = null;
-  if (fs.existsSync(TEMPLATE)) {
-    templateEn = JSON.parse(fs.readFileSync(TEMPLATE, 'utf8')).en || null;
-  }
-
-  const { errors, warnings } = check(ours, templateEn);
-
-  if (!templateEn) {
+  // 待檢清單：以模板為準；模板不在時退回我方已有之檔案，並明白告知跳過了什麼。
+  let files = tplFiles;
+  if (!files) {
+    files = fs.existsSync(OURS_DIR)
+      ? fs.readdirSync(OURS_DIR).filter((f) => TEMPLATE_GLOB.test(f)).sort()
+      : [];
     console.log(
-      `⚠ 找不到 ${path.relative(ROOT, TEMPLATE)}（模板尚未解壓，通常代表本機未建置過）。\n` +
-      '  已跳過 T-1／T-2／T-5（與上游比對）；T-3／T-4 仍照常執行。\n' +
-      '  與上游之比對以 CI 為準——CI 一律先建置再跑本閘門。'
+      `⚠ 找不到 ${path.relative(ROOT, TEMPLATE_DIR)}（模板尚未解壓，通常代表本機未建置過）。\n` +
+      '  已跳過 T-0／T-1／T-2／T-5（與上游比對）；T-3／T-4 仍照常執行。\n' +
+      '  ⚠️ 亦即**此時無法得知模板是否新增了我方沒有的 strings 檔**——\n' +
+      '     與上游之比對一律以 CI 為準，CI 先建置再跑本閘門。'
     );
+  }
+
+  for (const file of files) {
+    const oursPath = path.join(OURS_DIR, file);
+    const tplPath = path.join(TEMPLATE_DIR, file);
+
+    // T-0：模板有的 strings 檔，我方必須也有。
+    // 這一條就是 stringsArtifacts 漏掉四個多月都沒人發現的那個缺口。
+    if (!fs.existsSync(oursPath)) {
+      errors.push(
+        `T-0 模板有 translations/${file}，我方 input/data/ 卻沒有對應檔案。\n` +
+        `      該檔之所有鍵在 ${LANG} 會渲染為**空白**，且不會有任何錯誤訊息。\n` +
+        `      處置：比照 stringsBase.json 自備一份（en 逐字照抄模板 ＋ ${LANG} 全譯）。`
+      );
+      continue;
+    }
+
+    const ours = JSON.parse(fs.readFileSync(oursPath, 'utf8'));
+    const templateEn = fs.existsSync(tplPath)
+      ? (JSON.parse(fs.readFileSync(tplPath, 'utf8')).en || null)
+      : null;
+
+    const r = check(ours, templateEn, file);
+    errors.push(...r.errors);
+    warnings.push(...r.warnings);
+
+    if (!r.errors.length && ours[LANG]) {
+      summary.push(
+        `  ${file}：${LANG} ${Object.keys(ours[LANG]).length} 鍵` +
+        (templateEn ? `，與模板 en（${Object.keys(templateEn).length} 鍵）完全對齊` : '（未與模板比對）')
+      );
+    }
+  }
+
+  if (!files.length) {
+    errors.push('找不到任何 strings*.json（模板與 input/data 皆無）——本閘門形同未執行，不得視為通過。');
   }
 
   if (errors.length) {
@@ -188,12 +297,9 @@ function main() {
 
   if (errors.length || (strict && warnings.length)) process.exit(1);
 
-  const n = Object.keys(ours[LANG]).length;
-  console.log(
-    `OK: ${LANG} 共 ${n} 個字串，全數非空、佔位符與 en 一致` +
-    (templateEn ? `，且與模板 en（${Object.keys(templateEn).length} 鍵）完全對齊` : '（未與模板比對）') +
-    (warnings.length ? `（${warnings.length} 項警告）` : '') + '。'
-  );
+  console.log(`OK: ${files.length} 個字串檔全數非空、佔位符與 en 一致：`);
+  summary.forEach((s) => console.log(s));
+  if (warnings.length) console.log(`（${warnings.length} 項警告）`);
 }
 
 main();
