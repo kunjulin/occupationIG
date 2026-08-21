@@ -2,7 +2,7 @@ Instance: TWHealthCheckLaboratoryMap
 // We use ConceptMap directly
 InstanceOf: ConceptMap
 Title: "健康檢查檢驗項目代碼對應 ConceptMap"
-Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。
+Description: "【主管機關：國民健康署】將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。
 
 **來源版本**：LOINC 2.82（經 tx.fhir.org 驗證）。**驗證狀態**：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。**審查狀態**：equivalence 已於 2026-07-26 逐筆覆核並補列理由（comment），並於 2026-07-30 依 FHIR R4 target-relative 定義更正方向（JOB-22），工作小組建議方案，提請確認可否作為下一階段試作基礎。
 
@@ -10,7 +10,12 @@ Description: "將健康檢查實驗室檢驗之 acceptable code 歸一至 prefer
 
 ⚠️ **歸一之臨床限制**：本對照供資料標準化之用，**不表示歸一後之數值可直接互換比較**（例如 MDRD 與 CKD-EPI eGFR、IFCC 與 NGSP HbA1c 均需換算或不可互換）。交換時應保留原始代碼。"
 * name = "TWHealthCheckLaboratoryMap"
+// JOB-31 §5(A)：納入權責登記（hpa／Level 1）。本對照為 Level 1 之必要配套——
+// Level 1 之值集綁定為 extensible，接收端正是靠它把院所送的 acceptable 變異碼
+// 歸一至 preferred，故其成熟度須與 Level 1 一致並同受閘門保護。status 維持 active。
 * status = #active
+* extension[0].url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"
+* extension[0].valueCode = #trial-use
 * experimental = false
 * version = "2026-07-26"
 * date = "2026-07-26"

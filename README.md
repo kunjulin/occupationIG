@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.6.2`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.7.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -161,6 +161,49 @@ set NODE_OPTIONS=--use-system-ca
 
 ## 版本與更新記錄 (Update History)
 
+### v0.7.0（2026-08-21）ConceptMap／NamingSystem 納入權責登記（JOB-31 §5，採 (A)）
+
+> ⚠️ **本版含規範性中繼資料變更**：`Appendix10-to-HazardType` 之 `status` 由 `active` 改為 `draft`。
+
+- **問題**：`check-governance-tags.js` 之 `scanFsh` 僅掃 `Profile`／`Extension`／`ValueSet`／
+  `CodeSystem` 四種宣告，**以 `Instance:` 宣告者一律排除**，故 3 件不在登記表內且
+  G-1「未登記即失敗」對它們不會觸發——這是**未寫明的沉默排除**，與本案
+  「範疇界定要寫出來，不是省略」之立場（M-6、JOB-27、JOB-30 §3.1）相違。
+- **處置（PI 裁示採 (A) 擴大登記範圍）**：登記表由 101 → **104** 件。
+
+  | Artifact | 標籤／層級 | 處置 |
+  |:--|:--|:--|
+  | `TWHealthCheckLaboratoryMap` | 【主管機關：國民健康署】／**Level 1** | 加 `standards-status = #trial-use`；`status` 維持 `active` |
+  | `Appendix10-to-HazardType` | 【依據：勞工健康保護規則附表】／**Level 2** | 加 `#draft`，`status` **併同改為 `draft`** |
+  | `NS-ReportIdentifier` | 【技術規格】／**level 0** | 僅加標籤，**不標** `standards-status`、**不動** `status`（維持 `draft`） |
+
+  > **`TWHealthCheckLaboratoryMap` 為何是 Level 1**：Level 1 之值集綁定為 `extensible`，
+  > 院所送 acceptable 變異碼時，接收端正是靠本對照歸一至 preferred。
+  > 它是 Level 1 宣告能否成立的一環，就必須與 Level 1 同受閘門保護。
+  >
+  > **NamingSystem 為何不是 Level 1**：(1) 它描述識別碼命名空間，**不是可宣告符合的標的**；
+  > (2) 其 `status` 現為 `draft`，歸 Level 1 會迫使 G-3b 要求改為 `active`——
+  > 那是**實質的成熟度主張**，不能為了讓登記表整齊而順手為之。
+- **閘門補強**：`scanFsh` 新增 `Instance:` ＋ `InstanceOf:` 解析。
+  ⚠️ **status 之正則依宣告種類切換**：定義類只認 `^status`，Instance 只認裸 `status`
+  ——本 repo 多支 profile 有 `* status = #final`（那是**約束實例**的 status，
+  非 profile 自身），統一放寬會使 G-3b 全面誤判。
+  `standards-status` 於 Instance 採 indexed 形式（`extension[0].url` ＋ `.valueCode`），
+  不依賴 SUSHI 以 canonical 解析 extension 定義。
+- **§3 `totals.warn` 由 152 下調至 91**（依 CI run 32433486214 實測，非依評估文件所載之數字）。
+  ⚠️ **此舉推翻了 `qa-baseline.json` 既有之「未歸因之總數改善不下調天花板」政策**——
+  該政策要防的是「把未歸因的改善寫死成基準線、日後看起來像刻意達成的成果」，
+  但它製造的是「天花板與實況差 61 筆，未來可再新增最多 61 筆 WARNING 而閘門完全不會亮」。
+  **天花板的職責是攔退步，不是記功勞**，故改為下調至實測值並明載該 61 筆未逐筆歸因。
+  副作用須知悉：此後**任何一筆新增 WARNING 都會使 CI 紅**，這是刻意的。
+  ⚠️ 91 筆中仍有 **25 筆未具名**（具名者 66 筆＝OID 49 ＋ URL definition 11 ＋
+  DISCOURAGED 5 ＋ experimental-not-labeled 1），閘門對其**組成**仍是盲的，只是不再有緩衝；
+  具名化屬 JOB-31 §4，**本版未做**。
+- **自我測試 12 → 16 組**，新增 ⑨（未登記之 ConceptMap 須抓到）、⑨b（範例實例不得誤納）、
+  ⑩（Instance 標 draft 未併同改 status）、⑪（profile 之 `* status = #final` 不得誤讀）。
+  ⚠️ **⑨ 與 ⑩ 已實測驗證為真負向案例**：把 `INSTANCE_KINDS` 清空以模擬補強前之行為後，
+  該二案**確實失敗**（⑨b 仍通過，正向對照成立）。
+
 ### v0.6.2（2026-08-20）v0.6.1 線上複驗（JOB-31 評估，未變更任何定義）
 
 > 說明：本版**僅新增評估文件** [`docs/optimization/JOB-31-qa-baseline-and-registry-gaps.md`](docs/optimization/JOB-31-qa-baseline-and-registry-gaps.md)，
@@ -304,7 +347,7 @@ Level 1 之 `trial-use` 反而失去意義。若欲表達共用結構亦非定�
   **戒檳**月數或**嚼食持續**期間（**兩者語意相反**，兩個 component 皆已備妥）；
   ③ 嚼檳量單位原案記 `{個}/d`，本指引用 `{quid}/d`（UCUM annotation 僅接受 ASCII）。
   已列為 [`docs/drafts/HPA-CONFIRMATION-JOB-30.md`](docs/drafts/HPA-CONFIRMATION-JOB-30.md) 第 4 項。
-- **權責標籤**：101 個定義型 artifact 之 `Description` 起首標示內容依據——
+- **權責標籤**：101 個定義型 artifact（v0.7.0 起為 104，見該節） 之 `Description` 起首標示內容依據——
   `【主管機關：國民健康署】` **24**／`【依據：勞工健康保護規則附表】` **50**／`【技術規格】` **27**。
   導入 HL7 `structuredefinition-standards-status`（**Level 1 之 24 件標 `trial-use`；
   Level 2 與共用技術結構不標**），**IG 層 `status` 不動**——FHIR IG 一次只能發一個版本，

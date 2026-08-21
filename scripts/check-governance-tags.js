@@ -29,8 +29,23 @@ const path = require('path');
 const os = require('os');
 const { TAGS, MAP, STANDARDS_STATUS_URL, statusOf, resourceStatusOf } = require('./governance-map');
 
-const FSH_DIRS = ['profiles', 'extensions', 'valuesets', 'codesystems'];
+const FSH_DIRS = ['profiles', 'extensions', 'valuesets', 'codesystems', 'namingsystems'];
 const KINDS = ['Profile', 'Extension', 'ValueSet', 'CodeSystem'];
+
+// JOB-31 §5(A)：ConceptMap 與 NamingSystem 在 FSH 中以 `Instance:` ＋ `InstanceOf:` 宣告，
+// 舊版 scanFsh 一律排除，故 G-1「未登記即失敗」對它們不會觸發——TWHealthCheckLaboratoryMap
+// 是 Level 1 對外宣告 trial-use 時的必要配套（acceptable→preferred 歸一），卻既無成熟度標記
+// 也不受閘門保護。現納入登記範圍。
+const INSTANCE_KINDS = ['ConceptMap', 'NamingSystem'];
+
+// ⚠️ **status 之解析必須依宣告種類分開，不可統一放寬成 `\*\s*\^?status`。**
+//    定義類（Profile 等）之 `* status = #final` 是**約束實例的 status 元素**，
+//    與該 artifact 自身的 status 無關——本 repo 之 TWHA-Composition、TWHA-WorkExposure、
+//    TWHA-Observation-ServiceFinding 等多支 profile 都有這一行。若放寬正則，
+//    會把 profile 自身讀成 status = final，G-3b 全面誤判。
+//    定義類只認 `^status`；Instance 類只認裸 `status`（Instance 沒有 `^` 形式）。
+const statusRe = (kind) =>
+  INSTANCE_KINDS.includes(kind) ? /^\*\s*status\s*=\s*#(\S+)/ : /^\*\s*\^status\s*=\s*#(\S+)/;
 
 // ---------------------------------------------------------------- FSH 掃描
 // 逐行狀態機：遇到 `<Kind>: name` 開新區塊，直到下一個宣告為止。
@@ -44,7 +59,8 @@ function scanFsh(root) {
       const rel = path.join(d, file);
       const lines = fs.readFileSync(path.join(dir, file), 'utf8').split(/\r?\n/);
       let cur = null;
-      const close = () => { if (cur) found.push(cur); cur = null; };
+      // pending 者（Instance 尚未讀到 InstanceOf）不納入——它可能是範例實例。
+      const close = () => { if (cur && !cur.pending) found.push(cur); cur = null; };
       lines.forEach((line, i) => {
         const decl = line.match(/^([A-Za-z]+):\s+(\S+)/);
         if (decl) {
@@ -53,7 +69,18 @@ function scanFsh(root) {
             close();
             if (KINDS.includes(kind)) {
               cur = { kind, file: rel, line: i + 1, id: null, desc: null, statusCode: null, resStatus: null, inDesc: false };
+            } else if (kind === 'Instance') {
+              // Instance 之型別要到下一行 InstanceOf: 才知道，故先暫存；
+              // 非 ConceptMap／NamingSystem 者於該行捨棄。Instance 無 `Id:`，
+              // 宣告名即其 id。
+              cur = { kind: 'Instance', file: rel, line: i + 1, id: decl[2], desc: null,
+                      statusCode: null, resStatus: null, inDesc: false, pending: true };
             }
+            return;
+          }
+          if (kind === 'InstanceOf' && cur && cur.pending) {
+            if (INSTANCE_KINDS.includes(decl[2])) { cur.kind = decl[2]; cur.pending = false; }
+            else cur = null;   // 範例實例等，不納入登記範圍
             return;
           }
         }
@@ -79,11 +106,44 @@ function scanFsh(root) {
           if (!/"\s*$/.test(line.slice('Description:'.length).trim().slice(1))) cur.inDesc = true;
           return;
         }
+        // Instance 之描述亦可寫成 `* description = "..."`（或 """ 跨行）。
+        // Appendix10-to-HazardType 只有這一種；NS-ReportIdentifier 兩種都有，
+        // 而 SUSHI 以規則為準，故規則存在時覆蓋 Description: 關鍵字。
+        if (INSTANCE_KINDS.includes(cur.kind)) {
+          const dr = line.match(/^\*\s*description\s*=\s*("""|")(.*)$/);
+          if (dr) {
+            if (dr[1] === '"""') {
+              cur.descRulePending = true;          // 內容自下一非空行起
+              if (dr[2].trim()) { cur.desc = dr[2].trim(); cur.descRulePending = false; }
+            } else {
+              cur.desc = dr[2];
+            }
+            return;
+          }
+          if (cur.descRulePending) {
+            if (line.trim()) { cur.desc = line.trim(); cur.descRulePending = false; }
+            return;
+          }
+        }
+        // 形式一（定義類）：`* ^extension[<canonical>].valueCode = #X`
         const st = line.match(/standards-status\]\.valueCode\s*=\s*#(\S+)/);
         if (st) { cur.statusCode = st[1]; return; }
-        // 資源自身之 status（^status = #draft）。standards-status = draft 時必須併同設定，
+        // 形式二（Instance）：`* extension[N].url = "…standards-status"` ＋
+        //                     `* extension[N].valueCode = #X`
+        // 之所以不對 Instance 用形式一：那要靠 SUSHI 以 canonical 解析 extension 定義，
+        // 而本容器跑不了 SUSHI（proxy 封鎖 packages.fhir.org），無從先驗證它解不解得開。
+        // indexed 形式是純粹的元素賦值，不依賴任何解析，故必定成立。
+        const eu = line.match(/^\*\s*extension\[(\d+)\]\.url\s*=\s*"[^"]*standards-status"/);
+        if (eu) { cur.ssIdx = eu[1]; return; }
+        if (cur.ssIdx !== undefined) {
+          const ev = line.match(/^\*\s*extension\[(\d+)\]\.valueCode\s*=\s*#(\S+)/);
+          if (ev && ev[1] === cur.ssIdx) { cur.statusCode = ev[2]; return; }
+        }
+        // 資源自身之 status。standards-status = draft 時必須併同設定，
         // 否則 IG Publisher 會判為不一致——v0.5.0 實測命中 71 件。
-        const rs = line.match(/^\*\s*\^status\s*=\s*#(\S+)/);
+        // ⚠️ 正則依宣告種類切換，理由見檔首 statusRe 之註解（profile 之 `* status = #final`
+        //    是約束實例，不是 profile 自身的 status）。
+        const rs = line.match(statusRe(cur.kind));
         if (rs) { cur.resStatus = rs[1]; }
       });
       close();
@@ -294,6 +354,48 @@ function selfTest() {
      `* ^extension[${STANDARDS_STATUS_URL}].valueCode = #draft\n`);
   run('⑧b 跨行 Description ＋ 規則置於其後（正向對照）',
       () => checkArtifacts(tmp, M).violations.length === 0);
+
+  // ⑨ 未登記之 ConceptMap 必須被抓到（JOB-31 §5(A) 之驗收條件）
+  //    v0.6.2 以前 scanFsh 一律排除 Instance: 宣告者，此案在補強前**跑不過**——
+  //    它證明的正是本輪新增的那段解析。
+  reset();
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use'));
+  mk('codesystems', 'cm.fsh',
+     'Instance: CM-Unregistered\nInstanceOf: ConceptMap\nUsage: #definition\n' +
+     '* description = "未登記之對照表。"\n* status = #active\n');
+  run('⑨ 未登記之 ConceptMap', () =>
+    checkArtifacts(tmp, M).violations.some((v) => v.includes('CM-Unregistered') && v.startsWith('[G-1]')));
+
+  // ⑨b 範例實例（InstanceOf 非 ConceptMap／NamingSystem）不得被誤納（正向對照）
+  reset();
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use'));
+  mk('codesystems', 'ex.fsh',
+     'Instance: obs-example\nInstanceOf: Observation\nUsage: #example\n* status = #final\n');
+  run('⑨b 範例實例不誤納（正向對照）', () =>
+    !checkArtifacts(tmp, M).violations.some((v) => v.includes('obs-example')));
+
+  // ⑩ Instance 標 draft 卻未併同改 status → 必須抓到（indexed extension 形式之解析）
+  reset();
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use'));
+  mk('codesystems', 'cm2.fsh',
+     'Instance: CM-Reg\nInstanceOf: ConceptMap\nUsage: #definition\n' +
+     '* description = "' + TAGS.reg + '對照表。"\n* status = #active\n' +
+     '* extension[0].url = "' + STANDARDS_STATUS_URL + '"\n* extension[0].valueCode = #draft\n');
+  run('⑩ ConceptMap 標 draft 未併同改 status', () =>
+    checkArtifacts(tmp, { 'VS-Ok': ['hpa', 1], 'CM-Reg': ['reg', 2] })
+      .violations.some((v) => v.startsWith('[G-3b]') && v.includes('CM-Reg')));
+
+  // ⑪ profile 之 `* status = #final` 不得被誤讀為該 profile 自身之 status（正向對照）
+  //    本輪最容易踩的坑：若把 status 正則統一放寬成 `\*\s*\^?status`，
+  //    本 repo 多支 profile 的 `* status = #final` 會使 G-3b 全面誤判。
+  reset();
+  mk('profiles', 'p.fsh',
+     'Profile: P-Ok\nParent: Observation\nId: P-Ok\nTitle: "t"\n' +
+     'Description: "' + TAGS.reg + '測試 profile。"\n' +
+     '* ^status = #draft\n* status = #final\n' +
+     '* ^extension[' + STANDARDS_STATUS_URL + '].valueCode = #draft\n');
+  run('⑪ profile 之 * status = #final 不誤讀（正向對照）', () =>
+    !checkArtifacts(tmp, { 'P-Ok': ['reg', 2] }).violations.some((v) => v.startsWith('[G-3b]')));
 
   // ⑦ 完整正例：全部登記齊備時不得誤報
   reset();
