@@ -1,4 +1,4 @@
-# 健康檢查資料交換平台服務宣告 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.0
+# 健康檢查資料交換平台服務宣告 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
 
 ## CapabilityStatement: 健康檢查資料交換平台服務宣告 
 
@@ -16,7 +16,7 @@
   "resourceType" : "CapabilityStatement",
   "id" : "TWHA-CapabilityStatement",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CapabilityStatement/TWHA-CapabilityStatement",
-  "version" : "0.7.0",
+  "version" : "0.7.1",
   "title" : "健康檢查資料交換平台服務宣告",
   "status" : "active",
   "date" : "2026-07-29",

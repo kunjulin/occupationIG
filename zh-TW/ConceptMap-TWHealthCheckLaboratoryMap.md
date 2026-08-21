@@ -1,6 +1,9 @@
-# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.0
+# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
 
 ## ConceptMap: 健康檢查檢驗項目代碼對應 ConceptMap 
+
+ 
+【主管機關：國民健康署】將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。詳細之來源版本、驗證狀態、equivalence 使用原則與歸一之臨床限制，見本指引〈術語〉頁與本檔 Description。 
 
 
 
@@ -15,7 +18,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap",
-  "version" : "0.7.0",
+  "version" : "0.7.1",
   "name" : "TWHealthCheckLaboratoryMap",
   "status" : "active",
   "experimental" : false,
@@ -35,6 +38,7 @@
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
+  "description" : "【主管機關：國民健康署】將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。詳細之來源版本、驗證狀態、equivalence 使用原則與歸一之臨床限制，見本指引〈術語〉頁與本檔 Description。",
   "sourceUri" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset",
   "targetUri" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset",
   "group" : [{
