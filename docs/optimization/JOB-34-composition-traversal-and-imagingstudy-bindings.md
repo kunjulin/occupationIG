@@ -7,7 +7,7 @@
 | **預估** | S（診斷已完成）＋ M（實作，視裁定方向） |
 | **主要影響檔案** | `input/fsh/examples/07-compositions.fsh`、`09-bundles.fsh`、`11-special-exam-followup.fsh` |
 | **緣起** | JOB-31 §4 具名化時發現：89 筆 WARNING 中有 17 筆屬結構問題，先前僅由 `totals.warn` 一個數字間接看管 |
-| **狀態** | 🔍 **診斷（v0.8.3）**——本文件只做判定，**未變更任何定義**；處置方向待裁示 |
+| **狀態** | 🔍 **診斷完成（v0.8.3）**——步驟 1 之逐筆原文已取得並回填（§2.3、§3.3），一次性 CI 步驟已移除。本文件只做判定，**未變更任何定義**；步驟 2 待裁示 |
 
 ---
 
@@ -17,8 +17,10 @@
 
 - **10 筆 Composition 走訪不到＝文件語意問題，且只出在一個範例（UC-003）。**
   不是 Bundle type 用錯，也不是系統性建模缺陷——七個 document Bundle 中六個完全乾淨。
-- **7 筆 ImagingStudy 值集解析不到＝上游條件所致**，R4 核心把 ImagingStudy 之數個元素綁定至
-  DICOM／RadLex 值集，而該等值集不隨核心套件散布。本 IG 無從修正，只能決定「留著並載明」或「不用該資源」。
+- **7 筆 ImagingStudy 值集解析不到＝上游條件所致，且永遠不會消失。**
+  實測原值顯示，R4 核心在此把綁定指向 `…RadLex_Playbook.aspx` 與
+  `…sect_B.5.html#table_B.5-1`——**兩個都是 HTML 說明頁的網址，不是 ValueSet 資源的識別碼**，
+  故沒有任何術語伺服器解得開。本 IG 無從修正，也無從等待上游修正。
 
 ---
 
@@ -88,29 +90,39 @@ section[assessment]    → example-clinical-impression
 | `obs-alcohol` | Observation | 飲酒 |
 | `obs-smoking-former` | Observation | 吸菸（已戒） |
 
-### 2.3 ⚠️ 未解之差額：本文件算出 11，qa.txt 為 10
+### 2.3 差額（11 vs 10）已查明：差在 `example-nurse`
 
-**兩個數字都寫在這裡，不取其一，也不調整任一方。**
+**逐筆原文取得於** CI run 32474502859／job 96747954715（commit `10ed28b0`，PR #37）。
+qa.txt 之 10 筆，其標的依序為：
 
-- 本節之可達性分析：**11 筆**（全在 UC-003）。
-- `qa.txt` 之實測：**10 筆**——`qa-baseline.json` 之具名類別
-  `isn't reachable by traversing forwards from the Composition` 為 10，
-  且該值在容差 0 之雙向閘門下跑綠（run 32468203194／32468946686），
-  代表 qa.txt 中該字串恰好出現 10 次，不是約略值。
+```
+example-encounter-special、obs-occupation、obs-ecg、example-imaging-chest-xray、
+example-diagnostic-report、obs-health-mgmt-level、example-careplan-fitness、
+example-servicerequest-followup、obs-alcohol、obs-smoking-former
+```
 
-差額為 **1 筆**，成因尚未查明。已排除者：
+即 §2.2 表列 11 筆**減去 `example-nurse`**。差額歸因完成，無餘數。
 
-- 不是漏抓參照——UC-003 之可達節點（worker／doctor／hospital／encounter-general／
-  obs-hearing／obs-pulmonary／clinical-impression）全文逐一檢視過，
-  其 `Reference(...)` 皆已納入圖中，無指向上表任一資源者。
-- 不是 Provenance 豁免——UC-003 無 Provenance entry。
+**兩個數字都是對的，計的不是同一件事：**
 
-尚待查證之可能：IG Publisher 之走訪種子或豁免規則與 R4 §3.3.1 之字面不完全相同。
+| | 計什麼 |
+|:--|:--|
+| 本文件之 **11** | 自 Composition 前向走訪**實際到不了**的 entry（R4 §3.3.1 之字面） |
+| qa.txt 之 **10** | IG Publisher **實際發出警告**的 entry |
 
-> **處置：先取得 qa.txt 中那 10 筆之逐筆原文再定案。**
-> 在此之前，**不得**把本文件的 11 改成 10，也**不得**把基準線的 10 改成 11——
-> 兩者計的可能不是同一件事（比照 CLAUDE.md §2.4「21 列 vs 20 碼」之前例：
-> 數不符時先找權威來源，不要急著改文件數字，也不要急著補足差額）。
+`example-nurse`（Practitioner）確實走訪不到——這點本文件與 qa.txt 並不衝突，
+**IG Publisher 只是沒有為它發警告**。
+
+> ⚠️ **不發警告的機制尚未確立，故不寫成結論。**
+> 觀察到的事實只有一條：11 筆中唯一未被警告者是唯一的 Practitioner。
+> 可能之解釋（**皆未驗證，不得引用**）：驗證器對 Practitioner 這類「參與者」型資源另有豁免；
+> 或其可達性判定另含本文件未模擬之路徑。
+> **差額已歸因到具體那一筆，成因未明**——兩者要分開講，前者足以支撐 §2.4 之處置，後者不影響處置。
+
+> 📌 **本文件之 11 不改成 10。** `example-nurse` 是 UC-003 中無任何資源參照的孤兒，
+> 它「沒被警告」不代表「沒問題」——反而正是 §2.4 判定應自 Bundle 移除的那一筆。
+> 若為了對齊 qa.txt 而把它從清單刪掉，就會把唯一一筆**真正該刪的資源**藏起來。
+> 這與 CLAUDE.md §2.4「21 列 vs 20 碼」同型：**數不符時查明兩者各計什麼，不是把數字湊齊。**
 
 ### 2.4 處置方向（待裁示）
 
@@ -164,24 +176,43 @@ Parent: TWCoreImagingStudy
 
 （`1.2.840.10008.5.1.4.1.1.1.1` 為 DICOM Digital X-Ray Image Storage – For Presentation。）
 
-⚠️ **待補**：上開 3 個 canonical URL 之實際值尚未取得——閘門之形態正規化把引號內容
-換成 `'X'`，日誌看不到原值。**不以記憶填入**，與 §2.3 一併於下一輪 CI 取得原文。
+### 3.3 解析不到的 canonical URL（實測原值）
 
-### 3.3 處置方向（待裁示）
+同一輪 CI（run 32474502859／job 96747954715）取得之原文：
+
+| 位置 | canonical URL |
+|:--|:--|
+| `TWHA-ImagingStudy` snapshot `element[22]`、`element[26]` | `http://www.rsna.org/RadLex_Playbook.aspx` |
+| `TWHA-ImagingStudy` snapshot `element[60]` | `http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1` |
+| 範例 `procedureCode[0]`（獨立 ＋ Bundle 內各 1） | `http://www.rsna.org/RadLex_Playbook.aspx` |
+| 範例 `series[0].instance[0].sopClass`（獨立 ＋ Bundle 內各 1） | `http://dicom.nema.org/…#table_B.5-1` |
+
+> **原值比預期更有決定性：這兩個 canonical 根本不是 ValueSet 資源的識別碼，
+> 而是網頁文件的網址**——一個 `.aspx`、一個 `.html#table_B.5-1`。
+>
+> 這把 §3.2 的定性從「值集未隨套件散布」收緊為更確定的一句：
+> **R4 核心在此處把綁定指向了 HTML 說明頁，因此沒有任何術語伺服器解得開，
+> 現在解不開、將來也解不開。** 不是暫時性的套件缺漏，也不是 tx 的問題。
+>
+> 這使 §3.4 之選項 (A) 從「目前最務實」變成「唯一正確」：等不到上游修好，
+> 因為沒有東西可修。
+
+### 3.4 處置方向（待裁示）
 
 | 選項 | 說明 |
 |:--|:--|
-| **(A) 維持現狀＋載明（建議）** | 已具名納管（`qa-baseline.json`），於〈已知限制〉載明係上游值集不可解析，非本 IG 缺陷。零風險。 |
-| (B) 以 `ignoreWarnings.txt` 抑制 | ⚠️ **不建議**。CLAUDE.md 明列「以泛用字串抑制警告」為常犯錯誤；且抑制後連上游哪天修好都看不到。 |
+| **(A) 維持現狀＋載明（建議，且依 §3.3 為唯一正確選項）** | 已具名納管（`qa-baseline.json`），於〈已知限制〉載明：R4 核心把此處綁定指向 HTML 說明頁而非 ValueSet 資源，故永遠無法解析，非本 IG 缺陷。零風險。 |
+| (B) 以 `ignoreWarnings.txt` 抑制 | ⚠️ **不建議**。CLAUDE.md 明列「以泛用字串抑制警告」為常犯錯誤。⚠️ 原本的理由（「抑制後連上游哪天修好都看不到」）依 §3.3 已不成立——它不會被修好；但反對理由改為更強的一條：**抑制會讓範例日後真的用錯值集時也一併靜音**。 |
 | (C) 不使用 ImagingStudy，改以 Observation 承載影像結論 | 代價高且降低表達力——UC-004 已用 Observation 承載影像結論，UC-003 之 ImagingStudy 是**唯一**示範完整影像中繼資料者。 |
 
 ---
 
 ## 4. 驗收標準
 
-1. §2.3 之 10 vs 11 差額**已查明**（取得 qa.txt 逐筆原文），兩數字之關係寫入本文件；
-   **未查明前不得實作 §2.4**。
-2. §3.2 之 3 個 canonical URL 已取得原值並寫入本文件。
+1. ✅ **已完成**：§2.3 之 10 vs 11 差額已查明——差在 `example-nurse`，兩數字各計什麼已寫明。
+   （⚠️ 不發警告之**機制**仍未確立，已標為未驗證；不影響 §2.4 之處置。）
+2. ✅ **已完成**：§3.3 之 canonical URL 原值已取得——`RadLex_Playbook.aspx` 與
+   DICOM `sect_B.5.html#table_B.5-1`，**兩者皆為網頁網址而非 ValueSet 資源**。
 3. UC-003 之情境先確認（兩個 Encounter、孤兒 `example-nurse`），再動 section。
 4. 實作後 `err` 仍為 0；`isn't reachable...` 類別降至實測值並於 `qa-baseline.json` 具名說明；
    **雙向閘門會要求同批校準**，不得只改範例不改基準線。
@@ -199,11 +230,8 @@ Parent: TWCoreImagingStudy
 ## 交給 Claude 規劃用提示
 
 > 依 `docs/optimization/JOB-34-composition-traversal-and-imagingstudy-bindings.md` 執行，**分兩步**：
-> **步驟 1（先做，不改任何定義）**：加一次性 CI 步驟，自 `output/qa.txt` 印出
-> ① 全部 `isn't reachable by traversing forwards from the Composition` 之逐筆原文；
-> ② 全部 `binding.valueSet: A definition could not be found for Canonical URL` 之逐筆原文；
-> ③ 全部 `ValueSet '...' not found` 之逐筆原文。回填 §2.3 與 §3.2，**取得結果後移除該步驟**。
-> **未查明 10 vs 11 之差額前不得進入步驟 2。**
+> ~~**步驟 1（先做，不改任何定義）**：加一次性 CI 步驟印出三類逐筆原文。~~
+> ✅ 步驟 1 已於 v0.8.3 完成（§2.3、§3.3），一次性步驟已移除。
 > **步驟 2**：依 §2.4 之逐列判斷處置 UC-003，先確認情境（兩個 Encounter、孤兒 nurse）再動 section；
-> ImagingStudy 依 §3.3 採 (A)。
+> ImagingStudy 依 §3.4 採 (A)——§3.3 之原值顯示該綁定指向 HTML 說明頁，永遠解不開，故 (A) 非權宜而是唯一正確。
 > **不得**以 `ignoreWarnings.txt` 抑制；**不得**只改範例而不同批校準 `qa-baseline.json`。
