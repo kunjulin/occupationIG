@@ -1,4 +1,4 @@
-# 嚼檳榔觀察項目代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
+# 嚼檳榔觀察項目代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.2
 
 ## CodeSystem: 嚼檳榔觀察項目代碼系統 (實驗性) 
 
@@ -26,12 +26,12 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutObservable",
-  "version" : "0.9.0",
+  "version" : "0.9.2",
   "name" : "CS_BetelNutObservable",
   "title" : "嚼檳榔觀察項目代碼系統",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-21T14:27:31+00:00",
+  "date" : "2026-08-21T15:06:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -54,7 +54,7 @@
   "concept" : [{
     "code" : "betel-quid-chewing-status",
     "display" : "嚼檳榔狀態",
-    "definition" : "受檢者目前之嚼檳榔狀態。本碼為**問題**（Observation.code），答案以 `value[x]` 承載，值集為 VS-BetelNutStatus（從未／偶爾／每日／已戒除，四級序位）。⚠️ 本碼**不表示受檢者有嚼檳榔**——它問的是狀態，答案可以是「從未嚼食檳榔」。此與 SNOMED CT `698188003`（Chews betel quid）之語意不同：後者是肯定式 finding，斷言此人嚼檳，故不得置於 `.code`。角色對應吸菸之 `LNC#72166-2`（Tobacco smoking status）。"
+    "definition" : "受檢者目前之嚼檳榔狀態。本碼是問題，用於 Observation.code；答案以 value[x] 承載，值集為 VS-BetelNutStatus（從未／偶爾／每日／已戒除，四級序位）。⚠️ 本碼並不表示受檢者有嚼檳榔——它問的是狀態，答案可以是「從未嚼食檳榔」。此與 SNOMED CT 698188003（Chews betel quid）之語意不同：後者是肯定式 finding，斷言此人嚼檳，故不得置於 Observation.code。角色對應吸菸之 LOINC 72166-2（Tobacco smoking status）。"
   }]
 }
 

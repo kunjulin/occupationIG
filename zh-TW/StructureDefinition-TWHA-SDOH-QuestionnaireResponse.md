@@ -1,4 +1,4 @@
-# 社會決定因素 (SDOH) 問卷回覆 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
+# 社會決定因素 (SDOH) 問卷回覆 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.2
 
 ## 資源 Profile: 社會決定因素 (SDOH) 問卷回覆 Profile 
 
@@ -74,12 +74,12 @@ This structure refers to these other structures:
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-SDOH-QuestionnaireResponse",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SDOH-QuestionnaireResponse",
-  "version" : "0.9.0",
+  "version" : "0.9.2",
   "name" : "TWHASDOHQuestionnaireResponseProfile",
   "title" : "社會決定因素 (SDOH) 問卷回覆 Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-21T14:27:31+00:00",
+  "date" : "2026-08-21T15:06:05+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
