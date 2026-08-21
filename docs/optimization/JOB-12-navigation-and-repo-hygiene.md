@@ -167,6 +167,33 @@ repo 已有 `.claude/skills/fhir-tx-audit/SKILL.md`（品質很好），但沒�
   JOB-08 的可重現性問題成立，但依據是建置來源為 `C:\repo\...` 之本機建置且
   gh-pages 與 main 無血緣關係，與本檔無關。
 
+### 再更正（v0.8.6）：該 xlsx **不應**列入下載區——語言層 404，且兩種補救皆經實測否決
+
+上節依「可重現、可安全連結」把它補入 `downloads.md` §4。**該處置不完整**：
+IG Publisher 只把它寫到輸出**根層**，**不寫語言層**。本 IG 之頁面渲染於 `zh-TW/`，
+裸檔名連結遂解析為 `zh-TW/Appendix10-to-HazardType.xlsx`——該路徑不存在，
+**中文讀者點下去得到 404**。已於 gh-pages 實測確認（根層有、`zh-TW/` 無）。
+
+這一筆是 `qa.txt` 那 2321 筆 `cannot be resolved` 中**唯一一筆真正的內容缺陷**
+（其餘 2320 筆全指向 `history.html`，屬 canonical 前綴問題）。
+
+兩種看似自然的補救**都經實測否決**：
+
+| 補救 | 實測結果 |
+|:--|:--|
+| 改用 `../<檔名>` | **中止整個建置**。IG Publisher 之 HTMLInspector 擲 RuntimeException，非降級為警告。`scripts/check-pagecontent-refs.js` 早已明文禁止，理由與代價（run 30540241236 一輪 CI）記於該檔檔頭 |
+| 同名檔放進 `input/assets/` | **在根層與語言層都覆蓋 publisher 的產出**（CI run 32485686802：26 bytes 哨兵檔兩層皆勝）。連結會解得開、`cannot be resolved` 甚至會降，**但真正的試算表已被換掉，且無任何閘門看得出來** |
+
+> ⚠️ 第二列是本次最值得記的一條：**它會「修好」到看不出壞掉**。
+> 檔案存在、連結解得開、QA 數字還變好——三個訊號全部指向成功，而實際下載到的
+> 已不是 publisher 產生的那份試算表。指令文件原本的退路是「若 B 衝突就回到 A」，
+> 但 A 會中止建置，**該退路並不存在**。
+
+**處置（PI 裁示）**：移除該連結。該對映之機器可讀格式由 ConceptMap 頁本身提供
+（JSON／XML／TTL），內容相同；publisher 產生之 xlsx 仍在根層，只是不再被連結。
+另新增 `scripts/check-download-links.js` 為常設閘門——把頁面上的資產連結依所在目錄
+解析並逐一確認檔案存在，日後有人補回裸檔名連結會直接紅。
+
 ### 尚待在可建置環境驗證
 
 * `menu` 改動後導覽是否正常、`conformance.html` 與 `ip-statements.html` 是否可達；

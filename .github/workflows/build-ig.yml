@@ -281,21 +281,6 @@ jobs:
       # --repo/--target 啟用 -auto-ig-build，使 publish box 由「Local Development
       # build」改為 CI build 文案（JOB-02 驗收條件 #2）。網址由 github context 推導，
       # 不寫死；fork 或改名後仍然正確。
-      # ⚠️ 一次性實驗——**取得結果後即移除**。
-      #
-      # 待答問題：`Appendix10-to-HazardType.xlsx` 由 IG Publisher 自 ConceptMap 產生且
-      # 只寫到根層，語言層 404。若比照其他資產把同名檔放進 input/assets/（方案 B），
-      # 兩者會寫入**同一個根層路徑**——**覆蓋順序未經驗證，未確認前不得採 B**。
-      #
-      # 作法：建置前於工作區置入一個帶標記的哨兵檔（**不進版控**，只存在於本次 CI），
-      # 建置後比對兩層之檔案是否含該標記，即可判定誰覆蓋誰。
-      # 本輪為 PR 建置，publish 不會執行，哨兵不會流到線上。
-      - name: '[one-shot] 置入哨兵以測 input/assets 與 publisher 產出之覆蓋順序'
-        run: |
-          set -euo pipefail
-          printf 'SENTINEL-FROM-INPUT-ASSETS' > input/assets/Appendix10-to-HazardType.xlsx
-          echo "已置入哨兵：$(wc -c < input/assets/Appendix10-to-HazardType.xlsx) bytes"
-
       - name: Run IG Publisher
         env:
           IG_REPO_SOURCE: ${{ github.server_url }}/${{ github.repository }}
@@ -422,6 +407,14 @@ jobs:
       # 比對表另存一份，供結尾之「QA gate summary」複述——見該步驟之說明。
       # 管線末端是 tee，預設會以 tee 的退出碼作為整條管線之結果，閘門失敗將被吞掉；
       # 故加 `set -o pipefail`，使 npm 的非零退出碼傳出，閘門失敗仍讓建置紅。
+      # 下載資產連結閘門：頁面上的資產連結解析後必須真的有檔案。
+      # 需要建置產出，故置於建置之後（比照 Must Support 覆蓋檢核）。
+      # 先跑負向自測——閘門本身失效時會「全綠但其實沒檢查」。
+      - name: 下載資產連結檢核 (self-test first)
+        run: |
+          npm run check:links:selftest
+          npm run check:links
+
       - name: QA gate
         run: |
           set -o pipefail
@@ -519,38 +512,6 @@ jobs:
             cat /tmp/qa-gate.txt
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
-
-      # ⚠️ 置於 job 結尾，理由同上一步驟之「QA gate summary (repeat)」：
-      #    其後若有 UCUM 逐碼清單（320 行）與數千檔之上傳日誌，
-      #    以日誌 API 取尾段就構不到——本輪即因此白讀了一次。
-      # ⚠️ 一次性實驗之回報（配合前面之哨兵步驟）——**取得結果後即移除**。
-      # if: always() —— 即使其他閘門失敗也要拿到這份實測。
-      - name: '[one-shot] 資產分佈與覆蓋順序實測'
-        if: always()
-        run: |
-          set -u
-          probe() {
-            local label="$1" f="$2"
-            if [ -f "$f" ]; then
-              local n; n=$(wc -c < "$f")
-              local sentinel="no"
-              grep -q 'SENTINEL-FROM-INPUT-ASSETS' "$f" 2>/dev/null && sentinel="**YES**"
-              echo "  $label  存在  ${n} bytes  含哨兵=${sentinel}"
-            else
-              echo "  $label  **不存在**"
-            fi
-          }
-          echo "MARKER-LAYOUT Appendix10-to-HazardType.xlsx（本次待修者）"
-          probe "根層    " output/Appendix10-to-HazardType.xlsx
-          probe "zh-TW 層" output/zh-TW/Appendix10-to-HazardType.xlsx
-
-          echo "MARKER-LAYOUT 對照組（input/assets 之既有資產，應兩層皆有）"
-          for f in fsh-source.zip loinc-valuesets.xlsx snomed-mappings.xlsx; do
-            echo "  --- $f"
-            probe "根層    " "output/$f"
-            probe "zh-TW 層" "output/zh-TW/$f"
-          done
-
 
   # ==================================================================== 發佈
   # JOB-08 第二階段。**預設不會自動執行**：
