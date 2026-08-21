@@ -309,13 +309,17 @@ const regressedLevels = rows
 
 // 具名類別退步時，總數表只給一個數字，同樣無從診斷。列出實際訊息（取樣），
 // 免得每次都要臨時加一個 grep 步驟才知道多出來的是什麼。
-const regressedCategories = rows.filter((r) => !r.label.startsWith('TOTAL ') && r.over);
-for (const r of regressedCategories) {
+// 低於基準線（未校準）同理需要明細：新增一個具名類別而筆數填錯時，光看「-2」
+// 無從判斷是樣態字串沒對上、還是真的改善了。兩個方向都印。
+const deviantCategories = rows.filter((r) => !r.label.startsWith('TOTAL ') && (r.over || r.under));
+for (const r of deviantCategories) {
   const samples = qa
     .split(/\r?\n/)
     .filter((l) => l.includes(r.label))
     .slice(0, 10);
-  console.log(`\n類別「${r.label}」退步 +${r.delta}——實際訊息（最多 10 筆）：`);
+  const how = r.over ? `退步 +${r.delta}` : `低於基準線 ${r.delta}（未校準或樣態未對上）`;
+  console.log(`\n類別「${r.label}」${how}——實際訊息（最多 10 筆）：`);
+  if (!samples.length) console.log('  （qa.txt 中找不到含此字串之行——樣態字串可能打錯）');
   for (const s of samples) console.log(`  ${s.trim().slice(0, 200)}`);
 }
 
