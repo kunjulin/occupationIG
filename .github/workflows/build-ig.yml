@@ -410,6 +410,8 @@ jobs:
       - name: QA gate
         run: |
           set -o pipefail
+          # 先跑閘門自身的負向自測——判定邏輯壞掉時，實檢的「通過」沒有意義。
+          npm run qa:selftest
           if [ "$TX_SERVER" = "n/a" ]; then
             echo "::warning::離線建置（-tx n/a），未經術語驗證，不得作為送審依據。"
             npm run qa -- --log input-cache/publisher-run.log 2>&1 | tee /tmp/qa-gate.txt
