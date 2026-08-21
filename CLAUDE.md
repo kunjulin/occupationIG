@@ -17,6 +17,22 @@
 > 這是一份會被政府主管機關與臨床專家審查的規範文件，不是一般應用程式專案。
 > 敘述文字的精確性與代碼的正確性同等重要。
 
+### 1.1 現況（2026-08-21，v0.9.2）
+
+| 項目 | 狀態 |
+|:--|:--|
+| 線上站台 | **v0.9.2**，gh-pages `ddab2cbe`（sourceCommit `114c312a`，15:12Z），已逐項複驗 |
+| 版次來源 | `sushi-config.yaml` 之 `version`。⚠️ **本表會過期，動到版次時請一併更新**；有疑義以該檔為準 |
+| 嚼檳 `Observation.code` | **`CS-BetelNutObservable#betel-quid-chewing-status`**（v0.9.0 起）。⚠️ 不再是 `SCT#698188003` |
+| 送國健署確認單 | `docs/drafts/HPA-CONFIRMATION-JOB-30.md` — **阻擋已解除，可送出**；由 PI 核閱後以正式函文發出，**本團隊不逕行對外發送** |
+| M-5 狀態／嚼檳系列 `experimental`／Level 1 成熟度 | **仍全部擋下**，須取得可引用之**書面**依據（口頭／轉述不足） |
+
+**v0.9.0 為 Level 1 破壞性變更**：`SCT#698188003` 是**肯定式 finding**（斷言此人嚼檳），
+置於 `Observation.code`（問題位）會使「從未嚼食」之紀錄自相矛盾，且以該碼檢索會把
+從未嚼檳者一併撈出。已改為自訂狀態問句碼，結構**對齊 `LNC#72166-2`**（Tobacco smoking
+status），**不對齊 `698188003`**。遷移說明見 [conformance.md](input/pagecontent/conformance.md) §8。
+⚠️ 上傳欄位（醫令 `30907X-1`）本身**未變更**——變的是 FHIR 表達，不是主管機關的欄位。
+
 ---
 
 ## 2. 五條鐵則
@@ -129,6 +145,8 @@ template/             IG 模板之本機複本（角色待釐清，見 JOB-09）
 | 標 `standards-status` 卻不管資源自身的 `status` | IG Publisher 會交叉檢查：`draft` ↔ `status = draft`、`trial-use`／`normative` ↔ `status = active`。本 repo 全部 artifact 繼承 `sushi-config.yaml` 之 `status: active`，**標 `draft` 即自相矛盾**（JOB-30 實測命中 71 件）。故現行僅 Level 1 標 `trial-use`，其餘不標（JOB-30 §7.7） |
 | 新增 artifact 卻沒登記權責歸屬 | `scripts/governance-map.js` 須先登記（標籤＋合規層級），否則 `npm run check:gov` 失敗 |
 | 改了登記表卻沒改 [conformance.md](input/pagecontent/conformance.md) §7.4 的件數 | 該處**兩張表**（標籤件數／成熟度件數）與「現值」摘要句共 7 個數字已由 **G-5** 看管（`npm run check:gov`），自登記表動態算出。⚠️ 兩張表的合計相同純屬邊際巧合，**分類軸不同**，須分別更新——v0.9.0 手動更正時就只改了其中一張 |
+| 在 `concept.definition`／`display` 裡寫 `**粗體**` 或反引號 | 那兩個欄位於 FHIR 為 **string** 型而非 markdown，記號**不會被算繪**，會逐字顯示給讀者（v0.9.0 線上實證 6 處，累積自 v0.4.0）。改用語序與 ⚠️ 表達強調，代碼字面以「」框住。由 `npm run check:plaintext` 看管。⚠️ **`Description:` 不受此限**——該欄確為 markdown 型，線上實證會算繪成 `<strong>`／`<code>`，**不要順手一起改掉** |
+| 寫好閘門卻沒接到 CI | 閘門只進 `npm run verify`（本機）＝**沒人會跑**。`check:gov`／`check:intref` 曾如此長期存在，導致 v0.9.1 新增的 G-5 在 PR 上根本不執行。新增閘門時**同時**改 `package.json` 與 `.github/workflows/build-ig.yml`，並回頭確認該步驟在 CI 是 `success` 而非 `skipped` |
 
 ---
 
@@ -138,7 +156,9 @@ template/             IG 模板之本機複本（角色待釐清，見 JOB-09）
 npm run verify                                    # 全部閘門（各閘門均先跑 --self-test 負向案例）
 node scripts/check-pagecontent-refs.js            # pagecontent 與 FSH 是否同步（backlog 標註可通過）
 node scripts/check-pagecontent-refs.js --strict    # 連 backlog 標註也視為失敗（釋出前檢查）
-npm run check:gov                                 # 權責標籤／合規層級／不得越權表述（JOB-30）
+npm run check:gov                                 # 權責標籤／合規層級／§7.4 件數（G-5）／不得越權表述
+npm run check:plaintext                           # concept 之 display／definition 不得含不會算繪之 markdown
+npm run check:intref                              # 對外產出不得殘留內部工作痕跡
 npx fsh-sushi .                                   # FSH 與 sushi-config.yaml 語法
 _genonce_tx.bat                                   # 送審用完整建置（Windows，需可連外）
 ```
@@ -146,6 +166,13 @@ _genonce_tx.bat                                   # 送審用完整建置（Wind
 > ⚠️ **本容器（Claude Code 遠端環境）跑不了 SUSHI 與 tx 建置**：proxy 封鎖
 > `packages.fhir.org`、`tx.fhir.org`、`loinc.org`、`hl7.org`。故 FSH 語法與所有 QA 數字
 > **一律以 CI 為準**；本機只能跑上列 node 閘門。`qa-baseline.json` **不得憑推算調整**。
+>
+> ⚠️ **`npm run verify` ≠ CI 會跑的東西。** 兩者是各自維護的清單，會漂開——
+> `check:gov` 與 `check:intref` 就曾只在 `verify` 裡、從未進 CI。新增閘門時兩處都要加。
+
+> 📌 **CI 亦不自動發佈。** 合併至 `main` 只更新版控，線上網站不動；
+> 發佈須另以 Actions → Run workflow 勾選 `publish`（會**全量覆蓋** gh-pages）。
+> 流程與各閘門之判讀見 [`docs/RELEASE.md`](docs/RELEASE.md)。
 
 建置後**必看** `output/qa.html`。
 **基準線之唯一權威來源是 [`qa-baseline.json`](qa-baseline.json)**，由 `scripts/qa-gate.js` 逐類別比對；
@@ -172,8 +199,12 @@ _genonce_tx.bat                                   # 送審用完整建置（Wind
 * 正式 canonical namespace 之核定機關與命名（現為 provisional）
 * 國健署最小上傳集之正式公告版本（**M-5**）。逐列組成已由原案 v7.6 查明（§2.4），
   尚待確認者為三項實質差異：BMI 是否納入、「嚼檳月數」之語意、嚼檳量單位標記。
-  確認單草稿已備妥於 `docs/drafts/HPA-CONFIRMATION-JOB-30.md` 第 4 項。
-  ⚠️ 國健署「嚼檳定案即同意 21 項」目前**僅為口頭／轉述**；
+  確認單於 `docs/drafts/HPA-CONFIRMATION-JOB-30.md` 第 4 項。
+  **狀態（2026-08-21）：送出阻擋已解除，已交 PI 核閱。** 原阻擋條件為 JOB-32 §5.2
+  （§0 之 `Observation.code` 尚為 `698188003` 時不得送出，否則將發生
+  「送簽 → 貴署據以同意 → 本團隊隨即改同一欄位」），該條件已於 v0.9.0 成就並線上複驗。
+  ⚠️ 送出方式：**由 PI 核閱後改以正式函文格式發出，本團隊不逕行對外發送。**
+  ⚠️ **解除的只有「送出」。** 國健署「嚼檳定案即同意 21 項」目前**僅為口頭／轉述**；
   **取得可引用之書面依據前，M-5 狀態、嚼檳系列 `experimental`、Level 1 成熟度三者一律不得變更。**
 * **勞工區塊之 artifact 是否要標 `standards-status = draft`（JOB-30 §7.7）**——
   要標就必須把 71 個 artifact 之 `status` 由 `active` 改為 `draft`，
