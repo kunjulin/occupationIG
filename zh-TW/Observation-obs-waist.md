@@ -1,4 +1,4 @@
-# 腰圍測量結果範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.1
+# 腰圍測量結果範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.6.2
 
 ## 範例 Observation: 腰圍測量結果範例
 
