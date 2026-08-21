@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.8.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.8.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -160,6 +160,23 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.8.1（2026-08-21）〈未決事項〉轉址／聲明殼頁（相容層）
+
+> 本版**僅新增一個不列於導覽列之相容層殼頁**，未變更任何 Profile／值集／CodeSystem／
+> Extension／範例。**不放回原內容**——內容仍在 [`docs/known-limitations.md`](docs/known-limitations.md)。
+
+- **緣起**：v0.8.0 移除 `open-issues.html` 屬破壞性變更，既發函文、委員回覆書與簡報
+  所引之 `open-issues.html#m-5` 類**穩定錨點**會全部失效。本版加回一個殼頁承接。
+- **內容**：〈本頁內容已移轉〉聲明 ＋ **27 列編號對照表**（26 議題 ＋ 已結案存查區），
+  每列即為原錨點，並指向 `docs/known-limitations.md` 之對應編號。
+  ⚠️ **錨點做成對照列而非空錨點**：純空錨點只做到「不報錯」，自舊連結進入者會停在
+  空白處；做成對照列則一進來就看得到自己那一項去哪了。
+- **`pages:` 要加、`menu:` 不加**：宣告 `pages:` 後 SUSHI 停止自動收錄，
+  **未列者會從產出中靜默消失且不報錯**；`menu:` 不加則不佔導覽列版位。
+  `check-menu.js` 之 R-5 孤兒頁白名單同步加入 `open-issues` 並附理由。
+- **27 個錨點自 v0.7.4 之原始頁面以腳本抽取比對**（`git show`），集合與順序均相同，
+  未手打。
 
 ### v0.8.0（2026-08-21）警語收斂 ＋〈未決事項〉頁外移（**破壞性變更**）
 
