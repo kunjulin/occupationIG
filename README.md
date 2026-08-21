@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.7.2`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.7.3`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -139,7 +139,7 @@ set NODE_OPTIONS=--use-system-ca
 ## 優化工作範圍 (Optimization Job Scopes)
 
 2026-07-26 就發佈網站（<https://kunjulin.github.io/occupationIG/>）進行審閱後，
-已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-32**），置於 [`docs/optimization/`](docs/optimization/README.md)：
+已將待優化事項整理為可獨立執行之 JOB（現至 **JOB-33**），置於 [`docs/optimization/`](docs/optimization/README.md)：
 
 * [`docs/optimization/README.md`](docs/optimization/README.md)：審閱總結、優先序矩陣、建議執行順序、全域驗收標準。
 * [`docs/optimization/evidence/qa-summary-2026-07-26.md`](docs/optimization/evidence/qa-summary-2026-07-26.md)：
@@ -160,6 +160,34 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.7.3（2026-08-21）對外試用版乾淨化之評估與計畫（JOB-33，未變更任何定義）
+
+> 說明：本版**僅新增** [`JOB-33`](docs/optimization/JOB-33-clean-release-for-trial.md) 與
+> [`PROMPT-JOB-33`](docs/optimization/PROMPT-JOB-33.md)，**未變更任何定義，不影響 QA 基準線**。
+
+**緣起**　本 IG **尚未正式發布**、現站僅為試驗場、頁面備註過多，需乾淨版供臨床試用。
+裁示四項全清（內部工作痕跡／各頁 ⚠ 警語／未決事項頁／continuous build 標記），
+**發布目標維持同一個 github.io**。
+
+- **實測（量測於 v0.6.1，實作前須重新清點）**：**21 頁、122 處** `JOB-n` 外洩；
+  `CS-BetelNutComponent` 因 `Description` 內含 `JOB-n` 而隨 `.html`／`.json`／`.xml`／`.ttl`
+  **四變體擴散 28 次**。
+- **關鍵發現：第四項不是呈現問題，前提是 canonical。**
+  publish box 之「not an authorized publication／continuous build」由 **CI-build 模式**產生，
+  根因為 **canonical 與實際發布位置不一致**；且 `qa.txt` 之 **2321 筆 broken links 中 2320 筆為
+  同一目標** `https://twcore.mohw.gov.tw/ig/twha/history.html`，而 **`history.html` 本站已生成**
+  ——**斷的不是檔案，是 canonical 前綴**（**v0.7.1 複驗：數字不變**）。
+  → 改為 github.io 命名空間可使 **banner 正常、Directory 連結可用、2320 筆斷鏈歸零**。
+- **警語分兩類**：內部備註型**刪除**；規範性揭露**不得刪除**，收斂為首頁單一〈**使用前須知**〉
+  （**六條**）。
+- **📌 提醒（仍依裁示執行）**：〈未決事項〉頁之兩欄與已結案移頁尾即 **JOB-30 A 部剛上線之成果**；
+  整頁移除等於捨棄該批工作。若僅為觀感，**保留該頁只做警語收斂即達八成效果**。
+- **三步三版次**：v0.7.4 內部痕跡清除＋`check-no-internal-refs.js`；
+  v0.8.0 警語收斂＋未決事項外移＋31 處連結改寫；v0.9.0 canonical 與發布模式
+  （須先實跑 D-2；**不得為消除 banner 而謊報 `package-list` 狀態卻不改 canonical**）。
+
+**本版不實作，待裁示後執行。**
 
 ### v0.7.2（2026-08-21）委員意見：`Observation.code` 之語意角色（JOB-32 評估，未變更任何定義）
 
