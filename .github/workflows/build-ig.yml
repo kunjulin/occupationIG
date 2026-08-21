@@ -505,6 +505,43 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # ⚠️ 一次性診斷（JOB-34 步驟 1）——**取得結果後即移除**。
+      #
+      # 閘門之形態正規化把引號內容換成 'X'，故日誌看得到「10 ×」卻看不到是哪 10 筆、
+      # 也看不到 canonical URL 的原值。本步驟直接自 qa.txt 取逐筆原文。
+      #
+      # 要回答兩個問題，兩個都不預設答案：
+      #   Q1 走訪不到的究竟是哪 10 筆？本機可達性分析算出 11（全在 UC-003），
+      #      qa.txt 為 10。差 1 未查明——**不得逕自把任一邊的數字改成另一邊**。
+      #   Q2 ImagingStudy 那 3 個解析不到的 canonical URL 實際值為何？
+      #      （推定為 DICOM／RadLex 值集，但推定不能寫進文件。）
+      - name: '[one-shot] Composition 走訪與 ImagingStudy 綁定之逐筆原文（JOB-34）'
+        if: always()
+        run: |
+          set -u
+          if [ ! -f output/qa.txt ]; then
+            echo "(無 qa.txt——建置在該步驟之前即中止)"; exit 0
+          fi
+          # ⚠️ 先數再印，且零筆要明說。
+          # 若寫成 `grep … | sed | cut || echo "(無命中)"`，管線最後是 cut（必定成功），
+          # `||` 永遠不會觸發——無命中時會印出一個**完全空白的區塊**，
+          # 與「查詢寫錯」外觀相同。這正是本批一再處理的「沒印出來讀成沒有」。
+          show() {
+            local marker="$1" pattern="$2"
+            local n
+            n=$(grep -cE "$pattern" output/qa.txt || true)
+            echo "$marker  命中 ${n:-0} 筆"
+            if [ "${n:-0}" -eq 0 ]; then
+              echo "  （零筆——樣態字串可能與 qa.txt 不符，不得逕讀為「沒有這類問題」）"
+              return 0
+            fi
+            grep -nE "$pattern" output/qa.txt | cut -c1-320 | sed 's/^/  /'
+          }
+
+          show MARKER-TRAVERSAL   "isn't reachable by traversing forwards"
+          show MARKER-BINDING-VS  "binding\.valueSet: A definition could not be found for Canonical URL"
+          show MARKER-VS-NOTFOUND ": ValueSet '[^']*' not found"
+
   # ==================================================================== 發佈
   # JOB-08 第二階段。**預設不會自動執行**：
   #
