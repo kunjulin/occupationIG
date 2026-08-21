@@ -10,11 +10,11 @@
   "id" : "mohw.tw.twha",
   "language" : "zh-TW",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha",
-  "version" : "0.7.1",
+  "version" : "0.8.1",
   "name" : "TWHAIG",
   "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-08-21T01:22:55+00:00",
+  "date" : "2026-08-21T04:20:36+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -1274,7 +1274,7 @@
         "reference" : "ConceptMap/TWHealthCheckLaboratoryMap"
       },
       "name" : "健康檢查檢驗項目代碼對應 ConceptMap",
-      "description" : "【主管機關：國民健康署】將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。\n\n**來源版本**：LOINC 2.82（經 tx.fhir.org 驗證）。**驗證狀態**：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。**審查狀態**：equivalence 已於 2026-07-26 逐筆覆核並補列理由（comment），並於 2026-07-30 依 FHIR R4 target-relative 定義更正方向（JOB-22），工作小組建議方案，提請確認可否作為下一階段試作基礎。\n\n**equivalence 使用原則（v20260730 依 FHIR R4 更正，JOB-22）**：R4 之 `narrower`／`wider` **以 target 為主詞**（`narrower` = target 較 source 窄；`wider` = target 較 source 廣），與直覺相反——R5 已改名為 `source-is-narrower-than-target` 以消除歧義。故本 ConceptMap 之判準為：source 為方法特化而 target 為方法通用碼者用 **`wider`**（target 較廣）；source 語意較廣而 target 較窄（指定空腹／方法／偵測極限）者用 **`narrower`**（target 較窄）；不同具體方法、不同檢體、或需數值換算而無包含關係者用 `relatedto`（Level 1，官方語意為「有關聯但確切關係未知」，**不得據以自動換算數值**）。`equivalent` 僅用於完全等義，現行無任何一組適用。\n\n⚠️ **v20260729 及更早版本之 `narrower`／`wider` 方向為錯誤值**（原依內部文件之 source-relative 定義填寫），已於 v20260730 全數更正；comment 方向敘述與 equivalence 值之一致性現已納入 CI 閘門。\n\n⚠️ **歸一之臨床限制**：本對照供資料標準化之用，**不表示歸一後之數值可直接互換比較**（例如 MDRD 與 CKD-EPI eGFR、IFCC 與 NGSP HbA1c 均需換算或不可互換）。交換時應保留原始代碼。",
+      "description" : "【主管機關：國民健康署】將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。\n\n**來源版本**：LOINC 2.82（經 tx.fhir.org 驗證）。**驗證狀態**：全數 source／target 代碼已於 2026-07-26 完成 $validate-code 代碼有效性驗證。**審查狀態**：equivalence 已於 2026-07-26 逐筆覆核並補列理由（comment），工作小組建議方案，提請確認可否作為下一階段試作基礎。\n\n**equivalence 使用原則**：R4 之 `narrower`／`wider` **以 target 為主詞**（`narrower` = target 較 source 窄；`wider` = target 較 source 廣），與直覺相反——R5 已改名為 `source-is-narrower-than-target` 以消除歧義。故本 ConceptMap 之判準為：source 為方法特化而 target 為方法通用碼者用 **`wider`**（target 較廣）；source 語意較廣而 target 較窄（指定空腹／方法／偵測極限）者用 **`narrower`**（target 較窄）；不同具體方法、不同檢體、或需數值換算而無包含關係者用 `relatedto`（Level 1，官方語意為「有關聯但確切關係未知」，**不得據以自動換算數值**）。`equivalent` 僅用於完全等義，現行無任何一組適用。\n\n⚠️ comment 之方向敘述與 equivalence 值之一致性已納入建置閘門逐筆檢核。\n\n⚠️ **歸一之臨床限制**：本對照供資料標準化之用，**不表示歸一後之數值可直接互換比較**（例如 MDRD 與 CKD-EPI eGFR、IFCC 與 NGSP HbA1c 均需換算或不可互換）。交換時應保留原始代碼。",
       "exampleBoolean" : true
     },
     {
@@ -2234,7 +2234,7 @@
         "reference" : "ValueSet/VS-TimeUnitYearMonth"
       },
       "name" : "時間單位值集（年／月）",
-      "description" : "【主管機關：國民健康署】戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12（JOB-29 §A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。",
+      "description" : "【主管機關：國民健康署】戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。",
       "exampleBoolean" : false
     },
     {
@@ -3450,7 +3450,7 @@
         "reference" : "ValueSet/VS-Appendix10-RequiredSet"
       },
       "name" : "附表十 特殊健康檢查應執行項目值集（已落地家族）",
-      "description" : "【依據：勞工健康保護規則附表】附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待 JOB-01 臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。",
+      "description" : "【依據：勞工健康保護規則附表】附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。",
       "exampleBoolean" : false
     },
     {
@@ -3793,19 +3793,19 @@
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "open-issues.html"
+          "valueUrl" : "history.html"
         }],
-        "nameUrl" : "open-issues.html",
-        "title" : "已知限制與試用須知",
+        "nameUrl" : "history.html",
+        "title" : "版本歷程",
         "generation" : "markdown"
       },
       {
         "extension" : [{
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
-          "valueUrl" : "history.html"
+          "valueUrl" : "open-issues.html"
         }],
-        "nameUrl" : "history.html",
-        "title" : "版本歷程",
+        "nameUrl" : "open-issues.html",
+        "title" : "本頁內容已移轉",
         "generation" : "markdown"
       }]
     },

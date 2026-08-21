@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>智慧財產權聲明 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1</title>
+    <title>智慧財產權聲明 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.7.1 - STU1
+            <span style="display:inline-block;">0.8.1 - STU1
 
 
             </span>
@@ -168,9 +168,6 @@
       </li>
     </ul>
   </li>
-  <li>
-    <a href="open-issues.html">已知限制與試用須知</a>
-  </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
 
@@ -206,7 +203,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.7.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.8.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>智慧財產權聲明</h2>
   
 
@@ -317,7 +314,7 @@ LOINC 由 <strong>Regenstrief Institute, Inc.</strong> 所有並授權，需依�
 <blockquote>
   <p>本指引之 LOINC 顯示名以官方 display 為準。若發現本指引所載顯示名與 LOINC 官方不符，
 應以 LOINC 官方為準，並回報至本指引之議題追蹤
-（相關稽核作業見 <a href="https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-01-terminology-code-audit.md"><code class="language-plaintext highlighter-rouge">docs/optimization/JOB-01</code></a>）。</p>
+（相關稽核作業見本專案 <a href="https://github.com/kunjulin/occupationIG/tree/main/docs/optimization">GitHub 之優化工作文件</a>）。</p>
 </blockquote>
 
 <h3 id="22-snomed-ct">2.2 SNOMED CT</h3>
@@ -359,7 +356,7 @@ SNOMED CT 為 <strong>SNOMED International (IHTSDO)</strong> 之註冊商標與�
     </tr>
     <tr>
       <td style="text-align: left"><strong>臺灣癌症登記短表實作指引 (TWCR_SF)</strong></td>
-      <td style="text-align: left">嚼檳榔相關 CodeSystem／ValueSet 之外部 canonical 引用。<strong>目前以本地 stub 承載，非權威定義</strong>——詳見<a href="terminology.html">術語定義</a>與 <a href="https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-10-twcrsf-dependency-governance.md">JOB-10</a></td>
+      <td style="text-align: left">嚼檳榔相關 CodeSystem／ValueSet 之外部 canonical 引用。<strong>以正式相依宣告承載</strong>（<code class="language-plaintext highlighter-rouge">fhir.TWCRSF</code>），本指引不自行定義該命名空間之資源；授權條款 CC0-1.0。詳見<a href="terminology.html">術語定義</a></td>
     </tr>
   </tbody>
 </table>
@@ -397,7 +394,7 @@ SNOMED CT 為 <strong>SNOMED International (IHTSDO)</strong> 之註冊商標與�
 </table>
 
 <blockquote>
-  <p>⚠️ <strong>本指引尚未宣告授權條款（<code class="language-plaintext highlighter-rouge">license</code>）。</strong> 見<a href="open-issues.html#p-2">未決事項 P-2</a>。
+  <p>⚠️ <strong>本指引尚未宣告授權條款（<code class="language-plaintext highlighter-rouge">license</code>）。</strong> 見<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#p-2">未決事項 P-2</a>。
 本指引為工業技術研究院委託研擬中之草案，其著作權歸屬與再利用條件涉及委託契約，
 <strong>尚待確認</strong>，故 <code class="language-plaintext highlighter-rouge">sushi-config.yaml</code> 刻意未填 <code class="language-plaintext highlighter-rouge">license</code> 欄位——
 填入未經確認之授權條款，比留空更容易造成誤用。</p>
@@ -431,9 +428,9 @@ SNOMED CT 為 <strong>SNOMED International (IHTSDO)</strong> 之註冊商標與�
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.7.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.8.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-21 01:22:00 +0000">
+  <span title="2026-08-21 04:20:00 +0000">
     2026-08-21
   </span>
 

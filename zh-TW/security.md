@@ -1,4 +1,4 @@
-# 安全與個資保護 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# 安全與個資保護 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## 安全與個資保護
 
@@ -6,7 +6,7 @@
 
 勞工健康檢查紀錄與臨場服務資料屬高度敏感之個人醫療健康個資，其存取、傳輸與儲存必須符合 《個人資料保護法》與衛福部資訊安全相關規範。
 
-本頁不僅陳述原則，並將每一項安全要求對應至**可實作、可驗證**之 FHIR 機制。 凡涉及主管機關或平台端架構決定者，一律指向[未決事項](open-issues.md)，不於本 IG 片面認定。
+本頁不僅陳述原則，並將每一項安全要求對應至**可實作、可驗證**之 FHIR 機制。 凡涉及主管機關或平台端架構決定者，一律指向[未決事項](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md)，不於本 IG 片面認定。
 
 > **本節之定位**：本 IG 定義「資料如何表達以支持安全控制」；**存取控制之實際執行** （IdP、授權伺服器、金鑰管理）屬平台端，不在本 IG 範圍。下表「驗證方式」欄指的是 「本 IG 之產物如何被機器檢查」，非平台端之滲透測試。
 
@@ -35,7 +35,7 @@
 
 > 兩者不可混為一談：「本指引不規定誰能看」與「本指引規定這份文件裡不放檢驗值」 同時成立，且互不矛盾。
 
-**保存期限**（《勞工健康保護規則》第 19 條）採同一原則處理——屬各機構依法自行辦理之 行政義務，與資料交換結構無涉，已界定為**不列入本指引範疇** （[M-6](open-issues.md#m-6)）。
+**保存期限**（《勞工健康保護規則》第 19 條）採同一原則處理——屬各機構依法自行辦理之 行政義務，與資料交換結構無涉，已界定為**不列入本指引範疇** （[M-6](index.md#before-you-start)）。
 
 -------
 
@@ -46,7 +46,7 @@
 | 傳輸通道加密 | HTTPS /**TLS 1.3** | 平台與機構端 | 不由 IG 驗證（傳輸層） |
 | 身分驗證與授權 | **SMART on FHIR**（OAuth 2.0 / OIDC） | 平台端發 token | `CapabilityStatement.rest.security.service`宣告；scope 見 §2 |
 | 角色存取控制（欄位級隔離） | **雇主版 Composition**（[TWHA-Composition-EmployerSummary](StructureDefinition-TWHA-Composition-EmployerSummary.md)）＋ scope | 機構端產出對應封包 | Profile 之 closed slicing 結構性保證不含檢驗 section（§2） |
-| 醫師電子簽章 | **`Provenance.signature`** | 簽署端 | §3；簽署者身分繫於醫事人員證書字號（[T-2](open-issues.md#t-2)） |
+| 醫師電子簽章 | **`Provenance.signature`** | 簽署端 | §3；簽署者身分繫於醫事人員證書字號（[T-2](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-2)） |
 | 去識別化 | 雜湊 identifier ＋ 欄位降精度 | 通報端 | §4；`Patient.birthDate`精度 |
 | 緊急存取（break-the-glass） | [TWHA-Composition-EmergencySummary](StructureDefinition-TWHA-Composition-EmergencySummary.md)＋ 稽核 | 平台端 | §5 |
 | 稽核軌跡 | `AuditEvent`（本期不建模，見 §6） | 平台端 | 本期不驗證，見 M-10 |
@@ -99,7 +99,7 @@ scope 仍作為**第一道**粗粒度控制（限制資源型別），欄位級�
 
 * `Provenance.target`：指向被簽署之 `DiagnosticReport`／`Composition`。
 * `Provenance.signature.type`：採 `urn:iso-astm:E1762-95:2013` 之簽章目的碼 （如 `1.2.840.10065.1.12.1.1` Author's Signature）。
-* `Provenance.signature.who`：簽署醫師，繫至其醫事人員證書字號——**該識別碼之命名空間 尚未定案（[T-2](open-issues.md#t-2)）**，故簽署者之機器可比對身分待 T-2 解決後方能完備。
+* `Provenance.signature.who`：簽署醫師，繫至其醫事人員證書字號——**該識別碼之命名空間 尚未定案（[T-2](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-2)）**，故簽署者之機器可比對身分待 T-2 解決後方能完備。
 * **智慧醫療憑證**之簽章格式與法律效力屬主管機關規範，本 IG 不認定，登記關聯於 T-2。
 
 > 本期**不強制** `Provenance`（屬建議機制）；平台端若採用，應依上述結構。
@@ -131,7 +131,7 @@ scope 仍作為**第一道**粗粒度控制（限制資源型別），欄位級�
 * **需跨機構比對** → 各機構須以**共用 salt** 雜湊，同一身分證字號才會產生相同 Token。 代價：共用 salt 一旦外洩，全體 Token 可被離線碰撞還原，**安全性顯著降低**。
 * **不需跨機構比對** → 各機構用**獨立 salt**，安全性高，但無法串接同一人跨機構之紀錄。
 
-**本 IG 不替此取捨定案**——它涉及監理需求與資安風險之權衡，屬主管機關／平台端決定 （見 [M-10](open-issues.md#m-10)）。本節之責任是把取捨寫明，不是迴避。
+**本 IG 不替此取捨定案**——它涉及監理需求與資安風險之權衡，屬主管機關／平台端決定 （見 [M-10](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-10)）。本節之責任是把取捨寫明，不是迴避。
 
 -------
 
@@ -157,7 +157,7 @@ scope 仍作為**第一道**粗粒度控制（限制資源型別），欄位級�
 * **`AuditEvent`（稽核軌跡）**：查詢／新增／修改／刪除之不可竄改日誌與應記錄欄位。
 * **`Provenance`（完整溯源）**：§3 之簽章為建議用法，非完整 Provenance 建模。
 
-以上三者之落地屬「**稽核與同意機制之選型**」範疇，統一登記於 [未決事項 M-10](open-issues.md#m-10)。**須留意該項所指之待決僅為機制選型—— 雇主端可取得之資料範圍已於 §2.2 定案且可驗證，不在該項待決範圍內。** 實作端在機制選型定案前，應依《個資法》與衛福部規範自行處理，並保留可日後對接之欄位。
+以上三者之落地屬「**稽核與同意機制之選型**」範疇，統一登記於 [未決事項 M-10](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-10)。**須留意該項所指之待決僅為機制選型—— 雇主端可取得之資料範圍已於 §2.2 定案且可驗證，不在該項待決範圍內。** 實作端在機制選型定案前，應依《個資法》與衛福部規範自行處理，並保留可日後對接之欄位。
 
-**保存期限**（第 19 條）之結構化亦未於本期實作——其起算點之法定解釋尚未確定 （[M-6](open-issues.md#m-6)），在解釋確定前結構化等於把未定之法律解釋寫死； 詳見[背景與法規](background.md) §3.1.1 與 [M-7](open-issues.md#m-7)。
+**保存期限**（第 19 條）之結構化亦未於本期實作——其起算點之法定解釋尚未確定 （[M-6](index.md#before-you-start)），在解釋確定前結構化等於把未定之法律解釋寫死； 詳見[背景與法規](background.md) §3.1.1 與 [M-7](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-7)。
 

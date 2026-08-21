@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>結構定義與範例檔下載 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1</title>
+    <title>結構定義與範例檔下載 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.7.1 - STU1
+            <span style="display:inline-block;">0.8.1 - STU1
 
 
             </span>
@@ -168,9 +168,6 @@
       </li>
     </ul>
   </li>
-  <li>
-    <a href="open-issues.html">已知限制與試用須知</a>
-  </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
 
@@ -206,7 +203,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.7.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.8.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>結構定義與範例檔下載</h2>
   
 
@@ -308,7 +305,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <blockquote>
   <p>UC-001 ~ UC-007 為報告封包（<code class="language-plaintext highlighter-rouge">document</code>）、UC-008 ~ UC-009 為上傳封包（<code class="language-plaintext highlighter-rouge">transaction</code>）。
 上傳之去重、冪等與錯誤處理契約見<a href="conformance.html">上傳介接契約</a>；
-整包處理語意（transaction／batch）為<a href="open-issues.html#m-9">未決事項 M-9</a>。</p>
+整包處理語意（transaction／batch）為<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-9">未決事項 M-9</a>。</p>
 </blockquote>
 
 <hr/>
@@ -353,7 +350,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </table>
 
 <blockquote>
-  <p><strong><code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 之欄位說明（v20260730 新增，JOB-21）</strong></p>
+  <p><strong><code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 之欄位說明</strong></p>
 
   <table>
     <thead>
@@ -405,7 +402,7 @@ Core 區塊註解補判其為 <code class="language-plaintext highlighter-rouge"
 <blockquote>
   <p>⚠️ <strong>顯示名驗證報告與 UCUM 對照表均為研製中之工作產物，尚有代碼待覆核。</strong>
 使用前請先確認對應代碼之稽核狀態，勿逕行作為實作依據；
-稽核進度見 <a href="https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-01-terminology-code-audit.md">JOB-01</a>。</p>
+術語稽核之進度與逐碼紀錄見本專案 <a href="https://github.com/kunjulin/occupationIG/tree/main/docs/optimization">GitHub 之優化工作文件</a>。</p>
 </blockquote>
 
 <hr/>
@@ -416,7 +413,7 @@ Core 區塊註解補判其為 <code class="language-plaintext highlighter-rouge"
 
 <ul>
   <li><a href="ConceptMap-Appendix10-to-HazardType.html">ConceptMap：附表十 → 危害類別</a> — 線上檢視，頁內提供 JSON／XML／TTL 下載。</li>
-  <li><a name="l913">​</a><a href="Appendix10-to-HazardType.xlsx">附表十 → 危害類別對照表 (XLSX)</a> — 同一份對映之試算表格式，由建置工具自 ConceptMap 產生。</li>
+  <li><a name="l907">​</a><a href="Appendix10-to-HazardType.xlsx">附表十 → 危害類別對照表 (XLSX)</a> — 同一份對映之試算表格式，由建置工具自 ConceptMap 產生。</li>
   <li><a href="special-exam.html">特殊危害健康作業</a> — 以附表十 35 項為列主鍵之涵蓋度對照表。</li>
 </ul>
 
@@ -449,9 +446,9 @@ Core 區塊註解補判其為 <code class="language-plaintext highlighter-rouge"
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.7.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.8.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-21 01:22:00 +0000">
+  <span title="2026-08-21 04:20:00 +0000">
     2026-08-21
   </span>
 

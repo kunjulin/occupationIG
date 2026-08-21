@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>安全與個資保護 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1</title>
+    <title>安全與個資保護 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.7.1 - STU1
+            <span style="display:inline-block;">0.8.1 - STU1
 
 
             </span>
@@ -168,9 +168,6 @@
       </li>
     </ul>
   </li>
-  <li>
-    <a href="open-issues.html">已知限制與試用須知</a>
-  </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
 
@@ -206,7 +203,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.7.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.8.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>安全與個資保護</h2>
   
 
@@ -257,7 +254,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 《個人資料保護法》與衛福部資訊安全相關規範。</p>
 
 <p>本頁不僅陳述原則，並將每一項安全要求對應至<strong>可實作、可驗證</strong>之 FHIR 機制。
-凡涉及主管機關或平台端架構決定者，一律指向<a href="open-issues.html">未決事項</a>，不於本 IG 片面認定。</p>
+凡涉及主管機關或平台端架構決定者，一律指向<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md">未決事項</a>，不於本 IG 片面認定。</p>
 
 <blockquote>
   <p><strong>本節之定位</strong>：本 IG 定義「資料如何表達以支持安全控制」；<strong>存取控制之實際執行</strong>
@@ -326,7 +323,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p><strong>保存期限</strong>（《勞工健康保護規則》第 19 條）採同一原則處理——屬各機構依法自行辦理之
 行政義務，與資料交換結構無涉，已界定為<strong>不列入本指引範疇</strong>
-（<a href="open-issues.html#m-6">M-6</a>）。</p>
+（<a href="index.html#before-you-start">M-6</a>）。</p>
 
 <hr/>
 
@@ -364,7 +361,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">醫師電子簽章</td>
       <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">Provenance.signature</code></strong></td>
       <td style="text-align: left">簽署端</td>
-      <td style="text-align: left">&sect;3；簽署者身分繫於醫事人員證書字號（<a href="open-issues.html#t-2">T-2</a>）</td>
+      <td style="text-align: left">&sect;3；簽署者身分繫於醫事人員證書字號（<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-2">T-2</a>）</td>
     </tr>
     <tr>
       <td style="text-align: left">去識別化</td>
@@ -497,7 +494,7 @@ FHIR 驗證器即可證明其不含檢驗細項——這是「文字承諾」做
   <li><code class="language-plaintext highlighter-rouge">Provenance.signature.type</code>：採 <code class="language-plaintext highlighter-rouge">urn:iso-astm:E1762-95:2013</code> 之簽章目的碼
 （如 <code class="language-plaintext highlighter-rouge">1.2.840.10065.1.12.1.1</code> Author's Signature）。</li>
   <li><code class="language-plaintext highlighter-rouge">Provenance.signature.who</code>：簽署醫師，繫至其醫事人員證書字號——<strong>該識別碼之命名空間
-尚未定案（<a href="open-issues.html#t-2">T-2</a>）</strong>，故簽署者之機器可比對身分待 T-2 解決後方能完備。</li>
+尚未定案（<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-2">T-2</a>）</strong>，故簽署者之機器可比對身分待 T-2 解決後方能完備。</li>
   <li><strong>智慧醫療憑證</strong>之簽章格式與法律效力屬主管機關規範，本 IG 不認定，登記關聯於 T-2。</li>
 </ul>
 
@@ -561,7 +558,7 @@ FHIR 驗證器即可證明其不含檢驗細項——這是「文字承諾」做
 </ul>
 
 <p><strong>本 IG 不替此取捨定案</strong>——它涉及監理需求與資安風險之權衡，屬主管機關／平台端決定
-（見 <a href="open-issues.html#m-10">M-10</a>）。本節之責任是把取捨寫明，不是迴避。</p>
+（見 <a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-10">M-10</a>）。本節之責任是把取捨寫明，不是迴避。</p>
 
 <hr/>
 
@@ -598,13 +595,13 @@ FHIR 驗證器即可證明其不含檢驗細項——這是「文字承諾」做
 </ul>
 
 <p>以上三者之落地屬「<strong>稽核與同意機制之選型</strong>」範疇，統一登記於
-<a href="open-issues.html#m-10">未決事項 M-10</a>。<strong>須留意該項所指之待決僅為機制選型——
+<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-10">未決事項 M-10</a>。<strong>須留意該項所指之待決僅為機制選型——
 雇主端可取得之資料範圍已於 &sect;2.2 定案且可驗證，不在該項待決範圍內。</strong>
 實作端在機制選型定案前，應依《個資法》與衛福部規範自行處理，並保留可日後對接之欄位。</p>
 
 <p><strong>保存期限</strong>（第 19 條）之結構化亦未於本期實作——其起算點之法定解釋尚未確定
-（<a href="open-issues.html#m-6">M-6</a>），在解釋確定前結構化等於把未定之法律解釋寫死；
-詳見<a href="background.html">背景與法規</a> &sect;3.1.1 與 <a href="open-issues.html#m-7">M-7</a>。</p>
+（<a href="index.html#before-you-start">M-6</a>），在解釋確定前結構化等於把未定之法律解釋寫死；
+詳見<a href="background.html">背景與法規</a> &sect;3.1.1 與 <a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-7">M-7</a>。</p>
 
 
 
@@ -632,9 +629,9 @@ FHIR 驗證器即可證明其不含檢驗細項——這是「文字承諾」做
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.7.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.8.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-21 01:22:00 +0000">
+  <span title="2026-08-21 04:20:00 +0000">
     2026-08-21
   </span>
 

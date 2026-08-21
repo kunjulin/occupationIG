@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1</title>
+    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.7.1 - STU1
+            <span style="display:inline-block;">0.8.1 - STU1
 
 
             </span>
@@ -168,9 +168,6 @@
       </li>
     </ul>
   </li>
-  <li>
-    <a href="open-issues.html">已知限制與試用須知</a>
-  </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
 
@@ -206,7 +203,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.7.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.8.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>術語與代碼系統</h2>
   
 
@@ -389,7 +386,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <p>⚠️ <strong>代碼驗證之五項要件（治理要求）</strong>：</p>
 
   <p><strong><code class="language-plaintext highlighter-rouge">$validate-code</code> 通過僅代表「代碼存在」，不代表「語意正確」。</strong> 新增或引用任何代碼前，須完成下列五項；
-前三項已閘門化（JOB-01），後二項由 JOB-19 閘門化，均於送審用 tx 建置階段自動攔阻：</p>
+前三項與後二項均已閘門化，均於送審用 tx 建置階段自動攔阻：</p>
 
   <table>
     <thead>
@@ -445,7 +442,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </blockquote>
 
 <h3 id="32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</h3>
-<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>41 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred <code class="language-plaintext highlighter-rouge">2089-1</code> 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）與腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）。<strong>v20260726（Wave 9）移除 3 組語意錯誤之對應</strong>：聽力 <code class="language-plaintext highlighter-rouge">21104-5</code>（實為 Deprecated 大豆粉塵 IgE）、尿酸 <code class="language-plaintext highlighter-rouge">49154-8</code>（實為 Rickettsia conorii IgG Ab）、HDL <code class="language-plaintext highlighter-rouge">3048-6</code>（實為 Triglyceride –fasting），該三項之 acceptable 均改標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。<strong>v20260729（JOB-14）新增尿沉渣自動計數 9 組</strong>（/HPF 面積碼 → /µL 體積碼，以 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一），回收 JOB-01 批3 整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
+<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>41 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred <code class="language-plaintext highlighter-rouge">2089-1</code> 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）與腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）。<strong>v20260726（Wave 9）移除 3 組語意錯誤之對應</strong>：聽力 <code class="language-plaintext highlighter-rouge">21104-5</code>（實為 Deprecated 大豆粉塵 IgE）、尿酸 <code class="language-plaintext highlighter-rouge">49154-8</code>（實為 Rickettsia conorii IgG Ab）、HDL <code class="language-plaintext highlighter-rouge">3048-6</code>（實為 Triglyceride –fasting），該三項之 acceptable 均改標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。<strong>v20260729 新增尿沉渣自動計數 9 組</strong>（/HPF 面積碼 → /µL 體積碼，以 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一），回收先前整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
 
 <h4 id="321-equivalence-判準與-r4r5-對照v20260730-更正">3.2.1 <code class="language-plaintext highlighter-rouge">equivalence</code> 判準與 R4／R5 對照（v20260730 更正）</h4>
 
@@ -505,11 +502,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </ol>
 
 <blockquote>
-  <p><strong>v20260730 之更正（JOB-22）</strong>：本 IG 原依內部文件之 <strong>source-relative</strong> 定義填寫
+  <p><strong>v20260730 之更正</strong>：本 IG 原依內部文件之 <strong>source-relative</strong> 定義填寫
 <code class="language-plaintext highlighter-rouge">equivalence</code>，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment
-與 display 相互矛盾（JOB-01 僅修 display 未同步修 comment 之殘留）。已全數更正，
-更正後（JOB-22 完成時，39 組）之分佈為 <code class="language-plaintext highlighter-rouge">wider</code> 10／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0；
-其後 JOB-21 移除 <code class="language-plaintext highlighter-rouge">2888-6</code>（見 &sect;3.2.2）並補列 3 組原無歸一路徑者，<strong>現行分佈為
+與 display 相互矛盾（先前僅修 display 未同步修 comment 之殘留）。已全數更正，
+更正後（39 組時）之分佈為 <code class="language-plaintext highlighter-rouge">wider</code> 10／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0；
+其後移除 <code class="language-plaintext highlighter-rouge">2888-6</code>（見 &sect;3.2.2）並補列 3 組原無歸一路徑者，<strong>現行分佈為
 <code class="language-plaintext highlighter-rouge">wider</code> 12／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0（共 41 組）</strong>。
 <strong>v20260729 及更早之下載檔或網站快照，其 <code class="language-plaintext highlighter-rouge">narrower</code>／<code class="language-plaintext highlighter-rouge">wider</code> 方向為錯誤值</strong>，請以本版為準。
 為防再度脫節，comment 之方向敘述與 <code class="language-plaintext highlighter-rouge">equivalence</code> 值之一致性已納入 CI 閘門
@@ -530,7 +527,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <code class="language-plaintext highlighter-rouge">5804-0</code>（尿蛋白<strong>定性</strong>，Protein [Presence] in Urine by Test strip，醫令 06003C-2）
 <strong>各為獨立醫令項目之 Preferred</strong>，於主管機關（國健署）最小上傳集為兩個獨立列。</p>
 
-<p>原 ConceptMap 曾將 <code class="language-plaintext highlighter-rouge">2888-6 → 5804-0</code> 列為歸一（<code class="language-plaintext highlighter-rouge">relatedto</code>），已於 v20260730（JOB-21）<strong>移除</strong>。
+<p>原 ConceptMap 曾將 <code class="language-plaintext highlighter-rouge">2888-6 → 5804-0</code> 列為歸一（<code class="language-plaintext highlighter-rouge">relatedto</code>），已於 v20260730 <strong>移除</strong>。
 理由：歸一之語意為「送 A 時視為 B」，而定量與定性係<strong>不同檢驗、不同醫令代碼、不同 Property</strong>
 （<code class="language-plaintext highlighter-rouge">Mass/volume</code> vs <code class="language-plaintext highlighter-rouge">Presence</code>），不可互相取代——該 element 自身之 comment 即載明「非包含關係」，
 與歸一之用途相牴觸。</p>
@@ -631,7 +628,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <p>本節提供健康檢查資料集中各主要項目的跨術語對照，整合 LOINC（preferred 優先碼／acceptable 可接受碼）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照——三者為<strong>平行之 code system</strong>。</p>
 
 <blockquote>
-  <p><strong>⚠️ SNOMED CT 欄位之效力限制</strong>：本表 SNOMED CT 欄位（&sect;4.1 所列 4 碼除外）係先前以 SNOMED International Browser 人工填載，<strong>未經術語伺服器逐碼驗證</strong>，屬 <strong>draft／informative</strong> 性質，<strong>僅供參考，不得作為正式建議 mapping 或交換要求使用</strong>。實務上曾發現此類未驗證之人工對照有相當比例語意不符（本 IG 於 2026-07-26 之術語稽核即更正 4 個職業健康相關 SNOMED／LOINC 錯碼）。正式採用前應逐碼完成驗證（列為 backlog，見<a href="open-issues.html#t-3">未決事項 T-3</a>）。</p>
+  <p><strong>⚠️ SNOMED CT 欄位之效力限制</strong>：本表 SNOMED CT 欄位（&sect;4.1 所列 4 碼除外）係先前以 SNOMED International Browser 人工填載，<strong>未經術語伺服器逐碼驗證</strong>，屬 <strong>draft／informative</strong> 性質，<strong>僅供參考，不得作為正式建議 mapping 或交換要求使用</strong>。實務上曾發現此類未驗證之人工對照有相當比例語意不符（本 IG 於 2026-07-26 之術語稽核即更正 4 個職業健康相關 SNOMED／LOINC 錯碼）。正式採用前應逐碼完成驗證（列為 backlog，見<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-3">未決事項 T-3</a>）。</p>
 </blockquote>
 
 <blockquote>
@@ -1080,15 +1077,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </table>
 
 <blockquote>
-  <p><strong>尿沉渣自動計數之雙軌收錄（JOB-14）</strong>：本 IG 對尿沉渣採「<strong>體積碼（/µL 全尿自動計數）為 preferred、
+  <p><strong>尿沉渣自動計數之雙軌收錄</strong>：本 IG 對尿沉渣採「<strong>體積碼（/µL 全尿自動計數）為 preferred、
 面積碼（/HPF 鏡檢沉渣）為 acceptable</strong>」。理由為國內各機構尿液分析儀報告單位不一致——本院 Sysmex
 UF-5000/UD-10 報每 µL，他院則以每高倍視野（/HPF）報告；兩量綱需依儀器係數換算、不可直接比較數值，
-故以 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一而非 <code class="language-plaintext highlighter-rouge">equivalent</code>。此為 JOB-01 批3「整組換為體積碼」之範圍修正：面積碼為 ACTIVE
+故以 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一而非 <code class="language-plaintext highlighter-rouge">equivalent</code>。此為先前「整組換為體積碼」之範圍修正：面積碼為 ACTIVE
 之合法 LOINC，回收為 acceptable 使以 /HPF 報告之機構亦可實作（見 ConceptMap <code class="language-plaintext highlighter-rouge">element[28]–[36]</code>）。</p>
 </blockquote>
 
 <blockquote>
-  <p><strong>社會史量化碼之單位與性質（JOB-18）</strong>：</p>
+  <p><strong>社會史量化碼之單位與性質</strong>：</p>
   <ul>
     <li><code class="language-plaintext highlighter-rouge">64218-1</code>（吸菸量，<em>How many cigarettes do you smoke per day now</em> [PhenX]）之官方 Property 為 <strong>NRat（Count/Time）</strong>，
 例示單位為 <strong><code class="language-plaintext highlighter-rouge">/d</code>（支/日）</strong>，<strong>非「包/日」</strong>（<code class="language-plaintext highlighter-rouge">{pack}/d</code>）。以本碼承載「包/日」之值，將使實作端把 20 支誤讀為 20 包（量綱不符）。
@@ -1180,7 +1177,7 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
 （2026-07-30，CI run 30534387613）。稽核全集<strong>由值集展開</strong>（<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>
 288 碼 ∪ <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> ∪ <code class="language-plaintext highlighter-rouge">VS-TWHAVitalSigns</code> ∪ <code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> 社會史碼，
 去重共 320 碼），非以對照檔之列為全集——後者曾因凍結於 Extended 尚為 292 碼時期而
-漏稽核 44 個量值碼（JOB-19 補充事項 &sect;2）。</p>
+漏稽核 44 個量值碼。</p>
 
 <table>
   <thead>
@@ -1204,7 +1201,7 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
     </tr>
     <tr>
       <td style="text-align: left">─ Scale 未對映之答案清單碼</td>
-      <td style="text-align: right"><strong>0</strong>（<a href="open-issues.html#t-12">T-12</a> 已結案）</td>
+      <td style="text-align: right"><strong>0</strong>（<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-12">T-12</a> 已結案）</td>
     </tr>
     <tr>
       <td style="text-align: left"><strong>建議單位與 LOINC 官方 <code class="language-plaintext highlighter-rouge">EXAMPLE_UCUM_UNITS</code> 相符</strong></td>
@@ -1228,14 +1225,14 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
 <blockquote>
   <p>「相符 234 ／未提供 74」為對照檔之 <strong>308 列</strong>（234 ＋ 74）；其中 241 列為納入比對之
 量值碼（相符 234 ＋ 官方未提供 7），餘 67 列為對照檔亦收錄之非量值型碼（不列單位）。
-<code class="language-plaintext highlighter-rouge">SemiQn</code>（<code class="language-plaintext highlighter-rouge">LP436123-6</code>，2023-07-05 新增之 Scale）於 JOB-20 經 loinc.org 查證後納入比對，
+<code class="language-plaintext highlighter-rouge">SemiQn</code>（<code class="language-plaintext highlighter-rouge">LP436123-6</code>，2023-07-05 新增之 Scale）經 loinc.org 查證後納入比對，
 10 筆之官方單位皆經 tx <code class="language-plaintext highlighter-rouge">$lookup</code> 取回（9 筆有值、<code class="language-plaintext highlighter-rouge">20621-9</code> 官方未提供）。</p>
 
   <p>上開數值均為 CI 閘門之具名基準
 （<code class="language-plaintext highlighter-rouge">--max 0 --max-missing 0 --max-unknown 0 --min-inscope-ratio 0.5</code>）：值集新增量值碼而未
 回寫對照檔（「未列於對照檔」）、或出現新的未對映 Scale 碼，即建置失敗。
 另設<strong>分類失效自我檢查</strong>——納入比對之量值碼占全集之比率若低於 50%（實測 75.3%），
-即視為 Scale 判定失效而失敗，避免「全部判為不適用卻閘門全綠」之空過（見 JOB-20 &sect;5）。</p>
+即視為 Scale 判定失效而失敗，避免「全部判為不適用卻閘門全綠」之空過。</p>
 </blockquote>
 
 <p>完整對照表（308 筆，含 LOINC 官方顯示名與來源標註）：
@@ -1425,7 +1422,7 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
       <td style="text-align: left">eGFR (MDRD)（LOINC 狀態：DISCOURAGED）</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mL/min/{1.73_m2}</code></td>
       <td style="text-align: left">LOINC EXAMPLE_UCUM_UNITS</td>
-      <td style="text-align: left">職醫科已確認保留（2026-07-27，JOB-01 Q8）；依國健署 115.01.15 國健慢病字第1150660003號函，適用 114 年（2025）及以前之成健 eGFR（MDRD 為 VPN 必填、機構自行填入），115.01.01 起改採 CKD-EPI 2021（<code class="language-plaintext highlighter-rouge">98979-8</code>）；沿革見 &sect;6.2a、多公式並存見 T-11</td>
+      <td style="text-align: left">職醫科已確認保留（2026-07-27）；依國健署 115.01.15 國健慢病字第1150660003號函，適用 114 年（2025）及以前之成健 eGFR（MDRD 為 VPN 必填、機構自行填入），115.01.01 起改採 CKD-EPI 2021（<code class="language-plaintext highlighter-rouge">98979-8</code>）；沿革見 &sect;6.2a、多公式並存見 T-11</td>
     </tr>
   </tbody>
 </table>
@@ -1481,8 +1478,8 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
 
 <blockquote>
   <p>本節於 v0.4.0 全面改寫。<strong>0.3.0 以前之敘述（本指引以【本地 stub】承載 TWCR_SF 定義）
-已不適用</strong>——該批 stub 已於 v0.3.0 隨 JOB-28 刪除、改為正式相依，
-<a href="open-issues.html#g-5">未決事項 G-5</a> 亦已結案。</p>
+已不適用</strong>——該批 stub 已於 v0.3.0 刪除、改為正式相依，
+<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#g-5">未決事項 G-5</a> 亦已結案。</p>
 </blockquote>
 
 <h4 id="62b-1-️-三套來源不可混為一談">6.2b-1 ⚠️ 三套來源不可混為一談</h4>
@@ -1501,7 +1498,7 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
     <tr>
       <td style="text-align: left"><strong>國健署健檢上傳欄位</strong>（原案）</td>
       <td style="text-align: left">嚼檳狀態／量／月數，<strong>無編碼</strong></td>
-      <td style="text-align: left"><strong>本指引 Core 之對標對象</strong>，正式公告版本待確認（<a href="open-issues.html#m-5">M-5</a>）</td>
+      <td style="text-align: left"><strong>本指引 Core 之對標對象</strong>，正式公告版本待確認（<a href="index.html#before-you-start">M-5</a>）</td>
     </tr>
     <tr>
       <td style="text-align: left"><strong>口腔黏膜檢查表</strong>（107/7 修訂）</td>
@@ -1620,7 +1617,7 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
 「每日顆數」兩個維度之區間，可據以導出 <code class="language-plaintext highlighter-rouge">component[durationYears]</code> 與
 <code class="language-plaintext highlighter-rouge">component[amount]</code> 之<strong>界限</strong>（例如第 6 項 ⇒ 年數 &gt; 10、每日 ≧ 20），
 應以 <code class="language-plaintext highlighter-rouge">Quantity.comparator</code> 表達；<strong>取區間中點充作實測值會造成假精確，
-污染 dose-response 分析</strong>（<a href="open-issues.html#t-9">T-9</a> 之同一原則）。</p>
+污染 dose-response 分析</strong>（<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-9">T-9</a> 之同一原則）。</p>
 
   <p>附帶觀察：同表「2.吸菸習慣」為結構完全相同之六選項，僅單位由「顆」改「支」。
 本指引之吸菸 Profile 繼承 TW Core，未納入此級距。</p>
@@ -1760,7 +1757,7 @@ ConceptMap 對映的是概念與概念，不是概念與數值。</p>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">55284-4</code></td>
       <td style="text-align: left">血壓 panel</td>
       <td style="text-align: left">狀態 <strong>DISCOURAGED</strong></td>
-      <td style="text-align: left">✅ <strong>已處置</strong>（JOB-18）：改為 <code class="language-plaintext highlighter-rouge">85354-9</code>（Blood pressure panel with all children optional, ACTIVE），全指引統一；<code class="language-plaintext highlighter-rouge">55284-4</code> 已不再出現於任何值集</td>
+      <td style="text-align: left">✅ <strong>已處置</strong>：改為 <code class="language-plaintext highlighter-rouge">85354-9</code>（Blood pressure panel with all children optional, ACTIVE），全指引統一；<code class="language-plaintext highlighter-rouge">55284-4</code> 已不再出現於任何值集</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">19571-9</code> 等 <strong>5 碼</strong></td>
@@ -1821,9 +1818,9 @@ ConceptMap 對映的是概念與概念，不是概念與數值。</p>
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.7.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.8.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-21 01:22:00 +0000">
+  <span title="2026-08-21 04:20:00 +0000">
     2026-08-21
   </span>
 

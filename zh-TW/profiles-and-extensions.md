@@ -1,4 +1,4 @@
-# Profiles 與 Extensions - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# Profiles 與 Extensions - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## Profiles 與 Extensions
 
@@ -253,5 +253,5 @@
 
 * 本指引所有 Profile 之相依關係、TW Core 版本釘定與全域規範，見[遵從性與依賴 (conformance.html)](conformance.md)。
 * 各 Profile 之 Must Support 設定原則見[首頁 §4.2 資料治理原則](index.md)。
-* 尚未定案之建模議題（含仍待主管機關確認者）見[未決事項 (open-issues.html)](open-issues.md)。
+* 尚未定案之建模議題（含仍待主管機關確認者）見[未決事項 (https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md)](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md)。
 

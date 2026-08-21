@@ -1,4 +1,4 @@
-# 特殊危害健康作業 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# 特殊危害健康作業 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## 特殊危害健康作業
 
@@ -16,7 +16,7 @@
 
 > **口徑說明（更正）**：本表舊版以「18 類」呈現，係依專屬檢查項目歸併之敘述數，非附表十法定項目數。附表十逐號列舉，115.06.26 修正後為 **35 項**（舊 32 項＋新增 33 苯乙烯／34 甲苯／35 二甲苯）；本版改以 35 項為列主鍵，並保留 12 家族歸併欄，以符法規口徑並回應審查意見（李偉帆委員）。
 
-> **情境值集（③）落地狀態**：附表十各家族之**專屬應執行項目**已開始以機器可讀值集定義， 供法定完整性稽核（用法同[一般體格及健康檢查 §4.2](general-exam.md)）。 grouping：[VS-Appendix10-RequiredSet](ValueSet-VS-Appendix10-RequiredSet.md)。 **目前僅含臨床審查狀態為「已審／已驗」之四家族**—— [噪音](ValueSet-VS-Appendix10-Noise-RequiredSet.md)、 [鉛](ValueSet-VS-Appendix10-Lead-RequiredSet.md)、 [粉塵](ValueSet-VS-Appendix10-Dust-RequiredSet.md)、 [有機溶劑](ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.md)。 下表「臨床審查狀態」欄仍為「未審」之家族，其專屬代碼**刻意尚未納入值集**—— 依 JOB-07 §5，未經 JOB-01 臨床確認之代碼不寫進法定必驗值集（見[未決事項 M-8](open-issues.md#m-8)）。 任一家族之完整情境需求 ＝ 對應家族值集 ∪ [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.md)。
+> **情境值集（③）落地狀態**：附表十各家族之**專屬應執行項目**已開始以機器可讀值集定義， 供法定完整性稽核（用法同[一般體格及健康檢查 §4.2](general-exam.md)）。 grouping：[VS-Appendix10-RequiredSet](ValueSet-VS-Appendix10-RequiredSet.md)。 **目前僅含臨床審查狀態為「已審／已驗」之四家族**—— [噪音](ValueSet-VS-Appendix10-Noise-RequiredSet.md)、 [鉛](ValueSet-VS-Appendix10-Lead-RequiredSet.md)、 [粉塵](ValueSet-VS-Appendix10-Dust-RequiredSet.md)、 [有機溶劑](ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.md)。 下表「臨床審查狀態」欄仍為「未審」之家族，其專屬代碼**刻意尚未納入值集**—— 未經臨床確認之代碼不寫進法定必驗值集（見[未決事項 M-8](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-8)）。 任一家族之完整情境需求 ＝ 對應家族值集 ∪ [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.md)。
 
 | | | | | | | |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |

@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>快速入門 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1</title>
+    <title>快速入門 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.7.1 - STU1
+            <span style="display:inline-block;">0.8.1 - STU1
 
 
             </span>
@@ -168,9 +168,6 @@
       </li>
     </ul>
   </li>
-  <li>
-    <a href="open-issues.html">已知限制與試用須知</a>
-  </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
 
@@ -206,7 +203,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l374">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.7.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.8.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>快速入門</h2>
   
 
@@ -353,7 +350,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <ul>
   <li><strong>Core（21 列）不等於附表九</strong>，更不等於一份完整的勞工健檢。Core 是「最小上傳集」，不是「法定檢查項目表」。</li>
   <li><strong>不能因為某項目不在 Core，就推論它不重要或可以不做。</strong></li>
-  <li>Core 目前係依國健署健檢上傳欄位之<strong>工作原案</strong>建立，正式公告版本仍待主管機關確認（<a href="open-issues.html#m-5">未決事項 M-5</a>）。</li>
+  <li>Core 目前係依國健署健檢上傳欄位之<strong>工作原案</strong>建立，正式公告版本仍待主管機關確認（<a href="index.html#before-you-start">未決事項 M-5</a>）。</li>
 </ul>
 
 <hr/>
@@ -372,7 +369,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td style="text-align: left"><strong>主管機關／政策單位</strong></td>
       <td style="text-align: left">確認法定項目是否都有對應、上傳欄位是否落地</td>
-      <td style="text-align: left"><a href="background.html">背景</a>、<a href="open-issues.html">未決事項</a></td>
+      <td style="text-align: left"><a href="background.html">背景</a>、<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md">未決事項</a></td>
     </tr>
     <tr>
       <td style="text-align: left"><strong>醫院／健檢機構管理者</strong></td>
@@ -440,7 +437,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <h2 id="七還沒定案的事外部依賴">七、還沒定案的事（外部依賴）</h2>
 
-<p>指引中所有需要外部機關決定的事項，都集中在<a href="open-issues.html">未決事項與已知限制</a>頁，每項載明<strong>現況、決定者、所需輸入、若決策不同的影響</strong>。目前主要待確認者包括：</p>
+<p>指引中所有需要外部機關決定的事項，都集中在<a href="https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md">未決事項與已知限制</a>頁，每項載明<strong>現況、決定者、所需輸入、若決策不同的影響</strong>。目前主要待確認者包括：</p>
 
 <ul>
   <li><strong>Core 資料集的正式版本</strong>：國健署上傳欄位之正式公告版本（M-5）</li>
@@ -597,9 +594,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.7.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.8.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-21 01:22:00 +0000">
+  <span title="2026-08-21 04:20:00 +0000">
     2026-08-21
   </span>
 

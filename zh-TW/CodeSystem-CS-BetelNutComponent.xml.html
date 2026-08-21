@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>嚼檳榔量化元件代碼系統 - XML Representation - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1</title>
+    <title>嚼檳榔量化元件代碼系統 - XML Representation - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.7.1 - STU1
+            <span style="display:inline-block;">0.8.1 - STU1
 
 
             </span>
@@ -168,9 +168,6 @@
       </li>
     </ul>
   </li>
-  <li>
-    <a href="open-issues.html">已知限制與試用須知</a>
-  </li>
 </ul>
             </div>    <!-- /.nav-collapse -->
 
@@ -200,7 +197,7 @@
 
   <!-- layouts\layout-instance-format -->
 <div style="counter-reset: section 7" class="col-12">
-  <!-- ReleaseHeader --><p id="publish-box"><a name="l377">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.7.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+  <!-- ReleaseHeader --><p id="publish-box"><a name="l371">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.8.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
 
 
 
@@ -278,7 +275,7 @@
   &lt;<a href="http://hl7.org/fhir/R4/resource.html#CodeSystem.language">language</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>="zh-TW"/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#CodeSystem.text">text</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>="generated"/&gt;
-    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p class="res-header-id"&gt;&lt;b&gt;Generated Narrative: 代码系统 CS-BetelNutComponent&lt;/b&gt;&lt;/p&gt;&lt;a name="CS-BetelNutComponent"&gt; &lt;/a&gt;&lt;a name="hcCS-BetelNutComponent"&gt; &lt;/a&gt;&lt;p&gt;This case-sensitive code system &lt;code&gt;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent&lt;/code&gt; defines the following codes:&lt;/p&gt;&lt;table class="codes"&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;&lt;b&gt;Code&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Display&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Definition&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;amount&lt;a name="CS-BetelNutComponent-amount"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;每日嚼食量&lt;/td&gt;&lt;td&gt;每日嚼食檳榔之顆數，以 UCUM `{quid}/d` 表達。對應上游 sf-BetNutChewBeh#amount。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;duration-years&lt;a name="CS-BetelNutComponent-duration-years"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;嚼食持續期間&lt;/td&gt;&lt;td&gt;嚼食檳榔之持續期間（嚼了多久），以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「嚼 2 年」逕行改寫為 24 個月）。承載主管機關最小上傳集第 11 列（醫令 30907X-3「嚼檳月數」，經主管機關答覆確認其語意為嚼食持續期間而非戒檳月數）。對應上游 sf-BetNutChewBeh#year。⚠️ 代碼 id 保留 `duration-years` 係因該碼已於 v0.4.0 發佈，改名屬破壞性變更；真實語意以本顯示名與定義為準。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;cessation-duration&lt;a name="CS-BetelNutComponent-cessation-duration"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;戒除期間&lt;/td&gt;&lt;td&gt;已戒除之期間，以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「已戒 1 年」逕行改寫為 12 個月，見 JOB-29 <span class="fhir-conformance">A.6）。對應上游 sf-BetNutChewBeh#quit。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;cessation-date&lt;a name="CS-BetelNutComponent-cessation-date"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;戒除日期&lt;/td&gt;&lt;td&gt;戒除之日期（得僅至年或年月）。**日期為原始事實，期間為導出值**——期間會隨檢查日改變，故兩者並存時以本欄為準（JOB-29 附錄 B.3）。**不得由「已戒 N 年」回推本欄**。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;with-tobacco&lt;a name="CS-BetelNutComponent-with-tobacco"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;是否含菸草&lt;/td&gt;&lt;td&gt;所嚼食之檳榔是否含菸草。IARC 對含／不含菸草之檳榔分開評估，故流行病學分析需要此欄（JOB-29 附錄 B.1 #5）。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;additive&lt;a name="CS-BetelNutComponent-additive"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;添加物&lt;/td&gt;&lt;td&gt;所嚼食之檳榔所用之添加物（荖花／荖葉／無）。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;lime&lt;a name="CS-BetelNutComponent-lime"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;石灰種類&lt;/td&gt;&lt;td&gt;所嚼食之檳榔所用之石灰種類（紅灰／白灰）。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;hpa-category&lt;a name="CS-BetelNutComponent-hpa-category"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;口腔黏膜檢查表級距&lt;/td&gt;&lt;td&gt;國民健康署口腔黏膜檢查表（107/7 修訂）之嚼檳榔習慣原始勾選，保留不換算成中位數（T-13）。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;amount-coded&lt;a name="CS-BetelNutComponent-amount-coded"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;每日嚼食量（上游級距碼）&lt;/td&gt;&lt;td&gt;以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。**可選、綁定強度 extensible**——移除本 component 不影響任何核心資料（JOB-29 路徑 C-2）。&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;<a name="end-xhtml"></a>
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p class="res-header-id"&gt;&lt;b&gt;Generated Narrative: 代码系统 CS-BetelNutComponent&lt;/b&gt;&lt;/p&gt;&lt;a name="CS-BetelNutComponent"&gt; &lt;/a&gt;&lt;a name="hcCS-BetelNutComponent"&gt; &lt;/a&gt;&lt;p&gt;This case-sensitive code system &lt;code&gt;https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent&lt;/code&gt; defines the following codes:&lt;/p&gt;&lt;table class="codes"&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;&lt;b&gt;Code&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Display&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Definition&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;amount&lt;a name="CS-BetelNutComponent-amount"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;每日嚼食量&lt;/td&gt;&lt;td&gt;每日嚼食檳榔之顆數，以 UCUM `{quid}/d` 表達。對應上游 sf-BetNutChewBeh#amount。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;duration-years&lt;a name="CS-BetelNutComponent-duration-years"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;嚼食持續期間&lt;/td&gt;&lt;td&gt;嚼食檳榔之持續期間（嚼了多久），以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「嚼 2 年」逕行改寫為 24 個月）。承載主管機關最小上傳集第 11 列（醫令 30907X-3「嚼檳月數」，經主管機關答覆確認其語意為嚼食持續期間而非戒檳月數）。對應上游 sf-BetNutChewBeh#year。⚠️ 代碼 id 保留 `duration-years` 係因該碼已於 v0.4.0 發佈，改名屬破壞性變更；真實語意以本顯示名與定義為準。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;cessation-duration&lt;a name="CS-BetelNutComponent-cessation-duration"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;戒除期間&lt;/td&gt;&lt;td&gt;已戒除之期間，以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「已戒 1 年」逕行改寫為 12 個月）。對應上游 sf-BetNutChewBeh#quit。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;cessation-date&lt;a name="CS-BetelNutComponent-cessation-date"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;戒除日期&lt;/td&gt;&lt;td&gt;戒除之日期（得僅至年或年月）。**日期為原始事實，期間為導出值**——期間會隨檢查日改變，故兩者並存時以本欄為準。**不得由「已戒 N 年」回推本欄**。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;with-tobacco&lt;a name="CS-BetelNutComponent-with-tobacco"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;是否含菸草&lt;/td&gt;&lt;td&gt;所嚼食之檳榔是否含菸草。IARC 對含／不含菸草之檳榔分開評估，故流行病學分析需要此欄。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;additive&lt;a name="CS-BetelNutComponent-additive"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;添加物&lt;/td&gt;&lt;td&gt;所嚼食之檳榔所用之添加物（荖花／荖葉／無）。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;lime&lt;a name="CS-BetelNutComponent-lime"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;石灰種類&lt;/td&gt;&lt;td&gt;所嚼食之檳榔所用之石灰種類（紅灰／白灰）。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;hpa-category&lt;a name="CS-BetelNutComponent-hpa-category"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;口腔黏膜檢查表級距&lt;/td&gt;&lt;td&gt;國民健康署口腔黏膜檢查表（107/7 修訂）之嚼檳榔習慣原始勾選，保留不換算成中位數（T-13）。&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="white-space:nowrap"&gt;amount-coded&lt;a name="CS-BetelNutComponent-amount-coded"&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;每日嚼食量（上游級距碼）&lt;/td&gt;&lt;td&gt;以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。**可選、綁定強度 extensible**——移除本 component 不影響任何核心資料。&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;<a name="end-xhtml"></a>
   &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#CodeSystem.text">text</a>&gt;
   &lt;<a href="http://hl7.org/fhir/R4/domainresource.html#CodeSystem.extension">extension</a>
              <a href="http://hl7.org/fhir/R4/datatypes.html#uri">url</a>="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"&gt;
@@ -286,12 +283,12 @@
   &lt;/<a href="http://hl7.org/fhir/R4/domainresource.html#CodeSystem.extension">extension</a>&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.url">url</a>
        <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>="https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent"/&gt;
-  &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.version">version</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="0.7.1"/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.version">version</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="0.8.1"/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="CS_BetelNutComponent"/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.title">title</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="嚼檳榔量化元件代碼系統"/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>="active"/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.experimental">experimental</a> <a href="http://hl7.org/fhir/R4/datatypes.html#boolean">value</a>="true"/&gt;
-  &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.date">date</a> <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">value</a>="2026-08-21T01:22:55+00:00"/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.date">date</a> <a href="http://hl7.org/fhir/R4/datatypes.html#dateTime">value</a>="2026-08-21T04:20:36+00:00"/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.publisher">publisher</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="衛生福利部次世代數位醫療平臺專案辦公室 &amp;amp; 長庚醫療財團法人長庚紀念醫院"/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.contact">contact</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/metadatatypes.html#ContactDetail#ContactDetail.name">name</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="衛生福利部次世代數位醫療平臺專案辦公室 &amp;amp; 長庚醫療財團法人長庚紀念醫院"/&gt;
@@ -328,19 +325,18 @@
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>="cessation-duration"/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="戒除期間"/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.definition">definition</a>
-                <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="已戒除之期間，以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「已戒 1 年」逕行改寫為 12 個月，見 JOB-29 </span>A.6）。對應上游 sf-BetNutChewBeh#quit。"/&gt;
+                <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="已戒除之期間，以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「已戒 1 年」逕行改寫為 12 個月）。對應上游 sf-BetNutChewBeh#quit。"/&gt;
   &lt;/<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept">concept</a>&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept">concept</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>="cessation-date"/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="戒除日期"/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.definition">definition</a>
-                <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="戒除之日期（得僅至年或年月）。**日期為原始事實，期間為導出值**——期間會隨檢查日改變，故兩者並存時以本欄為準（JOB-29 附錄 B.3）。**不得由「已戒 N 年」回推本欄**。"/&gt;
+                <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="戒除之日期（得僅至年或年月）。**日期為原始事實，期間為導出值**——期間會隨檢查日改變，故兩者並存時以本欄為準。**不得由「已戒 N 年」回推本欄**。"/&gt;
   &lt;/<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept">concept</a>&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept">concept</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>="with-tobacco"/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="是否含菸草"/&gt;
-    &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.definition">definition</a>
-                <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="所嚼食之檳榔是否含菸草。IARC 對含／不含菸草之檳榔分開評估，故流行病學分析需要此欄（JOB-29 附錄 B.1 #5）。"/&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.definition">definition</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="所嚼食之檳榔是否含菸草。IARC 對含／不含菸草之檳榔分開評估，故流行病學分析需要此欄。"/&gt;
   &lt;/<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept">concept</a>&gt;
   &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept">concept</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>="additive"/&gt;
@@ -361,7 +357,7 @@
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>="amount-coded"/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="每日嚼食量（上游級距碼）"/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.definition">definition</a>
-                <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。**可選、綁定強度 extensible**——移除本 component 不影響任何核心資料（JOB-29 路徑 C-2）。"/&gt;
+                <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>="以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。**可選、綁定強度 extensible**——移除本 component 不影響任何核心資料。"/&gt;
   &lt;/<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept">concept</a>&gt;
 &lt;/<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem">CodeSystem</a>&gt;</code></pre>
 
@@ -394,9 +390,9 @@
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.7.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.8.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-21 01:22:00 +0000">
+  <span title="2026-08-21 04:20:00 +0000">
     2026-08-21
   </span>
 

@@ -1,9 +1,9 @@
-# 時間單位值集（年／月） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# 時間單位值集（年／月） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## ValueSet: 時間單位值集（年／月） 
 
  
-【主管機關：國民健康署】戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12（JOB-29 §A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。 
+【主管機關：國民健康署】戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。 
 
  **References** 
 
@@ -32,12 +32,12 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TimeUnitYearMonth",
-  "version" : "0.7.1",
+  "version" : "0.8.1",
   "name" : "VS_TimeUnitYearMonth",
   "title" : "時間單位值集（年／月）",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-21T01:22:55+00:00",
+  "date" : "2026-08-21T04:20:36+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -53,7 +53,7 @@
       "value" : "https://twcore.mohw.gov.tw/twregistry/"
     }]
   }],
-  "description" : "【主管機關：國民健康署】戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12（JOB-29 §A.6）。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。",
+  "description" : "【主管機關：國民健康署】戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。",
   "compose" : {
     "include" : [{
       "system" : "http://unitsofmeasure.org",

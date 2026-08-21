@@ -1,4 +1,4 @@
-# 自覺症狀問卷定義範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# 自覺症狀問卷定義範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## Questionnaire: 
 
@@ -24,9 +24,9 @@
     "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Questionnaire"]
   },
   "url" : "https://twcore.mohw.gov.tw/ig/twha/Questionnaire/example-questionnaire",
-  "version" : "0.7.1",
+  "version" : "0.8.1",
   "status" : "active",
-  "date" : "2026-08-21T01:22:55+00:00",
+  "date" : "2026-08-21T04:20:36+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

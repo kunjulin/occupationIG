@@ -1,4 +1,4 @@
-# 應用案例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# 應用案例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## 應用案例
 
@@ -119,7 +119,7 @@
 * `DiagnosticReport` 以[報告識別碼](NamingSystem-NS-ReportIdentifier.md)條件式建立。
  
 * **對應範例**：[UC-008 一般健檢結果上傳封包範例](Bundle-UC-008.md)。
-* **契約**：見[上傳介接契約](conformance.md)；整包處理語意為 [未決事項 M-9](open-issues.md#m-9)。
+* **契約**：見[上傳介接契約](conformance.md)；整包處理語意為 [未決事項 M-9](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-9)。
 
 -------
 
@@ -129,7 +129,7 @@
 * **要點**： 
 * `DiagnosticReport` 以報告識別碼做**條件式更新**（`PUT` ＋ 查詢式 URL）—— 重傳為覆寫而非新增（冪等）；
 * 檢驗缺值以 `dataAbsentReason = not-performed` 標明；
-* 暴露史屬 social-history，因 `result` 之上游限縮 （[T-10](open-issues.md#t-10)）不置於 `DiagnosticReport.result`。
+* 暴露史屬 social-history，因 `result` 之上游限縮 （[T-10](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-10)）不置於 `DiagnosticReport.result`。
  
 * **對應範例**：[UC-009 特殊健檢結果上傳封包範例](Bundle-UC-009.md)。
 

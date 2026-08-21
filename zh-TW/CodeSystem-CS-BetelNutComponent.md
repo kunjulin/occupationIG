@@ -1,4 +1,4 @@
-# 嚼檳榔量化元件代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# 嚼檳榔量化元件代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## CodeSystem: 嚼檳榔量化元件代碼系統 (實驗性) 
 
@@ -26,12 +26,12 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
-  "version" : "0.7.1",
+  "version" : "0.8.1",
   "name" : "CS_BetelNutComponent",
   "title" : "嚼檳榔量化元件代碼系統",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-21T01:22:55+00:00",
+  "date" : "2026-08-21T04:20:36+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -64,17 +64,17 @@
   {
     "code" : "cessation-duration",
     "display" : "戒除期間",
-    "definition" : "已戒除之期間，以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「已戒 1 年」逕行改寫為 12 個月，見 JOB-29 §A.6）。對應上游 sf-BetNutChewBeh#quit。"
+    "definition" : "已戒除之期間，以 UCUM `a` 或 `mo` 表達，**以原始採集粒度為準**（不得將「已戒 1 年」逕行改寫為 12 個月）。對應上游 sf-BetNutChewBeh#quit。"
   },
   {
     "code" : "cessation-date",
     "display" : "戒除日期",
-    "definition" : "戒除之日期（得僅至年或年月）。**日期為原始事實，期間為導出值**——期間會隨檢查日改變，故兩者並存時以本欄為準（JOB-29 附錄 B.3）。**不得由「已戒 N 年」回推本欄**。"
+    "definition" : "戒除之日期（得僅至年或年月）。**日期為原始事實，期間為導出值**——期間會隨檢查日改變，故兩者並存時以本欄為準。**不得由「已戒 N 年」回推本欄**。"
   },
   {
     "code" : "with-tobacco",
     "display" : "是否含菸草",
-    "definition" : "所嚼食之檳榔是否含菸草。IARC 對含／不含菸草之檳榔分開評估，故流行病學分析需要此欄（JOB-29 附錄 B.1 #5）。"
+    "definition" : "所嚼食之檳榔是否含菸草。IARC 對含／不含菸草之檳榔分開評估，故流行病學分析需要此欄。"
   },
   {
     "code" : "additive",
@@ -94,7 +94,7 @@
   {
     "code" : "amount-coded",
     "display" : "每日嚼食量（上游級距碼）",
-    "definition" : "以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。**可選、綁定強度 extensible**——移除本 component 不影響任何核心資料（JOB-29 路徑 C-2）。"
+    "definition" : "以上游 TWCR_SF 級距碼表達之每日嚼食量，供與癌症登記勾稽之用。**可選、綁定強度 extensible**——移除本 component 不影響任何核心資料。"
   }]
 }
 

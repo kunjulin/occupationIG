@@ -1,4 +1,4 @@
-# 範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# 範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## 範例
 
@@ -39,7 +39,7 @@
 | **UC-008**一般健檢結果上傳（首次） | [Bundle-UC-008](Bundle-UC-008.md) | Transaction | 向主管機關平台上傳；示範 urn:uuid 內部參照與條件式建立 |
 | **UC-009**特殊健檢結果上傳（含缺值與冪等重傳） | [Bundle-UC-009](Bundle-UC-009.md) | Transaction | 示範以報告識別碼條件式更新，重傳不產生重複資料 |
 
-> UC-001～UC-007 為**報告交換**（`type = document`），UC-008／UC-009 為**上傳**（`type = transaction`）。 二者之語意差異與 `$submit` 契約見[遵從性與依賴](conformance.md)；transaction／batch 之最終語意仍待平台端定案（見[未決事項](open-issues.md)）。
+> UC-001～UC-007 為**報告交換**（`type = document`），UC-008／UC-009 為**上傳**（`type = transaction`）。 二者之語意差異與 `$submit` 契約見[遵從性與依賴](conformance.md)；transaction／batch 之最終語意仍待平台端定案（見[未決事項](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md)）。
 
 -------
 
@@ -58,7 +58,7 @@
 | [composition-emergency-summary](Composition-composition-emergency-summary.md) | 職業健康急診友善摘要範例 (UC-007) |
 | [example-composition-employer-summary](Composition-example-composition-employer-summary.md) | 雇主端健康管理摘要範例 |
 
-> **注意揭露界線**：`example-composition-employer-summary`（雇主端）與 `composition-emergency-summary`（醫護端）為刻意對照之一組—— 前者僅含健康管理分級、適性配工建議與臨場服務發現，**不含任何檢驗數值**；後者含關鍵檢驗值。相關政策界線見[未決事項](open-issues.md)。
+> **注意揭露界線**：`example-composition-employer-summary`（雇主端）與 `composition-emergency-summary`（醫護端）為刻意對照之一組—— 前者僅含健康管理分級、適性配工建議與臨場服務發現，**不含任何檢驗數值**；後者含關鍵檢驗值。相關政策界線見[未決事項](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md)。
 
 -------
 
@@ -211,6 +211,6 @@
 
 ## 9. 範例覆蓋度
 
-* 本指引之範例覆蓋率與尚未補齊之 Profile 清單，見[資源總覽](artifacts.md)與[未決事項](open-issues.md)。
+* 本指引之範例覆蓋率與尚未補齊之 Profile 清單，見[資源總覽](artifacts.md)與[未決事項](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md)。
 * 範例之 FSH 原始碼可自[結構定義與範例檔下載](downloads.md)取得。
 

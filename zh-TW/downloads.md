@@ -1,4 +1,4 @@
-# 結構定義與範例檔下載 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# 結構定義與範例檔下載 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## 結構定義與範例檔下載
 
@@ -31,7 +31,7 @@
 | UC-008 | 一般健檢結果**上傳**（`type=transaction`，條件式建立去重） | [JSON](Bundle-UC-008.json) |
 | UC-009 | 特殊健檢結果**上傳**（`type=transaction`，缺值＋冪等重傳） | [JSON](Bundle-UC-009.json) |
 
-> UC-001 ~ UC-007 為報告封包（`document`）、UC-008 ~ UC-009 為上傳封包（`transaction`）。 上傳之去重、冪等與錯誤處理契約見[上傳介接契約](conformance.md)； 整包處理語意（transaction／batch）為[未決事項 M-9](open-issues.md#m-9)。
+> UC-001 ~ UC-007 為報告封包（`document`）、UC-008 ~ UC-009 為上傳封包（`transaction`）。 上傳之去重、冪等與錯誤處理契約見[上傳介接契約](conformance.md)； 整包處理語意（transaction／batch）為[未決事項 M-9](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-9)。
 
 -------
 
@@ -45,7 +45,7 @@
 | **顯示名驗證報告** | 以術語伺服器逐碼比對之`display`語意查核結果，為代碼稽核之主要依據 | [CSV](display-verification-report.csv) |
 | **UCUM 建議單位對照** | Extended 量值項之 LOINC 官方建議單位對照 | [CSV](extended-ucum-reference.csv) |
 
-> **`loinc-valuesets.xlsx` 之欄位說明（v20260730 新增，JOB-21）**
+> **`loinc-valuesets.xlsx` 之欄位說明**
 
 | | |
 | :--- | :--- |
@@ -60,7 +60,7 @@
 
 > ℹ️ `loinc-valuesets.xlsx` 與 `snomed-mappings.xlsx` **由建置流程自值集（`VS-CoreDataset`／`VS-ExtendedDataset`）與 `snomed-loinc-mappings.csv` 自動產生**，內容恆與本頁指引版本（0.2.0）一致；不再手工維護，故無版本落後之虞。`loinc-valuesets.xlsx` 之 `VS-CoreDataset` 分頁自 v3.0 重構為「主管機關（國健署）最小上傳集之檢驗子集」（21 碼），其餘檢驗項目改列 `VS-ExtendedDataset`（288 碼）。若與舊版下載檔比對，將見 Core 由 193 碼大幅縮減，屬正常之分層調整而非刪碼。
 
-> ⚠️ **顯示名驗證報告與 UCUM 對照表均為研製中之工作產物，尚有代碼待覆核。** 使用前請先確認對應代碼之稽核狀態，勿逕行作為實作依據； 稽核進度見 [JOB-01](https://github.com/kunjulin/occupationIG/blob/main/docs/optimization/JOB-01-terminology-code-audit.md)。
+> ⚠️ **顯示名驗證報告與 UCUM 對照表均為研製中之工作產物，尚有代碼待覆核。** 使用前請先確認對應代碼之稽核狀態，勿逕行作為實作依據； 術語稽核之進度與逐碼紀錄見本專案 [GitHub 之優化工作文件](https://github.com/kunjulin/occupationIG/tree/main/docs/optimization)。
 
 -------
 

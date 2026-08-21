@@ -1,4 +1,4 @@
-# 應用說明 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.7.1
+# 應用說明 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.1
 
 ## 應用說明
 
@@ -9,6 +9,23 @@
 歡迎使用**臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)**。本指引由衛生福利部委託財團法人工業技術研究院、長庚紀念醫院執行規劃研製，旨在利用 **HL7 FHIR (Fast Healthcare Interoperability Resources)** 國際標準，以**勞工健康檢查為核心**，建立可向特殊職類與一般健康檢查／成人預防保健需求擴充之 FHIR 資料交換標準。
 
 本實作指引遵循衛生福利部資訊處最新之資訊安全與技術治理規範，**與國家最新核心標準「臺灣核心實作指引 (TW Core IG v1.0.0)」對齊與繼承**，以確保各級臨床端、事業單位與政府主管機關（勞動部職業安全衛生署、國民健康署、衛生福利部等）之間的健檢資料傳輸無縫對接。
+
+-------
+
+## 1.1 使用前須知 (Before You Start)
+
+> **本指引為研擬中之草案，尚未定稿。** 以下六點是試用前必須知道的事項—— 它們說明**哪些內容日後會變**，請在投入開發前一併評估。
+
+| | |
+| :--- | :--- |
+| 1 | 本指引之 canonical（`https://twcore.mohw.gov.tw/ig/twha`）為**試用期暫用命名空間**，正式版將改為主管機關核定之位址，屆時所有資源 URL 會變更——**請勿將本站 URL 寫死於程式碼**。 |
+| 2 | Core 最小共通上傳集（16 主項／21 列）係依主管機關**工作原案**建立，正式公告後**欄位可能增減**，請勿將必填清單寫死。 |
+| 3 | 嚼檳榔系列與健康管理分級等**本地代碼為 provisional**（`experimental = true`），待主管機關公告後始定案，屆時代碼或值域可能調整。 |
+| 4 | 跨術語對照（SNOMED CT）中**未逐碼驗證者僅供參考**，**不得作為正式建議 mapping**使用；交換時應保留原始代碼。 |
+| 5 | 涉及《勞工健康保護規則》之**法定解釋事項**（如健檢資料保存期限之起算點），本指引**僅載明規則要素、不代為認定**，應以主管機關釋示為準。 |
+| 6 | 本指引通過建置與術語驗證，**不等於**臨床適切性或法規符合性已獲確認，亦**不構成**任何主管機關之認證或採認。 |
+
+> 各項之完整背景、決定者與處置規則，見本專案 GitHub 之 [〈已知限制與待決事項〉](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md)。
 
 -------
 
@@ -60,11 +77,11 @@
 | :--- | :--- | :--- |
 | **① IG scope（本 IG 涵蓋範圍）** | 本指引所定義之全部代碼與結構，即**Core ∪ Extended**。屬「本 IG 能表達什麼」。 | `VS-CoreDataset`∪`VS-ExtendedDataset`等 |
 | **② Core upload set（主管機關最小交換集）** | 主管機關（國健署）制定之**最小共通上傳欄位**（21 列）。屬「至少要交換什麼」。 | [VS-CoreUploadSet](ValueSet-VS-CoreUploadSet.md) |
-| **③ 情境資料集（法定情境需求）** | 特定法定情境（如附表九一般健檢、附表十某一危害作業）**依法應執行之完整檢查項目**。屬「該情境依法要做什麼」。 | [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.md)（附表九，完整）；[VS-Appendix10-RequiredSet](ValueSet-VS-Appendix10-RequiredSet.md)（附表十，已落地噪音／鉛／粉塵／有機溶劑四家族，餘待 JOB-01） |
+| **③ 情境資料集（法定情境需求）** | 特定法定情境（如附表九一般健檢、附表十某一危害作業）**依法應執行之完整檢查項目**。屬「該情境依法要做什麼」。 | [VS-Appendix9-RequiredSet](ValueSet-VS-Appendix9-RequiredSet.md)（附表九，完整）；[VS-Appendix10-RequiredSet](ValueSet-VS-Appendix10-RequiredSet.md)（附表十，已落地噪音／鉛／粉塵／有機溶劑四家族，餘待臨床確認） |
 
 > ⚠️ **① ≠ ② ≠ ③**。本 IG 涵蓋範圍（①）不等於任一法定情境之完整需求（③）； 亦**不得**以「某項目不在 Core（②）」推論該項目不重要或非 Must Support。 附表九各法定項目如何由 Core ＋ Extended 組合滿足，見[一般體格及健康檢查](general-exam.md)之對照說明。
 
-> **Core 之來源與效力（M-5）**：本 IG 之 Core 係依據國民健康署健檢上傳欄位之**工作原案**建立， **正式公告版本尚待確認**；其內容得依主管機關正式公告調整。 決策所需輸入與影響範圍見[未決事項 M-5](open-issues.md#m-5)。
+> **Core 之來源與效力（M-5）**：本 IG 之 Core 係依據國民健康署健檢上傳欄位之**工作原案**建立， **正式公告版本尚待確認**；其內容得依主管機關正式公告調整。 決策所需輸入與影響範圍見[未決事項 M-5](index.md#before-you-start)。
 
 -------
 
