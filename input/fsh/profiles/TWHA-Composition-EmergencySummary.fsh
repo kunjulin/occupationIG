@@ -42,6 +42,21 @@ Description: "【技術規格】職業健康急診友善摘要（Occupational He
 * section[keyLabs].title = "關鍵檢驗值（CBC／肝腎功能／暴露生物指標）"
 * section[keyLabs].entry only Reference(Observation or DiagnosticReport)
 
+// ⚠️ v0.9.0：entry 加入 TWHAHealthManagementLevelProfile，與 TWHA-Composition
+// 於 v0.8.5 之處置一脈相承。本節之 Description 已明文承諾承載「健康管理分級」
+//（見本檔 Description：「供急診醫師快速掌握其……以及健康管理分級」、
+// 「將……總評分級以 section.entry 引用」），型別約束卻不收承載分級的那個資源
+// ——**文件承諾與型別約束互相矛盾**。
+//
+// ⚠️ 本節與 TWHA-Composition.section[assessment]、
+//    TWHA-Composition-EmployerSummary.section[healthManagement] **同用 51848-0**，
+//    而 section 切片之判別子為 code 之 pattern，故三者在 FHIR 眼中是同一個 section。
+//    修正後三者對該 section 之型別認定一致。
+//
+// ⚠️ 目前無任何實例把分級放進本摘要，故此矛盾**不產生任何 WARNING**——
+//    沒有訊號的矛盾不會自己浮出來，這正是它必須被主動修掉而非等它出事的理由。
+//
+// 屬**放寬**：既有實例全數仍合法，非破壞性變更。加的是 profile 而非裸 Observation。
 * section[assessment].code = http://loinc.org#51848-0
 * section[assessment].title = "健康管理分級與急診注意事項"
-* section[assessment].entry only Reference(ClinicalImpression or CarePlan)
+* section[assessment].entry only Reference(ClinicalImpression or CarePlan or TWHAHealthManagementLevelProfile)

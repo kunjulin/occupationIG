@@ -7,7 +7,7 @@
 | **預估** | S–M（1–1.5 人日，不含送簽時序調整） |
 | **主要影響檔案** | `input/fsh/profiles/TWHA-SocialHistory.fsh`、`input/fsh/codesystems/CS-BetelNut.fsh`、`input/fsh/examples/03-social-history.fsh`、`VS-CoreUploadSet.fsh`、`general-exam.md`、`datamodel.md`、`terminology.md`、`conformance.md`、`docs/drafts/HPA-CONFIRMATION-JOB-30.md` |
 | **緣起** | 2026-08-21 委員來函：主張 `SCT#698188003` 係 finding（答案），置於 `Observation.code`（問題）為 FHIR anti-pattern，建議回復綁定上游 `TWCRSFObsBehCS#BetelNutChewing` 並將 `698188003` 移入 `value` |
-| **狀態** | 📋 評估（v0.6.3）｜**步驟 1 已完成（v0.8.3）**：LOINC 檢索（§4.1.1 Q1）、`698188003` 單碼語意軸（Q2）、SNOMED 關鍵字與階層限定檢索（§4.2.3 Q4／Q5）三者皆已執行並留存輸出。結論：LOINC 與 SNOMED 皆無可用之狀態問句碼，**自訂本地碼之方向成立**。步驟 2 待裁示後實作 |
+| **狀態** | ✅ **步驟 1、2 皆已完成**：步驟 1 之三階查證見 §4.1.1／§4.2.3（v0.8.3）；步驟 2 已於 **v0.9.0** 實作——`Observation.code` 改為 `CS-BetelNutObservable#betel-quid-chewing-status`，`698188003` 改列為肯定式狀態之 SNOMED 對應（terminology.md §6.2b-3），遷移說明見 conformance.md §8.1。⚠️ 確認單 §0 已同步更正，惟依 PI 裁示**於 v0.9.0 合併前仍不得送出** |
 
 ---
 

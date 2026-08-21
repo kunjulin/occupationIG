@@ -7,7 +7,7 @@
 | **預估** | S（診斷已完成）＋ M（實作，視裁定方向） |
 | **主要影響檔案** | `input/fsh/examples/07-compositions.fsh`、`09-bundles.fsh`、`11-special-exam-followup.fsh` |
 | **緣起** | JOB-31 §4 具名化時發現：89 筆 WARNING 中有 17 筆屬結構問題，先前僅由 `totals.warn` 一個數字間接看管 |
-| **狀態** | ✅ **步驟 2 完成（v0.8.4 ＋ v0.8.5）**——UC-003 之不可達 entry 由 11 降為 **1**，僅動範例層（`07-compositions.fsh`、`09-bundles.fsh`），**未動任何 profile**。餘 1 筆（`obs-health-mgmt-level`）已依 PI 裁示採 (A) 於 v0.8.5 解決，**七個 Bundle 之不可達 entry 全數歸零**。同型問題另有一處（`TWHA-Composition-EmergencySummary`）未處置，見 §2.6。ImagingStudy 7 筆依 §3.4 採 (A) 維持現狀＋載明 |
+| **狀態** | ✅ **步驟 2 完成（v0.8.4 ＋ v0.8.5）**——UC-003 之不可達 entry 由 11 降為 **1**，僅動範例層（`07-compositions.fsh`、`09-bundles.fsh`），**未動任何 profile**。餘 1 筆（`obs-health-mgmt-level`）已依 PI 裁示採 (A) 於 v0.8.5 解決，**七個 Bundle 之不可達 entry 全數歸零**。同型問題另一處（`TWHA-Composition-EmergencySummary`）已於 v0.9.0 一併處置，見 §2.6。ImagingStudy 7 筆依 §3.4 採 (A) 維持現狀＋載明 |
 
 ---
 
@@ -186,7 +186,7 @@ section 標題寫著**「分級」**，型別卻不收承載分級的那個資�
 `composition-uc003` 之 assessment 依標題次序排列：總評 → 分級 → 建議。
 實測全部七個 document Bundle 之不可達 entry **歸零**。
 
-### 2.6 ⚠️ 同型問題另有一處，本版未處置（新發現）
+### 2.6 同型問題另有一處：急診友善摘要（v0.8.5 發現，v0.9.0 處置）
 
 `51848-0` 在本 IG 實際上有**三個** profile 使用，型別認定三種：
 
@@ -194,16 +194,22 @@ section 標題寫著**「分級」**，型別卻不收承載分級的那個資�
 |:--|:--|:--|
 | `TWHA-Composition` | `assessment` | ClinicalImpression／CarePlan／ServiceRequest／Procedure ＋ **分級 profile（v0.8.5 加入）** |
 | `TWHA-Composition-EmployerSummary` | `healthManagement` | **分級 profile**／總評 profile／配工 profile |
-| `TWHA-Composition-EmergencySummary` | `assessment` | ClinicalImpression／CarePlan **（無分級 profile）** |
+| `TWHA-Composition-EmergencySummary` | `assessment` | ClinicalImpression／CarePlan ＋ **分級 profile（v0.9.0 加入）** |
 
 ⚠️ 第三列之問題比第一列更明確：**該 profile 自身的 `Description` 就寫著**
 「供急診醫師快速掌握其……以及**健康管理分級**」、「將……總評分級以 `section.entry` 引用」，
 但其 `section[assessment].entry` 並不收承載分級的資源——**文件承諾與型別約束互相矛盾**。
 
-**本版未處置**，理由有二：(1) PI 之裁示範圍為 `TWHA-Composition`；
-(2) 目前無任何實例把分級放進該摘要，故不產生 WARNING、無 QA 訊號。
-**惟這正是它值得單獨登記的原因**——沒有訊號的矛盾不會自己浮出來。
-處置方式與 (A) 相同（一行），待裁示。
+~~**本版未處置**，理由有二：(1) PI 之裁示範圍為 `TWHA-Composition`；
+(2) 目前無任何實例把分級放進該摘要，故不產生 WARNING、無 QA 訊號。~~
+
+✅ **已於 v0.9.0 依 PI 裁示處置**：`TWHA-Composition-EmergencySummary.section[assessment].entry`
+加入 `TWHAHealthManagementLevelProfile`。至此本 IG 內三個使用 `51848-0` 的 profile
+對該 section 之型別認定**完全一致**。
+
+⚠️ 值得記的是它**為何需要主動修**：目前無任何實例把分級放進該摘要，
+故此矛盾**不產生任何 WARNING**——閘門、QA 數字、建置全部安靜。
+**沒有訊號的矛盾不會自己浮出來**；等它出事才修，代價是屆時已有實作依循錯誤的型別約束。
 
 
 ---

@@ -63,6 +63,8 @@ const MAP = {
   'TWHA-SocialHistory-BetelNut': ['hpa', 1],
   'CS-SmokingStatus': ['hpa', 1],
   'VS-SmokingStatus': ['hpa', 1],
+  // v0.9.0（JOB-32 步驟 2）：Observation.code 之問句碼，屬 Core 上傳第 9 列之承載，故 Level 1。
+  'CS-BetelNutObservable': ['hpa', 1],
   'CS-BetelNutStatus': ['hpa', 1],
   'VS-BetelNutStatus': ['hpa', 1],
   'CS-BetelNutComponent': ['hpa', 1],

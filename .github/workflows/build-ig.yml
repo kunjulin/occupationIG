@@ -407,6 +407,14 @@ jobs:
       # 比對表另存一份，供結尾之「QA gate summary」複述——見該步驟之說明。
       # 管線末端是 tee，預設會以 tee 的退出碼作為整條管線之結果，閘門失敗將被吞掉；
       # 故加 `set -o pipefail`，使 npm 的非零退出碼傳出，閘門失敗仍讓建置紅。
+      # 下載資產連結閘門：頁面上的資產連結解析後必須真的有檔案。
+      # 需要建置產出，故置於建置之後（比照 Must Support 覆蓋檢核）。
+      # 先跑負向自測——閘門本身失效時會「全綠但其實沒檢查」。
+      - name: 下載資產連結檢核 (self-test first)
+        run: |
+          npm run check:links:selftest
+          npm run check:links
+
       - name: QA gate
         run: |
           set -o pipefail

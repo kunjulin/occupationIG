@@ -160,7 +160,7 @@
 
 | SNOMED CT | 顯示名 | 使用位置 | 驗證狀態 |
 |:---|:---|:---|:---|
-| `698188003` | Chews betel quid | `TWHA-SocialHistory-BetelNut`／`VS-CoreUploadSet` | ✅ 已驗證 2026-07-26 |
+| `698188003` | Chews betel quid | **§6.2b-3 之肯定式狀態對照**（v0.9.0 起不再作為 `Observation.code`） | ✅ 已驗證 2026-07-26；語意軸複驗 2026-08-21（FSN `Chews betel quid (finding)`，parent `409069009`） |
 | `266919005` | Never smoked | 吸菸狀態範例（`obs-smoking`） | ✅ 已驗證 2026-07-26 |
 | `17458004` | Occupational hazard | `TWHA-Observation-ServiceFinding.code` | ✅ 已驗證 2026-07-26 |
 | `406221003` | Health status | `TWHA-HealthManagementLevel.code` | ✅ 已驗證 2026-07-26 |
@@ -401,13 +401,13 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 |:--|:--|:--|
 | **國健署健檢上傳欄位**（原案） | 嚼檳狀態／量／月數，**無編碼** | **本指引 Core 之對標對象**，正式公告版本待確認（[M-5](index.html#before-you-start)） |
 | **口腔黏膜檢查表**（107/7 修訂） | 6 選 1 之 ordinal 級距（年數 × 每日顆數） | **癌症篩檢用表，非健檢上傳欄位**。原始勾選以 `component[hpaCategory]` 保留（[VS-BetelNutHpaCategory](ValueSet-VS-BetelNutHpaCategory.html)），**不換算成中位數**；但**不得因此把篩檢表欄位當成健檢上傳欄位** |
-| **TWCR_SF**（癌症登記短表） | 逐顆／逐年之列舉碼 | 正式相依 `fhir.TWCRSF#0.1.1`；於本指引降為**可選對照**（見 6.2b-3） |
+| **TWCR_SF**（癌症登記短表） | 逐顆／逐年之列舉碼 | 正式相依 `fhir.TWCRSF#0.1.1`；於本指引降為**可選對照**（見 6.2b-4） |
 
 #### 6.2b-2 本指引之建模（v0.4.0 起）
 
 | 語意 | 承載位置 | 綁定／單位 |
 |:--|:--|:--|
-| Observation.code | `code` | SNOMED `698188003`（Chews betel quid） |
+| Observation.code（**問題**） | `code` | [CS-BetelNutObservable](CodeSystem-CS-BetelNutObservable.html)`#betel-quid-chewing-status`「嚼檳榔狀態」（v0.9.0 起；原為 SNOMED `698188003`，見 §6.2b-3） |
 | 嚼檳狀態 | `value[x]`（CodeableConcept） | [VS-BetelNutStatus](ValueSet-VS-BetelNutStatus.html)（required，provisional） |
 | 每日嚼食量 | `component[amount]` | `Quantity`，UCUM `{quid}/d` |
 | 嚼食年數 | `component[durationYears]` | `Quantity`，UCUM `a` |
@@ -448,7 +448,40 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 > 附帶觀察：同表「2.吸菸習慣」為結構完全相同之六選項，僅單位由「顆」改「支」。
 > 本指引之吸菸 Profile 繼承 TW Core，未納入此級距。
 
-#### 6.2b-3 上游級距碼 → 本模型之落點對照
+#### 6.2b-3 `Observation.code` 之問題碼與 SNOMED 對照（v0.9.0）
+
+**問題放 `.code`、答案放 `.value[x]`，兩個代碼軸不得互換。**
+
+| | 吸菸 | 嚼檳（v0.9.0 起） | 嚼檳（v0.4.0–v0.8.6） |
+|:--|:--|:--|:--|
+| `.code`（問題） | `LNC#72166-2` Tobacco smoking status | `CS-BetelNutObservable#betel-quid-chewing-status` 嚼檳榔狀態 | ~~`SCT#698188003` Chews betel quid~~ |
+| `.value[x]`（答案） | `VS-SmokingStatus` 四碼 | `VS-BetelNutStatus` 四碼 | 同左（未變） |
+| 是否自相矛盾 | 否 | 否 | **是**——`.code` 斷言此人嚼檳，而答案可為「從未嚼食」 |
+
+⚠️ **為何自訂而非沿用國際碼**：三階查證結果皆為無，非未查。
+
+| 查證 | 結果 |
+|:--|:--|
+| LOINC 有無嚼檳狀態問句碼 | **無**。`betel` 0 筆、`areca` 0 筆；`quid` 命中 40 筆全為 `liquid` 之子字串 |
+| SNOMED 有無可用之 observable entity | **無**。`isa/363787002` 階層下 `betel`／`areca` 皆 0 筆 |
+| 對照組（證明查詢式成立） | `isa/404684003` Clinical finding ＋ `betel` → 3 筆 |
+
+⚠️ **`698188003` 並未被廢棄，只是換了位置**。它是**肯定式**概念，語意等同於
+「此人嚼檳」，故對應到答案軸之肯定式狀態，而非問題軸：
+
+| 本指引狀態碼 | SNOMED CT 對應 | 說明 |
+|:--|:--|:--|
+| `1-occasional` 偶爾嚼食 | `698188003` Chews betel quid | 肯定式；SNOMED 無「偶爾／每日」之頻率細分 |
+| `2-daily` 每日嚼食 | `698188003` Chews betel quid | 同上 |
+| `0-never` 從未嚼食檳榔 | **無對應** | SNOMED 全庫 6 個 betel 概念中無 never-chewer |
+| `3-quit` 已戒除 | **無對應** | 同上，無 ex-chewer |
+
+> 上表即「SNOMED 無法承載四碼對稱」之具體內容——**兩個肯定式狀態共用同一個 SNOMED 碼，
+> 另兩個沒有對應**。該結論已由本專案自行以 tx 複驗（betel 命中 7 筆扣除 1 筆假陽性
+> ＝ 6 個，語意標籤為 finding 1／disorder 2／substance 2／organism 1，無 observable entity）。
+
+
+#### 6.2b-4 上游級距碼 → 本模型之落點對照
 
 **這張表本身就是「不宜硬套 ConceptMap」的證據**：同一個代碼清單裡的代碼，
 會落到 FHIR 的**三個不同位置**（`value`／`component.valueQuantity`／`dataAbsentReason`）。
@@ -476,7 +509,7 @@ ConceptMap 對映的是概念與概念，不是概念與數值。
 > **而 required 綁定攔不住**（兩個綁定各自都通過，只是綁錯 component）。
 > 改為 `Quantity` 後，該類錯置會直接呈現為單位或量綱不符，可被機器攔下。
 
-#### 6.2b-4 `component.code` 為何改用本地碼
+#### 6.2b-5 `component.code` 為何改用本地碼
 
 `component.code` 若續用上游 `sf-BetNutChewBeh`，則即使值改為 `Quantity`，
 **建置仍須解析上游 canonical 才能完成**。改用本地

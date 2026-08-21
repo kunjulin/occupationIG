@@ -21,6 +21,9 @@ Description: "【主管機關：國民健康署】群組值集：組合 Core 之
 * LNC#72166-2  // 吸菸狀態 Tobacco smoking status
 * LNC#64218-1  // 吸菸量 How many cigarettes do you smoke per day now [PhenX]（官方 Property NRat＝Count/Time，單位為「支/日」`/d`，非「包/日」；pack-year／packs/day 須另尋代碼並經查證，勿沿用本碼）
 * LNC#63632-4  // 戒菸月數 Have quit smoking (duration)
-* SCT#698188003 // 嚼檳狀態 Chews betel quid
+* CS_BetelNutObservable#betel-quid-chewing-status // 嚼檳狀態（問題碼）
+// ⚠️ v0.9.0：本列由 SCT#698188003 改為自訂問句碼（JOB-32 步驟 2）。
+//    698188003 是肯定式 finding，置於 Observation.code 會與「從未嚼食」之答案矛盾。
+//    **本列所計之上傳欄位（醫令 30907X-1）未變**，變的只是承載該欄位之 FHIR 代碼。
 
 * ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
