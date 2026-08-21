@@ -7,7 +7,7 @@
 | **預估** | S–M（1–1.5 人日，不含送簽時序調整） |
 | **主要影響檔案** | `input/fsh/profiles/TWHA-SocialHistory.fsh`、`input/fsh/codesystems/CS-BetelNut.fsh`、`input/fsh/examples/03-social-history.fsh`、`VS-CoreUploadSet.fsh`、`general-exam.md`、`datamodel.md`、`terminology.md`、`conformance.md`、`docs/drafts/HPA-CONFIRMATION-JOB-30.md` |
 | **緣起** | 2026-08-21 委員來函：主張 `SCT#698188003` 係 finding（答案），置於 `Observation.code`（問題）為 FHIR anti-pattern，建議回復綁定上游 `TWCRSFObsBehCS#BetelNutChewing` 並將 `698188003` 移入 `value` |
-| **狀態** | 📋 評估（v0.6.3）｜步驟 1 **部分完成**：LOINC 檢索已做（§4.1.1 Q1）、SNOMED `698188003` 單碼語意軸已驗（Q2）；⚠️ **SNOMED 之關鍵字檢索尚未執行**（§4.2）；步驟 2 待裁示後實作 |
+| **狀態** | 📋 評估（v0.6.3）｜**步驟 1 已完成（v0.8.3）**：LOINC 檢索（§4.1.1 Q1）、`698188003` 單碼語意軸（Q2）、SNOMED 關鍵字與階層限定檢索（§4.2.3 Q4／Q5）三者皆已執行並留存輸出。結論：LOINC 與 SNOMED 皆無可用之狀態問句碼，**自訂本地碼之方向成立**。步驟 2 待裁示後實作 |
 
 ---
 
@@ -110,7 +110,13 @@ JOB-29 附錄 B #1（採認委員先前以 Ontoserver 之查詢）記載：
 > 該數字係**採認委員以 Ontoserver 所作之查詢**，本 repo 從未自行複驗，
 > 卻已被本節當成「SNOMED 無法承載四碼對稱」之決策理由。
 > **一個當作理由用的數字，必須可被自己的紀錄支撐。**
-> 複驗方式與判讀規則見 §4.2；在其完成前，本節之結論應視為**待驗證之推定**，非已確立之事實。
+>
+> ✅ **已於 v0.8.3 複驗（§4.2.3）**：本 repo 自行以 tx.fhir.org 檢索，
+> betel 命中 7 筆扣除 1 筆假陽性（細菌）為 **6 個**，與委員之數字相符；
+> 6 碼之 FSN 語意標籤為 finding 1、disorder 2、substance 2、organism 1，
+> **無任何 observable entity**（另以階層限定檢索 `isa/363787002` 得 0 筆，附對照組佐證）。
+> 故本節結論成立，且自本版起係**自行複驗之結果**，非採認外部查詢。
+> ⚠️ 惟委員原查詢是否含 inactive 概念不明，數字相符可能係巧合——**相符的是結論方向**。
 
 故 `698188003` 至多只能表達「目前嚼食」一種狀態，**無法**構成與 `CS-SmokingStatus`
 逐碼對稱之四碼答案集。將其混入 `VS-BetelNutStatus` 只會破壞既有對稱。
@@ -312,6 +318,61 @@ $TX/ValueSet/$expand?url=…sct%3Ffhir_vs%3Disa%2F404684003&filter=betel   ← C
   腳本會印「⚠ 本次回應不含 FSN designation（非「無 FSN」，是沒要到）」——
   **少了就要吵，不能靜靜地少。**
 
+#### 4.2.3 第二輪結果（commit `aa3135aa`，run 32467134590／job 96726011710，2026-08-21T09:25Z）
+
+**Q4｜SNOMED 有無可用之檳榔 observable entity？——無。**
+
+查詢式：`$TX/ValueSet/$expand?url=…sct%3Ffhir_vs%3Disa%2F<階層碼>&filter=<kw>&count=100`
+
+| 階層 | `filter` | `expansion.total` | 判讀 |
+|:--|:--|--:|:--|
+| `363787002` Observable entity | `betel` | **0** | 空展開（查詢成立、無命中） |
+| `363787002` Observable entity | `areca` | **0** | 同上 |
+| `404684003` Clinical finding **（對照組）** | `betel` | **3** | `25933002`／`699276000`／`698188003` |
+| `404684003` Clinical finding（對照組） | `areca` | 0 | — |
+
+> **對照組是這張表的關鍵。** 若只跑 Observable entity 那兩式，「0 筆」與「查詢式壞掉」
+> 外觀完全相同——正是第一輪那種靜默失敗。Clinical finding 同式回得出 3 筆，
+> 證明查詢式成立、`filter` 有作用、階層限定有作用；故上面那兩個 **0 是真的 0**。
+
+**結論**：SNOMED **無**檳榔相關之 observable entity。
+§4 之處置階梯 **LOINC → SNOMED observable → 自訂本地碼** 三階全部走完，
+前兩階皆為無，**自訂本地碼之方向成立**。
+
+**Q5｜委員「SNOMED 全部 betel 概念僅 6 個」——複驗成立，且各碼語意類別已逐筆取得。**
+
+`betel` 之 7 筆命中，扣除假陽性 `113697002 Stenotrophomonas maltophilia`（細菌，FSN 為
+`(organism)`；命中係文字比對所致）後為 **6 個**，與委員之數字**完全相符**：
+
+| 碼 | display | FSN 語意標籤 |
+|:--|:--|:--|
+| `698188003` | Chews betel quid | **finding** |
+| `25933002` | Betel deposit on teeth | disorder |
+| `699276000` | Betel chewer's mucosa | disorder |
+| `227380001` | Betel leaf | substance |
+| `227491007` | Betel nut | substance |
+| `75980007` | Areca catechu | organism |
+
+`areca` 側之其餘 5 碼（`3927007` Areca／`107631008` Family Arecaceae／`387942003`
+Arecastrum romanzoffianum specific IgE／`392348004` 同名 IgE antibody measurement／
+`411902005` 同名 diagnostic allergen extract）語意標籤分別為 organism／organism／
+substance／procedure／product——**全屬檳榔科植物之過敏原檢驗家族，與嚼檳行為無關**。
+
+**故 §3.3「SNOMED 無法承載四碼對稱」之結論成立，且自本輪起係本 repo 自行複驗之結果，
+不再是採認外部查詢。** 6 個概念中無 ex-chewer／never-chewer，
+亦無 duration／amount 之 observable——與 Q4 之 0 筆互相印證。
+
+**限制（依 §4.2 之要求載明）**：
+
+1. `$expand` 預設**不含 inactive 概念**，故上開計數為現行有效概念；
+   委員原查詢之口徑（是否含 inactive）不明，兩者相符可能係巧合，惟結論方向一致。
+2. `filter` 係對 display／designation 之**文字比對**，非語意檢索。兩輪各出現一次假陽性
+   （LOINC 之 `liquid`／SNOMED 之 Stenotrophomonas），**命中結果一律須逐筆看過**。
+3. `$lookup` 之 FSN designation 含**歷史描述**：`227491007` 回傳兩個 FSN
+   （`Betal nut` 為舊拼字誤植、`Betel nut` 為現行），`107631008`／`392348004`／`411902005`
+   亦各回兩個。腳本未濾除失效描述，**不影響語意標籤之判讀**（同碼之標籤一致），
+   但引用 FSN 字串時須取現行者。
+
 ---
 
 ## 5. ⚠️ 兩項連動風險（委員未提及，且時效上更急）
@@ -355,8 +416,9 @@ $TX/ValueSet/$expand?url=…sct%3Ffhir_vs%3Disa%2F404684003&filter=betel   ← C
    結論寫入本 JOB；**未完成查證前不得實作**。
    - ✅ **LOINC 檢索已完成（v0.8.2）**——見 §4.1.1 Q1。結論：LOINC 無對應碼。
    - ✅ **SNOMED `698188003` 單碼語意軸已驗（v0.8.2）**——見 §4.1.1 Q2。
-   - ⏳ **SNOMED 關鍵字檢索尚未執行**——見 §4.2。**此項未完成前不得進入步驟 2**，
-     因其可能推翻 §4 之「自訂本地碼」方向，亦須複驗 §3.3 所引之「僅 6 個」。
+   - ✅ **SNOMED 關鍵字與階層限定檢索已完成（v0.8.3）**——見 §4.2.3。
+     結論：無 observable entity（附對照組佐證）；§3.3 所引之「僅 6 個」已自行複驗。
+   - 一次性 CI 步驟已於 v0.8.3 移除；三輪之輸出全文留存於 §4.1.1、§4.2.1、§4.2.3。
 2. 全庫 `698188003` 之 13 處觸點逐一處置完畢，且**不再出現於任何 `Observation.code` 位置**
    （以腳本檢查 FSH 與已發佈 JSON，不得目視）。
 3. `Observation-obs-betelnut-never` 之 `code` 與 `value` **語意相容**；
@@ -384,10 +446,11 @@ $TX/ValueSet/$expand?url=…sct%3Ffhir_vs%3Disa%2F404684003&filter=betel   ← C
 > ~~**步驟 1（先做，不改任何定義）**：加一次性 CI 步驟，對 tx 檢索 LOINC 是否有檳榔／檳榔子
 > 使用狀態之 observable 碼（關鍵字 betel、areca、quid；並 `$lookup` 任何命中碼之 SCALE_TYP 與 STATUS），
 > 將完整輸出貼回本 JOB §4.1，**取得結果後移除該步驟**。**未完成前不得進入步驟 2。**~~
-> ⚠️ 步驟 1 於 v0.8.2 **只完成一半**：LOINC 檢索已做（§4.1.1 Q1，結論為無碼）、
-> `698188003` 單碼語意軸已驗（Q2）；**SNOMED 之關鍵字檢索從未執行**（§4.2）。
-> 進入步驟 2 前必須先補做 §4.2 之兩式 `$expand`——它可能推翻「自訂本地碼」之方向
-> （若 SNOMED 備有 observable entity），並須複驗 §3.3 所引「僅 6 個」之外部數字。
+> ✅ **步驟 1 已於 v0.8.3 全部完成**（LOINC §4.1.1 Q1、`698188003` Q2、
+> SNOMED 檢索 §4.2.3 Q4／Q5）。處置階梯 LOINC → SNOMED observable → 自訂本地碼
+> 三階皆已查證，前兩階為無，**自訂本地碼之方向成立**；一次性 CI 步驟已移除。
+> ⚠️ 自訂碼應對齊 `LNC#72166-2` 之形狀（Clinical 類／Find 屬性／Ord 尺度之狀態問句），
+> **不得**對齊 `698188003`（FSN 為 `Chews betel quid (finding)`，肯定式 finding）。
 > **步驟 2（依 §4 實作）**：`.code` 改為查證結果所定之問題碼（LOINC 優先，無則自訂本地碼）；
 > `.value` 之 `VS-BetelNutStatus` 四碼**不動**；`698188003` 改列為肯定式狀態之 SNOMED 對應，
 > 寫入 `terminology.md` 對照表，**不得放回 `.code`**；三個範例、`VS-CoreUploadSet`、
