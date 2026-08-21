@@ -30,7 +30,7 @@
 
 > UC-001 ~ UC-007 為報告封包（`document`）、UC-008 ~ UC-009 為上傳封包（`transaction`）。
 > 上傳之去重、冪等與錯誤處理契約見[上傳介接契約](conformance.html)；
-> 整包處理語意（transaction／batch）為[未決事項 M-9](open-issues.html#m-9)。
+> 整包處理語意（transaction／batch）為[未決事項 M-9](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-9)。
 
 ---
 

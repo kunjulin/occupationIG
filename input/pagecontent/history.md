@@ -38,7 +38,7 @@
 
 | 項目 | 現況 |
 |:--|:--|
-| **canonical** | `https://twcore.mohw.gov.tw/ig/twha` —— **provisional**。正式命名空間之核定機關與命名尚待確認（見[未決事項 P-1](open-issues.html#p-1)）。 |
+| **canonical** | `https://twcore.mohw.gov.tw/ig/twha` —— **provisional**。正式命名空間之核定機關與命名尚待確認（見[未決事項 P-1](index.html#before-you-start)）。 |
 | **目前審閱位址** | `https://kunjulin.github.io/occupationIG`（GitHub Pages） |
 
 即 **canonical 與實際發佈位址目前不一致**：canonical 為預留之正式命名空間，

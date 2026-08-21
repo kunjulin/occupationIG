@@ -171,7 +171,7 @@
 
 本節提供健康檢查資料集中各主要項目的跨術語對照，整合 LOINC（preferred 優先碼／acceptable 可接受碼）、SNOMED CT 概念、UCUM 計量單位及法規欄位參照——三者為**平行之 code system**。
 
-> **⚠️ SNOMED CT 欄位之效力限制**：本表 SNOMED CT 欄位（§4.1 所列 4 碼除外）係先前以 SNOMED International Browser 人工填載，**未經術語伺服器逐碼驗證**，屬 **draft／informative** 性質，**僅供參考，不得作為正式建議 mapping 或交換要求使用**。實務上曾發現此類未驗證之人工對照有相當比例語意不符（本 IG 於 2026-07-26 之術語稽核即更正 4 個職業健康相關 SNOMED／LOINC 錯碼）。正式採用前應逐碼完成驗證（列為 backlog，見[未決事項 T-3](open-issues.html#t-3)）。
+> **⚠️ SNOMED CT 欄位之效力限制**：本表 SNOMED CT 欄位（§4.1 所列 4 碼除外）係先前以 SNOMED International Browser 人工填載，**未經術語伺服器逐碼驗證**，屬 **draft／informative** 性質，**僅供參考，不得作為正式建議 mapping 或交換要求使用**。實務上曾發現此類未驗證之人工對照有相當比例語意不符（本 IG 於 2026-07-26 之術語稽核即更正 4 個職業健康相關 SNOMED／LOINC 錯碼）。正式採用前應逐碼完成驗證（列為 backlog，見[未決事項 T-3](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-3)）。
 
 > **標示慣例**：`—` 表示該欄位不適用或無需列出。`(-)` 系列表示**經術語伺服器查證後之缺碼狀態**（非尚未填寫），依成因區分為三態：
 >
@@ -307,7 +307,7 @@ CSV 欄位說明：`category`（類別）、`item_name_zh`（中文名）、`ite
 | 稽核全集（由上開值集展開，去重） | 320 |
 | ─ 納入比對之量值碼（Scale ∈ `Qn` 231／`SemiQn` 10） | **241** |
 | ─ 非量值型（`Ord` 53／`Doc` 17／`Nom` 7／`-` 2；主動排除並記錄 Scale） | 79 |
-| ─ Scale 未對映之答案清單碼 | **0**（[T-12](open-issues.html#t-12) 已結案） |
+| ─ Scale 未對映之答案清單碼 | **0**（[T-12](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-12) 已結案） |
 | **建議單位與 LOINC 官方 `EXAMPLE_UCUM_UNITS` 相符** | **234** |
 | LOINC 未提供建議單位（其中量值碼 7 筆） | 74 |
 | **不符（量綱或代碼錯誤）** | **0** |
@@ -391,7 +391,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 
 > 本節於 v0.4.0 全面改寫。**0.3.0 以前之敘述（本指引以【本地 stub】承載 TWCR_SF 定義）
 > 已不適用**——該批 stub 已於 v0.3.0 刪除、改為正式相依，
-> [未決事項 G-5](open-issues.html#g-5) 亦已結案。
+> [未決事項 G-5](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#g-5) 亦已結案。
 
 #### 6.2b-1 ⚠️ 三套來源不可混為一談
 
@@ -399,7 +399,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 
 | 來源 | 粒度 | 與本指引之關係 |
 |:--|:--|:--|
-| **國健署健檢上傳欄位**（原案） | 嚼檳狀態／量／月數，**無編碼** | **本指引 Core 之對標對象**，正式公告版本待確認（[M-5](open-issues.html#m-5)） |
+| **國健署健檢上傳欄位**（原案） | 嚼檳狀態／量／月數，**無編碼** | **本指引 Core 之對標對象**，正式公告版本待確認（[M-5](index.html#before-you-start)） |
 | **口腔黏膜檢查表**（107/7 修訂） | 6 選 1 之 ordinal 級距（年數 × 每日顆數） | **癌症篩檢用表，非健檢上傳欄位**。原始勾選以 `component[hpaCategory]` 保留（[VS-BetelNutHpaCategory](ValueSet-VS-BetelNutHpaCategory.html)），**不換算成中位數**；但**不得因此把篩檢表欄位當成健檢上傳欄位** |
 | **TWCR_SF**（癌症登記短表） | 逐顆／逐年之列舉碼 | 正式相依 `fhir.TWCRSF#0.1.1`；於本指引降為**可選對照**（見 6.2b-3） |
 
@@ -443,7 +443,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 > 「每日顆數」兩個維度之區間，可據以導出 `component[durationYears]` 與
 > `component[amount]` 之**界限**（例如第 6 項 ⇒ 年數 > 10、每日 ≧ 20），
 > 應以 `Quantity.comparator` 表達；**取區間中點充作實測值會造成假精確，
-> 污染 dose-response 分析**（[T-9](open-issues.html#t-9) 之同一原則）。
+> 污染 dose-response 分析**（[T-9](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#t-9) 之同一原則）。
 >
 > 附帶觀察：同表「2.吸菸習慣」為結構完全相同之六選項，僅單位由「顆」改「支」。
 > 本指引之吸菸 Profile 繼承 TW Core，未納入此級距。

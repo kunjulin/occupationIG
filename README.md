@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.7.4`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.8.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -160,6 +160,29 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.8.0（2026-08-21）警語收斂 ＋〈未決事項〉頁外移（**破壞性變更**）
+
+> ⚠️ **破壞性**：`open-issues.html` **已自網站移除**。既有指向該頁之外部連結
+> （含既發函文與簡報所引用者）將失效。
+
+- **警語收斂**：散落各頁之規範性揭露集中為首頁 [§1.1〈使用前須知〉](input/pagecontent/index.md)，
+  **六條、每條一句**，錨點 `#before-you-start`：
+  ① canonical 為試用期暫用命名空間，勿寫死 URL；② Core 21 列係工作原案，欄位可能增減；
+  ③ 本地代碼為 provisional；④ SNOMED 未逐碼驗證者不得作正式 mapping；
+  ⑤ 法規解釋不代為認定；⑥ 建置通過不等於臨床適切性或法規符合性。
+  ⚠️ **六條為規範性揭露，只收斂位置、未刪除任何一條**——它們是「哪些欄位日後會變」
+  之唯一告知管道。
+- **〈未決事項〉頁外移**：`input/pagecontent/open-issues.md` →
+  [`docs/known-limitations.md`](docs/known-limitations.md)（**版本控管檔案，非 GitHub Issues**
+  ——Issue 可被編輯、關閉、刪除且無版次，不適合作為對主管機關之揭露載體）。
+  自 `sushi-config.yaml` 之 `pages:` 與 `menu:` 移除；頁內編號與錨點沿用未變。
+- **站內連結一次改寫完畢**：實測 **35 處**（分佈 13 個頁面）。
+  規範性者 **10 處** → `index.html#before-you-start`；其餘 **25 處** → GitHub 之 `docs/` 檔案。
+  ⚠️ **重新清點，未沿用規劃文件之「31 處（24 錨點）」**——該數字量測於 v0.6.1，
+  本次實測為 34 行／**35 處連結**（一行可含兩個連結）、具名錨點 27 處。
+- 閘門結果：`check:refs`（18 頁全數解析）、`check:menu`（頂層 7 項、入口 19 個、
+  `pages:` 18 頁雙向對應、無未白名單孤兒頁）均通過。
 
 ### v0.7.4（2026-08-21）對外產出之內部工作痕跡清除
 
