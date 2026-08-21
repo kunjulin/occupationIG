@@ -33,6 +33,9 @@
 //   故該 ConceptMap 之機器可讀格式改由其自身頁面提供（JSON／XML／TTL），
 //   下載頁不再連結該 xlsx。若有人補回裸檔名連結，本閘門會直接紅。
 //
+// 📌 實檢規模（CI run 32486994039）：資產連結 15176 個，其中根層僅 10 個
+//    ——根層頁面是語言轉址殼頁，內容連結幾乎都在 zh-TW 層。除樣板佔位符外**零壞連結**。
+//
 // ⚠️ **本檢查需要建置產出，只能在 CI 執行**（比照 qa-gate.js：找不到 output/ 即失敗，
 //    不得靜默略過——「沒檢查」與「檢查通過」不能長得一樣）。
 //
@@ -45,6 +48,11 @@ const path = require('path');
 
 // 只看資產：副檔名存在且不是 .html。頁面連結之斷鏈由 IG Publisher 自己的
 // cannot-be-resolved 追蹤，此處不重複（也避免把 2320 筆 canonical 問題再數一次）。
+// 未渲染之樣板佔位符（Liquid）不是路徑。IG 模板之 searchform.html 留有
+// `{{site.data.info.assets}}fhir.css` 這類 href，解析必然找不到檔案，
+// 但那不是本 IG 的內容缺陷。**不靜默丟掉**：另計並於報表列出，見下方輸出。
+const hasPlaceholder = (href) => /\{\{|\}\}|\{%/.test(href);
+
 const isAssetHref = (href) => {
   if (!href) return false;
   if (/^[a-z][a-z0-9+.-]*:/i.test(href)) return false; // http:／https:／mailto: 等絕對位址
@@ -91,6 +99,7 @@ function check(outDir) {
         page: path.relative(outDir, page),
         href,
         target: path.relative(outDir, target),
+        placeholder: hasPlaceholder(href),
         // 解析到 output/ 之外者一律視為壞連結（`../` 用過頭）
         escaped: !target.startsWith(path.resolve(outDir) + path.sep),
         exists: fs.existsSync(target) && fs.statSync(target).isFile(),
@@ -178,6 +187,13 @@ function selfTest() {
     return bad(check(root)).length === 0;
   });
 
+  // ⑧ 未渲染之樣板佔位符 → 不得列為失敗，但必須另計（正向對照）
+  run('⑧ 樣板佔位符不列入失敗、但另計（正向對照）', () => {
+    const root = mk({ 'zh-TW/searchform.html': page('{{site.data.info.assets}}fhir.css') });
+    const rows = check(root);
+    return rows.length === 1 && rows[0].placeholder === true && bad(rows.filter((r) => !r.placeholder)).length === 0;
+  });
+
   console.log('下載資產連結閘門負向自我測試（標「正向對照」者必須不被判失敗）：');
   let nbad = 0;
   for (const [name, ok] of results) {
@@ -205,7 +221,8 @@ if (!fs.existsSync(outDir)) {
 }
 
 const rows = check(outDir);
-const broken = rows.filter((r) => !r.exists || r.escaped);
+const tmpl = rows.filter((r) => r.placeholder);
+const broken = rows.filter((r) => !r.placeholder && (!r.exists || r.escaped));
 
 // 逐層列出資產分佈——本次缺陷正是「根層有、語言層沒有」，把它印出來比只報通過有用。
 const layers = new Map();
@@ -213,11 +230,19 @@ for (const r of rows) {
   const layer = r.page.includes(path.sep) ? r.page.split(path.sep)[0] : '(根層)';
   if (!layers.has(layer)) layers.set(layer, { n: 0, bad: 0 });
   layers.get(layer).n++;
-  if (!r.exists || r.escaped) layers.get(layer).bad++;
+  if (!r.placeholder && (!r.exists || r.escaped)) layers.get(layer).bad++;
 }
 console.log(`下載資產連結閘門：檢查 ${rows.length} 個資產連結`);
 for (const [layer, v] of [...layers].sort()) {
   console.log(`  ${layer.padEnd(10)} 連結 ${String(v.n).padStart(3)} 個，壞 ${v.bad} 個`);
+}
+
+if (tmpl.length) {
+  const files = [...new Set(tmpl.map((r) => r.page))].sort();
+  console.log(
+    `  另有 ${tmpl.length} 個連結含未渲染之樣板佔位符（{{…}}），不列入失敗——` +
+      `屬上游 IG 模板之產物，非本 IG 內容：${files.join('、')}`
+  );
 }
 
 if (broken.length) {
@@ -229,8 +254,17 @@ if (broken.length) {
     console.error(`      解析為 ${r.target}   ——${why}`);
   }
   console.error('\n⚠️ 常見成因：資產只存在於根層（例如 IG Publisher 自 ConceptMap 產生者），');
-  console.error('   而語言層頁面用裸檔名連結。修法為改用 `../<檔名>`，或把該資產納入');
-  console.error('   input/assets/ 使其複製到兩層。**不得以 ignoreWarnings.txt 抑制**。');
+  console.error('   而語言層頁面用裸檔名連結。');
+  console.error('');
+  console.error('   ⚠️ **兩個看似自然的修法都已實測否決，不要再試**（見本檔檔頭）：');
+  console.error('     ✗ 改用 `../<檔名>` —— IG Publisher 會擲例外並中止整個建置');
+  console.error('       （check-pagecontent-refs.js 已明文禁止）。');
+  console.error('     ✗ 把同名檔放進 input/assets/ —— 實測會在兩層都覆蓋掉 publisher 的產出，');
+  console.error('       且連結解得開、QA 數字還會變好，看不出已被換掉。');
+  console.error('');
+  console.error('   可行方向：移除該連結（改由資源頁提供機器可讀格式），');
+  console.error('   或以**不同檔名**自行產生資產置於 input/assets/。');
+  console.error('   **不得以 ignoreWarnings.txt 抑制**。');
   process.exit(1);
 }
 console.log('✔ 全部資產連結解析後均有實際檔案。');
