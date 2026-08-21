@@ -54,9 +54,14 @@ Description: "【主管機關：國民健康署】用於記錄勞工之嚼檳榔
 * ^experimental = true
 * status = #final
 * category = http://terminology.hl7.org/CodeSystem/observation-category#social-history
-// C-0：改用 SNOMED，display 逐字採官方 FSN（JOB-29 附錄 B.2 更正
-// "Betel nut chewer" → "Chews betel quid"）。
-* code = SCT#698188003 "Chews betel quid"
+// ⚠️ v0.9.0（JOB-32 步驟 2）：由 SCT#698188003 改為本指引自訂之**狀態問句碼**。
+// 698188003 是肯定式 finding（斷言此人嚼檳），放在問題位會使
+// obs-betelnut-never 這類資源自相矛盾（code 說嚼、value 說從未），
+// 且以 code 檢索會撈出從未嚼檳者。**屬 Level 1 破壞性變更**，遷移說明見
+// conformance.md §7 與 docs/known-limitations.md。
+// 698188003 改列為肯定式狀態（1-occasional／2-daily）之 SNOMED 對應，
+// 見 terminology.md §6.2b 之對照表——**不得放回本欄**。
+* code = CS_BetelNutObservable#betel-quid-chewing-status "嚼檳榔狀態"
 * subject only Reference(TWHAPatientProfile)
 * performer only Reference(TWHAPractitionerProfile)
 

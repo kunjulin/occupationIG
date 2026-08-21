@@ -27,7 +27,7 @@ Title: "嚼檳榔狀態與量化資料範例（已戒）"
 Description: "受檢勞工王大同的嚼檳榔習慣：過去每日嚼食 5 顆，嚼檳 10 年，目前已戒除 1 年。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#social-history
-* code = SCT#698188003 "Chews betel quid"
+* code = CS_BetelNutObservable#betel-quid-chewing-status "嚼檳榔狀態"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:05:00+08:00"
 * performer = Reference(example-nurse)
@@ -49,7 +49,7 @@ Title: "嚼檳榔狀態與量化資料範例（現嚼，含情境欄位）"
 Description: "受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉、白灰），嚼食持續期間以原始採集粒度送出 240 個月，未戒。另附上游 TWCR_SF 級距碼作為對照。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#social-history
-* code = SCT#698188003 "Chews betel quid"
+* code = CS_BetelNutObservable#betel-quid-chewing-status "嚼檳榔狀態"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:05:00+08:00"
 * performer = Reference(example-nurse)
@@ -84,7 +84,7 @@ Title: "嚼檳榔狀態範例（從未嚼食）"
 Description: "受檢勞工林志明：從未嚼食檳榔。三個量化 component 全部不送。"
 * status = #final
 * category[0] = http://terminology.hl7.org/CodeSystem/observation-category#social-history
-* code = SCT#698188003 "Chews betel quid"
+* code = CS_BetelNutObservable#betel-quid-chewing-status "嚼檳榔狀態"
 * subject = Reference(example-worker)
 * effectiveDateTime = "2026-06-12T08:05:00+08:00"
 * performer = Reference(example-nurse)

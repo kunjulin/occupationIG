@@ -7,6 +7,39 @@
 //
 // 皆依 CS-HealthMgmtLevel 之既有格式標 experimental = true 並於描述載明 provisional。
 
+// ──────────────────────────────── 觀察項目（Observation.code 之「問題」碼）
+// v0.9.0 新增（JOB-32 步驟 2）。在此之前，本 Profile 之 Observation.code 固定為
+// SNOMED CT `698188003`——但那是一個**肯定式 finding**（FSN 為
+// `Chews betel quid (finding)`，parent 為 `409069009 Finding related to substance use`，
+// 位於 Clinical finding 階層而非 Observable entity 階層，已由本專案自行以 tx 複驗）。
+//
+// ⚠️ 把 finding 放在 `.code`（問題位）造成的不是風格問題，而是**資料錯誤**：
+//    已發佈之 obs-betelnut-never 其 code = 698188003（此人嚼檳）
+//    而 value = 0-never（此人從未嚼檳），**同一筆資源自相矛盾**；
+//    以 `Observation?code=698188003` 檢索會把從未嚼檳者一併撈出（偽陽性）。
+//    建置 err = 0 仍成立——驗證器不檢查 code 與 value 之語意相容性。
+//
+// ⚠️ **為何自訂而非沿用國際碼**：三階查證皆為無，非未查（JOB-32 §4.1.1、§4.2.3）。
+//    LOINC：betel／areca 各 0 筆（quid 之 40 筆全為 `liquid` 之子字串）。
+//    SNOMED：`isa/363787002` Observable entity 階層下 betel／areca 皆 0 筆，
+//            並以 Clinical finding 階層同式回得 3 筆作為對照組，證明查詢式成立。
+//
+// ⚠️ **本碼之形狀對齊 `LNC#72166-2`（Tobacco smoking status），不對齊 `698188003`**：
+//    72166-2 經 $lookup 實測為 CLASSTYPE=2（Clinical）、PROPERTY=LP6813-2（Find）、
+//    SCALE_TYP=LP7750-5（Ord）——即「臨床類、以狀態為屬性、序位尺度之**狀態問句**」，
+//    問句在 `.code`、答案在 `.value`。本碼即依此角色設計：
+//    問句＝嚼檳榔狀態，答案＝VS-BetelNutStatus 之四級序位碼。
+//    `698188003` 改列為**肯定式狀態之 SNOMED 對應**（見 terminology.md §6.2b 對照表），
+//    **不得放回 `.code`**。
+CodeSystem: CS_BetelNutObservable
+Id: CS-BetelNutObservable
+Title: "嚼檳榔觀察項目代碼系統"
+Description: "【主管機關：國民健康署】勞工健檢生活習慣調查中，嚼檳榔相關之**觀察項目（問題）碼**，用於 `Observation.code`。與承載答案之 CS-BetelNutStatus 分屬兩個代碼軸——問題碼放 `.code`、答案碼放 `.value[x]`，不得互換。角色對齊吸菸之 `LNC#72166-2`（Tobacco smoking status）：臨床類、以狀態為屬性、序位尺度之狀態問句。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，係因 LOINC 與 SNOMED CT 均無可用之嚼檳狀態問句碼（已逐一查證），**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）"
+* ^experimental = true
+* ^caseSensitive = true
+* #betel-quid-chewing-status "嚼檳榔狀態" "受檢者目前之嚼檳榔狀態。本碼為**問題**（Observation.code），答案以 `value[x]` 承載，值集為 VS-BetelNutStatus（從未／偶爾／每日／已戒除，四級序位）。⚠️ 本碼**不表示受檢者有嚼檳榔**——它問的是狀態，答案可以是「從未嚼食檳榔」。此與 SNOMED CT `698188003`（Chews betel quid）之語意不同：後者是肯定式 finding，斷言此人嚼檳，故不得置於 `.code`。角色對應吸菸之 `LNC#72166-2`（Tobacco smoking status）。"
+* ^extension[http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status].valueCode = #trial-use
+
 // ─────────────────────────────────────────────── 狀態（value[x] 之值）
 // 與 CS-SmokingStatus 逐碼對稱，便於同一份問卷邏輯共用（JOB-29 §2.2）。
 //

@@ -72,7 +72,7 @@ Core 21 列橫跨三種資料型別，分屬**三個綁定值集**，不集中�
 |:---|:---|:---|:---|
 | **Social History**<br>(生活習慣) | 吸菸狀態 | `TWHASocialHistorySmokingProfile` | LOINC `72166-2` (Tobacco smoking status) |
 | | 飲酒習慣 | `TWHASocialHistoryAlcoholProfile` | LOINC `11331-6` (History of Alcohol use) |
-| | 嚼檳榔習慣 | `TWHASocialHistoryBetelNutProfile` | SNOMED CT `698188003` (Chews betel quid)；狀態值 `VS-BetelNutStatus`，量／年數／戒除期間為 UCUM `Quantity`（[§6.2b](terminology.html)） |
+| | 嚼檳榔習慣 | `TWHASocialHistoryBetelNutProfile` | `CS-BetelNutObservable#betel-quid-chewing-status`「嚼檳榔狀態」（問題碼，v0.9.0 起；原為 SNOMED `698188003`）；狀態值 `VS-BetelNutStatus`，量／年數／戒除期間為 UCUM `Quantity`（[§6.2b](terminology.html)） |
 | | 睡眠時間 | `TWHASocialHistorySleepProfile` | LOINC `93832-4` (Sleep duration) |
 | **Vital Signs**<br>(生理量測) | 身高 / 體重 | `TWHAVitalSignsProfile` | LOINC `8302-2` (Height), LOINC `29463-7` (Weight) |
 | | 舒張壓 / 收縮壓 | `TWCoreBloodPressure` | LOINC `85354-9` (BP panel) |

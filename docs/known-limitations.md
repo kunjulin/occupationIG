@@ -26,6 +26,24 @@
 
 ---
 
+
+## ⚠️ v0.9.0 破壞性變更：嚼檳狀態之 `Observation.code`
+
+已依 v0.4.0–v0.8.6 實作並送出 `Observation.code = http://snomed.info/sct#698188003`
+之系統，其資料在 v0.9.0 之 `TWHA-SocialHistory-BetelNut` 下**不再通過驗證**。
+
+新值為 `https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutObservable#betel-quid-chewing-status`。
+`value[x]` 與 `component[*]` **不需任何調整**。
+
+**為何非改不可**：`698188003` 是肯定式 finding（斷言「此人嚼檳」），放在問題位使
+「從未嚼食」之紀錄自相矛盾；以該碼檢索會把從未嚼檳者一併撈出，屬偽陽性資料風險。
+
+完整遷移步驟見[一致性頁 §8.1](conformance.html)；問題碼與 SNOMED 之對照見
+[術語頁 §6.2b-3](terminology.html)。
+
+⚠️ 主管機關上傳欄位（醫令 `30907X-1`）本身**未變**，變的只是承載該欄位之 FHIR 代碼；
+M-5 狀態、嚼檳系列之 `experimental`、Level 1 成熟度**三者皆未動**。
+
 ## 關於編號
 
 | 前綴 | 類別 |
