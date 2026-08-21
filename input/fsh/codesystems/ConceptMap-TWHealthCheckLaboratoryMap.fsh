@@ -10,6 +10,12 @@ Description: "【主管機關：國民健康署】將健康檢查實驗室檢驗
 
 ⚠️ **歸一之臨床限制**：本對照供資料標準化之用，**不表示歸一後之數值可直接互換比較**（例如 MDRD 與 CKD-EPI eGFR、IFCC 與 NGSP HbA1c 均需換算或不可互換）。交換時應保留原始代碼。"
 * name = "TWHealthCheckLaboratoryMap"
+// ⚠️ v0.7.1：本檔原僅以 `Description:` 關鍵字提供描述，且**無 `Usage: #definition`**
+// （預設為 #example），SUSHI 遂將 Title:／Description: 視為範例之 IG 層 metadata，
+// **不寫入 ConceptMap.title／.description**——v0.7.0 線上實測該資源兩欄皆為 null。
+// 故權責標籤改以元素賦值提供，元素賦值必定落地，與 Appendix10-to-HazardType、
+// NS-ReportIdentifier 之作法一致。（title 之缺漏另記，見 JOB-31 §9。）
+* description = "【主管機關：國民健康署】將健康檢查實驗室檢驗之 acceptable code 歸一至 preferred (primary) code。值集綁定採 extensible binding；本 ConceptMap 供接收端將院所 LIS 之可接受變異碼標準化至優先碼。詳細之來源版本、驗證狀態、equivalence 使用原則與歸一之臨床限制，見本指引〈術語〉頁與本檔 Description。"
 // JOB-31 §5(A)：納入權責登記（hpa／Level 1）。本對照為 Level 1 之必要配套——
 // Level 1 之值集綁定為 extensible，接收端正是靠它把院所送的 acceptable 變異碼
 // 歸一至 preferred，故其成熟度須與 Level 1 一致並同受閘門保護。status 維持 active。

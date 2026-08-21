@@ -9,7 +9,7 @@
 * **ID**: `mohw.tw.twha`
 * **Canonical**: `https://twcore.mohw.gov.tw/ig/twha`（`twha` 為技術命名空間 token，詳見 [terminology.md](input/pagecontent/terminology.md)）
 * **FHIR 版本**: `4.0.1` (R4)
-* **版本**: `0.7.0`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
+* **版本**: `0.7.1`（STU1 草案；版本歷程見 [`package-list.json`](package-list.json)）
 * **發布者**: 衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院
 
 ---
@@ -160,6 +160,29 @@ set NODE_OPTIONS=--use-system-ca
 ---
 
 ## 版本與更新記錄 (Update History)
+
+### v0.7.1（2026-08-21）修正 `TWHealthCheckLaboratoryMap` 之權責標籤未進產出（JOB-31）
+
+> ⚠️ **本版為 v0.7.0 之修正**：v0.7.0 宣稱三件新登記 artifact 均已加權責標籤，
+> 實際上線者僅兩件——`TWHealthCheckLaboratoryMap` 的標籤**沒有進入產出**。
+
+- **發現方式**：v0.7.0 發佈後逐件抽驗 gh-pages，該 ConceptMap 之
+  `description` 與 `title` **皆為 `null`**。
+- **原因**：該檔以 `Description:` **關鍵字**提供描述，且**無 `Usage: #definition`**
+  （預設 `#example`）。SUSHI 遂將 `Title:`／`Description:` 視為**範例之 IG 層 metadata**，
+  **不寫入 `ConceptMap.title`／`.description`**。另兩件用的是 `* description =`
+  （元素賦值，必定落地），所以只有這一件出問題。
+  ⚠️ 此為**既有狀況**，非 v0.7.0 造成——該資源在更早版本即無 description。
+- **更該檢討者仍是閘門**：它讀原始碼的 `Description:` 就判定齊備。
+  **這是 v0.6.1「規則被插進跨行 Description 內部」的同型錯誤——第三次了**：
+  閘門驗的是**原始碼有沒有寫**，不是**產出會不會有**。
+  現改為 Instance 類**只採 `* description =`**，`Description:` 關鍵字一律不算數。
+- **自我測試 16 → 18 組**，新增 ⑫（標籤僅寫在 `Description:` 關鍵字須被抓到）與
+  ⑫b（改以 `* description` 提供則不得誤報）。
+  ⚠️ **⑫ 已實測驗證為真負向案例**：還原成採信關鍵字之行為後該案確實失敗。
+- **一併記錄未處理者**：該 ConceptMap 之 `title` 仍為 `null`（本版只補 `description`，
+  因權責標籤之載體是 description）。是否補 `title`／改 `Usage: #definition`
+  屬呈現層調整，另行處置。
 
 ### v0.7.0（2026-08-21）ConceptMap／NamingSystem 納入權責登記（JOB-31 §5，採 (A)）
 
