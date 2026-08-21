@@ -31,7 +31,7 @@
     "check:links": "node scripts/check-download-links.js",
     "check:links:selftest": "node scripts/check-download-links.js --self-test",
     "check:ms:strict": "node scripts/check-ms-coverage.js --strict",
-    "verify": "npm run check:intref:selftest && npm run check:intref && npm run check:gov:selftest && npm run check:gov && npm run check:plaintext:selftest && npm run check:plaintext && npm run check:refs && npm run check:menu && npm run check:deps && npm run check:assets && npm run qa:selftest && npm run qa",
+    "verify": "npm run check:intref:selftest && npm run check:intref && npm run check:gov:selftest && npm run check:gov && npm run check:plaintext:selftest && npm run check:plaintext && npm run check:i18n:selftest && npm run check:i18n && npm run check:refs && npm run check:menu && npm run check:deps && npm run check:assets && npm run qa:selftest && npm run qa",
     "check:gov": "node scripts/check-governance-tags.js",
     "check:gov:selftest": "node scripts/check-governance-tags.js --self-test",
     "check:intref": "node scripts/check-no-internal-refs.js",

@@ -147,6 +147,7 @@ template/             IG 模板之本機複本（角色待釐清，見 JOB-09）
 | 改了登記表卻沒改 [conformance.md](input/pagecontent/conformance.md) §7.4 的件數 | 該處**兩張表**（標籤件數／成熟度件數）與「現值」摘要句共 7 個數字已由 **G-5** 看管（`npm run check:gov`），自登記表動態算出。⚠️ 兩張表的合計相同純屬邊際巧合，**分類軸不同**，須分別更新——v0.9.0 手動更正時就只改了其中一張 |
 | 在 `concept.definition`／`display` 裡寫 `**粗體**` 或反引號 | 那兩個欄位於 FHIR 為 **string** 型而非 markdown，記號**不會被算繪**，會逐字顯示給讀者（v0.9.0 線上實證 6 處，累積自 v0.4.0）。改用語序與 ⚠️ 表達強調，代碼字面以「」框住。由 `npm run check:plaintext` 看管。⚠️ **`Description:` 不受此限**——該欄確為 markdown 型，線上實證會算繪成 `<strong>`／`<code>`，**不要順手一起改掉** |
 | 寫好閘門卻沒接到 CI | 閘門只進 `npm run verify`（本機）＝**沒人會跑**。`check:gov`／`check:intref` 曾如此長期存在，導致 v0.9.1 新增的 G-5 在 PR 上根本不執行。新增閘門時**同時**改 `package.json` 與 `.github/workflows/build-ig.yml`，並回頭確認該步驟在 CI 是 `success` 而非 `skipped` |
+| 閘門有在跑，但**看的範圍不對** | 比「沒接 CI」更難發現，因為它每輪都亮綠燈。實例：`check:translations` 自 JOB-24 起只比對 `stringsBase.json`，而模板另有 `stringsArtifacts.json`，導致 `artifacts.html` 之 9 個分類標題與目錄連結**全空白四個多月**而閘門全綠（v0.9.3 修）。**訂範圍時要問「這一類東西有幾個」，不要只處理眼前踩到的那一個**；能資料驅動就不要寫死檔名，並加一條「上游有、我方沒有 → 失敗」 |
 
 ---
 
