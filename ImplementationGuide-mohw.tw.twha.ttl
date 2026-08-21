@@ -14,11 +14,11 @@
      fhir:Narrative.div "<div xml:lang=\"zh-TW\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"zh-TW\"><p class=\"res-header-id\"><b>Generated Narrative: 实施指南 mohw.tw.twha</b></p><a name=\"mohw.tw.twha\"> </a><a name=\"hcmohw.tw.twha\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Language: zh-TW</p></div><h2>TWHAIG</h2><p>The official URL for this implementation guide is: </p><pre>https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha</pre><div><p>以勞工健康檢查為核心之 FHIR 資料交換標準，繼承臺灣核心實作指引 (TW Core IG)，並可向特殊職類與一般健康檢查／成人預防保健需求擴充。【canonical 為 provisional：正式命名空間之核定機關與命名尚待確認，宜先定治理再定 namespace。】</p>\n</div></div>"
   ] ;
   fhir:ImplementationGuide.url [ fhir:value "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha"] ;
-  fhir:ImplementationGuide.version [ fhir:value "0.8.5"] ;
+  fhir:ImplementationGuide.version [ fhir:value "0.9.0"] ;
   fhir:ImplementationGuide.name [ fhir:value "TWHAIG"] ;
   fhir:ImplementationGuide.title [ fhir:value "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)"] ;
   fhir:ImplementationGuide.status [ fhir:value "active"] ;
-  fhir:ImplementationGuide.date [ fhir:value "2026-08-21T12:32:47+00:00"^^xsd:dateTime] ;
+  fhir:ImplementationGuide.date [ fhir:value "2026-08-21T14:27:31+00:00"^^xsd:dateTime] ;
   fhir:ImplementationGuide.publisher [ fhir:value "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院"] ;
   fhir:ImplementationGuide.contact [
      fhir:index 0 ;
@@ -1949,6 +1949,20 @@
          fhir:Extension.valueString [ fhir:value "CodeSystem" ]
        ] ;
        fhir:ImplementationGuide.definition.resource.reference [
+         fhir:link <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutObservable> ;
+         fhir:Reference.reference [ fhir:value "CodeSystem/CS-BetelNutObservable" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.name [ fhir:value "嚼檳榔觀察項目代碼系統" ] ;
+       fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】勞工健檢生活習慣調查中，嚼檳榔相關之**觀察項目（問題）碼**，用於 `Observation.code`。與承載答案之 CS-BetelNutStatus 分屬兩個代碼軸——問題碼放 `.code`、答案碼放 `.value[x]`，不得互換。角色對齊吸菸之 `LNC#72166-2`（Tobacco smoking status）：臨床類、以狀態為屬性、序位尺度之狀態問句。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，係因 LOINC 與 SNOMED CT 均無可用之嚼檳狀態問句碼（已逐一查證），**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）" ] ;
+       fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
+     ], [
+       fhir:index 71 ;
+       fhir:Element.extension [
+         fhir:index 0 ;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
+         fhir:Extension.valueString [ fhir:value "CodeSystem" ]
+       ] ;
+       fhir:ImplementationGuide.definition.resource.reference [
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource> ;
          fhir:Reference.reference [ fhir:value "CodeSystem/CS-BetelNutInfoSource" ]
        ] ;
@@ -1956,7 +1970,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】嚼檳榔資訊之取得來源。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 71 ;
+       fhir:index 72 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -1970,7 +1984,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】包含嚼檳榔資料來源代碼之值集。（provisional，隨 CS-BetelNutInfoSource 待官方確認）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 72 ;
+       fhir:index 73 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -1984,7 +1998,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】`TWHA-SocialHistory-BetelNut` 各 `component.code` 之本地代碼。前三碼與上游 TWCR_SF `sf-BetNutChewBeh` 之 `amount`／`year`／`quit` 為 1:1 對應。（**provisional**：隨本指引之嚼檳榔建模待主管機關確認，M-5。）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 73 ;
+       fhir:index 74 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2001,7 +2015,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Questionnaire>
        ]
      ], [
-       fhir:index 74 ;
+       fhir:index 75 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2015,7 +2029,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】本 Profile 用於描述實施勞工體格檢查、健康檢查或臨場健康服務之醫師、護理人員、職安人員等，繼承自 TW Core Practitioner。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 75 ;
+       fhir:index 76 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2032,7 +2046,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner>
        ]
      ], [
-       fhir:index 76 ;
+       fhir:index 77 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2049,7 +2063,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner>
        ]
      ], [
-       fhir:index 77 ;
+       fhir:index 78 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2063,7 +2077,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】本 Profile 用於描述實施勞工體格檢查、健康檢查或提供臨場健康服務之醫療機構，繼承自 TW Core Organization (醫院) 以精確反映醫療機構語義。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 78 ;
+       fhir:index 79 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2080,7 +2094,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Facility>
        ]
      ], [
-       fhir:index 79 ;
+       fhir:index 80 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2097,7 +2111,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-General>
        ]
      ], [
-       fhir:index 80 ;
+       fhir:index 81 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2114,7 +2128,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-LabResult-Special>
        ]
      ], [
-       fhir:index 81 ;
+       fhir:index 82 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2131,7 +2145,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Occupation>
        ]
      ], [
-       fhir:index 82 ;
+       fhir:index 83 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2145,7 +2159,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄勞工心電圖檢查結果，通常於高溫作業特殊健檢中實施，繼承自 TW Core Observation ECG（v1.0.0 新增之心電圖專用 Profile）。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 83 ;
+       fhir:index 84 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2162,7 +2176,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ECG>
        ]
      ], [
-       fhir:index 84 ;
+       fhir:index 85 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2176,7 +2190,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】用於記錄成人預防保健（國健署成人預防保健服務）之自覺症狀與生活習慣問卷回覆，繼承自 TW Core QuestionnaireResponse。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 85 ;
+       fhir:index 86 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2193,7 +2207,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-QuestionnaireResponse-HT>
        ]
      ], [
-       fhir:index 86 ;
+       fhir:index 87 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2210,7 +2224,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition>
        ]
      ], [
-       fhir:index 87 ;
+       fhir:index 88 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2224,7 +2238,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】記錄受檢者已戒菸或已戒檳榔的月數。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 88 ;
+       fhir:index 89 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2241,7 +2255,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Condition>
        ]
      ], [
-       fhir:index 89 ;
+       fhir:index 90 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2255,7 +2269,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】戒除期間所允許之 UCUM 時間單位：`a`（年）與 `mo`（月）。**以原始採集粒度為準**——原始以年收集者送 `a`，不得逕行乘 12。兩者皆為 UCUM 時間量綱，術語伺服器可自動換算，跨機構統計不受影響。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 90 ;
+       fhir:index 91 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2269,7 +2283,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】特別危害健康作業中之有機溶劑種類（主要 7 種）。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 91 ;
+       fhir:index 92 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2283,7 +2297,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】包含特別危害健康作業中之常見有機溶劑代碼。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 92 ;
+       fhir:index 93 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2297,7 +2311,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "大同電子現場化學製造部門之作業勞工群組。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 93 ;
+       fhir:index 94 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2311,7 +2325,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】勞工體格及健康檢查之類型，包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 94 ;
+       fhir:index 95 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2325,7 +2339,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】包含一般體格檢查、一般健康檢查、特殊體格檢查及特殊健康檢查之代碼。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 95 ;
+       fhir:index 96 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2339,7 +2353,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】標註該就醫事件（Encounter）是屬於一般體格、一般健康、特殊體格或特殊健康檢查。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 96 ;
+       fhir:index 97 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2353,7 +2367,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】嚼食檳榔所用之添加物。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 97 ;
+       fhir:index 98 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2367,7 +2381,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】包含檳榔添加物代碼之值集。（provisional，隨 CS-BetelNutAdditive 待官方確認）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 98 ;
+       fhir:index 99 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2381,7 +2395,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】嚼食檳榔所用之石灰種類。（**provisional**：本地代碼配置，尚待主管機關確認官方代碼與定義（M-5）。）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 99 ;
+       fhir:index 100 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2395,7 +2409,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】包含檳榔石灰種類代碼之值集。（provisional，隨 CS-BetelNutLime 待官方確認）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 100 ;
+       fhir:index 101 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2412,7 +2426,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-WorkExposure>
        ]
      ], [
-       fhir:index 101 ;
+       fhir:index 102 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2426,7 +2440,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄受檢勞工從事特別危害作業（如高溫、噪音、鉛、粉塵等）之暴露年數與詳細工作性質。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 102 ;
+       fhir:index 103 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2440,7 +2454,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】勞工健康保護規則所定義之特別危害健康作業，歸併為 12 危害家族（家族層）。附表十（115.06.26 修正）逐號列舉之 35 項法定具名作業另以 CS-Appendix10Operation 表示，家族 ↔ 具名作業之對映見 ConceptMap Appendix10-to-HazardType。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 103 ;
+       fhir:index 104 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2454,7 +2468,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】包含 12 大類特別危害健康作業類別之代碼。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 104 ;
+       fhir:index 105 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2468,7 +2482,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】標註該特殊體格或健康檢查所針對的危害作業種類（12大類）。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 105 ;
+       fhir:index 106 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2482,7 +2496,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】特別危害健康作業中之特定化學物質種類。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 106 ;
+       fhir:index 107 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2496,7 +2510,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】包含特別危害健康作業中之常見特定化學物質代碼。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 107 ;
+       fhir:index 108 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2510,7 +2524,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄特別危害健康作業勞工之特殊實驗室檢驗結果（如血中鉛等），繼承自 TW Core Lab Result。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 108 ;
+       fhir:index 109 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2527,7 +2541,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition>
        ]
      ], [
-       fhir:index 109 ;
+       fhir:index 110 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2544,7 +2558,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-PhysicalExam>
        ]
      ], [
-       fhir:index 110 ;
+       fhir:index 111 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2558,7 +2572,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】用於記錄勞工之平均每日睡眠時間（以小時計）。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 111 ;
+       fhir:index 112 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2575,7 +2589,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Sleep>
        ]
      ], [
-       fhir:index 112 ;
+       fhir:index 113 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2589,7 +2603,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】用於記錄受檢者之社會決定因素問卷結果（基於精簡版 PRAPARE 社會風險問卷），繼承自 TW Core QuestionnaireResponse。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 113 ;
+       fhir:index 114 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2606,7 +2620,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Questionnaire>
        ]
      ], [
-       fhir:index 114 ;
+       fhir:index 115 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2620,7 +2634,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】職業健康急診友善摘要（Occupational Health Emergency Summary）。當勞工於急診就醫時，供急診醫師快速掌握其特別危害作業暴露史、關鍵生命徵象與檢驗值、以及健康管理分級。以 Composition 承載，將既有之暴露史（TWHA-WorkExposure）、生命徵象、CBC／肝腎功能等關鍵檢驗與總評分級以 section.entry 引用。\n\n**定位**：本 Profile 為**按需產生之臨床摘要原型（prototype）**，屬工作小組建議方案，**非正式交換要求**；俟臨床測試與回饋後再確認其範圍與必填欄位。\n\n**使用限制（負向表列，實作與臨床使用時必須遵守）**：\n1. **本摘要不取代急診臨床評估**：所載資料為既有健檢紀錄之彙整，不構成診斷或處置建議，急診決策仍應以當下臨床評估為準。\n2. **舊值必須顯示資料日期與來源機構**：所引用之每筆檢驗／量測結果，均須可辨識其 `effectiveDateTime` 與 `performer`／來源機構；未標示日期與來源之數值不得呈現。\n3. **無資料不等於無暴露**：本摘要未列出某項危害暴露，僅表示系統中無相關紀錄，**不得推論該勞工未曾暴露**；必要時仍應詢問病史。\n4. **受檢者自述與機構驗證資料必須可區分**：以問卷／自述取得之資訊（如 QuestionnaireResponse）與經醫療機構檢驗驗證之結果，須於呈現時明確區分，不得混同陳列。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 115 ;
+       fhir:index 116 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2637,7 +2651,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmergencySummary>
        ]
      ], [
-       fhir:index 116 ;
+       fhir:index 117 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2651,7 +2665,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】用於記錄勞工身高、體重、腰圍等基本生理特徵，繼承自 TW Core Vital Signs。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 117 ;
+       fhir:index 118 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2665,7 +2679,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【主管機關：國民健康署】包含身高、體重、腰圍及血壓等生理測量項目之 LOINC 代碼。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 118 ;
+       fhir:index 119 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2679,7 +2693,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄勞工純音聽力測試結果，依左右耳及頻率（0.5/1/2/3/4/6/8 kHz）分切片記錄。繼承自 TW Core Observation Clinical Result。v1.1 修正：更正並補齊純音氣導聽閾 LOINC 代碼（原 v3 之頻率×耳別代碼多處錯置，且缺 3/6/8 kHz），使各切片代碼與 LOINC「Pure tone threshold audiometry panel」(89015-2) 之成員一致，符合《勞工健康保護規則》附表十噪音作業之 0.5–8 kHz 全頻率要求。\n\n**交換規則（回應委員意見）**：\n1. **須保留原始 panel／component 代碼**：若來源系統採 `21104-5` 系列等變異碼，交換時**應同時保留原始代碼**（如置於 `code.coding` 之另一 coding），**不得僅存歸一後之代碼**，以維持可追溯性。\n2. **panel 層 mapping 不等於 component 層等價**：ConceptMap 現僅建立 panel 對 panel 之對應；**各頻率 component 之對應尚未建立（mapping unavailable）**，不得逕行推論等價。\n3. **聽閾單位**：以 UCUM `dB` 表達（臨床意義為 dB HL，依 ISO 1999 判讀）。\n4. **特殊情形不得以一般數值表達**：「未測」「無反應」「超出儀器上限」等情形，**應以 `dataAbsentReason` 或明確代碼表達**，不得填入 0、999 等假數值，亦不得省略該 component。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 119 ;
+       fhir:index 120 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2696,7 +2710,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HearingTest>
        ]
      ], [
-       fhir:index 120 ;
+       fhir:index 121 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2710,7 +2724,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄勞工肺功能檢查結果（主要包括 FVC, FEV1, FEV1/FVC），繼承自 TW Core Observation Clinical Result。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 121 ;
+       fhir:index 122 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2727,7 +2741,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-PulmonaryFunction>
        ]
      ], [
-       fhir:index 122 ;
+       fhir:index 123 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2741,7 +2755,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】包含常用之肺功能檢查（如 FVC, FEV1, FEV1/FVC 等）的 LOINC 代碼，以供肺功能檢查 Profile 使用。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 123 ;
+       fhir:index 124 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2758,7 +2772,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns>
        ]
      ], [
-       fhir:index 124 ;
+       fhir:index 125 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2772,7 +2786,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】本 Profile 用於描述醫護團隊到事業單位提供臨場健康服務之就醫/諮詢事件（對應附表八）。\n\n**語意界定（回應委員意見）**：本資源表達「**一次臨場服務事件**」。`serviceProvider` 為提供服務之醫療機構；受服務之事業單位以 `extension[employerInfo]` 表達，**不置於 subject**。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 125 ;
+       fhir:index 126 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2786,7 +2800,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄臨場服務中針對發現問題所提出之改善建議措施，以及追蹤前次改善事項之落實情形（對應附表八）。\n\n**for／focus／owner 語意界定（回應委員意見）**：本資源表達「**後續改善工作**」。`focus` 指向所依據之現場發現（ServiceFinding）；`owner` 為負責執行改善之事業單位；若改善事項係針對特定勞工（如個別配工調整），以 `for` 表達該 Patient。**事業單位以 `owner` 表達，不置於 `for`。**" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 126 ;
+       fhir:index 127 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2800,7 +2814,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄臨場健康服務中發現之作業場所問題、健康危害或風險（附表八）。\n\n**subject／focus 語意界定（回應委員意見）**：本資源記錄「**現場發現**」。所發現問題**所屬之事業單位以 `focus` 表達**，不置於 `subject`；若該發現係針對特定勞工個人（如個別健康異常），則 `subject` 為該 Patient。事業單位不作為 `subject`。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 127 ;
+       fhir:index 128 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2814,7 +2828,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】附表八中醫護人員辦理之臨場健康服務項目活動類別代碼系統。（**provisional**：本地代碼配置，尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）。另因 SNOMED 現無適切之職業健康諮詢 procedure 代碼，改善建議諮詢暫以本代碼系統承載，該用法列為本地碼治理事項。）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 128 ;
+       fhir:index 129 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2828,7 +2842,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】包含臨場健康服務項目活動類別代碼之值集。（provisional，隨 CS-ServiceActivityType 待官方確認）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 129 ;
+       fhir:index 130 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2845,7 +2859,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Encounter-Service>
        ]
      ], [
-       fhir:index 130 ;
+       fhir:index 131 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2859,7 +2873,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄醫護人員在臨場健康服務中實際辦理之活動項目（對應附表八之臨場健康服務執行情形），繼承自 TW Core Procedure。\n\n**subject 選用規則（回應委員意見）**：**個人健康指導／個案追蹤 → `subject` = Patient**；**群體衛教／全廠宣導 → `subject` = Group**。**事業單位不作為 `subject`**，改以 `extension[employerInfo]` 表達所屬事業單位。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 131 ;
+       fhir:index 132 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2876,7 +2890,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Procedure-ServiceActivity>
        ]
      ], [
-       fhir:index 132 ;
+       fhir:index 133 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2893,7 +2907,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Task-ServiceTask>
        ]
      ], [
-       fhir:index 133 ;
+       fhir:index 134 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2910,7 +2924,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Observation-ServiceFinding>
        ]
      ], [
-       fhir:index 134 ;
+       fhir:index 135 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2927,7 +2941,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-ServiceRecord>
        ]
      ], [
-       fhir:index 135 ;
+       fhir:index 136 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2941,7 +2955,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】用於記錄勞工所填寫之自覺症狀問卷結果，必須關聯至受檢勞工，繼承自 TW Core QuestionnaireResponse。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 136 ;
+       fhir:index 137 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2958,7 +2972,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-QuestionnaireResponse>
        ]
      ], [
-       fhir:index 137 ;
+       fhir:index 138 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2975,7 +2989,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Questionnaire>
        ]
      ], [
-       fhir:index 138 ;
+       fhir:index 139 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -2992,7 +3006,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition>
        ]
      ], [
-       fhir:index 139 ;
+       fhir:index 140 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3006,7 +3020,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "自費健檢中乳房攝影檢查的結果紀錄。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 140 ;
+       fhir:index 141 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3020,7 +3034,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "自費健檢中全身正子造影 (FDG PET/CT) 的結果紀錄。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 141 ;
+       fhir:index 142 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3034,7 +3048,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "自費健檢中下消化道大腸鏡鏡檢 (Colonoscopy) 的結果紀錄。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 142 ;
+       fhir:index 143 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3048,7 +3062,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "自費健檢中心臟冠狀動脈電腦斷層血管攝影 (Cardiac CTA) 的結果紀錄。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 143 ;
+       fhir:index 144 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3062,7 +3076,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "自費健檢中肺部低劑量電腦斷層 (LDCT) 的結果紀錄。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 144 ;
+       fhir:index 145 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3076,7 +3090,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "自費健檢中上消化道胃鏡鏡檢 (EGD) 的結果紀錄。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 145 ;
+       fhir:index 146 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3090,7 +3104,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "自費健檢中腦部核磁共振造影 (Brain MRI) 的結果紀錄。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 146 ;
+       fhir:index 147 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3104,7 +3118,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "受檢勞工王大同的血壓測量結果 (120/80 mmHg)，繼承自 TW Core Blood Pressure。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "true"^^xsd:boolean ]
      ], [
-       fhir:index 147 ;
+       fhir:index 148 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3121,7 +3135,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VisionTest>
        ]
      ], [
-       fhir:index 148 ;
+       fhir:index 149 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3135,7 +3149,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄勞工眼部檢查結果，包含左右眼裸視/矯正視力及辨色力項目，繼承自 TW Core Observation Clinical Result。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 149 ;
+       fhir:index 150 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3149,7 +3163,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】附表十一理學檢查中所涉及之身體系統部位分類。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 150 ;
+       fhir:index 151 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3163,7 +3177,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】包含理學檢查中各系統部位代碼之值集。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 151 ;
+       fhir:index 152 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3177,7 +3191,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於記錄勞工身體各系統（頭頸部、呼吸、心血管、消化、神經、肌肉骨骼、皮膚）之理學檢查結果，繼承自 TW Core Observation Clinical Result。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 152 ;
+       fhir:index 153 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3194,7 +3208,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns>
        ]
      ], [
-       fhir:index 153 ;
+       fhir:index 154 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3211,7 +3225,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-VitalSigns>
        ]
      ], [
-       fhir:index 154 ;
+       fhir:index 155 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3228,7 +3242,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ServiceRequest>
        ]
      ], [
-       fhir:index 155 ;
+       fhir:index 156 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3242,7 +3256,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】第四級管理中，醫師針對受檢勞工提出之適性配工或變更作業內容建議。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，**尚待勞動部職業安全衛生署確認官方代碼與定義（M-2）**；不得表述為已對接官方申報系統。）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 156 ;
+       fhir:index 157 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3256,7 +3270,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】包含適性配工或工作調整建議代碼之值集。（provisional，隨 CS-FitnessForWork 待官方確認）" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 157 ;
+       fhir:index 158 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3270,7 +3284,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】用於 CarePlan 中標註具體的適性配工或變更作業場所等建議項目。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 158 ;
+       fhir:index 159 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3287,7 +3301,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-CarePlan>
        ]
      ], [
-       fhir:index 159 ;
+       fhir:index 160 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3301,7 +3315,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】記錄受檢勞工於事業單位中所屬之部門、課別或課室名稱。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 160 ;
+       fhir:index 161 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3318,7 +3332,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-ClinicalImpression>
        ]
      ], [
-       fhir:index 161 ;
+       fhir:index 162 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3332,7 +3346,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】《勞工健康保護規則》附表九所列一般體格／健康檢查之法定應執行**檢驗與量測**項目（以健康檢查欄為準，含 LDL-C）。非檢驗項目（作業經歷、既往病史、生活習慣、自覺症狀、身體各系統理學檢查）以 TWHA-Occupation／TWHA-Condition／SocialHistory／TWHA-PhysicalExam 承載，不列為本值集成員。用於法定完整性稽核，非 profile 之 element binding。所有代碼均取自已通過術語稽核之既有內容。⚠️ 紅血球數（789-8）與 MCV（787-2）係 115.06.26 修正新增；repo 內附表九 PDF 為修正前版本，該二項無 repo 內原文可逐項核對，見未決事項 M-11。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 162 ;
+       fhir:index 163 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3346,7 +3360,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】將 CS-Appendix10Operation（附表十 35 項具名作業）對映至 CS-HazardType（12 危害家族）。每一具名作業（source）相對於其對應之危害家族（target）在語意上較窄，故 equivalence = narrower（家族涵蓋範圍較廣）。供接收端由法定作業編號歸併至危害家族，回應審查意見之逐號可追溯性需求。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 163 ;
+       fhir:index 164 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3360,7 +3374,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】附表十第 2 項噪音作業之家族專屬檢查項目（純音聽力）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 164 ;
+       fhir:index 165 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3374,7 +3388,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】附表十第 7–12、33–35 項有機溶劑類作業之家族專屬檢查項目：各作業之尿中生物偵測代謝物與肝功能。⚠️ 附表十本文對此類作業僅列肝功能（ALT／γ-GT，二硫化碳另含心電圖）；各尿中代謝物係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。附表十號別 → 代謝物之對應見 special-exam.md 涵蓋表。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 165 ;
+       fhir:index 166 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3388,7 +3402,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】附表十特別危害健康作業之家族專屬應執行項目 grouping 值集。**目前僅含已通過術語稽核之四家族**（噪音／鉛／粉塵／有機溶劑）；其餘八家族之專屬代碼待臨床確認後擴充（見 special-exam.md 涵蓋表與未決事項 M-8）。任一家族之完整情境需求 ＝ 本 grouping 對應子集 ∪ VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 166 ;
+       fhir:index 167 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3402,7 +3416,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】附表十第 23 項粉塵作業之家族專屬檢查項目（胸部 X 光與肺功能）。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 167 ;
+       fhir:index 168 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3416,7 +3430,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】附表十第 5 項鉛作業之家族專屬檢查項目。附表十本文僅列血中鉛；尿中鉛／共聚卟啉／δ-ALA 係職安署特殊健檢細項生物偵測之口徑（非附表十逐字項目），該範疇界定為未決事項 M-11。共同一般項目見 VS-Appendix9-RequiredSet。用於完整性稽核，非 element binding。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 168 ;
+       fhir:index 169 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3430,7 +3444,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】包含《勞工健康保護規則》附表十 35 項法定具名作業之代碼。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 169 ;
+       fhir:index 170 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3444,7 +3458,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 170 ;
+       fhir:index 171 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3461,7 +3475,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Organization-Employer>
        ]
      ], [
-       fhir:index 171 ;
+       fhir:index 172 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3475,7 +3489,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】關聯受檢勞工所屬之事業單位組織資料，或臨場服務事件/活動所針對之事業單位。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 172 ;
+       fhir:index 173 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3489,7 +3503,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【依據：勞工健康保護規則附表】雇主端／職安人員健康管理摘要（Employer Health Management Summary）。落實 security.md 之角色存取控制：雇主僅得取得**健康管理分級、適性配工建議與臨場服務發現**，**不得**取得檢驗數值。以 **closed section slicing** 結構性保證本摘要不含檢驗／影像 section；各 section 之 entry 以 profile 限定，檢驗類 Observation／DiagnosticReport 無從置入。此為欄位級隔離之可驗證機制，取代僅以文字宣示之做法（SMART scope 難達欄位級隔離，見 security.md §2）。存取控制之實作機制（scope／Consent／端點）屬平台端決定，見未決事項 M-10。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 173 ;
+       fhir:index 174 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3506,7 +3520,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmployerSummary>
        ]
      ], [
-       fhir:index 174 ;
+       fhir:index 175 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3520,7 +3534,7 @@
        fhir:ImplementationGuide.definition.resource.description [ fhir:value "【技術規格】用於記錄勞工之飲酒習慣歷史與狀態。" ] ;
        fhir:ImplementationGuide.definition.resource.exampleBoolean [ fhir:value "false"^^xsd:boolean ]
      ], [
-       fhir:index 175 ;
+       fhir:index 176 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;
@@ -3537,7 +3551,7 @@
          fhir:link <https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-Alcohol>
        ]
      ], [
-       fhir:index 176 ;
+       fhir:index 177 ;
        fhir:Element.extension [
          fhir:index 0 ;
          fhir:Extension.url [ fhir:value "http://hl7.org/fhir/tools/StructureDefinition/resource-information" ] ;

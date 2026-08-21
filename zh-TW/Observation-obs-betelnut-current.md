@@ -1,4 +1,4 @@
-# 嚼檳榔狀態與量化資料範例（現嚼，含情境欄位） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
+# 嚼檳榔狀態與量化資料範例（現嚼，含情境欄位） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
 
 ## 範例 Observation: 嚼檳榔狀態與量化資料範例（現嚼，含情境欄位）
 
@@ -8,7 +8,7 @@ Profile: [嚼檳榔歷史與狀態 Profile](StructureDefinition-TWHA-SocialHisto
 
 **category**: Social History
 
-**code**: Chews betel quid
+**code**: 嚼檳榔狀態
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 
@@ -54,9 +54,9 @@ Profile: [嚼檳榔歷史與狀態 Profile](StructureDefinition-TWHA-SocialHisto
   }],
   "code" : {
     "coding" : [{
-      "system" : "http://snomed.info/sct",
-      "code" : "698188003",
-      "display" : "Chews betel quid"
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutObservable",
+      "code" : "betel-quid-chewing-status",
+      "display" : "嚼檳榔狀態"
     }]
   },
   "subject" : {

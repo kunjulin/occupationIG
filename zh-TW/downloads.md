@@ -1,4 +1,4 @@
-# 結構定義與範例檔下載 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
+# 結構定義與範例檔下載 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
 
 ## 結構定義與範例檔下載
 
@@ -69,7 +69,6 @@
 附表十 35 項具名作業與 12 危害家族之對映：
 
 * [ConceptMap：附表十 → 危害類別](ConceptMap-Appendix10-to-HazardType.md) — 線上檢視，頁內提供 JSON／XML／TTL 下載。
-* [附表十 → 危害類別對照表 (XLSX)](Appendix10-to-HazardType.xlsx) — 同一份對映之試算表格式，由建置工具自 ConceptMap 產生。
 * [特殊危害健康作業](special-exam.md) — 以附表十 35 項為列主鍵之涵蓋度對照表。
 
 法規附表原文（PDF）置於原始碼倉庫之 [`docs/regulations/`](https://github.com/kunjulin/occupationIG/tree/main/docs/regulations)。

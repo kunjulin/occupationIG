@@ -1,4 +1,4 @@
-# 智慧財產權聲明 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
+# 智慧財產權聲明 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
 
 ## 智慧財產權聲明
 
@@ -33,7 +33,7 @@ This publication includes IP covered under the following statements.
 
 * This material contains content that is copyright of SNOMED International. Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact [https://www.snomed.org/get-snomed](https://www.snomed.org/get-snomed) or [info@snomed.org](mailto:info@snomed.org).
 
-* [SNOMED Clinical Terms&reg; (SNOMED CT&reg;)](http://hl7.org/fhir/R4/codesystem-snomedct.html): [Bundle/UC-003](Bundle-UC-003.md), [Bundle/UC-006](Bundle-UC-006.md)... Show 11 more, [Observation/example-service-finding](Observation-example-service-finding.md), [Observation/obs-alcohol](Observation-obs-alcohol.md), [Observation/obs-betelnut](Observation-obs-betelnut.md), [Observation/obs-betelnut-current](Observation-obs-betelnut-current.md), [Observation/obs-betelnut-never](Observation-obs-betelnut-never.md), [Observation/obs-health-mgmt-level](Observation-obs-health-mgmt-level.md), [Observation/obs-smoking](Observation-obs-smoking.md), [TWHAHealthManagementLevelProfile](StructureDefinition-TWHA-HealthManagementLevel.md), [TWHAObservationServiceFindingProfile](StructureDefinition-TWHA-Observation-ServiceFinding.md), [TWHASocialHistoryBetelNutProfile](StructureDefinition-TWHA-SocialHistory-BetelNut.md) and [VS_CoreUploadSet](ValueSet-VS-CoreUploadSet.md)
+* [SNOMED Clinical Terms&reg; (SNOMED CT&reg;)](http://hl7.org/fhir/R4/codesystem-snomedct.html): [Bundle/UC-003](Bundle-UC-003.md), [Bundle/UC-006](Bundle-UC-006.md)... Show 6 more, [Observation/example-service-finding](Observation-example-service-finding.md), [Observation/obs-alcohol](Observation-obs-alcohol.md), [Observation/obs-health-mgmt-level](Observation-obs-health-mgmt-level.md), [Observation/obs-smoking](Observation-obs-smoking.md), [TWHAHealthManagementLevelProfile](StructureDefinition-TWHA-HealthManagementLevel.md) and [TWHAObservationServiceFindingProfile](StructureDefinition-TWHA-Observation-ServiceFinding.md)
 
 
 * This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: [https://terminology.hl7.org/license.html](https://terminology.hl7.org/license.html)

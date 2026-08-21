@@ -1,4 +1,4 @@
-# 遵從性與依賴 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
+# 遵從性與依賴 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
 
 ## 遵從性與依賴
 
@@ -129,7 +129,7 @@ FHIR 對上傳封包有兩種處理語意，**對實作端的錯誤處理設計�
 | 6 | `30906X-1` | 吸菸狀態 | LOINC`72166-2` | — | [TWHA-SocialHistory-Smoking](StructureDefinition-TWHA-SocialHistory-Smoking.md)．`value[x]` |
 | 7 | `30906X-2` | 吸菸量 | LOINC`64218-1` | `/d`（支／日） | 同上．`extension[smokingQuantity]` |
 | 8 | `30906X-3` | 戒菸月數 | LOINC`63632-4` | `mo` | 同上．`extension[cessationDuration]` |
-| 9 | `30907X-1` | 嚼檳狀態 | **無 LOINC**；SNOMED CT`698188003` | — | [TWHA-SocialHistory-BetelNut](StructureDefinition-TWHA-SocialHistory-BetelNut.md)．`value[x]` |
+| 9 | `30907X-1` | 嚼檳狀態 | **無 LOINC、亦無 SNOMED observable**（均已查證）；本指引自訂問句碼`CS-BetelNutObservable#betel-quid-chewing-status` | — | [TWHA-SocialHistory-BetelNut](StructureDefinition-TWHA-SocialHistory-BetelNut.md)．`value[x]` |
 | 10 | `30907X-2` | 嚼檳量 | 無代碼 | `{個}/d` | 同上．`component[amount]`（本指引用`{quid}/d`，見下註 ③） |
 | 11 | `30907X-3` | 嚼檳月數 | 無代碼 | `mo` | 同上．`component[durationYears]`（＝**嚼食持續期間**，見下註 ②） |
 | 12 | `09001C` | 總膽固醇 | LOINC`2093-3` | `mg/dL` | [TWHA-LabResult-General](StructureDefinition-TWHA-LabResult-General.md) |
@@ -187,9 +187,11 @@ Level 2 涵蓋附表九／十／十一之法定應執行項目值集、特別危
 
 | | | |
 | :--- | :--- | :--- |
-| `【主管機關：國民健康署】` | 內容依據為該署之健檢上傳欄位規範或該署表單 | 24 |
-| `【依據：勞工健康保護規則附表】` | 項目取自該規則附表八～十二 | 50 |
-| `【技術規格】` | 本團隊之技術決定，無外部內容依據 | 27 |
+| `【主管機關：國民健康署】` | 內容依據為該署之健檢上傳欄位規範或該署表單 | 26 |
+| `【依據：勞工健康保護規則附表】` | 項目取自該規則附表八～十二 | 51 |
+| `【技術規格】` | 本團隊之技術決定，無外部內容依據 | 28 |
+
+> ⚠️ **上表件數於 v0.9.0 更正**（原記 24／50／27，合計 101）。落差有二，皆非本表誤植： 一是 v0.7.2 將 ConceptMap 與 NamingSystem 共 3 件納入登記（101 → 104）時未同步本頁； 二是 v0.9.0 新增 `CS-BetelNutObservable`（104 → 105）。 現值 **26／51／28 ＝ 105**，係自 `scripts/governance-map.js` 逐件數出，非沿用文件所載。
 
 **標籤陳述的是內容依據與誰有權決定，不是任何機關已審閱或採認。** 《勞工健康保護規則》之主管機關為勞動部職業安全衛生署，**惟本指引未受其委任或授權**， 故該標籤寫「依據」而非治理或主管機關（§7.0）。
 
@@ -206,4 +208,31 @@ Level 2 涵蓋附表九／十／十一之法定應執行項目值集、特別危
 > ⚠️ **Level 2 之 `status` 併同改為 `draft`，屬本版之規範性中繼資料變更。** IG Publisher 會交叉檢查 `standards-status` 與資源自身之 `status` （`draft` ↔ `status = draft`；`trial-use` ↔ `status = active`），兩者不一致即發出 「The resource status and the standards status are not consistent」。 v0.5.0 曾只標 `standards-status` 而未動 `status`，實測**命中 71 件自相矛盾**， 故當時暫採「Level 2 不標」並登記待裁示；**PI 已於 2026-08-20 裁示勞工區塊須以 機器可讀方式標為 `draft`**，本版依裁示併同調整 `status`。**對實作端的意義**：Level 2 之 artifact 其 `status` 為 `draft`， 表示**尚未定稿、內容可能變動**；實作端據此判斷是否納入正式系統。 Level 1 之 `status` 維持 `active`，不受影響——**這正是分軌的目的**。
 
 > 嚼檳系列之 `experimental` 維持 `true`：其理由為所綁本地值集皆為 provisional、 待 [M-5](index.md#before-you-start)。**不得為使 Core 之外觀較佳而改標 `false`** ——那等於宣稱未經核定之代碼已定案。
+
+-------
+
+## 8. 版本遷移說明 (Migration Notes)
+
+### 8.1 v0.9.0：嚼檳狀態之 Observation.code 變更（Level 1 破壞性變更）
+
+| | | |
+| :--- | :--- | :--- |
+| `Observation.code` | `http://snomed.info/sct#698188003`「Chews betel quid」 | `https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutObservable#betel-quid-chewing-status`「嚼檳榔狀態」 |
+| `value[x]` | `VS-BetelNutStatus`四碼 | **不變** |
+| `component[*]` | UCUM`Quantity`等 | **不變** |
+
+**受影響對象**：已依 v0.4.0–v0.8.6 實作並送出 `code = 698188003` 之系統。 其資料在 v0.9.0 之 `TWHA-SocialHistory-BetelNut` 下**不再通過驗證**（`code` 為 `1..1` 固定值）。
+
+**為何非改不可**：`698188003` 是**肯定式 finding**（斷言「此人嚼檳」）， 放在問題位使「從未嚼食」之紀錄自相矛盾——已發佈之 `obs-betelnut-never` 即 `code` 說嚼、`value` 說從未。以 `Observation?code=698188003` 檢索會把**從未嚼檳者一併撈出**， 屬偽陽性資料風險，直接影響上傳之下游統計與癌症登記勾稽。 建置 `err = 0` 不代表沒問題——驗證器不檢查 `code` 與 `value` 之語意相容性。
+
+**遷移步驟**
+
+1. 將送出之`Observation.code`由`698188003`換為`CS-BetelNutObservable#betel-quid-chewing-status`。
+1. `value[x]`、`component[*]`**不需任何調整**。
+1. 若原本以`code = 698188003`建立索引或查詢，改以新問句碼查詢；**需要「此人嚼檳」之語意時，改查 `value` 為 `1-occasional` 或 `2-daily`**。
+1. 歷史資料之處置由各系統自行決定：本指引**不要求**回溯改寫既有紀錄， 但同一資料集內混用兩種`code`時，查詢端須同時涵蓋。
+
+⚠️ **`698188003` 並未被廢棄**，只是換了位置：它改列為肯定式狀態 （`1-occasional`／`2-daily`）之 SNOMED 對應，見[術語頁 §6.2b-3](terminology.md)。
+
+⚠️ **本次未變更之事項**（避免誤讀為一併調整）： 主管機關最小上傳集之**欄位**（醫令 `30907X-1`）未變，變的只是承載該欄位之 FHIR 代碼； M-5 之狀態、嚼檳系列之 `experimental` 旗標、Level 1 之成熟度**三者皆未動**。
 

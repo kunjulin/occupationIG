@@ -1,4 +1,4 @@
-# 職業健康急診友善摘要 Composition Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
+# 職業健康急診友善摘要 Composition Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
 
 ## 資源 Profile: 職業健康急診友善摘要 Composition Profile 
 
@@ -46,6 +46,7 @@ This structure refers to these other structures:
 
 * [受檢者 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient)](StructureDefinition-TWHA-Patient.md)
 * [執業/健檢醫護與服務人員 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner)](StructureDefinition-TWHA-Practitioner.md)
+* [健康檢查健康管理分級 Observation Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel)](StructureDefinition-TWHA-HealthManagementLevel.md)
 
 **Slices**
 
@@ -77,6 +78,7 @@ This structure refers to these other structures:
 
 * [受檢者 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Patient)](StructureDefinition-TWHA-Patient.md)
 * [執業/健檢醫護與服務人員 Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Practitioner)](StructureDefinition-TWHA-Practitioner.md)
+* [健康檢查健康管理分級 Observation Profile (https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel)](StructureDefinition-TWHA-HealthManagementLevel.md)
 
 **Slices**
 
@@ -97,12 +99,12 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
   "resourceType" : "StructureDefinition",
   "id" : "TWHA-Composition-EmergencySummary",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Composition-EmergencySummary",
-  "version" : "0.8.5",
+  "version" : "0.9.0",
   "name" : "TWHACompositionEmergencySummaryProfile",
   "title" : "職業健康急診友善摘要 Composition Profile",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-21T12:32:47+00:00",
+  "date" : "2026-08-21T14:27:31+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -324,7 +326,8 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/ClinicalImpression",
-        "http://hl7.org/fhir/StructureDefinition/CarePlan"]
+        "http://hl7.org/fhir/StructureDefinition/CarePlan",
+        "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel"]
       }]
     }]
   }

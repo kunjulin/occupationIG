@@ -1,4 +1,4 @@
-# 健康檢查健康管理分級 Observation Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
+# 健康檢查健康管理分級 Observation Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
 
 ## 資源 Profile: 健康檢查健康管理分級 Observation Profile ( 實驗性 ) 
 
@@ -7,7 +7,7 @@
 
 **Usages:**
 
-* Refer to this Profile: [雇主端健康管理摘要 Composition Profile](StructureDefinition-TWHA-Composition-EmployerSummary.md) and [健康檢查健檢報告組成結構 Profile](StructureDefinition-TWHA-Composition.md)
+* Refer to this Profile: [職業健康急診友善摘要 Composition Profile](StructureDefinition-TWHA-Composition-EmergencySummary.md), [雇主端健康管理摘要 Composition Profile](StructureDefinition-TWHA-Composition-EmployerSummary.md) and [健康檢查健檢報告組成結構 Profile](StructureDefinition-TWHA-Composition.md)
 * Examples for this Profile: [Observation/obs-health-mgmt-level](Observation-obs-health-mgmt-level.md)
 
 You can also check for [usages in the FHIR IG Statistics](https://packages2.fhir.org/xig/resource/mohw.tw.twha|current/StructureDefinition/StructureDefinition-TWHA-HealthManagementLevel.json)
@@ -85,12 +85,12 @@ This structure refers to these other structures:
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-HealthManagementLevel",
-  "version" : "0.8.5",
+  "version" : "0.9.0",
   "name" : "TWHAHealthManagementLevelProfile",
   "title" : "健康檢查健康管理分級 Observation Profile",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-21T12:32:47+00:00",
+  "date" : "2026-08-21T14:27:31+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

@@ -6,7 +6,7 @@
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-betelnut-never</b></p><a name=\"obs-betelnut-never\"> </a><a name=\"hcobs-betelnut-never\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-SocialHistory-BetelNut.html\">嚼檳榔歷史與狀態 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{http://snomed.info/sct 698188003}\">Chews betel quid</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2026-06-12 08:05:00+0800</p><p><b>performer</b>: <a href=\"Practitioner-example-nurse.html\">Practitioner 陳健護(official)</a></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus 0-never}\">從未嚼食檳榔</span></p></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: 观察 obs-betelnut-never</b></p><a name=\"obs-betelnut-never\"> </a><a name=\"hcobs-betelnut-never\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-TWHA-SocialHistory-BetelNut.html\">嚼檳榔歷史與狀態 Profile</a></p></div><p><b>status</b>: Final</p><p><b>category</b>: <span title=\"Codes:{http://terminology.hl7.org/CodeSystem/observation-category social-history}\">Social History</span></p><p><b>code</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutObservable betel-quid-chewing-status}\">嚼檳榔狀態</span></p><p><b>subject</b>: <a href=\"Patient-example-worker.html\">王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765\u00a0(use:\u00a0official,\u00a0))</a></p><p><b>effective</b>: 2026-06-12 08:05:00+0800</p><p><b>performer</b>: <a href=\"Practitioner-example-nurse.html\">Practitioner 陳健護(official)</a></p><p><b>value</b>: <span title=\"Codes:{https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus 0-never}\">從未嚼食檳榔</span></p></div>"
   },
   "status" : "final",
   "category" : [{
@@ -17,9 +17,9 @@
   }],
   "code" : {
     "coding" : [{
-      "system" : "http://snomed.info/sct",
-      "code" : "698188003",
-      "display" : "Chews betel quid"
+      "system" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutObservable",
+      "code" : "betel-quid-chewing-status",
+      "display" : "嚼檳榔狀態"
     }]
   },
   "subject" : {

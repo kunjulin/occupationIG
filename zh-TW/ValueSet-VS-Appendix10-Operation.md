@@ -1,4 +1,4 @@
-# 附表十特別危害健康作業值集（35 項） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
+# 附表十特別危害健康作業值集（35 項） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
 
 ## ValueSet: 附表十特別危害健康作業值集（35 項） 
 
@@ -32,12 +32,12 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-Appendix10-Operation",
-  "version" : "0.8.5",
+  "version" : "0.9.0",
   "name" : "VS_Appendix10Operation",
   "title" : "附表十特別危害健康作業值集（35 項）",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-21T12:32:47+00:00",
+  "date" : "2026-08-21T14:27:31+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

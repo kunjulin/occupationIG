@@ -1,4 +1,4 @@
-# 身體理學檢查 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
+# 身體理學檢查 Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
 
 ## 資源 Profile: 身體理學檢查 Profile 
 
@@ -102,12 +102,12 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-PhysicalExam",
-  "version" : "0.8.5",
+  "version" : "0.9.0",
   "name" : "TWHAPhysicalExamProfile",
   "title" : "身體理學檢查 Profile",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-21T12:32:47+00:00",
+  "date" : "2026-08-21T14:27:31+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

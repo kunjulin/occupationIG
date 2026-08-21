@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5</title>
+    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.8.5 - STU1
+            <span style="display:inline-block;">0.9.0 - STU1
 
 
             </span>
@@ -203,7 +203,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.8.5  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.9.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>術語與代碼系統</h2>
   
 
@@ -595,8 +595,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">698188003</code></td>
       <td style="text-align: left">Chews betel quid</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">TWHA-SocialHistory-BetelNut</code>／<code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code></td>
-      <td style="text-align: left">✅ 已驗證 2026-07-26</td>
+      <td style="text-align: left"><strong>&sect;6.2b-3 之肯定式狀態對照</strong>（v0.9.0 起不再作為 <code class="language-plaintext highlighter-rouge">Observation.code</code>）</td>
+      <td style="text-align: left">✅ 已驗證 2026-07-26；語意軸複驗 2026-08-21（FSN <code class="language-plaintext highlighter-rouge">Chews betel quid (finding)</code>，parent <code class="language-plaintext highlighter-rouge">409069009</code>）</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">266919005</code></td>
@@ -1508,7 +1508,7 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
     <tr>
       <td style="text-align: left"><strong>TWCR_SF</strong>（癌症登記短表）</td>
       <td style="text-align: left">逐顆／逐年之列舉碼</td>
-      <td style="text-align: left">正式相依 <code class="language-plaintext highlighter-rouge">fhir.TWCRSF#0.1.1</code>；於本指引降為<strong>可選對照</strong>（見 6.2b-3）</td>
+      <td style="text-align: left">正式相依 <code class="language-plaintext highlighter-rouge">fhir.TWCRSF#0.1.1</code>；於本指引降為<strong>可選對照</strong>（見 6.2b-4）</td>
     </tr>
   </tbody>
 </table>
@@ -1525,9 +1525,9 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">Observation.code</td>
+      <td style="text-align: left">Observation.code（<strong>問題</strong>）</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">code</code></td>
-      <td style="text-align: left">SNOMED <code class="language-plaintext highlighter-rouge">698188003</code>（Chews betel quid）</td>
+      <td style="text-align: left"><a href="CodeSystem-CS-BetelNutObservable.html">CS-BetelNutObservable</a><code class="language-plaintext highlighter-rouge">#betel-quid-chewing-status</code>「嚼檳榔狀態」（v0.9.0 起；原為 SNOMED <code class="language-plaintext highlighter-rouge">698188003</code>，見 &sect;6.2b-3）</td>
     </tr>
     <tr>
       <td style="text-align: left">嚼檳狀態</td>
@@ -1623,7 +1623,108 @@ Method 為 <strong>TUS-CPS</strong>（調查工具情境碼）。依「與官方
 本指引之吸菸 Profile 繼承 TW Core，未納入此級距。</p>
 </blockquote>
 
-<h4 id="62b-3-上游級距碼--本模型之落點對照">6.2b-3 上游級距碼 → 本模型之落點對照</h4>
+<h4 id="62b-3-observationcode-之問題碼與-snomed-對照v090">6.2b-3 <code class="language-plaintext highlighter-rouge">Observation.code</code> 之問題碼與 SNOMED 對照（v0.9.0）</h4>
+
+<p><strong>問題放 <code class="language-plaintext highlighter-rouge">.code</code>、答案放 <code class="language-plaintext highlighter-rouge">.value[x]</code>，兩個代碼軸不得互換。</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">&nbsp;</th>
+      <th style="text-align: left">吸菸</th>
+      <th style="text-align: left">嚼檳（v0.9.0 起）</th>
+      <th style="text-align: left">嚼檳（v0.4.0–v0.8.6）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">.code</code>（問題）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">LNC#72166-2</code> Tobacco smoking status</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">CS-BetelNutObservable#betel-quid-chewing-status</code> 嚼檳榔狀態</td>
+      <td style="text-align: left"><del><code class="language-plaintext highlighter-rouge">SCT#698188003</code> Chews betel quid</del></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">.value[x]</code>（答案）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">VS-SmokingStatus</code> 四碼</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">VS-BetelNutStatus</code> 四碼</td>
+      <td style="text-align: left">同左（未變）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">是否自相矛盾</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left">否</td>
+      <td style="text-align: left"><strong>是</strong>——<code class="language-plaintext highlighter-rouge">.code</code> 斷言此人嚼檳，而答案可為「從未嚼食」</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>⚠️ <strong>為何自訂而非沿用國際碼</strong>：三階查證結果皆為無，非未查。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">查證</th>
+      <th style="text-align: left">結果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">LOINC 有無嚼檳狀態問句碼</td>
+      <td style="text-align: left"><strong>無</strong>。<code class="language-plaintext highlighter-rouge">betel</code> 0 筆、<code class="language-plaintext highlighter-rouge">areca</code> 0 筆；<code class="language-plaintext highlighter-rouge">quid</code> 命中 40 筆全為 <code class="language-plaintext highlighter-rouge">liquid</code> 之子字串</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SNOMED 有無可用之 observable entity</td>
+      <td style="text-align: left"><strong>無</strong>。<code class="language-plaintext highlighter-rouge">isa/363787002</code> 階層下 <code class="language-plaintext highlighter-rouge">betel</code>／<code class="language-plaintext highlighter-rouge">areca</code> 皆 0 筆</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">對照組（證明查詢式成立）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">isa/404684003</code> Clinical finding ＋ <code class="language-plaintext highlighter-rouge">betel</code> → 3 筆</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>⚠️ <strong><code class="language-plaintext highlighter-rouge">698188003</code> 並未被廢棄，只是換了位置</strong>。它是<strong>肯定式</strong>概念，語意等同於
+「此人嚼檳」，故對應到答案軸之肯定式狀態，而非問題軸：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">本指引狀態碼</th>
+      <th style="text-align: left">SNOMED CT 對應</th>
+      <th style="text-align: left">說明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1-occasional</code> 偶爾嚼食</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">698188003</code> Chews betel quid</td>
+      <td style="text-align: left">肯定式；SNOMED 無「偶爾／每日」之頻率細分</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2-daily</code> 每日嚼食</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">698188003</code> Chews betel quid</td>
+      <td style="text-align: left">同上</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0-never</code> 從未嚼食檳榔</td>
+      <td style="text-align: left"><strong>無對應</strong></td>
+      <td style="text-align: left">SNOMED 全庫 6 個 betel 概念中無 never-chewer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">3-quit</code> 已戒除</td>
+      <td style="text-align: left"><strong>無對應</strong></td>
+      <td style="text-align: left">同上，無 ex-chewer</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>上表即「SNOMED 無法承載四碼對稱」之具體內容——<strong>兩個肯定式狀態共用同一個 SNOMED 碼，
+另兩個沒有對應</strong>。該結論已由本專案自行以 tx 複驗（betel 命中 7 筆扣除 1 筆假陽性
+＝ 6 個，語意標籤為 finding 1／disorder 2／substance 2／organism 1，無 observable entity）。</p>
+</blockquote>
+
+<h4 id="62b-4-上游級距碼--本模型之落點對照">6.2b-4 上游級距碼 → 本模型之落點對照</h4>
 
 <p><strong>這張表本身就是「不宜硬套 ConceptMap」的證據</strong>：同一個代碼清單裡的代碼，
 會落到 FHIR 的<strong>三個不同位置</strong>（<code class="language-plaintext highlighter-rouge">value</code>／<code class="language-plaintext highlighter-rouge">component.valueQuantity</code>／<code class="language-plaintext highlighter-rouge">dataAbsentReason</code>）。
@@ -1686,7 +1787,7 @@ ConceptMap 對映的是概念與概念，不是概念與數值。</p>
 改為 <code class="language-plaintext highlighter-rouge">Quantity</code> 後，該類錯置會直接呈現為單位或量綱不符，可被機器攔下。</p>
 </blockquote>
 
-<h4 id="62b-4-componentcode-為何改用本地碼">6.2b-4 <code class="language-plaintext highlighter-rouge">component.code</code> 為何改用本地碼</h4>
+<h4 id="62b-5-componentcode-為何改用本地碼">6.2b-5 <code class="language-plaintext highlighter-rouge">component.code</code> 為何改用本地碼</h4>
 
 <p><code class="language-plaintext highlighter-rouge">component.code</code> 若續用上游 <code class="language-plaintext highlighter-rouge">sf-BetNutChewBeh</code>，則即使值改為 <code class="language-plaintext highlighter-rouge">Quantity</code>，
 <strong>建置仍須解析上游 canonical 才能完成</strong>。改用本地
@@ -1818,9 +1919,9 @@ ConceptMap 對映的是概念與概念，不是概念與數值。</p>
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.8.5，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.9.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-21 12:32:00 +0000">
+  <span title="2026-08-21 14:27:00 +0000">
     2026-08-21
   </span>
 

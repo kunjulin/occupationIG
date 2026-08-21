@@ -1,4 +1,4 @@
-# 健康檢查實施週期擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.8.5
+# 健康檢查實施週期擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.0
 
 ## 擴充: 健康檢查實施週期擴充 
 
@@ -57,12 +57,12 @@ Simple Extension with the type Quantity: 【依據：勞工健康保護規則附
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-exam-interval",
-  "version" : "0.8.5",
+  "version" : "0.9.0",
   "name" : "ExtExamInterval",
   "title" : "健康檢查實施週期擴充",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-21T12:32:47+00:00",
+  "date" : "2026-08-21T14:27:31+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

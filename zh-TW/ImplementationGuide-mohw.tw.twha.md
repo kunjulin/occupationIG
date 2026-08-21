@@ -10,11 +10,11 @@
   "id" : "mohw.tw.twha",
   "language" : "zh-TW",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha",
-  "version" : "0.8.5",
+  "version" : "0.9.0",
   "name" : "TWHAIG",
   "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-08-21T12:32:47+00:00",
+  "date" : "2026-08-21T14:27:31+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -1916,6 +1916,22 @@
       "name" : "嚼檳榔狀態與量化資料範例（現嚼，含情境欄位）",
       "description" : "受檢勞工陳美玲：每日嚼食 10 顆（含菸草、荖葉、白灰），嚼食持續期間以原始採集粒度送出 240 個月，未戒。另附上游 TWCR_SF 級距碼作為對照。",
       "exampleCanonical" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-SocialHistory-BetelNut"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-CS-BetelNutObservable.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/CS-BetelNutObservable"
+      },
+      "name" : "嚼檳榔觀察項目代碼系統",
+      "description" : "【主管機關：國民健康署】勞工健檢生活習慣調查中，嚼檳榔相關之**觀察項目（問題）碼**，用於 `Observation.code`。與承載答案之 CS-BetelNutStatus 分屬兩個代碼軸——問題碼放 `.code`、答案碼放 `.value[x]`，不得互換。角色對齊吸菸之 `LNC#72166-2`（Tobacco smoking status）：臨床類、以狀態為屬性、序位尺度之狀態問句。（**provisional**：本代碼系統為工作小組建議之本地代碼配置，係因 LOINC 與 SNOMED CT 均無可用之嚼檳狀態問句碼（已逐一查證），**尚待主管機關確認官方代碼與定義（M-5）**；不得表述為已對接官方申報系統。）",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
