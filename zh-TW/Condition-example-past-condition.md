@@ -1,4 +1,4 @@
-# 既往病史範例 - 高血壓 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.2
+# 既往病史範例 - 高血壓 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.3
 
 ## 範例 Condition: 既往病史範例 - 高血壓
 

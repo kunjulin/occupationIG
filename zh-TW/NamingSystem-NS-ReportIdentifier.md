@@ -1,4 +1,4 @@
-# 健檢報告封包識別碼 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.2
+# 健檢報告封包識別碼 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.3
 
 ## NamingSystem: 健檢報告封包識別碼 
 
@@ -22,7 +22,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.version",
-    "valueString" : "0.9.2"
+    "valueString" : "0.9.3"
   }],
   "name" : "TWHAReportIdentifier",
   "status" : "draft",

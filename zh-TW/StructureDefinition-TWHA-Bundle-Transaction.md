@@ -1,4 +1,4 @@
-# 健康檢查資料上傳封包 (Transaction Bundle) Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.2
+# 健康檢查資料上傳封包 (Transaction Bundle) Profile - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.3
 
 ## 資源 Profile: 健康檢查資料上傳封包 (Transaction Bundle) Profile 
 
@@ -73,11 +73,11 @@ Mandatory: 3 elements
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Bundle-Transaction",
-  "version" : "0.9.2",
+  "version" : "0.9.3",
   "name" : "TWHABundleTransactionProfile",
   "title" : "健康檢查資料上傳封包 (Transaction Bundle) Profile",
   "status" : "active",
-  "date" : "2026-08-21T15:06:05+00:00",
+  "date" : "2026-08-21T16:05:47+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

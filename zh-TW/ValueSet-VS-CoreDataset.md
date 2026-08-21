@@ -1,4 +1,4 @@
-# 健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.2
+# 健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.3
 
 ## ValueSet: 健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集） 
 
@@ -33,12 +33,12 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset",
-  "version" : "0.9.2",
+  "version" : "0.9.3",
   "name" : "VS_CoreDataset",
   "title" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-21T15:06:05+00:00",
+  "date" : "2026-08-21T16:05:47+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
