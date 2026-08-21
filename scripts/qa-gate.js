@@ -319,7 +319,13 @@ for (const r of deviantCategories) {
     .slice(0, 10);
   const how = r.over ? `退步 +${r.delta}` : `低於基準線 ${r.delta}（未校準或樣態未對上）`;
   console.log(`\n類別「${r.label}」${how}——實際訊息（最多 10 筆）：`);
-  if (!samples.length) console.log('  （qa.txt 中找不到含此字串之行——樣態字串可能打錯）');
+  // 零命中有兩種完全不同的意思，不能只印一種：類別真的歸零（好事，校準即可），
+  // 或樣態字串與 qa.txt 不再相符（壞事，閘門其實沒在看）。兩者都要講。
+  if (!samples.length) {
+    console.log('  （qa.txt 中無任何含此字串之行）');
+    console.log('  → 可能是本類別已歸零（校準基準線即可），');
+    console.log('    也可能是樣態字串與 qa.txt 不再相符（此時閘門對該類已失效，務必確認）。');
+  }
   for (const s of samples) console.log(`  ${s.trim().slice(0, 200)}`);
 }
 
