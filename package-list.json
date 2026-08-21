@@ -12,6 +12,15 @@
       "current": true
     },
     {
+      "version": "0.7.1",
+      "date": "2026-08-21",
+      "desc": "修正 v0.7.0 之權責標籤未進產出：v0.7.0 宣稱三件新登記 artifact 均已加權責標籤，實際上線者僅兩件，TWHealthCheckLaboratoryMap 之標籤沒有進入產出。發現方式為 v0.7.0 發佈後逐件抽驗 gh-pages，該 ConceptMap 之 description 與 title 皆為 null。原因為該檔以 Description: 關鍵字提供描述且無 Usage: #definition（預設為 #example），SUSHI 遂將 Title: 與 Description: 視為範例之 IG 層 metadata 而不寫入 ConceptMap.title 與 .description；另兩件 Appendix10-to-HazardType 與 NS-ReportIdentifier 用的是 * description 元素賦值必定落地，故只有這一件出問題。此為既有狀況而非 v0.7.0 造成，該資源在更早版本即無 description。更須檢討者仍是閘門：它讀原始碼的 Description: 就判定齊備，而這是 v0.6.1 規則被插進跨行 Description 內部之同型錯誤且已是第三次——閘門驗的是原始碼有沒有寫，不是產出會不會有。現改為 Instance 類只採 * description 元素賦值，Description: 關鍵字一律不算數；自我測試由 16 組增為 18 組，新增標籤僅寫在關鍵字須被抓到與改以元素賦值則不得誤報兩案，其中前者已實測驗證為真負向案例（還原成採信關鍵字之行為後該案確實失敗）。一併記錄未處理者：該 ConceptMap 之 title 仍為 null，本版只補 description（因權責標籤之載體是 description），是否補 title 或改 Usage: #definition 屬呈現層調整另行處置。QA 基準線本版未動。工業技術研究院委託研擬中，尚未定稿。",
+      "path": "https://kunjulin.github.io/occupationIG",
+      "status": "draft",
+      "sequence": "STU 1",
+      "fhirversion": "4.0.1"
+    },
+    {
       "version": "0.7.0",
       "date": "2026-08-21",
       "desc": "ConceptMap 與 NamingSystem 納入權責登記（JOB-31 §5，PI 裁示採 (A) 擴大登記範圍）。本版含規範性中繼資料變更：Appendix10-to-HazardType 之 status 由 active 改為 draft。問題為 check-governance-tags.js 之 scanFsh 僅掃 Profile、Extension、ValueSet、CodeSystem 四種宣告而以 Instance: 宣告者一律排除，故 TWHealthCheckLaboratoryMap、Appendix10-to-HazardType 兩個 ConceptMap 與 NS-ReportIdentifier 一個 NamingSystem 共 3 件不在登記表內，G-1 未登記即失敗對它們不會觸發，形成未寫明的沉默排除，與本案範疇界定要寫出來不是省略之既有立場相違。處置為登記表由 101 件擴大至 104 件：TWHealthCheckLaboratoryMap 標【主管機關：國民健康署】並歸 Level 1，加 standards-status trial-use 而 status 維持 active，理由為 Level 1 之值集綁定採 extensible，接收端正是靠本對照將院所送的 acceptable 變異碼歸一至 preferred，它是 Level 1 宣告能否成立的一環故須同受閘門保護；Appendix10-to-HazardType 標【依據：勞工健康保護規則附表】並歸 Level 2，加 standards-status draft 且 status 併同改為 draft；NS-ReportIdentifier 標【技術規格】並歸 level 0，僅加標籤而不標 standards-status 亦不動其 status（維持 draft），理由有二，一為 NamingSystem 描述的是識別碼命名空間而非可宣告符合的標的，二為若歸 Level 1 則 G-3b 會要求 status 改為 active，等於把它往更成熟的方向推，屬實質的成熟度主張，不得為使登記表整齊而順手為之。閘門補強：scanFsh 新增 Instance: 與 InstanceOf: 之解析，且 status 之正則依宣告種類切換——定義類只認 ^status，Instance 只認裸 status，因本 repo 多支 profile 有 * status = #final 而那是約束實例的 status 非 profile 自身，統一放寬會使 G-3b 全面誤判；standards-status 於 Instance 採 indexed 形式 extension[0].url 加 .valueCode，不依賴 SUSHI 以 canonical 解析 extension 定義。自我測試由 12 組增為 16 組，新增未登記之 ConceptMap 須被抓到、範例實例不得誤納、Instance 標 draft 未併同改 status、profile 之 * status = #final 不得誤讀四案；其中前者與第三者已實測驗證為真負向案例——將 INSTANCE_KINDS 清空以模擬補強前之行為後該二案確實失敗，而正向對照仍通過。工業技術研究院委託研擬中，尚未定稿。 另執行 JOB-31 §3：qa-baseline.json 之 totals.warn 由 152 依 CI run 32433486214 之實測下調至 91（不採評估文件所載數字）。此舉推翻本檔既有之「未歸因之總數改善不下調天花板」政策——該政策要防的是把未歸因的改善寫死成基準線而看似刻意成果，但它製造的是天花板與實況相差 61 筆、未來可再新增最多 61 筆 WARNING 而閘門完全不會亮；天花板的職責是攔退步而非記功勞，故改為下調至實測值並明載該 61 筆之改善未逐筆歸因。副作用為此後任何一筆新增 WARNING 都會使 CI 失敗，此為刻意設計；若日後因正當理由需上調，依既有規則必須具名說明多出來的是什麼。惟 91 筆中仍有 25 筆不屬任何具名類別（具名者 66 筆），閘門對其組成仍為盲目，只是不再有 61 筆緩衝，具名化屬 JOB-31 §4 而本版未做。TOTAL info 維持 467（實測相同，無可下調），err 維持 0。",

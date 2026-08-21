@@ -100,6 +100,12 @@ function scanFsh(root) {
         const id = line.match(/^Id:\s+(\S+)/);
         if (id) { cur.id = id[1]; return; }
         const desc = line.match(/^Description:\s+"(.*)$/);
+        if (desc && INSTANCE_KINDS.includes(cur.kind)) {
+          // Instance 類：關鍵字不採（理由見下方 INSTANCE_KINDS 區塊）。
+          // 仍須追蹤跨行狀態，否則字串內部的行會被誤讀為規則。
+          if (!/"\s*$/.test(line.slice('Description:'.length).trim().slice(1))) cur.inDesc = true;
+          return;
+        }
         if (desc) {
           cur.desc = desc[1];
           // 同一行未閉合（結尾不是未跳脫之 `"`）即為跨行字串
@@ -109,7 +115,16 @@ function scanFsh(root) {
         // Instance 之描述亦可寫成 `* description = "..."`（或 """ 跨行）。
         // Appendix10-to-HazardType 只有這一種；NS-ReportIdentifier 兩種都有，
         // 而 SUSHI 以規則為準，故規則存在時覆蓋 Description: 關鍵字。
+        // ⚠️ Instance 類**只認 `* description =`（元素賦值），不認 `Description:` 關鍵字。**
+        //    實測依據：TWHealthCheckLaboratoryMap 只有 `Description:` 關鍵字而無
+        //    `Usage: #definition`，SUSHI 遂將其視為**範例之 IG 層 metadata**，
+        //    **不寫入 ConceptMap.description**——v0.7.0 發佈後線上實測該資源之
+        //    description 與 title 皆為 null，標籤根本沒進產出，而本閘門當時讀原始碼
+        //    的 Description: 就判定齊備、綠燈放行。
+        //    這是 v0.6.1「規則被插進跨行 Description 內部」之同型錯誤：
+        //    **閘門驗的是原始碼有沒有寫，不是產出會不會有**。故只採必定落地之元素賦值。
         if (INSTANCE_KINDS.includes(cur.kind)) {
+          if (/^Description:/.test(line)) return;   // 關鍵字：Instance 類一律不採
           const dr = line.match(/^\*\s*description\s*=\s*("""|")(.*)$/);
           if (dr) {
             if (dr[1] === '"""') {
@@ -396,6 +411,31 @@ function selfTest() {
      '* ^extension[' + STANDARDS_STATUS_URL + '].valueCode = #draft\n');
   run('⑪ profile 之 * status = #final 不誤讀（正向對照）', () =>
     !checkArtifacts(tmp, { 'P-Ok': ['reg', 2] }).violations.some((v) => v.startsWith('[G-3b]')));
+
+  // ⑫ Instance 之標籤只寫在 `Description:` 關鍵字（無 `Usage: #definition`）→ 必須被抓到
+  //    v0.7.0 實測：這種寫法 SUSHI 不會寫入資源之 description，標籤根本不進產出，
+  //    而當時之閘門讀原始碼就判定齊備。此案即為該漏洞之回歸測試。
+  reset();
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use'));
+  mk('codesystems', 'cm3.fsh',
+     'Instance: CM-KeywordOnly\nInstanceOf: ConceptMap\n' +
+     'Description: "' + TAGS.hpa + '只寫在關鍵字，不會進產出。"\n* status = #active\n' +
+     '* extension[0].url = "' + STANDARDS_STATUS_URL + '"\n* extension[0].valueCode = #trial-use\n');
+  run('⑫ Instance 標籤僅在 Description: 關鍵字', () =>
+    checkArtifacts(tmp, { 'VS-Ok': ['hpa', 1], 'CM-KeywordOnly': ['hpa', 1] })
+      .violations.some((v) => v.includes('CM-KeywordOnly') && v.startsWith('[G-1]')));
+
+  // ⑫b 同一件改以 `* description =` 提供標籤 → 不得誤報（正向對照）
+  reset();
+  mk('valuesets', 'a.fsh', good('VS-Ok', TAGS.hpa, 'trial-use'));
+  mk('codesystems', 'cm4.fsh',
+     'Instance: CM-ElementDesc\nInstanceOf: ConceptMap\n' +
+     'Description: "這行是 IG 層 metadata，不算數。"\n' +
+     '* description = "' + TAGS.hpa + '會進產出。"\n* status = #active\n' +
+     '* extension[0].url = "' + STANDARDS_STATUS_URL + '"\n* extension[0].valueCode = #trial-use\n');
+  run('⑫b Instance 標籤在 * description（正向對照）', () =>
+    checkArtifacts(tmp, { 'VS-Ok': ['hpa', 1], 'CM-ElementDesc': ['hpa', 1] })
+      .violations.length === 0);
 
   // ⑦ 完整正例：全部登記齊備時不得誤報
   reset();
