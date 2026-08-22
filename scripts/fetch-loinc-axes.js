@@ -166,7 +166,7 @@ function getJson(url, tries = 3) {
 const LP_CODE = /^LP\d+-\d+$/;
 
 function parseLookup(res) {
-  const out = { display: '', axes: {}, error: null };
+  const out = { display: '', axes: {}, propNames: [], error: null };
   if (!res || res.resourceType !== 'Parameters') {
     out.error = res && res.resourceType === 'OperationOutcome'
       ? (res.issue || []).map((i) => i.diagnostics || (i.details && i.details.text)).filter(Boolean).join('; ')
@@ -178,6 +178,7 @@ function parseLookup(res) {
     if (p.name !== 'property') continue;
     const parts = Object.fromEntries((p.part || []).map((x) => [x.name, x]));
     const propCode = (parts.code && (parts.code.valueCode || parts.code.valueString)) || '';
+    if (propCode) out.propNames.push(propCode);
     const axis = AXIS_PROP[propCode];
     if (!axis) continue;
     const v = parts.value;
@@ -252,9 +253,12 @@ function runSelfTest() {
   // 陽性對照之判準：同一代碼對自己必為 equivalent，否則該伺服器不回答階層。
   // 鎖住這一條，是因為 tx.fhir.org 對不支援的階層查詢**不報錯**，一律回 not-subsumed
   // ——若直接採信，判準會把「答不出來」寫成「確認無包含關係」。
-  const ctlOk = (o) => o === 'equivalent';
-  ok('⑬ 陽性對照為 equivalent 才視為階層可用', ctlOk('equivalent') === true);
-  ok('⑭ 對照回 not-subsumed 即判定階層不可用（不得採信其餘結果）', ctlOk('not-subsumed') === false && ctlOk('unsupported') === false);
+  // 兩道對照必須同時成立才視為階層可用。⑮ 是本工具第二個判斷錯的地方：
+  // 只做自身比對時，實測「對照通過」而 31 組配對仍全數 not-subsumed。
+  const hierOk = (self, partsCount) => self === 'equivalent' && partsCount > 0;
+  ok('⑬ 兩道對照皆成立才視為階層可用', hierOk('equivalent', 3) === true);
+  ok('⑭ 自身比對失敗即不可用', hierOk('not-subsumed', 3) === false && hierOk('unsupported', 3) === false);
+  ok('⑮ 自身比對過、但無任何 Part 回報 parent／child → 仍不可用', hierOk('equivalent', 0) === false);
 
   const cm = parseConceptMap([
     '* group[0].element[0].code = #804-5',
@@ -326,13 +330,21 @@ if (selfTest) runSelfTest();
   const lpCodes = [...new Set(axesRows.flatMap((r) => AXES.map((a) => r[a]).filter(Boolean)))].sort();
   console.log(`\n相異 LP 代碼：${lpCodes.length}，補查顯示名…`);
   const lpDisplay = new Map();
+  // 同一趟順便蒐集階層證據：這台伺服器對 LOINC Part 有沒有回 parent／child。
+  // 這是判斷 $subsumes 之 not-subsumed 可不可信的關鍵，見下方 hierarchySupported。
+  let lpWithParentChild = 0;
   for (let i = 0; i < lpCodes.length; i++) {
-    const url = `${tx}/CodeSystem/$lookup?system=${encodeURIComponent('http://loinc.org')}&code=${encodeURIComponent(lpCodes[i])}`;
+    const url = `${tx}/CodeSystem/$lookup?system=${encodeURIComponent('http://loinc.org')}&code=${encodeURIComponent(lpCodes[i])}&property=*`;
     let d = '';
-    try { d = (parseLookup(await getJson(url)) || {}).display || ''; } catch { d = ''; }
+    try {
+      const r = parseLookup(await getJson(url));
+      d = (r || {}).display || '';
+      if ((r.propNames || []).some((n) => /^(parent|child)$/i.test(n))) lpWithParentChild++;
+    } catch { d = ''; }
     lpDisplay.set(lpCodes[i], d);
     if (i < lpCodes.length - 1) await new Promise((res) => setTimeout(res, delayMs));
   }
+  console.log(`  回報 parent／child 之 LP 代碼：${lpWithParentChild}／${lpCodes.length}`);
   const unresolved = lpCodes.filter((c) => !lpDisplay.get(c));
   console.log(`  取得 ${lpCodes.length - unresolved.length}／${lpCodes.length}${unresolved.length ? `；未取得（不影響判準）：${unresolved.join(' ')}` : ''}`);
   for (const r of axesRows) for (const a of AXES) r[`${a}_display`] = r[a] ? (lpDisplay.get(r[a]) || '') : '';
@@ -371,12 +383,27 @@ if (selfTest) runSelfTest();
   // 對照不成立即判定本伺服器不回答 LOINC Part 階層，全部結果改記 unknown，
   // 由判準路由至「需人工判定」並具名列出。對照本身也寫進對照檔——
   // 日後 tx 若補上支援，對照會翻成 equivalent 而讓人注意到。
+  //
+  // ⚠️ 對照分兩道，缺一不可。第一版只做了自身比對，那太弱——
+  //    2026-08-22 實測 LP6377-8 對自身確實回 equivalent（對照「通過」），
+  //    但 31 組真實配對仍全數 not-subsumed。自身比對可能只是相等判斷，
+  //    證明不了伺服器真的走了 Part 階層。以那個對照放行，等於用一個
+  //    證明不了事情的檢查去背書 31 個結論，與本次要修的毛病同型。
+  //
+  //    第二道才有鑑別力：這台伺服器對 LOINC Part 究竟有沒有 parent／child。
+  //    一個都沒有，就表示它手上沒有 Part 階層，其 not-subsumed 一律不可採信。
   const controlCode = needList.length ? needList[0].code_a : 'LP6548-4';
   const controlOutcome = await askSubsumes(controlCode, controlCode);
-  const hierarchySupported = controlOutcome === 'equivalent';
-  console.log(`\n階層陽性對照：${controlCode} vs 自身 → ${controlOutcome}` +
-    `（${hierarchySupported ? '$subsumes 可用' : '⚠️ 本伺服器不回答 LOINC Part 階層，結果一律記為 unknown'}）`);
-  subRows.push({ axis: '__control__', code_a: controlCode, code_b: controlCode, outcome: controlOutcome, source: 'tx $subsumes', fetched_at: fetchedAt });
+  const selfOk = controlOutcome === 'equivalent';
+  const partsOk = lpWithParentChild > 0;
+  const hierarchySupported = selfOk && partsOk;
+  console.log(`\n階層對照一（自身比對）：${controlCode} vs 自身 → ${controlOutcome}　${selfOk ? '✔' : '✖'}`);
+  console.log(`階層對照二（Part 階層是否存在）：${lpWithParentChild}／${lpCodes.length} 個 LP 代碼回報 parent／child　${partsOk ? '✔' : '✖'}`);
+  console.log(hierarchySupported
+    ? '→ $subsumes 之結果可採信。'
+    : '→ ⚠️ 本伺服器不回答 LOINC Part 階層，所有結果一律記為 unknown，由判準路由至「需人工判定」。');
+  subRows.push({ axis: '__control_self__', code_a: controlCode, code_b: controlCode, outcome: controlOutcome, source: 'tx $subsumes', fetched_at: fetchedAt });
+  subRows.push({ axis: '__control_parts__', code_a: `${lpWithParentChild}/${lpCodes.length}`, code_b: 'parent|child', outcome: partsOk ? 'present' : 'absent', source: 'tx $lookup', fetched_at: fetchedAt });
 
   console.log(`需階層判定之軸配對：${needList.length} 組`);
   for (let i = 0; i < needList.length; i++) {
