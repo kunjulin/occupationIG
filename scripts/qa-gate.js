@@ -139,13 +139,30 @@ function evaluate(qa, baseline) {
 // 兩者不能互相取代：v0.8.1 之 warn 90 中有 24 筆不落在任何具名類別內——閘門看得見
 // 總數變動，卻說不出變的是哪一類。本報表把那 24 筆按形態列出，使歸因不必臨時加步驟。
 function unnamedWarnings(qa, baseline) {
+  return unnamedByLevel(qa, baseline, 'WARNING');
+}
+
+// ⚠️ **INFORMATION 也必須有同一份報表**（v0.10.1 補）。
+// v0.10.1 之建置 TOTAL info 由 463 升為 464，而**33 個具名類別差異全為 0**——
+// 亦即多出來的那一筆落在所有具名類別之外，閘門看得見有多，卻說不出多的是什麼。
+// 當時只有 WARNING 有歸因報表，INFORMATION 沒有，於是必須為了查一筆訊息再跑一輪 CI。
+// 這個不對稱沒有理由存在：兩個級別的歸因需求完全相同。
+// ⚠️ 這與 CLAUDE.md §4 之「閘門有在跑，但看的範圍不對」是同一族——
+//    差別在於這次不是範圍漏了，是**診斷資訊只做了一半**。
+function unnamedInfos(qa, baseline) {
+  return unnamedByLevel(qa, baseline, 'INFORMATION');
+}
+
+function unnamedByLevel(qa, baseline, level) {
   const needles = Object.keys(baseline.categories);
-  const lines = qa.split(/\r?\n/).filter((l) => /^\s*WARNING:/.test(l));
+  const re = new RegExp(`^\\s*${level}:`);
+  const lines = qa.split(/\r?\n/).filter((l) => re.test(l));
   const unnamed = lines.filter((l) => !needles.some((n) => l.includes(n)));
   const groups = new Map();
   for (const l of unnamed) {
     const s = signature(l);
-    groups.set(s, (groups.get(s) || 0) + 1);
+    if (!groups.has(s)) groups.set(s, { count: 0, sample: l.trim() });
+    groups.get(s).count += 1;
   }
   return { total: lines.length, unnamed: unnamed.length, groups };
 }
@@ -230,6 +247,22 @@ function selfTest() {
     const u = unnamedWarnings(qa, BASE);
     // alpha 3 筆為 WARNING 且具名；beta 為 INFORMATION 不計；另 1 筆未具名
     return u.total === 4 && u.unnamed === 1;
+  });
+
+  // ⑧b 未具名 INFORMATION 報表：與 ⑧ 對稱，只算 INFORMATION 級
+  //     若這一項不存在，「TOTAL info 多了 1 筆但具名類別全為 0」就查不出多的是什麼。
+  run('⑧b 未具名 INFORMATION 之辨識', () => {
+    const qa = mk({ extraWarn: ['INFORMATION: z: some other unnamed note'] });
+    const u = unnamedInfos(qa, BASE);
+    // beta 2 筆為 INFORMATION 且具名；alpha 為 WARNING 不計；另 1 筆未具名
+    return u.total === 3 && u.unnamed === 1;
+  });
+
+  // ⑧c 歸因報表須附原文——只有正規化後之簽章時，無法判斷多的那一筆是哪個資源
+  run('⑧c 未具名報表附原文樣本', () => {
+    const qa = mk({ extraWarn: ['INFORMATION: Observation/foo-1: some unnamed note'] });
+    const g = [...unnamedInfos(qa, BASE).groups.values()][0];
+    return typeof g.sample === 'string' && g.sample.includes('Observation/foo-1');
   });
 
   // ⑨ 解析失敗要能被辨識，不得靜默通過
@@ -357,21 +390,26 @@ for (const level of regressedLevels) {
   for (const [sig, n] of top) console.log(`  ${String(n).padStart(5)} × ${sig}`);
 }
 
-// ---------------------------------------------- 未具名 WARNING 之歸因報表（每輪都印）
-const uw = unnamedWarnings(qa, baseline);
-console.log(
-  `\n未具名 WARNING 歸因報表：WARNING 共 ${uw.total} 筆，其中 ${uw.unnamed} 筆不落在任何具名類別內` +
-    `（${uw.groups.size} 種形態）。`
-);
-if (uw.unnamed) {
-  for (const [sig, n] of [...uw.groups.entries()].sort((a, b) => b[1] - a[1]).slice(0, 40)) {
-    console.log(`  ${String(n).padStart(4)} × ${sig}`);
-  }
+// ------------------------------- 未具名 WARNING／INFORMATION 之歸因報表（每輪都印）
+for (const [level, u] of [['WARNING', unnamedWarnings(qa, baseline)],
+  ['INFORMATION', unnamedInfos(qa, baseline)]]) {
   console.log(
-    '  ↑ 這些筆數只受 TOTAL warn 一個數字看管；要逐類看管請把形態加入 categories。'
+    `\n未具名 ${level} 歸因報表：${level} 共 ${u.total} 筆，其中 ${u.unnamed} 筆不落在任何具名類別內` +
+      `（${u.groups.size} 種形態）。`
   );
-} else {
-  console.log('  全部 WARNING 均已具名——每一類皆獨立受天花板看管。');
+  if (u.unnamed) {
+    for (const [sig, g] of [...u.groups.entries()].sort((a, b) => b[1].count - a[1].count).slice(0, 40)) {
+      console.log(`  ${String(g.count).padStart(4)} × ${sig}`);
+      // ⚠️ 附一筆原文：形態簽章把數字與識別碼正規化掉了，只看簽章無法判斷「多的那一筆
+      //    究竟是哪一個資源」。歸因報表要能直接回答這個問題，否則仍得再跑一輪 CI。
+      if (g.count <= 3) console.log(`         原文：${g.sample.slice(0, 220)}`);
+    }
+    console.log(
+      `  ↑ 這些筆數只受 TOTAL ${level === 'WARNING' ? 'warn' : 'info'} 一個數字看管；要逐類看管請把形態加入 categories。`
+    );
+  } else {
+    console.log(`  全部 ${level} 均已具名——每一類皆獨立受天花板看管。`);
+  }
 }
 
 // ---------------------------------------------------------------- 具名類別逐筆明細（術語稽核）
