@@ -21,7 +21,7 @@
 
 | 項目 | 狀態 |
 |:--|:--|
-| **版控**（`sushi-config.yaml`） | **v0.10.1** |
+| **版控**（`sushi-config.yaml`） | **v0.10.2**（尚未發佈） |
 | **線上站台** | **v0.10.1**，gh-pages `d52fbfbf`（sourceCommit `557e36b8`，2026-08-22 08:38Z），已逐項複驗 |
 | **對外三份文件** | 完整編碼附件 **v7.7**、建議修訂案 **v2.2**、專家共識討論會會議紀錄（2026-07-17）。⚠️ 三份與 IG 之逐欄複驗結果見 v0.10.1 之 PR 說明；`依法規附表-逐作業檢驗項目` 分頁尚有已下架錯碼待文件端更正 |
 | ⚠️ 兩者不同步是**正常的** | 合併 ≠ 發佈。線上落後於版控，直到有人手動觸發 `publish`（見 §5 末） |
@@ -177,6 +177,7 @@ template/             IG 模板之本機複本（角色待釐清，見 JOB-09）
 | 新增 artifact 卻沒登記權責歸屬 | `scripts/governance-map.js` 須先登記（標籤＋合規層級），否則 `npm run check:gov` 失敗 |
 | 改了登記表卻沒改 [conformance.md](input/pagecontent/conformance.md) §7.4 的件數 | 該處**兩張表**（標籤件數／成熟度件數）與「現值」摘要句共 7 個數字已由 **G-5** 看管（`npm run check:gov`），自登記表動態算出。⚠️ 兩張表的合計相同純屬邊際巧合，**分類軸不同**，須分別更新——v0.9.0 手動更正時就只改了其中一張 |
 | 在 `concept.definition`／`display` 裡寫 `**粗體**` 或反引號 | 那兩個欄位於 FHIR 為 **string** 型而非 markdown，記號**不會被算繪**，會逐字顯示給讀者（v0.9.0 線上實證 6 處，累積自 v0.4.0）。改用語序與 ⚠️ 表達強調，代碼字面以「」框住。由 `npm run check:plaintext` 看管。⚠️ **`Description:` 不受此限**——該欄確為 markdown 型，線上實證會算繪成 `<strong>`／`<code>`，**不要順手一起改掉** |
+| 在 blockquote 之既有粗體段落後**插入新的純文字句** | ⚠️ **已踩兩次**（v0.10.1、v0.10.2，兩次都是同一段 `terminology.md` §3.2.1）。markdown 會把連續的 `>` 行併成同一個 `<p>`，於既有 `**…**` 之後新增純文字即產生新的文字節點，可能觸發 IG Publisher 之 `No conformance term found in the text`（INFORMATION），使 `TOTAL info` +1 而**具名類別全部不動**——閘門看得見卻難以歸因。補充說明請寫進**既有粗體區段內部**（如括號內），或另起獨立段落，不要夾在兩個粗體段之間。歸因報表見 `qa-gate.js` 之「未具名 INFORMATION」 |
 | 寫好閘門卻沒接到 CI | 閘門只進 `npm run verify`（本機）＝**沒人會跑**。`check:gov`／`check:intref` 曾如此長期存在，導致 v0.9.1 新增的 G-5 在 PR 上根本不執行。新增閘門時**同時**改 `package.json` 與 `.github/workflows/build-ig.yml`，並回頭確認該步驟在 CI 是 `success` 而非 `skipped` |
 | 閘門有在跑，但**看的範圍不對** | 比「沒接 CI」更難發現，因為它每輪都亮綠燈。實例：`check:translations` 自 JOB-24 起只比對 `stringsBase.json`，而模板另有 `stringsArtifacts.json`，導致 `artifacts.html` 之 9 個分類標題與目錄連結**全空白四個多月**而閘門全綠（v0.9.3 修）。**訂範圍時要問「這一類東西有幾個」，不要只處理眼前踩到的那一個**；能資料驅動就不要寫死檔名，並加一條「上游有、我方沒有 → 失敗」 |
 
