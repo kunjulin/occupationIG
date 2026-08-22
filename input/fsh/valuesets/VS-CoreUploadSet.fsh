@@ -4,16 +4,21 @@ Title: "主管機關最小共通上傳集（國健署原案 21 列，跨值集�
 Description: "【主管機關：國民健康署】群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之狀態由本 IG 之 VS-BetelNutStatus 承載（與吸菸狀態四碼逐碼對稱）；量／年數／戒除期間自 v0.4.0 起改以 UCUM Quantity 承載（{quid}/d、a、a 或 mo），上游臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之級距碼降為可選 component（extensible）供勾稽之用，見 TWHA-SocialHistory-BetelNut 與術語頁 §6.2b。注意戒除期間之單位以原始採集粒度為準（上游以「年」計），與吸菸之戒除「月數」（LNC#63632-4）不同，不得逕行換算。"
 * ^experimental = false
 // ⚠️ 本群組值集之展開**與原案之 21 列計的不是同一件事**（v0.5.0 查明，v0.10.0 調整）：
-//   − 嚼檳量（30907X-2）／− 嚼檳月數（30907X-3）
+//   − 嚼檳量（30907X-2）／− 嚼食持續期間（30907X-3，原案欄名「嚼檳月數」）
 //                    ——原案各為獨立一列，本指引以同一 Observation 之 component 承載
 //                      （component[amount]／component[durationYears]），
 //                      非獨立 Observation.code，故本值集無對應碼。
+//                      ⚠️ 第 11 列之語意經**本案專家會議決議**更正為「嚼食持續期間」
+//                      （原案 r4 誤寫為「戒檳月數」），詳見 conformance.md §7.2 與
+//                      未決事項 M-12。戒除資訊改由 component[cessationDuration]／
+//                      [cessationDate] 承載，**不佔列位**，故不影響本值集之組成。
 //   核算：展開碼數 ＋ 2（以 component 承載者）= 21。
 //   ⚠️ **展開碼數以實測為準**（見 conformance.md §7.2），不得沿用註解所載之數字。
 //
 // ═══ BMI 之處置：v0.10.0 由「註解排除」改為「明文 exclude」═══
-// 依委託單位（工業技術研究院）2026-08-21 指示：BMI 非國健署建議，不納入最小上傳集。
-// ⚠️ 此為**回到原案**（原案本未列 BMI），非新增主張，故不需該署認定。
+// **主管機關原案未列 BMI**，故不納入最小上傳集。
+// ⚠️ 這是**事實陳述**，不是本指引之主張：原案 21 列中本來就沒有 BMI，
+//    本次只是讓值集之機器可讀結果與原案一致。**回到原案，不需任何一方核定。**
 //
 // 原作法僅在本註解區宣告「不是 Core 列、不得據以推論」。**註解攔不住機器**——
 // 任何以值集展開做涵蓋核對的程式，看到的仍是含 BMI 的清單。故改為明文排除。
@@ -29,7 +34,7 @@ Description: "【主管機關：國民健康署】群組值集：組合 Core 之
 * include codes from valueset VS_CoreDataset
 // 生理量測（身高/體重/腰圍/血壓）
 * include codes from valueset VS_TWHAVitalSigns
-* exclude LNC#39156-5   // BMI：原案未列；依委託單位 2026-08-21 指示不納入最小上傳集
+* exclude LNC#39156-5   // BMI：主管機關原案 21 列未列此碼，故不納入最小上傳集（回到原案）
 // 社會史（吸菸狀態/吸菸量/戒菸月數/嚼檳狀態）
 * LNC#72166-2  // 吸菸狀態 Tobacco smoking status
 * LNC#64218-1  // 吸菸量 How many cigarettes do you smoke per day now [PhenX]（官方 Property NRat＝Count/Time，單位為「支/日」`/d`，非「包/日」；pack-year／packs/day 須另尋代碼並經查證，勿沿用本碼）
