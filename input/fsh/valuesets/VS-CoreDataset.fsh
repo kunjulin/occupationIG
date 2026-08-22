@@ -17,6 +17,10 @@ Description: "【主管機關：國民健康署】Core 之檢驗子集（主管�
 * LNC#2571-8 "Triglyceride [Mass/volume] in Serum or Plasma"
 * LNC#3043-7 "Triglyceride [Mass/volume] in Blood"                       // Acceptable: 全血法
 * LNC#3048-6 "Triglyceride [Mass/volume] in Serum or Plasma --fasting"   // Acceptable：空腹採檢條件特化（2026-08-22 委員決議補回——健檢實務確為空腹採檢）；經 ConceptMap 歸一至 2571-8（#wider）
+* LNC#1644-4 "Triglyceride [Mass/volume] in Serum or Plasma --12 hours fasting"   // Acceptable：12 小時空腹條件特化（2026-08-22 第二批委員決議）；經 ConceptMap 歸一至 2571-8（#wider）
+// ⚠️ 3048-6 與 1644-4 均為空腹條件之特化，差別在 1644-4 明指「12 小時」。
+//    兩者對 2571-8 皆為 #wider（target 未指定空腹，語意較廣），歸一後**空腹條件之標示會遺失**；
+//    接收端若需區分空腹時數，應保留原始 coding，勿僅存歸一後之代碼。
 
 // 09043C 高密度脂蛋白膽固醇 (HDL-C) — Preferred 2085-9
 * LNC#2085-9 "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
@@ -40,10 +44,14 @@ Description: "【主管機關：國民健康署】Core 之檢驗子集（主管�
 
 // 06003C 尿蛋白定性 (Urine Protein, qualitative) — Preferred 5804-0
 //
-// ⚠️ **跨 Scale／Property 綁定之明文例外（2026-08-22 治理決議）**
-//    本組兩碼之 Scale 與 Property 均不同（經同日 tx.fhir.org $lookup 查證）：
-//      5804-0   Protein [Mass/volume] in Urine by Test strip          SemiQn / MCnc
-//      57735-3  Protein [Presence] in Urine by Automated test strip   Ord    / PrThr
+// ⚠️ **跨 Scale／Property 綁定之明文例外（2026-08-22 治理決議；v0.10.2 擴及四碼）**
+//    本區塊各碼之 Scale／Property（經 tx.fhir.org $lookup 查證，2026-08-22，LOINC 2.82）：
+//      5804-0   Protein [Mass/volume] in Urine by Test strip            SemiQn / MCnc   ← Preferred
+//      50561-0  Protein [Mass/volume] in Urine by Automated test strip  SemiQn / MCnc   ← **同型，不跨**
+//      57735-3  Protein [Presence] in Urine by Automated test strip     Ord    / PrThr  ← 跨
+//      2887-8   Protein [Presence] in Urine                             Ord    / PrThr  ← 跨
+//      20454-5  Protein [Presence] in Urine by Test strip               Ord    / PrThr  ← 跨
+//
 //    一般而言同一值集內不應混編不同 Scale——半定量（分級濃度）與定性（有無）之判讀方式不同，
 //    接收端若逕行比較會失真。本組**刻意**保留此跨 Scale 綁定，理由為國內 LIS 系統現況：
 //    試紙尿蛋白之報告型態各院不一，強制單一 Scale 將使部分機構無碼可用。
@@ -52,9 +60,24 @@ Description: "【主管機關：國民健康署】Core 之檢驗子集（主管�
 //    ⚠️ 這是**經治理裁示之刻意設計，不是缺陷**。載為明文之目的即在於：
 //    下一輪術語稽核若再次偵測到本組跨 Scale，應比對本註記後放行，
 //    不得再列為待處理事項，亦不得以「一致性」為由逕自刪碼。
-//    見 terminology.md §3.1 之同一意旨說明。
+//    見 terminology.md §3.1.1 之同一意旨說明。
+//
+//    ⚠️ **「值集層允許跨 Scale」不等於「歸一層可宣告包含關係」**——兩者是不同的層。
+//    值集可以讓 Ord 與 SemiQn 並存、由實作端對應；但 ConceptMap 之 #wider／#narrower
+//    宣告的是**語意包含**，而 PrThr 與 MCnc 之間沒有包含關係。故上表三個跨 Scale 之碼
+//    （57735-3／2887-8／20454-5）於 ConceptMap 一律為 #relatedto，**不得**因值集層之
+//    治理決議而改標 #wider——那是用治理決議覆蓋術語事實。
+//
+//    🔴 **v0.10.2 更正**：57735-3 原標 #wider（element[38]），其 comment 僅描述 Method
+//    一軸而漏看 Property 與 Scale 亦不同。它與 20454-5 對 5804-0 之軸差完全相同，
+//    卻掛不同的 equivalence——同一份 ConceptMap 自相矛盾。已一併改為 #relatedto。
+//    ⚠️ **對實作端之影響**：該組之「數值可否直接比較」由「可」翻為**「不可」**，
+//    先前據以直接比較者須改為依判讀閾值轉換。50561-0 未跨 Scale，不受此更正影響。
 * LNC#5804-0 "Protein [Mass/volume] in Urine by Test strip"
-* LNC#57735-3 "Protein [Presence] in Urine by Automated test strip"                // Acceptable: 試紙變異碼（Ord/PrThr，與 Preferred 之 SemiQn/MCnc 跨 Scale，屬上開明文例外）
+* LNC#57735-3 "Protein [Presence] in Urine by Automated test strip"                // Acceptable：自動化試紙定性碼；Ord/PrThr，跨 Scale；經 ConceptMap 歸一至 5804-0（#relatedto——v0.10.2 由 #wider 更正，見下註）
+* LNC#50561-0 "Protein [Mass/volume] in Urine by Automated test strip"             // Acceptable：自動化試紙（2026-08-22 第二批委員決議）；Property 與 Scale 均與 Preferred 相同，僅 Method 特化，**不跨 Scale**；經 ConceptMap 歸一至 5804-0（#wider）
+* LNC#2887-8 "Protein [Presence] in Urine"                                         // Acceptable：定性通用碼（2026-08-22 第二批委員決議）；Ord/PrThr，跨 Scale；經 ConceptMap 歸一至 5804-0（#relatedto——無包含關係，須依判讀閾值轉換）
+* LNC#20454-5 "Protein [Presence] in Urine by Test strip"                          // Acceptable：定性試紙碼（2026-08-22 第二批委員決議）；Ord/PrThr，跨 Scale；經 ConceptMap 歸一至 5804-0（#relatedto，同上）
 
 // 14032C B型肝炎表面抗原 (HBsAg) — Preferred 5196-1
 * LNC#5196-1 "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"

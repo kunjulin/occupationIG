@@ -367,8 +367,8 @@ Description: "【主管機關：國民健康署】將健康檢查實驗室檢驗
 * group[0].element[38].display = "Protein [Presence] in Urine by Automated test strip"
 * group[0].element[38].target[0].code = #5804-0
 * group[0].element[38].target[0].display = "Protein [Mass/volume] in Urine by Test strip"
-* group[0].element[38].target[0].equivalence = #wider
-* group[0].element[38].target[0].comment = "source 指定自動化試紙判讀，target 方法未指定自動化；target 語意較廣"
+* group[0].element[38].target[0].equivalence = #relatedto
+* group[0].element[38].target[0].comment = "source 為定性（Property = PrThr、Scale = Ord、自動化試紙）、target 為半定量（MCnc / SemiQn、試紙法）；Property 與 Scale 均不同而無包含關係，定性結果不可直接當作半定量分級比較，須依判讀閾值轉換。⚠️ v0.10.2 更正：本組原標 wider，其 comment 僅描述 Method 一軸（「source 指定自動化試紙判讀，target 方法未指定自動化」），漏看 Property 與 Scale 亦不相同。判準與 element[47]／[48]（2887-8／20454-5）完全相同，故一併改為 relatedto。"
 // HBsAg 定量（免疫法）→ 定性 Preferred
 * group[0].element[39].code = #63557-3
 * group[0].element[39].display = "Hepatitis B virus surface Ag [Units/volume] in Serum or Plasma by Immunoassay"
@@ -423,3 +423,48 @@ Description: "【主管機關：國民健康署】將健康檢查實驗室檢驗
 * group[0].element[44].target[0].display = "Waist Circumference at umbilicus by Tape measure"
 * group[0].element[44].target[0].equivalence = #relatedto
 * group[0].element[44].target[0].comment = "source 為 NCFS 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同（比照 element[25] 之 PhenX protocol 碼）。本碼不納入任何值集，僅供接收端歸一。"
+
+// =============================================================
+// 2026-08-22 第二批委員決議之新增 4 組（element[45]–[48]）。
+// 溯源：四碼經 tx.fhir.org $lookup 查證（2026-08-22，LOINC 2.82）均為 ACTIVE。
+//
+// ⚠️ **[46] 與 [47]／[48] 之差別，是本批最需要看清楚的一件事**：
+//    三者 target 同為 5804-0（SemiQn / MCnc），差別在 source 之軸：
+//      50561-0  SemiQn / MCnc  → 與 target **同 Property 同 Scale**，僅 Method 特化 → #wider
+//      2887-8   Ord    / PrThr → Property 與 Scale **均不同**                      → #relatedto
+//      20454-5  Ord    / PrThr → 同上（Method 雖同為試紙法，仍不構成包含關係）      → #relatedto
+//
+//    ⚠️ **不得因值集層已允許跨 Scale 綁定，就把 [47]／[48] 改標 #wider。**
+//    「允許跨 Scale」是**值集層**之治理決議（見 VS-CoreDataset 之 06003C 定性區塊與
+//    terminology.md §3.1.1）；#wider／#narrower 則是**歸一層**對語意包含關係之斷言。
+//    PrThr 與 MCnc 之間沒有包含關係，寫成 #wider 等於以治理決議覆蓋術語事實。
+//    #relatedto 是唯一誠實的值。比照 element[39]（63557-3 定量 → 5196-1 定性）。
+// =============================================================
+// 三酸甘油酯 12 小時空腹 → 三酸甘油酯 Preferred（條件特化，同 element[41] 之處理）
+* group[0].element[45].code = #1644-4
+* group[0].element[45].display = "Triglyceride [Mass/volume] in Serum or Plasma --12 hours fasting"
+* group[0].element[45].target[0].code = #2571-8
+* group[0].element[45].target[0].display = "Triglyceride [Mass/volume] in Serum or Plasma"
+* group[0].element[45].target[0].equivalence = #wider
+* group[0].element[45].target[0].comment = "source 指定 12 小時空腹條件，target 未指定空腹；target 語意較廣。數值可直接比較，惟歸一後會遺失空腹時數之標示，接收端如需區分應保留原始 coding。與 element[41]（3048-6 --fasting）同型，差別僅在本碼明指 12 小時。"
+// 尿蛋白 自動化試紙（半定量）→ 尿蛋白定性 Preferred（方法特化，未跨 Scale）
+* group[0].element[46].code = #50561-0
+* group[0].element[46].display = "Protein [Mass/volume] in Urine by Automated test strip"
+* group[0].element[46].target[0].code = #5804-0
+* group[0].element[46].target[0].display = "Protein [Mass/volume] in Urine by Test strip"
+* group[0].element[46].target[0].equivalence = #wider
+* group[0].element[46].target[0].comment = "source 指定自動化試紙判讀，target 方法未指定自動化；Property（MCnc）與 Scale（SemiQn）均與 target 相同，僅 Method 特化，屬包含關係，數值可直接比較。本組未跨 Scale，與 element[47]／[48] 不同。"
+// 尿蛋白 定性通用碼 → 尿蛋白定性 Preferred（跨 Property 與 Scale，無包含關係）
+* group[0].element[47].code = #2887-8
+* group[0].element[47].display = "Protein [Presence] in Urine"
+* group[0].element[47].target[0].code = #5804-0
+* group[0].element[47].target[0].display = "Protein [Mass/volume] in Urine by Test strip"
+* group[0].element[47].target[0].equivalence = #relatedto
+* group[0].element[47].target[0].comment = "source 為定性（Property = PrThr、Scale = Ord、方法未指定）、target 為半定量（MCnc / SemiQn、試紙法）；Property 與 Scale 均不同而無包含關係，定性結果不可直接當作半定量分級比較，須依判讀閾值轉換。比照 element[39]（63557-3 定量 → 5196-1 定性）之處理。"
+// 尿蛋白 定性試紙碼 → 尿蛋白定性 Preferred（同上）
+* group[0].element[48].code = #20454-5
+* group[0].element[48].display = "Protein [Presence] in Urine by Test strip"
+* group[0].element[48].target[0].code = #5804-0
+* group[0].element[48].target[0].display = "Protein [Mass/volume] in Urine by Test strip"
+* group[0].element[48].target[0].equivalence = #relatedto
+* group[0].element[48].target[0].comment = "source 為定性（PrThr / Ord）、target 為半定量（MCnc / SemiQn）；Method 雖同為試紙法，惟 Property 與 Scale 不同而無包含關係，須依判讀閾值轉換。同 element[47] 之判準。"

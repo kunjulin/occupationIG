@@ -38,7 +38,7 @@
 
 | 檔案 | 內容 | 下載 |
 |:--|:--|:--|
-| LOINC 映射值集 | 本指引各值集之 LOINC 代碼清單與分層（`VS-CoreDataset` 22 碼／`VS-ExtendedDataset` 288 碼），含**層級**、**歸一至**、**equivalence** 欄，另附 `ConceptMap 歸一` 分頁（45 組） | [XLSX](loinc-valuesets.xlsx) |
+| LOINC 映射值集 | 本指引各值集之 LOINC 代碼清單與分層（`VS-CoreDataset` 26 碼／`VS-ExtendedDataset` 288 碼），含**層級**、**歸一至**、**equivalence** 欄，另附 `ConceptMap 歸一` 分頁（49 組） | [XLSX](loinc-valuesets.xlsx) |
 | SNOMED CT 對照表 | 生活習慣與危害類別之 SNOMED CT 代碼對照，及核心資料集之 LOINC–SNOMED 對照 | [XLSX](snomed-mappings.xlsx) |
 | SNOMED–LOINC 對照 | SNOMED CT 與 LOINC 之交叉對照（CSV，便於程式處理） | [CSV](snomed-loinc-mappings.csv) |
 | **顯示名驗證報告** | 以術語伺服器逐碼比對之 `display` 語意查核結果，為代碼稽核之主要依據 | [CSV](display-verification-report.csv) |
