@@ -1,4 +1,4 @@
-# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.1
+# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.2
 
 ## ConceptMap: 健康檢查檢驗項目代碼對應 ConceptMap 
 
@@ -18,7 +18,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap",
-  "version" : "0.10.1",
+  "version" : "0.10.2",
   "name" : "TWHealthCheckLaboratoryMap",
   "title" : "健康檢查檢驗項目代碼對應 ConceptMap",
   "status" : "active",
@@ -431,8 +431,8 @@
       "target" : [{
         "code" : "5804-0",
         "display" : "Protein [Mass/volume] in Urine by Test strip",
-        "equivalence" : "wider",
-        "comment" : "source 指定自動化試紙判讀，target 方法未指定自動化；target 語意較廣"
+        "equivalence" : "relatedto",
+        "comment" : "source 為定性（Property = PrThr、Scale = Ord、自動化試紙）、target 為半定量（MCnc / SemiQn、試紙法）；Property 與 Scale 均不同而無包含關係，定性結果不可直接當作半定量分級比較，須依判讀閾值轉換。⚠️ v0.10.2 更正：本組原標 wider，其 comment 僅描述 Method 一軸（「source 指定自動化試紙判讀，target 方法未指定自動化」），漏看 Property 與 Scale 亦不相同。判準與 element[47]／[48]（2887-8／20454-5）完全相同，故一併改為 relatedto。"
       }]
     },
     {
@@ -493,6 +493,46 @@
         "display" : "Waist Circumference at umbilicus by Tape measure",
         "equivalence" : "relatedto",
         "comment" : "source 為 NCFS 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同（比照 element[25] 之 PhenX protocol 碼）。本碼不納入任何值集，僅供接收端歸一。"
+      }]
+    },
+    {
+      "code" : "1644-4",
+      "display" : "Triglyceride [Mass/volume] in Serum or Plasma --12 hours fasting",
+      "target" : [{
+        "code" : "2571-8",
+        "display" : "Triglyceride [Mass/volume] in Serum or Plasma",
+        "equivalence" : "wider",
+        "comment" : "source 指定 12 小時空腹條件，target 未指定空腹；target 語意較廣。數值可直接比較，惟歸一後會遺失空腹時數之標示，接收端如需區分應保留原始 coding。與 element[41]（3048-6 --fasting）同型，差別僅在本碼明指 12 小時。"
+      }]
+    },
+    {
+      "code" : "50561-0",
+      "display" : "Protein [Mass/volume] in Urine by Automated test strip",
+      "target" : [{
+        "code" : "5804-0",
+        "display" : "Protein [Mass/volume] in Urine by Test strip",
+        "equivalence" : "wider",
+        "comment" : "source 指定自動化試紙判讀，target 方法未指定自動化；Property（MCnc）與 Scale（SemiQn）均與 target 相同，僅 Method 特化，屬包含關係，數值可直接比較。本組未跨 Scale，與 element[47]／[48] 不同。"
+      }]
+    },
+    {
+      "code" : "2887-8",
+      "display" : "Protein [Presence] in Urine",
+      "target" : [{
+        "code" : "5804-0",
+        "display" : "Protein [Mass/volume] in Urine by Test strip",
+        "equivalence" : "relatedto",
+        "comment" : "source 為定性（Property = PrThr、Scale = Ord、方法未指定）、target 為半定量（MCnc / SemiQn、試紙法）；Property 與 Scale 均不同而無包含關係，定性結果不可直接當作半定量分級比較，須依判讀閾值轉換。比照 element[39]（63557-3 定量 → 5196-1 定性）之處理。"
+      }]
+    },
+    {
+      "code" : "20454-5",
+      "display" : "Protein [Presence] in Urine by Test strip",
+      "target" : [{
+        "code" : "5804-0",
+        "display" : "Protein [Mass/volume] in Urine by Test strip",
+        "equivalence" : "relatedto",
+        "comment" : "source 為定性（PrThr / Ord）、target 為半定量（MCnc / SemiQn）；Method 雖同為試紙法，惟 Property 與 Scale 不同而無包含關係，須依判讀閾值轉換。同 element[47] 之判準。"
       }]
     }]
   }]

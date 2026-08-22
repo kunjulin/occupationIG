@@ -1,4 +1,4 @@
-# 心電圖檢查結果範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.1
+# 心電圖檢查結果範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.2
 
 ## 範例 Observation: 心電圖檢查結果範例
 

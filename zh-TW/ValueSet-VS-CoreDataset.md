@@ -1,4 +1,4 @@
-# 健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.1
+# 健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.2
 
 ## ValueSet: 健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集） 
 
@@ -33,12 +33,12 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset",
-  "version" : "0.10.1",
+  "version" : "0.10.2",
   "name" : "VS_CoreDataset",
   "title" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-22T08:31:54+00:00",
+  "date" : "2026-08-22T14:05:28+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -91,6 +91,10 @@
         "display" : "Triglyceride [Mass/volume] in Serum or Plasma --fasting"
       },
       {
+        "code" : "1644-4",
+        "display" : "Triglyceride [Mass/volume] in Serum or Plasma --12 hours fasting"
+      },
+      {
         "code" : "2085-9",
         "display" : "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
       },
@@ -125,6 +129,18 @@
       {
         "code" : "57735-3",
         "display" : "Protein [Presence] in Urine by Automated test strip"
+      },
+      {
+        "code" : "50561-0",
+        "display" : "Protein [Mass/volume] in Urine by Automated test strip"
+      },
+      {
+        "code" : "2887-8",
+        "display" : "Protein [Presence] in Urine"
+      },
+      {
+        "code" : "20454-5",
+        "display" : "Protein [Presence] in Urine by Test strip"
       },
       {
         "code" : "5196-1",

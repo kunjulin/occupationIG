@@ -1,4 +1,4 @@
-# 術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.1
+# 術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.2
 
 ## 術語與代碼系統
 
@@ -99,16 +99,19 @@
 
 一般而言，同一值集內不宜混編不同 `SCALE_TYP` 之代碼——半定量（分級濃度）與定性（有無） 之判讀方式不同，接收端若逕行比較會失真。**本指引於尿蛋白定性（醫令 `06003C-2`）刻意保留 一處跨 Scale 綁定**，特此載為明文例外。
 
-| | | | | |
-| :--- | :--- | :--- | :--- | :--- |
-| Preferred | `5804-0` | Protein [Mass/volume] in Urine by Test strip | `SemiQn` | `MCnc` |
-| Acceptable | `57735-3` | Protein [Presence] in Urine by Automated test strip | `Ord` | `PrThr` |
+| | | | | | |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Preferred | `5804-0` | Protein [Mass/volume] in Urine by Test strip | `SemiQn` | `MCnc` | — |
+| Acceptable | `50561-0` | Protein [Mass/volume] in Urine by Automated test strip | `SemiQn` | `MCnc` | **否**（同軸） |
+| Acceptable | `57735-3` | Protein [Presence] in Urine by Automated test strip | `Ord` | `PrThr` | **是** |
+| Acceptable | `2887-8` | Protein [Presence] in Urine | `Ord` | `PrThr` | **是** |
+| Acceptable | `20454-5` | Protein [Presence] in Urine by Test strip | `Ord` | `PrThr` | **是** |
 
-> **治理決議（2026-08-22）**：考量國內 LIS 系統現況——試紙尿蛋白之報告型態各院不一， 強制單一 Scale 將使部分機構無碼可用——**允許此二碼於同一值集內跨 Scale 綁定， 由實作端自行對應**。定性結果不得逕行視為半定量分級，反之亦然； 接收端如需區分，應保留原始 `coding`。⚠️ **這是經治理裁示之刻意設計，不是缺陷。** 載為明文之目的即在於： 後續術語稽核若再次偵測到本組跨 Scale，應比對本節後放行，**不得再列為待處理事項， 亦不得以「一致性」為由逕自刪碼**。同一意旨另註於 [VS-CoreDataset](ValueSet-VS-CoreDataset.md) 之 `06003C` 定性區塊。📌 本例外**僅限本組兩碼**。其他項目如出現跨 Scale 綁定，須各自取得治理裁示並比照載明， 不得援引本節概括適用。
+> **治理決議（2026-08-22）**：考量國內 LIS 系統現況——試紙尿蛋白之報告型態各院不一， 強制單一 Scale 將使部分機構無碼可用——**允許此二碼於同一值集內跨 Scale 綁定， 由實作端自行對應**。定性結果不得逕行視為半定量分級，反之亦然； 接收端如需區分，應保留原始 `coding`。⚠️ **這是經治理裁示之刻意設計，不是缺陷。** 載為明文之目的即在於： 後續術語稽核若再次偵測到本組跨 Scale，應比對本節後放行，**不得再列為待處理事項， 亦不得以「一致性」為由逕自刪碼**。同一意旨另註於 [VS-CoreDataset](ValueSet-VS-CoreDataset.md) 之 `06003C` 定性區塊。📌 本例外**僅限本節表列之尿蛋白定性一組**（v0.10.2 由兩碼擴及五碼，其中 `50561-0` 未跨 Scale、不屬例外之標的）。其他項目如出現跨 Scale 綁定，須各自取得治理裁示並比照載明， 不得援引本節概括適用。⚠️ **本例外之效力僅及於值集層，不及於歸一層。** 三個跨 Scale 之碼於 [ConceptMap](ConceptMap-TWHealthCheckLaboratoryMap.md) 一律標 `relatedto`—— `wider`／`narrower` 宣告的是語意包含關係，而 `PrThr` 與 `MCnc` 之間沒有包含關係。 詳見 §3.2 之 `element[47]`／`[48]` 說明。
 
 ### 3.2 代碼映射 ConceptMap
 
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.md) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **45 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride –fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729 新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收先前整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.md) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **49 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride –fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729 新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收先前整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。
 
 **v0.10.1（2026-08-22 委員決議）新增 4 組，由 41 組增為 45 組**——溯源為候選碼經 `tx.fhir.org` `$lookup` 補充查證（LOINC 2.82）全數 ACTIVE，據此提委員裁示：
 
@@ -120,6 +123,35 @@
 | `element[44]` | `56115-9`→`8280-0` | `relatedto` | NCFS protocol 碼，同上 |
 
 > ⚠️ **四組中僅 `element[41]` 為 `wider`。** 差別在「條件特化」與「同層兄弟／protocol 碼」， 不可一體套用——這正是 §3.2.1 判準要逐組看的原因。📌 **`3048-6` 之處置係「改列」而非「判廢」**：v20260726 將其自 HDL-C 移除，係因其官方語意 實為 Triglyceride –fasting（掛錯項目）；2026-08-22 委員決議認定健檢實務確為空腹採檢， 故改列**三酸甘油酯（`09004C`）之 Acceptable**。HDL-C 之 acceptable 仍為 `(-確定無合適碼)`（LOINC 現無乾淨之 HDL-in-Blood 代碼）。📌 **`56114-2`／`56115-9` 與既有之 `56086-2` 同屬「僅在 ConceptMap、不納入任何值集」**： 三者皆為量測 protocol／調查工具碼而非量測碼，收進值集會使實作端誤以為可作 `Observation.code`；保留歸一路徑則使以該等碼上傳之院所仍可被正確對應。
+
+**v0.10.2（2026-08-22 第二批委員決議）再新增 4 組，由 45 組增為 49 組**—— 四碼經 `$lookup` 查證（LOINC 2.82）均為 ACTIVE：
+
+| | | | | |
+| :--- | :--- | :--- | :--- | :--- |
+| `element[45]` | `1644-4`→`2571-8` | **`wider`** | Qn／MCnc | 指定**12 小時**空腹之條件特化，target 未指定空腹（同`element[41]`之`3048-6`） |
+| `element[46]` | `50561-0`→`5804-0` | **`wider`** | **SemiQn／MCnc** | 與 target**同 Property 同 Scale**，僅 Method 特化（自動化試紙）——屬包含關係 |
+| `element[47]` | `2887-8`→`5804-0` | **`relatedto`** | **Ord／PrThr** | Property 與 Scale**均與 target 不同**，無包含關係 |
+| `element[48]` | `20454-5`→`5804-0` | **`relatedto`** | **Ord／PrThr** | 同上；Method 雖同為試紙法，仍不構成包含關係 |
+
+> 
+
+### ⚠️ 為什麼 [47]／[48] 不能標 wider——值集層與歸一層是兩件事
+
+本指引於 §3.1.1 已明文允許尿蛋白定性之**跨 Scale 綁定**。那是**值集層**之治理決議： 值集可以收 `Ord` 與 `SemiQn` 並存，由實作端自行對應。但 ConceptMap 之 `wider`／`narrower` 宣告的是**語意包含關係**，屬**歸一層**之術語斷言。 `PrThr`（有無之閾值判定）與 `MCnc`（質量濃度）之間**沒有包含關係**—— 兩者報告的是同一分析物的不同事實，不是一個為另一個之特化。**若因值集層已允許跨 Scale 就把歸一標成 `wider`，等於以治理決議覆蓋術語事實**， 那正是本指引一再要求分開的兩件事。`relatedto` 是唯一誠實的值。 既有先例為 `element[39]`（`63557-3` 定量 → `5196-1` 定性），判準完全相同。📌 對照之下，`element[46]`（`50561-0`）**不跨 Scale**，故標 `wider` 並無此問題—— 同一批四碼之中，只有這一碼與 target 同軸。
+
+> 
+
+### 🔴 連帶更正（v0.10.2）：element[38]（57735-3）由 wider 改為 relatedto
+
+上開判準（**source 與 target 之 `PROPERTY` 與 `SCALE_TYP` 兩軸是否相同**）套回既有資料， `element[38]` 站不住：
+
+| | | | | |
+| :--- | :--- | :--- | :--- | :--- |
+| `5804-0`（target） | `MCnc`／`SemiQn` | Test strip | — | — |
+| `20454-5`（`element[48]`） | `PrThr`／`Ord` | Test strip | — | `relatedto` |
+| **`57735-3`（`element[38]`）** | `PrThr`／`Ord` | Automated strip | **`wider`** | **`relatedto`** |
+
+`57735-3` 與 `20454-5` 對 `5804-0` 之軸差**完全相同**（`PROPERTY` 與 `SCALE_TYP` 均不同， 僅 `METHOD` 一為自動化、一為否），若不一併更正，同一份 ConceptMap 內會出現兩個軸關係 一模一樣的碼掛著不同的 `equivalence`。**成因**：該組原 comment 為「source 指定自動化試紙判讀，target 方法未指定自動化； target 語意較廣」——**只描述了 `METHOD` 一軸，漏看 `PROPERTY` 與 `SCALE_TYP` 亦不相同**。 方向敘述本身自洽，故一致性閘門（`fix-conceptmap-equivalence.js`）判為通過； 該閘門檢查的是「comment 之方向敘述與 `equivalence` 值是否相符」， **不檢查 comment 是否把該看的軸都看過了**。⚠️ **對實作端之影響（請注意，這是語意翻轉）**：本組之「數值可否直接比較」由 **「可」翻為「不可」**。先前依 `wider` 而將自動化試紙之定性結果與試紙半定量分級 直接比較者，須改為**依判讀閾值轉換**，或保留原始 `coding` 不做歸一。 `50561-0`（`element[46]`）未跨 Scale，**不受此更正影響**。
 
 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.md)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
@@ -139,9 +171,9 @@
 1. **R5 已改名為 `source-is-…-than-target`**，把主詞寫進代碼名稱本身，消除 R4 裸用`narrower`／`wider`之歧義。**本表即為升 R5 之遷移對照。**
 1. **R4 之 `relatedto` 為階層頂點（Level 1），官方定義為「概念間有關聯、語意有部分重疊， 惟確切關係未知」。**本 IG 以之承載「需換算／不同量測方式／不同檢體」，係因 R4 無 「需單位換算」之專用代碼；**實作端不得據以自動換算數值**，此一用法限制特此揭露。
 
-> **v20260730 之更正**：本 IG 原依內部文件之 **source-relative** 定義填寫 `equivalence`，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment 與 display 相互矛盾（先前僅修 display 未同步修 comment 之殘留）。已全數更正， 更正後（39 組時）之分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0； 其後移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**該時分佈為 `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組；v0.10.1 依委員決議 新增 4 組後，現行分佈為 `wider` 13／`narrower` 6／`relatedto` 26／`equivalent` 0， 共 45 組，逐組見 §3.2）**。 **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門 （`scripts/fix-conceptmap-equivalence.js --check`）。
+> **v20260730 之更正**：本 IG 原依內部文件之 **source-relative** 定義填寫 `equivalence`，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment 與 display 相互矛盾（先前僅修 display 未同步修 comment 之殘留）。已全數更正， 更正後（39 組時）之分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0； 其後移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**該時分佈為 `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組；v0.10.1 與 v0.10.2 依 委員決議各新增 4 組、並將 `element[38]` 由 `wider` 更正為 `relatedto` 後，現行分佈為 `wider` 14／`narrower` 6／`relatedto` 29／`equivalent` 0，共 49 組，逐組見 §3.2）**。 **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門 （`scripts/fix-conceptmap-equivalence.js --check`）。
 
-> **`equivalent` 為 0 係刻意結果，非遺漏**：R4 之 `equivalent` 僅適用於「概念定義完全等義」。 經 45 組逐組覆核，本 IG 無任何一組符合——原標 `equivalent` 之 2 組（`26464-8`→`6690-2`、 `28539-5`→`785-6`）實為「source 方法未指定、target 指定 Automated count」，屬包含關係而非等義， 已於 v20260730 改為 `narrower`。凡本 IG 收為 acceptable 者，皆與其 preferred 至少差一軸 （方法、檢體、量綱或條件），故不存在完全等義之配對。
+> **`equivalent` 為 0 係刻意結果，非遺漏**：R4 之 `equivalent` 僅適用於「概念定義完全等義」。 經 49 組逐組覆核，本 IG 無任何一組符合——原標 `equivalent` 之 2 組（`26464-8`→`6690-2`、 `28539-5`→`785-6`）實為「source 方法未指定、target 指定 Automated count」，屬包含關係而非等義， 已於 v20260730 改為 `narrower`。凡本 IG 收為 acceptable 者，皆與其 preferred 至少差一軸 （方法、檢體、量綱或條件），故不存在完全等義之配對。
 
 #### 3.2.2 2888-6／5804-0 之關係（v20260730 移除誤設之歸一）
 
@@ -214,7 +246,7 @@
 | 肝功能 | ALT (GPT) | `1742-6` | `{1743-4, 1744-2}` | 34608000 | U/L | 附表九/成健 |
 | 肝功能 | ALP | `6768-6` | — | 88810008 | U/L | 附表九 |
 | 脂質 | 總膽固醇 | `2093-3` | `{35200-5}` | 77068002 | mg/dL | 成健 |
-| 脂質 | 三酸甘油酯 | `2571-8` | `{3043-7, 3048-6}` | 14740000 | mg/dL | 成健 |
+| 脂質 | 三酸甘油酯 | `2571-8` | `{3043-7, 3048-6, 1644-4}` | 14740000 | mg/dL | 成健 |
 | 脂質 | HDL-C | `2085-9` | (-確定無合適碼) | 17888004 | mg/dL | 成健 |
 | 脂質 | LDL-C (方法通用) | `2089-1` | `{13457-7, 18262-6}` | 113079009 | mg/dL | 成健 |
 | 內分泌 | HbA1c (NGSP) | `4548-4` | `{59261-8}` | 43396009 | % | 成健/進階 |
@@ -224,7 +256,7 @@
 | 癌標 | CEA | `2039-6` | `{83085-1}` | 60267001 | ng/mL | 進階 |
 | 肝炎 | HBsAg | `5196-1` | `{5195-3, 63557-3}` | 39082004 | — | 成健 |
 | 肝炎 | anti-HCV | `13955-0` | `{16128-1}` | 32218006 | — | 成健 |
-| 尿液 | 尿蛋白 (試紙) | `5804-0` | `{57735-3}` | 167273002 | — | 附表九/成健 |
+| 尿液 | 尿蛋白 (試紙) | `5804-0` | `{57735-3, 50561-0, 2887-8, 20454-5}` | 167273002 | — | 附表九/成健 |
 | 尿沉渣 | 細菌 Bacteria | `51480-2` | `{33218-9}` | — | /uL | — |
 | 尿沉渣 | 鱗狀上皮細胞 | `51486-9` | `{33219-7}` | — | /uL | — |
 | 尿沉渣 | 透明圓柱 | `51484-4` | `{33223-9}` | — | /uL | — |

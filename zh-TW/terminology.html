@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.1</title>
+    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.2</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.10.1 - STU1
+            <span style="display:inline-block;">0.10.2 - STU1
 
 
             </span>
@@ -203,7 +203,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.10.1  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.10.2  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>術語與代碼系統</h2>
   
 
@@ -228,6 +228,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li><a href="#3-loinc-術語治理機制-loinc-terminology-governance" id="markdown-toc-3-loinc-術語治理機制-loinc-terminology-governance">3. LOINC 術語治理機制 (LOINC Terminology Governance)</a>        <ul>
           <li><a href="#31-治理機制定義" id="markdown-toc-31-治理機制定義">3.1 治理機制定義</a></li>
           <li><a href="#32-代碼映射-conceptmap" id="markdown-toc-32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</a></li>
+          <li><a href="#️-為什麼-4748-不能標-wider值集層與歸一層是兩件事" id="markdown-toc-️-為什麼-4748-不能標-wider值集層與歸一層是兩件事">⚠️ 為什麼 <code class="language-plaintext highlighter-rouge">[47]</code>／<code class="language-plaintext highlighter-rouge">[48]</code> 不能標 <code class="language-plaintext highlighter-rouge">wider</code>——值集層與歸一層是兩件事</a></li>
+          <li><a href="#-連帶更正v0102element3857735-3由-wider-改為-relatedto" id="markdown-toc--連帶更正v0102element3857735-3由-wider-改為-relatedto">&#x1F534; 連帶更正（v0.10.2）：<code class="language-plaintext highlighter-rouge">element[38]</code>（<code class="language-plaintext highlighter-rouge">57735-3</code>）由 <code class="language-plaintext highlighter-rouge">wider</code> 改為 <code class="language-plaintext highlighter-rouge">relatedto</code></a></li>
         </ul>
       </li>
       <li><a href="#4-跨術語對照表" id="markdown-toc-4-跨術語對照表">4. 跨術語對照表</a>        <ul>
@@ -462,6 +464,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <th style="text-align: left">官方顯示名</th>
       <th style="text-align: left"><code class="language-plaintext highlighter-rouge">SCALE_TYP</code></th>
       <th style="text-align: left"><code class="language-plaintext highlighter-rouge">PROPERTY</code></th>
+      <th style="text-align: left">是否跨 Scale</th>
     </tr>
   </thead>
   <tbody>
@@ -471,6 +474,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">Protein [Mass/volume] in Urine by Test strip</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SemiQn</code></td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MCnc</code></td>
+      <td style="text-align: left">—</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Acceptable</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">50561-0</code></td>
+      <td style="text-align: left">Protein [Mass/volume] in Urine by Automated test strip</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">SemiQn</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MCnc</code></td>
+      <td style="text-align: left"><strong>否</strong>（同軸）</td>
     </tr>
     <tr>
       <td style="text-align: left">Acceptable</td>
@@ -478,6 +490,23 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">Protein [Presence] in Urine by Automated test strip</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Ord</code></td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PrThr</code></td>
+      <td style="text-align: left"><strong>是</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Acceptable</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2887-8</code></td>
+      <td style="text-align: left">Protein [Presence] in Urine</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Ord</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PrThr</code></td>
+      <td style="text-align: left"><strong>是</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Acceptable</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">20454-5</code></td>
+      <td style="text-align: left">Protein [Presence] in Urine by Test strip</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">Ord</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PrThr</code></td>
+      <td style="text-align: left"><strong>是</strong></td>
     </tr>
   </tbody>
 </table>
@@ -493,12 +522,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 亦不得以「一致性」為由逕自刪碼</strong>。同一意旨另註於
 <a href="ValueSet-VS-CoreDataset.html">VS-CoreDataset</a> 之 <code class="language-plaintext highlighter-rouge">06003C</code> 定性區塊。</p>
 
-  <p>&#x1F4CC; 本例外<strong>僅限本組兩碼</strong>。其他項目如出現跨 Scale 綁定，須各自取得治理裁示並比照載明，
+  <p>&#x1F4CC; 本例外<strong>僅限本節表列之尿蛋白定性一組</strong>（v0.10.2 由兩碼擴及五碼，其中 <code class="language-plaintext highlighter-rouge">50561-0</code> 未跨
+Scale、不屬例外之標的）。其他項目如出現跨 Scale 綁定，須各自取得治理裁示並比照載明，
 不得援引本節概括適用。</p>
+
+  <p>⚠️ <strong>本例外之效力僅及於值集層，不及於歸一層。</strong> 三個跨 Scale 之碼於
+<a href="ConceptMap-TWHealthCheckLaboratoryMap.html">ConceptMap</a> 一律標 <code class="language-plaintext highlighter-rouge">relatedto</code>——
+<code class="language-plaintext highlighter-rouge">wider</code>／<code class="language-plaintext highlighter-rouge">narrower</code> 宣告的是語意包含關係，而 <code class="language-plaintext highlighter-rouge">PrThr</code> 與 <code class="language-plaintext highlighter-rouge">MCnc</code> 之間沒有包含關係。
+詳見 &sect;3.2 之 <code class="language-plaintext highlighter-rouge">element[47]</code>／<code class="language-plaintext highlighter-rouge">[48]</code> 說明。</p>
 </blockquote>
 
 <h3 id="32-代碼映射-conceptmap">3.2 代碼映射 ConceptMap</h3>
-<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>45 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred <code class="language-plaintext highlighter-rouge">2089-1</code> 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）與腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）。<strong>v20260726（Wave 9）移除 3 組語意錯誤之對應</strong>：聽力 <code class="language-plaintext highlighter-rouge">21104-5</code>（實為 Deprecated 大豆粉塵 IgE）、尿酸 <code class="language-plaintext highlighter-rouge">49154-8</code>（實為 Rickettsia conorii IgG Ab）、HDL <code class="language-plaintext highlighter-rouge">3048-6</code>（實為 Triglyceride –fasting），該三項之 acceptable 均改標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。<strong>v20260729 新增尿沉渣自動計數 9 組</strong>（/HPF 面積碼 → /µL 體積碼，以 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一），回收先前整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。</p>
+<p>本指引建置了 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">TWHealthCheckLaboratoryMap</a> 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 <strong>49 組映射</strong>，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred <code class="language-plaintext highlighter-rouge">2089-1</code> 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（<code class="language-plaintext highlighter-rouge">23749-5</code>→<code class="language-plaintext highlighter-rouge">5671-3</code>）與腰圍（<code class="language-plaintext highlighter-rouge">56086-2</code>→<code class="language-plaintext highlighter-rouge">8280-0</code>）。<strong>v20260726（Wave 9）移除 3 組語意錯誤之對應</strong>：聽力 <code class="language-plaintext highlighter-rouge">21104-5</code>（實為 Deprecated 大豆粉塵 IgE）、尿酸 <code class="language-plaintext highlighter-rouge">49154-8</code>（實為 Rickettsia conorii IgG Ab）、HDL <code class="language-plaintext highlighter-rouge">3048-6</code>（實為 Triglyceride –fasting），該三項之 acceptable 均改標 <code class="language-plaintext highlighter-rouge">(-確定無合適碼)</code>。<strong>v20260729 新增尿沉渣自動計數 9 組</strong>（/HPF 面積碼 → /µL 體積碼，以 <code class="language-plaintext highlighter-rouge">#relatedto</code> 歸一），回收先前整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。</p>
 
 <p><strong>v0.10.1（2026-08-22 委員決議）新增 4 組，由 41 組增為 45 組</strong>——溯源為候選碼經
 <code class="language-plaintext highlighter-rouge">tx.fhir.org</code> <code class="language-plaintext highlighter-rouge">$lookup</code> 補充查證（LOINC 2.82）全數 ACTIVE，據此提委員裁示：</p>
@@ -552,6 +587,126 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <p>&#x1F4CC; <strong><code class="language-plaintext highlighter-rouge">56114-2</code>／<code class="language-plaintext highlighter-rouge">56115-9</code> 與既有之 <code class="language-plaintext highlighter-rouge">56086-2</code> 同屬「僅在 ConceptMap、不納入任何值集」</strong>：
 三者皆為量測 protocol／調查工具碼而非量測碼，收進值集會使實作端誤以為可作
 <code class="language-plaintext highlighter-rouge">Observation.code</code>；保留歸一路徑則使以該等碼上傳之院所仍可被正確對應。</p>
+</blockquote>
+
+<p><strong>v0.10.2（2026-08-22 第二批委員決議）再新增 4 組，由 45 組增為 49 組</strong>——
+四碼經 <code class="language-plaintext highlighter-rouge">$lookup</code> 查證（LOINC 2.82）均為 ACTIVE：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">組</th>
+      <th style="text-align: left">source → target</th>
+      <th style="text-align: left"><code class="language-plaintext highlighter-rouge">equivalence</code></th>
+      <th style="text-align: left">source 之 Scale／Property</th>
+      <th style="text-align: left">何以如此判</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">element[45]</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">1644-4</code> → <code class="language-plaintext highlighter-rouge">2571-8</code></td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">wider</code></strong></td>
+      <td style="text-align: left">Qn／MCnc</td>
+      <td style="text-align: left">指定 <strong>12 小時</strong>空腹之條件特化，target 未指定空腹（同 <code class="language-plaintext highlighter-rouge">element[41]</code> 之 <code class="language-plaintext highlighter-rouge">3048-6</code>）</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">element[46]</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">50561-0</code> → <code class="language-plaintext highlighter-rouge">5804-0</code></td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">wider</code></strong></td>
+      <td style="text-align: left"><strong>SemiQn／MCnc</strong></td>
+      <td style="text-align: left">與 target <strong>同 Property 同 Scale</strong>，僅 Method 特化（自動化試紙）——屬包含關係</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">element[47]</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2887-8</code> → <code class="language-plaintext highlighter-rouge">5804-0</code></td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">relatedto</code></strong></td>
+      <td style="text-align: left"><strong>Ord／PrThr</strong></td>
+      <td style="text-align: left">Property 與 Scale <strong>均與 target 不同</strong>，無包含關係</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">element[48]</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">20454-5</code> → <code class="language-plaintext highlighter-rouge">5804-0</code></td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">relatedto</code></strong></td>
+      <td style="text-align: left"><strong>Ord／PrThr</strong></td>
+      <td style="text-align: left">同上；Method 雖同為試紙法，仍不構成包含關係</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <h3 id="️-為什麼-4748-不能標-wider值集層與歸一層是兩件事">⚠️ 為什麼 <code class="language-plaintext highlighter-rouge">[47]</code>／<code class="language-plaintext highlighter-rouge">[48]</code> 不能標 <code class="language-plaintext highlighter-rouge">wider</code>——值集層與歸一層是兩件事</h3>
+
+  <p>本指引於 &sect;3.1.1 已明文允許尿蛋白定性之<strong>跨 Scale 綁定</strong>。那是<strong>值集層</strong>之治理決議：
+值集可以收 <code class="language-plaintext highlighter-rouge">Ord</code> 與 <code class="language-plaintext highlighter-rouge">SemiQn</code> 並存，由實作端自行對應。</p>
+
+  <p>但 ConceptMap 之 <code class="language-plaintext highlighter-rouge">wider</code>／<code class="language-plaintext highlighter-rouge">narrower</code> 宣告的是<strong>語意包含關係</strong>，屬<strong>歸一層</strong>之術語斷言。
+<code class="language-plaintext highlighter-rouge">PrThr</code>（有無之閾值判定）與 <code class="language-plaintext highlighter-rouge">MCnc</code>（質量濃度）之間<strong>沒有包含關係</strong>——
+兩者報告的是同一分析物的不同事實，不是一個為另一個之特化。</p>
+
+  <p><strong>若因值集層已允許跨 Scale 就把歸一標成 <code class="language-plaintext highlighter-rouge">wider</code>，等於以治理決議覆蓋術語事實</strong>，
+那正是本指引一再要求分開的兩件事。<code class="language-plaintext highlighter-rouge">relatedto</code> 是唯一誠實的值。
+既有先例為 <code class="language-plaintext highlighter-rouge">element[39]</code>（<code class="language-plaintext highlighter-rouge">63557-3</code> 定量 → <code class="language-plaintext highlighter-rouge">5196-1</code> 定性），判準完全相同。</p>
+
+  <p>&#x1F4CC; 對照之下，<code class="language-plaintext highlighter-rouge">element[46]</code>（<code class="language-plaintext highlighter-rouge">50561-0</code>）<strong>不跨 Scale</strong>，故標 <code class="language-plaintext highlighter-rouge">wider</code> 並無此問題——
+同一批四碼之中，只有這一碼與 target 同軸。</p>
+</blockquote>
+
+<blockquote>
+  <h3 id="-連帶更正v0102element3857735-3由-wider-改為-relatedto">&#x1F534; 連帶更正（v0.10.2）：<code class="language-plaintext highlighter-rouge">element[38]</code>（<code class="language-plaintext highlighter-rouge">57735-3</code>）由 <code class="language-plaintext highlighter-rouge">wider</code> 改為 <code class="language-plaintext highlighter-rouge">relatedto</code></h3>
+
+  <p>上開判準（<strong>source 與 target 之 <code class="language-plaintext highlighter-rouge">PROPERTY</code> 與 <code class="language-plaintext highlighter-rouge">SCALE_TYP</code> 兩軸是否相同</strong>）套回既有資料，
+<code class="language-plaintext highlighter-rouge">element[38]</code> 站不住：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left">碼</th>
+        <th style="text-align: left"><code class="language-plaintext highlighter-rouge">PROPERTY</code>／<code class="language-plaintext highlighter-rouge">SCALE_TYP</code></th>
+        <th style="text-align: left"><code class="language-plaintext highlighter-rouge">METHOD</code></th>
+        <th style="text-align: left">原 <code class="language-plaintext highlighter-rouge">equivalence</code></th>
+        <th style="text-align: left">現行</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5804-0</code>（target）</td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MCnc</code>／<code class="language-plaintext highlighter-rouge">SemiQn</code></td>
+        <td style="text-align: left">Test strip</td>
+        <td style="text-align: left">—</td>
+        <td style="text-align: left">—</td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">20454-5</code>（<code class="language-plaintext highlighter-rouge">element[48]</code>）</td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PrThr</code>／<code class="language-plaintext highlighter-rouge">Ord</code></td>
+        <td style="text-align: left">Test strip</td>
+        <td style="text-align: left">—</td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">relatedto</code></td>
+      </tr>
+      <tr>
+        <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">57735-3</code>（<code class="language-plaintext highlighter-rouge">element[38]</code>）</strong></td>
+        <td style="text-align: left"><code class="language-plaintext highlighter-rouge">PrThr</code>／<code class="language-plaintext highlighter-rouge">Ord</code></td>
+        <td style="text-align: left">Automated strip</td>
+        <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">wider</code></strong></td>
+        <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">relatedto</code></strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><code class="language-plaintext highlighter-rouge">57735-3</code> 與 <code class="language-plaintext highlighter-rouge">20454-5</code> 對 <code class="language-plaintext highlighter-rouge">5804-0</code> 之軸差<strong>完全相同</strong>（<code class="language-plaintext highlighter-rouge">PROPERTY</code> 與 <code class="language-plaintext highlighter-rouge">SCALE_TYP</code> 均不同，
+僅 <code class="language-plaintext highlighter-rouge">METHOD</code> 一為自動化、一為否），若不一併更正，同一份 ConceptMap 內會出現兩個軸關係
+一模一樣的碼掛著不同的 <code class="language-plaintext highlighter-rouge">equivalence</code>。</p>
+
+  <p><strong>成因</strong>：該組原 comment 為「source 指定自動化試紙判讀，target 方法未指定自動化；
+target 語意較廣」——<strong>只描述了 <code class="language-plaintext highlighter-rouge">METHOD</code> 一軸，漏看 <code class="language-plaintext highlighter-rouge">PROPERTY</code> 與 <code class="language-plaintext highlighter-rouge">SCALE_TYP</code> 亦不相同</strong>。
+方向敘述本身自洽，故一致性閘門（<code class="language-plaintext highlighter-rouge">fix-conceptmap-equivalence.js</code>）判為通過；
+該閘門檢查的是「comment 之方向敘述與 <code class="language-plaintext highlighter-rouge">equivalence</code> 值是否相符」，
+<strong>不檢查 comment 是否把該看的軸都看過了</strong>。</p>
+
+  <p>⚠️ <strong>對實作端之影響（請注意，這是語意翻轉）</strong>：本組之「數值可否直接比較」由
+<strong>「可」翻為「不可」</strong>。先前依 <code class="language-plaintext highlighter-rouge">wider</code> 而將自動化試紙之定性結果與試紙半定量分級
+直接比較者，須改為<strong>依判讀閾值轉換</strong>，或保留原始 <code class="language-plaintext highlighter-rouge">coding</code> 不做歸一。
+<code class="language-plaintext highlighter-rouge">50561-0</code>（<code class="language-plaintext highlighter-rouge">element[46]</code>）未跨 Scale，<strong>不受此更正影響</strong>。</p>
 </blockquote>
 
 <p>另建置 <a href="ConceptMap-Appendix10-to-HazardType.html">Appendix10-to-HazardType</a>，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。</p>
@@ -619,9 +774,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 與 display 相互矛盾（先前僅修 display 未同步修 comment 之殘留）。已全數更正，
 更正後（39 組時）之分佈為 <code class="language-plaintext highlighter-rouge">wider</code> 10／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0；
 其後移除 <code class="language-plaintext highlighter-rouge">2888-6</code>（見 &sect;3.2.2）並補列 3 組原無歸一路徑者，<strong>該時分佈為
-<code class="language-plaintext highlighter-rouge">wider</code> 12／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0（共 41 組；v0.10.1 依委員決議
-新增 4 組後，現行分佈為 <code class="language-plaintext highlighter-rouge">wider</code> 13／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 26／<code class="language-plaintext highlighter-rouge">equivalent</code> 0，
-共 45 組，逐組見 &sect;3.2）</strong>。
+<code class="language-plaintext highlighter-rouge">wider</code> 12／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0（共 41 組；v0.10.1 與 v0.10.2 依
+委員決議各新增 4 組、並將 <code class="language-plaintext highlighter-rouge">element[38]</code> 由 <code class="language-plaintext highlighter-rouge">wider</code> 更正為 <code class="language-plaintext highlighter-rouge">relatedto</code> 後，現行分佈為
+<code class="language-plaintext highlighter-rouge">wider</code> 14／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 29／<code class="language-plaintext highlighter-rouge">equivalent</code> 0，共 49 組，逐組見 &sect;3.2）</strong>。
 <strong>v20260729 及更早之下載檔或網站快照，其 <code class="language-plaintext highlighter-rouge">narrower</code>／<code class="language-plaintext highlighter-rouge">wider</code> 方向為錯誤值</strong>，請以本版為準。
 為防再度脫節，comment 之方向敘述與 <code class="language-plaintext highlighter-rouge">equivalence</code> 值之一致性已納入 CI 閘門
 （<code class="language-plaintext highlighter-rouge">scripts/fix-conceptmap-equivalence.js --check</code>）。</p>
@@ -629,7 +784,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <blockquote>
   <p><strong><code class="language-plaintext highlighter-rouge">equivalent</code> 為 0 係刻意結果，非遺漏</strong>：R4 之 <code class="language-plaintext highlighter-rouge">equivalent</code> 僅適用於「概念定義完全等義」。
-經 45 組逐組覆核，本 IG 無任何一組符合——原標 <code class="language-plaintext highlighter-rouge">equivalent</code> 之 2 組（<code class="language-plaintext highlighter-rouge">26464-8</code>→<code class="language-plaintext highlighter-rouge">6690-2</code>、
+經 49 組逐組覆核，本 IG 無任何一組符合——原標 <code class="language-plaintext highlighter-rouge">equivalent</code> 之 2 組（<code class="language-plaintext highlighter-rouge">26464-8</code>→<code class="language-plaintext highlighter-rouge">6690-2</code>、
 <code class="language-plaintext highlighter-rouge">28539-5</code>→<code class="language-plaintext highlighter-rouge">785-6</code>）實為「source 方法未指定、target 指定 Automated count」，屬包含關係而非等義，
 已於 v20260730 改為 <code class="language-plaintext highlighter-rouge">narrower</code>。凡本 IG 收為 acceptable 者，皆與其 preferred 至少差一軸
 （方法、檢體、量綱或條件），故不存在完全等義之配對。</p>
@@ -939,7 +1094,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">脂質</td>
       <td style="text-align: left">三酸甘油酯</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">2571-8</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{3043-7, 3048-6}</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{3043-7, 3048-6, 1644-4}</code></td>
       <td style="text-align: left">14740000</td>
       <td style="text-align: left">mg/dL</td>
       <td style="text-align: left">成健</td>
@@ -1029,7 +1184,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">尿液</td>
       <td style="text-align: left">尿蛋白 (試紙)</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">5804-0</code></td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{57735-3}</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{57735-3, 50561-0, 2887-8, 20454-5}</code></td>
       <td style="text-align: left">167273002</td>
       <td style="text-align: left">—</td>
       <td style="text-align: left">附表九/成健</td>
@@ -2033,9 +2188,9 @@ ConceptMap 對映的是概念與概念，不是概念與數值。</p>
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.10.1，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.10.2，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-22 08:31:00 +0000">
+  <span title="2026-08-22 14:05:00 +0000">
     2026-08-22
   </span>
 

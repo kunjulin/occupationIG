@@ -1,4 +1,4 @@
-# 勞工健康檢查法定必驗項目值集（第一期草案） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.1
+# 勞工健康檢查法定必驗項目值集（第一期草案） - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.2
 
 ## ValueSet: 勞工健康檢查法定必驗項目值集（第一期草案） (實驗性) 
 
@@ -32,12 +32,12 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required",
-  "version" : "0.10.1",
+  "version" : "0.10.2",
   "name" : "VS_OccHealthCheckRequired",
   "title" : "勞工健康檢查法定必驗項目值集（第一期草案）",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-22T08:31:54+00:00",
+  "date" : "2026-08-22T14:05:28+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
