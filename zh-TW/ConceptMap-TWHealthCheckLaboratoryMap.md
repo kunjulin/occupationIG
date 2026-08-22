@@ -1,4 +1,4 @@
-# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.2
+# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.3
 
 ## ConceptMap: 健康檢查檢驗項目代碼對應 ConceptMap 
 
@@ -18,7 +18,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap",
-  "version" : "0.10.2",
+  "version" : "0.10.3",
   "name" : "TWHealthCheckLaboratoryMap",
   "title" : "健康檢查檢驗項目代碼對應 ConceptMap",
   "status" : "active",
@@ -161,8 +161,8 @@
       "target" : [{
         "code" : "787-2",
         "display" : "MCV [Entitic mean volume] in Red Blood Cells by Automated count",
-        "equivalence" : "relatedto",
-        "comment" : "calculation 與 Automated count 為不同具體方法，無包含關係"
+        "equivalence" : "narrower",
+        "comment" : "source 方法未指定，target 指定 Automated count；target 語意較窄。⚠️ v0.10.3 更正：本組原標 relatedto，comment 為「calculation 與 Automated count 為不同具體方法，無包含關係」——惟 30428-7 之 METHOD_TYP 於 LOINC 實為**未指定**，並非 calculation，該 comment 主張了 source 不具備的方法。六軸與 element[10]（26515-7 → 777-3）及 element[12]（28539-5 → 785-6）完全相同，該二組皆標 narrower。⚠️ 對實作端之影響：該組之「數值可否直接比較」由「不可」翻為**可**——同一量測之方法通用碼與 Automated count 特化碼屬包含關係，先前依 relatedto 而不予比較者可改為直接比較。"
       }]
     },
     {

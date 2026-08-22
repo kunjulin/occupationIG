@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.2</title>
+    <title>術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.3</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.10.2 - STU1
+            <span style="display:inline-block;">0.10.3 - STU1
 
 
             </span>
@@ -203,7 +203,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.10.2  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.10.3  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>術語與代碼系統</h2>
   
 
@@ -775,11 +775,38 @@ target 語意較廣」——<strong>只描述了 <code class="language-plaintext
 更正後（39 組時）之分佈為 <code class="language-plaintext highlighter-rouge">wider</code> 10／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0；
 其後移除 <code class="language-plaintext highlighter-rouge">2888-6</code>（見 &sect;3.2.2）並補列 3 組原無歸一路徑者，<strong>該時分佈為
 <code class="language-plaintext highlighter-rouge">wider</code> 12／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 23／<code class="language-plaintext highlighter-rouge">equivalent</code> 0（共 41 組；v0.10.1 與 v0.10.2 依
-委員決議各新增 4 組、並將 <code class="language-plaintext highlighter-rouge">element[38]</code> 由 <code class="language-plaintext highlighter-rouge">wider</code> 更正為 <code class="language-plaintext highlighter-rouge">relatedto</code> 後，現行分佈為
-<code class="language-plaintext highlighter-rouge">wider</code> 14／<code class="language-plaintext highlighter-rouge">narrower</code> 6／<code class="language-plaintext highlighter-rouge">relatedto</code> 29／<code class="language-plaintext highlighter-rouge">equivalent</code> 0，共 49 組，逐組見 &sect;3.2）</strong>。
+委員決議各新增 4 組、並將 <code class="language-plaintext highlighter-rouge">element[38]</code> 由 <code class="language-plaintext highlighter-rouge">wider</code> 更正為 <code class="language-plaintext highlighter-rouge">relatedto</code>，v0.10.3 再將
+<code class="language-plaintext highlighter-rouge">element[11]</code> 由 <code class="language-plaintext highlighter-rouge">relatedto</code> 更正為 <code class="language-plaintext highlighter-rouge">narrower</code> 後，現行分佈為
+<code class="language-plaintext highlighter-rouge">wider</code> 14／<code class="language-plaintext highlighter-rouge">narrower</code> 7／<code class="language-plaintext highlighter-rouge">relatedto</code> 28／<code class="language-plaintext highlighter-rouge">equivalent</code> 0，共 49 組，逐組見 &sect;3.2）</strong>。
 <strong>v20260729 及更早之下載檔或網站快照，其 <code class="language-plaintext highlighter-rouge">narrower</code>／<code class="language-plaintext highlighter-rouge">wider</code> 方向為錯誤值</strong>，請以本版為準。
-為防再度脫節，comment 之方向敘述與 <code class="language-plaintext highlighter-rouge">equivalence</code> 值之一致性已納入 CI 閘門
-（<code class="language-plaintext highlighter-rouge">scripts/fix-conceptmap-equivalence.js --check</code>）。</p>
+為防再度脫節，<code class="language-plaintext highlighter-rouge">equivalence</code> 之一致性已納入 CI 閘門
+（<code class="language-plaintext highlighter-rouge">scripts/check-conceptmap-axes.js --check</code>）。</p>
+</blockquote>
+
+<blockquote>
+  <p>&#x1F534; <strong>判準更換（v0.10.3）</strong>：上述閘門原以 comment 之<strong>散文</strong>為判準
+（<code class="language-plaintext highlighter-rouge">scripts/fix-conceptmap-equivalence.js --check</code>），該作法已退役。
+散文判準只看得到撰寫者提到的軸：<code class="language-plaintext highlighter-rouge">element[38]</code> 之原 comment 就 METHOD 一軸而言
+完全正確，因而通過檢查，錯的是它沒提 PROPERTY 與 SCALE 亦不同。
+現行判準改以術語伺服器實測之<strong>六軸</strong>（COMPONENT／PROPERTY／TIME_ASPCT／SYSTEM／
+SCALE_TYP／METHOD_TYP）為輸入，該看的軸由資料決定，而非由撰寫者記得與否決定；
+散文降級為交叉檢查——與六軸推導矛盾即失敗，但不再被當成「已驗證」。
+六軸實測值載於 <a href="loinc-axes-reference.csv"><code class="language-plaintext highlighter-rouge">loinc-axes-reference.csv</code></a>，
+Part 階層載於 <a href="loinc-part-subsumption.csv"><code class="language-plaintext highlighter-rouge">loinc-part-subsumption.csv</code></a>，
+另有 CI 步驟逐軸比對兩檔與上游是否一致。</p>
+</blockquote>
+
+<blockquote>
+  <p>&#x1F534; <strong>連帶更正（v0.10.3）</strong>：<code class="language-plaintext highlighter-rouge">element[11]</code>（<code class="language-plaintext highlighter-rouge">30428-7</code> → <code class="language-plaintext highlighter-rouge">787-2</code>，MCV）由
+<code class="language-plaintext highlighter-rouge">relatedto</code> 更正為 <code class="language-plaintext highlighter-rouge">narrower</code>。
+成因：原 comment 為「calculation 與 Automated count 為不同具體方法，無包含關係」，
+惟 <code class="language-plaintext highlighter-rouge">30428-7</code> 之 <code class="language-plaintext highlighter-rouge">METHOD_TYP</code> 於 LOINC 實為<strong>未指定</strong>，並非 calculation
+——該 comment 主張了 source 並不具備的方法。其六軸與 <code class="language-plaintext highlighter-rouge">element[10]</code>
+（<code class="language-plaintext highlighter-rouge">26515-7</code> → <code class="language-plaintext highlighter-rouge">777-3</code>）及 <code class="language-plaintext highlighter-rouge">element[12]</code>（<code class="language-plaintext highlighter-rouge">28539-5</code> → <code class="language-plaintext highlighter-rouge">785-6</code>）完全相同，
+而該二組皆標 <code class="language-plaintext highlighter-rouge">narrower</code>；同一份 ConceptMap 內軸關係一致卻掛不同的值。
+⚠️ <strong>對實作端之影響</strong>：該組之「數值可否直接比較」由「不可」翻為<strong>可</strong>
+——方法通用碼與 Automated count 特化碼屬包含關係。先前依 <code class="language-plaintext highlighter-rouge">relatedto</code> 而不予比較者，
+可改為直接比較。此為與 <code class="language-plaintext highlighter-rouge">element[38]</code> 方向相反之翻轉，請分別確認。</p>
 </blockquote>
 
 <blockquote>
@@ -2188,9 +2215,9 @@ ConceptMap 對映的是概念與概念，不是概念與數值。</p>
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.10.2，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.10.3，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-22 14:05:00 +0000">
+  <span title="2026-08-22 17:09:00 +0000">
     2026-08-22
   </span>
 
