@@ -16,11 +16,14 @@ Description: "【主管機關：國民健康署】Core 之檢驗子集（主管�
 // 09004C 三酸甘油酯 (Triglyceride) — Preferred 2571-8
 * LNC#2571-8 "Triglyceride [Mass/volume] in Serum or Plasma"
 * LNC#3043-7 "Triglyceride [Mass/volume] in Blood"                       // Acceptable: 全血法
+* LNC#3048-6 "Triglyceride [Mass/volume] in Serum or Plasma --fasting"   // Acceptable：空腹採檢條件特化（2026-08-22 委員決議補回——健檢實務確為空腹採檢）；經 ConceptMap 歸一至 2571-8（#wider）
 
 // 09043C 高密度脂蛋白膽固醇 (HDL-C) — Preferred 2085-9
 * LNC#2085-9 "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
-// (-) HDL-C 無「全血」對應碼：原列 3048-6 經 tx 驗證實為 Triglyceride --fasting（非 HDL），已移除；
-//     LOINC 現無乾淨之 HDL-in-Blood 代碼，acceptable 從缺，僅保留 Preferred 2085-9。
+// (-) HDL-C 無「全血」對應碼：原列 3048-6 經 tx 驗證實為 Triglyceride --fasting（非 HDL），
+//     已自本項移除，並於 2026-08-22 依委員決議改列三酸甘油酯（09004C）之 Acceptable（見上）——
+//     **該碼並未被判廢，只是原本掛錯了項目**。
+//     LOINC 現無乾淨之 HDL-in-Blood 代碼，本項 acceptable 從缺，僅保留 Preferred 2085-9。
 
 // 09044C 低密度脂蛋白膽固醇 (LDL-C) — Preferred 2089-1（**方法通用碼**：tx 確認其官方顯示名未指定方法，
 //        適合作為 Preferred 以相容各院所方法；13457-7 計算法、18262-6 直接測定法為方法具名之 Acceptable）
@@ -36,8 +39,22 @@ Description: "【主管機關：國民健康署】Core 之檢驗子集（主管�
 * LNC#2888-6 "Protein [Mass/volume] in Urine"
 
 // 06003C 尿蛋白定性 (Urine Protein, qualitative) — Preferred 5804-0
+//
+// ⚠️ **跨 Scale／Property 綁定之明文例外（2026-08-22 治理決議）**
+//    本組兩碼之 Scale 與 Property 均不同（經同日 tx.fhir.org $lookup 查證）：
+//      5804-0   Protein [Mass/volume] in Urine by Test strip          SemiQn / MCnc
+//      57735-3  Protein [Presence] in Urine by Automated test strip   Ord    / PrThr
+//    一般而言同一值集內不應混編不同 Scale——半定量（分級濃度）與定性（有無）之判讀方式不同，
+//    接收端若逕行比較會失真。本組**刻意**保留此跨 Scale 綁定，理由為國內 LIS 系統現況：
+//    試紙尿蛋白之報告型態各院不一，強制單一 Scale 將使部分機構無碼可用。
+//    **由實作端自行對應**（定性結果不得逕行視為半定量分級，反之亦然）。
+//
+//    ⚠️ 這是**經治理裁示之刻意設計，不是缺陷**。載為明文之目的即在於：
+//    下一輪術語稽核若再次偵測到本組跨 Scale，應比對本註記後放行，
+//    不得再列為待處理事項，亦不得以「一致性」為由逕自刪碼。
+//    見 terminology.md §3.1 之同一意旨說明。
 * LNC#5804-0 "Protein [Mass/volume] in Urine by Test strip"
-* LNC#57735-3 "Protein [Presence] in Urine by Automated test strip"                // Acceptable: 試紙變異碼
+* LNC#57735-3 "Protein [Presence] in Urine by Automated test strip"                // Acceptable: 試紙變異碼（Ord/PrThr，與 Preferred 之 SemiQn/MCnc 跨 Scale，屬上開明文例外）
 
 // 14032C B型肝炎表面抗原 (HBsAg) — Preferred 5196-1
 * LNC#5196-1 "Hepatitis B virus surface Ag [Presence] in Serum or Plasma by Immunoassay"

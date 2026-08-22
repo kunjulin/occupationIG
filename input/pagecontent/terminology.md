@@ -73,7 +73,7 @@
 > | (b) **代碼狀態** | `$lookup` 之 `STATUS` 屬性 | `DEPRECATED`／`DISCOURAGED` 之代碼同樣存在且通過驗證 | ✅ 具名類別 `has a status of DISCOURAGED` |
 > | (c) **顯示名語意相符性** | `$lookup` 取得官方 display，與本 IG 標示之意義**人工確認** | **唯有此項能攔截「用錯碼」** | ✅ `Wrong Display Name = 0` |
 > | (d) **建議單位（UCUM）** | `$lookup` 取 `EXAMPLE_UCUM_UNITS`，與 `extended-ucum-reference.csv` 逐碼四態比對 | display 對而單位錯仍量綱不符（如吸菸量以「支/日」碼承載「包/日」值） | ✅ `scripts/audit-ucum.js --gate`（不符 = 0） |
-> | (e) **跨術語對映一致性** | `snomed-loinc-mappings.csv` 之 `loinc_preferred` 須存在於某 IG 值集 | CSV 之 LOINC 側曾四度與 IG 本體脫節而 `VERIFIED` 未被質疑 | ✅ `scripts/check-asset-consistency.js` |
+> | (e) **跨術語對映一致性** | `snomed-loinc-mappings.csv` 之 `loinc_preferred` **與 `loinc_acceptable` 兩欄**須存在於某 IG 值集或 ConceptMap，且 acceptable 之歸一目標須等於同列之 preferred | CSV 之 LOINC 側曾四度與 IG 本體脫節而 `VERIFIED` 未被質疑 | ✅ `scripts/check-asset-consistency.js` |
 >
 > **IG Publisher 不執行 (c)–(e)**：其驗證 ValueSet 之 `concept.code` 是否存在於 CodeSystem，
 > 但**不檢查 `concept.display` 是否與該代碼真實語意相符**，亦不檢查建議單位與跨術語對映。
@@ -83,9 +83,64 @@
 > 凡代碼來源為人工建議清單者，**均須執行全面 display 語意比對**，比對報告見
 > [display-verification-report.csv](display-verification-report.csv)；UCUM 四態稽核結果見
 > [extended-ucum-reference.csv](extended-ucum-reference.csv) 之 `verification` 欄。
+>
+> ⚠️ **(e) 之檢查範圍於 2026-08-22 擴大**：原僅檢查 `loinc_preferred` 一欄，
+> `loinc_acceptable` 從未被看過——閘門每輪亮綠燈，該欄卻同時藏著 7 筆本指引**自己已判定為
+> 錯碼**者（如 `14390-9` 實為透析液澱粉酶、`22326-3` 實為 C 型肝炎抗體）。
+> 一併補上**方向檢查**（acceptable 之歸一目標須等於同列之 preferred），
+> 該項另攔下 2 筆 preferred／acceptable 顛倒之列。
+> **閘門有在跑，但看的範圍不對，比沒接 CI 更難發現——因為它每輪都是綠的。**
+
+#### 3.1.1 明文例外：尿蛋白定性之跨 Scale／Property 綁定
+
+一般而言，同一值集內不宜混編不同 `SCALE_TYP` 之代碼——半定量（分級濃度）與定性（有無）
+之判讀方式不同，接收端若逕行比較會失真。**本指引於尿蛋白定性（醫令 `06003C-2`）刻意保留
+一處跨 Scale 綁定**，特此載為明文例外。
+
+| 層級 | 代碼 | 官方顯示名 | `SCALE_TYP` | `PROPERTY` |
+|:--|:--|:--|:--|:--|
+| Preferred | `5804-0` | Protein [Mass/volume] in Urine by Test strip | `SemiQn` | `MCnc` |
+| Acceptable | `57735-3` | Protein [Presence] in Urine by Automated test strip | `Ord` | `PrThr` |
+
+> **治理決議（2026-08-22）**：考量國內 LIS 系統現況——試紙尿蛋白之報告型態各院不一，
+> 強制單一 Scale 將使部分機構無碼可用——**允許此二碼於同一值集內跨 Scale 綁定，
+> 由實作端自行對應**。定性結果不得逕行視為半定量分級，反之亦然；
+> 接收端如需區分，應保留原始 `coding`。
+>
+> ⚠️ **這是經治理裁示之刻意設計，不是缺陷。** 載為明文之目的即在於：
+> 後續術語稽核若再次偵測到本組跨 Scale，應比對本節後放行，**不得再列為待處理事項，
+> 亦不得以「一致性」為由逕自刪碼**。同一意旨另註於
+> [VS-CoreDataset](ValueSet-VS-CoreDataset.html) 之 `06003C` 定性區塊。
+>
+> 📌 本例外**僅限本組兩碼**。其他項目如出現跨 Scale 綁定，須各自取得治理裁示並比照載明，
+> 不得援引本節概括適用。
 
 ### 3.2 代碼映射 ConceptMap
-本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **41 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729 新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收先前整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
+本指引建置了 [TWHealthCheckLaboratoryMap](ConceptMap-TWHealthCheckLaboratoryMap.html) 資源，定義了 acceptable code 至 preferred (primary) code 的映射關係，供接收端系統進行標準化資料清洗與歸一化處理。目前已涵蓋 **45 組映射**，包含血液學（WBC、血小板、MCV、MCH、嗜中性球%）、肝功能（AST、ALT、ALP，含無 P-5'-P 之 AST/ALT 變異法）、生化代謝（血糖、肌酸酐、eGFR、飯後血糖）、脂質（總膽固醇、TG、LDL-C，Preferred `2089-1` 為方法通用碼）、肝炎（HBsAg、anti-HCV）以及內分泌與癌標（HbA1c、TSH、PSA、CA-125、CEA）等群組；v20260724 另補齊血中鉛（`23749-5`→`5671-3`）與腰圍（`56086-2`→`8280-0`）。**v20260726（Wave 9）移除 3 組語意錯誤之對應**：聽力 `21104-5`（實為 Deprecated 大豆粉塵 IgE）、尿酸 `49154-8`（實為 Rickettsia conorii IgG Ab）、HDL `3048-6`（實為 Triglyceride --fasting），該三項之 acceptable 均改標 `(-確定無合適碼)`。**v20260729 新增尿沉渣自動計數 9 組**（/HPF 面積碼 → /µL 體積碼，以 `#relatedto` 歸一），回收先前整組刪除之 ACTIVE 面積碼，使以 /HPF 報告之機構亦可實作。
+
+**v0.10.1（2026-08-22 委員決議）新增 4 組，由 41 組增為 45 組**——溯源為候選碼經
+`tx.fhir.org` `$lookup` 補充查證（LOINC 2.82）全數 ACTIVE，據此提委員裁示：
+
+| 組 | source → target | `equivalence` | 何以如此判 |
+|:--|:--|:--|:--|
+| `element[41]` | `3048-6` → `2571-8` | **`wider`** | 空腹採檢為同一量測之**條件特化**，target 未指定空腹故語意較廣（比照 `element[40]` 支氣管擴張劑前後） |
+| `element[42]` | `8281-8` → `8280-0` | `relatedto` | 超音波與皮尺是**同層之兩種量測方法**，非包含關係，數值不可直接等同比較 |
+| `element[43]` | `56114-2` → `8280-0` | `relatedto` | NHANES **量測 protocol 碼**，性質與量測碼不同（比照 `element[25]` 之 PhenX） |
+| `element[44]` | `56115-9` → `8280-0` | `relatedto` | NCFS protocol 碼，同上 |
+
+> ⚠️ **四組中僅 `element[41]` 為 `wider`。** 差別在「條件特化」與「同層兄弟／protocol 碼」，
+> 不可一體套用——這正是 §3.2.1 判準要逐組看的原因。
+>
+> 📌 **`3048-6` 之處置係「改列」而非「判廢」**：v20260726 將其自 HDL-C 移除，係因其官方語意
+> 實為 Triglyceride --fasting（掛錯項目）；2026-08-22 委員決議認定健檢實務確為空腹採檢，
+> 故改列**三酸甘油酯（`09004C`）之 Acceptable**。HDL-C 之 acceptable 仍為
+> `(-確定無合適碼)`（LOINC 現無乾淨之 HDL-in-Blood 代碼）。
+>
+> 📌 **`56114-2`／`56115-9` 與既有之 `56086-2` 同屬「僅在 ConceptMap、不納入任何值集」**：
+> 三者皆為量測 protocol／調查工具碼而非量測碼，收進值集會使實作端誤以為可作
+> `Observation.code`；保留歸一路徑則使以該等碼上傳之院所仍可被正確對應。
+
+另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 #### 3.2.1 `equivalence` 判準與 R4／R5 對照（v20260730 更正）
 
@@ -112,14 +167,16 @@
 > `equivalence`，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment
 > 與 display 相互矛盾（先前僅修 display 未同步修 comment 之殘留）。已全數更正，
 > 更正後（39 組時）之分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0；
-> 其後移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**現行分佈為
-> `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組）**。
+> 其後移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**該時分佈為
+> `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組；v0.10.1 依委員決議
+> 新增 4 組後，現行分佈為 `wider` 13／`narrower` 6／`relatedto` 26／`equivalent` 0，
+> 共 45 組，逐組見 §3.2）**。
 > **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。
 > 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門
 > （`scripts/fix-conceptmap-equivalence.js --check`）。
 
 > **`equivalent` 為 0 係刻意結果，非遺漏**：R4 之 `equivalent` 僅適用於「概念定義完全等義」。
-> 經 41 組逐組覆核，本 IG 無任何一組符合——原標 `equivalent` 之 2 組（`26464-8`→`6690-2`、
+> 經 45 組逐組覆核，本 IG 無任何一組符合——原標 `equivalent` 之 2 組（`26464-8`→`6690-2`、
 > `28539-5`→`785-6`）實為「source 方法未指定、target 指定 Automated count」，屬包含關係而非等義，
 > 已於 v20260730 改為 `narrower`。凡本 IG 收為 acceptable 者，皆與其 preferred 至少差一軸
 > （方法、檢體、量綱或條件），故不存在完全等義之配對。
@@ -197,11 +254,11 @@
 | 生化/腎 | 肌酸酐 | `2160-0` | `{38483-4}` | 15373003 | mg/dL | 附表九 |
 | 生化/腎 | eGFR | `98979-8` | `{33914-3}` | 80274001 | mL/min/{1.73_m2} | 成健（`98979-8` 適用 115.01.01 起；`33914-3` 適用 114 年及以前，見 §6.2a） |
 | 生化/腎 | 尿酸 | `3084-1` | (-確定無合適碼) | 86228006 | mg/dL | 附表九 |
-| 肝功能 | AST (GOT) | `1920-8` | `{30239-8}` | 45896001 | U/L | 附表九/成健 |
-| 肝功能 | ALT (GPT) | `1742-6` | `{1743-4}` | 34608000 | U/L | 附表九/成健 |
+| 肝功能 | AST (GOT) | `1920-8` | `{30239-8, 88112-8}` | 45896001 | U/L | 附表九/成健 |
+| 肝功能 | ALT (GPT) | `1742-6` | `{1743-4, 1744-2}` | 34608000 | U/L | 附表九/成健 |
 | 肝功能 | ALP | `6768-6` | — | 88810008 | U/L | 附表九 |
 | 脂質 | 總膽固醇 | `2093-3` | `{35200-5}` | 77068002 | mg/dL | 成健 |
-| 脂質 | 三酸甘油酯 | `2571-8` | `{3043-7}` | 14740000 | mg/dL | 成健 |
+| 脂質 | 三酸甘油酯 | `2571-8` | `{3043-7, 3048-6}` | 14740000 | mg/dL | 成健 |
 | 脂質 | HDL-C | `2085-9` | (-確定無合適碼) | 17888004 | mg/dL | 成健 |
 | 脂質 | LDL-C (方法通用) | `2089-1` | `{13457-7, 18262-6}` | 113079009 | mg/dL | 成健 |
 | 內分泌 | HbA1c (NGSP) | `4548-4` | `{59261-8}` | 43396009 | % | 成健/進階 |
@@ -209,9 +266,9 @@
 | 癌標 | PSA | `2857-1` | — | 63476009 | ng/mL | 進階 |
 | 癌標 | CA-125 | `10334-1` | `{83082-8}` | 50610001 | U/mL | 進階 |
 | 癌標 | CEA | `2039-6` | `{83085-1}` | 60267001 | ng/mL | 進階 |
-| 肝炎 | HBsAg | `5196-1` | `{5195-3}` | 39082004 | — | 成健 |
+| 肝炎 | HBsAg | `5196-1` | `{5195-3, 63557-3}` | 39082004 | — | 成健 |
 | 肝炎 | anti-HCV | `13955-0` | `{16128-1}` | 32218006 | — | 成健 |
-| 尿液 | 尿蛋白 (試紙) | `5804-0` | `{2888-6}` | 167273002 | — | 附表九/成健 |
+| 尿液 | 尿蛋白 (試紙) | `5804-0` | `{57735-3}` | 167273002 | — | 附表九/成健 |
 | 尿沉渣 | 細菌 Bacteria | `51480-2` | `{33218-9}` | — | /uL | — |
 | 尿沉渣 | 鱗狀上皮細胞 | `51486-9` | `{33219-7}` | — | /uL | — |
 | 尿沉渣 | 透明圓柱 | `51484-4` | `{33223-9}` | — | /uL | — |
@@ -224,7 +281,7 @@
 | 生理 | BMI | `39156-5` | — | 60621009 | kg/m2 | 成健 |
 | 生理 | 腰臀比 WHR | (-確定無合適碼) | — | 248362002 | {ratio} | 成健 |
 | 生理 | 血壓 Panel | `85354-9` | — | 75367002 | — | 成健（v20260730 由 `55284-4`（DISCOURAGED）汰換） |
-| 生理 | 腰圍 | `8280-0` | (-確定無合適碼) | 276361009 | cm | 附表九/成健 |
+| 生理 | 腰圍 | `8280-0` | `{8281-8}` | 276361009 | cm | 附表九/成健 |
 | 肺功能 | FVC | `19868-9` | `{19876-2, 19870-5}` | 50834005 | L | 職業 |
 | 肺功能 | FEV1 | `20150-9` | — | 59328004 | L | 職業 |
 | 視力 | 視力 Panel | `98497-1` | — | 363983007 | — | 職業 |
