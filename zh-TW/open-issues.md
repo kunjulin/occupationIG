@@ -1,4 +1,4 @@
-# 本頁內容已移轉 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.3
+# 本頁內容已移轉 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.0
 
 ## 本頁內容已移轉
 
@@ -19,6 +19,7 @@
 | **M-9** | [docs/known-limitations.md#m-9](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-9) |
 | **M-10** | [docs/known-limitations.md#m-10](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-10) |
 | **M-11** | [docs/known-limitations.md#m-11](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-11) |
+| **M-12** | [docs/known-limitations.md#m-12](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#m-12) |
 | **G-2** | [docs/known-limitations.md#g-2](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#g-2) |
 | **G-3** | [docs/known-limitations.md#g-3](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#g-3) |
 | **G-4** | [docs/known-limitations.md#g-4](https://github.com/kunjulin/occupationIG/blob/main/docs/known-limitations.md#g-4) |

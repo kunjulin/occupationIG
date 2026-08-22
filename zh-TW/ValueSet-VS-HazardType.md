@@ -1,4 +1,4 @@
-# 特別危害健康作業類別值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.3
+# 特別危害健康作業類別值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.0
 
 ## ValueSet: 特別危害健康作業類別值集 
 
@@ -33,12 +33,12 @@
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-HazardType",
-  "version" : "0.9.3",
+  "version" : "0.10.0",
   "name" : "VS_HazardType",
   "title" : "特別危害健康作業類別值集",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-21T16:05:47+00:00",
+  "date" : "2026-08-22T02:14:01+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

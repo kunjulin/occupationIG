@@ -3,7 +3,7 @@
 <html xml:lang="zh-TW" xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" dir="ltr">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>遵從性與依賴 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.3</title>
+    <title>遵從性與依賴 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -55,7 +55,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span>
             <br/>
-            <span style="display:inline-block;">0.9.3 - STU1
+            <span style="display:inline-block;">0.10.0 - STU1
 
 
             </span>
@@ -203,7 +203,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.9.3  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
+    <!-- ReleaseHeader --><p id="publish-box"><a name="l368">​</a>臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG), published by 衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院. This guide is not an authorized publication; it is the continuous build for version 0.10.0  built by the FHIR (HL7&reg; FHIR&reg; Standard) CI Build. This version is based on the current content of <a href="https://github.com/kunjulin/occupationIG">https://github.com/kunjulin/occupationIG</a> and changes regularly. See the <a href="https://twcore.mohw.gov.tw/ig/twha/history.html">Directory of published versions</a></p>  <!-- EndReleaseHeader -->
   <h2>遵從性與依賴</h2>
   
 
@@ -239,6 +239,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           <li><a href="#70-範疇聲明" id="markdown-toc-70-範疇聲明">7.0 範疇聲明</a></li>
           <li><a href="#71-兩個層級" id="markdown-toc-71-兩個層級">7.1 兩個層級</a></li>
           <li><a href="#72-level-1-逐列清單21-列" id="markdown-toc-72-level-1-逐列清單21-列">7.2 Level 1 逐列清單（21 列）</a></li>
+          <li><a href="#-溯源之正確表述" id="markdown-toc--溯源之正確表述">&#x1F50E; 溯源之正確表述</a></li>
+          <li><a href="#第-11-列之語意更正原案瑕疵與處置" id="markdown-toc-第-11-列之語意更正原案瑕疵與處置">第 11 列之語意更正——原案瑕疵與處置</a></li>
           <li><a href="#73-level-2-之範圍" id="markdown-toc-73-level-2-之範圍">7.3 Level 2 之範圍</a></li>
           <li><a href="#74-artifact-之權責標籤與成熟度" id="markdown-toc-74-artifact-之權責標籤與成熟度">7.4 artifact 之權責標籤與成熟度</a></li>
         </ul>
@@ -286,7 +288,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>實作端須依下表載入對應之 FHIR 套件版本。本表由建置工具依實際依賴自動產生。</p>
 
-<div><table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;" id="dep" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top" data-fhir="generated-heirarchy"><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="Implementation Guide Reference">IG</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="The NPM Package Id">Package</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="The version of FHIR that the package is based on">FHIR</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="Explains why this dependency exists">Comment</span></th></tr><tr fhir="generated-heirarchy" style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white" id="a" data-fhir="generated-heirarchy"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(/home/runner/work/occupationIG/occupationIG/temp/pagesdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)" class="hierarchy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYZCik0qECmbAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABtUlEQVQoz2P8//8/Ayb4///v8xfM4iIMzKxoMkwMOMC3DVv/vXmEKY5Dw///Pw8c+Xn2CLEa/r55+/P07t/nrxKl4f/PX6+8g1mlP/44c4eAhn8fP33bsOV1dBoT51V2+z/MohIfeyYy/P2LXcPfFy8/NLb9efTs//utgjUfft35xRUY8Hnm/N/Xb2LT8P//h5ZOnvjoj+11giXcTH//MTLp/v/x9c/z279uXsOi4e/LRwzsbz6vmMyTLM6m9fnXE3Y2l+yv+yez2nL9eX0Wi4afF5eyW4r/+3qYP1Xjz/N3P17ZsRsKMrJd4rL9wcTxDIsGZqEvLEKv2VT/Mgl+/XGbXSB72s/zxXyBYmwqLCxSLFg0sKkHsAg+YJX7xfBTmt204s/NXE4dQTZtT2beH6yqFv9ebkDXwMhnxixrySb68f9fcWYRTSbGA6ya2QwMsixCvxk/djByiWIJVkbBBGaNOoafO5nYWVlkPRjYtP5/388s+JdJkI+R1xquDMl9zOqMQioM7BIMjJ8Z2IUYWOQZeT0Y/u5mEF+G7AdGLMn7712GnycY/v1g+HOZga+WgUkYWRIAe6ip9OnE1GoAAAAASUVORK5CYII=" alt="." style="background-color: white; background-color: inherit" title="NPM Package" class="hierarchy"/> <span title="Canonical: https://twcore.mohw.gov.tw/ig/twha">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://simplifier.net/packages/mohw.tw.twha/0.9.3">mohw.tw.twha#0.9.3</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4">R4</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
+<div><table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;" id="dep" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top" data-fhir="generated-heirarchy"><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="Implementation Guide Reference">IG</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="The NPM Package Id">Package</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="The version of FHIR that the package is based on">FHIR</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="Explains why this dependency exists">Comment</span></th></tr><tr fhir="generated-heirarchy" style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white" id="a" data-fhir="generated-heirarchy"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(/home/runner/work/occupationIG/occupationIG/temp/pagesdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)" class="hierarchy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYZCik0qECmbAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABtUlEQVQoz2P8//8/Ayb4///v8xfM4iIMzKxoMkwMOMC3DVv/vXmEKY5Dw///Pw8c+Xn2CLEa/r55+/P07t/nrxKl4f/PX6+8g1mlP/44c4eAhn8fP33bsOV1dBoT51V2+z/MohIfeyYy/P2LXcPfFy8/NLb9efTs//utgjUfft35xRUY8Hnm/N/Xb2LT8P//h5ZOnvjoj+11giXcTH//MTLp/v/x9c/z279uXsOi4e/LRwzsbz6vmMyTLM6m9fnXE3Y2l+yv+yez2nL9eX0Wi4afF5eyW4r/+3qYP1Xjz/N3P17ZsRsKMrJd4rL9wcTxDIsGZqEvLEKv2VT/Mgl+/XGbXSB72s/zxXyBYmwqLCxSLFg0sKkHsAg+YJX7xfBTmt204s/NXE4dQTZtT2beH6yqFv9ebkDXwMhnxixrySb68f9fcWYRTSbGA6ya2QwMsixCvxk/djByiWIJVkbBBGaNOoafO5nYWVlkPRjYtP5/388s+JdJkI+R1xquDMl9zOqMQioM7BIMjJ8Z2IUYWOQZeT0Y/u5mEF+G7AdGLMn7712GnycY/v1g+HOZga+WgUkYWRIAe6ip9OnE1GoAAAAASUVORK5CYII=" alt="." style="background-color: white; background-color: inherit" title="NPM Package" class="hierarchy"/> <span title="Canonical: https://twcore.mohw.gov.tw/ig/twha">臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://simplifier.net/packages/mohw.tw.twha/0.10.0">mohw.tw.twha#0.10.0</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4">R4</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
 <tr fhir="generated-heirarchy" style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7" id="aa" data-fhir="generated-heirarchy"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(/home/runner/work/occupationIG/occupationIG/temp/pagesdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)" class="hierarchy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAACwSURBVDhP7ZLBDsIwCIaLZz34xG3f2cQYo5UfYalJoY07ePFL4GcbpZSVWmvJgwifG+njkLDACgfVIehAQ5ffdMDvxSS2Dmqty62UUmS1rIWD8UuWd9xxVt1AnoaSGx6Buap+0G80K3BTtbtwhLPZQL0CSIA9OwUXON7dZkBeASTAThb3bffMjnCHGy00ZgUeqi5f3YOcsw01vsqYMrMljwgLrBDOwP53xL+D3R2k9ALHsmr3Yu73+gAAAABJRU5ErkJggg==" onclick="tableRowAction(this)" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYZCik0qECmbAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABtUlEQVQoz2P8//8/Ayb4///v8xfM4iIMzKxoMkwMOMC3DVv/vXmEKY5Dw///Pw8c+Xn2CLEa/r55+/P07t/nrxKl4f/PX6+8g1mlP/44c4eAhn8fP33bsOV1dBoT51V2+z/MohIfeyYy/P2LXcPfFy8/NLb9efTs//utgjUfft35xRUY8Hnm/N/Xb2LT8P//h5ZOnvjoj+11giXcTH//MTLp/v/x9c/z279uXsOi4e/LRwzsbz6vmMyTLM6m9fnXE3Y2l+yv+yez2nL9eX0Wi4afF5eyW4r/+3qYP1Xjz/N3P17ZsRsKMrJd4rL9wcTxDIsGZqEvLEKv2VT/Mgl+/XGbXSB72s/zxXyBYmwqLCxSLFg0sKkHsAg+YJX7xfBTmt204s/NXE4dQTZtT2beH6yqFv9ebkDXwMhnxixrySb68f9fcWYRTSbGA6ya2QwMsixCvxk/djByiWIJVkbBBGaNOoafO5nYWVlkPRjYtP5/388s+JdJkI+R1xquDMl9zOqMQioM7BIMjJ8Z2IUYWOQZeT0Y/u5mEF+G7AdGLMn7712GnycY/v1g+HOZga+WgUkYWRIAe6ip9OnE1GoAAAAASUVORK5CYII=" alt="." style="background-color: #F7F7F7; background-color: inherit" title="NPM Package" class="hierarchy"/> <a href="http://terminology.hl7.org/7.3.0" title="Canonical: http://terminology.hl7.org">HL7 Terminology (THO)</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://simplifier.net/packages/hl7.terminology.r4/7.3.0">hl7.terminology.r4#7.3.0</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4">R4</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Automatically added as a dependency - all IGs depend on HL7 Terminology</td></tr>
 <tr fhir="generated-heirarchy" style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white" id="aaa" data-fhir="generated-heirarchy"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(/home/runner/work/occupationIG/occupationIG/temp/pagesdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)" class="hierarchy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzMPbYccAgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAMElEQVQ4y+3OQREAIBDDwAv+PQcFFN5MIyCzqHMKUGVCpMFLK97heq+gggoq+EiwAVjvMhFGmlEUAAAAAElFTkSuQmCC" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzME+lXFigAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+3OsRUAIAjEUOL+O8cJABttJM11/x1qZAGqRBEVcNIqdWj1efDqQbb3HwwwwEfABmQUHSPM9dtDAAAAAElFTkSuQmCC" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYZCik0qECmbAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABtUlEQVQoz2P8//8/Ayb4///v8xfM4iIMzKxoMkwMOMC3DVv/vXmEKY5Dw///Pw8c+Xn2CLEa/r55+/P07t/nrxKl4f/PX6+8g1mlP/44c4eAhn8fP33bsOV1dBoT51V2+z/MohIfeyYy/P2LXcPfFy8/NLb9efTs//utgjUfft35xRUY8Hnm/N/Xb2LT8P//h5ZOnvjoj+11giXcTH//MTLp/v/x9c/z279uXsOi4e/LRwzsbz6vmMyTLM6m9fnXE3Y2l+yv+yez2nL9eX0Wi4afF5eyW4r/+3qYP1Xjz/N3P17ZsRsKMrJd4rL9wcTxDIsGZqEvLEKv2VT/Mgl+/XGbXSB72s/zxXyBYmwqLCxSLFg0sKkHsAg+YJX7xfBTmt204s/NXE4dQTZtT2beH6yqFv9ebkDXwMhnxixrySb68f9fcWYRTSbGA6ya2QwMsixCvxk/djByiWIJVkbBBGaNOoafO5nYWVlkPRjYtP5/388s+JdJkI+R1xquDMl9zOqMQioM7BIMjJ8Z2IUYWOQZeT0Y/u5mEF+G7AdGLMn7712GnycY/v1g+HOZga+WgUkYWRIAe6ip9OnE1GoAAAAASUVORK5CYII=" alt="." style="background-color: white; background-color: inherit" title="NPM Package" class="hierarchy"/> <a href="http://hl7.org/fhir/extensions/5.3.0" title="Canonical: http://hl7.org/fhir/extensions">FHIR Extensions Pack</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://simplifier.net/packages/hl7.fhir.uv.extensions.r4/5.3.0">hl7.fhir.uv.extensions.r4#5.3.0</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4">R4</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
 <tr fhir="generated-heirarchy" style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7" id="ab" data-fhir="generated-heirarchy"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(/home/runner/work/occupationIG/occupationIG/temp/pagesdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)" class="hierarchy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAACwSURBVDhP7ZLBDsIwCIaLZz34xG3f2cQYo5UfYalJoY07ePFL4GcbpZSVWmvJgwifG+njkLDACgfVIehAQ5ffdMDvxSS2Dmqty62UUmS1rIWD8UuWd9xxVt1AnoaSGx6Buap+0G80K3BTtbtwhLPZQL0CSIA9OwUXON7dZkBeASTAThb3bffMjnCHGy00ZgUeqi5f3YOcsw01vsqYMrMljwgLrBDOwP53xL+D3R2k9ALHsmr3Yu73+gAAAABJRU5ErkJggg==" onclick="tableRowAction(this)" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYZCik0qECmbAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABtUlEQVQoz2P8//8/Ayb4///v8xfM4iIMzKxoMkwMOMC3DVv/vXmEKY5Dw///Pw8c+Xn2CLEa/r55+/P07t/nrxKl4f/PX6+8g1mlP/44c4eAhn8fP33bsOV1dBoT51V2+z/MohIfeyYy/P2LXcPfFy8/NLb9efTs//utgjUfft35xRUY8Hnm/N/Xb2LT8P//h5ZOnvjoj+11giXcTH//MTLp/v/x9c/z279uXsOi4e/LRwzsbz6vmMyTLM6m9fnXE3Y2l+yv+yez2nL9eX0Wi4afF5eyW4r/+3qYP1Xjz/N3P17ZsRsKMrJd4rL9wcTxDIsGZqEvLEKv2VT/Mgl+/XGbXSB72s/zxXyBYmwqLCxSLFg0sKkHsAg+YJX7xfBTmt204s/NXE4dQTZtT2beH6yqFv9ebkDXwMhnxixrySb68f9fcWYRTSbGA6ya2QwMsixCvxk/djByiWIJVkbBBGaNOoafO5nYWVlkPRjYtP5/388s+JdJkI+R1xquDMl9zOqMQioM7BIMjJ8Z2IUYWOQZeT0Y/u5mEF+G7AdGLMn7712GnycY/v1g+HOZga+WgUkYWRIAe6ip9OnE1GoAAAAASUVORK5CYII=" alt="." style="background-color: #F7F7F7; background-color: inherit" title="NPM Package" class="hierarchy"/> <a href="https://twcore.mohw.gov.tw/ig/twcore/1.0.0" title="Canonical: https://twcore.mohw.gov.tw/ig/twcore">臺灣核心實作指引(TW Core IG)</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="https://simplifier.net/packages/tw.gov.mohw.twcore/1.0.0">tw.gov.mohw.twcore#1.0.0</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4">R4</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
@@ -752,18 +754,32 @@ component，<strong>但那是本指引的建模方式，不是原案的計列方
     </tbody>
   </table>
 
-  <p>核算：<code class="language-plaintext highlighter-rouge">20 − 1（BMI） + 2（嚼檳量、嚼檳月數） = 21</code>。
-<strong>故「21 列」是對的，<code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> 展開為 20 碼也是對的</strong>——兩者計的不是同一件事。</p>
+  <p><del>核算：<code class="language-plaintext highlighter-rouge">20 − 1（BMI） + 2（嚼檳量、嚼檳月數） = 21</code>。</del>
+<del><strong>故「21 列」是對的，<code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> 展開為 20 碼也是對的</strong>——兩者計的不是同一件事。</del></p>
+
+  <p>&#x1F4CC; <strong>更新（v0.10.0）</strong>：BMI 已由 <code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> <strong>明文排除</strong>（<code class="language-plaintext highlighter-rouge">exclude LNC#39156-5</code>），
+不再靠註解宣告，故該值集之展開結果<strong>不再含 BMI</strong>，核算式亦隨之改為：</p>
+
+  <p><strong>展開碼數 ＋ 2（嚼檳量、嚼食持續期間——本指引以 <code class="language-plaintext highlighter-rouge">component</code> 承載，未另立代碼）= 21</strong></p>
+
+  <p>⚠️ <strong>展開碼數以該次建置之實測為準，本頁不載死數字。</strong> 理由見
+<a href="https://github.com/kunjulin/occupationIG/blob/main/CLAUDE.md"><code class="language-plaintext highlighter-rouge">CLAUDE.md</code></a> &sect;4
+「沿用文件所載之數字」一列——本專案已因轉抄數字而出錯數次。
+需要現值時請讀該次建置之值集展開，或 <code class="language-plaintext highlighter-rouge">qa-baseline.json</code> 之相關類別。</p>
+
+  <p><strong>「21 列」與「值集展開碼數」計的仍不是同一件事</strong>，這一點未因本次調整而改變：
+前者是主管機關原案之欄位列數，後者是 FHIR 值集之成員代碼數。</p>
 </blockquote>
 
-<p><strong>三項差異已獲主管機關答覆</strong>（2026-08-20）：</p>
+<p><strong>三項差異已依本案專家會議決議定案</strong>（場次與日期：<code class="language-plaintext highlighter-rouge">[專家會議場次與日期待補]</code>）：</p>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: left">#</th>
       <th style="text-align: left">事項</th>
-      <th style="text-align: left">答覆</th>
+      <th style="text-align: left">定案內容</th>
+      <th style="text-align: left">依據與其權責性質</th>
       <th style="text-align: left">本指引之處置</th>
     </tr>
   </thead>
@@ -771,34 +787,99 @@ component，<strong>但那是本指引的建模方式，不是原案的計列方
     <tr>
       <td style="text-align: left">①</td>
       <td style="text-align: left">BMI 是否納入</td>
-      <td style="text-align: left"><strong>不在 21 列內</strong></td>
-      <td style="text-align: left">維持現況：<code class="language-plaintext highlighter-rouge">39156-5</code> 留在 <code class="language-plaintext highlighter-rouge">VS-TWHAVitalSigns</code>（生理量測用），<strong>不屬最小上傳集</strong></td>
+      <td style="text-align: left"><strong>不納入</strong></td>
+      <td style="text-align: left"><strong>原案未列 BMI</strong>——事實陳述，非本指引之主張，<strong>不需任何一方核定</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> 明文 <code class="language-plaintext highlighter-rouge">exclude</code> <code class="language-plaintext highlighter-rouge">39156-5</code>；<code class="language-plaintext highlighter-rouge">VS-TWHAVitalSigns</code> 不動（BMI 仍為有效之生理量測項目）</td>
     </tr>
     <tr>
       <td style="text-align: left">②</td>
-      <td style="text-align: left">第 11 列「嚼檳月數」之語意</td>
-      <td style="text-align: left"><strong>指「嚼了多久」</strong>，即嚼食持續期間</td>
-      <td style="text-align: left">對映至 <code class="language-plaintext highlighter-rouge">component[durationYears]</code>（<strong>非</strong> <code class="language-plaintext highlighter-rouge">cessationDuration</code>）；單位由固定 <code class="language-plaintext highlighter-rouge">a</code> 放寬為 <code class="language-plaintext highlighter-rouge">a</code> 或 <code class="language-plaintext highlighter-rouge">mo</code></td>
+      <td style="text-align: left">第 11 列之語意</td>
+      <td style="text-align: left"><strong>嚼食持續期間</strong>（原案欄名「嚼檳月數」）</td>
+      <td style="text-align: left"><strong>專家會議之技術決議</strong>——認定係原案文字有誤</td>
+      <td style="text-align: left">對映至 <code class="language-plaintext highlighter-rouge">component[durationYears]</code>（<strong>非</strong> <code class="language-plaintext highlighter-rouge">cessationDuration</code>）；單位 <code class="language-plaintext highlighter-rouge">a</code> 或 <code class="language-plaintext highlighter-rouge">mo</code></td>
     </tr>
     <tr>
       <td style="text-align: left">③</td>
       <td style="text-align: left">嚼檳量之單位標記</td>
-      <td style="text-align: left"><strong>同意轉換為標準的 <code class="language-plaintext highlighter-rouge">{quid}/d</code></strong></td>
-      <td style="text-align: left">維持現況</td>
+      <td style="text-align: left"><strong><code class="language-plaintext highlighter-rouge">{quid}/d</code></strong></td>
+      <td style="text-align: left"><strong>術語技術正確性</strong>：<code class="language-plaintext highlighter-rouge">{個}</code> 非合法 UCUM（annotation 僅接受可列印 ASCII）</td>
+      <td style="text-align: left">維持現況，未變更任何定義</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p>⚠️ <strong>上開答覆目前為口頭／轉述，書面依據待補</strong>（見〈已知限制與試用須知〉M-5）。
-依本指引既定立場，<strong>在取得可引用之書面依據前，M-5 之狀態、嚼檳系列之 <code class="language-plaintext highlighter-rouge">experimental</code>
-旗標與 Level 1 之成熟度一律不變更</strong>。本節所載之處置屬<strong>技術相容性調整</strong>
-（單位放寬、語意對映、敘述更正），不涉及上述三者，故先行實作。</p>
+  <h3 id="-溯源之正確表述">&#x1F50E; 溯源之正確表述</h3>
+
+  <p>上開三項均為<strong>本案專家會議之技術決議</strong>，屬<strong>受託團隊職權範圍，
+無須委託單位或主管機關另行核定</strong>。</p>
+
+  <p>&#x1F534; <strong>更正（v0.10.0）</strong>：本表於 v0.6.0–v0.9.3 期間記為「<strong>已獲主管機關答覆</strong>」，
+<strong>該敘述不實——國民健康署迄未就此作成函復</strong>。
+「經主管機關確認」是規範文件裡效力最強的措辭之一，誤用會使該署日後讀到與事實不符。
+全庫同型敘述經逐處更正。</p>
+
+  <p>⚠️ <strong>仍屬國民健康署權責者</strong>：21 列清單本身之<strong>法定效力</strong>、<strong>正式公告內容與生效時點</strong>。</p>
 </blockquote>
 
 <blockquote>
-  <p>&#x1F4CC; <strong>②之處置說明</strong>：原案欄名「嚼檳月數」與吸菸列之「戒菸月數」形式對稱，
-易被讀成「戒檳月數」；經確認其語意為<strong>嚼食持續期間</strong>，兩者方向相反，故特此載明。
+  <h3 id="第-11-列之語意更正原案瑕疵與處置">第 11 列之語意更正——原案瑕疵與處置</h3>
+
+  <p>原案序號 7（醫令 30907X）下設三個報告序號。專家會議審閱時指出<strong>三項互相牽連之瑕疵</strong>：</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left">#</th>
+        <th style="text-align: left">瑕疵</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left">一</td>
+        <td style="text-align: left"><strong>欄名與值規則不一致</strong>：報告序號 3 欄名為「嚼檳月數」，其 r4 值規則卻寫「填寫戒檳月數」；對照吸菸組（30906X）相同位置明確為「戒菸月數」，同一文件內兩組結構對稱之欄位採不對稱命名</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">二</td>
+        <td style="text-align: left"><strong>已戒檳者之嚼食持續期間無欄位可填</strong>：註 2 將報告序號 3 之填列條件綁定於狀態 3（已戒檳），其後果為現嚼者可記錄每日量與年數而無戒除資訊（尚屬合理），惟<strong>已戒者之嚼食持續期間無處可填</strong>。該指標為檳榔相關口腔癌之<strong>核心累積暴露量、不因戒除而消失</strong>——風險最需被評估之族群反而缺漏該指標</td>
+      </tr>
+      <tr>
+        <td style="text-align: left">三</td>
+        <td style="text-align: left"><strong>報告序號 2 與 3 內容重疊</strong>：報告序號 2 為複合欄位，同時承載每日顆數與嚼檳年數<strong>兩個量綱不同之值</strong>，資料交換時難以拆解，且與吸菸組之處置不一致</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>決議（兩列一併理順）</strong>：</p>
+  <ul>
+    <li><strong>第 10 列</strong>（30907X-2）僅填<strong>平均每日嚼食顆數</strong>（<code class="language-plaintext highlighter-rouge">{quid}/d</code>）；原案之「嚼檳年數」移列第 11 列。</li>
+    <li><strong>第 11 列</strong>（30907X-3）語意為<strong>嚼食持續期間</strong>，承接自第 10 列移出之年數，
+<strong>且不論現嚼或已戒均應填列</strong>。</li>
+  </ul>
+
+  <p>✅ <strong>戒除資訊不因本更正而遺失</strong>：原案 r4 所指之戒檳月數並未捨棄，改由
+<code class="language-plaintext highlighter-rouge">component[cessationDuration]</code>（戒除期間）與 <code class="language-plaintext highlighter-rouge">component[cessationDate]</code>（戒除日期）
+承載，<strong>不佔最小上傳集之列位</strong>。</p>
+
+  <p>&#x1F4EE; <strong>已建請主管機關更正原案文字</strong>（見未決事項 <strong>M-12</strong>，對應專家會議文件三之 M-7）：
+報告序號 2 之 r4 改為「（填寫平均每日嚼食顆數）」；報告序號 3 之 r4 改為
+「（填寫自開始嚼食之持續期間，以月填列）」；註 2 之填列條件改為不論狀態 1、2、3 均填列，
+舉例改為「共嚼食 2 年 1 個月，請填 25」。<strong>上開更正不改變欄位數，仍為 21 列。</strong>
+⚠️ 該建議之採納與否由該署決定；在其正式公告前，本指引依專家會議決議辦理，
+<strong>並於正式公告後複核對齊</strong>。</p>
+</blockquote>
+
+<blockquote>
+  <p>⚠️ <strong>定案的是這三項，不是 M-5。</strong> 仍待國民健康署者為：
+① <strong>21 列清單本身之法定效力</strong>；② <strong>正式公告內容與生效時點</strong>。
+兩者屬該署行政公告權責，非委託單位可代為認定，故
+<strong>M-5 維持未解決</strong>，嚼檳系列之 <code class="language-plaintext highlighter-rouge">experimental</code> 旗標與 Level 1 之成熟度亦一律不變更。</p>
+</blockquote>
+
+<blockquote>
+  <p>&#x1F4CC; <strong>②之說明</strong>：原案欄名「嚼檳月數」與吸菸列之「戒菸月數」形式對稱，
+易被讀成「戒檳月數」；兩者方向相反（一個是還在嚼、一個是已經戒），
+對映錯誤會使資料語意顛倒，故特此載明。
 單位放寬為 <code class="language-plaintext highlighter-rouge">a</code> 或 <code class="language-plaintext highlighter-rouge">mo</code> 而<strong>不做強制換算</strong>——把「嚼 18 個月」寫成「1.5 年」
 同樣會偽造精度。<code class="language-plaintext highlighter-rouge">component[cessationDuration]</code>（戒除期間）仍保留，
 但<strong>不屬最小上傳集之欄位</strong>。</p>
@@ -1021,10 +1102,10 @@ M-5 之狀態、嚼檳系列之 <code class="language-plaintext highlighter-roug
 
 
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
-          套件 mohw.tw.twha#0.9.3，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
+          套件 mohw.tw.twha#0.10.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-21 16:05:00 +0000">
-    2026-08-21
+  <span title="2026-08-22 02:14:00 +0000">
+    2026-08-22
   </span>
 
           <br/>

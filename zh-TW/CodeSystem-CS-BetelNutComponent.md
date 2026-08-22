@@ -1,4 +1,4 @@
-# 嚼檳榔量化元件代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.3
+# 嚼檳榔量化元件代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.0
 
 ## CodeSystem: 嚼檳榔量化元件代碼系統 (實驗性) 
 
@@ -26,12 +26,12 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutComponent",
-  "version" : "0.9.3",
+  "version" : "0.10.0",
   "name" : "CS_BetelNutComponent",
   "title" : "嚼檳榔量化元件代碼系統",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-21T16:05:47+00:00",
+  "date" : "2026-08-22T02:14:01+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -54,17 +54,17 @@
   "concept" : [{
     "code" : "amount",
     "display" : "每日嚼食量",
-    "definition" : "每日嚼食檳榔之顆數，以 UCUM 單位「{quid}/d」表達。對應上游 sf-BetNutChewBeh#amount。"
+    "definition" : "每日嚼食檳榔之顆數，以 UCUM 單位「{quid}/d」表達。承載主管機關最小上傳集第 10 列（醫令 30907X-2「嚼檳量」）。⚠️ 原案該列為複合欄位，同時收「平均每日嚼幾顆」與「嚼檳年數」兩個量綱不同之值，於資料交換時難以拆解；經本案專家會議［專家會議場次與日期待補］決議，年數移列第 11 列，本欄僅承載每日顆數。單位原案記「{個}/d」，惟 UCUM 之 annotation 僅接受可列印 ASCII，「{個}」非合法 UCUM，故採「{quid}/d」——此為術語技術正確性之更正，不涉語意，數值意義完全相同。本項屬受託團隊職權範圍之技術決議，無須委託單位或主管機關另行核定。對應上游 sf-BetNutChewBeh#amount。"
   },
   {
     "code" : "duration-years",
     "display" : "嚼食持續期間",
-    "definition" : "嚼食檳榔之持續期間（嚼了多久），以 UCUM 單位「a」或「mo」表達，並以原始採集粒度為準——不得將「嚼 2 年」逕行改寫為 24 個月。承載主管機關最小上傳集第 11 列（醫令 30907X-3「嚼檳月數」，經主管機關答覆確認其語意為嚼食持續期間而非戒檳月數）。對應上游 sf-BetNutChewBeh#year。⚠️ 代碼 id 保留「duration-years」係因該碼已於 v0.4.0 發佈，改名屬破壞性變更；真實語意以本顯示名與定義為準。"
+    "definition" : "嚼食檳榔之持續期間（嚼了多久），以 UCUM 單位「a」或「mo」表達，並以原始採集粒度為準——不得將「嚼 2 年」逕行改寫為 24 個月。承載主管機關最小上傳集第 11 列（醫令 30907X-3，原案欄名「嚼檳月數」）。⚠️ 本欄不論受檢者現仍嚼食或已戒除，均應填列——嚼食持續期間是檳榔相關口腔癌之核心累積暴露指標，不因戒除而消失。戒除資訊另由 cessationDuration（戒除期間）與 cessationDate（戒除日期）承載，不佔上傳集之列位。原案該列之 r4 值規則寫「填寫戒檳月數」，經本案專家會議［專家會議場次與日期待補］指出係原案文字有誤並決議更正為嚼食持續期間；本項屬受託團隊職權範圍之技術決議，無須委託單位或主管機關另行核定。對應上游 sf-BetNutChewBeh#year。⚠️ 代碼 id 保留「duration-years」係因該碼已於 v0.4.0 發佈，改名屬破壞性變更；真實語意以本顯示名與定義為準。"
   },
   {
     "code" : "cessation-duration",
     "display" : "戒除期間",
-    "definition" : "已戒除之期間，以 UCUM 單位「a」或「mo」表達，並以原始採集粒度為準——不得將「已戒 1 年」逕行改寫為 12 個月。對應上游 sf-BetNutChewBeh#quit。"
+    "definition" : "已戒除之期間，以 UCUM 單位「a」或「mo」表達，並以原始採集粒度為準——不得將「已戒 1 年」逕行改寫為 12 個月。⚠️ 本欄與 cessationDate 共同承接主管機關原案第 11 列 r4 所指之「戒檳月數」：該列語意經本案專家會議決議更正為嚼食持續期間後，戒除資訊改由本欄承載，不佔上傳集之列位。故本次語意更正並不造成任何資訊遺失。對應上游 sf-BetNutChewBeh#quit。"
   },
   {
     "code" : "cessation-date",

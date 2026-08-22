@@ -165,8 +165,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.110"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-event-status.html" : "EventStatus",
-    "http://hl7.org/fhir/R4/valueset-clinicalimpression-status.html" : "Clinical Impression Status"
+    "http://hl7.org/fhir/R4/valueset-clinicalimpression-status.html" : "Clinical Impression Status",
+    "http://hl7.org/fhir/R4/valueset-event-status.html" : "EventStatus"
   },
   {
     "url" : "http://hl7.org/fhir/http-verb",
@@ -346,9 +346,9 @@
     "oids" : ["2.16.840.1.113883.4.642.4.114"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-task-intent.html" : "TaskIntent",
+    "http://hl7.org/fhir/R4/valueset-request-intent.html" : "RequestIntent",
     "http://hl7.org/fhir/R4/valueset-care-plan-intent.html" : "Care Plan Intent",
-    "http://hl7.org/fhir/R4/valueset-request-intent.html" : "RequestIntent"
+    "http://hl7.org/fhir/R4/valueset-task-intent.html" : "TaskIntent"
   },
   {
     "url" : "http://hl7.org/fhir/request-priority",
@@ -455,29 +455,29 @@
     "oids" : ["2.16.840.1.113883.6.1"],
     "uses" : {
     },
-    "ValueSet-VS-Appendix10-Lead-RequiredSet.html" : "附表十 鉛作業 專屬應執行項目值集",
-    "ValueSet-VS-TWHAVitalSigns.html" : "職業健檢生命徵象項目值集",
-    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-loinc-type-doc-code.html" : "LOINC Code Document Type值集",
+    "ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.html" : "附表十 有機溶劑作業 專屬應執行項目值集",
+    "ValueSet-VS-Appendix9-RequiredSet.html" : "附表九 一般健康檢查法定應執行項目值集",
     "ValueSet-VS-ExtendedDataset.html" : "健康檢查進階與領域擴充項目值集",
-    "http://hl7.org/fhir/R4/valueset-document-classcodes.html" : "Document Class Value Set",
-    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-vital-signs-tw.html" : "LOINC生命體徵值集",
     "ConceptMap-TWHealthCheckLaboratoryMap.html" : "健康檢查檢驗項目代碼對應 ConceptMap",
     "ValueSet-VS-Appendix10-Dust-RequiredSet.html" : "附表十 粉塵作業 專屬應執行項目值集",
     "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-loinc-observation-code.html" : "LOINC實驗室檢驗檢查值集",
-    "http://hl7.org/fhir/R4/valueset-questionnaire-questions.html" : "Questionnaire Question Codes",
-    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
-    "ValueSet-VS-CoreDataset.html" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
-    "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集",
-    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-loinc-document-classcodes.html" : "LOINC Document Class值集",
-    "http://hl7.org/fhir/R4/valueset-observation-codes.html" : "LOINC Codes",
-    "ValueSet-VS-OccHealthCheck-Required.html" : "勞工健康檢查法定必驗項目值集（第一期草案）",
-    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-loinc-doc-section-code.html" : "LOINC Code Document Section值集",
-    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-smoking-status-type-code.html" : "SNOMED CT + LOINC 吸菸狀態種類向值集",
     "http://hl7.org/fhir/R4/valueset-doc-typecodes.html" : "FHIR Document Type Codes",
-    "http://hl7.org/fhir/R4/valueset-doc-section-codes.html" : "Document Section Codes",
+    "http://hl7.org/fhir/R4/valueset-observation-codes.html" : "LOINC Codes",
+    "http://hl7.org/fhir/R4/valueset-questionnaire-questions.html" : "Questionnaire Question Codes",
+    "ValueSet-VS-OccHealthCheck-Required.html" : "勞工健康檢查法定必驗項目值集（第一期草案）",
+    "ValueSet-VS-PulmonaryFunction.html" : "肺功能檢查項目值集",
+    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-smoking-status-type-code.html" : "SNOMED CT + LOINC 吸菸狀態種類向值集",
+    "ValueSet-VS-CoreDataset.html" : "健康檢查核心檢驗項目值集（主管機關最小上傳集之檢驗子集）",
+    "ValueSet-VS-Appendix10-Lead-RequiredSet.html" : "附表十 鉛作業 專屬應執行項目值集",
+    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-loinc-document-classcodes.html" : "LOINC Document Class值集",
+    "http://hl7.org/fhir/R4/valueset-document-classcodes.html" : "Document Class Value Set",
+    "ValueSet-VS-CoreUploadSet.html" : "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）",
+    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-loinc-type-doc-code.html" : "LOINC Code Document Type值集",
+    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-vital-signs-tw.html" : "LOINC生命體徵值集",
     "ValueSet-VS-Appendix10-Noise-RequiredSet.html" : "附表十 噪音作業 專屬應執行項目值集",
-    "ValueSet-VS-Appendix10-OrganicSolvent-RequiredSet.html" : "附表十 有機溶劑作業 專屬應執行項目值集",
-    "ValueSet-VS-Appendix9-RequiredSet.html" : "附表九 一般健康檢查法定應執行項目值集"
+    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-loinc-doc-section-code.html" : "LOINC Code Document Section值集",
+    "http://hl7.org/fhir/R4/valueset-doc-section-codes.html" : "Document Section Codes",
+    "ValueSet-VS-TWHAVitalSigns.html" : "職業健檢生命徵象項目值集"
   },
   {
     "url" : "http://snomed.info/sct",
@@ -489,42 +489,42 @@
     "oids" : ["2.16.840.1.113883.6.96"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-encounter-reason.html" : "Encounter Reason Codes",
-    "http://hl7.org/fhir/R4/valueset-procedure-not-performed-reason.html" : "Procedure Not Performed Reason (SNOMED-CT)",
-    "http://hl7.org/fhir/R4/valueset-condition-severity.html" : "Condition/Diagnosis Severity",
-    "http://hl7.org/fhir/R4/valueset-questionnaire-answers.html" : "Questionnaire Answer Codes",
-    "http://hl7.org/fhir/R4/valueset-referencerange-appliesto.html" : "Observation Reference Range Applies To Codes",
-    "http://hl7.org/fhir/R4/valueset-medication-as-needed-reason.html" : "SNOMED CT Medication As Needed Reason Codes",
-    "http://hl7.org/fhir/R4/valueset-procedure-code.html" : "Procedure Codes (SNOMED CT)",
-    "http://hl7.org/fhir/R4/valueset-procedure-followup.html" : "Procedure Follow up Codes (SNOMED CT)",
-    "http://hl7.org/fhir/R4/valueset-servicerequest-category.html" : "Service Request Category Codes",
-    "http://hl7.org/fhir/R4/valueset-care-plan-category.html" : "Care Plan Category",
-    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-medical-department-sct-tw.html" : "對應至 SNOMED CT之就醫科別 + 診療科別值集",
-    "http://hl7.org/fhir/R4/valueset-performer-role.html" : "Procedure Performer Role Codes",
-    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-smoking-status-comprehensive-code.html" : "SNOMED CT 吸菸狀態綜合評估值集",
-    "http://hl7.org/fhir/R4/valueset-care-plan-activity-outcome.html" : "Care Plan Activity Outcome",
+    "http://hl7.org/fhir/R4/valueset-condition-code.html" : "Condition/Problem/Diagnosis Codes",
+    "http://hl7.org/fhir/R4/valueset-bodysite-laterality.html" : "Laterality",
     "http://hl7.org/fhir/R4/valueset-manifestation-or-symptom.html" : "Manifestation and Symptom Codes",
+    "http://hl7.org/fhir/R4/valueset-medication-codes.html" : "SNOMED CT Medication Codes",
+    "http://hl7.org/fhir/R4/valueset-procedure-reason.html" : "Procedure Reason Codes",
     "http://hl7.org/fhir/R4/valueset-servicerequest-orderdetail.html" : "Service Request Order Details Codes",
     "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-smoking-status-type-code.html" : "SNOMED CT + LOINC 吸菸狀態種類向值集",
-    "http://hl7.org/fhir/R4/valueset-procedure-category.html" : "Procedure Category Codes (SNOMED CT)",
-    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-health-professional-sct-tw.html" : "SNOMED CT + 臺灣醫事司醫事人員類別值集",
-    "http://hl7.org/fhir/R4/valueset-condition-stage.html" : "Condition Stage",
-    "http://hl7.org/fhir/R4/valueset-clinicalimpression-prognosis.html" : "Clinical Impression Prognosis",
-    "http://hl7.org/fhir/R4/valueset-participant-role.html" : "Participant Roles",
-    "http://hl7.org/fhir/R4/valueset-condition-stage-type.html" : "Condition Stage Type",
+    "http://hl7.org/fhir/R4/valueset-investigation-sets.html" : "Investigation Type",
+    "http://hl7.org/fhir/R4/valueset-procedure-not-performed-reason.html" : "Procedure Not Performed Reason (SNOMED-CT)",
     "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-condition-code-sct-tw.html" : "SNOMED CT診斷代碼值集",
+    "http://hl7.org/fhir/R4/valueset-procedure-followup.html" : "Procedure Follow up Codes (SNOMED CT)",
+    "http://hl7.org/fhir/R4/valueset-participant-role.html" : "Participant Roles",
+    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-medical-department-sct-tw.html" : "對應至 SNOMED CT之就醫科別 + 診療科別值集",
+    "http://hl7.org/fhir/R4/valueset-servicerequest-category.html" : "Service Request Category Codes",
+    "http://hl7.org/fhir/R4/valueset-procedure-outcome.html" : "Procedure Outcome Codes (SNOMED CT)",
+    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-health-professional-sct-tw.html" : "SNOMED CT + 臺灣醫事司醫事人員類別值集",
     "http://hl7.org/fhir/R4/valueset-body-site.html" : "SNOMED CT Body Structures",
-    "http://hl7.org/fhir/R4/valueset-clinical-findings.html" : "SNOMED CT Clinical Findings",
-    "http://hl7.org/fhir/R4/valueset-condition-code.html" : "Condition/Problem/Diagnosis Codes",
-    "http://hl7.org/fhir/R4/valueset-procedure-reason.html" : "Procedure Reason Codes",
+    "http://hl7.org/fhir/R4/valueset-performer-role.html" : "Procedure Performer Role Codes",
+    "http://hl7.org/fhir/R4/valueset-device-kind.html" : "FHIR Device Types",
     "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-serviceRequest-category.html" : "臺灣衛福部資訊處ServiceRequest類型值集",
     "http://hl7.org/fhir/R4/valueset-observation-methods.html" : "Observation Methods",
-    "http://hl7.org/fhir/R4/valueset-medication-codes.html" : "SNOMED CT Medication Codes",
-    "http://hl7.org/fhir/R4/valueset-procedure-outcome.html" : "Procedure Outcome Codes (SNOMED CT)",
-    "http://hl7.org/fhir/R4/valueset-device-kind.html" : "FHIR Device Types",
-    "http://hl7.org/fhir/R4/valueset-device-action.html" : "Procedure Device Action Codes",
-    "http://hl7.org/fhir/R4/valueset-investigation-sets.html" : "Investigation Type",
-    "http://hl7.org/fhir/R4/valueset-bodysite-laterality.html" : "Laterality"
+    "http://hl7.org/fhir/R4/valueset-medication-as-needed-reason.html" : "SNOMED CT Medication As Needed Reason Codes",
+    "http://hl7.org/fhir/R4/valueset-condition-stage-type.html" : "Condition Stage Type",
+    "http://hl7.org/fhir/R4/valueset-clinical-findings.html" : "SNOMED CT Clinical Findings",
+    "http://hl7.org/fhir/R4/valueset-referencerange-appliesto.html" : "Observation Reference Range Applies To Codes",
+    "http://hl7.org/fhir/R4/valueset-condition-severity.html" : "Condition/Diagnosis Severity",
+    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-smoking-status-comprehensive-code.html" : "SNOMED CT 吸菸狀態綜合評估值集",
+    "http://hl7.org/fhir/R4/valueset-care-plan-activity-outcome.html" : "Care Plan Activity Outcome",
+    "http://hl7.org/fhir/R4/valueset-encounter-reason.html" : "Encounter Reason Codes",
+    "http://hl7.org/fhir/R4/valueset-procedure-code.html" : "Procedure Codes (SNOMED CT)",
+    "http://hl7.org/fhir/R4/valueset-condition-stage.html" : "Condition Stage",
+    "http://hl7.org/fhir/R4/valueset-clinicalimpression-prognosis.html" : "Clinical Impression Prognosis",
+    "http://hl7.org/fhir/R4/valueset-questionnaire-answers.html" : "Questionnaire Answer Codes",
+    "http://hl7.org/fhir/R4/valueset-care-plan-category.html" : "Care Plan Category",
+    "http://hl7.org/fhir/R4/valueset-procedure-category.html" : "Procedure Category Codes (SNOMED CT)",
+    "http://hl7.org/fhir/R4/valueset-device-action.html" : "Procedure Device Action Codes"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/admit-source",
@@ -801,8 +801,8 @@
     "oids" : ["2.16.840.1.113883.18.108"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-identifier-type.html" : "IdentifierType",
-    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-identifier-type-tw.html" : "IdentifierType + 臺灣衛福部資訊處識別碼類型值集"
+    "https://twcore.mohw.gov.tw/ig/twcore/1.0.0/ValueSet-identifier-type-tw.html" : "IdentifierType + 臺灣衛福部資訊處識別碼類型值集",
+    "http://hl7.org/fhir/R4/valueset-identifier-type.html" : "IdentifierType"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
@@ -875,8 +875,8 @@
     "oids" : ["2.16.840.1.113883.5.1008"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-marital-status.html" : "MaritalStatus",
-    "http://hl7.org/fhir/R4/valueset-encounter-special-courtesy.html" : "Special courtesy"
+    "http://hl7.org/fhir/R4/valueset-encounter-special-courtesy.html" : "Special courtesy",
+    "http://hl7.org/fhir/R4/valueset-marital-status.html" : "MaritalStatus"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
@@ -900,8 +900,8 @@
     "oids" : ["2.16.840.1.113883.5.90"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R4/valueset-encounter-participant-type.html" : "Participant type",
-    "http://hl7.org/fhir/R4/valueset-series-performer-function.html" : "ImagingStudy series performer function"
+    "http://hl7.org/fhir/R4/valueset-series-performer-function.html" : "ImagingStudy series performer function",
+    "http://hl7.org/fhir/R4/valueset-encounter-participant-type.html" : "Participant type"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
@@ -913,8 +913,8 @@
     "oids" : ["2.16.840.1.113883.5.111"],
     "uses" : {
     },
-    "http://terminology.hl7.org/7.3.0/ValueSet-v3-ServiceDeliveryLocationRoleType.html" : "ServiceDeliveryLocationRoleType",
-    "http://hl7.org/fhir/R4/valueset-relatedperson-relationshiptype.html" : "Patient relationship type"
+    "http://hl7.org/fhir/R4/valueset-relatedperson-relationshiptype.html" : "Patient relationship type",
+    "http://terminology.hl7.org/7.3.0/ValueSet-v3-ServiceDeliveryLocationRoleType.html" : "ServiceDeliveryLocationRoleType"
   },
   {
     "url" : "http://unitsofmeasure.org",
@@ -926,9 +926,9 @@
     "oids" : ["2.16.840.1.113883.6.8"],
     "uses" : {
     },
+    "ValueSet-VS-TimeUnitYearMonth.html" : "時間單位值集（年／月）",
     "http://hl7.org/fhir/R4/valueset-ucum-vitals-common.html" : "Vital Signs Units",
-    "http://terminology.hl7.org/7.3.0/ValueSet-v3-UnitsOfMeasureCaseSensitive.html" : "UnitsOfMeasureCaseSensitive",
-    "ValueSet-VS-TimeUnitYearMonth.html" : "時間單位值集（年／月）"
+    "http://terminology.hl7.org/7.3.0/ValueSet-v3-UnitsOfMeasureCaseSensitive.html" : "UnitsOfMeasureCaseSensitive"
   },
   {
     "url" : "https://hapi.fhir.tw/fhir/CodeSystem/sf-BetNutChewAmount-codesystem",
@@ -1131,19 +1131,19 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-Appendix10Operation",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "draft",
     "name" : "CS_Appendix10Operation",
     "title" : "附表十特別危害健康作業具名代碼系統",
     "description" : "【依據：勞工健康保護規則附表】《勞工健康保護規則》附表十（115.06.26 修正）逐號列舉之 35 項特別危害健康作業具名代碼。本代碼系統為「具名作業層」，與 CS-HazardType（12 危害家族層）以 ConceptMap Appendix10-to-HazardType 對映。編號 33/34/35（苯乙烯、甲苯、二甲苯）為 115.06.26 修正新增，狀態為 **draft**：其施行日期與既有勞工銜接安排尚待勞動部職業安全衛生署確認，本 IG 之檢查項目與代碼配置屬暫定。過渡期以本 CodeSystem 之 version（法規版本）表達，個案資料僅記錄實際檢查日期與所採規範版本，不另加自訂旗標。",
     "uses" : {
     },
-    "ValueSet-VS-Appendix10-Operation.html" : "附表十特別危害健康作業值集（35 項）",
-    "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照"
+    "ConceptMap-Appendix10-to-HazardType.html" : "附表十 35 項法定作業 對 12 危害家族 對照",
+    "ValueSet-VS-Appendix10-Operation.html" : "附表十特別危害健康作業值集（35 項）"
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutAdditive",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "active",
     "name" : "CS_BetelNutAdditive",
     "title" : "檳榔添加物代碼系統",
@@ -1154,7 +1154,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutHpaCategory",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "active",
     "name" : "CS_BetelNutHpaCategory",
     "title" : "口腔黏膜檢查表嚼檳榔習慣級距代碼系統",
@@ -1165,7 +1165,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutInfoSource",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "active",
     "name" : "CS_BetelNutInfoSource",
     "title" : "嚼檳榔資料來源代碼系統",
@@ -1176,7 +1176,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutLime",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "active",
     "name" : "CS_BetelNutLime",
     "title" : "檳榔石灰種類代碼系統",
@@ -1187,7 +1187,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutObservable",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "active",
     "name" : "CS_BetelNutObservable",
     "title" : "嚼檳榔觀察項目代碼系統",
@@ -1198,7 +1198,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutStatus",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "active",
     "name" : "CS_BetelNutStatus",
     "title" : "嚼檳榔狀態代碼系統",
@@ -1209,7 +1209,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ExamType",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "active",
     "name" : "CS_ExamType",
     "title" : "檢查類型代碼系統",
@@ -1220,7 +1220,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-FitnessForWork",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "draft",
     "name" : "CS_FitnessForWork",
     "title" : "適性配工建議代碼系統",
@@ -1231,7 +1231,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HazardType",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "draft",
     "name" : "CS_HazardType",
     "title" : "特別危害健康作業類別代碼系統",
@@ -1243,7 +1243,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthCounseling",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "active",
     "name" : "CS_HealthCounseling",
     "title" : "健康諮詢與衛教指導項目代碼系統",
@@ -1254,7 +1254,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-HealthMgmtLevel",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "draft",
     "name" : "CS_HealthMgmtLevel",
     "title" : "健康管理分級代碼系統",
@@ -1265,7 +1265,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-LaborReportCode",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "draft",
     "name" : "CS_LaborReportCode",
     "title" : "勞動部通報報告代碼系統",
@@ -1276,7 +1276,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-OrganicSolventType",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "draft",
     "name" : "CS_OrganicSolventType",
     "title" : "有機溶劑種類代碼系統",
@@ -1287,7 +1287,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-PhysicalExamSystems",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "draft",
     "name" : "CS_PhysicalExamSystems",
     "title" : "身體檢查系統部位代碼系統",
@@ -1298,7 +1298,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-ServiceActivityType",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "draft",
     "name" : "CS_ServiceActivityType",
     "title" : "臨場健康服務辦理事項代碼系統",
@@ -1309,7 +1309,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SmokingStatus",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "active",
     "name" : "CS_SmokingStatus",
     "title" : "吸菸狀態代碼系統",
@@ -1320,7 +1320,7 @@
   },
   {
     "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-SpecificChemicalType",
-    "version" : "0.9.3",
+    "version" : "0.10.0",
     "status" : "draft",
     "name" : "CS_SpecificChemicalType",
     "title" : "特定化學物質種類代碼系統",

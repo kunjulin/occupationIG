@@ -1,4 +1,4 @@
-# 吸菸量及菸齡擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.9.3
+# 吸菸量及菸齡擴充 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.0
 
 ## 擴充: 吸菸量及菸齡擴充 
 
@@ -57,12 +57,12 @@ Complex Extension: 【主管機關：國民健康署】記錄每日吸菸支數�
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/ext-smoking-quantity",
-  "version" : "0.9.3",
+  "version" : "0.10.0",
   "name" : "ExtSmokingQuantity",
   "title" : "吸菸量及菸齡擴充",
   "status" : "active",
   "experimental" : false,
-  "date" : "2026-08-21T16:05:47+00:00",
+  "date" : "2026-08-22T02:14:01+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
