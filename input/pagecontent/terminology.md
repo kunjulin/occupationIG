@@ -167,10 +167,10 @@
 > `equivalence`，與 R4 之 target-relative 定義方向相反，致 16 組值顛倒；另 6 組之 comment
 > 與 display 相互矛盾（先前僅修 display 未同步修 comment 之殘留）。已全數更正，
 > 更正後（39 組時）之分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0；
-> 其後移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，該時分佈為
-> `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組）；
-> v0.10.1 依委員決議新增 4 組（`element[41]`–`[44]`，見 §3.2），**現行分佈為
-> `wider` 13／`narrower` 6／`relatedto` 26／`equivalent` 0（共 45 組）**。
+> 其後移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**該時分佈為
+> `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組；v0.10.1 依委員決議
+> 新增 4 組後，現行分佈為 `wider` 13／`narrower` 6／`relatedto` 26／`equivalent` 0，
+> 共 45 組，逐組見 §3.2）**。
 > **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。
 > 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門
 > （`scripts/fix-conceptmap-equivalence.js --check`）。

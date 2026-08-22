@@ -268,6 +268,45 @@ function selfTest() {
   // ⑨ 解析失敗要能被辨識，不得靜默通過
   run('⑨ qa.txt 無總數列 → 辨識為解析失敗', () => evaluate('nothing here', BASE).parseError === true);
 
+  // ⑩ 主流程煙霧測試——**這一項是本機綠而 CI 炸之後補的**。
+  //    ①–⑨ 全部只呼叫 evaluate／unnamed* 等純函式，在 selfTest() 內就 exit，
+  //    **從未執行過主流程的輸出段**；v0.10.1 首版把 uw 併進迴圈解構後，
+  //    摘要區的 `uw.unnamed` 變成 ReferenceError，而自我測試依然全綠。
+  //    故此處真的把腳本當子行程跑一遍，讓輸出段之語法與變數作用域也被覆蓋。
+  run('⑩ 主流程可完整執行（子行程煙霧測試）', () => {
+    const os = require('os');
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'qa-gate-selftest-'));
+    try {
+      const qaFile = path.join(dir, 'qa.txt');
+      const baseFile = path.join(dir, 'base.json');
+      // 刻意混入未具名之 WARNING 與 INFORMATION 各一，使兩份歸因報表都真的被印出來。
+      fs.writeFileSync(qaFile, mk({
+        extraWarn: ['WARNING: z: unnamed problem', 'INFORMATION: Observation/foo: unnamed note'],
+        warn: 11, info: 101,
+      }));
+      fs.writeFileSync(baseFile, JSON.stringify({
+        igPublisherVersion: '2.2.11',
+        totals: { err: 0, warn: 11, info: 101 },
+        categories: BASE.categories,
+        tolerance: BASE.tolerance,
+      }));
+      const r = require('child_process').spawnSync(
+        process.execPath,
+        [__filename, '--qa', qaFile, '--baseline', baseFile],
+        { encoding: 'utf8', env: { ...process.env, GITHUB_STEP_SUMMARY: path.join(dir, 'summary.md') } }
+      );
+      const out = (r.stdout || '') + (r.stderr || '');
+      if (r.status !== 0) { console.log(`     子行程 exit ${r.status}：${out.slice(-400)}`); return false; }
+      // 摘要區也要真的寫得出來（uw／ui 若未定義即在此炸掉）
+      const summary = fs.readFileSync(path.join(dir, 'summary.md'), 'utf8');
+      return out.includes('未具名 WARNING 歸因報表')
+        && out.includes('未具名 INFORMATION 歸因報表')
+        && summary.includes('未具名 INFORMATION');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   console.log('QA 閘門負向自我測試（標「正向對照」者必須不被判失敗，其餘必須被判失敗）：');
   let bad = 0;
   for (const [name, ok] of results) {
@@ -391,8 +430,13 @@ for (const level of regressedLevels) {
 }
 
 // ------------------------------- 未具名 WARNING／INFORMATION 之歸因報表（每輪都印）
-for (const [level, u] of [['WARNING', unnamedWarnings(qa, baseline)],
-  ['INFORMATION', unnamedInfos(qa, baseline)]]) {
+// ⚠️ 兩者於迴圈外先算好並具名保留：CI 摘要區（GITHUB_STEP_SUMMARY）要引用 uw。
+// v0.10.1 首版把 uw 併進迴圈之解構變數，摘要區隨即 ReferenceError——
+// 而**自我測試在到達該行之前就 exit，因此本機全綠、CI 才炸**。
+// 教訓：self-test 只覆蓋 evaluate 路徑，不覆蓋主流程輸出段；改動主流程時不能只靠它。
+const uw = unnamedWarnings(qa, baseline);
+const ui = unnamedInfos(qa, baseline);
+for (const [level, u] of [['WARNING', uw], ['INFORMATION', ui]]) {
   console.log(
     `\n未具名 ${level} 歸因報表：${level} 共 ${u.total} 筆，其中 ${u.unnamed} 筆不落在任何具名類別內` +
       `（${u.groups.size} 種形態）。`
@@ -451,7 +495,7 @@ if (process.env.GITHUB_STEP_SUMMARY) {
       return `| ${r.label} | ${r.limit} | ${r.actual} | ${sign} | ${verdict} |`;
     }),
     '',
-    `未具名 WARNING：${uw.unnamed} / ${uw.total} 筆。`,
+    `未具名 WARNING：${uw.unnamed} / ${uw.total} 筆；未具名 INFORMATION：${ui.unnamed} / ${ui.total} 筆。`,
     ev.stale ? '⚠️ 有項目低於基準線且超出容差——基準線未校準，執行 `npm run qa -- --update`。' : '',
   ].join('\n');
   try {
