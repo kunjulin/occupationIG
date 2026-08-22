@@ -61,9 +61,12 @@ const AXIS_PROP = {
 
 // ---- CSV -------------------------------------------------------------------
 // 欄位較提示詞所列之 9 欄為多，理由具名如下（刻意偏離，非疏漏）：
-//   1. 判準比對的是**軸之 LP 代碼**（同一軸的顯示名可能改版漂移，LP 代碼才是身分），
-//      故每軸存 LP 代碼；但 LP 代碼人讀不出來，覆核時無從判斷對錯，
-//      故並存 `*_display`。只留其一都會讓這個檔失去它該有的用途之一。
+//   1. 判準比對的是**軸之 LP 代碼**——tx 之 $lookup 於軸值只回 LP 代碼，
+//      且 LP 代碼才是身分（名稱會隨 LOINC 改版漂移）。但 LP 代碼人讀不出來，
+//      覆核「LP65527-1 是否為 LP6548-4 之後裔」時，看得懂那是「Automated test strip」
+//      與「Test strip」才判斷得了對錯，故另以第二趟查詢補上 `*_display`。
+//      只留其一都會讓這個檔失去它該有的用途之一：只留代碼則無法覆核，
+//      只留名稱則判準沒有可靠的身分可比。
 //   2. `status` 為取數當下之事實，與六軸同一批取回，分開存反而會不同步。
 const AXES_HEADER = [
   'loinc', 'display',
@@ -150,9 +153,18 @@ function getJson(url, tries = 3) {
 }
 
 // ---- $lookup 解析 -----------------------------------------------------------
-// 軸值可能以 valueCoding（含 LP 代碼）或 valueString（僅顯示名）回覆，兩種都要接住；
-// 只接住其一會讓某些軸靜默變成空字串，而空字串在判準裡代表「該軸未指定」——
-// 那是實質不同的意思，不能由解析瑕疵產生。
+// 軸值之回覆型別因伺服器而異：可能是 valueCoding（code ＋ display），
+// 也可能是 **valueString 內直接放 LP 代碼**——tx.fhir.org 2026-08-22 實測即為後者
+// （`PROPERTY` 回 `"LP6827-2"`，不是 `"MCnc"`）。
+//
+// ⚠️ 這一點本工具第一版判斷錯了，值得留下記錄：當時假設 valueString 只會是顯示名，
+//    於是把 LP 代碼寫進 display 欄、code 欄留空。後果不是報錯，而是
+//    **「需階層判定之軸配對：0 組」**——階層比對讀到的兩邊都是空字串，一律相等，
+//    整個階層檢查靜默地什麼都沒查。閘門在跑、輸出照印，而它的輸入是空的。
+//    這正是本次改判準要根除的形態，只是這次發生在新寫的工具自己身上。
+//    故新增 assertAxesResolved()：五個必有之軸任一為空即失敗，不讓它再靜默一次。
+const LP_CODE = /^LP\d+-\d+$/;
+
 function parseLookup(res) {
   const out = { display: '', axes: {}, error: null };
   if (!res || res.resourceType !== 'Parameters') {
@@ -170,10 +182,25 @@ function parseLookup(res) {
     if (!axis) continue;
     const v = parts.value;
     if (!v) continue;
-    if (v.valueCoding) out.axes[axis] = { code: v.valueCoding.code || '', display: v.valueCoding.display || '' };
-    else out.axes[axis] = { code: '', display: String(v.valueString ?? v.valueCode ?? v.valueBoolean ?? '') };
+    if (v.valueCoding) { out.axes[axis] = { code: v.valueCoding.code || '', display: v.valueCoding.display || '' }; continue; }
+    const s = String(v.valueString ?? v.valueCode ?? v.valueBoolean ?? '');
+    // LP 代碼即為該軸之身分；其餘字串（如 STATUS 之 "ACTIVE"）不是代碼，留在 display。
+    out.axes[axis] = LP_CODE.test(s) ? { code: s, display: '' } : { code: '', display: s };
   }
   return out;
+}
+
+// 軸值解析塌陷之防呆。COMPONENT／PROPERTY／TIME／SYSTEM／SCALE 於 LOINC 恆有值
+// （2026-08-22 實測 83 碼全數具備）；METHOD 則有 33 碼確實未指定，那是實質資訊而非缺漏，
+// 故不列入必檢。任一必檢軸為空 → 失敗並具名，不得寫入對照檔。
+const REQUIRED_AXES = ['component', 'property', 'time', 'system', 'scale'];
+function assertAxesResolved(rows) {
+  const bad = [];
+  for (const r of rows) {
+    const missing = REQUIRED_AXES.filter((a) => !r[a]);
+    if (missing.length) bad.push(`${r.loinc}：${missing.join('／')} 無 LP 代碼`);
+  }
+  return bad;
 }
 
 // ---- $subsumes --------------------------------------------------------------
@@ -198,19 +225,30 @@ function runSelfTest() {
     parameter: [
       { name: 'display', valueString: 'Protein [Mass/volume] in Urine by Test strip' },
       { name: 'property', part: [{ name: 'code', valueCode: 'PROPERTY' }, { name: 'value', valueCoding: { code: 'LP6827-2', display: 'MCnc' } }] },
-      { name: 'property', part: [{ name: 'code', valueCode: 'SCALE_TYP' }, { name: 'value', valueString: 'SemiQn' }] },
+      { name: 'property', part: [{ name: 'code', valueCode: 'SCALE_TYP' }, { name: 'value', valueString: 'LP436123-6' }] },
+      { name: 'property', part: [{ name: 'code', valueCode: 'STATUS' }, { name: 'value', valueString: 'ACTIVE' }] },
     ],
   });
   ok('① valueCoding 之 LP 代碼與顯示名皆取回', lk.axes.property && lk.axes.property.code === 'LP6827-2' && lk.axes.property.display === 'MCnc');
-  ok('② valueString 之軸值不因無 LP 代碼而遺失', lk.axes.scale && lk.axes.scale.display === 'SemiQn' && lk.axes.scale.code === '');
-  ok('③ 未回覆之軸為 undefined（代表未指定），不是空物件', lk.axes.method === undefined);
+  // ② tx.fhir.org 實測即為此形：軸值以 valueString 承載 LP 代碼。
+  //    本案例鎖的是「LP 代碼必須落在 code 欄」——首版誤放到 display 欄，
+  //    使階層比對兩邊皆空而一律相等，靜默地什麼都沒查。
+  ok('② valueString 內之 LP 代碼須落在 code 欄，不得誤判為顯示名', lk.axes.scale && lk.axes.scale.code === 'LP436123-6' && lk.axes.scale.display === '');
+  ok('③ 非 LP 形式之 valueString（如 STATUS）不得被當成代碼', lk.axes.status && lk.axes.status.code === '' && lk.axes.status.display === 'ACTIVE');
+  ok('④ 未回覆之軸為 undefined（代表未指定），不是空物件', lk.axes.method === undefined);
+
+  ok('⑤ 必檢軸為空即判為塌陷並具名', (() => {
+    const bad = assertAxesResolved([{ loinc: 'X-1', component: 'LP1-1', property: '', time: 'LP3-3', system: 'LP4-4', scale: 'LP5-5' }]);
+    return bad.length === 1 && bad[0].includes('X-1') && bad[0].includes('property');
+  })());
+  ok('⑥ METHOD 為空不算塌陷（33 碼確實未指定方法）', assertAxesResolved([{ loinc: 'X-1', component: 'LP1-1', property: 'LP2-2', time: 'LP3-3', system: 'LP4-4', scale: 'LP5-5', method: '' }]).length === 0);
 
   const oo = parseLookup({ resourceType: 'OperationOutcome', issue: [{ diagnostics: 'Unknown code' }] });
-  ok('④ OperationOutcome 轉為具名錯誤而非靜默空值', oo.error === 'Unknown code');
+  ok('⑦ OperationOutcome 轉為具名錯誤而非靜默空值', oo.error === 'Unknown code');
 
-  ok('⑤ $subsumes 之 outcome 正確取出', parseSubsumes({ resourceType: 'Parameters', parameter: [{ name: 'outcome', valueCode: 'subsumed-by' }] }) === 'subsumed-by');
-  ok('⑥ $subsumes 無法解析時回 unsupported，不得預設為 not-subsumed', parseSubsumes({ resourceType: 'OperationOutcome' }) === 'unsupported');
-  ok('⑦ $subsumes 缺 outcome 參數時回 unsupported', parseSubsumes({ resourceType: 'Parameters', parameter: [] }) === 'unsupported');
+  ok('⑧ $subsumes 之 outcome 正確取出', parseSubsumes({ resourceType: 'Parameters', parameter: [{ name: 'outcome', valueCode: 'subsumed-by' }] }) === 'subsumed-by');
+  ok('⑨ $subsumes 無法解析時回 unsupported，不得預設為 not-subsumed', parseSubsumes({ resourceType: 'OperationOutcome' }) === 'unsupported');
+  ok('⑩ $subsumes 缺 outcome 參數時回 unsupported', parseSubsumes({ resourceType: 'Parameters', parameter: [] }) === 'unsupported');
 
   const cm = parseConceptMap([
     '* group[0].element[0].code = #804-5',
@@ -221,11 +259,11 @@ function runSelfTest() {
     '* group[0].element[1].target[0].equivalence = #narrower',
   ].join('\n'));
   const pairs = elementPairs(cm);
-  ok('⑧ ConceptMap 解析出正確之組數與 source／target', pairs.length === 2 && pairs[0].source === '804-5' && pairs[1].target === '6690-2');
+  ok('⑪ ConceptMap 解析出正確之組數與 source／target', pairs.length === 2 && pairs[0].source === '804-5' && pairs[1].target === '6690-2');
 
   const csv = toCsv(['a', 'b'], [{ a: 'x,y', b: 'he said "hi"' }]);
   const back = parseCsvLine(csv.split('\n')[1]);
-  ok('⑨ CSV 逸出與回讀為可逆（含逗號與雙引號）', back[0] === 'x,y' && back[1] === 'he said "hi"');
+  ok('⑫ CSV 逸出與回讀為可逆（含逗號與雙引號）', back[0] === 'x,y' && back[1] === 'he said "hi"');
 
   let allPass = true;
   console.log('LOINC 六軸取數工具自我測試：');
@@ -261,7 +299,10 @@ if (selfTest) runSelfTest();
     catch (e) { r = { display: '', axes: {}, error: e.message }; }
     if (r.error) { failures.push({ code, error: r.error }); console.log(`[${String(i + 1).padStart(3)}/${codes.length}] ${code} ✖ ${r.error}`); }
     else console.log(`[${String(i + 1).padStart(3)}/${codes.length}] ${code} ${r.display}`);
-    const row = { loinc: code, display: r.display, class: (r.axes.class || {}).display || '', status: (r.axes.status || {}).display || '', source: 'tx $lookup', fetched_at: fetchedAt };
+    // class／status 之回覆型別與軸值相同（可能是 LP 代碼、也可能是 ACTIVE 這類字串），
+    // 故兩個欄位都取，不預設落在哪一邊——首版即因預設而讓 class 變成空白。
+    const pick = (k) => { const a = r.axes[k] || {}; return a.code || a.display || ''; };
+    const row = { loinc: code, display: r.display, class: pick('class'), status: pick('status'), source: 'tx $lookup', fetched_at: fetchedAt };
     for (const a of AXES) {
       row[a] = (r.axes[a] || {}).code || '';
       row[`${a}_display`] = (r.axes[a] || {}).display || '';
@@ -270,6 +311,25 @@ if (selfTest) runSelfTest();
     if (i < codes.length - 1) await new Promise((res) => setTimeout(res, delayMs));
   }
   axesRows.sort((a, b) => a.loinc.localeCompare(b.loinc));
+
+  // ── 1b. LP 代碼之顯示名 ────────────────────────────────────────────
+  // tx 之 $lookup 於軸值只回 LP 代碼，不回其名稱。LP 代碼人讀不出來，
+  // 而覆核「LP65527-1 是否為 LP6548-4 之後裔」這種判斷時，看得懂那兩個是
+  // 「Automated test strip」與「Test strip」才有辦法判斷對錯。故逐一補查（去重）。
+  // ⚠️ 查不到不算失敗——顯示名只供人閱讀，判準用的是 LP 代碼本身。
+  const lpCodes = [...new Set(axesRows.flatMap((r) => AXES.map((a) => r[a]).filter(Boolean)))].sort();
+  console.log(`\n相異 LP 代碼：${lpCodes.length}，補查顯示名…`);
+  const lpDisplay = new Map();
+  for (let i = 0; i < lpCodes.length; i++) {
+    const url = `${tx}/CodeSystem/$lookup?system=${encodeURIComponent('http://loinc.org')}&code=${encodeURIComponent(lpCodes[i])}`;
+    let d = '';
+    try { d = (parseLookup(await getJson(url)) || {}).display || ''; } catch { d = ''; }
+    lpDisplay.set(lpCodes[i], d);
+    if (i < lpCodes.length - 1) await new Promise((res) => setTimeout(res, delayMs));
+  }
+  const unresolved = lpCodes.filter((c) => !lpDisplay.get(c));
+  console.log(`  取得 ${lpCodes.length - unresolved.length}／${lpCodes.length}${unresolved.length ? `；未取得（不影響判準）：${unresolved.join(' ')}` : ''}`);
+  for (const r of axesRows) for (const a of AXES) r[`${a}_display`] = r[a] ? (lpDisplay.get(r[a]) || '') : '';
 
   // ── 2. 需要階層判定之軸配對 ────────────────────────────────────────
   // 只查「兩碼該軸皆有 LP 代碼且不相同」者——皆空或僅一方有值不需要階層即可判定。
@@ -307,6 +367,15 @@ if (selfTest) runSelfTest();
     console.error(`\n✖ ${failures.length} 碼查詢失敗：`);
     for (const f of failures) console.error(`    ${f.code}：${f.error}`);
     console.error('  查詢失敗不得寫入對照檔——空白的軸值會被判準讀成「該軸未指定」。');
+    process.exit(1);
+  }
+
+  const unresolvedAxes = assertAxesResolved(axesRows);
+  if (unresolvedAxes.length) {
+    console.error(`\n✖ 軸值解析塌陷：${unresolvedAxes.length} 碼之必檢軸無 LP 代碼`);
+    for (const b of unresolvedAxes) console.error(`    ${b}`);
+    console.error('  空白軸值會讓判準把兩碼讀成「該軸相同」而靜默放行——不得寫入對照檔。');
+    console.error('  多半是伺服器回覆型別改變（本工具首版即因此把 LP 代碼寫進 display 欄）。');
     process.exit(1);
   }
 
