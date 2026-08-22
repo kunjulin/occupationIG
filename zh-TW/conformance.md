@@ -130,8 +130,8 @@ FHIR 對上傳封包有兩種處理語意，**對實作端的錯誤處理設計�
 | 7 | `30906X-2` | 吸菸量 | LOINC`64218-1` | `/d`（支／日） | 同上．`extension[smokingQuantity]` |
 | 8 | `30906X-3` | 戒菸月數 | LOINC`63632-4` | `mo` | 同上．`extension[cessationDuration]` |
 | 9 | `30907X-1` | 嚼檳狀態 | **無 LOINC、亦無 SNOMED observable**（均已查證）；本指引自訂問句碼`CS-BetelNutObservable#betel-quid-chewing-status` | — | [TWHA-SocialHistory-BetelNut](StructureDefinition-TWHA-SocialHistory-BetelNut.md)．`value[x]` |
-| 10 | `30907X-2` | 嚼檳量 | 無代碼 | `{個}/d` | 同上．`component[amount]`（本指引用`{quid}/d`，見下註 ③） |
-| 11 | `30907X-3` | 嚼檳月數 | 無代碼 | `mo` | 同上．`component[durationYears]`（＝**嚼食持續期間**，見下註 ②） |
+| 10 | `30907X-2` | 嚼檳量 | 無代碼 | `{quid}/d`（原案記`{個}/d`，非合法 UCUM，見下註 ③） | 同上．`component[amount]` |
+| 11 | `30907X-3` | **嚼食持續期間**（原案欄名「嚼檳月數」） | 無代碼 | `a`或`mo` | 同上．`component[durationYears]`（見下註 ②；**不論現嚼或已戒均應填列**） |
 | 12 | `09001C` | 總膽固醇 | LOINC`2093-3` | `mg/dL` | [TWHA-LabResult-General](StructureDefinition-TWHA-LabResult-General.md) |
 | 13 | `09005C` | 飯前血糖 | LOINC`1558-6` | `mg/dL` | 同上 |
 | 14 | `09004C` | 三酸甘油酯 | LOINC`2571-8` | `mg/dL` | 同上 |
@@ -147,22 +147,21 @@ FHIR 對上傳封包有兩種處理語意，**對實作端的錯誤處理設計�
 
 > ⚠️ **血壓不是「1 主項 2 列」**：收縮壓 `30904X` 與舒張壓 `30905X` 是**兩個獨立醫令**， 各自為一個主項、各 1 列。兩者在 FHIR 中同屬一個 `BloodPressure` Observation 的兩個 component，**但那是本指引的建模方式，不是原案的計列方式**——兩者不可互推。
 
-> ⚠️ **`VS-CoreUploadSet` 不等於本表，兩者相差三項——引用時務必分清。** [VS-CoreUploadSet](ValueSet-VS-CoreUploadSet.md) 是**跨值集之群組**， 逐碼展開為 **20 個 preferred 代碼**，與本表之 21 列有三處差異：
+> ⚠️ **`VS-CoreUploadSet` 不等於本表——引用時務必分清。** [VS-CoreUploadSet](ValueSet-VS-CoreUploadSet.md) 是**跨值集之群組**， 其展開結果與本表之 21 列**計的不是同一件事**：前者是 FHIR 值集之成員代碼數， 後者是主管機關原案之欄位列數。現存差異為兩處：
 
 | | |
 | :--- | :--- |
-| ＋ BMI`39156-5` | **不是 Core 列**。它來自`VS-TWHAVitalSigns`——該值集另有生理量測之綁定用途，故一併被群組帶入。**不得據 `VS-CoreUploadSet` 推論 BMI 屬最小上傳集。** |
 | − 嚼檳量（第 10 列） | 官方原案為獨立一列，本指引以**同一 Observation 之 `component[amount]`**承載，非獨立`Observation.code`，故群組值集中無對應碼。 |
-| − 嚼檳月數（第 11 列） | 同上，以`component`承載。 |
+| − 嚼食持續期間（第 11 列） | 同上，以`component[durationYears]`承載。 |
 
-核算：`20 − 1（BMI） + 2（嚼檳量、嚼檳月數） = 21`。 **故「21 列」是對的，`VS-CoreUploadSet` 展開為 20 碼也是對的**——兩者計的不是同一件事。📌 **更新（v0.10.0）**：BMI 已由 `VS-CoreUploadSet` **明文排除**（`exclude LNC#39156-5`）， 不再靠註解宣告，故該值集之展開結果**不再含 BMI**，核算式亦隨之改為：**展開碼數 ＋ 2（嚼檳量、嚼食持續期間——本指引以 `component` 承載，未另立代碼）= 21**⚠️ **展開碼數以該次建置之實測為準，本頁不載死數字。** 理由見 [`CLAUDE.md`](https://github.com/kunjulin/occupationIG/blob/main/CLAUDE.md) §4 「沿用文件所載之數字」一列——本專案已因轉抄數字而出錯數次。 需要現值時請讀該次建置之值集展開，或 `qa-baseline.json` 之相關類別。**「21 列」與「值集展開碼數」計的仍不是同一件事**，這一點未因本次調整而改變： 前者是主管機關原案之欄位列數，後者是 FHIR 值集之成員代碼數。
+原有第三處差異「＋ BMI `39156-5`」 → **v0.10.0 起已由值集明文排除** （`exclude LNC#39156-5`），不再靠註解宣告，故該值集之展開結果**不再含 BMI**。 原以註解宣告之作法**攔不住機器**：任何以值集展開做涵蓋核對之程式， 看到的仍是含 BMI 的清單。核算式隨之改為：**展開碼數 ＋ 2（嚼檳量、嚼食持續期間——本指引以 `component` 承載，未另立代碼）= 21**⚠️ **展開碼數以該次建置之實測為準，本頁不載死數字。** 理由見 [`CLAUDE.md`](https://github.com/kunjulin/occupationIG/blob/main/CLAUDE.md) §4 「沿用文件所載之數字」一列——本專案已因轉抄數字而出錯數次。 需要現值時請讀該次建置之值集展開，或 `qa-baseline.json` 之相關類別。**「21 列」與「值集展開碼數」計的仍不是同一件事**，這一點未因本次調整而改變： 前者是主管機關原案之欄位列數，後者是 FHIR 值集之成員代碼數。
 
-**三項差異已依本案專家會議決議定案**（場次與日期：`[專家會議場次與日期待補]`）：
+**三項差異均已定案。⚠️ 三者之依據並不相同，請分別看待**（見下表「依據與其權責性質」欄）：
 
 | | | | | |
 | :--- | :--- | :--- | :--- | :--- |
 | ① | BMI 是否納入 | **不納入** | **原案未列 BMI**——事實陳述，非本指引之主張，**不需任何一方核定** | `VS-CoreUploadSet`明文`exclude``39156-5`；`VS-TWHAVitalSigns`不動（BMI 仍為有效之生理量測項目） |
-| ② | 第 11 列之語意 | **嚼食持續期間**（原案欄名「嚼檳月數」） | **專家會議之技術決議**——認定係原案文字有誤 | 對映至`component[durationYears]`（**非**`cessationDuration`）；單位`a`或`mo` |
+| ② | 第 11 列之語意 | **嚼食持續期間**（原案欄名「嚼檳月數」），**不論現嚼或已戒均應填列** | 本案專家共識會議**2026-07-17**七、臨時動議之決議——認定係原案文字有誤 | 對映至`component[durationYears]`（**非**`cessationDuration`）；單位`a`或`mo` |
 | ③ | 嚼檳量之單位標記 | **`{quid}/d`** | **術語技術正確性**：`{個}`非合法 UCUM（annotation 僅接受可列印 ASCII） | 維持現況，未變更任何定義 |
 
 > 

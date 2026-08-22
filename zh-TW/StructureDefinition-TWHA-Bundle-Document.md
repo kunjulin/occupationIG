@@ -72,7 +72,7 @@ Mandatory: 2 elements
   "name" : "TWHABundleDocumentProfile",
   "title" : "健康檢查報告交換封包 (Document Bundle) Profile",
   "status" : "active",
-  "date" : "2026-08-22T02:14:01+00:00",
+  "date" : "2026-08-22T04:25:10+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

@@ -622,16 +622,16 @@ acceptable 變異碼經 <a href="ConceptMap-TWHealthCheckLaboratoryMap.html">Con
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">30907X-2</code></td>
       <td style="text-align: left">嚼檳量</td>
       <td style="text-align: left">無代碼</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{個}/d</code></td>
-      <td style="text-align: left">同上．<code class="language-plaintext highlighter-rouge">component[amount]</code>（本指引用 <code class="language-plaintext highlighter-rouge">{quid}/d</code>，見下註 ③）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">{quid}/d</code>（原案記 <code class="language-plaintext highlighter-rouge">{個}/d</code>，非合法 UCUM，見下註 ③）</td>
+      <td style="text-align: left">同上．<code class="language-plaintext highlighter-rouge">component[amount]</code></td>
     </tr>
     <tr>
       <td style="text-align: right">11</td>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">30907X-3</code></td>
-      <td style="text-align: left">嚼檳月數</td>
+      <td style="text-align: left"><strong>嚼食持續期間</strong>（原案欄名「嚼檳月數」）</td>
       <td style="text-align: left">無代碼</td>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">mo</code></td>
-      <td style="text-align: left">同上．<code class="language-plaintext highlighter-rouge">component[durationYears]</code>（＝<strong>嚼食持續期間</strong>，見下註 ②）</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">a</code> 或 <code class="language-plaintext highlighter-rouge">mo</code></td>
+      <td style="text-align: left">同上．<code class="language-plaintext highlighter-rouge">component[durationYears]</code>（見下註 ②；<strong>不論現嚼或已戒均應填列</strong>）</td>
     </tr>
     <tr>
       <td style="text-align: right">12</td>
@@ -727,9 +727,10 @@ component，<strong>但那是本指引的建模方式，不是原案的計列方
 </blockquote>
 
 <blockquote>
-  <p>⚠️ <strong><code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> 不等於本表，兩者相差三項——引用時務必分清。</strong>
+  <p>⚠️ <strong><code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> 不等於本表——引用時務必分清。</strong>
 <a href="ValueSet-VS-CoreUploadSet.html">VS-CoreUploadSet</a> 是<strong>跨值集之群組</strong>，
-逐碼展開為 <strong>20 個 preferred 代碼</strong>，與本表之 21 列有三處差異：</p>
+其展開結果與本表之 21 列<strong>計的不是同一件事</strong>：前者是 FHIR 值集之成員代碼數，
+後者是主管機關原案之欄位列數。現存差異為兩處：</p>
 
   <table>
     <thead>
@@ -740,25 +741,20 @@ component，<strong>但那是本指引的建模方式，不是原案的計列方
     </thead>
     <tbody>
       <tr>
-        <td style="text-align: left">＋ BMI <code class="language-plaintext highlighter-rouge">39156-5</code></td>
-        <td style="text-align: left"><strong>不是 Core 列</strong>。它來自 <code class="language-plaintext highlighter-rouge">VS-TWHAVitalSigns</code>——該值集另有生理量測之綁定用途，故一併被群組帶入。<strong>不得據 <code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> 推論 BMI 屬最小上傳集。</strong></td>
-      </tr>
-      <tr>
         <td style="text-align: left">− 嚼檳量（第 10 列）</td>
         <td style="text-align: left">官方原案為獨立一列，本指引以<strong>同一 Observation 之 <code class="language-plaintext highlighter-rouge">component[amount]</code></strong> 承載，非獨立 <code class="language-plaintext highlighter-rouge">Observation.code</code>，故群組值集中無對應碼。</td>
       </tr>
       <tr>
-        <td style="text-align: left">− 嚼檳月數（第 11 列）</td>
-        <td style="text-align: left">同上，以 <code class="language-plaintext highlighter-rouge">component</code> 承載。</td>
+        <td style="text-align: left">− 嚼食持續期間（第 11 列）</td>
+        <td style="text-align: left">同上，以 <code class="language-plaintext highlighter-rouge">component[durationYears]</code> 承載。</td>
       </tr>
     </tbody>
   </table>
 
-  <p><del>核算：<code class="language-plaintext highlighter-rouge">20 − 1（BMI） + 2（嚼檳量、嚼檳月數） = 21</code>。</del>
-<del><strong>故「21 列」是對的，<code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> 展開為 20 碼也是對的</strong>——兩者計的不是同一件事。</del></p>
-
-  <p>&#x1F4CC; <strong>更新（v0.10.0）</strong>：BMI 已由 <code class="language-plaintext highlighter-rouge">VS-CoreUploadSet</code> <strong>明文排除</strong>（<code class="language-plaintext highlighter-rouge">exclude LNC#39156-5</code>），
-不再靠註解宣告，故該值集之展開結果<strong>不再含 BMI</strong>，核算式亦隨之改為：</p>
+  <p><del>原有第三處差異「＋ BMI <code class="language-plaintext highlighter-rouge">39156-5</code>」</del> → <strong>v0.10.0 起已由值集明文排除</strong>
+（<code class="language-plaintext highlighter-rouge">exclude LNC#39156-5</code>），不再靠註解宣告，故該值集之展開結果<strong>不再含 BMI</strong>。
+原以註解宣告之作法<strong>攔不住機器</strong>：任何以值集展開做涵蓋核對之程式，
+看到的仍是含 BMI 的清單。核算式隨之改為：</p>
 
   <p><strong>展開碼數 ＋ 2（嚼檳量、嚼食持續期間——本指引以 <code class="language-plaintext highlighter-rouge">component</code> 承載，未另立代碼）= 21</strong></p>
 
@@ -771,7 +767,7 @@ component，<strong>但那是本指引的建模方式，不是原案的計列方
 前者是主管機關原案之欄位列數，後者是 FHIR 值集之成員代碼數。</p>
 </blockquote>
 
-<p><strong>三項差異已依本案專家會議決議定案</strong>（場次與日期：<code class="language-plaintext highlighter-rouge">[專家會議場次與日期待補]</code>）：</p>
+<p><strong>三項差異均已定案。⚠️ 三者之依據並不相同，請分別看待</strong>（見下表「依據與其權責性質」欄）：</p>
 
 <table>
   <thead>
@@ -794,8 +790,8 @@ component，<strong>但那是本指引的建模方式，不是原案的計列方
     <tr>
       <td style="text-align: left">②</td>
       <td style="text-align: left">第 11 列之語意</td>
-      <td style="text-align: left"><strong>嚼食持續期間</strong>（原案欄名「嚼檳月數」）</td>
-      <td style="text-align: left"><strong>專家會議之技術決議</strong>——認定係原案文字有誤</td>
+      <td style="text-align: left"><strong>嚼食持續期間</strong>（原案欄名「嚼檳月數」），<strong>不論現嚼或已戒均應填列</strong></td>
+      <td style="text-align: left">本案專家共識會議 <strong>2026-07-17</strong> 七、臨時動議之決議——認定係原案文字有誤</td>
       <td style="text-align: left">對映至 <code class="language-plaintext highlighter-rouge">component[durationYears]</code>（<strong>非</strong> <code class="language-plaintext highlighter-rouge">cessationDuration</code>）；單位 <code class="language-plaintext highlighter-rouge">a</code> 或 <code class="language-plaintext highlighter-rouge">mo</code></td>
     </tr>
     <tr>
@@ -1104,7 +1100,7 @@ M-5 之狀態、嚼檳系列之 <code class="language-plaintext highlighter-roug
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           套件 mohw.tw.twha#0.10.0，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-22 02:14:00 +0000">
+  <span title="2026-08-22 04:25:00 +0000">
     2026-08-22
   </span>
 

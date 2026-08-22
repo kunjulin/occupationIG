@@ -37,7 +37,7 @@ This value set is not used here; it may be used elsewhere (e.g. specifications a
   "title" : "附表九 一般健康檢查法定應執行項目值集",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-22T02:14:01+00:00",
+  "date" : "2026-08-22T04:25:10+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

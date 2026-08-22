@@ -109,7 +109,7 @@ This structure defines the following [Slices](http://hl7.org/fhir/R4/profiling.h
   "title" : "雇主端健康管理摘要 Composition Profile",
   "status" : "draft",
   "experimental" : false,
-  "date" : "2026-08-22T02:14:01+00:00",
+  "date" : "2026-08-22T04:25:10+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
