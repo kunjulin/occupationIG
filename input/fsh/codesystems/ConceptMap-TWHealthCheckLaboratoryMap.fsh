@@ -367,8 +367,8 @@ Description: "【主管機關：國民健康署】將健康檢查實驗室檢驗
 * group[0].element[38].display = "Protein [Presence] in Urine by Automated test strip"
 * group[0].element[38].target[0].code = #5804-0
 * group[0].element[38].target[0].display = "Protein [Mass/volume] in Urine by Test strip"
-* group[0].element[38].target[0].equivalence = #wider
-* group[0].element[38].target[0].comment = "source 指定自動化試紙判讀，target 方法未指定自動化；target 語意較廣"
+* group[0].element[38].target[0].equivalence = #relatedto
+* group[0].element[38].target[0].comment = "source 為定性（Property = PrThr、Scale = Ord、自動化試紙）、target 為半定量（MCnc / SemiQn、試紙法）；Property 與 Scale 均不同而無包含關係，定性結果不可直接當作半定量分級比較，須依判讀閾值轉換。⚠️ v0.10.2 更正：本組原標 wider，其 comment 僅描述 Method 一軸（「source 指定自動化試紙判讀，target 方法未指定自動化」），漏看 Property 與 Scale 亦不相同。判準與 element[47]／[48]（2887-8／20454-5）完全相同，故一併改為 relatedto。"
 // HBsAg 定量（免疫法）→ 定性 Preferred
 * group[0].element[39].code = #63557-3
 * group[0].element[39].display = "Hepatitis B virus surface Ag [Units/volume] in Serum or Plasma by Immunoassay"

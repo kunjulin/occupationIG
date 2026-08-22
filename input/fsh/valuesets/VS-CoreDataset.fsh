@@ -64,11 +64,17 @@ Description: "【主管機關：國民健康署】Core 之檢驗子集（主管�
 //
 //    ⚠️ **「值集層允許跨 Scale」不等於「歸一層可宣告包含關係」**——兩者是不同的層。
 //    值集可以讓 Ord 與 SemiQn 並存、由實作端對應；但 ConceptMap 之 #wider／#narrower
-//    宣告的是**語意包含**，而 PrThr 與 MCnc 之間沒有包含關係。故三個跨 Scale 之碼
-//    於 ConceptMap 一律為 #relatedto（見 element[47]／[48]），**不得**因值集層之
+//    宣告的是**語意包含**，而 PrThr 與 MCnc 之間沒有包含關係。故上表三個跨 Scale 之碼
+//    （57735-3／2887-8／20454-5）於 ConceptMap 一律為 #relatedto，**不得**因值集層之
 //    治理決議而改標 #wider——那是用治理決議覆蓋術語事實。
+//
+//    🔴 **v0.10.2 更正**：57735-3 原標 #wider（element[38]），其 comment 僅描述 Method
+//    一軸而漏看 Property 與 Scale 亦不同。它與 20454-5 對 5804-0 之軸差完全相同，
+//    卻掛不同的 equivalence——同一份 ConceptMap 自相矛盾。已一併改為 #relatedto。
+//    ⚠️ **對實作端之影響**：該組之「數值可否直接比較」由「可」翻為**「不可」**，
+//    先前據以直接比較者須改為依判讀閾值轉換。50561-0 未跨 Scale，不受此更正影響。
 * LNC#5804-0 "Protein [Mass/volume] in Urine by Test strip"
-* LNC#57735-3 "Protein [Presence] in Urine by Automated test strip"                // Acceptable: 試紙變異碼（Ord/PrThr，與 Preferred 之 SemiQn/MCnc 跨 Scale，屬上開明文例外）
+* LNC#57735-3 "Protein [Presence] in Urine by Automated test strip"                // Acceptable：自動化試紙定性碼；Ord/PrThr，跨 Scale；經 ConceptMap 歸一至 5804-0（#relatedto——v0.10.2 由 #wider 更正，見下註）
 * LNC#50561-0 "Protein [Mass/volume] in Urine by Automated test strip"             // Acceptable：自動化試紙（2026-08-22 第二批委員決議）；Property 與 Scale 均與 Preferred 相同，僅 Method 特化，**不跨 Scale**；經 ConceptMap 歸一至 5804-0（#wider）
 * LNC#2887-8 "Protein [Presence] in Urine"                                         // Acceptable：定性通用碼（2026-08-22 第二批委員決議）；Ord/PrThr，跨 Scale；經 ConceptMap 歸一至 5804-0（#relatedto——無包含關係，須依判讀閾值轉換）
 * LNC#20454-5 "Protein [Presence] in Urine by Test strip"                          // Acceptable：定性試紙碼（2026-08-22 第二批委員決議）；Ord/PrThr，跨 Scale；經 ConceptMap 歸一至 5804-0（#relatedto，同上）

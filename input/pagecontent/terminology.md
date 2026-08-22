@@ -175,6 +175,32 @@
 > 📌 對照之下，`element[46]`（`50561-0`）**不跨 Scale**，故標 `wider` 並無此問題——
 > 同一批四碼之中，只有這一碼與 target 同軸。
 
+> ### 🔴 連帶更正（v0.10.2）：`element[38]`（`57735-3`）由 `wider` 改為 `relatedto`
+>
+> 上開判準（**source 與 target 之 `PROPERTY` 與 `SCALE_TYP` 兩軸是否相同**）套回既有資料，
+> `element[38]` 站不住：
+>
+> | 碼 | `PROPERTY`／`SCALE_TYP` | `METHOD` | 原 `equivalence` | 現行 |
+> |:--|:--|:--|:--|:--|
+> | `5804-0`（target） | `MCnc`／`SemiQn` | Test strip | — | — |
+> | `20454-5`（`element[48]`） | `PrThr`／`Ord` | Test strip | — | `relatedto` |
+> | **`57735-3`（`element[38]`）** | `PrThr`／`Ord` | Automated strip | **`wider`** | **`relatedto`** |
+>
+> `57735-3` 與 `20454-5` 對 `5804-0` 之軸差**完全相同**（`PROPERTY` 與 `SCALE_TYP` 均不同，
+> 僅 `METHOD` 一為自動化、一為否），若不一併更正，同一份 ConceptMap 內會出現兩個軸關係
+> 一模一樣的碼掛著不同的 `equivalence`。
+>
+> **成因**：該組原 comment 為「source 指定自動化試紙判讀，target 方法未指定自動化；
+> target 語意較廣」——**只描述了 `METHOD` 一軸，漏看 `PROPERTY` 與 `SCALE_TYP` 亦不相同**。
+> 方向敘述本身自洽，故一致性閘門（`fix-conceptmap-equivalence.js`）判為通過；
+> 該閘門檢查的是「comment 之方向敘述與 `equivalence` 值是否相符」，
+> **不檢查 comment 是否把該看的軸都看過了**。
+>
+> ⚠️ **對實作端之影響（請注意，這是語意翻轉）**：本組之「數值可否直接比較」由
+> **「可」翻為「不可」**。先前依 `wider` 而將自動化試紙之定性結果與試紙半定量分級
+> 直接比較者，須改為**依判讀閾值轉換**，或保留原始 `coding` 不做歸一。
+> `50561-0`（`element[46]`）未跨 Scale，**不受此更正影響**。
+
 另建置 [Appendix10-to-HazardType](ConceptMap-Appendix10-to-HazardType.html)，對映附表十 35 項法定作業至 12 危害家族（family），供由法定作業編號歸併家族。
 
 #### 3.2.1 `equivalence` 判準與 R4／R5 對照（v20260730 更正）
@@ -204,8 +230,10 @@
 > 更正後（39 組時）之分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0；
 > 其後移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**該時分佈為
 > `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組；v0.10.1 依委員決議
-> 新增 4 組、v0.10.2 再新增 4 組後，現行分佈為 `wider` 15／`narrower` 6／`relatedto` 28／
+> 新增 4 組、v0.10.2 再新增 4 組後，現行分佈為 `wider` 14／`narrower` 6／`relatedto` 29／
 > `equivalent` 0，共 49 組，逐組見 §3.2）**。
+> ⚠️ v0.10.2 另將 `element[38]`（`57735-3`）由 `wider` 更正為 `relatedto`，故 `wider`
+> 為 14 而非 15——理由見 §3.2 之更正說明。
 > **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。
 > 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門
 > （`scripts/fix-conceptmap-equivalence.js --check`）。
