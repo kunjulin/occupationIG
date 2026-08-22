@@ -1,4 +1,4 @@
-# 精簡版 PRAPARE 社會風險問卷定義 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.0
+# 精簡版 PRAPARE 社會風險問卷定義 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.1
 
 ## Questionnaire: 
 
@@ -24,9 +24,9 @@
     "profile" : ["https://twcore.mohw.gov.tw/ig/twha/StructureDefinition/TWHA-Questionnaire"]
   },
   "url" : "https://twcore.mohw.gov.tw/ig/twha/Questionnaire/twha-sdoh-questionnaire",
-  "version" : "0.10.0",
+  "version" : "0.10.1",
   "status" : "active",
-  "date" : "2026-08-22T04:25:10+00:00",
+  "date" : "2026-08-22T08:31:54+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

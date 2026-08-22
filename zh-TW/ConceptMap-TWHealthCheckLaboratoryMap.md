@@ -1,4 +1,4 @@
-# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.0
+# 健康檢查檢驗項目代碼對應 ConceptMap - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.1
 
 ## ConceptMap: 健康檢查檢驗項目代碼對應 ConceptMap 
 
@@ -18,7 +18,7 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ConceptMap/TWHealthCheckLaboratoryMap",
-  "version" : "0.10.0",
+  "version" : "0.10.1",
   "name" : "TWHealthCheckLaboratoryMap",
   "title" : "健康檢查檢驗項目代碼對應 ConceptMap",
   "status" : "active",
@@ -453,6 +453,46 @@
         "display" : "Forced vital capacity [Volume] Respiratory system by Spirometry",
         "equivalence" : "wider",
         "comment" : "source 指定支氣管擴張劑給藥前之特定條件，target 未指定給藥前後；target 語意較廣"
+      }]
+    },
+    {
+      "code" : "3048-6",
+      "display" : "Triglyceride [Mass/volume] in Serum or Plasma --fasting",
+      "target" : [{
+        "code" : "2571-8",
+        "display" : "Triglyceride [Mass/volume] in Serum or Plasma",
+        "equivalence" : "wider",
+        "comment" : "source 指定空腹採檢條件，target 未指定空腹；target 語意較廣。數值可直接比較，惟歸一後會遺失「空腹」之條件標示，接收端如需區分應保留原始 coding。"
+      }]
+    },
+    {
+      "code" : "8281-8",
+      "display" : "Waist Circumference at umbilicus by US",
+      "target" : [{
+        "code" : "8280-0",
+        "display" : "Waist Circumference at umbilicus by Tape measure",
+        "equivalence" : "relatedto",
+        "comment" : "source 為超音波量測、target 為臍位皮尺量測；兩者為同層之方法兄弟碼而非通用與特化之包含關係，量測原理不同，數值不可直接等同比較。"
+      }]
+    },
+    {
+      "code" : "56114-2",
+      "display" : "Waist Circumference by NHANES",
+      "target" : [{
+        "code" : "8280-0",
+        "display" : "Waist Circumference at umbilicus by Tape measure",
+        "equivalence" : "relatedto",
+        "comment" : "source 為 NHANES 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同（比照 element[25] 之 PhenX protocol 碼）。本碼不納入任何值集，僅供接收端歸一。"
+      }]
+    },
+    {
+      "code" : "56115-9",
+      "display" : "Waist Circumference by NCFS",
+      "target" : [{
+        "code" : "8280-0",
+        "display" : "Waist Circumference at umbilicus by Tape measure",
+        "equivalence" : "relatedto",
+        "comment" : "source 為 NCFS 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同（比照 element[25] 之 PhenX protocol 碼）。本碼不納入任何值集，僅供接收端歸一。"
       }]
     }]
   }]

@@ -307,3 +307,5 @@
 9830-1,Cholesterol/Cholesterol in HDL [Mass Ratio] in Serum or Plasma,Cholesterol.total/Cholesterol in HDL [Mass Ratio] in Serum or Plasma,{ratio},"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, LOINC 2.82)",相符,
 98497-1,Visual acuity panel,Visual acuity panel,,LOINC 未提供建議單位,LOINC 未提供,
 98979-8,"Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M","Glomerular filtration rate [Volume Rate/Area] in Serum, Plasma or Blood by Creatinine-based formula (CKD-EPI 2021)/1.73 sq M",mL/min/{1.73_m2},"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, LOINC 2.82)",相符,
+8281-8,Waist Circumference at umbilicus by US,Waist Circumference at umbilicus by US,[in_us];cm,LOINC EXAMPLE_UCUM_UNITS,相符,"v0.10.1：2026-08-22 委員決議收錄後補列。官方 EXAMPLE_UCUM_UNITS 為兩個值（[in_us];cm），逐字照錄；8280-0 僅 cm 屬正常，兩碼各依官方值記載。"
+3048-6,Triglyceride [Mass/volume] in Serum or Plasma --fasting,Triglyceride [Mass/volume] in Serum or Plasma --fasting,mg/dL,LOINC EXAMPLE_UCUM_UNITS,相符,"v0.10.1：2026-08-22 委員決議由 HDL-C 改列三酸甘油酯 Acceptable 後補列。單位比照同 Component／Property／Scale 之 2571-8 與 3043-7（均為 mg/dL）於離線環境建立，尚未經 $lookup 直接實測；以送審用 tx 建置之 audit-ucum 結果為準。"

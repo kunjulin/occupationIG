@@ -1,4 +1,4 @@
-# 勞動部通報報告代碼值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.0
+# 勞動部通報報告代碼值集 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.1
 
 ## ValueSet: 勞動部通報報告代碼值集 (實驗性) 
 
@@ -32,12 +32,12 @@
     "valueCode" : "draft"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-LaborReportCode",
-  "version" : "0.10.0",
+  "version" : "0.10.1",
   "name" : "VS_LaborReportCode",
   "title" : "勞動部通報報告代碼值集",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-08-22T04:25:10+00:00",
+  "date" : "2026-08-22T08:31:54+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
