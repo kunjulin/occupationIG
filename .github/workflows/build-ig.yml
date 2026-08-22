@@ -127,6 +127,23 @@ jobs:
           npm run check:plaintext:selftest
           npm run check:plaintext
 
+      # LOINC 六軸對照檔之「上游有、我方沒有 → 失敗」檢查。
+      #
+      # 為何需要獨立一步：`check:axes` 讀的是**已提交之對照檔**，因此它能在無網路
+      # 環境執行，但也因此它看不到 LOINC 改版後上游與對照檔的漂移。本步驟是那道
+      # 補漏——它實際向 tx 查詢並逐軸比對，任一碼缺漏、任一軸漂移、任一冗列即失敗。
+      #
+      # ⚠️ 缺了本步驟，`check:axes` 會是本專案第五次「閘門在跑、輸出是綠的，
+      #    但它檢查的範圍比它宣稱的窄」（見 CLAUDE.md §4）。
+      #
+      # 位置刻意排在建置環境之前：本步驟只需要 node 與對外網路，不依賴任何建置產出，
+      # 放在前面可讓失敗在一分鐘內出現，而不是等完 SUSHI 與 IG Publisher 的七分鐘。
+      - name: LOINC 六軸對照檔與上游一致性
+        if: env.TX_SERVER != 'n/a'
+        run: |
+          node scripts/fetch-loinc-axes.js --self-test
+          node scripts/fetch-loinc-axes.js --tx "$TX_SERVER" --verify
+
       # ---------------------------------------------------------------- 建置環境
       - name: Setup Java
         uses: actions/setup-java@v4

@@ -1,0 +1,376 @@
+#!/usr/bin/env node
+// LOINC 六軸實測快取：以術語伺服器 $lookup／$subsumes 取回 ConceptMap 各組
+// source 與 target 之六軸，寫成離線對照檔供閘門判準使用。
+//
+// 為何需要本檔：`check-conceptmap-axes.js` 的判準是**六軸事實**，不是 comment 散文。
+// 六軸必須向術語伺服器求證，而閘門本身要能在無網路環境執行（比照
+// `extended-ucum-reference.csv` 之作法），故以本工具取數、以 CSV 承載。
+//
+// ⚠️ 本工具**只取事實，不做判斷**。equivalence 之推導在 check-conceptmap-axes.js，
+//    兩者刻意分開：取數可自動，判斷須留下可覆核的推導鏈。
+//
+// ⚠️ 「上游有、我方沒有 → 失敗」：--verify 會實際向 tx 查詢並與已提交之 CSV 比對，
+//    任一碼缺漏或任一軸漂移即失敗。這道檢查存在的理由，是本專案已有四次
+//    「閘門在跑、輸出是綠的，但它檢查的範圍比它宣稱的窄」（見 CLAUDE.md §4）。
+//
+// Usage:
+//   node scripts/fetch-loinc-axes.js                 # 取數並寫入對照檔
+//   node scripts/fetch-loinc-axes.js --emit          # 取數並印出 CSV（不寫檔，供引導用）
+//   node scripts/fetch-loinc-axes.js --verify        # 取數並與已提交之對照檔比對（CI 閘門）
+//   node scripts/fetch-loinc-axes.js --self-test     # 負向自我測試（不連網）
+//
+// 選項：
+//   --tx <url>     術語伺服器（預設 https://tx.fhir.org/r4）
+//   --delay <ms>   查詢間隔（預設 250ms）
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
+const http = require('http');
+
+const repoRoot = path.resolve(__dirname, '..');
+const cmPath = path.join(repoRoot, 'input', 'fsh', 'codesystems', 'ConceptMap-TWHealthCheckLaboratoryMap.fsh');
+const axesPath = path.join(repoRoot, 'input', 'assets', 'loinc-axes-reference.csv');
+const subPath = path.join(repoRoot, 'input', 'assets', 'loinc-part-subsumption.csv');
+
+const argv = process.argv.slice(2);
+const arg = (n, d) => {
+  const i = argv.indexOf(n);
+  return i !== -1 && argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : d;
+};
+const emitMode = argv.includes('--emit');
+const verifyMode = argv.includes('--verify');
+const selfTest = argv.includes('--self-test');
+const tx = arg('--tx', 'https://tx.fhir.org/r4').replace(/\/$/, '');
+const delayMs = Number(arg('--delay', '250'));
+
+// LOINC 六軸。CLASS／STATUS 一併取回：STATUS 是「這個碼還能不能用」的事實，
+// 與六軸同屬取數範圍；CLASS 供人工覆核時定位用。
+const AXES = ['component', 'property', 'time', 'system', 'scale', 'method'];
+const AXIS_PROP = {
+  COMPONENT: 'component',
+  PROPERTY: 'property',
+  TIME_ASPCT: 'time',
+  SYSTEM: 'system',
+  SCALE_TYP: 'scale',
+  METHOD_TYP: 'method',
+  CLASS: 'class',
+  STATUS: 'status',
+};
+
+// ---- CSV -------------------------------------------------------------------
+// 欄位較提示詞所列之 9 欄為多，理由具名如下（刻意偏離，非疏漏）：
+//   1. 判準比對的是**軸之 LP 代碼**（同一軸的顯示名可能改版漂移，LP 代碼才是身分），
+//      故每軸存 LP 代碼；但 LP 代碼人讀不出來，覆核時無從判斷對錯，
+//      故並存 `*_display`。只留其一都會讓這個檔失去它該有的用途之一。
+//   2. `status` 為取數當下之事實，與六軸同一批取回，分開存反而會不同步。
+const AXES_HEADER = [
+  'loinc', 'display',
+  ...AXES.flatMap((a) => [a, `${a}_display`]),
+  'class', 'status', 'source', 'fetched_at',
+];
+const SUB_HEADER = ['axis', 'code_a', 'code_b', 'outcome', 'source', 'fetched_at'];
+
+function esc(s) {
+  const v = String(s ?? '');
+  return /[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v;
+}
+function toCsv(header, rows) {
+  return [header.join(','), ...rows.map((r) => header.map((h) => esc(r[h])).join(','))].join('\n') + '\n';
+}
+function parseCsvLine(line) {
+  const out = [];
+  let cur = '';
+  let q = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (q) {
+      if (c === '"' && line[i + 1] === '"') { cur += '"'; i++; }
+      else if (c === '"') q = false;
+      else cur += c;
+    } else if (c === '"') q = true;
+    else if (c === ',') { out.push(cur); cur = ''; }
+    else cur += c;
+  }
+  out.push(cur);
+  return out;
+}
+function readCsv(p) {
+  if (!fs.existsSync(p)) return null;
+  const lines = fs.readFileSync(p, 'utf8').replace(/^﻿/, '').trim().split(/\r?\n/);
+  if (!lines.length) return null;
+  const header = parseCsvLine(lines[0]);
+  return lines.slice(1).filter((l) => l.trim()).map((l) => {
+    const cells = parseCsvLine(l);
+    return Object.fromEntries(header.map((h, i) => [h, cells[i] ?? '']));
+  });
+}
+
+// ---- ConceptMap 解析 --------------------------------------------------------
+function parseConceptMap(text) {
+  const el = {};
+  for (const line of text.split(/\r?\n/)) {
+    const m = line.match(/^\*\s*group\[0\]\.element\[(\d+)\](\.target\[0\])?\.(code|display|equivalence|comment)\s*=\s*(.+)$/);
+    if (!m) continue;
+    const i = Number(m[1]);
+    const key = (m[2] ? 't_' : 's_') + m[3];
+    el[i] = el[i] || {};
+    el[i][key] = m[4].trim().replace(/^"|"$/g, '').replace(/^#/, '');
+  }
+  return el;
+}
+function elementPairs(el) {
+  return Object.keys(el).map(Number).sort((a, b) => a - b)
+    .map((i) => ({ i, source: el[i].s_code, target: el[i].t_code, equivalence: el[i].t_equivalence, comment: el[i].t_comment }));
+}
+
+// ---- HTTP ------------------------------------------------------------------
+function getJson(url, tries = 3) {
+  return new Promise((resolve, reject) => {
+    const mod = url.startsWith('https:') ? https : http;
+    const req = mod.get(url, { headers: { Accept: 'application/fhir+json' }, timeout: 30000 }, (res) => {
+      let body = '';
+      res.setEncoding('utf8');
+      res.on('data', (d) => (body += d));
+      res.on('end', () => {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          try { resolve(JSON.parse(body)); } catch (e) { reject(new Error(`JSON 解析失敗：${e.message}`)); }
+        } else if (res.statusCode >= 500 && tries > 1) {
+          setTimeout(() => getJson(url, tries - 1).then(resolve, reject), 1500);
+        } else {
+          try { resolve({ __httpStatus: res.statusCode, ...JSON.parse(body) }); }
+          catch { reject(new Error(`HTTP ${res.statusCode}`)); }
+        }
+      });
+    });
+    req.on('timeout', () => req.destroy(new Error('timeout')));
+    req.on('error', (e) => (tries > 1 ? setTimeout(() => getJson(url, tries - 1).then(resolve, reject), 1500) : reject(e)));
+  });
+}
+
+// ---- $lookup 解析 -----------------------------------------------------------
+// 軸值可能以 valueCoding（含 LP 代碼）或 valueString（僅顯示名）回覆，兩種都要接住；
+// 只接住其一會讓某些軸靜默變成空字串，而空字串在判準裡代表「該軸未指定」——
+// 那是實質不同的意思，不能由解析瑕疵產生。
+function parseLookup(res) {
+  const out = { display: '', axes: {}, error: null };
+  if (!res || res.resourceType !== 'Parameters') {
+    out.error = res && res.resourceType === 'OperationOutcome'
+      ? (res.issue || []).map((i) => i.diagnostics || (i.details && i.details.text)).filter(Boolean).join('; ')
+      : `非預期回應（${res && res.resourceType}）`;
+    return out;
+  }
+  for (const p of res.parameter || []) {
+    if (p.name === 'display') out.display = p.valueString || '';
+    if (p.name !== 'property') continue;
+    const parts = Object.fromEntries((p.part || []).map((x) => [x.name, x]));
+    const propCode = (parts.code && (parts.code.valueCode || parts.code.valueString)) || '';
+    const axis = AXIS_PROP[propCode];
+    if (!axis) continue;
+    const v = parts.value;
+    if (!v) continue;
+    if (v.valueCoding) out.axes[axis] = { code: v.valueCoding.code || '', display: v.valueCoding.display || '' };
+    else out.axes[axis] = { code: '', display: String(v.valueString ?? v.valueCode ?? v.valueBoolean ?? '') };
+  }
+  return out;
+}
+
+// ---- $subsumes --------------------------------------------------------------
+// 回傳 equivalent／subsumes／subsumed-by／not-subsumed，或 unsupported（伺服器不支援）。
+// ⚠️ 解析不出來時回 unsupported，**絕不預設為 not-subsumed**——
+//    「查不到關係」與「確認無關係」是兩件事，混為一談正是本次要根除的那類錯誤。
+function parseSubsumes(res) {
+  if (!res || res.resourceType !== 'Parameters') return 'unsupported';
+  for (const p of res.parameter || []) {
+    if (p.name === 'outcome') return p.valueCode || p.valueString || 'unsupported';
+  }
+  return 'unsupported';
+}
+
+// ---- 自我測試（不連網）------------------------------------------------------
+function runSelfTest() {
+  const cases = [];
+  const ok = (name, cond) => cases.push({ name, pass: !!cond });
+
+  const lk = parseLookup({
+    resourceType: 'Parameters',
+    parameter: [
+      { name: 'display', valueString: 'Protein [Mass/volume] in Urine by Test strip' },
+      { name: 'property', part: [{ name: 'code', valueCode: 'PROPERTY' }, { name: 'value', valueCoding: { code: 'LP6827-2', display: 'MCnc' } }] },
+      { name: 'property', part: [{ name: 'code', valueCode: 'SCALE_TYP' }, { name: 'value', valueString: 'SemiQn' }] },
+    ],
+  });
+  ok('① valueCoding 之 LP 代碼與顯示名皆取回', lk.axes.property && lk.axes.property.code === 'LP6827-2' && lk.axes.property.display === 'MCnc');
+  ok('② valueString 之軸值不因無 LP 代碼而遺失', lk.axes.scale && lk.axes.scale.display === 'SemiQn' && lk.axes.scale.code === '');
+  ok('③ 未回覆之軸為 undefined（代表未指定），不是空物件', lk.axes.method === undefined);
+
+  const oo = parseLookup({ resourceType: 'OperationOutcome', issue: [{ diagnostics: 'Unknown code' }] });
+  ok('④ OperationOutcome 轉為具名錯誤而非靜默空值', oo.error === 'Unknown code');
+
+  ok('⑤ $subsumes 之 outcome 正確取出', parseSubsumes({ resourceType: 'Parameters', parameter: [{ name: 'outcome', valueCode: 'subsumed-by' }] }) === 'subsumed-by');
+  ok('⑥ $subsumes 無法解析時回 unsupported，不得預設為 not-subsumed', parseSubsumes({ resourceType: 'OperationOutcome' }) === 'unsupported');
+  ok('⑦ $subsumes 缺 outcome 參數時回 unsupported', parseSubsumes({ resourceType: 'Parameters', parameter: [] }) === 'unsupported');
+
+  const cm = parseConceptMap([
+    '* group[0].element[0].code = #804-5',
+    '* group[0].element[0].target[0].code = #6690-2',
+    '* group[0].element[0].target[0].equivalence = #relatedto',
+    '* group[0].element[1].code = #26464-8',
+    '* group[0].element[1].target[0].code = #6690-2',
+    '* group[0].element[1].target[0].equivalence = #narrower',
+  ].join('\n'));
+  const pairs = elementPairs(cm);
+  ok('⑧ ConceptMap 解析出正確之組數與 source／target', pairs.length === 2 && pairs[0].source === '804-5' && pairs[1].target === '6690-2');
+
+  const csv = toCsv(['a', 'b'], [{ a: 'x,y', b: 'he said "hi"' }]);
+  const back = parseCsvLine(csv.split('\n')[1]);
+  ok('⑨ CSV 逸出與回讀為可逆（含逗號與雙引號）', back[0] === 'x,y' && back[1] === 'he said "hi"');
+
+  let allPass = true;
+  console.log('LOINC 六軸取數工具自我測試：');
+  for (const c of cases) {
+    console.log(`  ${c.pass ? '✔' : '✖'} ${c.name}`);
+    if (!c.pass) allPass = false;
+  }
+  if (!allPass) { console.error('\n✖ 自我測試未全數通過。'); process.exit(1); }
+  console.log('✔ 自我測試全數通過。');
+  process.exit(0);
+}
+
+if (selfTest) runSelfTest();
+
+// ---- 主流程 ----------------------------------------------------------------
+(async () => {
+  const el = parseConceptMap(fs.readFileSync(cmPath, 'utf8'));
+  const pairs = elementPairs(el);
+  const codes = [...new Set(pairs.flatMap((p) => [p.source, p.target]))];
+  const fetchedAt = new Date().toISOString().slice(0, 10);
+
+  console.log(`術語伺服器：${tx}`);
+  console.log(`ConceptMap 組數：${pairs.length}；相異 LOINC 碼：${codes.length}\n`);
+
+  // ── 1. 逐碼 $lookup ────────────────────────────────────────────────
+  const axesRows = [];
+  const failures = [];
+  for (let i = 0; i < codes.length; i++) {
+    const code = codes[i];
+    const url = `${tx}/CodeSystem/$lookup?system=${encodeURIComponent('http://loinc.org')}&code=${encodeURIComponent(code)}&property=*`;
+    let r;
+    try { r = parseLookup(await getJson(url)); }
+    catch (e) { r = { display: '', axes: {}, error: e.message }; }
+    if (r.error) { failures.push({ code, error: r.error }); console.log(`[${String(i + 1).padStart(3)}/${codes.length}] ${code} ✖ ${r.error}`); }
+    else console.log(`[${String(i + 1).padStart(3)}/${codes.length}] ${code} ${r.display}`);
+    const row = { loinc: code, display: r.display, class: (r.axes.class || {}).display || '', status: (r.axes.status || {}).display || '', source: 'tx $lookup', fetched_at: fetchedAt };
+    for (const a of AXES) {
+      row[a] = (r.axes[a] || {}).code || '';
+      row[`${a}_display`] = (r.axes[a] || {}).display || '';
+    }
+    axesRows.push(row);
+    if (i < codes.length - 1) await new Promise((res) => setTimeout(res, delayMs));
+  }
+  axesRows.sort((a, b) => a.loinc.localeCompare(b.loinc));
+
+  // ── 2. 需要階層判定之軸配對 ────────────────────────────────────────
+  // 只查「兩碼該軸皆有 LP 代碼且不相同」者——皆空或僅一方有值不需要階層即可判定。
+  const byCode = new Map(axesRows.map((r) => [r.loinc, r]));
+  const need = new Map();
+  for (const p of pairs) {
+    const s = byCode.get(p.source);
+    const t = byCode.get(p.target);
+    if (!s || !t) continue;
+    for (const a of AXES) {
+      if (!s[a] || !t[a] || s[a] === t[a]) continue;
+      need.set(`${a}|${s[a]}|${t[a]}`, { axis: a, code_a: s[a], code_b: t[a] });
+    }
+  }
+  const subRows = [];
+  const needList = [...need.values()];
+  console.log(`\n需階層判定之軸配對：${needList.length} 組`);
+  for (let i = 0; i < needList.length; i++) {
+    const { axis, code_a, code_b } = needList[i];
+    const url = `${tx}/CodeSystem/$subsumes?system=${encodeURIComponent('http://loinc.org')}&codeA=${encodeURIComponent(code_a)}&codeB=${encodeURIComponent(code_b)}`;
+    let outcome;
+    try { outcome = parseSubsumes(await getJson(url)); }
+    catch (e) { outcome = 'unsupported'; }
+    console.log(`  [${String(i + 1).padStart(2)}/${needList.length}] ${axis} ${code_a} vs ${code_b} → ${outcome}`);
+    subRows.push({ axis, code_a, code_b, outcome, source: 'tx $subsumes', fetched_at: fetchedAt });
+    if (i < needList.length - 1) await new Promise((res) => setTimeout(res, delayMs));
+  }
+  subRows.sort((a, b) => `${a.axis}${a.code_a}${a.code_b}`.localeCompare(`${b.axis}${b.code_a}${b.code_b}`));
+
+  const axesCsv = toCsv(AXES_HEADER, axesRows);
+  const subCsv = toCsv(SUB_HEADER, subRows);
+
+  // ── 3. 輸出 ───────────────────────────────────────────────────────
+  if (failures.length) {
+    console.error(`\n✖ ${failures.length} 碼查詢失敗：`);
+    for (const f of failures) console.error(`    ${f.code}：${f.error}`);
+    console.error('  查詢失敗不得寫入對照檔——空白的軸值會被判準讀成「該軸未指定」。');
+    process.exit(1);
+  }
+
+  if (emitMode) {
+    console.log(`\n===== BEGIN ${path.basename(axesPath)} =====`);
+    process.stdout.write(axesCsv);
+    console.log(`===== END ${path.basename(axesPath)} =====`);
+    console.log(`===== BEGIN ${path.basename(subPath)} =====`);
+    process.stdout.write(subCsv);
+    console.log(`===== END ${path.basename(subPath)} =====`);
+    process.exit(0);
+  }
+
+  if (verifyMode) {
+    const problems = [];
+    const have = readCsv(axesPath);
+    if (!have) problems.push(`對照檔不存在：${path.relative(repoRoot, axesPath)}`);
+    else {
+      const haveMap = new Map(have.map((r) => [r.loinc, r]));
+      for (const r of axesRows) {
+        const h = haveMap.get(r.loinc);
+        if (!h) { problems.push(`${r.loinc}：上游有、對照檔沒有（新增碼未回寫）`); continue; }
+        for (const a of AXES) {
+          if ((h[a] || '') !== r[a]) problems.push(`${r.loinc} 之 ${a}：對照檔 "${h[a] || ''}"，上游實測 "${r[a]}"`);
+        }
+        haveMap.delete(r.loinc);
+      }
+      for (const k of haveMap.keys()) problems.push(`${k}：對照檔有、ConceptMap 已不再引用（冗列）`);
+    }
+    const haveSub = readCsv(subPath);
+    if (!haveSub) problems.push(`對照檔不存在：${path.relative(repoRoot, subPath)}`);
+    else {
+      const key = (r) => `${r.axis}|${r.code_a}|${r.code_b}`;
+      const haveMap = new Map(haveSub.map((r) => [key(r), r]));
+      for (const r of subRows) {
+        const h = haveMap.get(key(r));
+        if (!h) { problems.push(`階層 ${key(r)}：上游有、對照檔沒有`); continue; }
+        if (h.outcome !== r.outcome) problems.push(`階層 ${key(r)}：對照檔 "${h.outcome}"，上游實測 "${r.outcome}"`);
+        haveMap.delete(key(r));
+      }
+      for (const k of haveMap.keys()) problems.push(`階層 ${k}：對照檔有、已不再需要（冗列）`);
+    }
+    console.log('\n本閘門檢查涵蓋：ConceptMap 全部 source／target 碼之六軸 LP 代碼，與所有需階層判定之軸配對。');
+    console.log('刻意排除：軸之顯示名（會隨 LOINC 改版漂移，非身分）、CLASS、STATUS。');
+    if (problems.length) {
+      console.error(`\n✖ 對照檔與上游不一致：${problems.length} 處`);
+      for (const p of problems) console.error(`    ${p}`);
+      console.error(`\n  修法：node scripts/fetch-loinc-axes.js  然後提交更新後之對照檔。`);
+      // 失敗時一併印出本次實測之 CSV：修這個失敗需要的就是這份內容，
+      // 而在無法連外之環境（本專案之開發容器即是）沒有別的取得管道。
+      console.log(`\n===== BEGIN ${path.basename(axesPath)} =====`);
+      process.stdout.write(axesCsv);
+      console.log(`===== END ${path.basename(axesPath)} =====`);
+      console.log(`===== BEGIN ${path.basename(subPath)} =====`);
+      process.stdout.write(subCsv);
+      console.log(`===== END ${path.basename(subPath)} =====`);
+      process.exit(1);
+    }
+    console.log(`\n✔ 對照檔與上游一致：${axesRows.length} 碼、${subRows.length} 組階層。`);
+    process.exit(0);
+  }
+
+  fs.writeFileSync(axesPath, axesCsv);
+  fs.writeFileSync(subPath, subCsv);
+  console.log(`\n已寫入 ${path.relative(repoRoot, axesPath)}（${axesRows.length} 列）`);
+  console.log(`已寫入 ${path.relative(repoRoot, subPath)}（${subRows.length} 列）`);
+})();
