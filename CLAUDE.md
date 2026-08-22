@@ -21,8 +21,9 @@
 
 | 項目 | 狀態 |
 |:--|:--|
-| **版控**（`sushi-config.yaml`） | **v0.10.2** |
+| **版控**（`sushi-config.yaml`） | **v0.10.3**（尚未發佈） |
 | **線上站台** | **v0.10.2**，gh-pages `1c597d89`（sourceCommit `29053f19`，2026-08-22 14:11Z），已逐項複驗 |
+| ConceptMap `equivalence` 判準 | **六軸實測**（`scripts/check-conceptmap-axes.js`）。⚠️ 舊的散文判準 `fix-conceptmap-equivalence.js --check` **已退役**，其 `--apply` 保留為 JOB-22 之歷史工具 |
 | **對外三份文件** | 完整編碼附件 **v7.7**、建議修訂案 **v2.2**、專家共識討論會會議紀錄（2026-07-17）。⚠️ 三份與 IG 之逐欄複驗結果見 v0.10.1 之 PR 說明；`依法規附表-逐作業檢驗項目` 分頁尚有已下架錯碼待文件端更正。⚠️ **v0.10.2 後另有三處文件端待更正**（IG 端已無事）：v7.7〈Acceptable→Preferred 歸一〉分頁 #38（`57735-3`）仍記 `wider`／「可」，應改為 `relatedto`／「⚠ 不可」；#46 之備註「同 #38 之處理」語意已隨之顛倒；任何載為 `wider 15` 之分佈數字應為 **`wider 14`** |
 | ⚠️ 版控與線上不同步是**正常的** | 合併 ≠ 發佈。線上落後於版控，直到有人手動觸發 `publish`（見 §5 末）。**本列現為同步狀態，下次合併後即會再度落後** |
 | 版次來源 | `sushi-config.yaml` 之 `version`。⚠️ **本表會過期，動到版次時請一併更新**；有疑義以該檔為準 |
@@ -178,6 +179,9 @@ template/             IG 模板之本機複本（角色待釐清，見 JOB-09）
 | 改了登記表卻沒改 [conformance.md](input/pagecontent/conformance.md) §7.4 的件數 | 該處**兩張表**（標籤件數／成熟度件數）與「現值」摘要句共 7 個數字已由 **G-5** 看管（`npm run check:gov`），自登記表動態算出。⚠️ 兩張表的合計相同純屬邊際巧合，**分類軸不同**，須分別更新——v0.9.0 手動更正時就只改了其中一張 |
 | 在 `concept.definition`／`display` 裡寫 `**粗體**` 或反引號 | 那兩個欄位於 FHIR 為 **string** 型而非 markdown，記號**不會被算繪**，會逐字顯示給讀者（v0.9.0 線上實證 6 處，累積自 v0.4.0）。改用語序與 ⚠️ 表達強調，代碼字面以「」框住。由 `npm run check:plaintext` 看管。⚠️ **`Description:` 不受此限**——該欄確為 markdown 型，線上實證會算繪成 `<strong>`／`<code>`，**不要順手一起改掉** |
 | 在敘述頁寫出**以數字開頭的文字片段**（如 `§3.2；` 後接續散文） | ⚠️ **已踩三次**（v0.10.1 一次、v0.10.2 兩次，全在 `terminology.md` §3.2.1 同一段）。IG Publisher 會把「看起來像編號條文」的片段當成規範敘述，檢查它含不含 SHALL／SHOULD，不含即發 `No conformance term found in the text`（INFORMATION）。實測觸發者一律**以數字起頭**：`1 UC-001～UC-007 →`／`4.3、文件二 v3.2`／`3.2.2）並補列 3 組…`／`3.2；⚠️ v0.10.2 另將…`（`§` 會被剝掉）。⚠️ **`§3.2）` 這種隨即以「）」收尾者不會觸發**——問題出在後面還接著散文。<br>後果：`TOTAL info` +1 而**具名類別全部不動**，閘門看得見卻說不出是什麼。<br>作法：節號引用放在句尾並以「）」或「。」立即收尾；補充說明寫進既有括號內，不要在節號後續接。歸因報表見 `qa-gate.js` 之「未具名 INFORMATION」（v0.10.1 新增，附原文樣本） |
+| 以 comment 之**散文**作為術語關係之判準 | 散文只看得見**撰寫者提到的軸**。`element[38]` 之原 comment 就 METHOD 一軸而言完全正確，命中規則、判 `wider`、通過；錯的是它沒提 PROPERTY 與 SCALE 亦不同——閘門的輸入就只有那段散文，無從得知有兩軸沒被看過。同型錯誤在 v0.10.3 又查出一個（`element[11]`，comment 稱 `30428-7` 採 calculation，該碼之 METHOD 實為未指定）。**判準要以事實為輸入，不是以敘述為輸入**；敘述留作交叉檢查即可。實測：把 `element[38]` 的錯誤植回，散文閘門回 `exit 0`（完全放行），六軸閘門回 `exit 1` 並兩處指名 |
+| 把「查不到關係」當成「確認無關係」 | tx.fhir.org 對不支援的 LOINC Part 階層查詢**不報錯**，一律回 `not-subsumed`。直接採信會讓判準宣告「兩軸無包含關係」，而那只是伺服器答不出來。⚠️ 對照要**有鑑別力**：v0.10.3 首版的陽性對照是「代碼對自己」，它**通過了**（回 `equivalent`）而 31 組配對仍全數 `not-subsumed`——那只證明伺服器會做相等判斷。改問「這台伺服器對 LOINC Part 到底回不回 `parent`／`child`」才問得出來（實測 35／94） |
+| 自我測試全綠就以為假設是對的 | 自我測試只能證明程式**符合當初的假設**，不能證明假設本身為真。v0.10.3 之取數工具首版假設 `$lookup` 之軸值走 `valueCoding`，自我測試還反過來把該假設鎖住；實際上 tx 是把 LP 代碼放在 `valueString`，於是階層比對兩邊皆空、一律相等，輸出「需階層判定之軸配對：**0 組**」——步驟照跑、日誌照印，而輸入是空的。**假設要由實測推翻**；並為「輸入塌陷」另設防呆（該工具現有 `assertAxesResolved()`） |
 | 寫好閘門卻沒接到 CI | 閘門只進 `npm run verify`（本機）＝**沒人會跑**。`check:gov`／`check:intref` 曾如此長期存在，導致 v0.9.1 新增的 G-5 在 PR 上根本不執行。新增閘門時**同時**改 `package.json` 與 `.github/workflows/build-ig.yml`，並回頭確認該步驟在 CI 是 `success` 而非 `skipped` |
 | 閘門有在跑，但**看的範圍不對** | 比「沒接 CI」更難發現，因為它每輪都亮綠燈。實例：`check:translations` 自 JOB-24 起只比對 `stringsBase.json`，而模板另有 `stringsArtifacts.json`，導致 `artifacts.html` 之 9 個分類標題與目錄連結**全空白四個多月**而閘門全綠（v0.9.3 修）。**訂範圍時要問「這一類東西有幾個」，不要只處理眼前踩到的那一個**；能資料驅動就不要寫死檔名，並加一條「上游有、我方沒有 → 失敗」 |
 
@@ -191,6 +195,9 @@ node scripts/check-pagecontent-refs.js            # pagecontent 與 FSH 是否�
 node scripts/check-pagecontent-refs.js --strict    # 連 backlog 標註也視為失敗（釋出前檢查）
 npm run check:gov                                 # 權責標籤／合規層級／§7.4 件數（G-5）／不得越權表述
 npm run check:plaintext                           # concept 之 display／definition 不得含不會算繪之 markdown
+npm run check:axes                                # ConceptMap equivalence 之六軸判準（含於 check:assets）
+npm run check:axes:report                         # 同上之 dry-run 對照表（宣告值 vs 六軸推導值）
+npm run fetch:axes                                # 重取六軸對照檔（需可連線 tx；本容器不可）
 npm run check:intref                              # 對外產出不得殘留內部工作痕跡
 npx fsh-sushi .                                   # FSH 與 sushi-config.yaml 語法
 _genonce_tx.bat                                   # 送審用完整建置（Windows，需可連外）

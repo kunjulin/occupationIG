@@ -21,8 +21,10 @@
 //   node scripts/check-conceptmap-axes.js --self-test  # 負向自我測試
 //
 // 選項：
-//   --max-unresolved <n>  「需人工判定」之上限（預設 27，即 2026-08-22 實測值）。
+//   --max-unresolved <n>  「需人工判定」之上限（預設 0，即 2026-08-22 實測值）。
 //                          超過即失敗——新增組別不得靜默落進這個桶子。
+//   --strict-hierarchy    改採保守讀法（source 軸代碼無 parent 即記為 unknown）。
+//                          供覆核對照用，不是閘門的預設。
 'use strict';
 
 const fs = require('fs');
@@ -36,9 +38,17 @@ const subPath = path.join(repoRoot, 'input', 'assets', 'loinc-part-subsumption.c
 const argv = process.argv.slice(2);
 const checkMode = argv.includes('--check');
 const selfTest = argv.includes('--self-test');
-const maxUnresolved = Number((argv.indexOf('--max-unresolved') !== -1 && argv[argv.indexOf('--max-unresolved') + 1]) || '28');
-// 「source 軸代碼無 parent」之兩種讀法，見檔尾之政策說明。預設取保守讀法。
-const trustRootless = argv.includes('--trust-rootless');
+const maxUnresolved = Number((argv.indexOf('--max-unresolved') !== -1 && argv[argv.indexOf('--max-unresolved') + 1]) || '0');
+// 「source 軸代碼無 parent」之讀法。**預設採放寬**：無 parent 即視為該 Part 於
+// 階層中為根節點，其上無可包含之概念，故 not-subsumed 為可採信之結論。
+//
+// 依據與代價（2026-08-22 裁示）：tx 之 Part 階層確實不完整，但已知的缺漏形態
+// （LP65527-1 Test strip.automated 無 parent）由名稱點號規則涵蓋，保守讀法的主要
+// 理由因而消解。若改採保守讀法，27／49 組不受檢——**包含 element[38] 本身**，
+// 亦即判準對當初的動機案例仍然沉默，這已由負向驗證實測確認。
+// --strict-hierarchy 可切回保守讀法，供覆核時對照。
+const strictHierarchy = argv.includes('--strict-hierarchy');
+const trustRootless = !strictHierarchy;
 
 const AXES = ['component', 'property', 'time', 'system', 'scale', 'method'];
 
@@ -113,6 +123,10 @@ function axisRelation(axis, a, b, subs, aDisp, bDisp) {
   // 伺服器之 Part 階層不完整（見 nameRelation 之說明），故名稱慣例先於 not-subsumed。
   const byName = nameRelation(aDisp, bDisp);
   if (byName) return byName;
+  if (axis === 'property') {
+    const byUnion = unionRelation(aDisp, bDisp);
+    if (byUnion) return byUnion;
+  }
   if (o === 'not-subsumed') return 'unrelated';
   if (o === 'unknown' && trustRootless) return 'unrelated';
   return 'unknown';
@@ -129,6 +143,25 @@ function axisRelation(axis, a, b, subs, aDisp, bDisp) {
 //    就不能凌駕於一個明確的名稱事實之上。
 //    ⚠️ 點號只在**前綴**成立時採用：`Automated count` 與 `Automated` 無點號關係，
 //    是兄弟碼而非特化，不得因字串開頭相同就判為包含。
+// LOINC 之聯集量綱：MSCnc（Mass or Substance concentration）涵蓋 MCnc 與 SCnc。
+// 聯集包含其成員，故兩者之間確有包含關係，只是 LOINC 之 Part 階層未以 parent／child
+// 表達，名稱亦無點號——不明文列出就只能落到 unrelated，把 element[4]
+// （35200-5 MSCnc → 2093-3 MCnc）誤判為無包含關係。
+//
+// ⚠️ 本表**只列 LOINC 定義上確為聯集者**，不得為了讓某一組通過而擴充。
+//    量綱名稱相似（如 NCnc 與 MCnc）不構成聯集關係。
+const PROPERTY_UNIONS = {
+  MSCnc: ['MCnc', 'SCnc'],
+};
+function unionRelation(aDisp, bDisp) {
+  const a = String(aDisp || '');
+  const b = String(bDisp || '');
+  if (!a || !b || a === b) return null;
+  if ((PROPERTY_UNIONS[a] || []).includes(b)) return 'isa-rev';  // source 為聯集，target 較窄
+  if ((PROPERTY_UNIONS[b] || []).includes(a)) return 'isa';      // target 為聯集，source 較窄
+  return null;
+}
+
 function nameRelation(aDisp, bDisp) {
   const a = String(aDisp || '');
   const b = String(bDisp || '');
@@ -197,8 +230,15 @@ function derive(rel) {
 // 散文降級為次級檢查：不再是判準，但矛盾即失敗。
 // 它抓的是「comment 寫的跟實際做的不一致」，只是不再被誤當成「已驗證」。
 const PROSE_NON_DIRECTIONAL = ['不可直接比較', '需換算', '換算', '不同具體方法', '無包含關係', '非包含關係', '互有寬窄', '性質不同', '非單純包含', 'Unit conversion required', '不同估算公式', '數值不可', '檢體不同'];
+// ⚠️ 比對前先剝除「」內之引述。本 repo 的更正註記慣例是把**舊的**措辭原文引述
+//    進新 comment（element[11]／[38] 皆然），而關鍵詞比對分不出「引述」與「主張」——
+//    不剝除，一則正確的更正註記會因為忠實引述了自己要更正的錯誤說法而被判為矛盾。
+//    引述是註記，主張才是 comment 的內容；只有後者該被交叉檢查。
+function stripQuotes(text) {
+  return String(text || '').replace(/「[^」]*」/g, '');
+}
 function proseContradicts(comment, derived) {
-  const c = comment || '';
+  const c = stripQuotes(comment);
   if (!derived) return null;
   const saysNoContainment = PROSE_NON_DIRECTIONAL.some((k) => c.includes(k));
   if (saysNoContainment && (derived === 'wider' || derived === 'narrower')) {
@@ -244,6 +284,9 @@ function runSelfTest() {
   ok('⑬c 點號僅前綴成立時採用，字串開頭相同不算（Automated count vs Automated）',
     nameRelation('Automated count', 'Automated') === null);
   ok('⑬d 反向點號 → isa-rev', nameRelation('Circumference', 'Circumference.at umbilicus') === 'isa-rev');
+  ok('⑬e 聯集量綱包含其成員（element[4] 之情形）', unionRelation('MSCnc', 'MCnc') === 'isa-rev');
+  ok('⑬f 聯集規則為反向亦成立', unionRelation('MCnc', 'MSCnc') === 'isa');
+  ok('⑬g 量綱名稱相似不構成聯集（NCnc vs MCnc）', unionRelation('NCnc', 'MCnc') === null);
 
   ok('⑭ COMPONENT 之 challenge 差異為特化', componentRelation('Triglyceride^post CFst', 'Triglyceride') === 'src-only');
   ok('⑮ COMPONENT 之 adjustment 差異為無包含關係（須換算），不得當成特化',
@@ -254,6 +297,10 @@ function runSelfTest() {
   ok('⑱ 散文說無包含、推導為 wider → 判為矛盾', !!proseContradicts('兩者數值不可直接比較', 'wider'));
   ok('⑲ 散文說 target 較廣、推導為 relatedto → 判為矛盾', !!proseContradicts('source 指定空腹，target 語意較廣', 'relatedto'));
   ok('⑳ 散文與推導一致時不誤報（正向對照）', !proseContradicts('source 指定空腹採檢條件，target 語意較廣', 'wider'));
+  ok('㉑ 更正註記中「」引述之舊措辭不觸發矛盾（正向對照）',
+    !proseContradicts('source 方法未指定，target 指定 Automated count；target 語意較窄。⚠️ 原標 relatedto，comment 為「不同具體方法，無包含關係」，惟該說法有誤。', 'narrower'));
+  ok('㉒ 剝除引述後仍在的主張照樣被抓（引述不得成為規避手段）',
+    !!proseContradicts('「某段引述」本組無包含關係', 'narrower'));
 
   let allPass = true;
   console.log('ConceptMap 六軸判準自我測試：');

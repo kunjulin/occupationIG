@@ -140,13 +140,13 @@ Description: "【主管機關：國民健康署】將健康檢查實驗室檢驗
 * group[0].element[10].target[0].equivalence = #narrower
 * group[0].element[10].target[0].comment = "source 方法未指定，target 指定 Automated count；target 語意較窄"
 
-// MCV (Acceptable: 30428-7 by calculation → Preferred: 787-2 by Automated count)
+// MCV (Acceptable: 30428-7 方法未指定 → Preferred: 787-2 by Automated count)
 * group[0].element[11].code = #30428-7
 * group[0].element[11].display = "MCV [Entitic mean volume] in Red Blood Cells"
 * group[0].element[11].target[0].code = #787-2
 * group[0].element[11].target[0].display = "MCV [Entitic mean volume] in Red Blood Cells by Automated count"
-* group[0].element[11].target[0].equivalence = #relatedto
-* group[0].element[11].target[0].comment = "calculation 與 Automated count 為不同具體方法，無包含關係"
+* group[0].element[11].target[0].equivalence = #narrower
+* group[0].element[11].target[0].comment = "source 方法未指定，target 指定 Automated count；target 語意較窄。⚠️ v0.10.3 更正：本組原標 relatedto，comment 為「calculation 與 Automated count 為不同具體方法，無包含關係」——惟 30428-7 之 METHOD_TYP 於 LOINC 實為**未指定**，並非 calculation，該 comment 主張了 source 不具備的方法。六軸與 element[10]（26515-7 → 777-3）及 element[12]（28539-5 → 785-6）完全相同，該二組皆標 narrower。⚠️ 對實作端之影響：該組之「數值可否直接比較」由「不可」翻為**可**——同一量測之方法通用碼與 Automated count 特化碼屬包含關係，先前依 relatedto 而不予比較者可改為直接比較。"
 
 // MCH (Acceptable: 28539-5 by Automated count → Preferred: 785-6 by Automated count)
 * group[0].element[12].code = #28539-5

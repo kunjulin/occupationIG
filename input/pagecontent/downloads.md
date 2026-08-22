@@ -43,6 +43,8 @@
 | SNOMED–LOINC 對照 | SNOMED CT 與 LOINC 之交叉對照（CSV，便於程式處理） | [CSV](snomed-loinc-mappings.csv) |
 | **顯示名驗證報告** | 以術語伺服器逐碼比對之 `display` 語意查核結果，為代碼稽核之主要依據 | [CSV](display-verification-report.csv) |
 | **UCUM 建議單位對照** | Extended 量值項之 LOINC 官方建議單位對照 | [CSV](extended-ucum-reference.csv) |
+| **LOINC 六軸實測** | ConceptMap 各組 source／target 之六軸（COMPONENT／PROPERTY／TIME_ASPCT／SYSTEM／SCALE_TYP／METHOD_TYP）LP 代碼與名稱，為 `equivalence` 判準之輸入 | [CSV](loinc-axes-reference.csv) |
+| **LOINC 詞素階層** | 上表各軸需階層判定之配對，及其結論可否採信之證據（source 詞素有無 parent） | [CSV](loinc-part-subsumption.csv) |
 
 > **`loinc-valuesets.xlsx` 之欄位說明**
 >

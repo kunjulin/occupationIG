@@ -230,11 +230,34 @@
 > 更正後（39 組時）之分佈為 `wider` 10／`narrower` 6／`relatedto` 23／`equivalent` 0；
 > 其後移除 `2888-6`（見 §3.2.2）並補列 3 組原無歸一路徑者，**該時分佈為
 > `wider` 12／`narrower` 6／`relatedto` 23／`equivalent` 0（共 41 組；v0.10.1 與 v0.10.2 依
-> 委員決議各新增 4 組、並將 `element[38]` 由 `wider` 更正為 `relatedto` 後，現行分佈為
-> `wider` 14／`narrower` 6／`relatedto` 29／`equivalent` 0，共 49 組，逐組見 §3.2）**。
+> 委員決議各新增 4 組、並將 `element[38]` 由 `wider` 更正為 `relatedto`，v0.10.3 再將
+> `element[11]` 由 `relatedto` 更正為 `narrower` 後，現行分佈為
+> `wider` 14／`narrower` 7／`relatedto` 28／`equivalent` 0，共 49 組，逐組見 §3.2）**。
 > **v20260729 及更早之下載檔或網站快照，其 `narrower`／`wider` 方向為錯誤值**，請以本版為準。
-> 為防再度脫節，comment 之方向敘述與 `equivalence` 值之一致性已納入 CI 閘門
-> （`scripts/fix-conceptmap-equivalence.js --check`）。
+> 為防再度脫節，`equivalence` 之一致性已納入 CI 閘門
+> （`scripts/check-conceptmap-axes.js --check`）。
+
+> 🔴 **判準更換（v0.10.3）**：上述閘門原以 comment 之**散文**為判準
+> （`scripts/fix-conceptmap-equivalence.js --check`），該作法已退役。
+> 散文判準只看得到撰寫者提到的軸：`element[38]` 之原 comment 就 METHOD 一軸而言
+> 完全正確，因而通過檢查，錯的是它沒提 PROPERTY 與 SCALE 亦不同。
+> 現行判準改以術語伺服器實測之**六軸**（COMPONENT／PROPERTY／TIME_ASPCT／SYSTEM／
+> SCALE_TYP／METHOD_TYP）為輸入，該看的軸由資料決定，而非由撰寫者記得與否決定；
+> 散文降級為交叉檢查——與六軸推導矛盾即失敗，但不再被當成「已驗證」。
+> 六軸實測值載於 [`loinc-axes-reference.csv`](loinc-axes-reference.csv)，
+> Part 階層載於 [`loinc-part-subsumption.csv`](loinc-part-subsumption.csv)，
+> 另有 CI 步驟逐軸比對兩檔與上游是否一致。
+
+> 🔴 **連帶更正（v0.10.3）**：`element[11]`（`30428-7` → `787-2`，MCV）由
+> `relatedto` 更正為 `narrower`。
+> 成因：原 comment 為「calculation 與 Automated count 為不同具體方法，無包含關係」，
+> 惟 `30428-7` 之 `METHOD_TYP` 於 LOINC 實為**未指定**，並非 calculation
+> ——該 comment 主張了 source 並不具備的方法。其六軸與 `element[10]`
+> （`26515-7` → `777-3`）及 `element[12]`（`28539-5` → `785-6`）完全相同，
+> 而該二組皆標 `narrower`；同一份 ConceptMap 內軸關係一致卻掛不同的值。
+> ⚠️ **對實作端之影響**：該組之「數值可否直接比較」由「不可」翻為**可**
+> ——方法通用碼與 Automated count 特化碼屬包含關係。先前依 `relatedto` 而不予比較者，
+> 可改為直接比較。此為與 `element[38]` 方向相反之翻轉，請分別確認。
 
 > **`equivalent` 為 0 係刻意結果，非遺漏**：R4 之 `equivalent` 僅適用於「概念定義完全等義」。
 > 經 49 組逐組覆核，本 IG 無任何一組符合——原標 `equivalent` 之 2 組（`26464-8`→`6690-2`、
