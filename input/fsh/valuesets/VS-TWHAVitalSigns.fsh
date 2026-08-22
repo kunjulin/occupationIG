@@ -4,12 +4,19 @@ Title: "職業健檢生命徵象項目值集"
 Description: "【主管機關：國民健康署】包含身高、體重、腰圍及血壓等生理測量項目之 LOINC 代碼。"
 * ^experimental = false
 * LNC#8302-2 "Body height"
-* LNC#3137-7 "Body height Measured"      // Acceptable：方法特化碼（Method = Measured）；經 ConceptMap 歸一至 8302-2（#narrower）
+// ⚠️ 關係值以 FHIR R4 之 target 為主詞：source 指定量測方法、target 方法未指定，
+//    故 target 語意較廣 ＝ #wider。本兩行原記 #narrower，係 JOB-22 全面更正關係值方向時
+//    改了 ConceptMap 而未回頭改本檔註解，v0.10.1 更正（實值一律以 ConceptMap 為準）。
+* LNC#3137-7 "Body height Measured"      // Acceptable：方法特化碼（Method = Measured）；經 ConceptMap 歸一至 8302-2（#wider）
 * LNC#29463-7 "Body weight"
-* LNC#3141-9 "Body weight Measured"      // Acceptable：方法特化碼（Method = Measured）；經 ConceptMap 歸一至 29463-7（#narrower）
+* LNC#3141-9 "Body weight Measured"      // Acceptable：方法特化碼（Method = Measured）；經 ConceptMap 歸一至 29463-7（#wider）
 * LNC#8280-0 "Waist Circumference at umbilicus by Tape measure"  // 腰圍 Preferred（委員建議，臍位皮尺法；送件前以 loinc.org 覆核顯示名）
-// (-) 腰圍無第二個「量測」對應碼：原列 56086-2 經 tx 驗證為 PhenX「Adult Waist Circumference Protocol」
-//     （屬protocol/方法碼，非量測碼），已移出本值集；院所若以 56086-2 上傳，
+* LNC#8281-8 "Waist Circumference at umbilicus by US"   // Acceptable：超音波量測法（2026-08-22 委員決議收錄——健檢情境允許超音波量測）；經 ConceptMap 歸一至 8280-0（#relatedto——同層方法兄弟碼，數值不可直接等同比較）
+// ⚠️ 8281-8 與 8280-0 為**同層之方法兄弟碼**，非通用／特化之包含關係，故關係值為
+//    #relatedto 而非 #wider——與身高／體重兩組（方法特化 → 方法通用）不同，勿比照套用。
+// (-) 腰圍之量測 protocol 碼（56086-2 PhenX、56114-2 NHANES、56115-9 NCFS）**刻意不納入本值集**：
+//     三者均為量測 protocol／調查工具碼而非量測碼（56086-2 經 tx 驗證為
+//     PhenX「Adult Waist Circumference Protocol」）。院所若以該三碼上傳，
 //     仍可經 ConceptMap TWHealthCheckLaboratoryMap 歸一至 Preferred 8280-0。
 * LNC#8480-6 "Systolic blood pressure"
 * LNC#8462-4 "Diastolic blood pressure"

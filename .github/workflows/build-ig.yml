@@ -280,8 +280,13 @@ jobs:
       # 另含 ConceptMap equivalence 一致性檢查（JOB-22 §3.4）：comment 之方向敘述須與
       # equivalence 值相符。16 組方向顛倒之成因即「文件定義為 source-relative、R4 為
       # target-relative」；5 組 comment 矛盾則為 JOB-01 只修 display 未修 comment 之殘留。
-      - name: Check downloadable assets are current
-        run: npm run check:assets
+      # ⚠️ self-test 先跑：v0.10.1 擴大 check-asset-consistency 之檢查範圍
+      # （loinc_acceptable 欄 ＋ 歸一方向），負向案例必須先證明它擋得住，
+      # 否則「現況通過」等於沒有證明。audit-ucum 之 self-test 不需術語伺服器，一併在此跑。
+      - name: Check downloadable assets are current (self-test first)
+        run: |
+          npm run check:assets:selftest
+          npm run check:assets
 
       # T-6 實驗開關。預設不啟用；設為 true 時移除 no-validate 之【B】五項，
       # 讓該次建置的 qa.txt 顯示「若移除會浮出多少訊息」。這是取得決策依據的方式，
@@ -482,7 +487,9 @@ jobs:
       #                    比率），而任何判準塌陷都會直接掉到接近 0 而被擋下。
       - name: UCUM 稽核閘門 (UCUM mismatch / 未列於對照檔 / Scale 未知)
         if: env.TX_SERVER != 'n/a'
-        run: node scripts/audit-ucum.js --tx "$TX_SERVER" --gate --max 0 --max-missing 0 --max-unknown 0 --min-inscope-ratio 0.5
+        run: |
+          node scripts/audit-ucum.js --self-test
+          node scripts/audit-ucum.js --tx "$TX_SERVER" --gate --max 0 --max-missing 0 --max-unknown 0 --min-inscope-ratio 0.5
 
       # JOB-02 驗收條件 #2：publish box 不得再顯示 Local Development build。
       # 刻意排在 QA 閘門**之後**——閘門的數字是比較有診斷價值的訊號，

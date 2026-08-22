@@ -34,10 +34,20 @@
 //   不適用      非 Qn/OrdQn/SemiQn 或 Property 不承載單位（主動排除，記錄理由）
 //   查詢失敗    $lookup 失敗
 //
+// ⚠️ **官方多值單位（v0.10.1 覆核紀錄）**
+//    LOINC 之 EXAMPLE_UCUM_UNITS 常為分號分隔之多值（如 8281-8 = `[in_us];cm`、
+//    8302-2 = `[in_us];cm;m`）。unitSet() 以 /[;,]/ 切割、classify4() 兩側轉集合後比對，
+//    **本來就支援**，v0.10.1 未變更其行為，只補上負向自我測試把這個性質鎖住
+//    （新增碼 8281-8 曾被疑為會誤判，實測不會）。
+//    ⚠️ 對照檔之 ucum_suggested 應**逐字照錄官方值**（多值就寫多值）。
+//    切勿為了讓分類落在「相符」而刪減官方單位——那是竄改對照表，不是修閘門。
+//
 // Usage:
 //   node scripts/audit-ucum.js [--tx <url>] [--delay <ms>] [--out <json>]
 //   node scripts/audit-ucum.js --gate [--max <n>] [--max-missing <n>]
 //       閘門模式：不符 > max、未列於對照檔 > max-missing、Scale 未知 > max-unknown 即 exit 1
+//   node scripts/audit-ucum.js --self-test
+//       負向自我測試（不需術語伺服器；先跑這個）
 'use strict';
 
 const fs = require('fs');
@@ -187,6 +197,39 @@ function parseCsv(text) {
   const header = split(lines[0]);
   return lines.slice(1).map((l) => { const c = split(l); return Object.fromEntries(header.map((h, i) => [h, c[i] ?? ''])); });
 }
+
+// ---- 負向自我測試（不需 tx）------------------------------------------------
+// 鎖住兩件事：多值官方單位不得被誤判為「不符」，以及 Scale 正規化不得整體塌陷
+// （後者即 JOB-20 §5 所記「320 碼全判不適用而閘門空過」之成因）。
+function selfTest() {
+  const cases = [
+    // ① 官方多值、CSV 逐字照錄 → 相符（8281-8 之實況）
+    ['① 官方多值 × CSV 全數照錄 → 相符', classify4('[in_us];cm', unitSet('[in_us];cm')) === '相符'],
+    // ② 官方多值、CSV 僅擇一 → 待人工判定（**不得**判為「不符」而誤擋建置）
+    ['② 官方多值 × CSV 擇一 → 待人工判定（非不符）', classify4('cm', unitSet('[in_us];cm')) === '待人工判定'],
+    // ③ 官方多值、CSV 有清單外之單位 → 不符（真正該擋的情形）
+    ['③ CSV 含清單外單位 → 不符', classify4('{pack}/d', unitSet('[in_us];cm')) === '不符'],
+    // ④ 官方單值 × CSV 同值 → 相符（3048-6 之實況）
+    ['④ 官方單值 × CSV 同值 → 相符', classify4('mg/dL', unitSet('mg/dL')) === '相符'],
+    // ⑤ 官方未提供且 CSV 亦空 → LOINC 未提供（對照檔之 74 筆即此形，ucum_suggested 一律空白）
+    ['⑤ 兩側皆空 → LOINC 未提供', classify4('', unitSet('')) === 'LOINC 未提供'],
+    // ⑤b 官方未提供但 CSV 有值 → 待人工判定（本專案自行填的單位無官方依據，須人看）
+    //     ⚠️ 不得判為「LOINC 未提供」——那會讓自填單位混進「官方無此欄」的統計裡而消失。
+    ['⑤b 官方未提供但 CSV 有值 → 待人工判定', classify4('mg/dL', unitSet('')) === '待人工判定'],
+    // ⑥ 分隔符：分號與逗號皆須切開（只認一種會把多值當成單一字串而全判不符）
+    ['⑥ 分號與逗號皆切割', unitSet('[in_us];cm').length === 2 && unitSet('a, mo').length === 2],
+    // ⑦ Scale 以答案清單碼回傳時須正規化（首版誤以 code 比對字面值而全判不適用）
+    ['⑦ Scale 答案清單碼正規化', normScale('LP7753-9', '') === 'Qn' && normScale('LP436123-6', '') === 'SemiQn'],
+    // ⑧ SemiQn 須納入稽核（5804-0 尿蛋白試紙即為此類，排除它會漏掉真有單位的碼）
+    ['⑧ SemiQn 納入、Ord 排除', inScope('SemiQn', 'MCnc') === true && inScope('Ord', 'PrThr') === false],
+  ];
+  let ok = true;
+  for (const [name, pass] of cases) { console.log(`  ${pass ? '✔' : '✖'} ${name}`); if (!pass) ok = false; }
+  if (!ok) { console.error('\n✖ 自我測試未通過。'); process.exit(1); }
+  console.log(`\n✔ 自我測試通過（${cases.length} 例）。`);
+}
+
+if (argv.includes('--self-test')) { selfTest(); return; }
 
 (async () => {
   const universe = collectValueSetCodes();

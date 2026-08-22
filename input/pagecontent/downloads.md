@@ -38,7 +38,7 @@
 
 | 檔案 | 內容 | 下載 |
 |:--|:--|:--|
-| LOINC 映射值集 | 本指引各值集之 LOINC 代碼清單與分層（`VS-CoreDataset` 21 碼／`VS-ExtendedDataset` 288 碼），含**層級**、**歸一至**、**equivalence** 欄，另附 `ConceptMap 歸一` 分頁（41 組） | [XLSX](loinc-valuesets.xlsx) |
+| LOINC 映射值集 | 本指引各值集之 LOINC 代碼清單與分層（`VS-CoreDataset` 22 碼／`VS-ExtendedDataset` 288 碼），含**層級**、**歸一至**、**equivalence** 欄，另附 `ConceptMap 歸一` 分頁（45 組） | [XLSX](loinc-valuesets.xlsx) |
 | SNOMED CT 對照表 | 生活習慣與危害類別之 SNOMED CT 代碼對照，及核心資料集之 LOINC–SNOMED 對照 | [XLSX](snomed-mappings.xlsx) |
 | SNOMED–LOINC 對照 | SNOMED CT 與 LOINC 之交叉對照（CSV，便於程式處理） | [CSV](snomed-loinc-mappings.csv) |
 | **顯示名驗證報告** | 以術語伺服器逐碼比對之 `display` 語意查核結果，為代碼稽核之主要依據 | [CSV](display-verification-report.csv) |
@@ -66,7 +66,7 @@
 
 > ℹ️ `loinc-valuesets.xlsx` 與 `snomed-mappings.xlsx` **由建置流程自值集（`VS-CoreDataset`／`VS-ExtendedDataset`）與 `snomed-loinc-mappings.csv` 自動產生**，內容恆與本頁指引版本（0.2.0）一致；不再手工維護，故無版本落後之虞。
 >
-> `loinc-valuesets.xlsx` 之 `VS-CoreDataset` 分頁自 v3.0 重構為「主管機關（國健署）最小上傳集之檢驗子集」（21 碼），其餘檢驗項目改列 `VS-ExtendedDataset`（288 碼）。若與舊版下載檔比對，將見 Core 由 193 碼大幅縮減，屬正常之分層調整而非刪碼。
+> `loinc-valuesets.xlsx` 之 `VS-CoreDataset` 分頁自 v3.0 重構為「主管機關（國健署）最小上傳集之檢驗子集」，其餘檢驗項目改列 `VS-ExtendedDataset`。若與舊版下載檔比對，將見 Core 由 193 碼大幅縮減，屬正常之分層調整而非刪碼。⚠️ 該分頁之碼數會隨 acceptable 變異碼之增修而變動（v0.10.1 即因補回三酸甘油酯之空腹採檢碼而 +1），**請以該次下載檔之實際內容為準，勿沿用任何文件所載之數字**。
 
 > ⚠️ **顯示名驗證報告與 UCUM 對照表均為研製中之工作產物，尚有代碼待覆核。**
 > 使用前請先確認對應代碼之稽核狀態，勿逕行作為實作依據；

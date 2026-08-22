@@ -383,3 +383,43 @@ Description: "【主管機關：國民健康署】將健康檢查實驗室檢驗
 * group[0].element[40].target[0].display = "Forced vital capacity [Volume] Respiratory system by Spirometry"
 * group[0].element[40].target[0].equivalence = #wider
 * group[0].element[40].target[0].comment = "source 指定支氣管擴張劑給藥前之特定條件，target 未指定給藥前後；target 語意較廣"
+
+// =============================================================
+// 2026-08-22 委員決議之新增 4 組（element[41]–[44]）。
+// 溯源：v1.0 候選碼經 tx.fhir.org $lookup 補充查證（2026-08-22，LOINC 2.82），全數 ACTIVE。
+//
+// ⚠️ 四組中**僅 element[41] 為 #wider**，其餘三組為 #relatedto——差別在於
+//    「條件特化 vs 同層兄弟／protocol 碼」，不可一體套用：
+//      41  空腹採檢是同一量測之**條件特化**（target 未指定空腹，語意較廣）→ #wider
+//      42  超音波與皮尺是**同層之兩種量測方法**，非包含關係            → #relatedto
+//      43/44  NHANES／NCFS 是**量測 protocol 碼**，性質與量測碼不同     → #relatedto
+//    43／44 比照既有 element[25]（56086-2 PhenX protocol）之處理。
+// =============================================================
+// 三酸甘油酯 空腹採檢 → 三酸甘油酯 Preferred（條件特化，比照 element[40] 之處理）
+* group[0].element[41].code = #3048-6
+* group[0].element[41].display = "Triglyceride [Mass/volume] in Serum or Plasma --fasting"
+* group[0].element[41].target[0].code = #2571-8
+* group[0].element[41].target[0].display = "Triglyceride [Mass/volume] in Serum or Plasma"
+* group[0].element[41].target[0].equivalence = #wider
+* group[0].element[41].target[0].comment = "source 指定空腹採檢條件，target 未指定空腹；target 語意較廣。數值可直接比較，惟歸一後會遺失「空腹」之條件標示，接收端如需區分應保留原始 coding。"
+// 腰圍 超音波法 → 腰圍 Preferred（同層方法兄弟碼）
+* group[0].element[42].code = #8281-8
+* group[0].element[42].display = "Waist Circumference at umbilicus by US"
+* group[0].element[42].target[0].code = #8280-0
+* group[0].element[42].target[0].display = "Waist Circumference at umbilicus by Tape measure"
+* group[0].element[42].target[0].equivalence = #relatedto
+* group[0].element[42].target[0].comment = "source 為超音波量測、target 為臍位皮尺量測；兩者為同層之方法兄弟碼而非通用與特化之包含關係，量測原理不同，數值不可直接等同比較。"
+// 腰圍 NHANES protocol → 腰圍 Preferred（protocol 碼，不納入值集）
+* group[0].element[43].code = #56114-2
+* group[0].element[43].display = "Waist Circumference by NHANES"
+* group[0].element[43].target[0].code = #8280-0
+* group[0].element[43].target[0].display = "Waist Circumference at umbilicus by Tape measure"
+* group[0].element[43].target[0].equivalence = #relatedto
+* group[0].element[43].target[0].comment = "source 為 NHANES 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同（比照 element[25] 之 PhenX protocol 碼）。本碼不納入任何值集，僅供接收端歸一。"
+// 腰圍 NCFS protocol → 腰圍 Preferred（protocol 碼，不納入值集）
+* group[0].element[44].code = #56115-9
+* group[0].element[44].display = "Waist Circumference by NCFS"
+* group[0].element[44].target[0].code = #8280-0
+* group[0].element[44].target[0].display = "Waist Circumference at umbilicus by Tape measure"
+* group[0].element[44].target[0].equivalence = #relatedto
+* group[0].element[44].target[0].comment = "source 為 NCFS 之量測 protocol 碼、target 為臍位皮尺量測碼，性質不同（比照 element[25] 之 PhenX protocol 碼）。本碼不納入任何值集，僅供接收端歸一。"

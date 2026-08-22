@@ -3,7 +3,7 @@ Id: VS-CoreUploadSet
 Title: "主管機關最小共通上傳集（國健署原案 21 列，跨值集群組）"
 Description: "【主管機關：國民健康署】群組值集：組合 Core 之檢驗子集（VS-CoreDataset）、生理量測（VS-TWHAVitalSigns）與社會史碼，具體化主管機關（國健署）制定之最小共通上傳集（原案 16 主項／21 列，對標 USCDI regulator-defined minimum）。僅供文件與完整度／覆蓋矩陣機器核對，不作 Observation.code 綁定。嚼檳之狀態由本 IG 之 VS-BetelNutStatus 承載（與吸菸狀態四碼逐碼對稱）；量／年數／戒除期間自 v0.4.0 起改以 UCUM Quantity 承載（{quid}/d、a、a 或 mo），上游臺灣癌症登記短表 IG（TWCR_SF, fhir.TWCRSF#0.1.1）之級距碼降為可選 component（extensible）供勾稽之用，見 TWHA-SocialHistory-BetelNut 與術語頁 §6.2b。注意戒除期間之單位以原始採集粒度為準（上游以「年」計），與吸菸之戒除「月數」（LNC#63632-4）不同，不得逕行換算。"
 * ^experimental = false
-// ⚠️ 本群組值集之展開**與原案之 21 列計的不是同一件事**（v0.5.0 查明，v0.10.0 調整）：
+// ⚠️ 本群組值集之碼數**與原案之 21 列計的不是同一件事**（v0.5.0 查明，v0.10.0 調整）：
 //   − 嚼檳量（30907X-2）／− 嚼食持續期間（30907X-3，原案欄名「嚼檳月數」）
 //                    ——原案各為獨立一列，本指引以同一 Observation 之 component 承載
 //                      （component[amount]／component[durationYears]），
@@ -12,8 +12,11 @@ Description: "【主管機關：國民健康署】群組值集：組合 Core 之
 //                      （原案 r4 誤寫為「戒檳月數」），詳見 conformance.md §7.2 與
 //                      未決事項 M-12。戒除資訊改由 component[cessationDuration]／
 //                      [cessationDate] 承載，**不佔列位**，故不影響本值集之組成。
-//   核算：展開碼數 ＋ 2（以 component 承載者）= 21。
-//   ⚠️ **展開碼數以實測為準**（見 conformance.md §7.2），不得沿用註解所載之數字。
+//   核算：**preferred 主碼數** ＋ 2（以 component 承載者）= 21。
+//   ⚠️ **碼數以實測為準**（見 conformance.md §7.2），不得沿用註解所載之數字。
+//   🔴 v0.10.1 更正名詞：本行原寫「展開碼數」，但「展開」在 FHIR 指 $expand，
+//      其結果**含所有 acceptable 變異碼**（光 VS-CoreDataset 之碼數就已超過 21），
+//      成員代碼數 ＋ 2 不會等於 21。算式算的是每列之 preferred 主碼，非 $expand 結果。
 //
 // ═══ BMI 之處置：v0.10.0 由「註解排除」改為「明文 exclude」═══
 // **主管機關原案未列 BMI**，故不納入最小上傳集。
@@ -29,7 +32,7 @@ Description: "【主管機關：國民健康署】群組值集：組合 Core 之
 //    只是不屬最小上傳集。兩者是不同的問題。
 //
 // 逐列對照見 conformance.md §7.2。
-// 來源：TWHA IG 完整編碼附件 v7.6〈Core 主管機關最小集(21)〉。
+// 來源：TWHA IG 完整編碼附件 v7.7〈Core 主管機關最小集(21)〉（原案內容同 v7.6）。
 // 檢驗子集（10 項 + acceptable）
 * include codes from valueset VS_CoreDataset
 // 生理量測（身高/體重/腰圍/血壓）
