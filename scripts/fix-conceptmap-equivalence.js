@@ -12,10 +12,26 @@
 // ⚠️ 五組（現為六組）comment 與 display 相互矛盾者**排除於自動翻轉**，依 §3.2 個別處理：
 //    只翻轉 equivalence 會把矛盾的 comment 固定下來。清單見 MANUAL_ELEMENTS。
 //
+// ⚠️ **`--check` 已於 v0.10.3 退役，不再是閘門。** 判準改由
+//    scripts/check-conceptmap-axes.js 以**六軸實測**執行。
+//
+//    退役理由（根因）：本檔之 expectedEquivalence() 只讀 comment 散文。
+//    element[38]（57735-3 → 5804-0）原 comment 就 METHOD 一軸而言完全正確，
+//    命中 R2、判 wider、通過；錯的是它沒提 PROPERTY 與 SCALE 亦不同。
+//    閘門的輸入就只有那段散文，無從得知有兩軸沒被看過。
+//    2026-08-22 實測：把該錯誤植回，本檔之 --check 回 exit 0（完全放行），
+//    六軸判準回 exit 1 並兩處指名該組。
+//
+//    散文檢查未被刪除，而是降級為交叉檢查，移入 check-conceptmap-axes.js
+//    之 proseContradicts()——它抓的是「comment 寫的跟實際做的不一致」，
+//    只是不再被誤當成「已驗證」。
+//
+//    本檔之 dry-run／--apply 為 JOB-22 之一次性方向翻轉工具，保留供追溯。
+//
 // Usage:
 //   node scripts/fix-conceptmap-equivalence.js            # dry-run：印出變更清單供覆核
 //   node scripts/fix-conceptmap-equivalence.js --apply    # 套用翻轉
-//   node scripts/fix-conceptmap-equivalence.js --check    # 一致性檢查（CI 閘門用）
+//   node scripts/fix-conceptmap-equivalence.js --check    # 【已退役】見上
 'use strict';
 
 const fs = require('fs');
