@@ -73,7 +73,9 @@ const AXES_HEADER = [
   ...AXES.flatMap((a) => [a, `${a}_display`]),
   'class', 'status', 'source', 'fetched_at',
 ];
-const SUB_HEADER = ['axis', 'code_a', 'code_b', 'outcome', 'source', 'fetched_at'];
+// a_has_parent／b_has_child 是「這一組的 not-subsumed 能不能採信」之證據，
+// 與 outcome 同一批取得。分開存會不同步，不存則 outcome 無從判讀。
+const SUB_HEADER = ['axis', 'code_a', 'code_b', 'outcome', 'a_has_parent', 'b_has_child', 'source', 'fetched_at'];
 
 function esc(s) {
   const v = String(s ?? '');
@@ -255,10 +257,13 @@ function runSelfTest() {
   // ——若直接採信，判準會把「答不出來」寫成「確認無包含關係」。
   // 兩道對照必須同時成立才視為階層可用。⑮ 是本工具第二個判斷錯的地方：
   // 只做自身比對時，實測「對照通過」而 31 組配對仍全數 not-subsumed。
-  const hierOk = (self, partsCount) => self === 'equivalent' && partsCount > 0;
-  ok('⑬ 兩道對照皆成立才視為階層可用', hierOk('equivalent', 3) === true);
-  ok('⑭ 自身比對失敗即不可用', hierOk('not-subsumed', 3) === false && hierOk('unsupported', 3) === false);
-  ok('⑮ 自身比對過、但無任何 Part 回報 parent／child → 仍不可用', hierOk('equivalent', 0) === false);
+  // 逐組認定：source 軸代碼有 parent，其 not-subsumed 才採信。
+  // ⑮ 鎖住實測到的情形——35／94 個 LP 有 parent／child，全域旗標會放行全部 31 組，
+  //    但沒有 parent 的那些組，伺服器根本無從往上走。
+  const canTrust = (self, aHasParent) => self === 'equivalent' && aHasParent;
+  ok('⑬ 自身對照成立且 source 有 parent → 採信', canTrust('equivalent', true) === true);
+  ok('⑭ 自身對照不成立即不採信', canTrust('not-subsumed', true) === false && canTrust('unsupported', true) === false);
+  ok('⑮ source 軸代碼無 parent → 不採信（全域「有階層」不足以背書該組）', canTrust('equivalent', false) === false);
 
   const cm = parseConceptMap([
     '* group[0].element[0].code = #804-5',
@@ -332,18 +337,23 @@ if (selfTest) runSelfTest();
   const lpDisplay = new Map();
   // 同一趟順便蒐集階層證據：這台伺服器對 LOINC Part 有沒有回 parent／child。
   // 這是判斷 $subsumes 之 not-subsumed 可不可信的關鍵，見下方 hierarchySupported。
-  let lpWithParentChild = 0;
+  const lpMeta = new Map();
   for (let i = 0; i < lpCodes.length; i++) {
     const url = `${tx}/CodeSystem/$lookup?system=${encodeURIComponent('http://loinc.org')}&code=${encodeURIComponent(lpCodes[i])}&property=*`;
     let d = '';
+    let hasParent = false;
+    let hasChild = false;
     try {
       const r = parseLookup(await getJson(url));
       d = (r || {}).display || '';
-      if ((r.propNames || []).some((n) => /^(parent|child)$/i.test(n))) lpWithParentChild++;
+      hasParent = (r.propNames || []).some((n) => /^parent$/i.test(n));
+      hasChild = (r.propNames || []).some((n) => /^child$/i.test(n));
     } catch { d = ''; }
     lpDisplay.set(lpCodes[i], d);
+    lpMeta.set(lpCodes[i], { hasParent, hasChild });
     if (i < lpCodes.length - 1) await new Promise((res) => setTimeout(res, delayMs));
   }
+  const lpWithParentChild = [...lpMeta.values()].filter((m) => m.hasParent || m.hasChild).length;
   console.log(`  回報 parent／child 之 LP 代碼：${lpWithParentChild}／${lpCodes.length}`);
   const unresolved = lpCodes.filter((c) => !lpDisplay.get(c));
   console.log(`  取得 ${lpCodes.length - unresolved.length}／${lpCodes.length}${unresolved.length ? `；未取得（不影響判準）：${unresolved.join(' ')}` : ''}`);
@@ -392,28 +402,34 @@ if (selfTest) runSelfTest();
   //
   //    第二道才有鑑別力：這台伺服器對 LOINC Part 究竟有沒有 parent／child。
   //    一個都沒有，就表示它手上沒有 Part 階層，其 not-subsumed 一律不可採信。
+  //    2026-08-22 實測：35／94 個 LP 代碼確實回報 parent／child，故本伺服器**有**
+  //    Part 階層——全域旗標會判為「可採信」而放行全部 31 組。但那仍不夠：
+  //    某一組的 source 軸代碼若自己沒有 parent，伺服器就無從往上走，
+  //    它回的 not-subsumed 對**這一組**依然什麼都沒說明。故證據逐組認定，不設全域旗標。
   const controlCode = needList.length ? needList[0].code_a : 'LP6548-4';
   const controlOutcome = await askSubsumes(controlCode, controlCode);
   const selfOk = controlOutcome === 'equivalent';
-  const partsOk = lpWithParentChild > 0;
-  const hierarchySupported = selfOk && partsOk;
   console.log(`\n階層對照一（自身比對）：${controlCode} vs 自身 → ${controlOutcome}　${selfOk ? '✔' : '✖'}`);
-  console.log(`階層對照二（Part 階層是否存在）：${lpWithParentChild}／${lpCodes.length} 個 LP 代碼回報 parent／child　${partsOk ? '✔' : '✖'}`);
-  console.log(hierarchySupported
-    ? '→ $subsumes 之結果可採信。'
-    : '→ ⚠️ 本伺服器不回答 LOINC Part 階層，所有結果一律記為 unknown，由判準路由至「需人工判定」。');
-  subRows.push({ axis: '__control_self__', code_a: controlCode, code_b: controlCode, outcome: controlOutcome, source: 'tx $subsumes', fetched_at: fetchedAt });
-  subRows.push({ axis: '__control_parts__', code_a: `${lpWithParentChild}/${lpCodes.length}`, code_b: 'parent|child', outcome: partsOk ? 'present' : 'absent', source: 'tx $lookup', fetched_at: fetchedAt });
+  console.log(`階層對照二（Part 階層是否存在）：${lpWithParentChild}／${lpCodes.length} 個 LP 代碼回報 parent／child`);
+  console.log('→ 逐組認定：source 軸代碼有 parent 時，其 not-subsumed 才採信；否則記為 unknown。');
+  subRows.push({ axis: '__control_self__', code_a: controlCode, code_b: controlCode, outcome: controlOutcome, a_has_parent: '', b_has_child: '', source: 'tx $subsumes', fetched_at: fetchedAt });
 
   console.log(`需階層判定之軸配對：${needList.length} 組`);
+  let trusted = 0;
   for (let i = 0; i < needList.length; i++) {
     const { axis, code_a, code_b } = needList[i];
     const raw = await askSubsumes(code_a, code_b);
-    const outcome = hierarchySupported ? raw : 'unknown';
-    console.log(`  [${String(i + 1).padStart(2)}/${needList.length}] ${axis} ${code_a} vs ${code_b} → ${outcome}${hierarchySupported ? '' : `（伺服器原答 ${raw}，因對照不成立而不採信）`}`);
-    subRows.push({ axis, code_a, code_b, outcome, source: 'tx $subsumes', fetched_at: fetchedAt });
+    const ma = lpMeta.get(code_a) || {};
+    const mb = lpMeta.get(code_b) || {};
+    const canTrust = selfOk && !!ma.hasParent;
+    if (canTrust) trusted++;
+    const outcome = canTrust ? raw : 'unknown';
+    console.log(`  [${String(i + 1).padStart(2)}/${needList.length}] ${axis} ${code_a} vs ${code_b} → ${outcome}` +
+      `${canTrust ? '' : `（原答 ${raw}；${code_a} 未回報 parent，無從往上走，不採信）`}`);
+    subRows.push({ axis, code_a, code_b, outcome, a_has_parent: ma.hasParent ? 'yes' : 'no', b_has_child: mb.hasChild ? 'yes' : 'no', source: 'tx $subsumes', fetched_at: fetchedAt });
     if (i < needList.length - 1) await new Promise((res) => setTimeout(res, delayMs));
   }
+  console.log(`  可採信 ${trusted}／${needList.length} 組；其餘記為 unknown（需人工判定）。`);
   subRows.sort((a, b) => `${a.axis}${a.code_a}${a.code_b}`.localeCompare(`${b.axis}${b.code_a}${b.code_b}`));
 
   const axesCsv = toCsv(AXES_HEADER, axesRows);
