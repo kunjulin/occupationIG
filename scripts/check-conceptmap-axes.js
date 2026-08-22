@@ -132,17 +132,6 @@ function axisRelation(axis, a, b, subs, aDisp, bDisp) {
   return 'unknown';
 }
 
-// LOINC Part 之名稱以點號表示特化：`Test strip.automated` 是 `Test strip` 之子，
-// `Circumference.at umbilicus` 是 `Circumference` 之子。這是可查證的命名慣例，
-// 與 $subsumes 互相獨立。
-//
-// ⚠️ 之所以讓名稱慣例**優先於** not-subsumed：2026-08-22 實測 LP65527-1
-//    （Test strip.automated）在 tx 上沒有 parent，$subsumes 因而答不出它與
-//    LP6548-4（Test strip）的關係。名稱明說是特化、伺服器卻不知道，
-//    即證明該伺服器之 Part 階層並不完整。既然不完整，它的 not-subsumed
-//    就不能凌駕於一個明確的名稱事實之上。
-//    ⚠️ 點號只在**前綴**成立時採用：`Automated count` 與 `Automated` 無點號關係，
-//    是兄弟碼而非特化，不得因字串開頭相同就判為包含。
 // LOINC 之聯集量綱：MSCnc（Mass or Substance concentration）涵蓋 MCnc 與 SCnc。
 // 聯集包含其成員，故兩者之間確有包含關係，只是 LOINC 之 Part 階層未以 parent／child
 // 表達，名稱亦無點號——不明文列出就只能落到 unrelated，把 element[4]
@@ -162,6 +151,17 @@ function unionRelation(aDisp, bDisp) {
   return null;
 }
 
+// LOINC Part 之名稱以點號表示特化：`Test strip.automated` 是 `Test strip` 之子，
+// `Circumference.at umbilicus` 是 `Circumference` 之子。這是可查證的命名慣例，
+// 與 $subsumes 互相獨立。
+//
+// ⚠️ 之所以讓名稱慣例**優先於** not-subsumed：2026-08-22 實測 LP65527-1
+//    （Test strip.automated）在 tx 上沒有 parent，$subsumes 因而答不出它與
+//    LP6548-4（Test strip）的關係。名稱明說是特化、伺服器卻不知道，
+//    即證明該伺服器之 Part 階層並不完整。既然不完整，它的 not-subsumed
+//    就不能凌駕於一個明確的名稱事實之上。
+//    ⚠️ 點號只在**前綴**成立時採用：`Automated count` 與 `Automated` 無點號關係，
+//    是兄弟碼而非特化，不得因字串開頭相同就判為包含。
 function nameRelation(aDisp, bDisp) {
   const a = String(aDisp || '');
   const b = String(bDisp || '');
