@@ -171,6 +171,20 @@ acceptable 變異碼經 [ConceptMap](ConceptMap-TWHealthCheckLaboratoryMap.html)
 > | 第 3 列 腰圍（`30903X`） | LOINC `8281-8` Waist Circumference at umbilicus by US | → `8280-0`（`relatedto`） | 健檢情境允許超音波量測 |
 > | 第 14 列 三酸甘油酯（`09004C`） | LOINC `3048-6` Triglyceride …--fasting | → `2571-8`（`wider`） | 健檢實務確為空腹採檢 |
 >
+> **v0.10.2 再新增之 acceptable 變異碼**（2026-08-22 第二批委員決議，同樣不影響 21 列與主碼）：
+>
+> | 影響之列 | 新增 acceptable | 歸一 | 說明 |
+> |:--|:--|:--|:--|
+> | 第 14 列 三酸甘油酯（`09004C`） | LOINC `1644-4` Triglyceride …--12 hours fasting | → `2571-8`（`wider`） | 明指 12 小時之空腹條件特化 |
+> | 第 19 列 尿蛋白＿定性（`06003C-2`） | LOINC `50561-0` Protein [Mass/volume] in Urine by Automated test strip | → `5804-0`（`wider`） | 與主碼**同 Property 同 Scale**，僅方法特化 |
+> | 同上 | LOINC `2887-8` Protein [Presence] in Urine | → `5804-0`（**`relatedto`**） | 定性碼，Property 與 Scale 均與主碼不同 |
+> | 同上 | LOINC `20454-5` Protein [Presence] in Urine by Test strip | → `5804-0`（**`relatedto`**） | 同上 |
+>
+> ⚠️ **`2887-8`／`20454-5` 標 `relatedto` 而非 `wider`，是刻意的。** 本指引於
+> [術語頁 §3.1.1](terminology.html) 允許尿蛋白定性之跨 Scale 綁定，惟該決議屬**值集層**；
+> ConceptMap 之 `wider`／`narrower` 是**歸一層**對語意包含關係之斷言，
+> 而 `PrThr` 與 `MCnc` 之間沒有包含關係。兩層不得互相覆蓋。
+>
 > ⚠️ **兩列之 Preferred 均未變**（腰圍仍為 `8280-0`、三酸甘油酯仍為 `2571-8`），
 > 上表所列之 21 列與各列主碼**一碼未動**。變的只是各該列可被接受並歸一之變異碼範圍。
 > 腰圍另有三個**量測 protocol 碼**（`56086-2` PhenX、`56114-2` NHANES、`56115-9` NCFS）
