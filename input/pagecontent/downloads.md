@@ -66,7 +66,7 @@
 >   `⚠ relatedto（需換算，數值不可直接比較）` 標示。尿沉渣 9 組（/HPF ↔ /µL）、eGFR
 >   （MDRD ↔ CKD-EPI 2021）、血中鉛等均屬此類——**逕行比較會導致臨床誤判**。
 
-> ℹ️ `loinc-valuesets.xlsx` 與 `snomed-mappings.xlsx` **由建置流程自值集（`VS-CoreDataset`／`VS-ExtendedDataset`）與 `snomed-loinc-mappings.csv` 自動產生**，內容恆與本頁指引版本（0.2.0）一致；不再手工維護，故無版本落後之虞。
+> ℹ️ `loinc-valuesets.xlsx` 與 `snomed-mappings.xlsx` **由建置流程自值集（`VS-CoreDataset`／`VS-ExtendedDataset`）與 `snomed-loinc-mappings.csv` 自動產生**，內容恆與本頁所載之指引版本一致；不再手工維護，故無版本落後之虞。
 >
 > `loinc-valuesets.xlsx` 之 `VS-CoreDataset` 分頁自 v3.0 重構為「主管機關（國健署）最小上傳集之檢驗子集」，其餘檢驗項目改列 `VS-ExtendedDataset`。若與舊版下載檔比對，將見 Core 由 193 碼大幅縮減，屬正常之分層調整而非刪碼。⚠️ 該分頁之碼數會隨 acceptable 變異碼之增修而變動（v0.10.1 即因補回三酸甘油酯之空腹採檢碼而 +1），**請以該次下載檔之實際內容為準，勿沿用任何文件所載之數字**。
 
