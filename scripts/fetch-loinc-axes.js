@@ -249,6 +249,12 @@ function runSelfTest() {
   ok('⑧ $subsumes 之 outcome 正確取出', parseSubsumes({ resourceType: 'Parameters', parameter: [{ name: 'outcome', valueCode: 'subsumed-by' }] }) === 'subsumed-by');
   ok('⑨ $subsumes 無法解析時回 unsupported，不得預設為 not-subsumed', parseSubsumes({ resourceType: 'OperationOutcome' }) === 'unsupported');
   ok('⑩ $subsumes 缺 outcome 參數時回 unsupported', parseSubsumes({ resourceType: 'Parameters', parameter: [] }) === 'unsupported');
+  // 陽性對照之判準：同一代碼對自己必為 equivalent，否則該伺服器不回答階層。
+  // 鎖住這一條，是因為 tx.fhir.org 對不支援的階層查詢**不報錯**，一律回 not-subsumed
+  // ——若直接採信，判準會把「答不出來」寫成「確認無包含關係」。
+  const ctlOk = (o) => o === 'equivalent';
+  ok('⑬ 陽性對照為 equivalent 才視為階層可用', ctlOk('equivalent') === true);
+  ok('⑭ 對照回 not-subsumed 即判定階層不可用（不得採信其餘結果）', ctlOk('not-subsumed') === false && ctlOk('unsupported') === false);
 
   const cm = parseConceptMap([
     '* group[0].element[0].code = #804-5',
@@ -346,14 +352,38 @@ if (selfTest) runSelfTest();
   }
   const subRows = [];
   const needList = [...need.values()];
-  console.log(`\n需階層判定之軸配對：${needList.length} 組`);
+  const subsumesUrl = (a, b) => `${tx}/CodeSystem/$subsumes?system=${encodeURIComponent('http://loinc.org')}&codeA=${encodeURIComponent(a)}&codeB=${encodeURIComponent(b)}`;
+  const askSubsumes = async (a, b) => {
+    try { return parseSubsumes(await getJson(subsumesUrl(a, b))); }
+    catch { return 'unsupported'; }
+  };
+
+  // ── 陽性對照：先問「某 LP 代碼與它自己」──────────────────────────
+  //
+  // 2026-08-22 實測：tx.fhir.org 對 31 組 LOINC Part 配對**全部**回 not-subsumed，
+  // 包含 LP65527-1（Automated test strip）對 LP6548-4（Test strip）這種依 LOINC
+  // Part 階層理應成立者。伺服器不會因「我沒有這個階層」而報錯，它就回 not-subsumed。
+  //
+  // 若把那個回覆當成事實，判準會據以宣告「兩軸無包含關係」——那是拿
+  // 「查不到關係」冒充「確認無關係」，正是本次要根除的東西。
+  //
+  // 故先做陽性對照：$subsumes 若有實作，同一個代碼對自己必然是 equivalent。
+  // 對照不成立即判定本伺服器不回答 LOINC Part 階層，全部結果改記 unknown，
+  // 由判準路由至「需人工判定」並具名列出。對照本身也寫進對照檔——
+  // 日後 tx 若補上支援，對照會翻成 equivalent 而讓人注意到。
+  const controlCode = needList.length ? needList[0].code_a : 'LP6548-4';
+  const controlOutcome = await askSubsumes(controlCode, controlCode);
+  const hierarchySupported = controlOutcome === 'equivalent';
+  console.log(`\n階層陽性對照：${controlCode} vs 自身 → ${controlOutcome}` +
+    `（${hierarchySupported ? '$subsumes 可用' : '⚠️ 本伺服器不回答 LOINC Part 階層，結果一律記為 unknown'}）`);
+  subRows.push({ axis: '__control__', code_a: controlCode, code_b: controlCode, outcome: controlOutcome, source: 'tx $subsumes', fetched_at: fetchedAt });
+
+  console.log(`需階層判定之軸配對：${needList.length} 組`);
   for (let i = 0; i < needList.length; i++) {
     const { axis, code_a, code_b } = needList[i];
-    const url = `${tx}/CodeSystem/$subsumes?system=${encodeURIComponent('http://loinc.org')}&codeA=${encodeURIComponent(code_a)}&codeB=${encodeURIComponent(code_b)}`;
-    let outcome;
-    try { outcome = parseSubsumes(await getJson(url)); }
-    catch (e) { outcome = 'unsupported'; }
-    console.log(`  [${String(i + 1).padStart(2)}/${needList.length}] ${axis} ${code_a} vs ${code_b} → ${outcome}`);
+    const raw = await askSubsumes(code_a, code_b);
+    const outcome = hierarchySupported ? raw : 'unknown';
+    console.log(`  [${String(i + 1).padStart(2)}/${needList.length}] ${axis} ${code_a} vs ${code_b} → ${outcome}${hierarchySupported ? '' : `（伺服器原答 ${raw}，因對照不成立而不採信）`}`);
     subRows.push({ axis, code_a, code_b, outcome, source: 'tx $subsumes', fetched_at: fetchedAt });
     if (i < needList.length - 1) await new Promise((res) => setTimeout(res, delayMs));
   }
@@ -421,9 +451,11 @@ if (selfTest) runSelfTest();
     console.log('\n本閘門檢查涵蓋：ConceptMap 全部 source／target 碼之六軸 LP 代碼，與所有需階層判定之軸配對。');
     console.log('刻意排除：軸之顯示名（會隨 LOINC 改版漂移，非身分）、CLASS、STATUS。');
     if (problems.length) {
-      console.error(`\n✖ 對照檔與上游不一致：${problems.length} 處`);
-      for (const p of problems) console.error(`    ${p}`);
-      console.error(`\n  修法：node scripts/fetch-loinc-axes.js  然後提交更新後之對照檔。`);
+      // 刻意走 stdout：CSV 也走 stdout，兩者混排時順序才是確定的。
+      // 走 stderr 會在 CI 日誌裡與 CSV 交錯，令人誤以為 CSV 多了幾列。
+      console.log(`\n✖ 對照檔與上游不一致：${problems.length} 處`);
+      for (const p of problems) console.log(`    ${p}`);
+      console.log(`\n  修法：node scripts/fetch-loinc-axes.js  然後提交更新後之對照檔。`);
       // 失敗時一併印出本次實測之 CSV：修這個失敗需要的就是這份內容，
       // 而在無法連外之環境（本專案之開發容器即是）沒有別的取得管道。
       console.log(`\n===== BEGIN ${path.basename(axesPath)} =====`);
