@@ -229,6 +229,13 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 「Directory of published versions」即連結至本頁。</p>
 
 <blockquote>
+  <p>&#x1F4CC; <strong>本頁為里程碑摘要，非逐版清單。</strong> 目前已發佈之版次逾三十個，多為同日之
+連續修補；逐版列出反而不易看出走向，故以次版本（minor）為單位歸納。
+<strong>完整且逐版之清單以 <a href="https://github.com/kunjulin/occupationIG/blob/main/package-list.json"><code class="language-plaintext highlighter-rouge">package-list.json</code></a>
+為準</strong>——該檔由發佈流程維護，是機器可讀的權威來源，本頁若與之不符，以該檔為準。</p>
+</blockquote>
+
+<blockquote>
   <p>⚠️ <strong>本指引為工業技術研究院委託研擬中之草案，尚未定稿。</strong>
 下表所列版本皆為<strong>審閱用草案</strong>，不得作為實作或稽核依據。</p>
 </blockquote>
@@ -238,10 +245,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <table>
   <thead>
     <tr>
-      <th style="text-align: left">版本</th>
-      <th style="text-align: left">日期</th>
+      <th style="text-align: left">版次系列</th>
+      <th style="text-align: left">期間</th>
       <th style="text-align: left">狀態</th>
-      <th style="text-align: left">說明</th>
+      <th style="text-align: left">里程碑</th>
     </tr>
   </thead>
   <tbody>
@@ -252,10 +259,58 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td style="text-align: left">研製中之最新建置。內容得隨時變動。</td>
     </tr>
     <tr>
-      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.2.0</code></td>
-      <td style="text-align: left">2026-07-29</td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.10.x</code></td>
+      <td style="text-align: left">2026-08-22</td>
       <td style="text-align: left">草案 (draft, STU 1)</td>
-      <td style="text-align: left">完成術語稽核、可實作性與治理優化；主要異動見下表。</td>
+      <td style="text-align: left"><strong>溯源更正與術語判準換基準</strong>。更正五處不實之「經主管機關答覆確認」（國民健康署從未就嚼檳三項作成函復），依據改記為本案專家會議之技術決議並逐項切分；依委員決議兩批納入八個 acceptable 變異碼；<code class="language-plaintext highlighter-rouge">ConceptMap</code> 之 <code class="language-plaintext highlighter-rouge">equivalence</code> 判準由 comment 散文改為術語伺服器實測之六軸，並據以更正兩組方向有誤之對應</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.9.x</code></td>
+      <td style="text-align: left">2026-08-21</td>
+      <td style="text-align: left">草案 (draft, STU 1)</td>
+      <td style="text-align: left"><strong>嚼檳狀態代碼之 Level 1 破壞性變更</strong>。<code class="language-plaintext highlighter-rouge">Observation.code</code> 原用之國際標準術語概念經查證為肯定式臨床發現，置於提問位會使「從未嚼食」之紀錄自相矛盾，已改為自訂狀態問句碼並附遷移說明；另修復全站分類標題空白（第二個模板字串檔未補譯）與六處不會算繪之 markdown 記號</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.8.x</code></td>
+      <td style="text-align: left">2026-08-21</td>
+      <td style="text-align: left">草案 (draft, STU 1)</td>
+      <td style="text-align: left"><strong>對外試用版乾淨化</strong>，屬破壞性變更：未決事項頁自網站移除，指向該頁之外部連結將失效；散落各頁之規範性揭露收斂為首頁「使用前須知」六條</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.7.x</code></td>
+      <td style="text-align: left">2026-08-21</td>
+      <td style="text-align: left">草案 (draft, STU 1)</td>
+      <td style="text-align: left"><strong>權責登記範圍擴大</strong>：<code class="language-plaintext highlighter-rouge">ConceptMap</code> 與 <code class="language-plaintext highlighter-rouge">NamingSystem</code> 納入登記（含規範性中繼資料變更）；補正文件 Bundle 之走訪可達性</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.6.x</code></td>
+      <td style="text-align: left">2026-08-20</td>
+      <td style="text-align: left">草案 (draft, STU 1)</td>
+      <td style="text-align: left">依專家會議決議調整嚼檳三項；勞工區塊之機器可讀成熟度標示。⚠️ 本系列原記「依主管機關答覆」，該敘述已於 <code class="language-plaintext highlighter-rouge">0.10.0</code> 更正</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.5.x</code></td>
+      <td style="text-align: left">2026-08-20</td>
+      <td style="text-align: left">草案 (draft, STU 1)</td>
+      <td style="text-align: left"><strong>合規層級與權責界線</strong>：新增 Level 1（Core 上傳合規，依據為國民健康署健檢上傳欄位規範）與 Level 2（勞工健檢涵蓋，依據為《勞工健康保護規則》附表），並明載本指引之主管機關只有國民健康署一個</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.4.x</code></td>
+      <td style="text-align: left">2026-08-20</td>
+      <td style="text-align: left">草案 (draft, STU 1)</td>
+      <td style="text-align: left"><strong>嚼檳 Profile 解耦與欄位擴充</strong>，含規範性變更：移除對上游之最後一處硬綁定，補上承載狀態之 <code class="language-plaintext highlighter-rouge">value[x]</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.3.x</code></td>
+      <td style="text-align: left">2026-08-20</td>
+      <td style="text-align: left">草案 (draft, STU 1)</td>
+      <td style="text-align: left"><strong>未決事項收斂與相依治理</strong>：屬本團隊職權之六項技術事項逕行定案；本地 stub 改為正式相依</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.2.x</code></td>
+      <td style="text-align: left">2026-07-29 – 2026-08-17</td>
+      <td style="text-align: left">草案 (draft, STU 1)</td>
+      <td style="text-align: left">完成術語稽核、可實作性與治理優化（主要異動見 &sect;1.1）；其後補齊發布組態——<code class="language-plaintext highlighter-rouge">zh-TW</code> 模板字串、頁面標題中文化、快速入門頁</td>
     </tr>
     <tr>
       <td style="text-align: left"><code class="language-plaintext highlighter-rouge">0.1.0</code></td>
@@ -269,7 +324,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <p>機器可讀之版本清單見 repo 根目錄之 <a href="https://github.com/kunjulin/occupationIG/blob/main/package-list.json"><code class="language-plaintext highlighter-rouge">package-list.json</code></a>。
 逐次變更明細見 <a href="https://github.com/kunjulin/occupationIG#版本與更新記錄-update-history"><code class="language-plaintext highlighter-rouge">README.md</code> 版本與更新記錄</a>。</p>
 
-<h3 id="11-020-主要異動摘要">1.1 0.2.0 主要異動摘要</h3>
+<h3 id="11-020-主要異動摘要保留為該次之逐項紀錄">1.1 <code class="language-plaintext highlighter-rouge">0.2.0</code> 主要異動摘要（保留為該次之逐項紀錄）</h3>
 
 <p>相對於 <code class="language-plaintext highlighter-rouge">0.1.0</code>，<code class="language-plaintext highlighter-rouge">0.2.0</code> 彙集該階段之優化（原始碼 commit 範圍
 <code class="language-plaintext highlighter-rouge">7169521a..bb554ce1</code>，96 個 commit）。六項主要異動：</p>
@@ -381,8 +436,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           套件 mohw.tw.twha#0.10.3，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-22 17:09:00 +0000">
-    2026-08-22
+  <span title="2026-08-23 01:33:00 +0000">
+    2026-08-23
   </span>
 
           <br/>

@@ -69,7 +69,7 @@ Mandatory: 1 element
   "name" : "TWHAOrganizationFacilityProfile",
   "title" : "實施健康檢查之醫療機構 Profile",
   "status" : "active",
-  "date" : "2026-08-22T17:09:34+00:00",
+  "date" : "2026-08-23T01:33:52+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

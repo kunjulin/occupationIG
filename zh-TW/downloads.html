@@ -323,7 +323,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <tbody>
     <tr>
       <td style="text-align: left">LOINC 映射值集</td>
-      <td style="text-align: left">本指引各值集之 LOINC 代碼清單與分層（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 26 碼／<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code> 288 碼），含<strong>層級</strong>、<strong>歸一至</strong>、<strong>equivalence</strong> 欄，另附 <code class="language-plaintext highlighter-rouge">ConceptMap 歸一</code> 分頁（49 組）</td>
+      <td style="text-align: left">本指引各值集（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code>／<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>）之 LOINC 代碼清單與分層，含<strong>層級</strong>、<strong>歸一至</strong>、<strong>equivalence</strong> 欄，另附 <code class="language-plaintext highlighter-rouge">ConceptMap 歸一</code> 分頁</td>
       <td style="text-align: left"><a href="loinc-valuesets.xlsx">XLSX</a></td>
     </tr>
     <tr>
@@ -404,7 +404,9 @@ Core 區塊註解補判其為 <code class="language-plaintext highlighter-rouge"
 </blockquote>
 
 <blockquote>
-  <p>ℹ️ <code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 與 <code class="language-plaintext highlighter-rouge">snomed-mappings.xlsx</code> <strong>由建置流程自值集（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code>／<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>）與 <code class="language-plaintext highlighter-rouge">snomed-loinc-mappings.csv</code> 自動產生</strong>，內容恆與本頁指引版本（0.2.0）一致；不再手工維護，故無版本落後之虞。</p>
+  <p>ℹ️ <code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 與 <code class="language-plaintext highlighter-rouge">snomed-mappings.xlsx</code> <strong>由建置流程自值集（<code class="language-plaintext highlighter-rouge">VS-CoreDataset</code>／<code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>）與 <code class="language-plaintext highlighter-rouge">snomed-loinc-mappings.csv</code> 自動產生</strong>，內容恆與本頁所載之指引版本一致；不再手工維護，故無版本落後之虞。</p>
+
+  <p>⚠️ <strong>本頁不載代碼數與對照組數。</strong> 本版次實際收錄之核心代碼與對照組數量，請依上表各資源連結內之最新內容為準。該等數字隨 acceptable 變異碼之增修而變動，寫在敘述裡即需人工維護，而<strong>目前沒有任何閘門看管它們</strong>——寫死的數字只會在下一次增修時失準。</p>
 
   <p><code class="language-plaintext highlighter-rouge">loinc-valuesets.xlsx</code> 之 <code class="language-plaintext highlighter-rouge">VS-CoreDataset</code> 分頁自 v3.0 重構為「主管機關（國健署）最小上傳集之檢驗子集」，其餘檢驗項目改列 <code class="language-plaintext highlighter-rouge">VS-ExtendedDataset</code>。若與舊版下載檔比對，將見 Core 由 193 碼大幅縮減，屬正常之分層調整而非刪碼。⚠️ 該分頁之碼數會隨 acceptable 變異碼之增修而變動（v0.10.1 即因補回三酸甘油酯之空腹採檢碼而 +1），<strong>請以該次下載檔之實際內容為準，勿沿用任何文件所載之數字</strong>。</p>
 </blockquote>
@@ -457,8 +459,8 @@ Core 區塊註解補判其為 <code class="language-plaintext highlighter-rouge"
           IG &copy; 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://twcore.mohw.gov.tw/twregistry/">衛生福利部次世代數位醫療平臺專案辦公室 &amp; 長庚醫療財團法人長庚紀念醫院</a>.  
           套件 mohw.tw.twha#0.10.3，基於 <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>。
           產生日期 
-  <span title="2026-08-22 17:09:00 +0000">
-    2026-08-22
+  <span title="2026-08-23 01:33:00 +0000">
+    2026-08-23
   </span>
 
           <br/>
