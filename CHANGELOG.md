@@ -29,14 +29,18 @@
 
 ---
 
-## 未發佈（main 已合併，線上仍為 0.10.3）
+## 發佈狀態
 
-- `downloads.md`／`quickstart.md` 移除或更新寫死之版號與過期 QA 數字；`history.md` 補齊 0.2.x～0.10.x 沿革。（[#53](https://github.com/kunjulin/occupationIG/pull/53)）`3284c80`
-- 記錄 v0.10.3 線上發佈與複驗結果（僅 `CLAUDE.md`）。（[#52](https://github.com/kunjulin/occupationIG/pull/52)）`8a6bb60`
+- 版控最新為 **0.10.4**；線上站台仍為 **0.10.3**，須另以 Actions 手動觸發 `publish`（見 [`docs/RELEASE.md`](docs/RELEASE.md)）。
 
 ---
 
 ## 0.10.x — 溯源更正與術語判準換基準
+
+### 0.10.4（2026-11-03）
+- UCUM 對照檔（`extended-ucum-reference.csv`）更正兩筆：`5810-7` `{Spec grav}`→`{Spec_grav}`（annotation 不得含空白）；`59261-8` `%`→`mmol/mol`（PROPERTY 為 SFr，`%` 屬 `4548-4` MFr）。`terminology.md` 單位表同步；值集、ConceptMap、範例未動。（[#56](https://github.com/kunjulin/occupationIG/pull/56)）`fe957c1`
+- 建置模板釘版：`ig.ini` 改為 `fhir2.base.template#0.1.0-twha.20260730`（repo 內快照 `ig-template/`，CI 預置至套件快取）；起因為上游 `#current` 新增 19 個字串鍵致翻譯閘門紅燈。QA 各類別與 0.10.3 相同。（[#56](https://github.com/kunjulin/occupationIG/pull/56)、[#57](https://github.com/kunjulin/occupationIG/pull/57)）`a225691`
+- 另含 0.10.3 之後、升版前合併之文件修正：`downloads.md`／`quickstart.md` 移除或更新寫死之版號與過期 QA 數字，`history.md` 補齊沿革（[#53](https://github.com/kunjulin/occupationIG/pull/53)）`3284c80`；記錄 v0.10.3 線上複驗（僅 `CLAUDE.md`，[#52](https://github.com/kunjulin/occupationIG/pull/52)）`8a6bb60`。
 
 ### 0.10.3（2026-08-22）
 - `ConceptMap.equivalence` 判準由 comment 散文改為**六軸實測**（COMPONENT／PROPERTY／TIME／SYSTEM／SCALE／METHOD），散文判準退役。（[#51](https://github.com/kunjulin/occupationIG/pull/51)）`8223e3c`
