@@ -349,6 +349,8 @@ jobs:
           mkdir -p "$dest"
           cp -r ig-template/package "$dest/package"
           test -f "$dest/package/package.json"
+          # 模板套件之根層檔案須位於 package/$root/，publisher 解壓時才會放到 template/ 根層
+          test -f "$dest/package/\$root/config.json"
           echo "已將釘版模板放入 $dest（version: $(node -p "require('$dest/package/package.json').version")）"
 
       - name: Run IG Publisher

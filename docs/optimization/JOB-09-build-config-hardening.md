@@ -210,6 +210,7 @@ PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderExce
 > 將快照預置於套件快取之同一版號；
 > `template/` 回歸為 publisher 之解壓工作目錄並列入 `.gitignore`。CI 之 `Report resolved template version`
 > 改為斷言（自網路重抓或載入失敗即失敗）。機制與升級程序見 `ig-template/PINNED.md`。
+> 模板根層檔案須置於 `ig-template/package/$root/`（publisher 自 `package/$root/config.json` 讀設定）。
 > ⚠️ 2.2.11 實測不可用之兩法：`template = #ig-template`（本機資料夾）判為 not trusted、不執行模板腳本；
 > `#current` 加預置快取仍會連網重新下載。
 

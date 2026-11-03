@@ -1,6 +1,11 @@
 # 釘版之 IG 模板
 
-本目錄是 `fhir2.base.template` 之**快照**（npm 套件結構，模板檔位於 `package/` 下）。
+本目錄是 `fhir2.base.template` 之**快照**（FHIR 模板套件結構，模板檔位於 `package/` 下）。
+
+⚠️ **模板根層檔案（`config.json`、`ig.ini`、`cache.ini`、`package-list.json`、`README.md`）必須放在
+`package/$root/`**。IG Publisher 2.2.11 之 `TemplateManager` 自 `package/$root/config.json` 讀取設定，
+解壓時將 `$root/` 之內容放到 `template/` 根層；放在 `package/` 根層者不會被解壓（實測：`template/config.json not found`）。
+`onLoad-*`／`onGenerate-*`／`onCheck-*` 等為模板腳本之執行產物，不屬模板內容，已自快照移除。
 
 ## 釘版機制
 
@@ -38,7 +43,7 @@ publisher 解壓模板之工作目錄為 `./template/`（已列入 `.gitignore`�
 ## 升級程序
 
 1. 在可連外之環境以 `#current`（或指定版號）建置一次，取得 publisher 解壓之 `template/`。
-2. 以其內容取代 `package/`（保留本檔與 `package/package.json`），並**同時**更新 `package.json` 之 `version`、`ig.ini` 之版號與上表——CI 會核對兩處版號一致。
+2. 以其內容取代 `package/`（保留本檔與 `package/package.json`；根層檔案放入 `package/$root/`，勿帶入 `onLoad-*`／`onGenerate-*`／`onCheck-*` 等執行產物），並**同時**更新 `package.json` 之 `version`、`ig.ini` 之版號與上表——CI 會核對兩處版號一致。
 3. 跑 `node scripts/check-translations.js`：模板新增之字串鍵須補 en（逐字照抄）與 zh-TW 譯文至 `input/data/`。
 4. 目視比對升級前後之頁面輸出；`qa-baseline.json` 依 CI 實測調整並具名說明。
 
