@@ -21,11 +21,11 @@
 
 | 項目 | 狀態 |
 |:--|:--|
-| **版控**（`sushi-config.yaml`） | **v0.10.3** |
+| **版控**（`sushi-config.yaml`） | **v0.10.4**（2026-11-03：UCUM 對照檔更正兩筆 ＋ 模板釘版，見 `ig-template/PINNED.md`） |
 | **線上站台** | **v0.10.3**，gh-pages `23f485b7`（sourceCommit `8223e3cc`，2026-08-22 17:17Z），已逐項複驗 |
 | ConceptMap `equivalence` 判準 | **六軸實測**（`scripts/check-conceptmap-axes.js`）。⚠️ 舊的散文判準 `fix-conceptmap-equivalence.js --check` **已退役**，其 `--apply` 保留為 JOB-22 之歷史工具 |
 | **對外三份文件** | 完整編碼附件 **v7.7**、建議修訂案 **v2.2**、專家共識討論會會議紀錄（2026-07-17）。**待更正項目：0**（2026-08-22 覆核）——v7.7 現載 49 組、`wider` 14／`narrower` 7／`relatedto` 28，與線上 v0.10.3 逐組相符；#38 已為 `relatedto`／「⚠ 不可」，#46 備註已改寫。⚠️ **本列曾自 v0.10.1 起連續三輪列出已完成之項目**——文件端交付後未回頭清帳，使已結案事項被重複列管。**更新 IG 端狀態時，文件端這一列要一併回頭確認，不是只往上加。** |
-| ⚠️ 版控與線上不同步是**正常的** | 合併 ≠ 發佈。線上落後於版控，直到有人手動觸發 `publish`（見 §5 末）。**本列現為同步狀態，下次合併後即會再度落後** |
+| ⚠️ 版控與線上不同步是**正常的** | 合併 ≠ 發佈。線上落後於版控，直到有人手動觸發 `publish`（見 §5 末）。**現為不同步：版控 v0.10.4、線上 v0.10.3** |
 | 版次來源 | `sushi-config.yaml` 之 `version`。⚠️ **本表會過期，動到版次時請一併更新**；有疑義以該檔為準 |
 | 嚼檳 `Observation.code` | **`CS-BetelNutObservable#betel-quid-chewing-status`**（v0.9.0 起）。⚠️ 不再是 `SCT#698188003` |
 | 送國健署確認單 | `docs/drafts/HPA-CONFIRMATION-JOB-30.md` — **可送出**（v0.10.0 已瘦身：第 1～3 項改列備查，逐項簽核為第 4～6 項）；由 PI 核閱後以正式函文發出，**本團隊不逕行對外發送** |
@@ -149,14 +149,15 @@ input/fsh/            FSH 原始碼（profiles / extensions / valuesets / codesy
 input/pagecontent/    敘述性頁面（.md）；新增頁面務必同步 sushi-config.yaml 的 menu
 input/assets/         下載用資產；會被複製到輸出根目錄，可由 downloads.md 以相對路徑連結
 sushi-config.yaml     IG metadata、dependencies、parameters、menu
-ig.ini                IG Publisher 設定（template 目前為 #current，未釘版）
+ig.ini                IG Publisher 設定（template = fhir2.base.template#0.1.0-twha.20260730＝ig-template/ 快照，CI 預置至套件快取）
 package-list.json     版本歷程（供 publish box 與發佈流程使用）
 docs/optimization/    現行優化工作範圍（JOB-01～JOB-30）← 待辦事項看這裡
 docs/regulations/     法規附表 PDF 原文（對照表之權威來源）
 docs/history/         已被取代之歷史規劃文件（非現行規範）
 docs/drafts/          未接入建置的資源草稿
 scripts/              檢查與一次性工具
-template/             IG 模板之本機複本（角色待釐清，見 JOB-09）
+ig-template/          釘版之 IG 模板（fhir2.base.template 2026-07-30 快照，npm 結構）；機制與升級見 ig-template/PINNED.md
+template/             publisher 每次建置解壓模板之工作目錄（.gitignore，勿手改）
 ```
 
 ---

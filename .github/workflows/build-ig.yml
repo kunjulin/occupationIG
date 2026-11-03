@@ -332,6 +332,27 @@ jobs:
       # --repo/--target 啟用 -auto-ig-build，使 publish box 由「Local Development
       # build」改為 CI build 文案（JOB-02 驗收條件 #2）。網址由 github context 推導，
       # 不寫死；fork 或改名後仍然正確。
+      # 釘版模板（JOB-09）：把 ig-template/package 以自訂版號放進套件快取，
+      # ig.ini 寫 fhir2.base.template#<該版號>（版號取自 ig-template/package/package.json）。
+      # 2.2.11 實測：
+      #   * ig.ini 寫 #current 時，即使快取已預置，publisher 仍向網路比對並重新下載 → 不可用。
+      #   * ig.ini 寫 #資料夾（本機資料夾）時，模板被判 "not trusted. No scripts will be executed"
+      #     → 模板產生腳本不執行，輸出與原本不同，不可用。
+      - name: Seed pinned template into package cache
+        run: |
+          set -eu
+          ver="$(node -p "require('./ig-template/package/package.json').version")"
+          grep -qx "template = fhir2.base.template#${ver}" ig.ini \
+            || { echo "::error::ig.ini 之模板版號與 ig-template/package/package.json（${ver}）不一致"; exit 1; }
+          dest="$HOME/.fhir/packages/fhir2.base.template#${ver}"
+          rm -rf "$dest"
+          mkdir -p "$dest"
+          cp -r ig-template/package "$dest/package"
+          test -f "$dest/package/package.json"
+          # 模板套件之根層檔案須位於 package/$root/，publisher 解壓時才會放到 template/ 根層
+          test -f "$dest/package/\$root/config.json"
+          echo "已將釘版模板放入 $dest（version: $(node -p "require('$dest/package/package.json').version")）"
+
       - name: Run IG Publisher
         env:
           IG_REPO_SOURCE: ${{ github.server_url }}/${{ github.repository }}
@@ -353,15 +374,29 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
-      # ig.ini 目前為 template = fhir2.base.template#current（未釘版），送審文件之
-      # 建置輸入應可釘版。本步驟先把實際解析到的模板版本印出來，作為釘版依據——
-      # 本機環境無法連線模板來源，不宜憑猜測寫入版本號（JOB-09）。
+      # 模板已釘版為 repo 內快照 ig-template/（見 ig-template/PINNED.md），由上方 Seed 步驟放入快取。
+      # 本步驟印出 publisher 實際載入之模板，並斷言未自網路重新下載、未載入失敗——
+      # 2026-11-03 之紅燈即因 #current 於快取失效後被重新下載、上游新增 19 個字串鍵所致。
       - name: Report resolved template version
         if: always()
         run: |
           set -u
           echo "--- publisher 日誌中與 template 相關之行 ---"
           grep -iE 'template' input-cache/publisher-run.log | head -25 || echo "(日誌中查無 template 字樣)"
+          if [ ! -f input-cache/publisher-run.log ]; then
+            echo "(無 publisher 日誌——建置在該步驟之前即中止)"; exit 0
+          fi
+          if grep -qE 'Installing fhir2\.base\.template' input-cache/publisher-run.log; then
+            echo "::error::publisher 自網路重新下載了 fhir2.base.template，未使用釘版快照（ig-template/）"; exit 1
+          fi
+          if grep -qE 'Error loading template|Publishing Content Failed|is not trusted' input-cache/publisher-run.log; then
+            echo "::error::模板載入失敗或未受信任（見上方日誌）"; exit 1
+          fi
+          ver="$(node -p "require('./ig-template/package/package.json').version")"
+          if ! grep -qF "Load Template from fhir2.base.template#${ver}" input-cache/publisher-run.log; then
+            echo "::error::publisher 日誌中查無 'Load Template from fhir2.base.template#${ver}'"; exit 1
+          fi
+          echo "✔ 使用套件快取中之釘版快照（ig-template/）"
 
       # 把 JOB-02／JOB-03 的驗收條件固化為斷言，而非靠人工目視。
       # 語言目錄來自模板之 multilanguage-format: true（見 JOB-02 §3.3），
