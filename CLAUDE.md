@@ -149,7 +149,7 @@ input/fsh/            FSH 原始碼（profiles / extensions / valuesets / codesy
 input/pagecontent/    敘述性頁面（.md）；新增頁面務必同步 sushi-config.yaml 的 menu
 input/assets/         下載用資產；會被複製到輸出根目錄，可由 downloads.md 以相對路徑連結
 sushi-config.yaml     IG metadata、dependencies、parameters、menu
-ig.ini                IG Publisher 設定（template = fhir2.base.template#current；CI 以 ig-template/ 快照預置快取而釘版）
+ig.ini                IG Publisher 設定（template = fhir2.base.template#0.1.0-twha.20260730＝ig-template/ 快照，CI 預置至套件快取）
 package-list.json     版本歷程（供 publish box 與發佈流程使用）
 docs/optimization/    現行優化工作範圍（JOB-01～JOB-30）← 待辦事項看這裡
 docs/regulations/     法規附表 PDF 原文（對照表之權威來源）

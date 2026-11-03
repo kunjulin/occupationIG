@@ -4,18 +4,22 @@
 
 ## 釘版機制
 
-`ig.ini` 維持 `template = fhir2.base.template#current`。CI 之「Seed pinned template into package cache」
-步驟在執行 publisher 前，把 `package/` 複製到 `~/.fhir/packages/fhir2.base.template#current/package`；
-publisher 見快取已有 `#current` 即直接使用、不重新下載。「Report resolved template version」步驟斷言
-日誌中**沒有** `Installing fhir2.base.template`（即未自網路重抓）且無載入錯誤。
+`ig.ini` 寫 `template = fhir2.base.template#0.1.0-twha.20260730`（版號＝`package/package.json` 之 `version`）。
+CI 之「Seed pinned template into package cache」步驟在執行 publisher 前，先核對兩處版號一致，再把 `package/`
+複製到 `~/.fhir/packages/fhir2.base.template#<版號>/package`；明確版號於快取命中時不需連網。
+「Report resolved template version」步驟斷言日誌中**沒有** `Installing fhir2.base.template`（即未自網路重抓）、
+無載入錯誤，且有 `Load Template from fhir2.base.template#<版號>`。
+
+⚠️ **不使用 `#current` 加預置快取**：2.2.11 實測，即使快取已預置，`#current` 仍會向網路比對並重新下載。
 publisher 解壓模板之工作目錄為 `./template/`（已列入 `.gitignore`）。
 
 ⚠️ **不使用 `ig.ini` 之 `template = #ig-template`（本機資料夾）語法**：IG Publisher 2.2.11 實測會判定
 `IG template '#ig-template' is not trusted. No scripts will be executed`——模板內之產生腳本不執行，
 輸出與以套件載入者不同。
 
-⚠️ **本機建置（`_genonce*.bat`）不經過預置步驟**，仍會使用本機快取或網路上之 `#current`。
-送審建置以 CI 為準；本機若要對齊，請先將 `package/` 複製到本機套件快取之同一路徑。
+⚠️ **本機建置（`_genonce*.bat`）不經過預置步驟**：該版號不存在於任何公開套件庫，未預置時 publisher 會找不到模板而中止
+（明確失敗，不會悄悄改用 `#current`）。請先將 `package/` 複製到本機套件快取之
+`fhir2.base.template#0.1.0-twha.20260730/package`（Windows 通常為 `%USERPROFILE%\.fhir\packages\`）。
 
 | 項目 | 內容 |
 |:--|:--|
@@ -34,7 +38,7 @@ publisher 解壓模板之工作目錄為 `./template/`（已列入 `.gitignore`�
 ## 升級程序
 
 1. 在可連外之環境以 `#current`（或指定版號）建置一次，取得 publisher 解壓之 `template/`。
-2. 以其內容取代 `package/`（保留本檔與 `package/package.json`，並更新其 `version` 與上表）。
+2. 以其內容取代 `package/`（保留本檔與 `package/package.json`），並**同時**更新 `package.json` 之 `version`、`ig.ini` 之版號與上表——CI 會核對兩處版號一致。
 3. 跑 `node scripts/check-translations.js`：模板新增之字串鍵須補 en（逐字照抄）與 zh-TW 譯文至 `input/data/`。
 4. 目視比對升級前後之頁面輸出；`qa-baseline.json` 依 CI 實測調整並具名說明。
 

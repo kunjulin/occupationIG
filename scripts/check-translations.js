@@ -38,7 +38,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 // 建置後以 publisher 實際解壓之 ./template 為準；未建置時退回釘版來源 ./ig-template
-// （CI 預置至套件快取之 fhir2.base.template#current；npm 結構，檔案位於 package/ 下），使本機亦能比對 T-1/T-2。
+// （CI 以自訂版號預置至套件快取；npm 結構，檔案位於 package/ 下），使本機亦能比對 T-1/T-2。
 const TEMPLATE_DIR = [
   path.join(ROOT, 'template', 'translations'),
   path.join(ROOT, 'ig-template', 'package', 'translations'),
