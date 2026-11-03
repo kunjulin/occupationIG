@@ -198,6 +198,22 @@ PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderExce
 | **`auto-oid-root`（40 筆 OID 警告）** | 需要一個**有正當來源的 OID 根節點**。本專案目前沒有，而 OID 一經發佈即不宜變更（變更會破壞已發佈之 OID）。隨意取一個數字比不設定更糟。已登記為待確認事項（JOB-13） |
 | **`template/` 目錄角色釐清** | 與模板釘版同一件事，待版本確定後一併處理 |
 
+> **更新（2026-11-03）：模板已釘版，`template/` 角色已釐清。**
+> 觸發事件：CI 之套件快取失效，`#current` 被重新下載，上游新增 19 個字串鍵，`check:i18n` 紅燈
+> （與本 repo 任何變更無關）。查證結果：
+> * npm 上之 `fhir2.base.template` 僅 `0.1.0`（2025-10-01），以本 repo 之翻譯閘門實測**比 8 月綠燈時所用者舊**
+>   （4 句 en 不同、我方多 36 鍵），不可作為釘版目標；packages.fhir.org 本環境不可達，無法查其他版號。
+> * repo 內 2026-07-30 commit 之 `template/` 複本，以同一閘門實測與我方字串檔**完全對齊**（exit 0）。
+>
+> 處置：該複本移至 `ig-template/package/`（npm 結構）並補 `package/package.json`（自訂版號
+> `0.1.0-twha.20260730`）。`ig.ini` 改為 `fhir2.base.template#0.1.0-twha.20260730`，由 CI 於執行 publisher 前
+> 將快照預置於套件快取之同一版號；
+> `template/` 回歸為 publisher 之解壓工作目錄並列入 `.gitignore`。CI 之 `Report resolved template version`
+> 改為斷言（自網路重抓或載入失敗即失敗）。機制與升級程序見 `ig-template/PINNED.md`。
+> 模板根層檔案須置於 `ig-template/package/$root/`（publisher 自 `package/$root/config.json` 讀設定）。
+> ⚠️ 2.2.11 實測不可用之兩法：`template = #ig-template`（本機資料夾）判為 not trusted、不執行模板腳本；
+> `#current` 加預置快取仍會連網重新下載。
+
 ### ✅ CI 實證結果（run 30221206326，commit `8e6f5fd5`）
 
 ```

@@ -231,13 +231,13 @@
 5802-4,Nitrite [Presence] in Urine by Test strip,Nitrite [Presence] in Urine by Test strip,,LOINC 未提供建議單位,LOINC 未提供,
 5803-2,pH of Urine by Test strip,pH of Urine by Test strip,[pH],"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, LOINC 2.82)",相符,
 5804-0,Protein [Mass/volume] in Urine by Test strip,Protein [Mass/volume] in Urine by Test strip,mg/dL,LOINC EXAMPLE_UCUM_UNITS,相符,JOB-20：Scale = SemiQn（LP436123-6，經 loinc.org 查證）納入稽核後補列
-5810-7,Specific gravity of Urine,Specific gravity of Urine by Refractometry,{Spec grav},"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, LOINC 2.82)",相符,
+5810-7,Specific gravity of Urine,Specific gravity of Urine by Refractometry,{Spec_grav},"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, 2026-11-03 CI 實測)",相符,原記 {Spec grav}；UCUM annotation 不得含空白（僅 ASCII 33–126），依官方值更正
 5813-1,Trichomonas vaginalis [Presence] in Urine sediment,Trichomonas vaginalis [Presence] in Urine sediment by Light microscopy,,LOINC 未提供建議單位,LOINC 未提供,
 5814-9,Calcium magnesium ammonium phosphate crystals [Presence] in Urine sediment,Triple phosphate crystals [Presence] in Urine sediment by Light microscopy,,LOINC 未提供建議單位,LOINC 未提供,
 5817-2,Uric acid crystals [Presence] in Urine sediment,Urate crystals [Presence] in Urine sediment by Light microscopy,,LOINC 未提供建議單位,LOINC 未提供,
 5821-4,Leukocytes [#/area] in Urine sediment by Microscopy high power field,Leukocytes [#/area] in Urine sediment by Microscopy high power field,/[HPF],"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, LOINC 2.82)",相符,
 5905-5,Monocytes/100 leukocytes in Blood by Automated count,Monocytes/Leukocytes in Blood by Automated count,%,"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, LOINC 2.82)",相符,
-59261-8,Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol,Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood,%,"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, LOINC 2.82)",相符,
+59261-8,Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol,Hemoglobin A1c/Hemoglobin.total standardized per IFCC-RMP for CDT in Blood,mmol/mol,"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, 2026-11-03 CI 實測)",相符,原記 %；本碼 PROPERTY 為 SFr（物質量分率），對應 mmol/mol；% 為 MFr 之 4548-4（NGSP）單位，依官方值更正
 60026-2,Leukocyte esterase [Presence] in Urine by Test strip,Leukocyte esterase [Presence] in Urine by Automated test strip,,LOINC 未提供建議單位,LOINC 未提供,
 60090-8,Indium [Mass/volume] in Serum or Plasma,Indium [Mass/volume] in Serum or Plasma,ug/L,"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, LOINC 2.82)",相符,
 62292-8,25-hydroxyvitamin D3 [Mass/volume] in Serum or Plasma,25-Hydroxyvitamin D3+25-Hydroxyvitamin D2 [Mass/volume] in Serum or Plasma,ng/mL,"LOINC EXAMPLE_UCUM_UNITS (tx.fhir.org, LOINC 2.82)",相符,
