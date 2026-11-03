@@ -1,4 +1,4 @@
-# 臨場服務事件範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.3
+# 臨場服務事件範例 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.4
 
 ## 範例 Encounter: 臨場服務事件範例
 
@@ -10,7 +10,7 @@ Profile: [臨場健康服務事件 Profile](StructureDefinition-TWHA-Encounter-S
 
 **status**: Finished
 
-**class**: [ActCode: FLD](http://terminology.hl7.org/7.3.0/CodeSystem-v3-ActCode.html#v3-ActCode-FLD) (field)
+**class**: [ActCode: FLD](http://terminology.hl7.org/7.5.0/CodeSystem-v3-ActCode.html#v3-ActCode-FLD) (field)
 
 ### Participants
 

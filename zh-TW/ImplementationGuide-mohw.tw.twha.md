@@ -10,11 +10,11 @@
   "id" : "mohw.tw.twha",
   "language" : "zh-TW",
   "url" : "https://twcore.mohw.gov.tw/ig/twha/ImplementationGuide/mohw.tw.twha",
-  "version" : "0.10.3",
+  "version" : "0.10.4",
   "name" : "TWHAIG",
   "title" : "臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG)",
   "status" : "active",
-  "date" : "2026-08-23T01:33:52+00:00",
+  "date" : "2026-11-03T04:54:30+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
@@ -42,7 +42,7 @@
     }],
     "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
     "packageId" : "hl7.terminology.r4",
-    "version" : "7.3.0"
+    "version" : "7.5.0"
   },
   {
     "id" : "hl7ext",
@@ -52,7 +52,7 @@
     }],
     "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
     "packageId" : "hl7.fhir.uv.extensions.r4",
-    "version" : "5.3.0"
+    "version" : "5.4.0"
   },
   {
     "id" : "tw_gov_mohw_twcore",
@@ -129,61 +129,6 @@
       },
       {
         "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "no-validate"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "no-validate"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "no-validate"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "no-validate"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueString" : "no-validate"
-      },
-      {
-        "url" : "value",
         "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-UnfitDiseases"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
@@ -202,7 +147,7 @@
     {
       "extension" : [{
         "url" : "code",
-        "valueString" : "path-liquid-template"
+        "valueString" : "path-liquid"
       },
       {
         "url" : "value",
@@ -213,7 +158,7 @@
     {
       "extension" : [{
         "url" : "code",
-        "valueString" : "path-liquid-template"
+        "valueString" : "path-liquid"
       },
       {
         "url" : "value",
@@ -496,61 +441,6 @@
       },
       {
         "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-CoreDataset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "no-validate"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-ExtendedDataset"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "no-validate"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-OccHealthCheck-Required"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "no-validate"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-PulmonaryFunction"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "no-validate"
-      },
-      {
-        "url" : "value",
-        "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-TWHAVitalSigns"
-      }],
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
-    },
-    {
-      "extension" : [{
-        "url" : "code",
-        "valueCode" : "no-validate"
-      },
-      {
-        "url" : "value",
         "valueString" : "https://twcore.mohw.gov.tw/ig/twha/ValueSet/VS-UnfitDiseases"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
@@ -569,7 +459,7 @@
     {
       "extension" : [{
         "url" : "code",
-        "valueCode" : "path-liquid-template"
+        "valueCode" : "path-liquid"
       },
       {
         "url" : "value",
@@ -580,7 +470,7 @@
     {
       "extension" : [{
         "url" : "code",
-        "valueCode" : "path-liquid-template"
+        "valueCode" : "path-liquid"
       },
       {
         "url" : "value",

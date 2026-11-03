@@ -1,4 +1,4 @@
-# 檳榔添加物代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.3
+# 檳榔添加物代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.4
 
 ## CodeSystem: 檳榔添加物代碼系統 (實驗性) 
 
@@ -26,12 +26,12 @@
     "valueCode" : "trial-use"
   }],
   "url" : "https://twcore.mohw.gov.tw/ig/twha/CodeSystem/CS-BetelNutAdditive",
-  "version" : "0.10.3",
+  "version" : "0.10.4",
   "name" : "CS_BetelNutAdditive",
   "title" : "檳榔添加物代碼系統",
   "status" : "active",
   "experimental" : true,
-  "date" : "2026-08-23T01:33:52+00:00",
+  "date" : "2026-11-03T04:54:30+00:00",
   "publisher" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",
   "contact" : [{
     "name" : "衛生福利部次世代數位醫療平臺專案辦公室 & 長庚醫療財團法人長庚紀念醫院",

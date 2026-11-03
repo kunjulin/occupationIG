@@ -1,4 +1,4 @@
-# 健檢就醫事件範例 - 一般定期健康檢查 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.3
+# 健檢就醫事件範例 - 一般定期健康檢查 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.4
 
 ## 範例 Encounter: 健檢就醫事件範例 - 一般定期健康檢查
 
@@ -12,7 +12,7 @@ Profile: [健康檢查健檢就醫事件 Profile](StructureDefinition-TWHA-Encou
 
 **status**: Finished
 
-**class**: [ActCode: AMB](http://terminology.hl7.org/7.3.0/CodeSystem-v3-ActCode.html#v3-ActCode-AMB) (ambulatory)
+**class**: [ActCode: AMB](http://terminology.hl7.org/7.5.0/CodeSystem-v3-ActCode.html#v3-ActCode-AMB) (ambulatory)
 
 **subject**: [王大同(official) Male, DoB: 1985-05-15 ( Medical record number: MR-98765 (use: official, ))](Patient-example-worker.md)
 

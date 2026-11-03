@@ -1,4 +1,4 @@
-# 術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.3
+# 術語與代碼系統 - 臺灣勞工健康檢查交換實作指引 (Taiwan Labor Health Examination Exchange FHIR IG, TWHA IG) v0.10.4
 
 ## 術語與代碼系統
 
@@ -380,7 +380,7 @@ CSV 欄位：`loinc`、`ig_display`（本 IG 標示）、`loinc_display`（LOINC
 | `2758-1` | 尿中酚（苯） | `mg/L` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `12533-6` | 尿中TTCA（二硫化碳） | — | **LOINC 未提供** | 需覆核 |
 | `4548-4` | HbA1c (NGSP) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
-| `59261-8` | HbA1c (IFCC) | `%` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
+| `59261-8` | HbA1c (IFCC) | `mmol/mol` | LOINC EXAMPLE_UCUM_UNITS | 原記`%`有誤：本碼之 PROPERTY 為 SFr（物質量分率），`%`為`4548-4`（MFr）之單位；經 CI $lookup 覆核後更正 |
 | `98979-8` | eGFR (CKD-EPI 2021) | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 需覆核 |
 | `33914-3` | eGFR (MDRD)（LOINC 狀態：DISCOURAGED） | `mL/min/{1.73_m2}` | LOINC EXAMPLE_UCUM_UNITS | 職醫科已確認保留（2026-07-27）；依國健署 115.01.15 國健慢病字第1150660003號函，適用 114 年（2025）及以前之成健 eGFR（MDRD 為 VPN 必填、機構自行填入），115.01.01 起改採 CKD-EPI 2021（`98979-8`）；沿革見 §6.2a、多公式並存見 T-11 |
 
