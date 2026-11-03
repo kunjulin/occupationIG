@@ -1,8 +1,21 @@
 # 釘版之 IG 模板
 
-本目錄是 `fhir2.base.template` 之**快照**，供 `ig.ini` 之 `template = #ig-template` 使用。
-模板檔位於 `package/` 下——IG Publisher 以 npm 套件結構讀取本機模板，要求 `package/package.json` 存在（2.2.11 實測）。
-IG Publisher 每次建置會自本目錄讀取模板，解壓至 `./template/`（工作目錄，已列入 `.gitignore`）。
+本目錄是 `fhir2.base.template` 之**快照**（npm 套件結構，模板檔位於 `package/` 下）。
+
+## 釘版機制
+
+`ig.ini` 維持 `template = fhir2.base.template#current`。CI 之「Seed pinned template into package cache」
+步驟在執行 publisher 前，把 `package/` 複製到 `~/.fhir/packages/fhir2.base.template#current/package`；
+publisher 見快取已有 `#current` 即直接使用、不重新下載。「Report resolved template version」步驟斷言
+日誌中**沒有** `Installing fhir2.base.template`（即未自網路重抓）且無載入錯誤。
+publisher 解壓模板之工作目錄為 `./template/`（已列入 `.gitignore`）。
+
+⚠️ **不使用 `ig.ini` 之 `template = #ig-template`（本機資料夾）語法**：IG Publisher 2.2.11 實測會判定
+`IG template '#ig-template' is not trusted. No scripts will be executed`——模板內之產生腳本不執行，
+輸出與以套件載入者不同。
+
+⚠️ **本機建置（`_genonce*.bat`）不經過預置步驟**，仍會使用本機快取或網路上之 `#current`。
+送審建置以 CI 為準；本機若要對齊，請先將 `package/` 複製到本機套件快取之同一路徑。
 
 | 項目 | 內容 |
 |:--|:--|

@@ -205,9 +205,11 @@ PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderExce
 >   （4 句 en 不同、我方多 36 鍵），不可作為釘版目標；packages.fhir.org 本環境不可達，無法查其他版號。
 > * repo 內 2026-07-30 commit 之 `template/` 複本，以同一閘門實測與我方字串檔**完全對齊**（exit 0）。
 >
-> 處置：該複本移至 `ig-template/package/`（IG Publisher 讀本機模板要求 npm 結構）並補 `package/package.json`，`ig.ini` 改為 `template = #ig-template`；
+> 處置：該複本移至 `ig-template/package/`（npm 結構）並補 `package/package.json`。`ig.ini` 維持
+> `fhir2.base.template#current`，由 CI 於執行 publisher 前將快照預置於套件快取之 `#current`；
 > `template/` 回歸為 publisher 之解壓工作目錄並列入 `.gitignore`。CI 之 `Report resolved template version`
-> 改為斷言（載入網路上之 `fhir2.base.template` 即失敗）。升級程序見 `ig-template/PINNED.md`。
+> 改為斷言（自網路重抓或載入失敗即失敗）。機制與升級程序見 `ig-template/PINNED.md`。
+> ⚠️ 曾試 `ig.ini` 之 `template = #ig-template`（本機資料夾）：2.2.11 實測判為 not trusted、不執行模板腳本，故不採用。
 
 ### ✅ CI 實證結果（run 30221206326，commit `8e6f5fd5`）
 

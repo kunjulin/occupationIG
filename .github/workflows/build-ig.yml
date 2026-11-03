@@ -332,6 +332,21 @@ jobs:
       # --repo/--target 啟用 -auto-ig-build，使 publish box 由「Local Development
       # build」改為 CI build 文案（JOB-02 驗收條件 #2）。網址由 github context 推導，
       # 不寫死；fork 或改名後仍然正確。
+      # 釘版模板（JOB-09）：把 ig-template/package 放進套件快取之 fhir2.base.template#current，
+      # ig.ini 維持 fhir2.base.template#current。publisher 見快取已有 #current 即直接使用、
+      # 不重新下載（2026-08-23 run 296 實證：快取命中時日誌無 Installing 行）。
+      # 不改用 ig.ini 之 #資料夾 語法：2.2.11 實測本機資料夾模板會被判為
+      # "not trusted. No scripts will be executed"，模板內之產生腳本不執行，輸出與原本不同。
+      - name: Seed pinned template into package cache
+        run: |
+          set -eu
+          dest="$HOME/.fhir/packages/fhir2.base.template#current"
+          rm -rf "$dest"
+          mkdir -p "$dest"
+          cp -r ig-template/package "$dest/package"
+          test -f "$dest/package/package.json"
+          echo "已將釘版模板放入 $dest（version: $(node -p "require('$dest/package/package.json').version")）"
+
       - name: Run IG Publisher
         env:
           IG_REPO_SOURCE: ${{ github.server_url }}/${{ github.repository }}
@@ -353,8 +368,8 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
-      # ig.ini 已釘版為 template = #ig-template（repo 內之模板複本，見 ig-template/PINNED.md）。
-      # 本步驟印出 publisher 實際載入之模板，並斷言未回退到網路上之 #current——
+      # 模板已釘版為 repo 內快照 ig-template/（見 ig-template/PINNED.md），由上方 Seed 步驟放入快取。
+      # 本步驟印出 publisher 實際載入之模板，並斷言未自網路重新下載、未載入失敗——
       # 2026-11-03 之紅燈即因 #current 於快取失效後被重新下載、上游新增 19 個字串鍵所致。
       - name: Report resolved template version
         if: always()
@@ -365,16 +380,16 @@ jobs:
           if [ ! -f input-cache/publisher-run.log ]; then
             echo "(無 publisher 日誌——建置在該步驟之前即中止)"; exit 0
           fi
-          if grep -qE 'Installing fhir2\.base\.template#current|Load Template from fhir2\.base\.template' input-cache/publisher-run.log; then
-            echo "::error::publisher 載入了網路上之 fhir2.base.template，而非釘版之 #ig-template"; exit 1
+          if grep -qE 'Installing fhir2\.base\.template' input-cache/publisher-run.log; then
+            echo "::error::publisher 自網路重新下載了 fhir2.base.template，未使用釘版快照（ig-template/）"; exit 1
           fi
-          if grep -qE 'Error loading template' input-cache/publisher-run.log; then
-            echo "::error::釘版模板載入失敗（見上方日誌）"; exit 1
+          if grep -qE 'Error loading template|Publishing Content Failed|not trusted' input-cache/publisher-run.log; then
+            echo "::error::模板載入失敗或未受信任（見上方日誌）"; exit 1
           fi
-          if ! grep -qE 'Load Template from #?ig-template' input-cache/publisher-run.log; then
-            echo "::error::publisher 日誌中查無 'Load Template from #ig-template'，無法確認使用釘版模板"; exit 1
+          if ! grep -qE 'Load Template from fhir2\.base\.template#current' input-cache/publisher-run.log; then
+            echo "::error::publisher 日誌中查無 'Load Template from fhir2.base.template#current'"; exit 1
           fi
-          echo "✔ 使用釘版模板 #ig-template"
+          echo "✔ 使用套件快取中之釘版快照（ig-template/）"
 
       # 把 JOB-02／JOB-03 的驗收條件固化為斷言，而非靠人工目視。
       # 語言目錄來自模板之 multilanguage-format: true（見 JOB-02 §3.3），
