@@ -368,6 +368,9 @@ jobs:
           if grep -qE 'Installing fhir2\.base\.template#current|Load Template from fhir2\.base\.template' input-cache/publisher-run.log; then
             echo "::error::publisher 載入了網路上之 fhir2.base.template，而非釘版之 #ig-template"; exit 1
           fi
+          if grep -qE 'Error loading template' input-cache/publisher-run.log; then
+            echo "::error::釘版模板載入失敗（見上方日誌）"; exit 1
+          fi
           if ! grep -qE 'Load Template from #?ig-template' input-cache/publisher-run.log; then
             echo "::error::publisher 日誌中查無 'Load Template from #ig-template'，無法確認使用釘版模板"; exit 1
           fi

@@ -1,6 +1,7 @@
 # 釘版之 IG 模板
 
 本目錄是 `fhir2.base.template` 之**快照**，供 `ig.ini` 之 `template = #ig-template` 使用。
+模板檔位於 `package/` 下——IG Publisher 以 npm 套件結構讀取本機模板，要求 `package/package.json` 存在（2.2.11 實測）。
 IG Publisher 每次建置會自本目錄讀取模板，解壓至 `./template/`（工作目錄，已列入 `.gitignore`）。
 
 | 項目 | 內容 |
@@ -20,7 +21,7 @@ IG Publisher 每次建置會自本目錄讀取模板，解壓至 `./template/`�
 ## 升級程序
 
 1. 在可連外之環境以 `#current`（或指定版號）建置一次，取得 publisher 解壓之 `template/`。
-2. 以其內容取代本目錄（保留本檔與 `package.json`，並更新 `package.json` 之 `version` 與上表）。
+2. 以其內容取代 `package/`（保留本檔與 `package/package.json`，並更新其 `version` 與上表）。
 3. 跑 `node scripts/check-translations.js`：模板新增之字串鍵須補 en（逐字照抄）與 zh-TW 譯文至 `input/data/`。
 4. 目視比對升級前後之頁面輸出；`qa-baseline.json` 依 CI 實測調整並具名說明。
 
