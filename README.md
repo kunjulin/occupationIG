@@ -161,6 +161,8 @@ set NODE_OPTIONS=--use-system-ca
 
 ## 版本與更新記錄 (Update History)
 
+> 📌 逐版一行之索引（0.1.0～現行）見 [`CHANGELOG.md`](CHANGELOG.md)；本節為 v0.8.1 以前之逐版明細。
+
 ### v0.8.1（2026-08-21）〈未決事項〉轉址／聲明殼頁（相容層）
 
 > 本版**僅新增一個不列於導覽列之相容層殼頁**，未變更任何 Profile／值集／CodeSystem／
