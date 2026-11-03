@@ -353,15 +353,25 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
-      # ig.ini 目前為 template = fhir2.base.template#current（未釘版），送審文件之
-      # 建置輸入應可釘版。本步驟先把實際解析到的模板版本印出來，作為釘版依據——
-      # 本機環境無法連線模板來源，不宜憑猜測寫入版本號（JOB-09）。
+      # ig.ini 已釘版為 template = #ig-template（repo 內之模板複本，見 ig-template/PINNED.md）。
+      # 本步驟印出 publisher 實際載入之模板，並斷言未回退到網路上之 #current——
+      # 2026-11-03 之紅燈即因 #current 於快取失效後被重新下載、上游新增 19 個字串鍵所致。
       - name: Report resolved template version
         if: always()
         run: |
           set -u
           echo "--- publisher 日誌中與 template 相關之行 ---"
           grep -iE 'template' input-cache/publisher-run.log | head -25 || echo "(日誌中查無 template 字樣)"
+          if [ ! -f input-cache/publisher-run.log ]; then
+            echo "(無 publisher 日誌——建置在該步驟之前即中止)"; exit 0
+          fi
+          if grep -qE 'Installing fhir2\.base\.template#current|Load Template from fhir2\.base\.template' input-cache/publisher-run.log; then
+            echo "::error::publisher 載入了網路上之 fhir2.base.template，而非釘版之 #ig-template"; exit 1
+          fi
+          if ! grep -qE 'Load Template from #?ig-template' input-cache/publisher-run.log; then
+            echo "::error::publisher 日誌中查無 'Load Template from #ig-template'，無法確認使用釘版模板"; exit 1
+          fi
+          echo "✔ 使用釘版模板 #ig-template"
 
       # 把 JOB-02／JOB-03 的驗收條件固化為斷言，而非靠人工目視。
       # 語言目錄來自模板之 multilanguage-format: true（見 JOB-02 §3.3），

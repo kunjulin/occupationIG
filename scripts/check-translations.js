@@ -37,7 +37,12 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const TEMPLATE_DIR = path.join(ROOT, 'template', 'translations');
+// 建置後以 publisher 實際解壓之 ./template 為準；未建置時退回釘版來源 ./ig-template
+// （ig.ini 之 template = #ig-template），使本機亦能比對 T-1/T-2。
+const TEMPLATE_DIR = [
+  path.join(ROOT, 'template', 'translations'),
+  path.join(ROOT, 'ig-template', 'translations'),
+].find((d) => fs.existsSync(d)) || path.join(ROOT, 'template', 'translations');
 const OURS_DIR = path.join(ROOT, 'input', 'data');
 const LANG = 'zh-TW';
 

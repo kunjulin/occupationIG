@@ -198,6 +198,17 @@ PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderExce
 | **`auto-oid-root`（40 筆 OID 警告）** | 需要一個**有正當來源的 OID 根節點**。本專案目前沒有，而 OID 一經發佈即不宜變更（變更會破壞已發佈之 OID）。隨意取一個數字比不設定更糟。已登記為待確認事項（JOB-13） |
 | **`template/` 目錄角色釐清** | 與模板釘版同一件事，待版本確定後一併處理 |
 
+> **更新（2026-11-03）：模板已釘版，`template/` 角色已釐清。**
+> 觸發事件：CI 之套件快取失效，`#current` 被重新下載，上游新增 19 個字串鍵，`check:i18n` 紅燈
+> （與本 repo 任何變更無關）。查證結果：
+> * npm 上之 `fhir2.base.template` 僅 `0.1.0`（2025-10-01），以本 repo 之翻譯閘門實測**比 8 月綠燈時所用者舊**
+>   （4 句 en 不同、我方多 36 鍵），不可作為釘版目標；packages.fhir.org 本環境不可達，無法查其他版號。
+> * repo 內 2026-07-30 commit 之 `template/` 複本，以同一閘門實測與我方字串檔**完全對齊**（exit 0）。
+>
+> 處置：該複本更名為 `ig-template/` 並補 `package.json`，`ig.ini` 改為 `template = #ig-template`；
+> `template/` 回歸為 publisher 之解壓工作目錄並列入 `.gitignore`。CI 之 `Report resolved template version`
+> 改為斷言（載入網路上之 `fhir2.base.template` 即失敗）。升級程序見 `ig-template/PINNED.md`。
+
 ### ✅ CI 實證結果（run 30221206326，commit `8e6f5fd5`）
 
 ```
